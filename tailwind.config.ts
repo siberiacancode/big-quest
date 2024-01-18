@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-const config: Config = {
+const config = {
   darkMode: ['class'],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -8,6 +8,7 @@ const config: Config = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}'
   ],
+  prefix: '',
   theme: {
     container: {
       center: true,
@@ -72,7 +73,9 @@ const config: Config = {
         'accordion-up': 'accordion-up 0.2s ease-out'
       }
     }
-  }
-};
+  },
+  // eslint-disable-next-line global-require
+  plugins: [require('tailwindcss-animate')]
+} satisfies Config;
 
 export default config;
