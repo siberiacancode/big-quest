@@ -10,7 +10,7 @@ const Home = async () => {
   return (
     <main>
       <Button>test</Button>
-      <User />
+      {user.name} === <User />
     </main>
   );
 };

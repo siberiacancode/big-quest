@@ -6,5 +6,5 @@ export const User = () => {
   const getUserQuery = useGetUserQuery();
   console.log('getUserQuery', getUserQuery);
 
-  return <div>User {getUserQuery.data?.name}</div>;
+  return <>{getUserQuery.data?.name}</>;
 };
