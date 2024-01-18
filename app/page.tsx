@@ -1,9 +1,18 @@
 import { Button } from '@/components/ui';
+import { getUser } from '@/utils/api';
 
-const Home = () => (
-  <main>
-    <Button>test</Button>
-  </main>
-);
+import { User } from './User';
+
+const Home = async () => {
+  const user = await getUser();
+  console.log('@', user);
+
+  return (
+    <main>
+      <Button>test</Button>
+      <User />
+    </main>
+  );
+};
 
 export default Home;
