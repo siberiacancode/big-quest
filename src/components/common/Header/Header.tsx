@@ -7,7 +7,7 @@ import { ThemeSwitcher } from './components/ThemeSwitcher/ThemeSwitcher';
 
 export const Header = () => {
   return (
-    <header className='sticky right-0 top-0 z-50 flex h-20 border px-9'>
+    <header className='sticky right-0 top-0 z-50 flex h-20  px-9'>
       <div className='flex w-full items-center justify-between'>
         <div className='relative w-64'>
           <Input className='bg-secondary pl-10' placeholder='Найти...' type='search' />
