@@ -8,12 +8,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       <Sidebar />
       <div className='flex flex-1 flex-col'>
         <Header />
-        <section
-          className='flex-1  bg-primary-foreground p-8'
-          style={{ backgroundColor: '#F2F1FA' }}
-        >
-          {children}
-        </section>
+        <section className='flex-1 bg-secondary p-8'>{children}</section>
       </div>
     </div>
   );

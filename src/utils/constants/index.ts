@@ -1,1 +1,1 @@
-export { PAGE_PATHS } from './pagePaths';
+export { ROUTES } from './routes';

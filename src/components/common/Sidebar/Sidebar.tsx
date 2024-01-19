@@ -24,7 +24,7 @@ export const Sidebar = () => {
       open={open}
       onOpenChange={setIsOpen}
     >
-      <div className='sticky left-0 top-0 flex h-20 items-center justify-center '>
+      <div className='z-11 sticky left-0 top-0 flex h-20 items-center justify-center bg-background'>
         <Link href='/'>
           {open && <Image src={FullLogoIcon as string} alt='лого' />}
           {!open && <Image src={LogoIcon as string} alt='лого' />}
@@ -32,7 +32,7 @@ export const Sidebar = () => {
         <CollapsibleTrigger asChild>
           <Button
             className={cn(
-              'absolute bottom-0  translate-x-1/2 translate-y-1/2 rounded-lg',
+              'z-12 absolute bottom-0 translate-x-1/2 translate-y-1/2 rounded-lg',
               open ? 'right-4' : '-right-4'
             )}
             size='icon'
@@ -44,7 +44,7 @@ export const Sidebar = () => {
         </CollapsibleTrigger>
       </div>
 
-      <nav className=' mt-7 flex flex-col items-center gap-2'>
+      <nav className=' mt-6 flex flex-col items-center gap-2'>
         {linksInfo.organizer.map((link) => (
           <SidebarLink key={link.id} link={link} pathname={pathname} open={open} />
         ))}
