@@ -1,13 +1,14 @@
-import { SearchIcon, UserIcon } from 'lucide-react';
+import { SearchIcon } from 'lucide-react';
 
-import { Button, Input } from '@/components/ui';
+import { Input } from '@/components/ui';
 
 import { NotificationSwitcher } from './components/NotificationSwitcher/NotificationSwitcher';
+import { ProfileMenu } from './components/ProfileMenu/ProfileMenu';
 import { ThemeSwitcher } from './components/ThemeSwitcher/ThemeSwitcher';
 
 export const Header = () => {
   return (
-    <header className='sticky right-0 top-0 z-50 flex h-20  px-9'>
+    <header className='sticky right-0 top-0 z-50 flex h-20 pl-9 pr-14'>
       <div className='flex w-full items-center justify-between'>
         <div className='relative w-64'>
           <Input className='bg-secondary pl-10' placeholder='Найти...' type='search' />
@@ -17,16 +18,13 @@ export const Header = () => {
           />
         </div>
 
-        <div className='flex gap-6'>
+        <div className='flex items-center gap-4'>
           <ThemeSwitcher />
           <NotificationSwitcher />
 
           <div className='h-12 w-px bg-secondary' />
 
-          <Button className='rounded-full' size='icon' variant='secondary'>
-            <UserIcon />
-            <span className='sr-only'>Account settings</span>
-          </Button>
+          <ProfileMenu />
         </div>
       </div>
     </header>

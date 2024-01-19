@@ -32,14 +32,14 @@ export const Sidebar = () => {
         <CollapsibleTrigger asChild>
           <Button
             className={cn(
-              'absolute bottom-0 h-7 w-7 translate-x-1/2 translate-y-1/2 rounded',
+              'absolute bottom-0  translate-x-1/2 translate-y-1/2 rounded-lg',
               open ? 'right-4' : '-right-4'
             )}
             size='icon'
             variant='outline'
           >
-            {open && <ArrowLeftFromLineIcon size={12} />}
-            {!open && <ArrowRightFromLineIcon size={12} />}
+            {open && <ArrowLeftFromLineIcon className='h-4 w-4' />}
+            {!open && <ArrowRightFromLineIcon className='h-4 w-4' />}
           </Button>
         </CollapsibleTrigger>
       </div>
