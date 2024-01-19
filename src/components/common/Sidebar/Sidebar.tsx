@@ -14,8 +14,13 @@ import { usePathname } from 'next/navigation';
 
 import FullLogoIcon from '@/assets/icons/fullLogo.svg';
 import LogoIcon from '@/assets/icons/logo.svg';
-import { Button, buttonVariants } from '@/components/ui/button';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import {
+  Button,
+  buttonVariants,
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger
+} from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { PAGE_PATHS } from '@/utils/constants';
 
@@ -24,24 +29,26 @@ export const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <Collapsible className='relative min-h-screen border px-8' open={open} onOpenChange={setIsOpen}>
+    <Collapsible
+      className='relative min-h-screen border px-8 '
+      open={open}
+      onOpenChange={setIsOpen}
+    >
       <nav className=' flex flex-col items-center'>
         {open && <Image src={FullLogoIcon as string} alt='лого' />}
         {!open && <Image src={LogoIcon as string} alt='лого' />}
         <CollapsibleTrigger asChild>
           <Button className='absolute right-4 top-20 border' size='icon' variant='ghost'>
-            {open && <ArrowLeftFromLineIcon size={16} />}
-            {!open && <ArrowRightFromLineIcon size={16} />}
+            {open && <ArrowLeftFromLineIcon size={12} />}
+            {!open && <ArrowRightFromLineIcon size={12} />}
           </Button>
         </CollapsibleTrigger>
 
         <Link
           href={PAGE_PATHS.LIDS}
           className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname === PAGE_PATHS.LIDS ? 'text-foreground' : 'text-foreground/60',
-            buttonVariants({ variant: 'outline' }),
-            open ? 'w-60' : 'w-48'
+            'flex w-full justify-start gap-1',
+            buttonVariants({ variant: pathname === PAGE_PATHS.LIDS ? 'secondary' : 'ghost' })
           )}
         >
           <UsersRoundIcon />
@@ -51,10 +58,10 @@ export const Sidebar = () => {
         <Link
           href={PAGE_PATHS.ORGANIZATIONS}
           className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname === PAGE_PATHS.ORGANIZATIONS ? 'text-foreground' : 'text-foreground/60',
-            buttonVariants({ variant: 'outline' }),
-            open ? 'w-60' : 'w-48'
+            'w-full',
+            buttonVariants({
+              variant: pathname === PAGE_PATHS.ORGANIZATIONS ? 'secondary' : 'ghost'
+            })
           )}
         >
           <Building2Icon />
@@ -63,10 +70,8 @@ export const Sidebar = () => {
         <Link
           href={PAGE_PATHS.ACTIVITIES}
           className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname === PAGE_PATHS.ACTIVITIES ? 'text-foreground' : 'text-foreground/60',
-            buttonVariants({ variant: 'outline' }),
-            open ? 'w-60' : 'w-48'
+            'w-full',
+            buttonVariants({ variant: pathname === PAGE_PATHS.ACTIVITIES ? 'secondary' : 'ghost' })
           )}
         >
           <ActivityIcon />

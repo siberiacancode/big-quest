@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Header } from '@/components/header';
-import { Sidebar } from '@/components/sidebar';
+import { Header, Sidebar } from '@/components/common';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
