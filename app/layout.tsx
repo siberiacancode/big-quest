@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import { ThemeProvider } from '@/utils/contexts';
+
 import '../assets/styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang='en'>
     <body className={`min-h-screen bg-background font-sans antialiased ${inter.className}`}>
-      {children}
+      <ThemeProvider>{children}</ThemeProvider>
     </body>
   </html>
 );

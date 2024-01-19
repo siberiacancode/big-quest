@@ -7,7 +7,7 @@ import Image from 'next/image';
 import userAvatar from '@/assets/icons/userAvatar.svg';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui';
 
-export const ProfileMenu = () => {
+export const ProfileDropdownMenu = () => {
   const [open, setOpen] = React.useState(false);
   // TODO
   // const { user } = useUserContext();
