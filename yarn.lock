@@ -2904,6 +2904,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/cookie@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.4.1.tgz#bfd02c1f2224567676c1545199f87c3a861d878d"
+  integrity sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q==
+
 "@types/cross-spawn@^6.0.2":
   version "6.0.6"
   resolved "https://registry.yarnpkg.com/@types/cross-spawn/-/cross-spawn-6.0.6.tgz#0163d0b79a6f85409e0decb8dcca17147f81fd22"
@@ -3082,6 +3087,11 @@
   integrity sha512-nNPsNE65wjMxEKI93yOP+NPGGBJz/PoN3kZsVLee0XMiJolxSekEVD8wRwBUBqkwc7UWop0edW50yrCQW4CyRw==
   dependencies:
     undici-types "~5.26.4"
+
+"@types/node@^16.10.2":
+  version "16.18.72"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.72.tgz#a2337dda32ec1123894a15cebe3eb3b79ea2fa08"
+  integrity sha512-Kck1Du/zQyLbq5YlBKCtrUlyyP02lYjREjKKYImtf6MZgXrLoRVjexMv0wxiDzIJPnk86i+HrvGNyI03qoewEg==
 
 "@types/node@^18.0.0":
   version "18.19.3"
@@ -4526,6 +4536,20 @@ cookie@0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.5.0.tgz#d1f5d71adec6558c58f389987c366aa47e994f8b"
   integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==
+
+cookie@^0.4.0:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.2.tgz#0e41f24de5ecf317947c82fc789e06a884824432"
+  integrity sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==
+
+cookies-next@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/cookies-next/-/cookies-next-4.1.0.tgz#1ecf2e4a65abe2ad3ffb3f4ad3d303ae008303c3"
+  integrity sha512-BREVc4TJT4NwXfyKjdjnYFXM6iRns+MYpCd34ClXuYqeisXnkPkbq7Ok9xaqi9mHmV6H2rwPE+p3EpMz4pF/kQ==
+  dependencies:
+    "@types/cookie" "^0.4.1"
+    "@types/node" "^16.10.2"
+    cookie "^0.4.0"
 
 core-js-compat@^3.31.0, core-js-compat@^3.33.1:
   version "3.34.0"

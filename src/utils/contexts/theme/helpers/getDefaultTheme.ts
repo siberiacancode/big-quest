@@ -1,4 +1,8 @@
-import { THEME_KEY } from '../constants/themeKey';
+'use server';
+
+import { COOKIES } from '@/utils/constants';
+import { getAnyCookie } from '@/utils/helpers';
+
 import type { Theme } from '../ThemeContext';
 
-export const getDefaultTheme = () => (localStorage.getItem(THEME_KEY) as Theme) || 'light';
+export const getDefaultTheme = () => (getAnyCookie(COOKIES.THEME) as Theme) ?? 'dark';
