@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { CaretSortIcon, DotsHorizontalIcon } from '@radix-ui/react-icons';
+import { CaretSortIcon } from '@radix-ui/react-icons';
 import type { ColumnDef } from '@tanstack/react-table';
+import { Edit3Icon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -40,36 +41,64 @@ export const columns: ColumnDef<Application>[] = [
 
   {
     accessorKey: 'organization',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant='ghost'
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Организация
-          <CaretSortIcon className='ml-2 h-4 w-4' />
-        </Button>
-      );
+    header: () => {
+      return <div>Организация</div>;
     },
     cell: ({ row }) => <div>{row.getValue('organization')}</div>
   },
   {
     accessorKey: 'location',
-    header: () => <div className='text-right'>Населенный пункт</div>,
+    header: ({ column }) => {
+      return (
+        <div className='text-left'>
+          <Button
+            variant='ghost'
+            onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          >
+            Населенный пункт
+            <CaretSortIcon className='ml-2 h-4 w-4' />
+          </Button>
+        </div>
+      );
+    },
     cell: ({ row }) => {
-      return <div className='text-right font-medium'>{row.getValue('location')}</div>;
+      return <div className='px-4 text-left font-medium'>{row.getValue('location')}</div>;
     }
   },
   {
     accessorKey: 'type',
-    header: () => <div className='text-right'>Тип</div>,
+    header: ({ column }) => {
+      return (
+        <div className='text-left'>
+          <Button
+            variant='ghost'
+            onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          >
+            Тип
+            <CaretSortIcon className='ml-2 h-4 w-4' />
+          </Button>
+        </div>
+      );
+    },
     cell: ({ row }) => {
-      return <div className='text-right font-medium'>{row.getValue('type')}</div>;
+      return <div className='px-4 text-left font-medium'>{row.getValue('type')}</div>;
     }
   },
   {
     accessorKey: 'rate',
-    header: () => <div className='text-right'>Тариф</div>,
+    header: ({ column }) => {
+      return (
+        <div className='text-left'>
+          <Button
+            variant='ghost'
+            onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          >
+            Тариф
+            <CaretSortIcon className='ml-2 h-4 w-4' />
+          </Button>
+        </div>
+      );
+    },
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue('rate'));
 
@@ -79,20 +108,44 @@ export const columns: ColumnDef<Application>[] = [
         currency: 'USD'
       }).format(amount);
 
-      return <div className='text-right font-medium'>{formatted}</div>;
+      return <div className='px-4 text-left font-medium'>{formatted}</div>;
     }
   },
   {
     accessorKey: 'days_amount',
-    header: () => <div className='text-right'>Кол-во дней</div>,
+    header: ({ column }) => {
+      return (
+        <div className='text-left'>
+          <Button
+            variant='ghost'
+            onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          >
+            Кол-во дней
+            <CaretSortIcon className='ml-2 h-4 w-4' />
+          </Button>
+        </div>
+      );
+    },
     cell: ({ row }) => {
-      return <div className='text-right font-medium'>{row.getValue('days_amount')}</div>;
+      return <div className='px-4 text-left font-medium'>{row.getValue('days_amount')}</div>;
     }
   },
   {
     accessorKey: 'status',
-    header: 'Статус',
-    cell: ({ row }) => <div className='capitalize'>{row.getValue('status')}</div>
+    header: ({ column }) => {
+      return (
+        <div className='text-left'>
+          <Button
+            variant='ghost'
+            onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          >
+            Статус
+            <CaretSortIcon className='ml-2 h-4 w-4' />
+          </Button>
+        </div>
+      );
+    },
+    cell: ({ row }) => <div className='px-4 capitalize'>{row.getValue('status')}</div>
   },
   {
     id: 'actions',
@@ -103,7 +156,7 @@ export const columns: ColumnDef<Application>[] = [
           <DropdownMenuTrigger asChild>
             <Button variant='ghost' className='h-8 w-8 p-0'>
               <span className='sr-only'>Open menu</span>
-              <DotsHorizontalIcon className='h-4 w-4' />
+              <Edit3Icon className='h-4 w-4' />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align='end'>

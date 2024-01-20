@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { ChevronDownIcon } from '@radix-ui/react-icons';
+import { PlusCircledIcon } from '@radix-ui/react-icons';
 import type { ColumnFiltersState, SortingState, VisibilityState } from '@tanstack/react-table';
 import {
   flexRender,
@@ -30,7 +30,7 @@ import {
 } from '@/components/ui/table';
 
 import { columns } from './components/Columns/Columns';
-import { DataTablePagination } from './components/Pagination/Pagination';
+import { Pagination } from './components/Pagination/Pagination';
 import { data } from './data/data';
 
 export const DataTableDemo = () => {
@@ -60,17 +60,30 @@ export const DataTableDemo = () => {
 
   return (
     <div className='w-full'>
-      <div className='flex items-center py-4'>
+      <div className='flex flex-wrap items-center py-4'>
         <Input
-          placeholder='Filter emails...'
-          value={(table.getColumn('email')?.getFilterValue() as string) ?? ''}
-          onChange={(event) => table.getColumn('email')?.setFilterValue(event.target.value)}
+          placeholder='Фильтровать...'
+          value={(table.getColumn('organization')?.getFilterValue() as string) ?? ''}
+          onChange={(event) => table.getColumn('organization')?.setFilterValue(event.target.value)}
           className='max-w-sm'
         />
+        <Button variant='outline' size='sm' className='m-2 h-9'>
+          <PlusCircledIcon className='mr-2 h-4 w-4' />
+          Статус
+        </Button>
+        <Button variant='outline' size='sm' className='m-2 h-9'>
+          <PlusCircledIcon className='mr-2 h-4 w-4' />
+          Населенный пункт
+        </Button>
+
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant='outline' className='ml-auto'>
+            {/* <Button variant='outline' className='ml-auto'>
               Columns <ChevronDownIcon className='ml-2 h-4 w-4' />
+            </Button> */}
+            <Button variant='outline' size='sm' className='m-2 bg-breadboard md:ml-auto'>
+              <PlusCircledIcon className='mr-2 h-4 w-4' />
+              Добавить
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align='end'>
@@ -94,7 +107,7 @@ export const DataTableDemo = () => {
       </div>
       <div className='rounded-md border'>
         <Table>
-          <TableHeader>
+          <TableHeader className=' bg-breadboard'>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
@@ -130,7 +143,7 @@ export const DataTableDemo = () => {
           </TableBody>
         </Table>
       </div>
-      <DataTablePagination table={table} />
+      <Pagination table={table} />
     </div>
   );
 };

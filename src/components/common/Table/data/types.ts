@@ -7,10 +7,3 @@ export type Application = {
   days_amount: number;
   status: string;
 };
-
-// export type Application = {
-//   id: string;
-//   amount: number;
-//   status: 'pending' | 'processing' | 'success' | 'failed';
-//   email: string;
-// };
