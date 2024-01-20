@@ -1,15 +1,25 @@
+'use client';
+
 import React from 'react';
 
-import { Header, Sidebar } from '@/components/common';
+import { Header } from '@/components/common';
+import { cn } from '@/lib/utils';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
+  const [burgerOpen, setBurgerOpen] = React.useState(false);
+  const [sidebarOpen, setSidebarOpen] = React.useState(true);
+
   return (
-    <div className='flex'>
-      <Sidebar />
-      <div className='flex flex-1 flex-col'>
-        <Header />
-        <section className='flex-1 bg-secondary p-8'>{children}</section>
-      </div>
+    <div className='flex min-h-screen flex-1 flex-col bg-secondary'>
+      <Header
+        burgerOpen={burgerOpen}
+        setBurgerOpen={setBurgerOpen}
+        setSidebarOpen={setSidebarOpen}
+        sidebarOpen={sidebarOpen}
+      />
+      <section className={cn('mdx:mt16 mt-20 flex-1 p-8 lg:ml-64', !sidebarOpen && 'lg:ml-24')}>
+        {children}
+      </section>
     </div>
   );
 };

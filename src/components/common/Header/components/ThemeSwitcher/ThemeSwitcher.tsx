@@ -9,7 +9,7 @@ export const ThemeSwitcher = () => {
   const { toggleTheme } = useThemeContext();
 
   return (
-    <Button className='w-10 rounded-full' size='icon' variant='outline' onClick={toggleTheme}>
+    <Button className='mr-4 w-10 rounded-full' size='icon' variant='outline' onClick={toggleTheme}>
       <SunIcon />
       <span className='sr-only'>Toggle theme</span>
     </Button>

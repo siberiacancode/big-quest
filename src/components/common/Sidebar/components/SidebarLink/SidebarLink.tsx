@@ -16,7 +16,7 @@ export const SidebarLink = ({ link, pathname }: SidebarLinkProps) => (
     href={link.href}
     className={cn(
       buttonVariants({ variant: pathname === link.href ? 'secondary' : 'ghost' }),
-      'flex w-full justify-start gap-1'
+      'flex w-full justify-start gap-1 p-3'
     )}
   >
     {link.icon}
