@@ -1,7 +1,7 @@
 'use server';
 
 import { COOKIES } from '@/utils/constants';
-import { getAnyCookie } from '@/utils/helpers';
+import { getAnyCookie } from '@/utils/helpers/getAnyCookie';
 
 import type { Theme } from '../ThemeContext';
 
