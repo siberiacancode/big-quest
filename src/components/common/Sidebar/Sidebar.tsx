@@ -23,11 +23,13 @@ export const Sidebar = () => {
   const toggleSidebarOpen = () => setSidebarOpen(!sidebarOpen);
 
   return (
-    <div>
-      <Link className='' href='/'>
-        {sidebarOpen && <Image src={FullLogoIcon as string} alt='лого' />}
-        {!sidebarOpen && <Image src={LogoIcon as string} alt='лого' />}
-      </Link>
+    <div className='relative'>
+      <div className='flex h-20 items-center justify-center'>
+        <Link href='/'>
+          {sidebarOpen && <Image src={FullLogoIcon as string} alt='лого' />}
+          {!sidebarOpen && <Image src={LogoIcon as string} alt='лого' />}
+        </Link>
+      </div>
 
       <div
         className={cn(
@@ -37,7 +39,7 @@ export const Sidebar = () => {
         )}
       >
         <Button
-          className='-translate-y-1/2 translate-x-1/2 lgx:hidden'
+          className='absolute right-0 top-20 -translate-y-1/2 translate-x-1/2 lgx:hidden'
           size='icon'
           variant='outline'
           onClick={toggleSidebarOpen}
