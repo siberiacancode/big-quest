@@ -8,9 +8,33 @@ export class HttpClient {
 
   readonly headers: Record<string, string>;
 
+  readonly interceptorHandlers: Interceptors;
+
+  readonly interceptors: {
+    request: {
+      use: (onSuccess: SuccessRequestFun, onFailure?: FailureRequestFun) => void;
+    };
+    response: {
+      use: (onSuccess: SuccessResponseFun, onFailure?: FailureResponseFun) => void;
+    };
+  };
+
   constructor({ baseURL, headers = {} }: HttpClientParams) {
     this.baseURL = baseURL;
     this.headers = headers;
+    this.interceptorHandlers = { request: [], response: [] };
+    this.interceptors = {
+      request: {
+        use: (onSuccess, onFailure) => {
+          this.interceptorHandlers.request?.push({ onSuccess, onFailure });
+        }
+      },
+      response: {
+        use: (onSuccess, onFailure) => {
+          this.interceptorHandlers.response?.push({ onSuccess, onFailure });
+        }
+      }
+    };
   }
 
   createSearchParams(params: Record<string, string>) {
@@ -26,8 +50,58 @@ export class HttpClient {
     return `?${searchParams.toString()}`;
   }
 
-  setBearerAuth(token: string) {
-    this.headers.Authorization = `Bearer ${token}`;
+  async runResponseInterceptors<T>(initialResponse: Response, initialConfig: RequestInit) {
+    let body = (await initialResponse.json()) as T;
+
+    if (!this.interceptorHandlers.response?.length && initialResponse.ok) {
+      return body;
+    }
+
+    if (!this.interceptorHandlers.response?.length && !initialResponse.ok) {
+      throw new Error(initialResponse.statusText);
+    }
+
+    const response = {
+      status: initialResponse.status,
+      statusText: initialResponse.statusText,
+      success: initialResponse.ok,
+      data: body
+    };
+
+    this.interceptorHandlers.response?.forEach(({ onSuccess, onFailure }) => {
+      try {
+        if (!initialResponse.ok) throw new Error(initialResponse.statusText);
+        body = onSuccess(response);
+      } catch (error) {
+        if (onFailure) {
+          // @ts-ignore
+          error.config = initialConfig;
+          // @ts-ignore
+          error.response = response;
+          body = onFailure(error as FailureError);
+        } else throw new Error((error as Error).message);
+      }
+    });
+
+    return body;
+  }
+
+  runRequestInterceptors(initialConfig: RequestInit) {
+    let config = initialConfig;
+
+    this.interceptorHandlers.request?.forEach(({ onSuccess, onFailure }) => {
+      try {
+        config = onSuccess(config);
+      } catch (error) {
+        if (onFailure) {
+          // @ts-ignore
+          error.config = initialConfig;
+          onFailure(error as FailureError);
+        } else throw new Error((error as Error).message);
+      }
+    });
+
+    return config;
   }
 
   async request<T>(endpoint: string, method: RequestMethod, options: RequestOptions = {}) {
@@ -37,16 +111,16 @@ export class HttpClient {
       headers: { ...(!!options?.headers && options.headers), ...this.headers }
     };
 
+    const config = this.runRequestInterceptors(defaultConfig);
+
     let url = `${this.baseURL}/${endpoint}`;
     if (options.params) {
       url += this.createSearchParams(options.params);
     }
 
-    const response = await fetch(url, defaultConfig);
+    const response: Response = await fetch(url, config);
 
-    if (!response.ok) throw new Error(response.statusText);
-
-    return (await response.json()) as T;
+    return this.runResponseInterceptors<T>(response, config);
   }
 
   get<T>(endpoint: string, options: Omit<RequestOptions, 'body'> = {}) {
@@ -67,7 +141,6 @@ export class HttpClient {
   put<T>(endpoint: string, body: Record<string, any>, options: RequestOptions = {}) {
     return this.request<T>(endpoint, 'PUT', {
       ...options,
-
       ...(!!body && { body: JSON.stringify(body) })
     });
   }
@@ -75,7 +148,6 @@ export class HttpClient {
   patch<T>(endpoint: string, body: Record<string, any>, options: RequestOptions = {}) {
     return this.request<T>(endpoint, 'PATCH', {
       ...options,
-
       ...(!!body && { body: JSON.stringify(body) })
     });
   }

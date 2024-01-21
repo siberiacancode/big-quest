@@ -17,7 +17,13 @@ const mockServerConfig: MockServerConfig = {
           {
             data: { name: 'John Doe' }
           }
-        ]
+        ],
+        interceptors: {
+          response: (data, { setStatusCode }) => {
+            setStatusCode(401);
+            return data;
+          }
+        }
       }
     ]
   }
