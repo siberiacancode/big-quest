@@ -3,13 +3,13 @@ import type { Table } from '@tanstack/react-table';
 
 import { Button } from '@/components/ui/button';
 
-import type { Application } from '../../data/types';
+import type { Application } from '../../types';
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;
 }
 
-export const Pagination: React.FC<DataTablePaginationProps<Application>> = ({ table }) => {
+export const TablePagination: React.FC<DataTablePaginationProps<Application>> = ({ table }) => {
   return (
     <div className='flex items-center justify-end space-x-2 py-4'>
       <div className='flex-1 text-sm text-muted-foreground'>

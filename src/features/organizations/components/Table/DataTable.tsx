@@ -2,15 +2,7 @@
 
 import * as React from 'react';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
-import type { ColumnFiltersState, SortingState, VisibilityState } from '@tanstack/react-table';
-import {
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable
-} from '@tanstack/react-table';
+import { flexRender } from '@tanstack/react-table';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -28,35 +20,14 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui/table';
+import { useDataTable } from '@/features/organizations/hooks/useDataTable';
 
 import { columns } from './components/Columns/Columns';
-import { Pagination } from './components/Pagination/Pagination';
+import { TablePagination } from './components/TablePagination/TablePagination';
 import { data } from './data/data';
 
-export const DataTableDemo = () => {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = React.useState({});
-
-  const table = useReactTable({
-    data,
-    columns,
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
-    state: {
-      sorting,
-      columnFilters,
-      columnVisibility,
-      rowSelection
-    }
-  });
+export const DataTable = () => {
+  const table = useDataTable(data, columns);
 
   return (
     <div className='w-full'>
@@ -143,7 +114,7 @@ export const DataTableDemo = () => {
           </TableBody>
         </Table>
       </div>
-      <Pagination table={table} />
+      <TablePagination table={table} />
     </div>
   );
 };

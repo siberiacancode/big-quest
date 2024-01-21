@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 
-import type { Application } from '../../data/types';
+import type { Application } from '../../types';
 
 export const columns: ColumnDef<Application>[] = [
   {
@@ -101,8 +101,6 @@ export const columns: ColumnDef<Application>[] = [
     },
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue('rate'));
-
-      // Format the amount as a dollar amount
       const formatted = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'

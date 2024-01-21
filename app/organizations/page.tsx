@@ -1,10 +1,10 @@
-import { DataTableDemo } from '@/components/common/Table/Table';
+import { DataTable } from '@/features/organizations/components/Table/DataTable';
 
 const OrganizationsPage = () => {
   return (
     <>
       <span>Organizations Page</span>
-      <DataTableDemo />
+      <DataTable />
     </>
   );
 };
