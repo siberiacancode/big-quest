@@ -4,5 +4,4 @@ export * from './collapsible';
 export * from './dropdown-menu';
 export * from './hover-card';
 export * from './input';
-export * from './popover';
 export * from './tooltip';
