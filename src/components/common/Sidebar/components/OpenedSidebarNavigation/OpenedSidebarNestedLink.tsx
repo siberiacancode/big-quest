@@ -4,12 +4,12 @@ import type { SidebarLinkInfo } from '@/utils/constants';
 
 import { OpenedSidebarSubLink } from './OpenedSidebarSubLink';
 
-interface SidebarSubLinkProps {
+interface OpenedSidebarNestedLinkProps {
   link: SidebarLinkInfo;
   pathname: string;
 }
 
-export const OpenedSidebarNestedLink = ({ link, pathname }: SidebarSubLinkProps) => (
+export const OpenedSidebarNestedLink = ({ link, pathname }: OpenedSidebarNestedLinkProps) => (
   <AccordionItem
     value={link.id}
     className={cn(
