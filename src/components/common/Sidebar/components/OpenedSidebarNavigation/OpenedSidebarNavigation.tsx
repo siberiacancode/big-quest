@@ -16,7 +16,7 @@ export const OpenedSidebarNavigation = ({ links, pathname }: OpenedSidebarNaviga
   <Accordion asChild type='multiple'>
     <nav className='mt-10 flex w-full flex-col gap-2'>
       {links.map((link) => (
-        <>
+        <React.Fragment key={link.id}>
           {!!link.subLinks && <OpenedSidebarNestedLink pathname={pathname} link={link} />}
           {!link.subLinks && (
             <SidebarSingleLink pathname={pathname} link={link}>
@@ -24,7 +24,7 @@ export const OpenedSidebarNavigation = ({ links, pathname }: OpenedSidebarNaviga
               {link.text}
             </SidebarSingleLink>
           )}
-        </>
+        </React.Fragment>
       ))}
     </nav>
   </Accordion>

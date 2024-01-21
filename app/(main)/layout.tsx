@@ -1,22 +1,17 @@
-import React from 'react';
+'use server';
 
-import { Header, MobileHeader, Sidebar } from '@/components/common';
+import { checkMobileDevice } from '@/utils/helpers/checkMobileDevice';
+
+import { DesktopLayout } from './DesktopLayout';
+import { MobileLayout } from './MobileLayout';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <>
-      <div className='flex min-h-screen flex-col lg:hidden'>
-        <MobileHeader />
-        <section className='flex-1 bg-secondary p-8'>{children}</section>
-      </div>
-      <div className='flex min-h-screen lgx:hidden'>
-        <Sidebar />
-        <div className='flex w-full flex-col'>
-          <Header />
-          <section className='flex-1 bg-secondary p-8'>{children}</section>
-        </div>
-      </div>
-    </>
+  const isMobile = checkMobileDevice();
+
+  return isMobile ? (
+    <MobileLayout>{children}</MobileLayout>
+  ) : (
+    <DesktopLayout>{children}</DesktopLayout>
   );
 };
 
