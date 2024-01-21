@@ -22,8 +22,8 @@ import {
 } from '@/components/ui/table';
 import { useDataTable } from '@/features/organizations/hooks/useDataTable';
 
-import { columns } from './components/Columns/Columns';
 import { TablePagination } from './components/TablePagination/TablePagination';
+import { columns } from './data/columns';
 import { data } from './data/data';
 
 export const DataTable = () => {
