@@ -7,14 +7,14 @@ import Image from 'next/image';
 import userAvatar from '@/assets/icons/userAvatar.svg';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui';
 
+import { useProfileDropdownMenu } from './hooks/useProfileDropdownMenu';
+
 export const ProfileDropdownMenu = () => {
-  const [open, setOpen] = React.useState(false);
-  // TODO
-  // const { user } = useUserContext();
+  const { state, functions } = useProfileDropdownMenu();
 
   return (
-    <DropdownMenu open={open} onOpenChange={setOpen}>
-      <DropdownMenuTrigger asChild>
+    <DropdownMenu open={state.open} onOpenChange={functions.setOpen}>
+      <DropdownMenuTrigger>
         <div className='flex cursor-pointer items-center gap-4 rounded-lg px-3 py-1 transition-colors hover:bg-secondary'>
           <div className='relative'>
             <Image className='h-10 w-10' src={userAvatar as string} alt='user avatar' />
@@ -24,8 +24,8 @@ export const ProfileDropdownMenu = () => {
             <p className=''>Имя фамилия</p>
             <p className='text-sm text-muted-foreground'>Админ</p>
           </div>
-          {open && <ChevronUpIcon />}
-          {!open && <ChevronDownIcon />}
+          {state.open && <ChevronUpIcon />}
+          {!state.open && <ChevronDownIcon />}
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent>test content</DropdownMenuContent>

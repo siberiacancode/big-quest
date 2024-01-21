@@ -14,7 +14,7 @@ interface OpenedSidebarNavigationProps {
 
 export const OpenedSidebarNavigation = ({ links, pathname }: OpenedSidebarNavigationProps) => (
   <Accordion asChild type='multiple'>
-    <nav className='mt-10 flex flex-col gap-2'>
+    <nav className='mt-10 flex w-full flex-col gap-2'>
       {links.map((link) => (
         <>
           {!!link.subLinks && <OpenedSidebarNestedLink pathname={pathname} link={link} />}

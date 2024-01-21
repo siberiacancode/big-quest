@@ -3,13 +3,19 @@
 import { SunIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { useThemeContext } from '@/utils/contexts';
+
+import { useThemeSwitcher } from './hooks/useThemeSwitcher';
 
 export const ThemeSwitcher = () => {
-  const { toggleTheme } = useThemeContext();
+  const { functions } = useThemeSwitcher();
 
   return (
-    <Button className='mr-4 w-10 rounded-full' size='icon' variant='outline' onClick={toggleTheme}>
+    <Button
+      className='mr-4 w-10 rounded-full'
+      size='icon'
+      variant='outline'
+      onClick={functions.toggleTheme}
+    >
       <SunIcon />
       <span className='sr-only'>Toggle theme</span>
     </Button>
