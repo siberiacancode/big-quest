@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 import { OpenedSidebarNavigation } from '../Sidebar/components/OpenedSidebarNavigation/OpenedSidebarNavigation';
 
 import { HeaderSearch } from './components/HeaderSearch/HeaderSearch';
-import { NotificationSwitcher } from './components/NotificationSwitcher/NotificationSwitcher';
+import { NotificationsDropdownMenu } from './components/NotificationsDropdownMenu/NotificationsDropdownMenu';
 import { ProfileDropdownMenu } from './components/ProfileDropdownMenu/ProfileDropdownMenu';
 import { ThemeSwitcher } from './components/ThemeSwitcher/ThemeSwitcher';
 import { useMobileHeader } from './hooks/useMobileHeader';
@@ -25,18 +25,18 @@ export const MobileHeader = () => {
       <Logo full={false} />
       <div
         className={cn(
-          'fixed -top-full left-0 right-0 z-10 h-screen flex-1 overflow-auto bg-background py-24 opacity-0 transition-all lg:h-full',
-          state.burgerOpen && 'top-0 overflow-auto opacity-100'
+          'fixed -top-full left-0 right-0 z-10 flex h-screen flex-1 items-center justify-center bg-background opacity-0 transition-all lg:h-full',
+          state.isOpen && 'top-0 overflow-auto opacity-100'
         )}
       >
-        <div className='mx-auto flex w-56 flex-col items-center justify-center'>
+        <div className='flex w-64 flex-col items-center justify-center overflow-auto py-24 '>
           <div className='flex h-full flex-col items-center justify-center'>
             <HeaderSearch />
 
             <div className='mt-10 flex flex-col-reverse items-center gap-4'>
               <div className='flex'>
                 <ThemeSwitcher />
-                <NotificationSwitcher />
+                <NotificationsDropdownMenu />
               </div>
 
               <div className='h-px w-full bg-secondary' />
@@ -53,8 +53,8 @@ export const MobileHeader = () => {
         variant='secondary'
         onClick={functions.onBurgerClick}
       >
-        {state.burgerOpen && <XIcon />}
-        {!state.burgerOpen && <MenuIcon />}
+        {state.isOpen && <XIcon />}
+        {!state.isOpen && <MenuIcon />}
       </Button>
     </header>
   );

@@ -1,20 +1,27 @@
 import React from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 import { getNavigationLinksByUserRole } from '@/utils/helpers';
 
 export const useMobileHeader = () => {
-  const [burgerOpen, setBurgerOpen] = React.useState(false);
-  // TODO здесь будет роль лежать
-  // const { user } = useUserContext()
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const [isOpen, setIsOpen] = React.useState(false);
   const navigationLinks = getNavigationLinksByUserRole('organizer');
 
   const onBurgerClick = () => {
     document.body.classList.toggle('overflow-hidden');
-    setBurgerOpen((prev) => !prev);
+    setIsOpen((prev) => !prev);
   };
 
+  // ? достаточно странно, но в доке так
+  React.useEffect(() => {
+    if (isOpen) onBurgerClick();
+  }, [pathname, searchParams]);
+
   return {
-    state: { burgerOpen, navigationLinks },
+    state: { isOpen, navigationLinks },
     functions: { onBurgerClick }
   };
 };

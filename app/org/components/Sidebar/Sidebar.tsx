@@ -23,8 +23,8 @@ export const Sidebar = ({ renderChildren }: SidebarProps) => {
   return (
     <div
       className={cn(
-        'relative min-h-screen w-64 bg-background px-8 transition duration-1000',
-        !state.isOpen && 'w-32 px-6'
+        'relative min-h-screen w-64 bg-background px-6 transition duration-1000',
+        !state.isOpen && ' w-26 '
       )}
     >
       <div className='flex h-20 items-center justify-center'>

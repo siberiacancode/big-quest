@@ -1,5 +1,5 @@
 import { HeaderSearch } from './components/HeaderSearch/HeaderSearch';
-import { NotificationSwitcher } from './components/NotificationSwitcher/NotificationSwitcher';
+import { NotificationsDropdownMenu } from './components/NotificationsDropdownMenu/NotificationsDropdownMenu';
 import { ProfileDropdownMenu } from './components/ProfileDropdownMenu/ProfileDropdownMenu';
 import { ThemeSwitcher } from './components/ThemeSwitcher/ThemeSwitcher';
 
@@ -9,7 +9,7 @@ export const DesktopHeader = () => (
 
     <div className='flex items-center gap-4'>
       <ThemeSwitcher />
-      <NotificationSwitcher />
+      <NotificationsDropdownMenu />
 
       <div className='h-12 w-px bg-secondary lgx:h-px lgx:w-full' />
       <ProfileDropdownMenu />
