@@ -1,3 +1,3 @@
-export * from './hooks/useThemeContext';
 export * from './ThemeContext';
 export * from './ThemeProvider';
+export * from './useTheme';
