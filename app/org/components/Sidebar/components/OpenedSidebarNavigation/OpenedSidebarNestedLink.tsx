@@ -6,17 +6,20 @@ import { OpenedSidebarSubLink } from './OpenedSidebarSubLink';
 
 interface OpenedSidebarNestedLinkProps {
   link: SidebarLinkInfo;
+  isActive: boolean;
   pathname: string;
 }
 
-export const OpenedSidebarNestedLink = ({ link, pathname }: OpenedSidebarNestedLinkProps) => (
+export const OpenedSidebarNestedLink = ({
+  link,
+  isActive,
+  pathname
+}: OpenedSidebarNestedLinkProps) => (
   <AccordionItem
     value={link.id}
     className={cn(
       'relative rounded-md border-none px-4',
-      pathname.startsWith(link.href)
-        ? 'bg-secondary hover:bg-secondary/80'
-        : 'bg-background hover:bg-secondary/80'
+      isActive ? 'bg-secondary hover:bg-secondary/80' : 'bg-background hover:bg-secondary/80'
     )}
   >
     <AccordionTrigger className='py-2 hover:no-underline'>
@@ -29,7 +32,7 @@ export const OpenedSidebarNestedLink = ({ link, pathname }: OpenedSidebarNestedL
     </AccordionTrigger>
     <AccordionContent className='flex flex-col items-center gap-3'>
       {link.subLinks?.map((subLink) => (
-        <OpenedSidebarSubLink key={subLink.id} link={subLink} pathname={pathname}>
+        <OpenedSidebarSubLink key={subLink.id} link={subLink} isActive={pathname === subLink.href}>
           {subLink.text}
         </OpenedSidebarSubLink>
       ))}

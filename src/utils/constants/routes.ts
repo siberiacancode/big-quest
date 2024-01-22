@@ -1,9 +1,9 @@
 // ? тут не уверен как лучше организовать объект ссылок
 export const ROUTES = {
-  ROOT: '/',
-  ORGANIZATIONS: '/organizations',
-  ACTIVITIES: '/activities',
-  LIDS: '/lids',
-  LIDS_PARTICIPANTS: '/lids/participants',
-  LIDS_PARTNERS: '/lids/partners'
+  ROOT: '/org/',
+  ORGANIZATIONS: '/org/organizations',
+  ACTIVITIES: '/org/activities',
+  LIDS: '/org/lids',
+  LIDS_PARTICIPANTS: '/org/lids/participants',
+  LIDS_PARTNERS: '/org/lids/partners'
 };

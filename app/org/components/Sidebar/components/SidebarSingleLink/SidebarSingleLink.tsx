@@ -6,15 +6,15 @@ import type { SidebarLinkInfo } from '@/utils/constants';
 
 interface SidebarSingleLinkProps {
   link: SidebarLinkInfo;
-  pathname: string;
+  isActive: boolean;
   children: React.ReactNode;
 }
 
-export const SidebarSingleLink = ({ link, pathname, children }: SidebarSingleLinkProps) => (
+export const SidebarSingleLink = ({ link, isActive, children }: SidebarSingleLinkProps) => (
   <Link
     href={link.href}
     className={cn(
-      buttonVariants({ variant: pathname.startsWith(link.href) ? 'secondary' : 'ghost' }),
+      buttonVariants({ variant: isActive ? 'secondary' : 'ghost' }),
       'flex justify-start gap-3'
     )}
   >

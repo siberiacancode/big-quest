@@ -5,15 +5,13 @@ import React from 'react';
 import { getNavigationLinksByUserRole } from '@/utils/helpers';
 
 export const useSidebar = () => {
-  const [sidebarOpen, setSidebarOpen] = React.useState(true);
-  // TODO здесь будет роль лежать и по ней будем получать ссылки
-  // const { user } = useUserContext()
+  const [isOpen, setIsOpen] = React.useState(true);
   const navigationLinks = getNavigationLinksByUserRole('organizer');
 
-  const toggleSidebarOpen = () => setSidebarOpen((prev) => !prev);
+  const toggleSidebarOpen = () => setIsOpen(!isOpen);
 
   return {
-    state: { sidebarOpen, navigationLinks },
+    state: { isOpen, navigationLinks },
     functions: { toggleSidebarOpen }
   };
 };

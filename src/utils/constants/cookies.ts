@@ -1,3 +1,5 @@
+const COOKIE_PREFIX = 'big-quest';
+
 export const COOKIES = {
-  THEME: 'site-theme'
+  THEME: `${COOKIE_PREFIX}-theme`
 };

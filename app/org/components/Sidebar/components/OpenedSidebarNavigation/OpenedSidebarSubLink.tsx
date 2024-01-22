@@ -6,17 +6,14 @@ import type { SidebarLinkInfo } from '@/utils/constants';
 
 interface OpenedSidebarSubLinkProps {
   link: SidebarLinkInfo;
-  pathname: string;
+  isActive: boolean;
   children: React.ReactNode;
 }
 
-export const OpenedSidebarSubLink = ({ link, pathname, children }: OpenedSidebarSubLinkProps) => (
+export const OpenedSidebarSubLink = ({ link, isActive, children }: OpenedSidebarSubLinkProps) => (
   <Link
     href={link.href}
-    className={cn(
-      pathname === link.href && 'underline',
-      'w-full justify-start rounded-none hover:underline'
-    )}
+    className={cn(isActive && 'underline', 'w-full justify-start rounded-none hover:underline')}
   >
     {children}
   </Link>

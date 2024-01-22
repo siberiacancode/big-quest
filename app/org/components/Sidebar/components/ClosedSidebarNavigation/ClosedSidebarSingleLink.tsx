@@ -5,14 +5,14 @@ import { SidebarSingleLink } from '../SidebarSingleLink/SidebarSingleLink';
 
 interface ClosedSidebarSingleLinkProps {
   link: SidebarLinkInfo;
-  pathname: string;
+  isActive: boolean;
 }
 
-export const ClosedSidebarSingleLink = ({ link, pathname }: ClosedSidebarSingleLinkProps) => (
+export const ClosedSidebarSingleLink = ({ link, isActive }: ClosedSidebarSingleLinkProps) => (
   <TooltipProvider>
     <Tooltip>
       <TooltipTrigger>
-        <SidebarSingleLink link={link} pathname={pathname}>
+        <SidebarSingleLink link={link} isActive={isActive}>
           {link.icon}
         </SidebarSingleLink>
       </TooltipTrigger>

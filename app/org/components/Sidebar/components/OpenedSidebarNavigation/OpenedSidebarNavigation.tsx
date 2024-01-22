@@ -17,9 +17,15 @@ export const OpenedSidebarNavigation = ({ links, pathname }: OpenedSidebarNaviga
     <nav className='mt-10 flex w-full flex-col gap-2'>
       {links.map((link) => (
         <React.Fragment key={link.id}>
-          {!!link.subLinks && <OpenedSidebarNestedLink pathname={pathname} link={link} />}
+          {!!link.subLinks && (
+            <OpenedSidebarNestedLink
+              link={link}
+              isActive={pathname.startsWith(link.href)}
+              pathname={pathname}
+            />
+          )}
           {!link.subLinks && (
-            <SidebarSingleLink pathname={pathname} link={link}>
+            <SidebarSingleLink isActive={pathname === link.href} link={link}>
               {link.icon}
               {link.text}
             </SidebarSingleLink>
