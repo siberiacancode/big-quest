@@ -15,7 +15,6 @@ export interface ThemeProviderProps {
 export const ThemeProvider = ({ children, defaultTheme }: ThemeProviderProps) => {
   const [theme, setTheme] = React.useState<Theme>(defaultTheme);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
 

@@ -5,7 +5,7 @@ import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '
 
 export const NotificationsDropdownMenu = () => (
   <DropdownMenu>
-    <DropdownMenuTrigger>
+    <DropdownMenuTrigger asChild>
       <Button className='rounded-full' size='icon' variant='secondary'>
         <BellIcon />
       </Button>

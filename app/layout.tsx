@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import { getMessagesByLocale } from '@/utils/helpers';
+import { getDefaultTheme } from '@/utils/helpers/getDefaultTheme';
 
 import Providers from './providers';
 
@@ -17,11 +18,14 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const locale = 'ru';
   const messages = getMessagesByLocale(locale);
+  const defaultTheme = getDefaultTheme();
 
   return (
-    <html lang='en'>
+    <html className={defaultTheme} lang='en'>
       <body className={`min-h-screen bg-background font-sans antialiased ${inter.className}`}>
-        <Providers i18n={{ locale, messages }}>{children}</Providers>
+        <Providers i18n={{ locale, messages }} theme={{ defaultTheme }}>
+          {children}
+        </Providers>
       </body>
     </html>
   );
