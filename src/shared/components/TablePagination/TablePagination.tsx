@@ -18,7 +18,7 @@ export const TablePagination: React.FC<DataTablePaginationProps<Application>> = 
         {table.getFilteredSelectedRowModel().rows.length} of{' '}
         {table.getFilteredRowModel().rows.length} row(s) selected.
       </div>
-      <div className='space-x-2'>
+      <div className='flex items-center space-x-2'>
         <span className='text-b text-sm font-bold'>
           {table.getState().pagination.pageIndex + 1} страница из {table.getPageCount()}
         </span>
@@ -32,34 +32,15 @@ export const TablePagination: React.FC<DataTablePaginationProps<Application>> = 
           <ChevronLeftIcon />
         </Button>
 
-        {/* <Button
-          variant='outline'
-          size='sm'
-          onClick={() => table.setPageIndex(0)}
-          disabled={table.getState().pagination.pageIndex === 0}
-        >
-          1
-        </Button> */}
-
         {renderPageButtons({ table })}
-
-        {/* <Button
-          variant='outline'
-          size='sm'
-          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-          disabled={table.getState().pagination.pageIndex === table.getPageCount() - 1}
-        >
-          {table.getPageCount()}
-        </Button> */}
-        <ChevronRightIcon className='inline-flex h-8 w-8' />
-        {/* <Button
+        <Button
           variant='outline'
           size='sm'
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
           <ChevronRightIcon />
-        </Button> */}
+        </Button>
       </div>
     </div>
   );
