@@ -1,5 +1,7 @@
 import type { MockServerConfig } from 'mock-config-server';
 
+let flag = false;
+
 const mockServerConfig: MockServerConfig = {
   baseUrl: '/api',
   cors: {
@@ -20,7 +22,12 @@ const mockServerConfig: MockServerConfig = {
         ],
         interceptors: {
           response: (data, { setStatusCode }) => {
-            setStatusCode(401);
+            if (!flag) {
+              setStatusCode(401);
+              flag = true;
+              return data;
+            }
+            flag = false;
             return data;
           }
         }

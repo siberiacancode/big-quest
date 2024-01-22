@@ -12,10 +12,12 @@ export class HttpClient {
 
   readonly interceptors: {
     request: {
-      use: (onSuccess: SuccessRequestFun, onFailure?: FailureRequestFun) => void;
+      use: (onSuccess: SuccessRequestFun, onFailure?: FailureRequestFun) => RequestInterceptor;
+      eject: (interceptor: RequestInterceptor) => void;
     };
     response: {
-      use: (onSuccess: SuccessResponseFun, onFailure?: FailureResponseFun) => void;
+      use: (onSuccess: SuccessResponseFun, onFailure?: FailureResponseFun) => ResponseInterceptor;
+      eject: (interceptor: ResponseInterceptor) => void;
     };
   };
 
@@ -26,18 +28,32 @@ export class HttpClient {
     this.interceptors = {
       request: {
         use: (onSuccess, onFailure) => {
-          this.interceptorHandlers.request?.push({ onSuccess, onFailure });
+          const interceptor = { onSuccess, onFailure };
+          this.interceptorHandlers.request?.push(interceptor);
+          return interceptor;
+        },
+        eject: (interceptor) => {
+          this.interceptorHandlers.request = this.interceptorHandlers.request?.filter(
+            (interceptorLink) => interceptorLink !== interceptor
+          );
         }
       },
       response: {
         use: (onSuccess, onFailure) => {
-          this.interceptorHandlers.response?.push({ onSuccess, onFailure });
+          const interceptor = { onSuccess, onFailure };
+          this.interceptorHandlers.response?.push(interceptor);
+          return interceptor;
+        },
+        eject: (interceptor) => {
+          this.interceptorHandlers.response = this.interceptorHandlers.response?.filter(
+            (interceptorLink) => interceptorLink !== interceptor
+          );
         }
       }
     };
   }
 
-  createSearchParams(params: Record<string, string>) {
+  private createSearchParams(params: Record<string, string>) {
     const searchParams = new URLSearchParams();
 
     // eslint-disable-next-line no-restricted-syntax
@@ -50,7 +66,10 @@ export class HttpClient {
     return `?${searchParams.toString()}`;
   }
 
-  async runResponseInterceptors<T>(initialResponse: Response, initialConfig: RequestInit) {
+  private async runResponseInterceptors<T>(
+    initialResponse: Response,
+    initialConfig: RequestConfig
+  ) {
     let body = (await initialResponse.json()) as T;
 
     if (!this.interceptorHandlers.response?.length && initialResponse.ok) {
@@ -86,7 +105,7 @@ export class HttpClient {
     return body;
   }
 
-  runRequestInterceptors(initialConfig: RequestInit) {
+  private runRequestInterceptors(initialConfig: RequestConfig) {
     let config = initialConfig;
 
     this.interceptorHandlers.request?.forEach(({ onSuccess, onFailure }) => {
@@ -104,9 +123,10 @@ export class HttpClient {
     return config;
   }
 
-  async request<T>(endpoint: string, method: RequestMethod, options: RequestOptions = {}) {
-    const defaultConfig: RequestInit = {
+  private async request<T>(endpoint: string, method: RequestMethod, options: RequestOptions = {}) {
+    const defaultConfig: RequestConfig = {
       ...options,
+      url: endpoint,
       method,
       headers: { ...(!!options?.headers && options.headers), ...this.headers }
     };
@@ -149,6 +169,12 @@ export class HttpClient {
     return this.request<T>(endpoint, 'PATCH', {
       ...options,
       ...(!!body && { body: JSON.stringify(body) })
+    });
+  }
+
+  call<T>(options: RequestConfig) {
+    return this.request<T>(options.url, options.method, {
+      ...options
     });
   }
 }

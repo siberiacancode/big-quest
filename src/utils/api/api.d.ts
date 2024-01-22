@@ -23,6 +23,12 @@ interface QuerySettings<Func = unknown> {
 
 type BaseUrl = string;
 type RequestMethod = RequestInit['method'];
+type RequestConfig = RequestInit & {
+  url: string;
+  _retry?: boolean;
+  headers?: Record<string, string>;
+  params?: Record<string, string>;
+};
 interface InterceptorResponseResult {
   success: Response['ok'];
   status: Response['status'];
@@ -30,21 +36,24 @@ interface InterceptorResponseResult {
   data: any;
 }
 type SuccessResponseFun = (res: InterceptorResponseResult) => InterceptorResponseResult['data'];
-type SuccessRequestFun = (options: RequestInit) => RequestInit;
+type SuccessRequestFun = (options: RequestConfig) => RequestConfig;
 
-type FailureError = Error & { config: RequestInit; response: InterceptorResponseResult };
-type FailureResponseFun = (e: FailureError) => InterceptorResponseResult['data'];
-type FailureRequestFun = (e: Error) => InterceptorResponseResult['data'];
+type FailureError = Error & { config: RequestConfig; response: InterceptorResponseResult };
+type FailureResponseFun = (e: FailureError) => any;
+type FailureRequestFun = (e: Error) => any;
 
+interface RequestInterceptor {
+  onSuccess: SuccessRequestFun;
+  onFailure?: FailureRequestFun;
+}
+
+interface ResponseInterceptor {
+  onSuccess: SuccessResponseFun;
+  onFailure?: FailureResponseFun;
+}
 interface Interceptors {
-  request?: Array<{
-    onSuccess: SuccessRequestFun;
-    onFailure?: FailureRequestFun;
-  }>;
-  response?: Array<{
-    onSuccess: SuccessResponseFun;
-    onFailure?: FailureResponseFun;
-  }>;
+  request?: RequestInterceptor[];
+  response?: ResponseInterceptor[];
 }
 
 interface RequestOptions extends Omit<RequestInit, 'method'> {
@@ -52,7 +61,7 @@ interface RequestOptions extends Omit<RequestInit, 'method'> {
   params?: Record<string, string>;
 }
 
-type RequestConfig<Params = undefined> = Params extends undefined
+type RequestParams<Params = undefined> = Params extends undefined
   ? { config?: RequestOptions }
   : { params: Params; config?: RequestOptions };
 

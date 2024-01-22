@@ -19,7 +19,7 @@ const TOASTER_DURATION = 5000;
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang='en'>
     <body className={`min-h-screen bg-background font-sans antialiased ${inter.className}`}>
-      <Providers>{children}</Providers>
+      <Providers session={{ defaultSession: { isAuthenticated: true } }}>{children}</Providers>
       <Toaster duration={TOASTER_DURATION} />
     </body>
   </html>

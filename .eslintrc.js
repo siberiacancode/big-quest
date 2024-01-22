@@ -23,7 +23,9 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'off',
         'no-restricted-syntax': 'off',
         'promise/always-return': 'off',
-        'class-methods-use-this': 'off'
+        'class-methods-use-this': 'off',
+        '@typescript-eslint/naming-convention': 'warn',
+        'no-underscore-dangle': 'warn'
       }
     }
   ]
