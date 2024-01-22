@@ -12,11 +12,11 @@ export class HttpClient {
 
   readonly interceptors: {
     request: {
-      use: (onSuccess: SuccessRequestFun, onFailure?: FailureRequestFun) => RequestInterceptor;
+      use: (onSuccess?: SuccessRequestFun, onFailure?: FailureRequestFun) => RequestInterceptor;
       eject: (interceptor: RequestInterceptor) => void;
     };
     response: {
-      use: (onSuccess: SuccessResponseFun, onFailure?: FailureResponseFun) => ResponseInterceptor;
+      use: (onSuccess?: SuccessResponseFun, onFailure?: FailureResponseFun) => ResponseInterceptor;
       eject: (interceptor: ResponseInterceptor) => void;
     };
   };
@@ -70,9 +70,8 @@ export class HttpClient {
     initialResponse: Response,
     initialConfig: RequestConfig
   ) {
-    let body = (await initialResponse.json()) as T;
-
     if (!this.interceptorHandlers.response?.length && initialResponse.ok) {
+      const body = (await initialResponse.json()) as T;
       return body;
     }
 
@@ -80,6 +79,7 @@ export class HttpClient {
       throw new Error(initialResponse.statusText);
     }
 
+    let body = (await initialResponse.json()) as T;
     const response = {
       status: initialResponse.status,
       statusText: initialResponse.statusText,
@@ -90,15 +90,16 @@ export class HttpClient {
     this.interceptorHandlers.response?.forEach(({ onSuccess, onFailure }) => {
       try {
         if (!initialResponse.ok) throw new Error(initialResponse.statusText);
+        if (!onSuccess) return;
         body = onSuccess(response);
       } catch (error) {
+        // @ts-ignore
+        error.config = initialConfig;
+        // @ts-ignore
+        error.response = response;
         if (onFailure) {
-          // @ts-ignore
-          error.config = initialConfig;
-          // @ts-ignore
-          error.response = response;
-          body = onFailure(error as FailureError);
-        } else throw new Error((error as Error).message);
+          body = onFailure(error as ResponseError);
+        } else return Promise.reject(error);
       }
     });
 
@@ -110,13 +111,14 @@ export class HttpClient {
 
     this.interceptorHandlers.request?.forEach(({ onSuccess, onFailure }) => {
       try {
+        if (!onSuccess) return;
         config = onSuccess(config);
       } catch (error) {
+        // @ts-ignore
+        error.config = initialConfig;
         if (onFailure) {
-          // @ts-ignore
-          error.config = initialConfig;
-          onFailure(error as FailureError);
-        } else throw new Error((error as Error).message);
+          onFailure(error as ResponseError);
+        } else return Promise.reject(error);
       }
     });
 
@@ -139,7 +141,6 @@ export class HttpClient {
     }
 
     const response: Response = await fetch(url, config);
-
     return this.runResponseInterceptors<T>(response, config);
   }
 

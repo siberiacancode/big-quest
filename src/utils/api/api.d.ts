@@ -38,17 +38,17 @@ interface InterceptorResponseResult {
 type SuccessResponseFun = (res: InterceptorResponseResult) => InterceptorResponseResult['data'];
 type SuccessRequestFun = (options: RequestConfig) => RequestConfig;
 
-type FailureError = Error & { config: RequestConfig; response: InterceptorResponseResult };
-type FailureResponseFun = (e: FailureError) => any;
-type FailureRequestFun = (e: Error) => any;
+type ResponseError = Error & { config: RequestConfig; response: InterceptorResponseResult };
+type FailureResponseFun = (e: ResponseError) => any;
+type FailureRequestFun = (e: ResponseError) => any;
 
 interface RequestInterceptor {
-  onSuccess: SuccessRequestFun;
+  onSuccess?: SuccessRequestFun;
   onFailure?: FailureRequestFun;
 }
 
 interface ResponseInterceptor {
-  onSuccess: SuccessResponseFun;
+  onSuccess?: SuccessResponseFun;
   onFailure?: FailureResponseFun;
 }
 interface Interceptors {
