@@ -12,24 +12,19 @@ export interface ThemeProviderProps {
   defaultTheme: Theme;
 }
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, defaultTheme }) => {
+export const ThemeProvider = ({ children, defaultTheme }: ThemeProviderProps) => {
   const [theme, setTheme] = React.useState<Theme>(defaultTheme);
 
-  const toggleTheme = React.useCallback(
-    () => setTheme((prev) => (prev === 'light' ? 'dark' : 'light')),
-    []
-  );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
 
-  React.useEffect(() => {
-    setCookie(COOKIES.THEME, theme);
-    document.documentElement.className = theme;
-  }, [theme]);
+    setTheme(newTheme);
+    setCookie(COOKIES.THEME, newTheme);
+    document.documentElement.className = newTheme;
+  };
 
-  return (
-    <ThemeContext.Provider
-      value={React.useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme])}
-    >
-      {children}
-    </ThemeContext.Provider>
-  );
+  const value = React.useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
+
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };
