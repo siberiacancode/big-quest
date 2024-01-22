@@ -1,8 +1,9 @@
 'use server';
 
+import { cookies } from 'next/headers';
+
 import { COOKIES } from '@/utils/constants';
-import { getAnyCookie } from '@/utils/helpers/getAnyCookie';
 
 import type { Theme } from '../ThemeContext';
 
-export const getDefaultTheme = () => (getAnyCookie(COOKIES.THEME) as Theme) ?? 'dark';
+export const getDefaultTheme = () => (cookies().get(COOKIES.THEME)?.value as Theme) ?? 'light';
