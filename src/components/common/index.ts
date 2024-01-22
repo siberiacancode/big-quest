@@ -1,3 +1,1 @@
-export * from './Header/Header';
-export * from './Header/MobileHeader';
-export * from './Sidebar/Sidebar';
+export * from './Logo/Logo';

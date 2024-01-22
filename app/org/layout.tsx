@@ -1,10 +1,25 @@
-import { DesktopLayout } from './components/DesktopLayout';
-import { MobileLayout } from './components/MobileLayout';
+import React from 'react';
 
-const OrgLayout = ({ children }: { children: React.ReactNode }) => (
+import { DesktopHeader } from './components/Header/DesktopHeader';
+import { MobileLayout } from './components/MobileLayout/MobileLayout';
+import { Sidebar } from './components/Sidebar/Sidebar';
+
+interface OrgLayoutProps {
+  children: React.ReactNode;
+}
+
+const OrgLayout = ({ children }: OrgLayoutProps) => (
   <>
-    <MobileLayout>{children}</MobileLayout>
-    <DesktopLayout>{children}</DesktopLayout>
+    <div className='lg:hidden'>
+      <MobileLayout>{children}</MobileLayout>
+    </div>
+    <div className='flex min-h-screen lgx:hidden'>
+      <Sidebar />
+      <div className='flex w-full flex-col'>
+        <DesktopHeader />
+        <section className='flex-1 bg-secondary p-8'>{children}</section>
+      </div>
+    </div>
   </>
 );
 

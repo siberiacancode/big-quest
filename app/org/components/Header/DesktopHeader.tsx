@@ -3,7 +3,7 @@ import { NotificationSwitcher } from './components/NotificationSwitcher/Notifica
 import { ProfileDropdownMenu } from './components/ProfileDropdownMenu/ProfileDropdownMenu';
 import { ThemeSwitcher } from './components/ThemeSwitcher/ThemeSwitcher';
 
-export const Header = () => (
+export const DesktopHeader = () => (
   <header className='flex h-20 w-full items-center justify-between bg-background pl-8 pr-14'>
     <HeaderSearch />
 

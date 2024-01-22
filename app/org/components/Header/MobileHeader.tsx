@@ -4,10 +4,10 @@ import React from 'react';
 import { MenuIcon, XIcon } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
+import { Logo } from '@/components/common';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
-import { Logo } from '../Logo/Logo';
 import { OpenedSidebarNavigation } from '../Sidebar/components/OpenedSidebarNavigation/OpenedSidebarNavigation';
 
 import { HeaderSearch } from './components/HeaderSearch/HeaderSearch';
@@ -43,6 +43,7 @@ export const MobileHeader = () => {
               <ProfileDropdownMenu />
             </div>
           </div>
+
           <OpenedSidebarNavigation links={state.navigationLinks} pathname={pathname} />
         </div>
       </div>

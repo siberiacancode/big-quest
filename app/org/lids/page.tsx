@@ -1,5 +1,3 @@
-const LidsPage = () => {
-  return <div className='min-h-screen'>page</div>;
-};
+const LidsPage = () => <div>lids</div>;
 
 export default LidsPage;

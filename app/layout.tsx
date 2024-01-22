@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import { getDefaultTheme, ThemeProvider } from '@/utils/contexts';
+import { ThemeProvider } from '@/utils/contexts';
+import { getDefaultTheme } from '@/utils/helpers/getDefaultTheme';
 
 import '@/assets/styles/globals.css';
 

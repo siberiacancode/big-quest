@@ -4,10 +4,9 @@ import React from 'react';
 import { ArrowLeftFromLineIcon, ArrowRightFromLineIcon } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
+import { Logo } from '@/components/common';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
-
-import { Logo } from '../Logo/Logo';
 
 import { ClosedSidebarNavigation } from './components/ClosedSidebarNavigation/ClosedSidebarNavigation';
 import { OpenedSidebarNavigation } from './components/OpenedSidebarNavigation/OpenedSidebarNavigation';

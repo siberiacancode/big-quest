@@ -1,5 +1,3 @@
-const OrganizationsPage = () => {
-  return <div className='min-h-screen'>page</div>;
-};
+const OrganizationsPage = () => <div>organizations</div>;
 
 export default OrganizationsPage;

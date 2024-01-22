@@ -13,7 +13,7 @@ export const ProfileDropdownMenu = () => {
   const { state, functions } = useProfileDropdownMenu();
 
   return (
-    <DropdownMenu open={state.open} onOpenChange={functions.setOpen}>
+    <DropdownMenu open={state.isOpen} onOpenChange={functions.setIsOpen}>
       <DropdownMenuTrigger>
         <div className='flex cursor-pointer items-center gap-4 rounded-lg px-3 py-1 transition-colors hover:bg-secondary'>
           <div className='relative'>
@@ -24,8 +24,8 @@ export const ProfileDropdownMenu = () => {
             <p className=''>Имя фамилия</p>
             <p className='text-sm text-muted-foreground'>Админ</p>
           </div>
-          {state.open && <ChevronUpIcon />}
-          {!state.open && <ChevronDownIcon />}
+          {state.isOpen && <ChevronUpIcon />}
+          {!state.isOpen && <ChevronDownIcon />}
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent>test content</DropdownMenuContent>

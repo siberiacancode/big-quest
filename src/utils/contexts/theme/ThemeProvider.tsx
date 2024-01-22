@@ -5,7 +5,7 @@ import { setCookie } from 'cookies-next';
 
 import { COOKIES } from '@/utils/constants';
 
-import { type Theme, ThemeContext } from './ThemeContext';
+import { ThemeContext } from './ThemeContext';
 
 export interface ThemeProviderProps {
   children: React.ReactNode;
