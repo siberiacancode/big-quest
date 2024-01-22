@@ -30,7 +30,7 @@ export const DataTable = () => {
   const table = useDataTable(data, columns);
 
   return (
-    <div className='w-full'>
+    <div className=' mt-10 w-full rounded-md bg-white p-2'>
       <div className='flex flex-wrap items-center py-4'>
         <Input
           placeholder='Фильтровать...'

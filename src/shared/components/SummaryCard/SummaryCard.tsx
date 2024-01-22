@@ -1,33 +1,58 @@
 import React from 'react';
-import { HeartHandshakeIcon } from 'lucide-react';
+import { HeartHandshakeIcon, TreePineIcon } from 'lucide-react';
 
-// import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+interface Content {
+  info: string;
+  description: string;
+}
 
 interface SummaryCardProps {
   title: string;
   info?: string;
   description?: string;
-  imageSrc?: string;
   className?: string;
+  contents?: Content[];
+  titleIcon?: React.ReactNode;
+  descriptionIcon?: React.ReactNode;
 }
 
 export const SummaryCard: React.FC<SummaryCardProps> = ({
   title,
   className,
   info,
-  description
+  description,
+  contents,
+  titleIcon,
+  descriptionIcon
 }) => {
   return (
     <Card className={className || ''}>
       <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-        <CardTitle className='text-sm font-medium'>{title}</CardTitle>
-        {/* <Image src={imageSrc} alt='Card Image' className='h-4 w-4 text-muted-foreground' /> */}
-        <HeartHandshakeIcon />
+        <CardTitle className=' text-base font-medium'>{title}</CardTitle>
+        {titleIcon || <HeartHandshakeIcon />}
       </CardHeader>
-      <CardContent>
-        <div className='text-2xl font-bold'>{info}</div>
-        <p className='text-xs text-muted-foreground'>{description}</p>
+      <CardContent className='flex flex-row justify-between'>
+        {contents ? (
+          contents.map((content, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <div key={index}>
+              {/* Тут key нужно исправить на uuid или content.id, какой-нибудь, но пока не ясно, будет ли эта фича вообше, поэтому лишнюю зависимость не хочу тянуть */}
+              <div className='text-3xl font-bold'>{content.info}</div>
+              <p className='text-xs text-muted-foreground'>{content.description}</p>
+            </div>
+          ))
+        ) : (
+          <div>
+            <div className='text-3xl font-bold'>{info}</div>
+            <div className='flex flex-row'>
+              <div className='mr-2'>{descriptionIcon}</div>
+              {descriptionIcon || <TreePineIcon size={14} />}
+              <p className='text-xs text-muted-foreground'>{description}</p>
+            </div>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
