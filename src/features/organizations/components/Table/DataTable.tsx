@@ -21,8 +21,8 @@ import {
   TableRow
 } from '@/components/ui/table';
 import { useDataTable } from '@/features/organizations/hooks/useDataTable';
+import { TablePagination } from '@/shared/components';
 
-import { TablePagination } from './components/TablePagination/TablePagination';
 import { columns } from './data/columns';
 import { data } from './data/data';
 
@@ -30,7 +30,7 @@ export const DataTable = () => {
   const table = useDataTable(data, columns);
 
   return (
-    <div className=' mt-10 w-full rounded-md bg-white p-2'>
+    <div className=' mt-10 w-full rounded-md bg-white p-4'>
       <div className='flex flex-wrap items-center py-4'>
         <Input
           placeholder='Фильтровать...'

@@ -3,43 +3,15 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import type { Table } from '@tanstack/react-table';
 
 import { Button } from '@/components/ui/button';
+import { renderPageButtons } from '@/features/organizations/helpers/renderPageButtons';
 
-import type { Application } from '../../types';
+import type { Application } from '../../../features/organizations/components/Table/types';
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;
 }
 
 export const TablePagination: React.FC<DataTablePaginationProps<Application>> = ({ table }) => {
-  const renderPageButtons = () => {
-    const pageCount = table.getPageCount();
-    const currentPage = table.getState().pagination.pageIndex + 1;
-
-    const renderPageButton = (page: number) => (
-      <Button
-        key={page}
-        variant='outline'
-        size='sm'
-        onClick={() => table.setPageIndex(page - 1)}
-        disabled={page === currentPage}
-        className=' rounded-lg'
-      >
-        {page}
-      </Button>
-    );
-
-    const pageButtons = [];
-    for (
-      let page = Math.max(1, currentPage - 2);
-      page <= Math.min(pageCount, currentPage + 2);
-      page += 1
-    ) {
-      pageButtons.push(renderPageButton(page));
-    }
-
-    return pageButtons;
-  };
-
   return (
     <div className='flex items-center justify-end space-x-2 py-4'>
       <div className='flex-1 text-sm text-muted-foreground'>
@@ -69,7 +41,7 @@ export const TablePagination: React.FC<DataTablePaginationProps<Application>> = 
           1
         </Button> */}
 
-        {renderPageButtons()}
+        {renderPageButtons({ table })}
 
         {/* <Button
           variant='outline'
