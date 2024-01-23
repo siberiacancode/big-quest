@@ -2,10 +2,9 @@ import Link from 'next/link';
 
 import { buttonVariants } from '@/components/ui';
 import { cn } from '@/lib/utils';
-import type { SidebarLinkInfo } from '@/utils/constants';
 
 interface SidebarSingleLinkProps {
-  link: SidebarLinkInfo;
+  link: NavigationLinkInfo;
   isActive: boolean;
   children: React.ReactNode;
 }

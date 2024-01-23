@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Accordion } from '@/components/ui';
-import type { SidebarLinkInfo } from '@/utils/constants';
 
 import { SidebarSingleLink } from '../SidebarSingleLink/SidebarSingleLink';
 
@@ -9,7 +8,7 @@ import { OpenedSidebarNestedLink } from './OpenedSidebarNestedLink';
 
 interface OpenedSidebarNavigationProps {
   pathname: string;
-  links: SidebarLinkInfo[];
+  links: NavigationLinkInfo[];
 }
 
 export const OpenedSidebarNavigation = ({ links, pathname }: OpenedSidebarNavigationProps) => (

@@ -1,11 +1,9 @@
-import { navigationLinks } from '../constants/navigationLinks';
+import { ORGANIZER_LINKS } from '../constants';
 
 export const getNavigationLinksByUserRole = (userRole: UserRole) => {
   switch (userRole) {
     case 'organizer':
-      return navigationLinks.organizer;
-    case 'partner':
-      return navigationLinks.partner;
+      return ORGANIZER_LINKS;
     default:
       return [];
   }

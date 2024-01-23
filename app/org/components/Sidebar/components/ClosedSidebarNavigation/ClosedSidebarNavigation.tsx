@@ -1,13 +1,11 @@
 import React from 'react';
 
-import type { SidebarLinkInfo } from '@/utils/constants';
-
 import { ClosedSidebarNestedLink } from './ClosedSidebarNestedLink';
 import { ClosedSidebarSingleLink } from './ClosedSidebarSingleLink';
 
 interface ClosedSidebarNavigationProps {
   pathname: string;
-  links: SidebarLinkInfo[];
+  links: NavigationLinkInfo[];
 }
 
 export const ClosedSidebarNavigation = ({ links, pathname }: ClosedSidebarNavigationProps) => (

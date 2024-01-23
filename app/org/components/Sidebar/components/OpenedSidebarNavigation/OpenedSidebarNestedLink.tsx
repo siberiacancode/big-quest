@@ -1,11 +1,10 @@
 import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui';
 import { cn } from '@/lib/utils';
-import type { SidebarLinkInfo } from '@/utils/constants';
 
 import { OpenedSidebarSubLink } from './OpenedSidebarSubLink';
 
 interface OpenedSidebarNestedLinkProps {
-  link: SidebarLinkInfo;
+  link: NavigationLinkInfo;
   isActive: boolean;
   pathname: string;
 }

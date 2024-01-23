@@ -1,10 +1,9 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui';
-import type { SidebarLinkInfo } from '@/utils/constants';
 
 import { SidebarSingleLink } from '../SidebarSingleLink/SidebarSingleLink';
 
 interface ClosedSidebarSingleLinkProps {
-  link: SidebarLinkInfo;
+  link: NavigationLinkInfo;
   isActive: boolean;
 }
 

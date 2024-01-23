@@ -1,3 +1,3 @@
 export * from './cookies';
-export * from './navigationLinks';
+export * from './navigation/organizerLinks';
 export * from './routes';

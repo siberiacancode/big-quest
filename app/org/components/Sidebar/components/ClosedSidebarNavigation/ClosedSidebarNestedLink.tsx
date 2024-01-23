@@ -1,10 +1,9 @@
 import { Button, HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui';
-import type { SidebarLinkInfo } from '@/utils/constants';
 
 import { SidebarSingleLink } from '../SidebarSingleLink/SidebarSingleLink';
 
 interface ClosedSidebarNestedLinkProps {
-  link: SidebarLinkInfo;
+  link: NavigationLinkInfo;
   isActive: boolean;
   pathname: string;
 }
