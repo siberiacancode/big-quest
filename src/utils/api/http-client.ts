@@ -98,7 +98,7 @@ export class HttpClient {
         // @ts-ignore
         error.response = response;
         if (onFailure) {
-          body = onFailure(error as ResponseError);
+          body = onFailure(error.response.data as ResponseError);
         } else return Promise.reject(error);
       }
     });

@@ -7,6 +7,7 @@ export const generateRefreshTokenInterceptor = () =>
     },
     async (error) => {
       const originalConfig = error.config;
+
       if (!error.response) return Promise.reject(error);
 
       if (
@@ -14,9 +15,27 @@ export const generateRefreshTokenInterceptor = () =>
         error.response.status === 401 &&
         !originalConfig._retry
       ) {
-        // refresh logic
-        originalConfig._retry = true;
-        return api.call(originalConfig);
+        try {
+          const refreshTokenResult = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/api/1.0/auth/refresh-tokens`,
+            {
+              method: 'POST',
+              body: JSON.stringify({ token: 'refreshToken' })
+            }
+          );
+
+          if (refreshTokenResult.ok) {
+            const refreshTokenData = await refreshTokenResult.json();
+
+            if (refreshTokenData?.accessToken) {
+              originalConfig._retry = true;
+              return await api.call(originalConfig);
+            }
+          }
+        } catch (refreshError) {
+          console.error(refreshError);
+          return Promise.reject(refreshError);
+        }
       }
 
       return Promise.reject(error);

@@ -1,9 +1,11 @@
 import type { MockServerConfig } from 'mock-config-server';
 
+import { loginConfig, refreshTokensConfig } from './mock';
+
 let flag = false;
 
 const mockServerConfig: MockServerConfig = {
-  baseUrl: '/api',
+  baseUrl: '/api/1.0/auth',
   cors: {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
@@ -31,7 +33,9 @@ const mockServerConfig: MockServerConfig = {
             return data;
           }
         }
-      }
+      },
+      loginConfig,
+      refreshTokensConfig
     ]
   }
 };
