@@ -16,10 +16,11 @@ export const renderPageButtons = <TData,>({ table }: RenderPageButtonsProps<TDat
       variant='outline'
       size='sm'
       onClick={() => table.setPageIndex(page - 1)}
-      disabled={page === currentPage}
-      className='rounded-lg'
+      className={`h-8 w-8 rounded-lg border border-breadboard font-normal ${
+        page === currentPage ? ' bg-breadboard' : ''
+      }`}
     >
-      {page}
+      {page < 10 ? `0${page}` : page}
     </Button>
   );
 
