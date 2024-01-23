@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { ArrowLeftFromLineIcon, ArrowRightFromLineIcon } from 'lucide-react';
 
@@ -7,12 +5,10 @@ import { Logo } from '@/components/common';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
-import { OrganizerNavigation } from '../navigation/OrganizerNavigation/OrganizerNavigation';
-
 import { useSidebar } from './hooks/useSidebar';
 
 interface SidebarProps {
-  children?: (isOpen: boolean) => React.ReactNode;
+  children: (isOpen: boolean) => React.ReactNode;
 }
 
 export const Sidebar = ({ children }: SidebarProps) => {
@@ -37,8 +33,8 @@ export const Sidebar = ({ children }: SidebarProps) => {
         {state.isOpen && <ArrowLeftFromLineIcon className='h-4 w-4' />}
         {!state.isOpen && <ArrowRightFromLineIcon className='h-4 w-4' />}
       </Button>
-      <OrganizerNavigation isOpen={state.isOpen} />
-      {children?.(state.isOpen)}
+
+      {children(state.isOpen)}
     </div>
   );
 };

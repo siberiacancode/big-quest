@@ -6,6 +6,8 @@ export const useMobileHeader = () => {
   const searchParams = useSearchParams();
 
   const [isOpen, setIsOpen] = React.useState(false);
+  // TODO
+  const userRole: UserRole = 'organizer';
 
   const onBurgerClick = () => {
     document.body.classList.toggle('overflow-hidden');
@@ -17,7 +19,7 @@ export const useMobileHeader = () => {
   }, [pathname, searchParams]);
 
   return {
-    state: { isOpen },
+    state: { isOpen, userRole },
     functions: { onBurgerClick }
   };
 };

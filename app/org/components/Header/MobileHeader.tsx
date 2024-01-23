@@ -7,7 +7,7 @@ import { Logo } from '@/components/common';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
-import { OrganizerNavigation } from '../navigation/OrganizerNavigation/OrganizerNavigation';
+import { SidebarNavigation } from '../navigation/SidebarNavigation/SidebarNavigation';
 
 import { HeaderSearch } from './components/HeaderSearch/HeaderSearch';
 import { NotificationsDropdownMenu } from './components/NotificationsDropdownMenu/NotificationsDropdownMenu';
@@ -42,7 +42,7 @@ export const MobileHeader = () => {
             </div>
           </div>
 
-          <OrganizerNavigation isOpen />
+          <SidebarNavigation isOpen userRole={state.userRole} />
         </div>
       </div>
       <Button

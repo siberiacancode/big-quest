@@ -2,10 +2,17 @@
 
 import React from 'react';
 
-export const useSidebar = () => {
-  const [isOpen, setIsOpen] = React.useState(true);
+import { LOCAL_STORAGE_KEYS } from '@/utils/constants';
 
-  const toggleSidebarOpen = () => setIsOpen(!isOpen);
+export const useSidebar = () => {
+  const [isOpen, setIsOpen] = React.useState(
+    () => localStorage.getItem(LOCAL_STORAGE_KEYS.SIDEBAR) === 'true'
+  );
+
+  const toggleSidebarOpen = () => {
+    localStorage.setItem(LOCAL_STORAGE_KEYS.SIDEBAR, String(!isOpen));
+    setIsOpen(!isOpen);
+  };
 
   return {
     state: { isOpen },
