@@ -24,10 +24,12 @@ export const OpenedNavigation = ({ links, pathname }: OpenedSidebarNavigationPro
             />
           )}
           {!link.subLinks && (
-            <NavigationSingleLink isActive={pathname === link.href} link={link}>
-              {link.icon}
-              {link.text}
-            </NavigationSingleLink>
+            <div className='flex'>
+              <NavigationSingleLink isActive={pathname === link.href} link={link}>
+                {link.icon}
+                {link.text}
+              </NavigationSingleLink>
+            </div>
           )}
         </React.Fragment>
       ))}

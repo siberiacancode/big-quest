@@ -14,7 +14,7 @@ export const NavigationSingleLink = ({ link, isActive, children }: NavigationSin
     href={link.href}
     className={cn(
       buttonVariants({ variant: isActive ? 'secondary' : 'ghost' }),
-      'flex justify-start gap-3'
+      'flex flex-1 justify-start gap-3'
     )}
   >
     {children}

@@ -2,7 +2,6 @@ import React from 'react';
 
 import { DesktopHeader } from './components/Header/DesktopHeader';
 import { MobileLayout } from './components/MobileLayout/MobileLayout';
-import { OrganizerNavigation } from './components/navigation/OrganizerNavigation/OrganizerNavigation';
 import { Sidebar } from './components/Sidebar/Sidebar';
 
 interface OrgLayoutProps {
@@ -15,7 +14,9 @@ const OrgLayout = ({ children }: OrgLayoutProps) => (
       <MobileLayout>{children}</MobileLayout>
     </div>
     <div className='flex min-h-screen lgx:hidden'>
-      <Sidebar>{(isOpen) => <OrganizerNavigation isOpen={isOpen} />}</Sidebar>
+      {/* <Sidebar>{(isOpen) => <OrganizerNavigation isOpen={isOpen} />}</Sidebar> */}
+
+      <Sidebar />
       <div className='flex w-full flex-col'>
         <DesktopHeader />
         <section className='flex-1 bg-secondary p-8'>{children}</section>

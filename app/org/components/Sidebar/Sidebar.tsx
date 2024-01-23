@@ -7,6 +7,8 @@ import { Logo } from '@/components/common';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
+import { OrganizerNavigation } from '../navigation/OrganizerNavigation/OrganizerNavigation';
+
 import { useSidebar } from './hooks/useSidebar';
 
 interface SidebarProps {
@@ -19,8 +21,8 @@ export const Sidebar = ({ children }: SidebarProps) => {
   return (
     <div
       className={cn(
-        'relative min-h-screen w-64 bg-background px-6 transition duration-1000',
-        !state.isOpen && ' w-26 '
+        'relative min-h-screen w-64 bg-background px-6 transition-[width] duration-300',
+        !state.isOpen && 'w-28'
       )}
     >
       <div className='flex h-20 items-center justify-center'>
@@ -35,7 +37,7 @@ export const Sidebar = ({ children }: SidebarProps) => {
         {state.isOpen && <ArrowLeftFromLineIcon className='h-4 w-4' />}
         {!state.isOpen && <ArrowRightFromLineIcon className='h-4 w-4' />}
       </Button>
-
+      <OrganizerNavigation isOpen={state.isOpen} />
       {children?.(state.isOpen)}
     </div>
   );
