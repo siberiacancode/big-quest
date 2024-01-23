@@ -1,27 +1,27 @@
 import { Button, HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui';
 
-import { SidebarSingleLink } from '../SidebarSingleLink/SidebarSingleLink';
+import { NavigationSingleLink } from '../NavigationSingleLink/NavigationSingleLink';
 
-interface ClosedSidebarNestedLinkProps {
+interface ClosedNavigationNestedLinkProps {
   link: NavigationLinkInfo;
   isActive: boolean;
   pathname: string;
 }
 
-export const ClosedSidebarNestedLink = ({
+export const ClosedNavigationNestedLink = ({
   link,
   isActive,
   pathname
-}: ClosedSidebarNestedLinkProps) => (
+}: ClosedNavigationNestedLinkProps) => (
   <HoverCard>
     <HoverCardTrigger>
       <Button variant={isActive ? 'secondary' : 'ghost'}>{link.icon}</Button>
     </HoverCardTrigger>
     <HoverCardContent side='right' className='flex w-36 translate-y-1/4 flex-col gap-1 p-2'>
       {link.subLinks?.map((subLink) => (
-        <SidebarSingleLink key={subLink.id} link={subLink} isActive={pathname === subLink.href}>
+        <NavigationSingleLink key={subLink.id} link={subLink} isActive={pathname === subLink.href}>
           {subLink.text}
-        </SidebarSingleLink>
+        </NavigationSingleLink>
       ))}
     </HoverCardContent>
   </HoverCard>

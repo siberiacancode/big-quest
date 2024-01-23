@@ -2,13 +2,12 @@
 
 import React from 'react';
 import { MenuIcon, XIcon } from 'lucide-react';
-import { usePathname } from 'next/navigation';
 
 import { Logo } from '@/components/common';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
-import { OpenedSidebarNavigation } from '../Sidebar/components/OpenedSidebarNavigation/OpenedSidebarNavigation';
+import { OrganizerNavigation } from '../navigation/OrganizerNavigation/OrganizerNavigation';
 
 import { HeaderSearch } from './components/HeaderSearch/HeaderSearch';
 import { NotificationsDropdownMenu } from './components/NotificationsDropdownMenu/NotificationsDropdownMenu';
@@ -18,7 +17,6 @@ import { useMobileHeader } from './hooks/useMobileHeader';
 
 export const MobileHeader = () => {
   const { state, functions } = useMobileHeader();
-  const pathname = usePathname();
 
   return (
     <header className='flex h-20 w-full items-center justify-between bg-background px-6'>
@@ -44,7 +42,7 @@ export const MobileHeader = () => {
             </div>
           </div>
 
-          <OpenedSidebarNavigation links={state.navigationLinks} pathname={pathname} />
+          <OrganizerNavigation isOpen />
         </div>
       </div>
       <Button

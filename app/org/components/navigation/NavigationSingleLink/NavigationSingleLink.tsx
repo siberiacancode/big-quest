@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { buttonVariants } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
-interface SidebarSingleLinkProps {
+interface NavigationSingleLinkProps {
   link: NavigationLinkInfo;
   isActive: boolean;
   children: React.ReactNode;
 }
 
-export const SidebarSingleLink = ({ link, isActive, children }: SidebarSingleLinkProps) => (
+export const NavigationSingleLink = ({ link, isActive, children }: NavigationSingleLinkProps) => (
   <Link
     href={link.href}
     className={cn(

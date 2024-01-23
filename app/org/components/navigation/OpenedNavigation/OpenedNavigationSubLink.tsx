@@ -9,7 +9,11 @@ interface OpenedSidebarSubLinkProps {
   children: React.ReactNode;
 }
 
-export const OpenedSidebarSubLink = ({ link, isActive, children }: OpenedSidebarSubLinkProps) => (
+export const OpenedNavigationSubLink = ({
+  link,
+  isActive,
+  children
+}: OpenedSidebarSubLinkProps) => (
   <Link
     href={link.href}
     className={cn(isActive && 'underline', 'w-full justify-start rounded-none hover:underline')}

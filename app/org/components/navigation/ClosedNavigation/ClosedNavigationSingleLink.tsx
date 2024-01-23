@@ -1,19 +1,19 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui';
 
-import { SidebarSingleLink } from '../SidebarSingleLink/SidebarSingleLink';
+import { NavigationSingleLink } from '../NavigationSingleLink/NavigationSingleLink';
 
-interface ClosedSidebarSingleLinkProps {
+interface ClosedNavigationSingleLinkProps {
   link: NavigationLinkInfo;
   isActive: boolean;
 }
 
-export const ClosedSidebarSingleLink = ({ link, isActive }: ClosedSidebarSingleLinkProps) => (
+export const ClosedNavigationSingleLink = ({ link, isActive }: ClosedNavigationSingleLinkProps) => (
   <TooltipProvider>
     <Tooltip>
       <TooltipTrigger>
-        <SidebarSingleLink link={link} isActive={isActive}>
+        <NavigationSingleLink link={link} isActive={isActive}>
           {link.icon}
-        </SidebarSingleLink>
+        </NavigationSingleLink>
       </TooltipTrigger>
       <TooltipContent side='right'>
         <p>{link.text}</p>

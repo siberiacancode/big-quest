@@ -1,7 +1,7 @@
 import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
-import { OpenedSidebarSubLink } from './OpenedSidebarSubLink';
+import { OpenedNavigationSubLink } from './OpenedNavigationSubLink';
 
 interface OpenedSidebarNestedLinkProps {
   link: NavigationLinkInfo;
@@ -9,7 +9,7 @@ interface OpenedSidebarNestedLinkProps {
   pathname: string;
 }
 
-export const OpenedSidebarNestedLink = ({
+export const OpenedNavigationNestedLink = ({
   link,
   isActive,
   pathname
@@ -31,9 +31,13 @@ export const OpenedSidebarNestedLink = ({
     </AccordionTrigger>
     <AccordionContent className='flex flex-col items-center gap-3'>
       {link.subLinks?.map((subLink) => (
-        <OpenedSidebarSubLink key={subLink.id} link={subLink} isActive={pathname === subLink.href}>
+        <OpenedNavigationSubLink
+          key={subLink.id}
+          link={subLink}
+          isActive={pathname === subLink.href}
+        >
           {subLink.text}
-        </OpenedSidebarSubLink>
+        </OpenedNavigationSubLink>
       ))}
     </AccordionContent>
   </AccordionItem>

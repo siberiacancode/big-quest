@@ -1,22 +1,22 @@
 import React from 'react';
 
-import { ClosedSidebarNestedLink } from './ClosedSidebarNestedLink';
-import { ClosedSidebarSingleLink } from './ClosedSidebarSingleLink';
+import { ClosedNavigationNestedLink } from './ClosedNavigationNestedLink';
+import { ClosedNavigationSingleLink } from './ClosedNavigationSingleLink';
 
-interface ClosedSidebarNavigationProps {
+interface ClosedNavigationProps {
   pathname: string;
   links: NavigationLinkInfo[];
 }
 
-export const ClosedSidebarNavigation = ({ links, pathname }: ClosedSidebarNavigationProps) => (
+export const ClosedNavigation = ({ links, pathname }: ClosedNavigationProps) => (
   <nav className='mt-10 flex flex-col gap-2'>
     {links.map((link) => (
       <React.Fragment key={link.id}>
         {!link.subLinks && (
-          <ClosedSidebarSingleLink link={link} isActive={pathname === link.href} />
+          <ClosedNavigationSingleLink link={link} isActive={pathname === link.href} />
         )}
         {!!link.subLinks && (
-          <ClosedSidebarNestedLink
+          <ClosedNavigationNestedLink
             link={link}
             isActive={pathname.startsWith(link.href)}
             pathname={pathname}

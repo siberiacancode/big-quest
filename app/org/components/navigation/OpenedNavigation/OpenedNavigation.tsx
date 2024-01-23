@@ -2,32 +2,32 @@ import React from 'react';
 
 import { Accordion } from '@/components/ui';
 
-import { SidebarSingleLink } from '../SidebarSingleLink/SidebarSingleLink';
+import { NavigationSingleLink } from '../NavigationSingleLink/NavigationSingleLink';
 
-import { OpenedSidebarNestedLink } from './OpenedSidebarNestedLink';
+import { OpenedNavigationNestedLink } from './OpenedNavigationNestedLink';
 
 interface OpenedSidebarNavigationProps {
   pathname: string;
   links: NavigationLinkInfo[];
 }
 
-export const OpenedSidebarNavigation = ({ links, pathname }: OpenedSidebarNavigationProps) => (
+export const OpenedNavigation = ({ links, pathname }: OpenedSidebarNavigationProps) => (
   <Accordion asChild type='multiple'>
     <nav className='mt-10 flex w-full flex-col gap-2'>
       {links.map((link) => (
         <React.Fragment key={link.id}>
           {!!link.subLinks && (
-            <OpenedSidebarNestedLink
+            <OpenedNavigationNestedLink
               link={link}
               isActive={pathname.startsWith(link.href)}
               pathname={pathname}
             />
           )}
           {!link.subLinks && (
-            <SidebarSingleLink isActive={pathname === link.href} link={link}>
+            <NavigationSingleLink isActive={pathname === link.href} link={link}>
               {link.icon}
               {link.text}
-            </SidebarSingleLink>
+            </NavigationSingleLink>
           )}
         </React.Fragment>
       ))}

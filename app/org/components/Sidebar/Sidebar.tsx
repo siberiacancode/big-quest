@@ -2,23 +2,19 @@
 
 import React from 'react';
 import { ArrowLeftFromLineIcon, ArrowRightFromLineIcon } from 'lucide-react';
-import { usePathname } from 'next/navigation';
 
 import { Logo } from '@/components/common';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
-import { ClosedSidebarNavigation } from './components/ClosedSidebarNavigation/ClosedSidebarNavigation';
-import { OpenedSidebarNavigation } from './components/OpenedSidebarNavigation/OpenedSidebarNavigation';
 import { useSidebar } from './hooks/useSidebar';
 
 interface SidebarProps {
-  renderChildren?: (isOpen: boolean) => React.ReactNode;
+  children?: (isOpen: boolean) => React.ReactNode;
 }
 
-export const Sidebar = ({ renderChildren }: SidebarProps) => {
+export const Sidebar = ({ children }: SidebarProps) => {
   const { state, functions } = useSidebar();
-  const pathname = usePathname();
 
   return (
     <div
@@ -40,14 +36,7 @@ export const Sidebar = ({ renderChildren }: SidebarProps) => {
         {!state.isOpen && <ArrowRightFromLineIcon className='h-4 w-4' />}
       </Button>
 
-      {renderChildren?.(state.isOpen)}
-
-      {state.isOpen && (
-        <OpenedSidebarNavigation links={state.navigationLinks} pathname={pathname} />
-      )}
-      {!state.isOpen && (
-        <ClosedSidebarNavigation links={state.navigationLinks} pathname={pathname} />
-      )}
+      {children?.(state.isOpen)}
     </div>
   );
 };
