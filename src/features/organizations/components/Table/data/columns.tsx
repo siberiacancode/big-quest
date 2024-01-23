@@ -1,4 +1,3 @@
-import { Checkbox } from '@radix-ui/react-checkbox';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,6 +10,7 @@ import type { ColumnDef } from '@tanstack/react-table';
 import { Edit3Icon } from 'lucide-react';
 
 import { Button } from '@/components/ui';
+import { Checkbox } from '@/components/ui/checkbox';
 import { generateColumn } from '@/features/organizations/helpers/generateColumn';
 
 import type { Application } from '../types';
