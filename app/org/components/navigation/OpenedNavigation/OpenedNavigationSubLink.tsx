@@ -16,7 +16,10 @@ export const OpenedNavigationSubLink = ({
 }: OpenedSidebarSubLinkProps) => (
   <Link
     href={link.href}
-    className={cn(isActive && 'underline', 'w-full justify-start rounded-none hover:underline')}
+    className={cn(
+      isActive && 'underline',
+      'w-full justify-start rounded-none pl-9 hover:underline'
+    )}
   >
     {children}
   </Link>

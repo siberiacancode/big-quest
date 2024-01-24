@@ -17,11 +17,11 @@ export const OpenedNavigationNestedLink = ({
   <AccordionItem
     value={link.id}
     className={cn(
-      'relative rounded-md border-none px-4',
+      'relative rounded-md border-none px-3',
       isActive ? 'bg-secondary hover:bg-secondary/80' : 'bg-background hover:bg-secondary/80'
     )}
   >
-    <AccordionTrigger className='py-2 hover:no-underline'>
+    <AccordionTrigger className='py-3 hover:no-underline'>
       <div className={cn('flex items-center justify-between ')}>
         <div className='flex gap-3'>
           {link.icon}

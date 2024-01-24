@@ -23,16 +23,16 @@ export const MobileHeader = () => {
       <Logo full={false} />
       <div
         className={cn(
-          'fixed -top-full left-0 right-0 z-10 flex h-screen flex-1 items-center justify-center bg-background opacity-0 transition-all lg:h-full',
+          'fixed -top-full left-0 z-10 h-screen w-full bg-background py-24 opacity-0 transition-all',
           state.isOpen && 'top-0 overflow-auto opacity-100'
         )}
       >
-        <div className='flex w-64 flex-col items-center justify-center overflow-auto py-24 '>
-          <div className='flex h-full flex-col items-center justify-center'>
+        <div className='mx-auto flex w-64 flex-col items-center justify-center'>
+          <div className='flex w-full flex-col items-center justify-center'>
             <HeaderSearch />
 
             <div className='mt-10 flex flex-col-reverse items-center gap-4'>
-              <div className='flex'>
+              <div className='flex gap-4'>
                 <ThemeSwitcher />
                 <NotificationsDropdownMenu />
               </div>

@@ -14,7 +14,9 @@ const OrgLayout = ({ children }: OrgLayoutProps) => (
       <MobileLayout>{children}</MobileLayout>
     </div>
     <div className='flex min-h-screen lgx:hidden'>
-      <OrgSidebar />
+      <div className='flex-1'>
+        <OrgSidebar />
+      </div>
       <div className='flex w-full flex-col'>
         <DesktopHeader />
         <section className='flex-1 bg-secondary p-8'>{children}</section>

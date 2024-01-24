@@ -4,8 +4,10 @@ import { ProfileDropdownMenu } from './components/ProfileDropdownMenu/ProfileDro
 import { ThemeSwitcher } from './components/ThemeSwitcher/ThemeSwitcher';
 
 export const DesktopHeader = () => (
-  <header className='flex h-20 w-full items-center justify-between bg-background pl-8 pr-14'>
-    <HeaderSearch />
+  <header className='flex h-24 w-full items-center justify-between bg-background pl-8 pr-14 2xlx:pr-8'>
+    <div className='w-[372px] 2xlx:w-72'>
+      <HeaderSearch />
+    </div>
 
     <div className='flex items-center gap-4'>
       <ThemeSwitcher />

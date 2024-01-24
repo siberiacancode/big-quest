@@ -11,7 +11,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <Button
-      className='mr-4 w-10 rounded-full'
+      className='w-10 rounded-full'
       size='icon'
       variant='outline'
       onClick={functions.toggleTheme}

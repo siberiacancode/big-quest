@@ -15,7 +15,9 @@ export const ClosedNavigationNestedLink = ({
 }: ClosedNavigationNestedLinkProps) => (
   <HoverCard>
     <HoverCardTrigger>
-      <Button variant={isActive ? 'secondary' : 'ghost'}>{link.icon}</Button>
+      <Button className='h-auto w-auto p-3' variant={isActive ? 'secondary' : 'ghost'}>
+        {link.icon}
+      </Button>
     </HoverCardTrigger>
     <HoverCardContent side='right' className='flex w-36 translate-y-1/4 flex-col gap-1 p-2'>
       {link.subLinks?.map((subLink) => (
