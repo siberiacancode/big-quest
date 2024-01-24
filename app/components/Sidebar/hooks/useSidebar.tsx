@@ -13,7 +13,7 @@ export const useSidebar = ({ defaultOpen }: UseSidebarParams) => {
   const [isOpen, setIsOpen] = React.useState(defaultOpen);
 
   const toggleSidebarOpen = () => {
-    setCookie(COOKIES.SIDEBAR, !isOpen);
+    setCookie(COOKIES.OPEN_SIDEBAR, !isOpen);
     setIsOpen(!isOpen);
   };
 

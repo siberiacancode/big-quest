@@ -5,6 +5,6 @@ export const getNavigationLinksByUserRole = (userRole: UserRole) => {
     case 'organizer':
       return ORGANIZER_LINKS;
     default:
-      return [];
+      throw new Error('Invalid user role');
   }
 };
