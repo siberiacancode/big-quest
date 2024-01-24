@@ -36,7 +36,7 @@ export const generateColumn = ({
     ),
     cell: ({ row }) => {
       const value: string | number = row.getValue(accessorKey);
-      return <div className={`px-4 text-left font-medium `}>{value}</div>;
+      return <div className='px-4 text-left font-medium'>{value}</div>;
     },
     enableSorting: sortable,
     enableHiding: true

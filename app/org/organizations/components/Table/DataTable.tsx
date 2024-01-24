@@ -10,10 +10,14 @@ import { DataTableBody } from './components/DataTableBody/DataTableBody';
 import { DataTableFilters } from './components/DataTableFilters/DataTableFilters';
 import { DataTableHeader } from './components/DataTableHeader/DataTableHeader';
 import { columns } from './constants/columns';
-import { data } from './constants/data';
 import { useDataTable } from './hooks/useDataTable';
+import type { Application } from './types';
 
-export const DataTable = () => {
+interface DataTableProps {
+  data: Application[];
+}
+
+export const DataTable = ({ data }: DataTableProps) => {
   const table = useDataTable(data, columns);
 
   return (

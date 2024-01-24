@@ -34,9 +34,6 @@ export const DataTableFilters = <TData,>({ table }: DataTableFiltersProps<TData>
 
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        {/* <Button variant='outline' className='ml-auto'>
-              Columns <ChevronDownIcon className='ml-2 h-4 w-4' />
-            </Button> */}
         <Button variant='outline' size='sm' className='m-2 bg-breadboard md:ml-auto'>
           <PlusCircledIcon className='mr-2 h-4 w-4' />
           Добавить

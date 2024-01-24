@@ -1,11 +1,10 @@
-import type { FC } from 'react';
 import { ChevronRightIcon } from 'lucide-react';
 import Link from 'next/link';
 
 interface BreadcrumbsProps {
   breadcrumbs: { label: string; link: string }[];
 }
-export const Breadcrumbs: FC<BreadcrumbsProps> = ({ breadcrumbs }) => (
+export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => (
   <nav aria-label='Breadcrumb'>
     <ul className='flex py-6'>
       {breadcrumbs.map((crumb, index) => (

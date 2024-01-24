@@ -17,7 +17,7 @@ export const renderPageButtons = <TData,>({ table }: RenderPageButtonsProps<TDat
       size='sm'
       onClick={() => table.setPageIndex(page - 1)}
       className={`h-8 w-8 rounded-lg border border-breadboard font-normal ${
-        page === currentPage ? ' bg-breadboard' : ''
+        page === currentPage && 'bg-breadboard'
       }`}
     >
       {page < 10 ? `0${page}` : page}

@@ -2,6 +2,7 @@ import { InfoIcon, TrendingUpIcon } from 'lucide-react';
 
 import { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
 import { SummaryCard } from './components/SummaryCard/SummaryCard';
+import { data } from './components/Table/constants/data';
 import { DataTable } from './components/Table/DataTable';
 
 const contents = [
@@ -41,7 +42,7 @@ const OrganizationsPage = () => {
           titleIcon={<InfoIcon size={20} strokeWidth={1.5} />}
         />
       </div>
-      <DataTable />
+      <DataTable data={data} />
     </div>
   );
 };
