@@ -22,12 +22,17 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const messages = getMessagesByLocale(locale);
 
   return (
-  <html lang='en'>
-    <body className={`min-h-screen bg-background font-sans antialiased ${inter.className}`}>
-      <Providers i18n={{ locale, messages }} session={{ defaultSession: { isAuthenticated: true } }}>{children}</Providers>
-      <Toaster duration={TOASTER_DURATION} />
-    </body>
-  </html>
+    <html lang='en'>
+      <body className={`min-h-screen bg-background font-sans antialiased ${inter.className}`}>
+        <Providers
+          i18n={{ locale, messages }}
+          session={{ defaultSession: { isAuthenticated: true } }}
+        >
+          {children}
+        </Providers>
+        <Toaster duration={TOASTER_DURATION} />
+      </body>
+    </html>
   );
 };
 

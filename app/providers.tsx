@@ -11,7 +11,6 @@ interface ProvidersProps {
   children: React.ReactNode;
   session: Omit<SessionProviderProps, 'children'>;
   i18n: Omit<I18nProviderProps, 'children'>;
-
 }
 
 const Providers: React.FC<ProvidersProps> = ({ children, session, i18n }) => (
