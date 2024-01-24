@@ -2,9 +2,10 @@ import * as React from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import type { Table } from '@tanstack/react-table';
 
-import { Button } from '@/components/ui/button';
-import type { Application } from '@/features/organizations/components/Table/types';
-import { renderPageButtons } from '@/features/organizations/helpers/renderPageButtons';
+import { Button } from '@/components/ui';
+import { renderPageButtons } from '@/utils/helpers/renderPageButtons';
+
+import type { Application } from '../Table/types';
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;
@@ -22,7 +23,7 @@ export const TablePagination: React.FC<DataTablePaginationProps<Application>> = 
       </div>
       <div className='flex items-center space-x-2'>
         <span className='text-b text-sm font-semibold'>
-          {pageCount < 10 ? `0${pageCount + 1}` : pageCount} страница из {pageCount}
+          {pageCount < 10 ? `0${pageIndex + 1}` : pageIndex} страница из {pageCount}
         </span>
 
         <Button

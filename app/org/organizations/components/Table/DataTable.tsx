@@ -3,12 +3,15 @@
 import * as React from 'react';
 
 import { Table } from '@/components/ui/table';
-import { useDataTable } from '@/features/organizations/hooks/useDataTable';
-import { TablePagination } from '@/shared/components';
 
-import { columns } from './data/columns';
-import { data } from './data/data';
-import { DataTableBody, DataTableFilters, DataTableHeader } from './components';
+import { TablePagination } from '../TablePagination/TablePagination';
+
+import { DataTableBody } from './components/DataTableBody/DataTableBody';
+import { DataTableFilters } from './components/DataTableFilters/DataTableFilters';
+import { DataTableHeader } from './components/DataTableHeader/DataTableHeader';
+import { columns } from './constants/columns';
+import { data } from './constants/data';
+import { useDataTable } from './hooks/useDataTable';
 
 export const DataTable = () => {
   const table = useDataTable(data, columns);

@@ -9,9 +9,8 @@ import {
 import type { ColumnDef } from '@tanstack/react-table';
 import { Edit3Icon } from 'lucide-react';
 
-import { Button } from '@/components/ui';
-import { Checkbox } from '@/components/ui/checkbox';
-import { generateColumn } from '@/features/organizations/helpers/generateColumn';
+import { Button, Checkbox } from '@/components/ui';
+import { generateColumn } from '@/utils/helpers/generateColumn';
 
 import type { Application } from '../types';
 

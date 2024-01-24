@@ -2,9 +2,9 @@ import * as React from 'react';
 import { CaretSortIcon } from '@radix-ui/react-icons';
 import type { ColumnDef } from '@tanstack/react-table';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 
-import type { Application } from '../components/Table/types';
+import type { Application } from '../../../app/org/organizations/components/Table/types';
 
 interface ColumnConfig {
   accessorKey: keyof Application;

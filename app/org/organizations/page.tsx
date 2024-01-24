@@ -1,26 +1,24 @@
 import { InfoIcon, TrendingUpIcon } from 'lucide-react';
 
-import { DataTable } from '@/features/organizations/components/Table/DataTable';
-import { Breadcrumbs } from '@/shared/components';
-import { SummaryCard } from '@/shared/components/SummaryCard';
+import { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
+import { SummaryCard } from './components/SummaryCard/SummaryCard';
+import { DataTable } from './components/Table/DataTable';
+
+const contents = [
+  { info: '6', description: 'Лиды' },
+  { info: '10', description: 'Переговоры' },
+  { info: '13', description: 'Смена тарифа' }
+];
+
+const breadcrumbs = [
+  { label: 'Главная', link: '/' },
+  { label: 'Организации', link: '/org/organizations' }
+];
 
 const OrganizationsPage = () => {
-  const contents = [
-    { info: '6', description: 'Лиды' },
-    { info: '10', description: 'Переговоры' },
-    { info: '13', description: 'Смена тарифа' }
-  ];
-
-  const breadcrumbs = [
-    { label: 'Главная', link: '/' },
-    { label: 'Организации', link: '/organizations' }
-  ];
-
   return (
-    <div className=' bg-breadboard px-4'>
-      <span>Organizations Page</span>
+    <div className='bg-breadboard px-4'>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
-
       <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'>
         <SummaryCard
           title='Партнеры'

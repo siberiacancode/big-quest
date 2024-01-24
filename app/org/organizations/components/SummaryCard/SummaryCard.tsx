@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeartHandshakeIcon, TreePineIcon } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui';
 
 interface Content {
   info: string;
@@ -58,5 +58,3 @@ export const SummaryCard: React.FC<SummaryCardProps> = ({
     </Card>
   );
 };
-
-export default SummaryCard;

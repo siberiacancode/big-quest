@@ -2,7 +2,7 @@ import React from 'react';
 import type { Table } from '@tanstack/react-table';
 import { flexRender } from '@tanstack/react-table';
 
-import { TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { TableHead, TableHeader, TableRow } from '@/components/ui';
 
 export interface TableHeaderProps<TData> {
   table: Table<TData>;

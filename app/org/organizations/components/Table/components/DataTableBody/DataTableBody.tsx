@@ -2,7 +2,7 @@ import React from 'react';
 import type { ColumnDef, Table } from '@tanstack/react-table';
 import { flexRender } from '@tanstack/react-table';
 
-import { TableBody, TableCell, TableRow } from '@/components/ui/table';
+import { TableBody, TableCell, TableRow } from '@/components/ui';
 
 import type { Application } from '../../types';
 

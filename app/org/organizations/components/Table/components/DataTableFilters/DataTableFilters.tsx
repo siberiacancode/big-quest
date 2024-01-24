@@ -2,14 +2,14 @@ import React from 'react';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 import type { Table } from '@tanstack/react-table';
 
-import { Button } from '@/components/ui/button';
 import {
+  Button,
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
+  DropdownMenuTrigger,
+  Input
+} from '@/components/ui';
 
 export interface DataTableFiltersProps<TData> {
   table: Table<TData>;
