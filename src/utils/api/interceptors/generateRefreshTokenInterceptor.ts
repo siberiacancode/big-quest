@@ -16,24 +16,19 @@ export const generateRefreshTokenInterceptor = () =>
         !originalConfig._retry
       ) {
         try {
-          const refreshTokenResult = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/1.0/auth/refresh-tokens`,
-            {
-              method: 'POST',
-              body: JSON.stringify({ token: 'refreshToken' })
-            }
-          );
+          await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/1.0/auth/refresh-tokens`, {
+            method: 'POST',
+            headers: {
+              'Content-type': 'application/json',
+              Authorization: `Bearer accessToken2`
+            },
+            credentials: 'include'
+          });
 
-          if (refreshTokenResult.ok) {
-            const refreshTokenData = await refreshTokenResult.json();
+          originalConfig._retry = true;
 
-            if (refreshTokenData?.accessToken) {
-              originalConfig._retry = true;
-              return await api.call(originalConfig);
-            }
-          }
+          return await api.call(originalConfig);
         } catch (refreshError) {
-          console.error(refreshError);
           return Promise.reject(refreshError);
         }
       }

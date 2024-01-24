@@ -20,20 +20,27 @@ export const QueryProvider: React.FC<QueryProviderProps> = ({ children }) => {
           onError: (error) => {
             const responseError = error as ResponseError;
 
-            if (responseError.response.status === 401) {
-              console.log('@', router);
-              // router.replace('/sign');
+            if (responseError?.response?.status === 401) {
+              router.replace('/auth');
             }
-            toast.error(responseError.message, {
+
+            toast.error(responseError.response.data.message, {
               cancel: { label: 'Close' }
             });
           }
         }),
         mutationCache: new MutationCache({
-          onError: (cause) =>
-            toast.error(cause.message, {
+          onError: (error) => {
+            const responseError = error as ResponseError;
+
+            if (responseError?.response?.status === 401) {
+              router.replace('/auth');
+            }
+
+            toast.error(responseError?.response?.data.message, {
               cancel: { label: 'Close' }
-            })
+            });
+          }
         })
       }),
     []
