@@ -1,8 +1,6 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-import { COOKIE } from '@/utils/constants';
-
-export const loginConfig: RestRequestConfig = {
+export const loginEmailConfig: RestRequestConfig = {
   path: '/login/email',
   method: 'post',
   routes: [
@@ -10,9 +8,32 @@ export const loginConfig: RestRequestConfig = {
       data: { message: 'Неверный логин или пароль' },
       interceptors: {
         response: (data, params) => {
-          console.log(params.request.body, data);
-
           params.setStatusCode(401);
+          return data;
+        }
+      }
+    },
+    {
+      data: {},
+      entities: {
+        body: {
+          email: 'superadmin@mail.ru',
+          password: '22'
+        }
+      },
+      interceptors: {
+        response: (data, { setCookie }) => {
+          setCookie('refreshToken', 'refreshToken', {
+            httpOnly: true,
+            maxAge: 360000,
+            path: '/'
+          });
+          setCookie('accessToken', 'accessToken', {
+            httpOnly: true,
+            maxAge: 360000,
+            path: '/'
+          });
+
           return data;
         }
       }
@@ -30,26 +51,6 @@ export const loginConfig: RestRequestConfig = {
       interceptors: {
         response: (data, params) => {
           params.setStatusCode(400);
-
-          return data;
-        }
-      }
-    },
-    {
-      data: { accessToken: 'accessToken' },
-      entities: {
-        body: {
-          email: 'superadmin@mail.ru',
-          password: 'Pa$$w0rd'
-        }
-      },
-      interceptors: {
-        response: (data, { setCookie }) => {
-          setCookie(COOKIE.REFRESH_TOKEN, 'refreshToken', {
-            httpOnly: true,
-            maxAge: 360000,
-            path: '/'
-          });
 
           return data;
         }

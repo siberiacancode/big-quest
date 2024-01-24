@@ -1,6 +1,6 @@
 import type { MockServerConfig } from 'mock-config-server';
 
-import { loginConfig, refreshTokensConfig } from './mock';
+import { loginEmailConfig, refreshTokensConfig } from './mock';
 
 let flag = false;
 
@@ -9,7 +9,7 @@ const mockServerConfig: MockServerConfig = {
   cors: {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    allowedHeaders: ['content-type'],
+    allowedHeaders: ['content-type', 'authorization'],
     credentials: true
   },
   rest: {
@@ -23,18 +23,22 @@ const mockServerConfig: MockServerConfig = {
           }
         ],
         interceptors: {
-          response: (data, { setStatusCode }) => {
-            if (!flag) {
+          response: (data, { request, setStatusCode }) => {
+            if (
+              !flag ||
+              request.headers.authorization !== `Bearer ${request.cookies.accessToken}`
+            ) {
               setStatusCode(401);
               flag = true;
               return data;
             }
+
             flag = false;
             return data;
           }
         }
       },
-      loginConfig,
+      loginEmailConfig,
       refreshTokensConfig
     ]
   }

@@ -1,36 +1,32 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-import { COOKIE } from '@/utils/constants';
-
 export const refreshTokensConfig: RestRequestConfig = {
   path: '/refresh-tokens',
   method: 'post',
   routes: [
     {
-      data: { message: 'Неизвестный токен' },
+      data: null,
       interceptors: {
-        response: (data, params) => {
-          params.setStatusCode(401);
-          return data;
-        }
-      }
-    },
-    {
-      data: {
-        accessToken: 'accessToken2'
-      },
-      entities: {
-        body: {
-          token: 'refreshToken'
-        }
-      },
-      interceptors: {
-        response: (data, { setCookie }) => {
-          setCookie(COOKIE.REFRESH_TOKEN, 'refreshToken2', {
-            httpOnly: true,
-            maxAge: 360000,
-            path: '/'
-          });
+        response: (data, { request, setCookie, setStatusCode }) => {
+          if (
+            request.cookies.refreshToken &&
+            request.cookies.accessToken &&
+            request.headers.authorization === `Bearer ${request.cookies.accessToken}`
+          ) {
+            setCookie('refreshToken', 'refreshToken2', {
+              httpOnly: true,
+              maxAge: 360000,
+              path: '/'
+            });
+            setCookie('accessToken', 'accessToken2', {
+              httpOnly: true,
+              maxAge: 360000,
+              path: '/'
+            });
+          } else {
+            setStatusCode(401);
+            return { message: 'Невалидный токен' };
+          }
 
           return data;
         }
