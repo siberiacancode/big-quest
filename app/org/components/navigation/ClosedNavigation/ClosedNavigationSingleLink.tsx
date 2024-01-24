@@ -9,7 +9,7 @@ interface ClosedNavigationSingleLinkProps {
 }
 
 export const ClosedNavigationSingleLink = ({ link, isActive }: ClosedNavigationSingleLinkProps) => (
-  <TooltipProvider>
+  <TooltipProvider delayDuration={300}>
     <Tooltip>
       <TooltipTrigger>
         <NavigationSingleLink link={link} isActive={isActive}>

@@ -6,7 +6,6 @@ export const useMobileHeader = () => {
   const searchParams = useSearchParams();
 
   const [isOpen, setIsOpen] = React.useState(false);
-  // TODO
   const userRole: UserRole = 'organizer';
 
   const onBurgerClick = () => {

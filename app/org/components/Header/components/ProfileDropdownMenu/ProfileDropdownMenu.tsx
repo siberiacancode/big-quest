@@ -12,7 +12,7 @@ export const ProfileDropdownMenu = () => {
 
   return (
     <DropdownMenu open={state.isOpen} onOpenChange={functions.setIsOpen}>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>
         <div className='flex cursor-pointer items-center gap-4 rounded-lg px-3 py-1 transition-colors hover:bg-secondary'>
           <div className='relative'>
             <div className='h-10 w-10 rounded-full bg-primary' />

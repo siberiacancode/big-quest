@@ -1,11 +1,16 @@
 'use client';
 
-import { Sidebar } from '../../../components/Sidebar/Sidebar';
+import { Sidebar, type SidebarProps } from '../../../components/Sidebar/Sidebar';
 import { SidebarNavigation } from '../navigation/SidebarNavigation/SidebarNavigation';
 
-export const OrgSidebar = () => {
-  // TODO
+type OrgSidebarProps = Omit<SidebarProps, 'children'>;
+
+export const OrgSidebar = (props: OrgSidebarProps) => {
   const userRole = 'organizer';
 
-  return <Sidebar>{(isOpen) => <SidebarNavigation isOpen={isOpen} userRole={userRole} />}</Sidebar>;
+  return (
+    <Sidebar {...props}>
+      {(isOpen) => <SidebarNavigation isOpen={isOpen} userRole={userRole} />}
+    </Sidebar>
+  );
 };

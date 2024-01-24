@@ -1,5 +1,5 @@
 import { I18nText } from '@/components/common';
-import { Button, HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui';
+import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui';
 
 import { NavigationSingleLink } from '../NavigationSingleLink/NavigationSingleLink';
 
@@ -14,18 +14,21 @@ export const ClosedNavigationNestedLink = ({
   isActive,
   pathname
 }: ClosedNavigationNestedLinkProps) => (
-  <HoverCard>
-    <HoverCardTrigger>
+  <DropdownMenu>
+    <DropdownMenuTrigger asChild>
       <Button className='h-auto w-auto p-3' variant={isActive ? 'secondary' : 'ghost'}>
         {link.icon}
       </Button>
-    </HoverCardTrigger>
-    <HoverCardContent side='right' className='flex w-36 translate-y-1/4 flex-col gap-1 p-2'>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent
+      side='right'
+      className='flex w-40 translate-y-1/4 flex-col gap-1 rounded-2xl p-2'
+    >
       {link.subLinks?.map((subLink, index) => (
         <NavigationSingleLink key={index} link={subLink} isActive={pathname === subLink.href}>
           <I18nText path={subLink.text} />
         </NavigationSingleLink>
       ))}
-    </HoverCardContent>
-  </HoverCard>
+    </DropdownMenuContent>
+  </DropdownMenu>
 );

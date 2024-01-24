@@ -1,16 +1,19 @@
 'use client';
 
 import React from 'react';
+import { setCookie } from 'cookies-next';
 
-import { LOCAL_STORAGE_KEYS } from '@/utils/constants';
+import { COOKIES } from '@/utils/constants';
 
-export const useSidebar = () => {
-  const [isOpen, setIsOpen] = React.useState(
-    () => localStorage.getItem(LOCAL_STORAGE_KEYS.SIDEBAR) === 'true'
-  );
+interface UseSidebarParams {
+  defaultOpen: boolean;
+}
+
+export const useSidebar = ({ defaultOpen }: UseSidebarParams) => {
+  const [isOpen, setIsOpen] = React.useState(defaultOpen);
 
   const toggleSidebarOpen = () => {
-    localStorage.setItem(LOCAL_STORAGE_KEYS.SIDEBAR, String(!isOpen));
+    setCookie(COOKIES.SIDEBAR, !isOpen);
     setIsOpen(!isOpen);
   };
 

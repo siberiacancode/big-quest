@@ -7,12 +7,13 @@ import { cn } from '@/lib/utils';
 
 import { useSidebar } from './hooks/useSidebar';
 
-interface SidebarProps {
+export interface SidebarProps {
   children: (isOpen: boolean) => React.ReactNode;
+  defaultOpen: boolean;
 }
 
-export const Sidebar = ({ children }: SidebarProps) => {
-  const { state, functions } = useSidebar();
+export const Sidebar = ({ children, defaultOpen }: SidebarProps) => {
+  const { state, functions } = useSidebar({ defaultOpen });
 
   return (
     <div
