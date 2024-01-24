@@ -1,3 +1,4 @@
+import { I18nText } from '@/components/common';
 import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
@@ -15,28 +16,24 @@ export const OpenedNavigationNestedLink = ({
   pathname
 }: OpenedSidebarNestedLinkProps) => (
   <AccordionItem
-    value={link.id}
+    value={link.href}
     className={cn(
       'relative rounded-md border-none px-3',
-      isActive ? 'bg-secondary hover:bg-secondary/80' : 'bg-background hover:bg-secondary/80'
+      isActive ? 'bg-secondary hover:bg-accent/80' : 'bg-background hover:bg-accent'
     )}
   >
     <AccordionTrigger className='py-3 hover:no-underline'>
       <div className={cn('flex items-center justify-between ')}>
         <div className='flex gap-3'>
           {link.icon}
-          {link.text}
+          <I18nText path={link.text} />
         </div>
       </div>
     </AccordionTrigger>
     <AccordionContent className='flex flex-col items-center gap-3'>
-      {link.subLinks?.map((subLink) => (
-        <OpenedNavigationSubLink
-          key={subLink.id}
-          link={subLink}
-          isActive={pathname === subLink.href}
-        >
-          {subLink.text}
+      {link.subLinks?.map((subLink, index) => (
+        <OpenedNavigationSubLink key={index} link={subLink} isActive={pathname === subLink.href}>
+          <I18nText path={subLink.text} />
         </OpenedNavigationSubLink>
       ))}
     </AccordionContent>

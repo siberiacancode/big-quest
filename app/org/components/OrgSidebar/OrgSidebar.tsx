@@ -1,8 +1,7 @@
 'use client';
 
+import { Sidebar } from '../../../components/Sidebar/Sidebar';
 import { SidebarNavigation } from '../navigation/SidebarNavigation/SidebarNavigation';
-
-import { Sidebar } from './Sidebar';
 
 export const OrgSidebar = () => {
   // TODO

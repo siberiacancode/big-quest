@@ -8,7 +8,7 @@ interface LogoProps {
 }
 
 export const Logo = ({ full = true }: LogoProps) => (
-  <Link href={ROUTES.ROOT}>
+  <Link href={ROUTES.ORG.ROOT}>
     {full && <FullLogoIcon />}
     {!full && <LogoIcon />}
   </Link>

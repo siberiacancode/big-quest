@@ -1,3 +1,4 @@
+import { I18nText } from '@/components/common';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui';
 
 import { NavigationSingleLink } from '../NavigationSingleLink/NavigationSingleLink';
@@ -16,7 +17,9 @@ export const ClosedNavigationSingleLink = ({ link, isActive }: ClosedNavigationS
         </NavigationSingleLink>
       </TooltipTrigger>
       <TooltipContent side='right'>
-        <p>{link.text}</p>
+        <p>
+          <I18nText path={link.text} />
+        </p>
       </TooltipContent>
     </Tooltip>
   </TooltipProvider>

@@ -1,1 +1,1 @@
-export * from './useDidUpdateEffect';
+export * from './useNonInitialEffect';

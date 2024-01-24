@@ -11,7 +11,7 @@ export const useMobileHeader = () => {
 
   const onBurgerClick = () => {
     document.body.classList.toggle('overflow-hidden');
-    setIsOpen((prev) => !prev);
+    setIsOpen(!isOpen);
   };
 
   React.useEffect(() => {

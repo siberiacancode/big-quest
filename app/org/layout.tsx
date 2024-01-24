@@ -2,7 +2,7 @@ import React from 'react';
 
 import { DesktopHeader } from './components/Header/DesktopHeader';
 import { MobileLayout } from './components/MobileLayout/MobileLayout';
-import { OrgSidebar } from './components/Sidebar/OrgSidebar';
+import { OrgSidebar } from './components/OrgSidebar/OrgSidebar';
 
 interface OrgLayoutProps {
   children: React.ReactNode;

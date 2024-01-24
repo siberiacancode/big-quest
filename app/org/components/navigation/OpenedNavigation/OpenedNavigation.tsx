@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { I18nText } from '@/components/common';
 import { Accordion } from '@/components/ui';
 
 import { NavigationSingleLink } from '../NavigationSingleLink/NavigationSingleLink';
@@ -14,8 +15,8 @@ interface OpenedSidebarNavigationProps {
 export const OpenedNavigation = ({ links, pathname }: OpenedSidebarNavigationProps) => (
   <Accordion asChild type='multiple'>
     <nav className='mt-10 flex w-full flex-col gap-2'>
-      {links.map((link) => (
-        <React.Fragment key={link.id}>
+      {links.map((link, index) => (
+        <React.Fragment key={index}>
           {!!link.subLinks && (
             <OpenedNavigationNestedLink
               link={link}
@@ -27,7 +28,7 @@ export const OpenedNavigation = ({ links, pathname }: OpenedSidebarNavigationPro
             <div className='flex'>
               <NavigationSingleLink isActive={pathname === link.href} link={link}>
                 {link.icon}
-                {link.text}
+                <I18nText path={link.text} />
               </NavigationSingleLink>
             </div>
           )}

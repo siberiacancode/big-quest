@@ -1,6 +1,5 @@
 interface NavigationLinkInfo {
-  id: string;
-  text: string;
+  text: LocaleMessageId;
   href: string;
   icon?: React.JSX.Element;
   subLinks?: NavigationLinkInfo[];

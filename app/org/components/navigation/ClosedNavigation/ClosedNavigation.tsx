@@ -10,8 +10,8 @@ interface ClosedNavigationProps {
 
 export const ClosedNavigation = ({ links, pathname }: ClosedNavigationProps) => (
   <nav className='mt-10 flex flex-col gap-2'>
-    {links.map((link) => (
-      <React.Fragment key={link.id}>
+    {links.map((link, index) => (
+      <React.Fragment key={index}>
         {!link.subLinks && (
           <ClosedNavigationSingleLink link={link} isActive={pathname === link.href} />
         )}
