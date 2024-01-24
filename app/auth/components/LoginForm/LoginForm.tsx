@@ -17,7 +17,7 @@ const LoginForm = () => {
   const { form, functions } = useLoginForm();
 
   return (
-    <Form {...form.form}>
+    <Form {...form}>
       <form onSubmit={functions.onSubmit} className='space-y-5'>
         <FormField
           control={form.control}
