@@ -1,11 +1,16 @@
 import * as z from 'zod';
 
 export const loginSchema = z.object({
-  email: z.string().email({
-    message: 'Неверный формат электронной почты'
-  }),
+  email: z
+    .string()
+    .min(1, {
+      message: 'validation.required'
+    })
+    .email({
+      message: 'validation.email.format'
+    }),
   password: z.string().min(1, {
-    message: 'Данное поле не может быть пустым'
+    message: 'validation.required'
   })
 });
 

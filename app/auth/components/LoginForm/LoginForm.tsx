@@ -1,20 +1,16 @@
 import React from 'react';
+import { useIntl } from 'react-intl';
 
+import { I18nText } from '@/components/common';
 import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
 import { useLoginForm } from './hooks/useLoginForm';
 
 const LoginForm = () => {
   const { form, functions } = useLoginForm();
+  const intl = useIntl();
 
   return (
     <Form {...form}>
@@ -24,11 +20,19 @@ const LoginForm = () => {
           name='email'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Почта</FormLabel>
+              <FormLabel>
+                <I18nText path='field.email.label' />
+              </FormLabel>
               <FormControl>
-                <Input placeholder='Введите почту...' {...field} />
+                <Input
+                  placeholder={intl.formatMessage({ id: 'field.email.placeholder' })}
+                  {...field}
+                />
               </FormControl>
-              <FormMessage />
+              <FormLabel>
+                {form.formState?.errors?.email &&
+                  intl.formatMessage({ id: `${form.formState.errors.email.message}` })}
+              </FormLabel>
             </FormItem>
           )}
         />
@@ -37,15 +41,25 @@ const LoginForm = () => {
           name='password'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Пароль</FormLabel>
+              <FormLabel>
+                <I18nText path='field.password.label' />
+              </FormLabel>
               <FormControl>
-                <Input placeholder='Введите пароль...' {...field} />
+                <Input
+                  placeholder={intl.formatMessage({ id: 'field.password.placeholder' })}
+                  {...field}
+                />
               </FormControl>
-              <FormMessage />
+              <FormLabel>
+                {form.formState?.errors?.password &&
+                  intl.formatMessage({ id: `${form.formState.errors.password.message}` })}
+              </FormLabel>
             </FormItem>
           )}
         />
-        <Button type='submit'>Войти</Button>
+        <Button type='submit'>
+          <I18nText path='feature.auth.loginEmail.submit' />
+        </Button>
       </form>
     </Form>
   );
