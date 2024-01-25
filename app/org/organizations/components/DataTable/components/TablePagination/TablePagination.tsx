@@ -5,7 +5,7 @@ import type { Table } from '@tanstack/react-table';
 import { Button } from '@/components/ui';
 import { renderPageButtons } from '@/utils/helpers/renderPageButtons';
 
-import type { Application } from '../Table/types';
+import type { Application } from '../../types';
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;

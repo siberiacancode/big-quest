@@ -1,9 +1,9 @@
 import { InfoIcon, TrendingUpIcon } from 'lucide-react';
 
 import { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
+import { data } from './components/DataTable/constants/data';
+import { DataTable } from './components/DataTable/DataTable';
 import { InfoCard } from './components/InfoCard/InfoCard';
-import { data } from './components/Table/constants/data';
-import { DataTable } from './components/Table/DataTable';
 
 const contents = [
   { id: 1, info: '6', description: 'Лиды' },

@@ -14,9 +14,8 @@ export const DataTableHeader = <TData,>({ table }: TableHeaderProps<TData>) => (
       <TableRow key={headerGroup.id}>
         {headerGroup.headers.map((header) => (
           <TableHead key={header.id}>
-            {header.isPlaceholder
-              ? null
-              : flexRender(header.column.columnDef.header, header.getContext())}
+            {!header.isPlaceholder &&
+              flexRender(header.column.columnDef.header, header.getContext())}
           </TableHead>
         ))}
       </TableRow>

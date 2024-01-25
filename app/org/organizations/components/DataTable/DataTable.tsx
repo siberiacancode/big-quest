@@ -4,11 +4,10 @@ import * as React from 'react';
 
 import { Table } from '@/components/ui/table';
 
-import { TablePagination } from '../TablePagination/TablePagination';
-
 import { DataTableBody } from './components/DataTableBody/DataTableBody';
 import { DataTableFilters } from './components/DataTableFilters/DataTableFilters';
 import { DataTableHeader } from './components/DataTableHeader/DataTableHeader';
+import { TablePagination } from './components/TablePagination/TablePagination';
 import { columns } from './constants/columns';
 import { useDataTable } from './hooks/useDataTable';
 import type { Application } from './types';

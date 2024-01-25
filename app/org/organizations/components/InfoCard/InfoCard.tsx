@@ -29,7 +29,7 @@ export const InfoCard = ({
           {titleIcon || <HeartHandshakeIcon size={20} strokeWidth={1.5} />}
         </div>
       </CardHeader>
-      <CardContent className='flex flex-row justify-between '>
+      <CardContent className='flex flex-row justify-between'>
         {contents ? (
           contents.map((content) => <InfoCardItem key={content.id} {...content} />)
         ) : (

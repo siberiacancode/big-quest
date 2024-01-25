@@ -43,18 +43,16 @@ export const DataTableFilters = <TData,>({ table }: DataTableFiltersProps<TData>
         {table
           .getAllColumns()
           .filter((column) => column.getCanHide())
-          .map((column) => {
-            return (
-              <DropdownMenuCheckboxItem
-                key={column.id}
-                className='capitalize'
-                checked={column.getIsVisible()}
-                onCheckedChange={(value) => column.toggleVisibility(!!value)}
-              >
-                {column.id}
-              </DropdownMenuCheckboxItem>
-            );
-          })}
+          .map((column) => (
+            <DropdownMenuCheckboxItem
+              key={column.id}
+              className='capitalize'
+              checked={column.getIsVisible()}
+              onCheckedChange={(value) => column.toggleVisibility(!!value)}
+            >
+              {column.id}
+            </DropdownMenuCheckboxItem>
+          ))}
       </DropdownMenuContent>
     </DropdownMenu>
   </div>
