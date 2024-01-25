@@ -18,11 +18,16 @@ export const Sidebar = ({ children, defaultOpen }: SidebarProps) => {
   return (
     <div
       className={cn(
-        ' min-h-screen w-[302px] bg-background transition-[width] duration-300',
-        !state.isOpen && 'w-[92px]'
+        ' min-h-screen w-[302px] bg-background px-8 transition-[width] duration-300',
+        !state.isOpen && 'w-[92px] px-[22px]'
       )}
     >
-      <div className='relative flex h-24 items-center justify-center'>
+      <div
+        className={cn(
+          'relative flex h-24 items-center justify-start',
+          !state.isOpen && 'justify-center'
+        )}
+      >
         <Logo full={state.isOpen} />
         <Button
           className='absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2'
@@ -35,7 +40,7 @@ export const Sidebar = ({ children, defaultOpen }: SidebarProps) => {
         </Button>
       </div>
 
-      <div className={cn('px-8', !state.isOpen && 'px-[22px]')}>{children(state.isOpen)}</div>
+      <div className='w-full'>{children(state.isOpen)}</div>
     </div>
   );
 };

@@ -27,7 +27,7 @@ export const MobileHeader = () => {
           state.isOpen && 'top-0 overflow-auto opacity-100'
         )}
       >
-        <div className='mx-auto flex w-64 flex-col items-center justify-center'>
+        <div className='mx-auto flex flex-col items-center justify-center lgx:w-96 mdx:w-80 smx:w-64'>
           <div className='flex w-full flex-col items-center justify-center'>
             <HeaderSearch />
 

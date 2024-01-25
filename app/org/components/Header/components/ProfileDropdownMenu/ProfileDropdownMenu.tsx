@@ -13,13 +13,13 @@ export const ProfileDropdownMenu = () => {
   return (
     <DropdownMenu open={state.isOpen} onOpenChange={functions.setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <div className='flex cursor-pointer items-center gap-4 rounded-lg px-3 py-1 transition-colors hover:bg-secondary'>
+        <div className='flex cursor-pointer items-center gap-4 rounded-lg p-3 transition-colors hover:bg-secondary'>
           <div className='relative'>
             <div className='h-10 w-10 rounded-full bg-primary' />
             <div className='absolute bottom-0 right-0 h-2 w-2 rounded-full border bg-muted-foreground' />
           </div>
           <div className='flex flex-col justify-between'>
-            <p className=''>Имя фамилия</p>
+            <p>Имя фамилия</p>
             <p className='text-sm text-muted-foreground'>Админ</p>
           </div>
           {state.isOpen && <ChevronUpIcon />}
