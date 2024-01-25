@@ -25,7 +25,7 @@ export const TablePagination: React.FC<DataTablePaginationProps<Application>> = 
         <span className='text-b text-sm font-semibold'>
           {pageCount < 10 ? `0${pageIndex + 1}` : pageIndex} страница из {pageCount}
         </span>
-        <div className='flex items-center'>
+        <div className='flex items-center gap-2'>
           <Button
             variant='outline'
             size='sm'

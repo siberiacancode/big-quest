@@ -1,14 +1,14 @@
 import { InfoIcon, TrendingUpIcon } from 'lucide-react';
 
 import { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
-import { SummaryCard } from './components/SummaryCard/SummaryCard';
+import { InfoCard } from './components/InfoCard/InfoCard';
 import { data } from './components/Table/constants/data';
 import { DataTable } from './components/Table/DataTable';
 
 const contents = [
-  { info: '6', description: 'Лиды' },
-  { info: '10', description: 'Переговоры' },
-  { info: '13', description: 'Смена тарифа' }
+  { id: 1, info: '6', description: 'Лиды' },
+  { id: 2, info: '10', description: 'Переговоры' },
+  { id: 3, info: '13', description: 'Смена тарифа' }
 ];
 
 const breadcrumbs = [
@@ -21,21 +21,21 @@ const OrganizationsPage = () => {
     <div className='bg-breadboard px-4'>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'>
-        <SummaryCard
+        <InfoCard
           title='Партнеры'
           info='560'
           description='+24 за месяц'
           className='col-span-1'
           descriptionIcon={<TrendingUpIcon size={14} />}
         />
-        <SummaryCard
+        <InfoCard
           title='Спонсоры'
           info='56'
           description='+24 за месяц'
           className='col-span-1'
           descriptionIcon={<TrendingUpIcon size={14} />}
         />
-        <SummaryCard
+        <InfoCard
           title='Требует внимания'
           contents={contents}
           className='col-span-2'
