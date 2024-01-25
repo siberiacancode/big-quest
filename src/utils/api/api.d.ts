@@ -1,0 +1,1 @@
+type UserRole = 'organizer' | 'partner';
