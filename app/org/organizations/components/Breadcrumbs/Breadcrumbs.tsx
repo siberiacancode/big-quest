@@ -4,14 +4,15 @@ import Link from 'next/link';
 interface BreadcrumbsProps {
   breadcrumbs: { label: string; link: string }[];
 }
+
 export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => (
   <nav aria-label='Breadcrumb'>
     <ul className='flex py-6'>
-      {breadcrumbs.map((crumb, index) => (
+      {breadcrumbs.map((breadcrumb, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <li key={index} className='flex items-center'>
-          <Link href={crumb.link} className='text-bold text-base text-muted-foreground'>
-            {crumb.label}
+          <Link href={breadcrumb.link} className='text-bold text-base text-muted-foreground'>
+            {breadcrumb.label}
           </Link>
 
           {index < breadcrumbs.length - 1 && (

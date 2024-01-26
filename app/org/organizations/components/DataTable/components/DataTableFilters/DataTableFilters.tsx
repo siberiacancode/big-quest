@@ -1,4 +1,3 @@
-import React from 'react';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 import type { Table } from '@tanstack/react-table';
 

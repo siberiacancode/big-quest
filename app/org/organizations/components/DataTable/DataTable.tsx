@@ -1,7 +1,5 @@
 'use client';
 
-import * as React from 'react';
-
 import { Table } from '@/components/ui/table';
 
 import { DataTableBody } from './components/DataTableBody/DataTableBody';

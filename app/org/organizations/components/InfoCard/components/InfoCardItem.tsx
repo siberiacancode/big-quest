@@ -24,7 +24,7 @@ export const InfoCardItem = ({
   >
     <div className='text-3xl font-bold'>{info}</div>
     <div className='flex flex-row'>
-      <div className={cn(descriptionIcon ? 'mr-2 mt-1' : '')}>{descriptionIcon}</div>
+      <div className={cn(descriptionIcon && 'mr-2 mt-1')}>{descriptionIcon}</div>
       <p className='py-1 text-xs text-muted-foreground'>{description}</p>
     </div>
   </div>

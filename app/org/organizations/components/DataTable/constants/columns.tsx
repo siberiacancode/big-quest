@@ -37,12 +37,10 @@ export const columns: ColumnDef<Application>[] = [
   {
     id: 'actions',
     enableHiding: false,
-    cell: () => {
-      return (
-        <Button variant='ghost' className='h-8 w-8 p-0'>
-          <Edit3Icon className='h-4 w-4' />
-        </Button>
-      );
-    }
+    cell: () => (
+      <Button variant='ghost' className='h-8 w-8 p-0'>
+        <Edit3Icon className='h-4 w-4' />
+      </Button>
+    )
   }
 ];
