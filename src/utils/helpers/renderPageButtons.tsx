@@ -30,6 +30,7 @@ export const renderPageButtons = <TData,>({ table }: RenderPageButtonsProps<TDat
     page <= Math.min(pageCount, currentPage + 2);
     page += 1
   ) {
+    const pageButtons: JSX.Element[] = [];
     pageButtons.push(renderPageButton(page));
   }
 

@@ -10,7 +10,7 @@ import { contents } from './constants/contents';
 const OrganizationsPage = () => (
   <div className='bg-breadboard px-4'>
     <Breadcrumbs breadcrumbs={breadcrumbs} />
-    <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'>
+    <div className='grid gap-4 lg:grid-cols-4 md:grid-cols-2'>
       <InfoCard
         title='Партнеры'
         info='560'
