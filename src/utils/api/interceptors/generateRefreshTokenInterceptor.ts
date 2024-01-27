@@ -1,4 +1,5 @@
 import { api } from '../instance';
+import { postRefreshTokens } from '../requests/refreshTokens';
 
 export const generateRefreshTokenInterceptor = () =>
   api.interceptors.response.use(
@@ -16,13 +17,13 @@ export const generateRefreshTokenInterceptor = () =>
         !originalConfig._retry
       ) {
         try {
-          await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/1.0/auth/refresh-tokens`, {
-            method: 'POST',
-            headers: {
-              'Content-type': 'application/json',
-              Authorization: `Bearer accessToken2`
-            },
-            credentials: 'include'
+          await postRefreshTokens({
+            config: {
+              headers: {
+                'Content-type': 'application/json'
+              },
+              credentials: 'include'
+            }
           });
 
           originalConfig._retry = true;

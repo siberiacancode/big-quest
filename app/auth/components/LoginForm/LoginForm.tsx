@@ -30,8 +30,9 @@ const LoginForm = () => {
                 />
               </FormControl>
               <FormLabel>
-                {form.formState?.errors?.email &&
-                  intl.formatMessage({ id: `${form.formState.errors.email.message}` })}
+                {form?.formState?.errors?.email && (
+                  <I18nText path={form.formState.errors.email.message as LocaleMessageId} />
+                )}
               </FormLabel>
             </FormItem>
           )}
@@ -51,14 +52,15 @@ const LoginForm = () => {
                 />
               </FormControl>
               <FormLabel>
-                {form.formState?.errors?.password &&
-                  intl.formatMessage({ id: `${form.formState.errors.password.message}` })}
+                {form.formState?.errors?.password && (
+                  <I18nText path={form.formState.errors.password.message as LocaleMessageId} />
+                )}
               </FormLabel>
             </FormItem>
           )}
         />
         <Button type='submit'>
-          <I18nText path='feature.auth.loginEmail.submit' />
+          <I18nText path='button.loginForm.submit' />
         </Button>
       </form>
     </Form>

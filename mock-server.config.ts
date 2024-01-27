@@ -23,11 +23,8 @@ const mockServerConfig: MockServerConfig = {
           }
         ],
         interceptors: {
-          response: (data, { request, setStatusCode }) => {
-            if (
-              !flag ||
-              request.headers.authorization !== `Bearer ${request.cookies.accessToken}`
-            ) {
+          response: (data, { setStatusCode }) => {
+            if (!flag) {
               setStatusCode(401);
               flag = true;
               return data;

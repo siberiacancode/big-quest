@@ -2,22 +2,22 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { useLoginMutation } from '@/utils/api';
+import { useLoginEmailMutation } from '@/utils/api';
 
-import type { LoginSchema } from '../constants/loginSchema';
-import { loginSchema } from '../constants/loginSchema';
+import type { LoginEmailSchema } from '../constants/loginEmailSchema';
+import { loginEmailSchema } from '../constants/loginEmailSchema';
 
 export const useLoginForm = () => {
   const router = useRouter();
-  const loginForm = useForm<LoginSchema>({
-    resolver: zodResolver(loginSchema),
+  const loginForm = useForm<LoginEmailSchema>({
+    resolver: zodResolver(loginEmailSchema),
     defaultValues: {
       email: '',
       password: ''
     }
   });
 
-  const postLoginEmail = useLoginMutation();
+  const postLoginEmail = useLoginEmailMutation();
 
   const onSubmit = loginForm.handleSubmit(async (values) => {
     await postLoginEmail.mutateAsync(values);

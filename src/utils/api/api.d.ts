@@ -69,11 +69,7 @@ interface BaseResponse {
   message: string;
 }
 
-interface LoginCredentials {
+interface LoginEmailCredentials {
   email: string;
   password: string;
-}
-
-interface LoginResponse {
-  accessToken: string;
 }

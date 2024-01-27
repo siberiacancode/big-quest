@@ -6,7 +6,7 @@ import { getMessagesByLocale } from '@/utils/helpers';
 
 import Providers from './providers';
 
-import '../assets/styles/globals.css';
+import '@/assets/styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 

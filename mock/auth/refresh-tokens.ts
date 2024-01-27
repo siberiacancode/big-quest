@@ -8,11 +8,7 @@ export const refreshTokensConfig: RestRequestConfig = {
       data: null,
       interceptors: {
         response: (data, { request, setCookie, setStatusCode }) => {
-          if (
-            request.cookies.refreshToken &&
-            request.cookies.accessToken &&
-            request.headers.authorization === `Bearer ${request.cookies.accessToken}`
-          ) {
+          if (request.cookies.refreshToken && request.cookies.accessToken) {
             setCookie('refreshToken', 'refreshToken2', {
               httpOnly: true,
               maxAge: 360000,

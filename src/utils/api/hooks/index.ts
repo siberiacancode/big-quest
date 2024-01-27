@@ -1,2 +1,2 @@
 export * from './useGetUserQuery';
-export * from './useLoginMutation';
+export * from './useLoginEmailMutation';
