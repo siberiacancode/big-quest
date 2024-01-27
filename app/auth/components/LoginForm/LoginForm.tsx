@@ -1,15 +1,15 @@
 import React from 'react';
-import { useIntl } from 'react-intl';
 
 import { I18nText } from '@/components/common';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { useI18n } from '@/utils/contexts/i18n';
 
 import { useLoginForm } from './hooks/useLoginForm';
 
 export const LoginForm = () => {
-  const intl = useIntl();
+  const intl = useI18n();
   const { form, functions } = useLoginForm();
 
   return (

@@ -1,11 +1,12 @@
 'use client';
 
 import React from 'react';
+
+import type { I18nProviderProps } from '@/utils/contexts/i18n';
+import { I18nProvider } from '@/utils/contexts/i18n';
 import { QueryProvider } from '@/utils/contexts/query';
 import type { SessionProviderProps } from '@/utils/contexts/session';
 import { SessionProvider } from '@/utils/contexts/session';
-import type { I18nProviderProps } from '@/utils/contexts';
-import { I18nProvider } from '@/utils/contexts';
 
 interface ProvidersProps {
   children: React.ReactNode;

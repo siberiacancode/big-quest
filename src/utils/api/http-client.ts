@@ -152,21 +152,21 @@ export class HttpClient {
     return this.request<T>(endpoint, 'DELETE', options);
   }
 
-  post<T>(endpoint: string, body: Record<string, any>, options: RequestOptions = {}) {
+  post<T>(endpoint: string, body?: Record<string, any>, options: RequestOptions = {}) {
     return this.request<T>(endpoint, 'POST', {
       ...options,
       ...(!!body && { body: JSON.stringify(body) })
     });
   }
 
-  put<T>(endpoint: string, body: Record<string, any>, options: RequestOptions = {}) {
+  put<T>(endpoint: string, body?: Record<string, any>, options: RequestOptions = {}) {
     return this.request<T>(endpoint, 'PUT', {
       ...options,
       ...(!!body && { body: JSON.stringify(body) })
     });
   }
 
-  patch<T>(endpoint: string, body: Record<string, any>, options: RequestOptions = {}) {
+  patch<T>(endpoint: string, body?: Record<string, any>, options: RequestOptions = {}) {
     return this.request<T>(endpoint, 'PATCH', {
       ...options,
       ...(!!body && { body: JSON.stringify(body) })

@@ -11,11 +11,7 @@ export const generateRefreshTokenInterceptor = () =>
 
       if (!error.response) return Promise.reject(error);
 
-      if (
-        !originalConfig.headers?.referer?.includes('/auth') &&
-        error.response.status === 401 &&
-        !originalConfig._retry
-      ) {
+      if (error.response.status === 401 && !originalConfig._retry) {
         try {
           await postRefreshTokens();
 
