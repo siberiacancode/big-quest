@@ -4,13 +4,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 import { useLoginEmailMutation } from '@/utils/api';
 
-import type { LoginEmailSchema } from '../constants/loginEmailSchema';
-import { loginEmailSchema } from '../constants/loginEmailSchema';
+import type { LoginSchema } from '../constants/loginSchema';
+import { loginSchema } from '../constants/loginSchema';
 
 export const useLoginForm = () => {
   const router = useRouter();
-  const loginForm = useForm<LoginEmailSchema>({
-    resolver: zodResolver(loginEmailSchema),
+  const loginForm = useForm<LoginSchema>({
+    resolver: zodResolver(loginSchema),
     defaultValues: {
       email: '',
       password: ''

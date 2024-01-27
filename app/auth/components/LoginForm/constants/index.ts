@@ -1,1 +1,1 @@
-export * from './loginEmailSchema';
+export * from './loginSchema';

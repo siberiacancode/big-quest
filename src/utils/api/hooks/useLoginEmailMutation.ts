@@ -1,9 +1,9 @@
 import { useMutation } from '@tanstack/react-query';
 
-import { postLoginEmail } from '../requests/login/email';
+import { PostLoginEmailParams, postLoginEmail } from '../requests/login/email';
 
 export const useLoginEmailMutation = (
-  settings?: MutationSettings<LoginEmailCredentials, typeof postLoginEmail>
+  settings?: MutationSettings<PostLoginEmailParams, typeof postLoginEmail>
 ) =>
   useMutation({
     mutationKey: ['postLoginEmail'],

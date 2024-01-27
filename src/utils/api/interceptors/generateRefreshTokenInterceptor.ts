@@ -17,14 +17,7 @@ export const generateRefreshTokenInterceptor = () =>
         !originalConfig._retry
       ) {
         try {
-          await postRefreshTokens({
-            config: {
-              headers: {
-                'Content-type': 'application/json'
-              },
-              credentials: 'include'
-            }
-          });
+          await postRefreshTokens();
 
           originalConfig._retry = true;
 

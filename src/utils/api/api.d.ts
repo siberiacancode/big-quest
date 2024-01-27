@@ -68,8 +68,3 @@ type RequestParams<Params = undefined> = Params extends undefined
 interface BaseResponse {
   message: string;
 }
-
-interface LoginEmailCredentials {
-  email: string;
-  password: string;
-}

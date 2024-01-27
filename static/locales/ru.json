@@ -1,7 +1,7 @@
 {
   "app.title": "Большой квест",
   "org.auth.title": "Вход",
-  "button.loginForm.submit": "Войти",
+  "button.login": "Войти",
   "field.email.label": "Почта",
   "field.password.label": "Пароль",
   "field.email.placeholder": "Введите почту...",

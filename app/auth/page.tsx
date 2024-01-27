@@ -2,7 +2,7 @@
 
 import { I18nText } from '@/components/common';
 
-import LoginForm from './components/LoginForm/LoginForm';
+import { LoginForm } from './components/LoginForm/LoginForm';
 
 const AuthPage = () => (
   <div>

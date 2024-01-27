@@ -8,9 +8,9 @@ import { Input } from '@/components/ui/input';
 
 import { useLoginForm } from './hooks/useLoginForm';
 
-const LoginForm = () => {
-  const { form, functions } = useLoginForm();
+export const LoginForm = () => {
   const intl = useIntl();
+  const { form, functions } = useLoginForm();
 
   return (
     <Form {...form}>
@@ -60,11 +60,9 @@ const LoginForm = () => {
           )}
         />
         <Button type='submit'>
-          <I18nText path='button.loginForm.submit' />
+          <I18nText path='button.login' />
         </Button>
       </form>
     </Form>
   );
 };
-
-export default LoginForm;
