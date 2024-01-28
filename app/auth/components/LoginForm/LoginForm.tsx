@@ -1,9 +1,16 @@
 import React from 'react';
 
 import { I18nText } from '@/components/common';
-import { Button, PasswordInput } from '@/components/ui';
-import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  Button,
+  PasswordInput,
+  Input
+} from '@/components/ui';
 import { useI18n } from '@/utils/contexts/i18n';
 
 import { useLoginForm } from './hooks/useLoginForm';

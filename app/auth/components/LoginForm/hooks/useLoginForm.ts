@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 
-import { useLoginEmailMutation } from '@/utils/api';
+import { usePostLoginEmailMutation } from '@/utils/api';
 
 import type { LoginSchema } from '../constants/loginSchema';
 import { loginSchema } from '../constants/loginSchema';
@@ -17,7 +17,7 @@ export const useLoginForm = () => {
     }
   });
 
-  const postLoginEmail = useLoginEmailMutation();
+  const postLoginEmail = usePostLoginEmailMutation();
 
   const onSubmit = loginForm.handleSubmit(async (values) => {
     await postLoginEmail.mutateAsync(values);

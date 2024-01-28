@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import type { PostLoginEmailParams } from '../requests/login/email';
 import { postLoginEmail } from '../requests/login/email';
 
-export const useLoginEmailMutation = (
+export const usePostLoginEmailMutation = (
   settings?: MutationSettings<PostLoginEmailParams, typeof postLoginEmail>
 ) =>
   useMutation({
