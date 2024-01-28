@@ -6,7 +6,6 @@ import { I18nText } from '@/components/common';
 import {
   Button,
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
   Input
@@ -44,20 +43,8 @@ export const DataTableFilters = <TData,>({ table }: DataTableFiltersProps<TData>
             <I18nText path='app.button.add' />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align='end'>
-          {table
-            .getAllColumns()
-            .filter((column) => column.getCanHide())
-            .map((column) => (
-              <DropdownMenuCheckboxItem
-                key={column.id}
-                className='capitalize'
-                checked={column.getIsVisible()}
-                onCheckedChange={(value) => column.toggleVisibility(!!value)}
-              >
-                {column.id}
-              </DropdownMenuCheckboxItem>
-            ))}
+        <DropdownMenuContent>
+          <span>test</span>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

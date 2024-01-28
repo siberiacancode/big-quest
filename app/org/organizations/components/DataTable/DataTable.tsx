@@ -1,5 +1,6 @@
 'use client';
 
+import { I18nText } from '@/components/common';
 import { Table } from '@/components/ui/table';
 
 import { DataTableBody } from './components/DataTableBody/DataTableBody';
@@ -26,7 +27,13 @@ export const DataTable = ({ data }: DataTableProps) => {
           <DataTableBody table={table} columns={columns} />
         </Table>
       </div>
-      <TablePagination table={table} />
+      <div className='flex items-center justify-between mdx:flex-col'>
+        <div className='text-sm text-muted-foreground mdx:pt-2'>
+          {table.getFilteredSelectedRowModel().rows.length} <I18nText path='pagination.text.from' />{' '}
+          {table.getFilteredRowModel().rows.length} <I18nText path='pagination.text.selected' />
+        </div>
+        <TablePagination />
+      </div>
     </div>
   );
 };
