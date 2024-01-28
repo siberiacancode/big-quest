@@ -2,9 +2,9 @@ import type { ColumnDef } from '@tanstack/react-table';
 import { Edit3Icon } from 'lucide-react';
 
 import { Button, Checkbox } from '@/components/ui';
-import { generateColumn } from '@/utils/helpers/generateColumn';
 
 import type { Application } from '../types';
+import { generateColumn } from '../utils/helpers/generateColumn';
 
 export const columns: ColumnDef<Application>[] = [
   {

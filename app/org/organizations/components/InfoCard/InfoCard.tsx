@@ -10,17 +10,10 @@ interface InfoCardProps extends InfoCardItemProps {
   titleIcon?: React.ReactNode;
 }
 
-export const InfoCard = ({
-  title,
-  contents,
-  titleIcon,
-  descriptionIcon,
-  info,
-  description
-}: InfoCardProps) => (
+export const InfoCard = ({ title, contents, titleIcon, info, description }: InfoCardProps) => (
   <Card className='flex-auto'>
     <CardHeader className='flex flex-row items-center justify-between space-y-0 px-4 pb-2 md:px-6'>
-      <CardTitle className='text-base font-medium'>{title}</CardTitle>
+      <CardTitle className='text-base font-medium mdx:pl-4'>{title}</CardTitle>
       <div className='rounded-full bg-secondary p-2'>
         {titleIcon || <HeartHandshakeIcon size={20} strokeWidth={1.5} />}
       </div>
@@ -29,12 +22,7 @@ export const InfoCard = ({
       {contents ? (
         contents.map((content, index) => <InfoCardItem key={index} {...content} />)
       ) : (
-        <InfoCardItem
-          info={info}
-          description={description}
-          descriptionIcon={descriptionIcon}
-          className='pl-0'
-        />
+        <InfoCardItem info={info} description={description} />
       )}
     </CardContent>
   </Card>

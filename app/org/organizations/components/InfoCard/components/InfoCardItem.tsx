@@ -1,28 +1,11 @@
-import { cn } from '@/lib/utils';
-
 export interface InfoCardItemProps {
   info?: string;
-  description?: string;
-  descriptionIcon?: React.ReactNode;
-  className?: string;
+  description?: string | React.ReactNode;
 }
 
-export const InfoCardItem = ({
-  info,
-  description,
-  descriptionIcon,
-  className
-}: InfoCardItemProps) => (
-  <div
-    className={cn(
-      'flex-1 border-x border-l-0 border-secondary pl-5 last:border-r-0 md:px-10 md:first:px-0',
-      className
-    )}
-  >
+export const InfoCardItem = ({ info, description }: InfoCardItemProps) => (
+  <div className='flex-1 border-x border-l-0 border-secondary pl-3 last:border-r-0 md:px-10 md:pl-5 md:first:px-0  '>
     <div className='text-3xl font-bold'>{info}</div>
-    <div className='flex flex-row'>
-      <div className={cn(descriptionIcon && 'mr-2 mt-1')}>{descriptionIcon}</div>
-      <p className='py-1 text-xs text-muted-foreground'>{description}</p>
-    </div>
+    <div className='flex flex-row py-1 text-xs text-muted-foreground'>{description}</div>
   </div>
 );

@@ -4,7 +4,7 @@ import type { ColumnDef } from '@tanstack/react-table';
 import { I18nText } from '@/components/common';
 import { Button } from '@/components/ui';
 
-import type { Application } from '../../../app/org/organizations/components/DataTable/types';
+import type { Application } from '../../types';
 
 interface ColumnConfig {
   accessorKey: keyof Application;
