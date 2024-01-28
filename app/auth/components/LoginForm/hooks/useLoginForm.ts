@@ -22,7 +22,7 @@ export const useLoginForm = () => {
   const onSubmit = loginForm.handleSubmit(async (values) => {
     await postLoginEmail.mutateAsync(values);
 
-    router.replace('/');
+    router.replace('/org/organizations');
   });
 
   return {

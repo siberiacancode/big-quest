@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 
 import { Toaster } from '@/components/ui/sonner';
 import { getMessagesByLocale } from '@/utils/helpers';
+import { getDefaultTheme } from '@/utils/helpers/getDefaultTheme';
 
 import Providers from './providers';
 
@@ -20,13 +21,15 @@ const TOASTER_DURATION = 5000;
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const locale = 'ru';
   const messages = getMessagesByLocale(locale);
+  const defaultTheme = getDefaultTheme();
 
   return (
-    <html lang='en'>
+    <html className={defaultTheme} lang='en'>
       <body className={`min-h-screen bg-background font-sans antialiased ${inter.className}`}>
         <Providers
           i18n={{ locale, messages }}
           session={{ defaultSession: { isAuthenticated: true } }}
+          theme={{ defaultTheme }}
         >
           {children}
         </Providers>

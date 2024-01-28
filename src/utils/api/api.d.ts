@@ -1,3 +1,5 @@
+type UserRole = 'organizer' | 'partner';
+
 interface MutationSettings<Params = void, Func = unknown> {
   config?: ApiRequestConfig;
   options?: import('@tanstack/react-query').UseMutationOptions<

@@ -2,14 +2,14 @@ import React from 'react';
 
 import { I18nText } from '@/components/common';
 import {
+  Button,
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  Button,
-  PasswordInput,
-  Input
+  Input,
+  PasswordInput
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts/i18n';
 

@@ -31,7 +31,12 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/assets/*": ["./assets/*"],
+      "@/static/*": ["./static/*"]
+    }
   },
   "exclude": ["node_modules"],
   "include": [

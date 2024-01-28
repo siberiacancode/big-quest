@@ -6,6 +6,16 @@
   "field.password.label": "Пароль",
   "field.email.placeholder": "Введите почту...",
   "field.password.placeholder": "Введите пароль...",
+  "field.search.placeholder": "Найти...",
+  "navigation.link.organizations": "Организации",
+  "navigation.link.lids": "Лиды",
+  "navigation.link.activities": "Активности",
+  "navigation.link.participants": "Участники",
+  "navigation.link.awards": "Награждения",
+  "navigation.link.messenger": "Мессенджер",
+  "navigation.link.mailing": "Рассылка",
+  "navigation.link.news": "Новости",
+  "navigation.link.profile": "Кабинет",
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты"
 }
