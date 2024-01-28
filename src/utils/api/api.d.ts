@@ -1,5 +1,3 @@
-type UserRole = 'organizer' | 'partner';
-
 interface MutationSettings<Params = void, Func = unknown> {
   config?: ApiRequestConfig;
   options?: import('@tanstack/react-query').UseMutationOptions<
@@ -70,3 +68,14 @@ type RequestParams<Params = undefined> = Params extends undefined
 interface BaseResponse {
   message: string;
 }
+
+interface RegisterOrganizationDto {
+  organization: string;
+  location: string;
+  type: OrganizationType;
+  contactName: string;
+  phone: string;
+}
+
+type OrganizationType = 'partner' | 'sponsor';
+type UserRole = 'organizer' | 'partner';
