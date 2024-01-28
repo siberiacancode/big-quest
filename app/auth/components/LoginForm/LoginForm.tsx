@@ -6,6 +6,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/
 import { Input } from '@/components/ui/input';
 import { useI18n } from '@/utils/contexts/i18n';
 
+import { PasswordInput } from './components/PasswordInput/PasswordInput';
 import { useLoginForm } from './hooks/useLoginForm';
 
 export const LoginForm = () => {
@@ -46,7 +47,7 @@ export const LoginForm = () => {
                 <I18nText path='field.password.label' />
               </FormLabel>
               <FormControl>
-                <Input
+                <PasswordInput
                   placeholder={intl.formatMessage({ id: 'field.password.placeholder' })}
                   {...field}
                 />
