@@ -16,21 +16,20 @@ export const renderPageButtons = <TData,>({ table }: RenderPageButtonsProps<TDat
       variant='outline'
       size='sm'
       onClick={() => table.setPageIndex(page - 1)}
-      className={`h-8 w-8 rounded-lg border border-breadboard font-normal ${
-        page === currentPage && 'bg-breadboard'
+      className={`h-8 w-8 rounded-lg border border-secondary font-normal ${
+        page === currentPage && 'bg-secondary'
       }`}
     >
       {page < 10 ? `0${page}` : page}
     </Button>
   );
 
-  const pageButtons = [];
+  const pageButtons: JSX.Element[] = [];
   for (
     let page = Math.max(1, currentPage - 2);
     page <= Math.min(pageCount, currentPage + 2);
     page += 1
   ) {
-    const pageButtons: JSX.Element[] = [];
     pageButtons.push(renderPageButton(page));
   }
 

@@ -8,7 +8,7 @@ export interface TableHeaderProps<TData> {
 }
 
 export const DataTableHeader = <TData,>({ table }: TableHeaderProps<TData>) => (
-  <TableHeader className='bg-breadboard'>
+  <TableHeader className='bg-secondary'>
     {table.getHeaderGroups().map((headerGroup) => (
       <TableRow key={headerGroup.id}>
         {headerGroup.headers.map((header) => (

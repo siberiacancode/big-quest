@@ -18,7 +18,7 @@ export const DataTable = ({ data }: DataTableProps) => {
   const table = useDataTable(data, columns);
 
   return (
-    <div className=' mt-10 w-full rounded-md bg-white p-4'>
+    <div className=' mt-10 w-full rounded-md bg-background p-4'>
       <DataTableFilters table={table} />
       <div className='rounded-md border'>
         <Table>

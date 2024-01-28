@@ -33,7 +33,7 @@ export const DataTableFilters = <TData,>({ table }: DataTableFiltersProps<TData>
 
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant='outline' size='sm' className='m-2 bg-breadboard md:ml-auto'>
+        <Button variant='outline' size='sm' className='m-2 bg-secondary md:ml-auto'>
           <PlusCircledIcon className='mr-2 h-4 w-4' />
           Добавить
         </Button>

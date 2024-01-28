@@ -12,21 +12,20 @@ interface InfoCardProps extends InfoCardItemProps {
 
 export const InfoCard = ({
   title,
-  className,
   contents,
   titleIcon,
   descriptionIcon,
   info,
   description
 }: InfoCardProps) => (
-  <Card className={className}>
-    <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+  <Card className='flex-auto'>
+    <CardHeader className='flex flex-row items-center justify-between space-y-0 px-4 pb-2 md:px-6'>
       <CardTitle className='text-base font-medium'>{title}</CardTitle>
-      <div className='rounded-full bg-breadboard p-2'>
+      <div className='rounded-full bg-secondary p-2'>
         {titleIcon || <HeartHandshakeIcon size={20} strokeWidth={1.5} />}
       </div>
     </CardHeader>
-    <CardContent className='flex flex-row justify-between'>
+    <CardContent className='flex flex-row justify-between '>
       {contents ? (
         contents.map((content) => <InfoCardItem key={content.id} {...content} />)
       ) : (

@@ -18,7 +18,7 @@ export const InfoCardItem = ({
   <div
     key={id}
     className={cn(
-      'flex-1 border-x border-l-0 border-breadboard pl-5 last:border-r-0 md:px-10 md:first:px-0',
+      'flex-1 border-x border-l-0 border-secondary pl-5 last:border-r-0 md:px-10 md:first:px-0',
       className
     )}
   >

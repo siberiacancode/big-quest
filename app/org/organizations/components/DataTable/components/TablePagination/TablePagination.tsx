@@ -42,7 +42,7 @@ export const TablePagination: React.FC<DataTablePaginationProps<Application>> = 
                 size='sm'
                 onClick={() => table.setPageIndex(0)}
                 disabled={pageIndex === 0}
-                className='h-8 w-8 rounded-lg border border-breadboard font-normal'
+                className='h-8 w-8 rounded-lg border border-secondary font-normal'
               >
                 01
               </Button>
@@ -60,7 +60,7 @@ export const TablePagination: React.FC<DataTablePaginationProps<Application>> = 
                 size='sm'
                 onClick={() => table.setPageIndex(pageCount - 1)}
                 disabled={pageIndex === pageCount - 1}
-                className='h-8 w-8 rounded-lg border border-breadboard font-normal'
+                className='h-8 w-8 rounded-lg border border-secondary font-normal'
               >
                 {pageCount < 10 ? `0${pageCount}` : pageCount}
               </Button>
