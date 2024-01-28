@@ -1,12 +1,12 @@
 'use client';
 
-import { useIntl } from 'react-intl';
 import { SearchIcon } from 'lucide-react';
 
 import { Input } from '@/components/ui';
+import { useI18n } from '@/utils/contexts';
 
 export const HeaderSearch = () => {
-  const intl = useIntl();
+  const intl = useI18n();
 
   return (
     <Input
