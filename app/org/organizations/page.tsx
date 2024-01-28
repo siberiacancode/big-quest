@@ -60,14 +60,22 @@ const OrganizationsPage = () => {
         {/* <InfoCard
           title={intl.formatMessage({ id: 'infoCard.title.partners' })}
           info='560'
-          description={`+24 ${intl.formatMessage({ id: 'infoCard.description.perMonth' })}`}
-          descriptionIcon={<TrendingUpIcon size={14} />}
+          description={
+            <>
+              <TrendingUpIcon size={14} className='mr-2' /> +24{' '}
+              <I18nText path='infoCard.title.partners' />
+            </>
+          }
         />
         <InfoCard
           title={intl.formatMessage({ id: 'infoCard.title.sponsors' })}
           info='56'
-          description={`+24 ${intl.formatMessage({ id: 'infoCard.description.perMonth' })}`}
-          descriptionIcon={<TrendingUpIcon size={14} />}
+          description={
+            <>
+              <TrendingUpIcon size={14} className='mr-2' /> +24{' '}
+              <I18nText path='infoCard.description.perMonth' />
+            </>
+          }
         />
         <InfoCard
           title={intl.formatMessage({ id: 'infoCard.title.needsAttention' })}
