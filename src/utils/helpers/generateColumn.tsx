@@ -1,14 +1,15 @@
 import { CaretSortIcon } from '@radix-ui/react-icons';
 import type { ColumnDef } from '@tanstack/react-table';
 
+import { I18nText } from '@/components/common';
 import { Button } from '@/components/ui';
 
 import type { Application } from '../../../app/org/organizations/components/DataTable/types';
 
 interface ColumnConfig {
   accessorKey: keyof Application;
-  headerLabel: string;
   sortable?: boolean;
+  headerLabel: LocaleMessageId;
 }
 
 export const generateColumn = ({
@@ -24,11 +25,13 @@ export const generateColumn = ({
           variant='ghost'
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
-          {headerLabel}
+          <I18nText path={headerLabel} />
           <CaretSortIcon className='ml-2 h-4 w-4' />
         </Button>
       ) : (
-        <div>{headerLabel}</div>
+        <div>
+          <I18nText path={headerLabel} />
+        </div>
       )}
     </div>
   ),

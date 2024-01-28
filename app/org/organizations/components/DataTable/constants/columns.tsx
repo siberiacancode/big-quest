@@ -28,12 +28,27 @@ export const columns: ColumnDef<Application>[] = [
     enableSorting: false,
     enableHiding: false
   },
-  generateColumn({ accessorKey: 'organization', headerLabel: 'Организация' }),
-  generateColumn({ accessorKey: 'location', headerLabel: 'Населенный пункт', sortable: true }),
-  generateColumn({ accessorKey: 'type', headerLabel: 'Тип', sortable: true }),
-  generateColumn({ accessorKey: 'rate', headerLabel: 'Тариф', sortable: true }),
-  generateColumn({ accessorKey: 'days_amount', headerLabel: 'Кол-во дней', sortable: true }),
-  generateColumn({ accessorKey: 'status', headerLabel: 'Статус', sortable: true }),
+  generateColumn({
+    accessorKey: 'organization',
+    headerLabel: 'organiations.text.organization'
+  }),
+  generateColumn({
+    accessorKey: 'location',
+    headerLabel: 'organiations.text.location',
+    sortable: true
+  }),
+  generateColumn({ accessorKey: 'type', headerLabel: 'organiations.text.type', sortable: true }),
+  generateColumn({ accessorKey: 'rate', headerLabel: 'organiations.text.rate', sortable: true }),
+  generateColumn({
+    accessorKey: 'days_amount',
+    headerLabel: 'organiations.text.daysCount',
+    sortable: true
+  }),
+  generateColumn({
+    accessorKey: 'status',
+    headerLabel: 'organiations.text.status',
+    sortable: true
+  }),
   {
     id: 'actions',
     enableHiding: false,

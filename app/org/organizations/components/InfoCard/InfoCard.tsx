@@ -27,7 +27,7 @@ export const InfoCard = ({
     </CardHeader>
     <CardContent className='flex flex-row justify-between '>
       {contents ? (
-        contents.map((content) => <InfoCardItem key={content.id} {...content} />)
+        contents.map((content, index) => <InfoCardItem key={index} {...content} />)
       ) : (
         <InfoCardItem
           info={info}

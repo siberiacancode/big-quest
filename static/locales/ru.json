@@ -1,8 +1,12 @@
 {
   "app.title": "Большой квест",
+  "app.button.add": "Добавить",
   "field.search.placeholder": "Найти...",
+  "field.filter.placeholder": "Фильтровать...",
+  "field.results.noResults": "Нет результатов",
   "navigation.link.organizations": "Организации",
   "navigation.link.lids": "Лиды",
+  "navigation.link.main": "Главная",
   "navigation.link.activities": "Активности",
   "navigation.link.participants": "Участники",
   "navigation.link.awards": "Награждения",
@@ -16,5 +20,14 @@
   "infoCard.description.perMonth": "за месяц",
   "infoCard.description.leads": "Лиды",
   "infoCard.description.discussions": "Переговоры",
-  "infoCard.description.tariffChange": "Смена тарифа"
+  "infoCard.description.tariffChange": "Смена тарифа",
+  "organiations.text.status": "Статус",
+  "organiations.text.organization": "Организация",
+  "organiations.text.location": "Населенный пункт",
+  "organiations.text.type": "Тип",
+  "organiations.text.rate": "Тариф",
+  "organiations.text.daysCount": "Кол-во дней",
+  "pagination.text.from": "из",
+  "pagination.text.selected": "выбрано",
+  "pagination.text.page": "страница"
 }

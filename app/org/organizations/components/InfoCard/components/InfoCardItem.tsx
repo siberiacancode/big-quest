@@ -1,7 +1,6 @@
 import { cn } from '@/lib/utils';
 
 export interface InfoCardItemProps {
-  id?: number;
   info?: string;
   description?: string;
   descriptionIcon?: React.ReactNode;
@@ -9,14 +8,12 @@ export interface InfoCardItemProps {
 }
 
 export const InfoCardItem = ({
-  id,
   info,
   description,
   descriptionIcon,
   className
 }: InfoCardItemProps) => (
   <div
-    key={id}
     className={cn(
       'flex-1 border-x border-l-0 border-secondary pl-5 last:border-r-0 md:px-10 md:first:px-0',
       className

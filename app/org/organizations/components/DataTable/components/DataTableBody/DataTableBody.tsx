@@ -1,6 +1,7 @@
 import type { ColumnDef, Table } from '@tanstack/react-table';
 import { flexRender } from '@tanstack/react-table';
 
+import { I18nText } from '@/components/common';
 import { TableBody, TableCell, TableRow } from '@/components/ui';
 
 import type { Application } from '../../types';
@@ -25,7 +26,7 @@ export const DataTableBody = <TData,>({ table, columns }: DataTableBodyProps<TDa
     ) : (
       <TableRow>
         <TableCell colSpan={columns.length} className='h-24 text-center'>
-          No results.
+          <I18nText path='field.results.noResults' />
         </TableCell>
       </TableRow>
     )}
