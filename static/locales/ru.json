@@ -1,6 +1,12 @@
 {
   "app.title": "Большой квест",
   "button.add": "Добавить",
+  "org.auth.title": "Вход",
+  "button.login": "Войти",
+  "field.email.label": "Почта",
+  "field.password.label": "Пароль",
+  "field.email.placeholder": "Введите почту...",
+  "field.password.placeholder": "Введите пароль...",
   "field.search.placeholder": "Найти...",
   "field.filter.placeholder": "Фильтровать...",
   "field.results.noResults": "Нет результатов",
@@ -30,5 +36,7 @@
   "table.column.daysCount": "Кол-во дней",
   "pagination.from": "из",
   "pagination.selected": "выбрано",
-  "pagination.page": "страница"
+  "pagination.page": "страница",
+  "validation.required": "Данное поле не может быть пустым",
+  "validation.email.format": "Неверный формат электронной почты"
 }
