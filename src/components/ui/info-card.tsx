@@ -20,17 +20,19 @@ const InfoCardHeader = ({ className, ...props }: React.ComponentProps<typeof Car
 InfoCardHeader.displayName = 'InfoCardHeader';
 
 const InfoCardTitle = ({ className, ...props }: React.ComponentProps<typeof CardHeader>) => (
-  <CardHeader className={cn('text-base font-medium', className)} {...props} />
+  <CardHeader className={cn('p-1 text-base font-medium', className)} {...props} />
 );
 InfoCardTitle.displayName = 'InfoCardTitle';
 
 const InfoCardAction = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
-  ({ className, ...props }, ref) => <div ref={ref} {...props} />
+  ({ className, ...props }, ref) => (
+    <div ref={ref} {...props} className={cn('rounded-full bg-secondary p-2', className)} />
+  )
 );
 InfoCardAction.displayName = 'InfoCardAction';
 
 const InfoCardContent = ({ className, ...props }: React.ComponentProps<typeof CardContent>) => (
-  <CardContent className={cn('flex flex-row justify-between', className)} {...props} />
+  <CardContent className={cn('mdx: flex flex-row justify-between px-2', className)} {...props} />
 );
 InfoCardContent.displayName = 'InfoCardHeader';
 
@@ -38,7 +40,10 @@ const InfoCardItem = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('flex-1 border-x border-l-0 border-secondary pl-5 last:border-r-0', className)}
+      className={cn(
+        'flex-1 border-x border-l-0 border-secondary pl-5 last:border-r-0 mdx:pr-2',
+        className
+      )}
       {...props}
     />
   )

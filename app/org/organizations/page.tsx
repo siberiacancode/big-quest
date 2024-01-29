@@ -1,7 +1,4 @@
-'use client';
-
-// import { useIntl } from 'react-intl';
-import { TrendingUpIcon } from 'lucide-react';
+import { AlertCircleIcon, HeartHandshakeIcon, TrendingUpIcon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
 import {
@@ -20,17 +17,8 @@ import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
 import { data } from './components/DataTable/constants/data';
 import { DataTable } from './components/DataTable/DataTable';
 import { breadcrumbs } from './constants/breadcrumbs';
-// import { contents } from './constants/contents';
 
 const OrganizationsPage = () => {
-  // const intl = useIntl();
-
-  // Пока не знаю как сделать иначе этот момент
-  // const formattedContents = contents.map((item) => ({
-  //   ...item,
-  //   description: intl.formatMessage({ id: `infoCard.description.${item.description}` })
-  // }));
-
   return (
     <div className='bg-secondary px-4'>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -40,48 +28,67 @@ const OrganizationsPage = () => {
             <InfoCardTitle>
               <I18nText path='infoCard.title.partners' />
             </InfoCardTitle>
-            <InfoCardAction>тут надо сделать иконку</InfoCardAction>
+            <InfoCardAction>
+              <HeartHandshakeIcon size={20} strokeWidth={1.5} />
+            </InfoCardAction>
           </InfoCardHeader>
           <InfoCardContent>
             <InfoCardItem>
               <InfoCardItemTitle>560</InfoCardItemTitle>
-              <InfoCardItemDescription>
-                <TrendingUpIcon size={14} /> +24 <I18nText path='infoCard.description.perMonth' />
-              </InfoCardItemDescription>
-            </InfoCardItem>
-            <InfoCardItem>
-              <InfoCardItemTitle>560</InfoCardItemTitle>
-              <InfoCardItemDescription>
+              <InfoCardItemDescription className='flex gap-1'>
                 <TrendingUpIcon size={14} /> +24 <I18nText path='infoCard.description.perMonth' />
               </InfoCardItemDescription>
             </InfoCardItem>
           </InfoCardContent>
         </InfoCard>
-        {/* <InfoCard
-          title={intl.formatMessage({ id: 'infoCard.title.partners' })}
-          info='560'
-          description={
-            <>
-              <TrendingUpIcon size={14} className='mr-2' /> +24{' '}
-              <I18nText path='infoCard.title.partners' />
-            </>
-          }
-        />
-        <InfoCard
-          title={intl.formatMessage({ id: 'infoCard.title.sponsors' })}
-          info='56'
-          description={
-            <>
-              <TrendingUpIcon size={14} className='mr-2' /> +24{' '}
-              <I18nText path='infoCard.description.perMonth' />
-            </>
-          }
-        />
-        <InfoCard
-          title={intl.formatMessage({ id: 'infoCard.title.needsAttention' })}
-          contents={formattedContents}
-          titleIcon={<InfoIcon size={20} strokeWidth={1.5} />}
-        /> */}
+        <InfoCard>
+          <InfoCardHeader>
+            <InfoCardTitle>
+              <I18nText path='infoCard.title.sponsors' />
+            </InfoCardTitle>
+            <InfoCardAction>
+              <HeartHandshakeIcon size={20} strokeWidth={1.5} />
+            </InfoCardAction>
+          </InfoCardHeader>
+          <InfoCardContent>
+            <InfoCardItem>
+              <InfoCardItemTitle>56</InfoCardItemTitle>
+              <InfoCardItemDescription className='flex gap-1'>
+                <TrendingUpIcon size={14} /> +24 <I18nText path='infoCard.description.perMonth' />
+              </InfoCardItemDescription>
+            </InfoCardItem>
+          </InfoCardContent>
+        </InfoCard>
+        <InfoCard className='w-5/12'>
+          <InfoCardHeader>
+            <InfoCardTitle>
+              <I18nText path='infoCard.title.needsAttention' />
+            </InfoCardTitle>
+            <InfoCardAction>
+              <AlertCircleIcon size={20} strokeWidth={1.5} />
+            </InfoCardAction>
+          </InfoCardHeader>
+          <InfoCardContent>
+            <InfoCardItem>
+              <InfoCardItemTitle>6</InfoCardItemTitle>
+              <InfoCardItemDescription className='flex gap-1'>
+                <I18nText path='infoCard.description.applications' />
+              </InfoCardItemDescription>
+            </InfoCardItem>
+            <InfoCardItem>
+              <InfoCardItemTitle>10</InfoCardItemTitle>
+              <InfoCardItemDescription className='flex gap-1'>
+                <I18nText path='infoCard.description.discussions' />
+              </InfoCardItemDescription>
+            </InfoCardItem>
+            <InfoCardItem>
+              <InfoCardItemTitle>13</InfoCardItemTitle>
+              <InfoCardItemDescription className='flex gap-1'>
+                <I18nText path='infoCard.description.tariffChange' />
+              </InfoCardItemDescription>
+            </InfoCardItem>
+          </InfoCardContent>
+        </InfoCard>
       </div>
       <DataTable data={data} />
     </div>

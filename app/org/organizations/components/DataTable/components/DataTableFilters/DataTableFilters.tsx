@@ -28,11 +28,11 @@ export const DataTableFilters = <TData,>({ table }: DataTableFiltersProps<TData>
         />
         <Button variant='outline' size='sm' className='m-2 h-9'>
           <PlusCircledIcon className='mr-2 h-4 w-4' />
-          <I18nText path='organiations.text.status' />
+          <I18nText path='table.column.status' />
         </Button>
         <Button variant='outline' size='sm' className='m-2 h-9'>
           <PlusCircledIcon className='mr-2 h-4 w-4' />
-          <I18nText path='organiations.text.location' />
+          <I18nText path='table.column.location' />
         </Button>
       </div>
 
@@ -40,7 +40,7 @@ export const DataTableFilters = <TData,>({ table }: DataTableFiltersProps<TData>
         <DropdownMenuTrigger asChild>
           <Button variant='outline' size='sm' className='mx-2 bg-secondary md:ml-auto'>
             <PlusCircledIcon className='mr-2 h-4 w-4' />
-            <I18nText path='app.button.add' />
+            <I18nText path='button.add' />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>

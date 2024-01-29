@@ -11,8 +11,8 @@ export const TablePagination = () => {
   return (
     <div className='flex flex-col-reverse items-center justify-end gap-2 space-x-2 py-3 md:flex-row'>
       <span className='text-b text-sm font-semibold'>
-        {pageCount < 10 ? `0${pageIndex + 1}` : pageIndex} <I18nText path='pagination.text.page' />{' '}
-        <I18nText path='pagination.text.from' /> {pageCount}
+        {pageCount < 10 ? `0${pageIndex + 1}` : pageIndex} <I18nText path='pagination.page' />{' '}
+        <I18nText path='pagination.from' /> {pageCount}
       </span>
       <div className='flex items-center gap-2'>
         <Button variant='outline' size='sm' disabled={false} className='border-none'>

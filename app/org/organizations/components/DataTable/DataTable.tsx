@@ -29,8 +29,8 @@ export const DataTable = ({ data }: DataTableProps) => {
       </div>
       <div className='flex items-center justify-between mdx:flex-col'>
         <div className='text-sm text-muted-foreground mdx:pt-2'>
-          {table.getFilteredSelectedRowModel().rows.length} <I18nText path='pagination.text.from' />{' '}
-          {table.getFilteredRowModel().rows.length} <I18nText path='pagination.text.selected' />
+          {table.getFilteredSelectedRowModel().rows.length} <I18nText path='pagination.from' />{' '}
+          {table.getFilteredRowModel().rows.length} <I18nText path='pagination.selected' />
         </div>
         <TablePagination />
       </div>

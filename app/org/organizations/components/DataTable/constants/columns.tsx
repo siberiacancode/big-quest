@@ -30,23 +30,23 @@ export const columns: ColumnDef<Application>[] = [
   },
   generateColumn({
     accessorKey: 'organization',
-    headerLabel: 'organiations.text.organization'
+    headerLabel: 'table.column.organization'
   }),
   generateColumn({
     accessorKey: 'location',
-    headerLabel: 'organiations.text.location',
+    headerLabel: 'table.column.location',
     sortable: true
   }),
-  generateColumn({ accessorKey: 'type', headerLabel: 'organiations.text.type', sortable: true }),
-  generateColumn({ accessorKey: 'rate', headerLabel: 'organiations.text.rate', sortable: true }),
+  generateColumn({ accessorKey: 'type', headerLabel: 'table.column.type', sortable: true }),
+  generateColumn({ accessorKey: 'rate', headerLabel: 'table.column.rate', sortable: true }),
   generateColumn({
     accessorKey: 'days_amount',
-    headerLabel: 'organiations.text.daysCount',
+    headerLabel: 'table.column.daysCount',
     sortable: true
   }),
   generateColumn({
     accessorKey: 'status',
-    headerLabel: 'organiations.text.status',
+    headerLabel: 'table.column.status',
     sortable: true
   }),
   {
