@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import { ChevronRightIcon } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 
@@ -9,13 +12,20 @@ const Breadcrumb = ({ className, ...props }: React.ComponentProps<'li'>) => (
 );
 Breadcrumb.displayName = 'Breadcrumb';
 
-const BreadcrumbItem = ({ className, href, ...props }: React.ComponentProps<typeof Link>) => (
-  <Link
-    className={cn('text-base font-medium text-muted-foreground', className)}
-    href={href}
-    {...props}
-  />
-);
+const BreadcrumbItem = ({ className, href, ...props }: React.ComponentProps<typeof Link>) => {
+  const path = usePathname();
+  const isCurrentPage = path === href;
+  return isCurrentPage ? (
+    <span className={cn('text-base font-medium text-muted-foreground', className)} {...props} />
+  ) : (
+    <Link
+      className={cn('text-base font-medium text-muted-foreground', className)}
+      href={href}
+      {...props}
+    />
+  );
+};
+
 BreadcrumbItem.displayName = 'BreadcrumbItem';
 
 const Breadcrumbs = ({ children, ...props }: React.ComponentProps<'li'>) => (
@@ -30,6 +40,6 @@ const Breadcrumbs = ({ children, ...props }: React.ComponentProps<'li'>) => (
     ))}
   </Breadcrumb>
 );
-Breadcrumbs.displayName = 'BreadcrumbWithSeparator';
+Breadcrumbs.displayName = 'Breadcrumbs';
 
 export { Breadcrumb, BreadcrumbItem, Breadcrumbs };
