@@ -10,6 +10,18 @@ const config = {
   ],
   prefix: '',
   theme: {
+    screens: {
+      '2xlx': { max: '1400px' },
+      xlx: { max: '1279px' },
+      lgx: { max: '1023px' },
+      mdx: { max: '767px' },
+      smx: { max: '639px' },
+      '2xl': { min: '1400px' },
+      xl: { min: '1280px' },
+      lg: { min: '1024px' },
+      md: { min: '768px' },
+      sm: { min: '640px' }
+    },
     container: {
       center: true,
       padding: '2rem',
@@ -71,6 +83,9 @@ const config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out'
+      },
+      transitionProperty: {
+        width: 'width'
       }
     }
   },
