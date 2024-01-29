@@ -24,7 +24,7 @@ const Breadcrumbs = React.forwardRef<HTMLUListElement, React.ComponentProps<'ul'
   ({ className, children, ...props }, ref) => (
     <ul ref={ref} className={cn('flex items-center pb-4 lgx:p-3', className)} {...props}>
       {React.Children.map(children, (child, index) => (
-        <li>
+        <li className='flex'>
           {child}
           {index !== React.Children.count(children) - 1 && (
             <ChevronRightIcon className='mx-2 text-muted-foreground' />
