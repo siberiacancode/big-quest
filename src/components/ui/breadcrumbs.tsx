@@ -1,21 +1,15 @@
-'use client';
-
 import React from 'react';
 import { ChevronRightIcon } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 
-const Breadcrumb = ({ className, ...props }: React.ComponentProps<'li'>) => (
-  <li className={cn('flex items-center pb-4 lgx:p-3', className)} {...props} />
-);
-Breadcrumb.displayName = 'Breadcrumb';
-
-const BreadcrumbItem = ({ className, href, ...props }: React.ComponentProps<typeof Link>) => {
-  const path = usePathname();
-  const isCurrentPage = path === href;
-  return isCurrentPage ? (
+const BreadcrumbItem = ({
+  className,
+  href,
+  ...props
+}: Omit<React.ComponentProps<typeof Link>, 'href'> & { href?: string }) =>
+  !href ? (
     <span className={cn('text-base font-medium text-muted-foreground', className)} {...props} />
   ) : (
     <Link
@@ -24,22 +18,22 @@ const BreadcrumbItem = ({ className, href, ...props }: React.ComponentProps<type
       {...props}
     />
   );
-};
-
 BreadcrumbItem.displayName = 'BreadcrumbItem';
 
-const Breadcrumbs = ({ children, ...props }: React.ComponentProps<'li'>) => (
-  <Breadcrumb {...props}>
-    {React.Children.map(children, (child, index) => (
-      <>
-        {child}
-        {index !== React.Children.count(children) - 1 && (
-          <ChevronRightIcon className='mx-2 text-muted-foreground' />
-        )}
-      </>
-    ))}
-  </Breadcrumb>
+const Breadcrumbs = React.forwardRef<HTMLUListElement, React.ComponentProps<'ul'>>(
+  ({ className, children, ...props }, ref) => (
+    <ul ref={ref} className={cn('flex items-center pb-4 lgx:p-3', className)} {...props}>
+      {React.Children.map(children, (child, index) => (
+        <li>
+          {child}
+          {index !== React.Children.count(children) - 1 && (
+            <ChevronRightIcon className='mx-2 text-muted-foreground' />
+          )}
+        </li>
+      ))}
+    </ul>
+  )
 );
 Breadcrumbs.displayName = 'Breadcrumbs';
 
-export { Breadcrumb, BreadcrumbItem, Breadcrumbs };
+export { BreadcrumbItem, Breadcrumbs };
