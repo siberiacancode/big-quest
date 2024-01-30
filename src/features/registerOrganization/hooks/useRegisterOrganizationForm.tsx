@@ -9,26 +9,27 @@ import {
 } from '../constants/registerOrganizationSchema';
 
 interface UseRegisterOrganizationFormParams {
-  onFormSubmit?: () => void;
+  afterSubmit: () => void;
 }
 
-export const useRegisterOrganizationForm = ({
-  onFormSubmit
-}: UseRegisterOrganizationFormParams) => {
-  const locations = [{ value: 'value', label: 'label' }];
+export const useRegisterOrganizationForm = ({ afterSubmit }: UseRegisterOrganizationFormParams) => {
+  const locations = [
+    { value: 'Новосибирск', label: 'Новосибирск' },
+    { value: 'Томск', label: 'Томск' }
+  ];
   const registerOrganizationForm = useForm<RegisterOrganizationSchema>({
     resolver: zodResolver(registerOrganizationSchema),
     defaultValues: {
       organization: '',
       location: '',
-      type: 'partner',
+      type: 'PARTNER',
       contactName: '',
       phone: ''
     }
   });
 
   const postOrganizationRegister = usePostOrganizationRegisterMutation({
-    options: { onSuccess: () => onFormSubmit?.() }
+    options: { onSuccess: () => afterSubmit() }
   });
 
   const onSubmit = registerOrganizationForm.handleSubmit((values) =>
@@ -36,7 +37,7 @@ export const useRegisterOrganizationForm = ({
   );
 
   const onLocationSearchChange = (search: string) => {
-    // TODO
+    // TODO запрос на список населенных пунктов
     console.log(search);
   };
 

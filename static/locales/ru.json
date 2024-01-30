@@ -4,6 +4,7 @@
   "org.auth.title": "Вход",
   "button.login": "Войти",
   "button.registerOrganization": "Отправить заявку",
+  "button.goToRegisterOrganization": "Оставить заявку",
   "field.email.label": "Почта",
   "field.password.label": "Пароль",
   "field.email.placeholder": "Введите почту...",

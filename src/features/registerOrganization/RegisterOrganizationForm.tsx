@@ -14,17 +14,19 @@ import {
   RadioGroup,
   RadioGroupItem
 } from '@/components/ui';
-import { useI18n } from '@/utils/contexts/i18n';
 
 import { useRegisterOrganizationForm } from './hooks/useRegisterOrganizationForm';
 
-export const RegisterOrganizationForm = () => {
-  const intl = useI18n();
-  const { state, form, functions } = useRegisterOrganizationForm();
+interface RegisterOrganizationFormProps {
+  afterSubmit: () => void;
+}
+
+export const RegisterOrganizationForm = ({ afterSubmit }: RegisterOrganizationFormProps) => {
+  const { state, form, functions } = useRegisterOrganizationForm({ afterSubmit });
 
   return (
     <Form {...form}>
-      <form onSubmit={functions.onSubmit} className='space-y-5'>
+      <form onSubmit={functions.onSubmit} className='w-full space-y-5'>
         <FormField
           control={form.control}
           name='type'
@@ -41,7 +43,7 @@ export const RegisterOrganizationForm = () => {
                 >
                   <FormItem className='flex items-center space-x-3 space-y-0'>
                     <FormControl>
-                      <RadioGroupItem value='partner' />
+                      <RadioGroupItem value='PARTNER' />
                     </FormControl>
                     <FormLabel>
                       <I18nText path='radioGroup.legalType.partner.label' />
@@ -49,7 +51,7 @@ export const RegisterOrganizationForm = () => {
                   </FormItem>
                   <FormItem className='flex items-center space-x-3 space-y-0'>
                     <FormControl>
-                      <RadioGroupItem value='sponsor' />
+                      <RadioGroupItem value='SPONSOR' />
                     </FormControl>
                     <FormLabel>
                       <I18nText path='radioGroup.legalType.sponsor.label' />
@@ -136,7 +138,7 @@ export const RegisterOrganizationForm = () => {
           )}
         />
 
-        <Button type='submit'>
+        <Button type='submit' className='mx-auto w-full bg-taiga hover:bg-taiga-foreground'>
           <I18nText path='button.registerOrganization' />
         </Button>
       </form>

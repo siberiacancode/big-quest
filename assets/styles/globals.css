@@ -27,8 +27,8 @@
     --radius: 0.5rem;
 
     /* custom colors */
-    --taiga-dark: hsl(145, 100%, 10%);
-    --taiga-light: hsl(155, 100%, 17%);
+    --taiga-dark: 145, 100%, 10%;
+    --taiga-light: 155, 100%, 17%;
   }
 
   .dark {
@@ -53,8 +53,8 @@
     --ring: 0 0% 83.1%;
 
     /* custom colors */
-    --taiga-dark: hsl(145, 100%, 10%);
-    --taiga-light: hsl(155, 100%, 17%);
+    --taiga-dark: 145, 100%, 10%;
+    --taiga-light: 155, 100%, 17%;
   }
 }
 

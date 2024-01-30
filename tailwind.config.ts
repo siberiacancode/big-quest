@@ -66,6 +66,9 @@ const config = {
         },
         taiga: { DEFAULT: 'hsl(var(--taiga-light))', foreground: 'hsl(var(--taiga-dark))' }
       },
+      backgroundColor: {
+        taiga: { DEFAULT: 'hsl(var(--taiga-light))', foreground: 'hsl(var(--taiga-dark))' }
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
