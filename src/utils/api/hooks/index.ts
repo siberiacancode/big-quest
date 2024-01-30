@@ -1,1 +1,1 @@
-export * from './usePostLoginEmailMutation';
+export * from './usePostAuthLoginEmailMutation';
