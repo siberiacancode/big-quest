@@ -6,4 +6,4 @@ export const postOrganizationRegister = async ({
   params,
   config
 }: RequestParams<PostOrganizationRegisterParams>) =>
-  api.post('organisation/register', params, config);
+  api.post('organization/register', params, config);

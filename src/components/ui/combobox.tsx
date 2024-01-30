@@ -42,12 +42,12 @@ export const Combobox = ({
   value,
   onSelect,
   items,
-  searchPlaceholder = 'Pesquisar item...',
-  noResultsMsg = 'Nenhum item encontrado',
-  selectItemMsg = 'Selecione um item',
+  searchPlaceholder = 'Поиск...',
+  noResultsMsg = 'Ничего не найдено',
+  selectItemMsg = 'Выберите из списка...',
   className,
   unselect = false,
-  unselectMsg = 'Nenhum',
+  unselectMsg = 'Пусто',
   onSearchChange
 }: ComboboxProps) => {
   const [open, setOpen] = React.useState(false);
