@@ -3,6 +3,7 @@
   "button.add": "Добавить",
   "org.auth.title": "Вход",
   "button.login": "Войти",
+  "button.registerOrganization": "Отправить заявку",
   "field.email.label": "Почта",
   "field.password.label": "Пароль",
   "field.email.placeholder": "Введите почту...",
@@ -10,6 +11,14 @@
   "field.search.placeholder": "Найти...",
   "field.filter.placeholder": "Фильтровать...",
   "field.results.noResults": "Нет результатов",
+  "field.organization.label": "Название организации",
+  "field.location.label": "Населенный пункт",
+  "field.contactName.label": "Ваше имя",
+  "field.phone.label": "Телефон",
+  "radioGroup.legalType.label": "Выберите форму сотрудничества",
+  "radioGroup.legalType.partner.label": "Партнер",
+  "radioGroup.legalType.sponsor.label": "Спонсор",
+  "select.placeholder": "Выберите...",
   "navigation.link.organizations": "Организации",
   "navigation.link.lids": "Лиды",
   "navigation.link.main": "Главная",
@@ -38,5 +47,6 @@
   "pagination.selected": "выбрано",
   "pagination.page": "страница",
   "validation.required": "Данное поле не может быть пустым",
-  "validation.email.format": "Неверный формат электронной почты"
+  "validation.email.format": "Неверный формат электронной почты",
+  "feature.registerOrganization.title": "Заполните заявку"
 }

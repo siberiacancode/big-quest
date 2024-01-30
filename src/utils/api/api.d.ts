@@ -72,10 +72,16 @@ interface BaseResponse {
 interface RegisterOrganizationDto {
   organization: string;
   location: string;
-  type: OrganizationType;
+  type: LegalType;
   contactName: string;
   phone: string;
 }
 
-type OrganizationType = 'partner' | 'sponsor';
+enum LegalType {
+  PARTNER = 'PARTNER',
+  FRANCHISEE = 'FRANCHISEE',
+  SPONSOR = 'SPONSOR',
+  ORGANIZATION = 'ORGANIZATION'
+}
+
 type UserRole = 'organizer' | 'partner';
