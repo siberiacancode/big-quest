@@ -1,7 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
 export const loginEmailConfig: RestRequestConfig = {
-  path: '/login/email',
+  path: '/auth/login/email',
   method: 'post',
   routes: [
     {
