@@ -18,11 +18,11 @@ import {
 import { useRegisterOrganizationForm } from './hooks/useRegisterOrganizationForm';
 
 interface RegisterOrganizationFormProps {
-  afterSubmit: () => void;
+  onSuccessSubmit: () => void;
 }
 
-export const RegisterOrganizationForm = ({ afterSubmit }: RegisterOrganizationFormProps) => {
-  const { state, form, functions } = useRegisterOrganizationForm({ afterSubmit });
+export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizationFormProps) => {
+  const { state, form, functions } = useRegisterOrganizationForm({ onSuccessSubmit });
 
   return (
     <Form {...form}>

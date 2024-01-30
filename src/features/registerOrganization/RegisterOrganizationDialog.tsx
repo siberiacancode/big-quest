@@ -24,7 +24,7 @@ export const RegisterOrganizationDialog = ({ trigger }: RegisterOrganizationModa
             <I18nText path='feature.registerOrganization.title' />
           </DialogTitle>
         </DialogHeader>
-        <RegisterOrganizationForm afterSubmit={functions.afterSubmit} />
+        <RegisterOrganizationForm onSuccessSubmit={functions.onSuccessSubmit} />
       </DialogContent>
     </Dialog>
   );

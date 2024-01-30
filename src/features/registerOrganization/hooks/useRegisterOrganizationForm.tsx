@@ -9,14 +9,18 @@ import {
 } from '../constants/registerOrganizationSchema';
 
 interface UseRegisterOrganizationFormParams {
-  afterSubmit: () => void;
+  onSuccessSubmit: () => void;
 }
 
-export const useRegisterOrganizationForm = ({ afterSubmit }: UseRegisterOrganizationFormParams) => {
+export const useRegisterOrganizationForm = ({
+  onSuccessSubmit
+}: UseRegisterOrganizationFormParams) => {
+  // TODO получение списка населенных пунктов
   const locations = [
     { value: 'Новосибирск', label: 'Новосибирск' },
     { value: 'Томск', label: 'Томск' }
   ];
+
   const registerOrganizationForm = useForm<RegisterOrganizationSchema>({
     resolver: zodResolver(registerOrganizationSchema),
     defaultValues: {
@@ -29,7 +33,7 @@ export const useRegisterOrganizationForm = ({ afterSubmit }: UseRegisterOrganiza
   });
 
   const postOrganizationRegister = usePostOrganizationRegisterMutation({
-    options: { onSuccess: () => afterSubmit() }
+    options: { onSuccess: () => onSuccessSubmit() }
   });
 
   const onSubmit = registerOrganizationForm.handleSubmit((values) =>

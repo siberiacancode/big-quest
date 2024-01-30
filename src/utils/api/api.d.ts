@@ -77,14 +77,6 @@ interface RegisterOrganizationDto {
   phone: string;
 }
 
-// const enum LegalTypeEnum {
-//   PARTNER = 'PARTNER',
-//   SPONSOR = 'SPONSOR'
-// }
-
 type LegalType = 'SPONSOR' | 'PARTNER';
-
-// const LegalTypeArray = ['SPONSOR', 'PARTNER'] as const;
-// type LegalType = (typeof arr)[number];
 
 type UserRole = 'organizer' | 'partner';

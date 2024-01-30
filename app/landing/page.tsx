@@ -2,7 +2,7 @@ import { I18nText } from '@/components/common';
 import { Button } from '@/components/ui';
 import { RegisterOrganizationDialog } from '@/features';
 
-const RegisterOrganization = () => (
+const LandingPage = () => (
   <RegisterOrganizationDialog
     trigger={
       <Button>
@@ -11,5 +11,4 @@ const RegisterOrganization = () => (
     }
   />
 );
-
-export default RegisterOrganization;
+export default LandingPage;
