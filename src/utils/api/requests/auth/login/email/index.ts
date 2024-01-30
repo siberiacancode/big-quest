@@ -6,4 +6,4 @@ export interface PostLoginEmailParams {
 }
 
 export const postLoginEmail = async ({ params, config }: RequestParams<PostLoginEmailParams>) =>
-  api.post('login/email', params, config);
+  api.post('auth/login/email', params, config);
