@@ -3,6 +3,7 @@ import React from 'react';
 import { I18nText } from '@/components/common';
 import {
   Button,
+  Checkbox,
   Form,
   FormControl,
   FormField,
@@ -32,6 +33,7 @@ export const LoginForm = () => {
               </FormLabel>
               <FormControl>
                 <Input
+                  className='border-secondary placeholder:text-placeholder'
                   placeholder={intl.formatMessage({ id: 'field.email.placeholder' })}
                   {...field}
                 />
@@ -54,6 +56,7 @@ export const LoginForm = () => {
               </FormLabel>
               <FormControl>
                 <PasswordInput
+                  className='border-secondary placeholder:text-placeholder'
                   placeholder={intl.formatMessage({ id: 'field.password.placeholder' })}
                   {...field}
                 />
@@ -66,7 +69,13 @@ export const LoginForm = () => {
             </FormItem>
           )}
         />
-        <Button type='submit'>
+        <div className='flex items-center'>
+          <Checkbox />
+          <span className='px-2 text-xs text-muted-foreground'>
+            <I18nText path='org.auth.rememberMe' />
+          </span>
+        </div>
+        <Button type='submit' className='w-full bg-quest-green p-6 text-base hover:bg-quest-dark'>
           <I18nText path='button.login' />
         </Button>
       </form>

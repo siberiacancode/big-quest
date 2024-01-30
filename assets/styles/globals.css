@@ -5,6 +5,9 @@
 @layer base {
 
   :root {
+    --placeholder: 0, 0%, 74%, 1;
+    --green-dark: 145, 100%, 10%, 1;
+    --green-light: 155, 100%, 17%, 1;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;

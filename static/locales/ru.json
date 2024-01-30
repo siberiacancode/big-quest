@@ -1,9 +1,10 @@
 {
   "app.title": "Большой квест",
   "button.add": "Добавить",
-  "org.auth.title": "Вход",
+  "org.auth.title": "Вход в личный кабинет",
+  "org.auth.rememberMe": "Запомнить меня",
   "button.login": "Войти",
-  "field.email.label": "Почта",
+  "field.email.label": "Email",
   "field.password.label": "Пароль",
   "field.email.placeholder": "Введите почту...",
   "field.password.placeholder": "Введите пароль...",
