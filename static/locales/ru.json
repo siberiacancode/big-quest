@@ -1,6 +1,6 @@
 {
   "app.title": "Большой квест",
-  "button.add": "Добавить",
+  "button.addOrganization": "Добавить",
   "org.auth.title": "Вход",
   "button.login": "Войти",
   "button.registerOrganization": "Отправить заявку",
