@@ -1,3 +1,3 @@
 export * from './useGetDadataQuery';
-export * from './usePostLoginEmailMutation';
+export * from './usePostAuthLoginEmailMutation';
 export * from './usePostOrganizationRegisterMutation';

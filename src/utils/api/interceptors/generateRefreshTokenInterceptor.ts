@@ -1,5 +1,5 @@
 import { api } from '../instance';
-import { postRefreshTokens } from '../requests/refreshTokens';
+import { getRefreshTokens } from '../requests';
 
 export const generateRefreshTokenInterceptor = () =>
   api.interceptors.response.use(
@@ -11,9 +11,13 @@ export const generateRefreshTokenInterceptor = () =>
 
       if (!error.response) return Promise.reject(error);
 
-      if (error.response.status === 401 && !originalConfig._retry) {
+      if (
+        error.response.status === 401 &&
+        !originalConfig._retry &&
+        !originalConfig.url.includes('auth/refresh-tokens')
+      ) {
         try {
-          await postRefreshTokens();
+          await getRefreshTokens();
 
           originalConfig._retry = true;
 
