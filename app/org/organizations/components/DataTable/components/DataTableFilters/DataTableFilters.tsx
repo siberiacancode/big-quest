@@ -35,7 +35,7 @@ export const DataTableFilters = <TData,>({ table }: DataTableFiltersProps<TData>
         trigger={
           <Button variant='outline' size='sm' className='mx-2 bg-secondary md:ml-auto'>
             <PlusCircledIcon className='mr-2 h-4 w-4' />
-            <I18nText path='button.addOrganization' />
+            <I18nText path='button.add' />
           </Button>
         }
       />
