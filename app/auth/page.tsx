@@ -8,9 +8,9 @@ import { I18nText, Logo } from '@/components/common';
 import { LoginForm } from './components/LoginForm/LoginForm';
 
 const AuthPage = () => (
-  <div className='flex h-screen flex-col items-center justify-between'>
+  <div className='flex h-screen flex-col items-center justify-between p-2'>
     <div className='flex h-full items-center justify-around gap-24'>
-      <div className='flex w-[300px] flex-col space-y-6 sm:w-[350px]'>
+      <div className='flex flex-col space-y-6'>
         <div className='mb-8 smx:mb-0'>
           <Logo color='quest-green' />
         </div>
@@ -21,7 +21,7 @@ const AuthPage = () => (
           <LoginForm />
         </div>
       </div>
-      <Image src={AuthImage} alt='authImage' className='lgx:w-80 smx:hidden lg:w-[28rem]' />
+      <Image src={AuthImage} alt='authImage' className='lgx:w-72 smx:hidden lg:w-[28rem]' />
     </div>
     <div className='m-3 flex divide-solid text-xs smx:flex-col smx:divide-y sm:divide-x'>
       <span className='px-2'>
