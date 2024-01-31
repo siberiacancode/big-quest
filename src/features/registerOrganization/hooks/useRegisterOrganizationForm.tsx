@@ -1,8 +1,11 @@
+'use client';
+
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 
-import { usePostOrganizationRegisterMutation } from '@/utils/api';
+import { useGetDadataQuery, usePostOrganizationRegisterMutation } from '@/utils/api';
 import { useI18n } from '@/utils/contexts';
 
 import {
@@ -19,12 +22,6 @@ export const useRegisterOrganizationForm = ({
 }: UseRegisterOrganizationFormParams) => {
   const intl = useI18n();
 
-  // TODO получение списка населенных пунктов
-  const locations = [
-    { value: 'Новосибирск', label: 'Новосибирск' },
-    { value: 'Томск', label: 'Томск' }
-  ];
-
   const registerOrganizationForm = useForm<RegisterOrganizationSchema>({
     resolver: zodResolver(registerOrganizationSchema),
     defaultValues: {
@@ -34,6 +31,12 @@ export const useRegisterOrganizationForm = ({
       contactName: '',
       phone: ''
     }
+  });
+
+  const [locationSearch, setLocationSearch] = React.useState('');
+  const getDadata = useGetDadataQuery({
+    config: { query: { address: locationSearch } },
+    options: { enabled: locationSearch.length > 2 }
   });
 
   const postOrganizationRegister = usePostOrganizationRegisterMutation({
@@ -52,13 +55,11 @@ export const useRegisterOrganizationForm = ({
     postOrganizationRegister.mutateAsync(values)
   );
 
-  const onLocationSearchChange = (search: string) => {
-    // TODO запрос на список населенных пунктов
-    console.log(search);
-  };
+  const onLocationSearchChange = (newLocationSearch: string) =>
+    setLocationSearch(newLocationSearch);
 
   return {
-    state: { locations },
+    state: { locations: getDadata.data },
     form: registerOrganizationForm,
     functions: { onSubmit, onLocationSearchChange }
   };

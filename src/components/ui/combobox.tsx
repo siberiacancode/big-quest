@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { Check, ChevronsUpDown } from 'lucide-react';
+import { useDebouncedCallback } from 'use-debounce';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -52,11 +53,11 @@ export const Combobox = ({
 }: ComboboxProps) => {
   const [open, setOpen] = React.useState(false);
 
-  const handleOnSearchChange = (e: string) => {
+  const handleOnSearchChange = useDebouncedCallback((e: string) => {
     if (e === '') return;
 
     if (onSearchChange) onSearchChange(e);
-  };
+  }, 300);
 
   return (
     <Popover open={open} onOpenChange={setOpen} modal>

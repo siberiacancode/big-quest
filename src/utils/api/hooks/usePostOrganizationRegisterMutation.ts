@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 
-import type { PostOrganizationRegisterParams } from '../requests';
-import { postOrganizationRegister } from '../requests';
+import type { PostOrganizationRegisterParams } from '../requests/organization/register';
+import { postOrganizationRegister } from '../requests/organization/register';
 
 export const usePostOrganizationRegisterMutation = (
   settings?: MutationSettings<PostOrganizationRegisterParams, typeof postOrganizationRegister>

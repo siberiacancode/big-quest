@@ -1,10 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import treeBackground from '@/assets/images/treeBackground.png';
 import { I18nText } from '@/components/common';
+import { TreeBackground } from '@/components/icons';
 import { RegisterOrganizationForm } from '@/features';
 import { ROUTES } from '@/utils/constants';
 
@@ -14,8 +13,8 @@ const RegisterOrganizationPage = () => {
   const onSuccessSubmit = () => router.push(ROUTES.LANDING.ROOT);
 
   return (
-    <div className='flex min-h-screen items-center justify-center p-5 sm:p-10'>
-      <Image className='absolute ' src={treeBackground} alt='' />
+    <div className='relative flex min-h-screen items-center justify-center overflow-x-hidden p-5 sm:p-10'>
+      <TreeBackground className='absolute' />
       <div className='flex flex-col items-center'>
         {/* // ? может вынести typography, а то в доке просто стили */}
         <h1 className='scroll-m-20 text-center text-4xl font-extrabold tracking-tight lg:text-5xl'>

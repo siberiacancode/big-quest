@@ -15,6 +15,7 @@ import {
   RadioGroupItem
 } from '@/components/ui';
 
+import { convertAddressesToComboboxItems } from './helpers/convertAddressesToComboboxItems';
 import { useRegisterOrganizationForm } from './hooks/useRegisterOrganizationForm';
 
 interface RegisterOrganizationFormProps {
@@ -90,11 +91,11 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
                 <I18nText path='field.location.label' />
               </FormLabel>
               <Combobox
-                onSearchChange={functions.onLocationSearchChange}
                 value={field.value}
                 className='w-full'
-                items={state.locations}
+                items={convertAddressesToComboboxItems(state.locations)}
                 onSelect={(newValue) => form.setValue('location', newValue!)}
+                onSearchChange={functions.onLocationSearchChange}
               />
             </FormItem>
           )}

@@ -77,51 +77,18 @@ interface RegisterOrganizationDto {
   phone: string;
 }
 
-type RegisterOrganizationStage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
-
 type LegalType = 'SPONSOR' | 'PARTNER';
 
 type UserRole = 'organizer' | 'partner';
 
-interface OrganizationInformationDto {
-  contactName: string;
-  phone: string;
-  email: string;
-  site: string;
+interface AddressResponse {
+  country: string;
+  region: string;
   city: string;
-  social: string;
-  fullNameOfTheLegalEntity: string;
-  legalAddress: string;
-  postAggress: string;
-  inn: string;
-  kpp: string;
-  ogrn: string;
-}
-
-interface OrganisationResponse {
-  id: string;
-  name: string;
-  description: string;
-  inn: string;
-  information: OrganizationInformationDto;
-  addresses: OrganizationAddressDto[];
-  requisites: RequisitesDto;
-  stage: RegisterOrganizationStage;
-  type: LegalType;
-  createdAt: string;
-  updatedAt: string;
-}
-
-interface OrganizationAddressDto {
-  locality: string;
+  postal_code: string;
   street: string;
   house: string;
-  details: string;
-  workingHours: string[];
-}
-
-interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
+  flat: number;
+  geo_lat: number;
+  geo_lon: number;
 }
