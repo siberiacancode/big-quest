@@ -3,6 +3,8 @@
   "button.add": "Добавить",
   "org.auth.title": "Вход в личный кабинет",
   "org.auth.rememberMe": "Запомнить меня",
+  "org.auth.footer.siteRules": "Правила пользования сайтом",
+  "org.auth.footer.privacyPolicy": "Политика конфиденциальности",
   "button.login": "Войти",
   "field.email.label": "Email",
   "field.password.label": "Пароль",

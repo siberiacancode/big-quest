@@ -3,14 +3,13 @@
 import Image from 'next/image';
 
 import AuthImage from '@/assets/images/AuthImage.png';
-// import AuthImage from '@/assets/images/authMask.svg';
 import { I18nText, Logo } from '@/components/common';
 
 import { LoginForm } from './components/LoginForm/LoginForm';
 
 const AuthPage = () => (
   <div className='flex h-screen flex-col items-center justify-between'>
-    <div className='flex h-full items-center gap-24'>
+    <div className='flex h-full items-center justify-around gap-24'>
       <div className='flex w-[300px] flex-col space-y-6 sm:w-[350px]'>
         <div className='mb-8 smx:mb-0'>
           <Logo color='quest-green' />
@@ -22,11 +21,19 @@ const AuthPage = () => (
           <LoginForm />
         </div>
       </div>
-      <Image src={AuthImage} alt='authImage' className='lgx:w-80 smx:hidden' />
+      <Image src={AuthImage} alt='authImage' className='lgx:w-80 smx:hidden lg:w-[28rem]' />
     </div>
-    <h3 className='m-3 text-center text-sm mdx:text-xs'>
-      Copyright © 2023 Большой квест | Правила пользования сайтом | Политика конфинденциальности
-    </h3>
+    <div className='m-3 flex divide-solid text-xs smx:flex-col smx:divide-y sm:divide-x'>
+      <span className='px-2'>
+        Copyright © 2023 <I18nText path='app.title' />
+      </span>
+      <span className='px-2 text-muted-foreground underline'>
+        <I18nText path='org.auth.footer.siteRules' />
+      </span>
+      <span className='px-2 text-muted-foreground underline'>
+        <I18nText path='org.auth.footer.privacyPolicy' />
+      </span>
+    </div>
   </div>
 );
 
