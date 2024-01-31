@@ -1,8 +1,7 @@
 'use client';
 
-import * as React from 'react';
+import React from 'react';
 import { Check, ChevronsUpDown } from 'lucide-react';
-import { useDebouncedCallback } from 'use-debounce';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -15,12 +14,13 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 
+import { Input } from './input';
 import { ScrollArea } from './scroll-area';
 
-export type ComboBoxItemType = {
+export interface ComboBoxItemType {
   value: string;
   label: string;
-};
+}
 
 type ComboboxProps = {
   value?: string;
@@ -48,16 +48,10 @@ export const Combobox = ({
   selectItemMsg = 'Выберите из списка...',
   className,
   unselect = false,
-  unselectMsg = 'Пусто',
+  unselectMsg = 'Оставить пустым',
   onSearchChange
 }: ComboboxProps) => {
   const [open, setOpen] = React.useState(false);
-
-  const handleOnSearchChange = useDebouncedCallback((e: string) => {
-    if (e === '') return;
-
-    if (onSearchChange) onSearchChange(e);
-  }, 300);
 
   return (
     <Popover open={open} onOpenChange={setOpen} modal>
@@ -66,9 +60,13 @@ export const Combobox = ({
           variant='outline'
           role='combobox'
           aria-expanded={open}
-          className={cn('justify-between', className)}
+          className={cn('justify-between gap-1 ', className)}
         >
-          {value ? items.find((item) => item.value === value)?.label : selectItemMsg}
+          <p className='truncate text-ellipsis'>
+            {!!onSearchChange && (value || selectItemMsg)}
+            {!onSearchChange &&
+              (value ? items.find((item) => item.value === value)?.label : selectItemMsg)}
+          </p>
           <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
         </Button>
       </PopoverTrigger>
@@ -77,7 +75,17 @@ export const Combobox = ({
         className='popover-content-width-same-as-its-trigger p-0'
       >
         <Command>
-          <CommandInput placeholder={searchPlaceholder} onValueChange={handleOnSearchChange} />
+          {!!onSearchChange && (
+            <Input
+              className='focus-visible:ring-0'
+              placeholder={searchPlaceholder}
+              onChange={(event) => onSearchChange(event.currentTarget.value)}
+            />
+          )}
+          {!onSearchChange && (
+            <CommandInput placeholder={searchPlaceholder} onValueChange={onSearchChange} />
+          )}
+
           <ScrollArea className='max-h-[220px] overflow-auto'>
             <CommandEmpty>{noResultsMsg}</CommandEmpty>
             <CommandGroup>

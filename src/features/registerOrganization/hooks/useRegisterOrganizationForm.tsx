@@ -35,8 +35,8 @@ export const useRegisterOrganizationForm = ({
 
   const [locationSearch, setLocationSearch] = React.useState('');
   const getDadata = useGetDadataQuery({
-    config: { query: { address: locationSearch } },
-    options: { enabled: locationSearch.length > 2 }
+    config: { params: { address: locationSearch } },
+    options: { enabled: !!locationSearch.length }
   });
 
   const postOrganizationRegister = usePostOrganizationRegisterMutation({
@@ -55,8 +55,7 @@ export const useRegisterOrganizationForm = ({
     postOrganizationRegister.mutateAsync(values)
   );
 
-  const onLocationSearchChange = (newLocationSearch: string) =>
-    setLocationSearch(newLocationSearch);
+  const onLocationSearchChange = setLocationSearch;
 
   return {
     state: { locations: getDadata.data },
