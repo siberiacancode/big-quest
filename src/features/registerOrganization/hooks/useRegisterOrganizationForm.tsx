@@ -4,6 +4,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
+import { useDebouncedCallback } from 'use-debounce';
 
 import { useGetDadataQuery, usePostOrganizationRegisterMutation } from '@/utils/api';
 import { useI18n } from '@/utils/contexts';
@@ -34,6 +35,8 @@ export const useRegisterOrganizationForm = ({
   });
 
   const [locationSearch, setLocationSearch] = React.useState('');
+  const debouncedSetLocationSearch = useDebouncedCallback(setLocationSearch, 350);
+
   const getDadata = useGetDadataQuery({
     config: { params: { address: locationSearch } },
     options: { enabled: !!locationSearch.length }
@@ -46,6 +49,7 @@ export const useRegisterOrganizationForm = ({
         toast.success(intl.formatMessage({ id: 'feature.registerOrganization.success' }), {
           cancel: { label: 'Close' }
         });
+
         onSuccessSubmit();
       }
     }
@@ -55,11 +59,13 @@ export const useRegisterOrganizationForm = ({
     postOrganizationRegister.mutateAsync(values)
   );
 
-  const onLocationSearchChange = setLocationSearch;
-
   return {
-    state: { locations: getDadata.data },
+    state: {
+      locations: getDadata.data,
+      locationsLoading: getDadata.isPending,
+      registerLoading: postOrganizationRegister.isPending
+    },
     form: registerOrganizationForm,
-    functions: { onSubmit, onLocationSearchChange }
+    functions: { onSubmit, debouncedSetLocationSearch }
   };
 };

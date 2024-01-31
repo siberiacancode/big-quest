@@ -14,8 +14,8 @@ import {
   RadioGroup,
   RadioGroupItem
 } from '@/components/ui';
+import { convertAddressesToComboboxItems } from '@/utils/helpers';
 
-import { convertAddressesToComboboxItems } from './helpers/convertAddressesToComboboxItems';
 import { useRegisterOrganizationForm } from './hooks/useRegisterOrganizationForm';
 
 interface RegisterOrganizationFormProps {
@@ -95,7 +95,8 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
                 className='w-full'
                 items={convertAddressesToComboboxItems(state.locations)}
                 onSelect={(newValue) => form.setValue('location', newValue!)}
-                onSearchChange={functions.onLocationSearchChange}
+                onSearchChange={functions.debouncedSetLocationSearch}
+                loading={state.locationsLoading}
               />
             </FormItem>
           )}
@@ -139,7 +140,11 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
           )}
         />
 
-        <Button type='submit' className='mx-auto w-full bg-taiga hover:bg-taiga-foreground'>
+        <Button
+          type='submit'
+          className='mx-auto w-full bg-taiga text-white hover:bg-taiga-foreground'
+          loading={state.registerLoading}
+        >
           <I18nText path='button.registerOrganization' />
         </Button>
       </form>

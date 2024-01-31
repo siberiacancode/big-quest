@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { ReloadIcon } from '@radix-ui/react-icons';
 import { Check, ChevronsUpDown } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -33,6 +34,7 @@ type ComboboxProps = {
   unselect?: boolean;
   unselectMsg?: string;
   onSearchChange?: (e: string) => void;
+  loading: boolean;
 };
 
 const popOverStyles = {
@@ -49,7 +51,8 @@ export const Combobox = ({
   className,
   unselect = false,
   unselectMsg = 'Оставить пустым',
-  onSearchChange
+  onSearchChange,
+  loading
 }: ComboboxProps) => {
   const [open, setOpen] = React.useState(false);
 
@@ -87,7 +90,10 @@ export const Combobox = ({
           )}
 
           <ScrollArea className='max-h-[220px] overflow-auto'>
-            <CommandEmpty>{noResultsMsg}</CommandEmpty>
+            <CommandEmpty>
+              {loading && <ReloadIcon className='mx-auto h-4 w-4 animate-spin' />}{' '}
+              {!loading && noResultsMsg}
+            </CommandEmpty>
             <CommandGroup>
               {unselect && (
                 <CommandItem
