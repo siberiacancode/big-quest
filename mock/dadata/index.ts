@@ -5,7 +5,48 @@ export const dadataConfig: RestRequestConfig = {
   method: 'get',
   routes: [
     {
-      data: [{ success: true }]
+      data: [
+        {
+          country: 'Россия',
+          region: 'Томская область',
+          city: 'Томск',
+          postal_code: '13123123',
+          street: 'Ленина',
+          house: '12',
+          flat: '12',
+          geo_lat: 123123,
+          geo_lon: 13123
+        },
+        {
+          country: 'Россия',
+          region: 'Новосибирская область',
+          city: 'Новосибирск',
+          postal_code: '13123123',
+          street: 'Ленина',
+          house: '12',
+          flat: '12',
+          geo_lat: 123123,
+          geo_lon: 13123
+        }
+      ]
+    },
+    {
+      entities: {
+        query: { address: 'Томск' }
+      },
+      data: [
+        {
+          country: 'Россия',
+          region: 'Томская область',
+          city: 'Томск',
+          postal_code: '13123123',
+          street: 'Ленина',
+          house: '12',
+          flat: '12',
+          geo_lat: 123123,
+          geo_lon: 13123
+        }
+      ]
     }
   ]
 };
