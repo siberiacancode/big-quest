@@ -49,5 +49,6 @@
   "pagination.page": "страница",
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты",
-  "feature.registerOrganization.title": "Заполните заявку"
+  "feature.registerOrganization.title": "Заполните заявку",
+  "feature.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время"
 }

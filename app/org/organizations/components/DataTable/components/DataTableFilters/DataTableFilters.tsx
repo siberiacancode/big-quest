@@ -4,6 +4,7 @@ import type { Table } from '@tanstack/react-table';
 
 import { I18nText } from '@/components/common';
 import { Button, Input } from '@/components/ui';
+import { RegisterOrganizationDialog } from '@/features';
 
 export interface DataTableFiltersProps<TData> {
   table: Table<TData>;
@@ -30,10 +31,14 @@ export const DataTableFilters = <TData,>({ table }: DataTableFiltersProps<TData>
         </Button>
       </div>
 
-      <Button variant='outline' size='sm' className='mx-2 bg-secondary md:ml-auto'>
-        <PlusCircledIcon className='mr-2 h-4 w-4' />
-        <I18nText path='button.addOrganization' />
-      </Button>
+      <RegisterOrganizationDialog
+        trigger={
+          <Button variant='outline' size='sm' className='mx-2 bg-secondary md:ml-auto'>
+            <PlusCircledIcon className='mr-2 h-4 w-4' />
+            <I18nText path='button.addOrganization' />
+          </Button>
+        }
+      />
     </div>
   );
 };
