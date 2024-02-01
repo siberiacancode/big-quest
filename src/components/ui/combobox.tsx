@@ -65,7 +65,7 @@ export const Combobox = ({
           aria-expanded={open}
           className={cn('justify-between gap-1', className)}
         >
-          <p className='truncate text-ellipsis'>
+          <p className={cn('truncate text-ellipsis', !value && 'text-muted-foreground')}>
             {!!onSearchChange && (value || selectItemMsg)}
             {!onSearchChange &&
               (value ? items.find((item) => item.value === value)?.label : selectItemMsg)}
@@ -88,12 +88,13 @@ export const Combobox = ({
           {!onSearchChange && (
             <CommandInput placeholder={searchPlaceholder} onValueChange={onSearchChange} />
           )}
-
-          <ScrollArea className='max-h-[220px] overflow-auto'>
-            <CommandEmpty>
-              {loading && <ReloadIcon className='mx-auto h-4 w-4 animate-spin' />}
-              {!loading && noResultsMsg}
-            </CommandEmpty>
+          <CommandEmpty>
+            {loading && <ReloadIcon className='mx-auto h-4 w-4 animate-spin' />}
+            {!loading && noResultsMsg}
+          </CommandEmpty>
+          <ScrollArea
+            className={cn('max-h-[220px] overflow-auto', !items.length && !unselect && 'hidden')}
+          >
             <CommandGroup>
               {unselect && (
                 <CommandItem

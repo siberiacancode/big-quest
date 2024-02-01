@@ -1,10 +1,13 @@
 {
   "app.title": "Большой квест",
-  "button.add": "Добавить",
+
   "org.auth.title": "Вход",
+
+  "button.add": "Добавить",
   "button.login": "Войти",
   "button.registerOrganization": "Отправить заявку",
   "button.goToRegisterOrganization": "Оставить заявку",
+
   "field.email.label": "Почта",
   "field.password.label": "Пароль",
   "field.email.placeholder": "Введите почту...",
@@ -16,9 +19,11 @@
   "field.location.label": "Населенный пункт",
   "field.contactName.label": "Ваше имя",
   "field.phone.label": "Телефон",
+
   "radio.legalType.label": "Выберите форму сотрудничества",
   "radio.legalType.partner.label": "Партнер",
   "radio.legalType.sponsor.label": "Спонсор",
+
   "navigation.link.organizations": "Организации",
   "navigation.link.lids": "Лиды",
   "navigation.link.main": "Главная",
@@ -29,6 +34,7 @@
   "navigation.link.mailing": "Рассылка",
   "navigation.link.news": "Новости",
   "navigation.link.profile": "Кабинет",
+
   "infoCard.title.partners": "Партнеры",
   "infoCard.title.sponsors": "Спонсоры",
   "infoCard.title.needsAttention": "Требует внимания",
@@ -37,17 +43,21 @@
   "infoCard.description.discussions": "Переговоры",
   "infoCard.description.tariffChange": "Смена тарифа",
   "infoCard.description.applications": "Заявок",
+
   "table.column.status": "Статус",
   "table.column.organization": "Организация",
   "table.column.location": "Населенный пункт",
   "table.column.type": "Тип",
   "table.column.rate": "Тариф",
   "table.column.daysCount": "Кол-во дней",
+
   "pagination.from": "из",
   "pagination.selected": "выбрано",
   "pagination.page": "страница",
+
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты",
+
   "feature.registerOrganization.title": "Заполните заявку",
   "feature.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время"
 }

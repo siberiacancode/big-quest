@@ -91,4 +91,5 @@ interface AddressResponse {
   flat: number;
   geo_lat: number;
   geo_lon: number;
+  unrestricted_value: string;
 }

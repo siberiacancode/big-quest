@@ -39,7 +39,7 @@ export const useRegisterOrganizationForm = ({
 
   const getDadata = useGetDadataQuery({
     config: { params: { address: locationSearch } },
-    options: { enabled: !!locationSearch.length }
+    options: { enabled: locationSearch.length > 3 }
   });
 
   const postOrganizationRegister = usePostOrganizationRegisterMutation({
@@ -62,7 +62,7 @@ export const useRegisterOrganizationForm = ({
   return {
     state: {
       locations: getDadata.data,
-      locationsLoading: getDadata.isPending,
+      locationsLoading: getDadata.isLoading,
       registerLoading: postOrganizationRegister.isPending
     },
     form: registerOrganizationForm,

@@ -22,3 +22,4 @@ export * from './scroll-area';
 export * from './sonner';
 export * from './table';
 export * from './tooltip';
+export * from './typography';
