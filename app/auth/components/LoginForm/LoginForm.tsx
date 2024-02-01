@@ -24,7 +24,7 @@ export const LoginForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={functions.onSubmit} className='space-y-5'>
+      <form onSubmit={functions.onSubmit} className='space-y-8'>
         <FormField
           control={form.control}
           name='email'
