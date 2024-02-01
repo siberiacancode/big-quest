@@ -4,7 +4,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
-import { useDebouncedCallback } from 'use-debounce';
+import { useDebounceCallback } from 'usehooks-ts';
 
 import { useGetDadataQuery, usePostOrganizationRegisterMutation } from '@/utils/api';
 import { useI18n } from '@/utils/contexts';
@@ -35,7 +35,7 @@ export const useRegisterOrganizationForm = ({
   });
 
   const [locationSearch, setLocationSearch] = React.useState('');
-  const debouncedSetLocationSearch = useDebouncedCallback(setLocationSearch, 350);
+  const debouncedSetLocationSearch = useDebounceCallback(setLocationSearch, 350);
 
   const getDadata = useGetDadataQuery({
     config: { params: { address: locationSearch } },

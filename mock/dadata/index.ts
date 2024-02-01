@@ -16,7 +16,7 @@ export const dadataConfig: RestRequestConfig = {
           flat: '12',
           geo_lat: 123123,
           geo_lon: 13123,
-          unrestricted_value: 'Томская область, Томск'
+          unrestrictedValue: 'Томская область, Томск'
         },
         {
           country: 'Россия',
@@ -28,7 +28,7 @@ export const dadataConfig: RestRequestConfig = {
           flat: '12',
           geo_lat: 123123,
           geo_lon: 13123,
-          unrestricted_value: 'Новосибирская область, Новосибирск'
+          unrestrictedValue: 'Новосибирская область, Новосибирск'
         }
       ]
     },
@@ -47,7 +47,7 @@ export const dadataConfig: RestRequestConfig = {
           flat: '12',
           geo_lat: 123123,
           geo_lon: 13123,
-          unrestricted_value: 'Томская область, Томск'
+          unrestrictedValue: 'Томская область, Томск'
         }
       ]
     }
