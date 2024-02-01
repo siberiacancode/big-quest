@@ -35,7 +35,7 @@ export const useRegisterOrganizationForm = ({
   });
 
   const [locationSearch, setLocationSearch] = React.useState('');
-  const debouncedSetLocationSearch = useDebounceCallback(setLocationSearch, 350);
+  const debouncedSetLocationSearch = useDebounceCallback(setLocationSearch, 600);
 
   const getDadata = useGetDadataQuery({
     config: { params: { address: locationSearch } },

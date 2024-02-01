@@ -28,7 +28,7 @@ export const dadataConfig: RestRequestConfig = {
           flat: '12',
           geo_lat: 123123,
           geo_lon: 13123,
-          unrestrictedValue: 'Новосибирская область, Новосибирск'
+          unrestrictedValue: 'Новосибирская область, Новосибирск ddddddddddddddddddddddddddddddd'
         }
       ]
     },

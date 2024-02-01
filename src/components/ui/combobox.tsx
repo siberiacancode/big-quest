@@ -65,11 +65,11 @@ export const Combobox = ({
           aria-expanded={open}
           className={cn('justify-between gap-1', className)}
         >
-          <p className={cn('truncate text-ellipsis', !value && 'text-muted-foreground')}>
+          <span className={cn('truncate', !value && 'text-muted-foreground')}>
             {!!onSearchChange && (value || selectItemMsg)}
             {!onSearchChange &&
               (value ? items.find((item) => item.value === value)?.label : selectItemMsg)}
-          </p>
+          </span>
           <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
         </Button>
       </PopoverTrigger>
