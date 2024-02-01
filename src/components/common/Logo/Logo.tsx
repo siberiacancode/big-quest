@@ -3,14 +3,13 @@ import Link from 'next/link';
 import { FullLogoIcon, LogoIcon } from '@/components/icons';
 import { ROUTES } from '@/utils/constants';
 
-interface LogoProps {
+interface LogoProps extends React.ComponentPropsWithRef<'svg'> {
   full?: boolean;
-  fill?: string;
 }
 
-export const Logo = ({ full = true, fill }: LogoProps) => (
+export const Logo = ({ full = true, ...props }: LogoProps) => (
   <Link href={ROUTES.ORG.ROOT}>
-    {full && <FullLogoIcon fill={fill} />}
-    {!full && <LogoIcon />}
+    {full && <FullLogoIcon {...props} />}
+    {!full && <LogoIcon {...props} />}
   </Link>
 );
