@@ -12,7 +12,7 @@ const AuthPage = () => (
     <div className='flex h-full items-center justify-around gap-24'>
       <div className='flex flex-col space-y-6'>
         <div className='mb-8 smx:mb-0'>
-          <Logo color='quest-green' />
+          <Logo fill='taiga-light' />
         </div>
         <div>
           <h3 className='my-8 text-center text-3xl font-bold smx:text-2xl'>

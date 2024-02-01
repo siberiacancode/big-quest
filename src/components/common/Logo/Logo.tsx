@@ -5,12 +5,12 @@ import { ROUTES } from '@/utils/constants';
 
 interface LogoProps {
   full?: boolean;
-  color?: string;
+  fill?: string;
 }
 
-export const Logo = ({ full = true, color }: LogoProps) => (
+export const Logo = ({ full = true, fill }: LogoProps) => (
   <Link href={ROUTES.ORG.ROOT}>
-    {full && <FullLogoIcon color={color} />}
-    {!full && <LogoIcon color={color} />}
+    {full && <FullLogoIcon fill={fill} />}
+    {!full && <LogoIcon />}
   </Link>
 );
