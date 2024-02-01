@@ -63,7 +63,7 @@ export const Combobox = ({
           variant='outline'
           role='combobox'
           aria-expanded={open}
-          className={cn('justify-between gap-1 ', className)}
+          className={cn('justify-between gap-1', className)}
         >
           <p className='truncate text-ellipsis'>
             {!!onSearchChange && (value || selectItemMsg)}
@@ -91,7 +91,7 @@ export const Combobox = ({
 
           <ScrollArea className='max-h-[220px] overflow-auto'>
             <CommandEmpty>
-              {loading && <ReloadIcon className='mx-auto h-4 w-4 animate-spin' />}{' '}
+              {loading && <ReloadIcon className='mx-auto h-4 w-4 animate-spin' />}
               {!loading && noResultsMsg}
             </CommandEmpty>
             <CommandGroup>

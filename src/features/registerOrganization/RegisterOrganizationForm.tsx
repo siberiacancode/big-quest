@@ -34,7 +34,7 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
           render={({ field }) => (
             <FormItem className='space-y-3'>
               <FormLabel>
-                <I18nText path='radioGroup.legalType.label' />
+                <I18nText path='radio.legalType.label' />
               </FormLabel>
               <FormControl>
                 <RadioGroup
@@ -47,7 +47,7 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
                       <RadioGroupItem value='PARTNER' />
                     </FormControl>
                     <FormLabel>
-                      <I18nText path='radioGroup.legalType.partner.label' />
+                      <I18nText path='radio.legalType.partner.label' />
                     </FormLabel>
                   </FormItem>
                   <FormItem className='flex items-center space-x-3 space-y-0'>
@@ -55,7 +55,7 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
                       <RadioGroupItem value='SPONSOR' />
                     </FormControl>
                     <FormLabel>
-                      <I18nText path='radioGroup.legalType.sponsor.label' />
+                      <I18nText path='radio.legalType.sponsor.label' />
                     </FormLabel>
                   </FormItem>
                 </RadioGroup>
