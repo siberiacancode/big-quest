@@ -17,15 +17,17 @@ export const useLoginForm = () => {
     }
   });
 
-  const postAuthLoginEmail = usePostAuthLoginEmailMutation({
-    options: { onSuccess: () => router.replace('/org/organizations') }
-  });
+  const postAuthLoginEmail = usePostAuthLoginEmailMutation();
 
-  const onSubmit = loginForm.handleSubmit((values) => postAuthLoginEmail.mutate(values));
+  const onSubmit = loginForm.handleSubmit(async (values) => {
+    await postAuthLoginEmail.mutateAsync(values);
+
+    router.replace('/org/organizations');
+  });
 
   return {
     state: {
-      authLoading: postAuthLoginEmail.isPending
+      isLoading: postAuthLoginEmail.isPending
     },
     form: loginForm,
     functions: { onSubmit }

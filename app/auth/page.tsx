@@ -3,7 +3,6 @@ import Image from 'next/image';
 import AuthImage from '@/assets/images/auth.webp';
 import { I18nText, Logo } from '@/components/common';
 
-import { AuthFooter } from './components/AuthFooter/AuthFooter';
 import { LoginForm } from './components/LoginForm/LoginForm';
 
 const AuthPage = () => (
@@ -22,7 +21,17 @@ const AuthPage = () => (
       </div>
       <Image src={AuthImage} alt='auth image' className='w-[36rem] xlx:block xlx:w-96 mdx:hidden' />
     </div>
-    <AuthFooter />
+    <footer className='m-3 flex flex-wrap justify-center divide-x divide-solid divide-gray-700 text-xs *:px-1 mdx:divide-x-0'>
+      <span>
+        Copyright © {new Date().getFullYear()} <I18nText path='app.title' />
+      </span>
+      <span className='text-muted-foreground underline'>
+        <I18nText path='org.auth.footer.siteRules' />
+      </span>
+      <span className='text-muted-foreground underline'>
+        <I18nText path='org.auth.footer.privacyPolicy' />
+      </span>
+    </footer>
   </div>
 );
 

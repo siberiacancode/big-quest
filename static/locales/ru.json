@@ -11,6 +11,8 @@
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",
+  "field.email.placeholder": "examples@mail.com",
+  "field.password.placeholder": "**********",
   "field.search.placeholder": "Найти...",
   "field.filter.placeholder": "Фильтровать...",
   "field.results.noResults": "Нет результатов",

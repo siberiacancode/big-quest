@@ -27,6 +27,7 @@
     --radius: 0.5rem;
 
     /* custom colors */
+    --placeholder: 0, 0%, 74%, 1;
     --taiga-dark: 145, 100%, 10%;
     --taiga-light: 155, 100%, 17%;
   }
@@ -53,6 +54,7 @@
     --ring: 0 0% 83.1%;
 
     /* custom colors */
+    --placeholder: 0, 0%, 74%, 1;
     --taiga-dark: 145, 100%, 10%;
     --taiga-light: 155, 100%, 17%;
   }

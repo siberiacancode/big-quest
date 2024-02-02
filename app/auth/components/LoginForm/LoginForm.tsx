@@ -4,20 +4,22 @@ import { I18nText } from '@/components/common';
 import {
   Button,
   Checkbox,
-  EmailInput,
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
+  Input,
   PasswordInput
 } from '@/components/ui';
+import { useI18n } from '@/utils/contexts';
 
 import { useLoginForm } from './hooks/useLoginForm';
 
 export const LoginForm = () => {
   const { state, form, functions } = useLoginForm();
+  const intl = useI18n();
 
   return (
     <Form {...form}>
@@ -31,7 +33,10 @@ export const LoginForm = () => {
                 <I18nText path='field.email.label' />
               </FormLabel>
               <FormControl>
-                <EmailInput {...field} />
+                <Input
+                  placeholder={intl.formatMessage({ id: 'field.email.placeholder' })}
+                  {...field}
+                />
               </FormControl>
               <FormMessage>
                 {form?.formState?.errors?.email && (
@@ -50,7 +55,10 @@ export const LoginForm = () => {
                 <I18nText path='field.password.label' />
               </FormLabel>
               <FormControl>
-                <PasswordInput {...field} />
+                <PasswordInput
+                  {...field}
+                  placeholder={intl.formatMessage({ id: 'field.password.placeholder' })}
+                />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.password && (
@@ -70,7 +78,7 @@ export const LoginForm = () => {
           type='submit'
           size='lg'
           className='w-full bg-taiga hover:bg-taiga-foreground'
-          loading={state.authLoading}
+          loading={state.isLoading}
         >
           <I18nText path='button.login' />
         </Button>
