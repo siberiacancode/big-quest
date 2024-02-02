@@ -8,7 +8,7 @@ import { LoginForm } from './components/LoginForm/LoginForm';
 const AuthPage = () => (
   <div className='flex h-screen flex-col items-center justify-between p-2'>
     <div className='flex h-full items-center justify-around gap-28 xlx:gap-12 xlx:p-5'>
-      <div className='flex  flex-col space-y-6'>
+      <div className='flex flex-col space-y-6'>
         <div className='mb-10'>
           <Logo className='fill-taiga' />
         </div>
@@ -19,7 +19,7 @@ const AuthPage = () => (
           <LoginForm />
         </div>
       </div>
-      <Image src={AuthImage} alt='auth image' className='w-[40rem] xlx:block xlx:w-96 mdx:hidden' />
+      <Image src={AuthImage} alt='auth image' className='w-[36rem] xlx:block xlx:w-96 mdx:hidden' />
     </div>
     <div className='m-3 flex flex-wrap justify-center divide-x divide-solid divide-gray-700 text-xs *:px-1 mdx:divide-x-0'>
       <span>

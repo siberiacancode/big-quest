@@ -1,7 +1,5 @@
 'use client';
 
-import React from 'react';
-
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -11,6 +9,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
   Input,
   PasswordInput
 } from '@/components/ui';
@@ -20,7 +19,7 @@ import { useLoginForm } from './hooks/useLoginForm';
 
 export const LoginForm = () => {
   const intl = useI18n();
-  const { form, functions } = useLoginForm();
+  const { state, form, functions } = useLoginForm();
 
   return (
     <Form {...form}>
@@ -35,16 +34,15 @@ export const LoginForm = () => {
               </FormLabel>
               <FormControl>
                 <Input
-                  className='border-secondary placeholder:text-placeholder'
                   placeholder={intl.formatMessage({ id: 'field.email.placeholder' })}
                   {...field}
                 />
               </FormControl>
-              <FormLabel>
+              <FormMessage>
                 {form?.formState?.errors?.email && (
                   <I18nText path={form.formState.errors.email.message as LocaleMessageId} />
                 )}
-              </FormLabel>
+              </FormMessage>
             </FormItem>
           )}
         />
@@ -58,16 +56,15 @@ export const LoginForm = () => {
               </FormLabel>
               <FormControl>
                 <PasswordInput
-                  className='border-secondary placeholder:text-placeholder'
                   placeholder={intl.formatMessage({ id: 'field.password.placeholder' })}
                   {...field}
                 />
               </FormControl>
-              <FormLabel>
+              <FormMessage>
                 {form.formState?.errors?.password && (
                   <I18nText path={form.formState.errors.password.message as LocaleMessageId} />
                 )}
-              </FormLabel>
+              </FormMessage>
             </FormItem>
           )}
         />
@@ -77,7 +74,11 @@ export const LoginForm = () => {
             <I18nText path='org.auth.rememberMe' />
           </span>
         </div>
-        <Button type='submit' className='w-full bg-taiga p-6 text-base hover:bg-taiga-foreground'>
+        <Button
+          type='submit'
+          className='w-full bg-taiga p-6 text-base hover:bg-taiga-foreground'
+          loading={state.authLoading}
+        >
           <I18nText path='button.login' />
         </Button>
       </form>
