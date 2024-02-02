@@ -4,21 +4,19 @@ import { I18nText } from '@/components/common';
 import {
   Button,
   Checkbox,
+  EmailInput,
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-  Input,
   PasswordInput
 } from '@/components/ui';
-import { useI18n } from '@/utils/contexts/i18n';
 
 import { useLoginForm } from './hooks/useLoginForm';
 
 export const LoginForm = () => {
-  const intl = useI18n();
   const { state, form, functions } = useLoginForm();
 
   return (
@@ -33,10 +31,7 @@ export const LoginForm = () => {
                 <I18nText path='field.email.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  placeholder={intl.formatMessage({ id: 'field.email.placeholder' })}
-                  {...field}
-                />
+                <EmailInput {...field} />
               </FormControl>
               <FormMessage>
                 {form?.formState?.errors?.email && (
@@ -55,10 +50,7 @@ export const LoginForm = () => {
                 <I18nText path='field.password.label' />
               </FormLabel>
               <FormControl>
-                <PasswordInput
-                  placeholder={intl.formatMessage({ id: 'field.password.placeholder' })}
-                  {...field}
-                />
+                <PasswordInput {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.password && (
@@ -76,7 +68,8 @@ export const LoginForm = () => {
         </div>
         <Button
           type='submit'
-          className='w-full bg-taiga p-6 text-base hover:bg-taiga-foreground'
+          size='lg'
+          className='w-full bg-taiga hover:bg-taiga-foreground'
           loading={state.authLoading}
         >
           <I18nText path='button.login' />

@@ -5,6 +5,7 @@ export * from './card';
 export * from './checkbox';
 export * from './collapsible';
 export * from './dropdown-menu';
+export * from './emailInput';
 export * from './form';
 export * from './hover-card';
 export * from './info-card';

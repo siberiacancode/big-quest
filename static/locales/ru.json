@@ -1,17 +1,16 @@
 {
   "app.title": "Большой квест",
-  "button.add": "Добавить",
+
   "org.auth.title": "Вход в личный кабинет",
   "org.auth.rememberMe": "Запомнить меня",
   "org.auth.footer.siteRules": "Правила пользования сайтом",
   "org.auth.footer.privacyPolicy": "Политика конфиденциальности",
 
   "button.login": "Войти",
+  "button.add": "Добавить",
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",
-  "field.email.placeholder": "examples@mail.com",
-  "field.password.placeholder": "**********",
   "field.search.placeholder": "Найти...",
   "field.filter.placeholder": "Фильтровать...",
   "field.results.noResults": "Нет результатов",
