@@ -9,6 +9,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
   Input,
   PhoneNumberInput,
   RadioGroup,
@@ -74,11 +75,11 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormLabel>
+              <FormMessage>
                 {form.formState?.errors?.organization && (
                   <I18nText path={form.formState.errors.organization.message as LocaleMessageId} />
                 )}
-              </FormLabel>
+              </FormMessage>
             </FormItem>
           )}
         />
@@ -98,6 +99,11 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
                 onSearchChange={functions.debouncedSetLocationSearch}
                 loading={state.locationsLoading}
               />
+              <FormMessage>
+                {form.formState?.errors?.location && (
+                  <I18nText path={form.formState.errors.location.message as LocaleMessageId} />
+                )}
+              </FormMessage>
             </FormItem>
           )}
         />
@@ -112,11 +118,11 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormLabel>
+              <FormMessage>
                 {form.formState?.errors?.contactName && (
                   <I18nText path={form.formState.errors.contactName.message as LocaleMessageId} />
                 )}
-              </FormLabel>
+              </FormMessage>
             </FormItem>
           )}
         />
@@ -131,11 +137,11 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
               <FormControl>
                 <PhoneNumberInput {...field} />
               </FormControl>
-              <FormLabel>
+              <FormMessage>
                 {form.formState?.errors?.phone && (
                   <I18nText path={form.formState.errors.phone.message as LocaleMessageId} />
                 )}
-              </FormLabel>
+              </FormMessage>
             </FormItem>
           )}
         />

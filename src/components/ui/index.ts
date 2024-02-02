@@ -13,7 +13,7 @@ export * from './hover-card';
 export * from './info-card';
 export * from './input';
 export * from './label';
-export * from './passwordInput';
+export * from './password-input';
 export * from './pattern-format-input';
 export * from './phone-number-input';
 export * from './popover';
