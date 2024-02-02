@@ -149,7 +149,7 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
         <Button
           type='submit'
           size='lg'
-          className='w-full bg-taiga hover:bg-taiga-foreground'
+          className='w-full bg-taiga text-white hover:bg-taiga-foreground'
           loading={state.registerLoading}
         >
           <I18nText path='button.registerOrganization' />
