@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -42,22 +40,18 @@ export const useRegisterOrganizationForm = ({
     options: { enabled: locationSearch.length > 3 }
   });
 
-  const postOrganizationRegister = usePostOrganizationRegisterMutation({
-    options: {
-      onSuccess: () => {
-        // ? может этот label: 'close' вынести глобально, он же везде будет
-        toast.success(intl.formatMessage({ id: 'feature.registerOrganization.success' }), {
-          cancel: { label: 'Close' }
-        });
+  const postOrganizationRegister = usePostOrganizationRegisterMutation();
 
-        onSuccessSubmit();
-      }
-    }
+  const onSubmit = registerOrganizationForm.handleSubmit(async (values) => {
+    await postOrganizationRegister.mutateAsync(values);
+
+    // ? может label close вынести глобально
+    toast.success(intl.formatMessage({ id: 'feature.registerOrganization.success' }), {
+      cancel: { label: 'Close' }
+    });
+
+    onSuccessSubmit();
   });
-
-  const onSubmit = registerOrganizationForm.handleSubmit((values) =>
-    postOrganizationRegister.mutateAsync(values)
-  );
 
   return {
     state: {
