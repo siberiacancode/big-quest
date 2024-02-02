@@ -11,6 +11,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
   Input,
   PasswordInput
 } from '@/components/ui';
@@ -40,11 +41,11 @@ export const LoginForm = () => {
                   {...field}
                 />
               </FormControl>
-              <FormLabel>
+              <FormMessage>
                 {form?.formState?.errors?.email && (
                   <I18nText path={form.formState.errors.email.message as LocaleMessageId} />
                 )}
-              </FormLabel>
+              </FormMessage>
             </FormItem>
           )}
         />
@@ -63,11 +64,11 @@ export const LoginForm = () => {
                   {...field}
                 />
               </FormControl>
-              <FormLabel>
+              <FormMessage>
                 {form.formState?.errors?.password && (
                   <I18nText path={form.formState.errors.password.message as LocaleMessageId} />
                 )}
-              </FormLabel>
+              </FormMessage>
             </FormItem>
           )}
         />
