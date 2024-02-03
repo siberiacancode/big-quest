@@ -47,8 +47,7 @@ export const useRegisterOrganizationForm = ({
   const onSubmit = registerOrganizationForm.handleSubmit(async (values) => {
     await postOrganizationRegister.mutateAsync(values);
 
-    // ? может label close вынести глобально
-    toast.success(intl.formatMessage({ id: 'feature.registerOrganization.success' }), {
+    toast(intl.formatMessage({ id: 'feature.registerOrganization.success' }), {
       cancel: { label: 'Close' }
     });
 

@@ -60,7 +60,7 @@ export const Combobox = ({
     <Popover open={open} onOpenChange={setOpen} modal>
       <PopoverTrigger asChild>
         <Button
-          variant='outline'
+          variant='secondary'
           role='combobox'
           aria-expanded={open}
           className={cn('justify-between gap-1', className)}
