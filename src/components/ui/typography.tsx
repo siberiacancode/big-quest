@@ -25,10 +25,10 @@ export const Typography = ({
   children,
   variant,
   className = '',
-  tag: Wrapper = 'div',
+  tag: Tag = 'div',
   ...props
 }: TypographyProps) => (
-  <Wrapper className={cn(typographyVariants({ variant, className }))} {...props}>
+  <Tag className={cn(typographyVariants({ variant, className }))} {...props}>
     {children}
-  </Wrapper>
+  </Tag>
 );

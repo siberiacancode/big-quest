@@ -7,9 +7,9 @@ import Image from 'next/image';
 import treeBackground from '@/assets/images/treeBackground.png';
 import { I18nText } from '@/components/common';
 import { Dialog, DialogClose, DialogContent, DialogTrigger, Typography } from '@/components/ui';
+import { RegisterOrganizationForm } from '@/features';
 
 import { useRegisterOrganizationDialog } from './hooks/useRegisterOrganizationDialog';
-import { RegisterOrganizationForm } from './RegisterOrganizationForm';
 
 interface RegisterOrganizationModalProps {
   trigger: JSX.Element;

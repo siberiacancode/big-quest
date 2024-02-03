@@ -3,8 +3,8 @@ import { PlusCircledIcon } from '@radix-ui/react-icons';
 import type { Table } from '@tanstack/react-table';
 
 import { I18nText } from '@/components/common';
+import { RegisterOrganizationDialog } from '@/components/dialogs';
 import { Button, Input } from '@/components/ui';
-import { RegisterOrganizationDialog } from '@/features';
 
 export interface DataTableFiltersProps<TData> {
   table: Table<TData>;

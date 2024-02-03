@@ -96,7 +96,7 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
                 className='w-full'
                 items={convertAddressesToComboboxItems(state.locations)}
                 onSelect={(newValue) => form.setValue('location', newValue!)}
-                onSearchChange={functions.debouncedSetLocationSearch}
+                onSearchChange={functions.onSearchChange}
                 loading={state.locationsLoading}
               />
               <FormMessage>

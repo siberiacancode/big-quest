@@ -1,6 +1,6 @@
 import { I18nText } from '@/components/common';
+import { RegisterOrganizationDialog } from '@/components/dialogs';
 import { Button } from '@/components/ui';
-import { RegisterOrganizationDialog } from '@/features';
 
 const LandingPage = () => (
   <RegisterOrganizationDialog

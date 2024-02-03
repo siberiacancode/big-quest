@@ -16,6 +16,8 @@ interface UseRegisterOrganizationFormParams {
   onSuccessSubmit: () => void;
 }
 
+const LOCATION_SEARCH_DELAY = 600;
+
 export const useRegisterOrganizationForm = ({
   onSuccessSubmit
 }: UseRegisterOrganizationFormParams) => {
@@ -33,7 +35,7 @@ export const useRegisterOrganizationForm = ({
   });
 
   const [locationSearch, setLocationSearch] = React.useState('');
-  const debouncedSetLocationSearch = useDebounceCallback(setLocationSearch, 600);
+  const debouncedSetLocationSearch = useDebounceCallback(setLocationSearch, LOCATION_SEARCH_DELAY);
 
   const getDadata = useGetDadataQuery({
     config: { params: { address: locationSearch } },
@@ -60,6 +62,6 @@ export const useRegisterOrganizationForm = ({
       registerLoading: postOrganizationRegister.isPending
     },
     form: registerOrganizationForm,
-    functions: { onSubmit, debouncedSetLocationSearch }
+    functions: { onSubmit, onSearchChange: debouncedSetLocationSearch }
   };
 };
