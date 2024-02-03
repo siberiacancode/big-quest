@@ -13,7 +13,7 @@ const AuthPage = () => (
           <Logo className='fill-taiga' />
         </div>
         <div>
-          <h3 className='my-10 text-center text-4xl font-bold xlx:text-2xl'>
+          <h3 className='my-[30px] text-center text-4xl font-bold xlx:text-2xl'>
             <I18nText path='org.auth.title' />
           </h3>
           <LoginForm />

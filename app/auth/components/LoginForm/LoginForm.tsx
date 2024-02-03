@@ -23,7 +23,7 @@ export const LoginForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={functions.onSubmit} className='space-y-8'>
+      <form onSubmit={functions.onSubmit} className='space-y-3'>
         <FormField
           control={form.control}
           name='email'
@@ -68,20 +68,22 @@ export const LoginForm = () => {
             </FormItem>
           )}
         />
-        <div className='flex items-center'>
-          <Checkbox />
-          <span className='px-2 text-xs text-muted-foreground'>
-            <I18nText path='org.auth.rememberMe' />
-          </span>
+        <div className='flex flex-col space-y-6'>
+          <div className='mt-3 flex items-center'>
+            <Checkbox />
+            <span className='px-2 text-xs text-muted-foreground'>
+              <I18nText path='org.auth.rememberMe' />
+            </span>
+          </div>
+          <Button
+            type='submit'
+            size='lg'
+            className='w-full bg-taiga hover:bg-taiga-foreground'
+            loading={state.isLoading}
+          >
+            <I18nText path='button.login' />
+          </Button>
         </div>
-        <Button
-          type='submit'
-          size='lg'
-          className='w-full bg-taiga hover:bg-taiga-foreground'
-          loading={state.isLoading}
-        >
-          <I18nText path='button.login' />
-        </Button>
       </form>
     </Form>
   );
