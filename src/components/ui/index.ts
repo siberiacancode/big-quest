@@ -10,7 +10,7 @@ export * from './hover-card';
 export * from './info-card';
 export * from './input';
 export * from './label';
-export * from './passwordInput';
+export * from './password-input';
 export * from './sonner';
 export * from './table';
 export * from './tooltip';

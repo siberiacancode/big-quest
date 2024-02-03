@@ -71,15 +71,23 @@ export class HttpClient {
     initialConfig: RequestConfig
   ) {
     if (!this.interceptorHandlers.response?.length && initialResponse.ok) {
-      const body = (await initialResponse.json()) as T;
-      return body;
+      if (initialResponse.headers['Content-Length']) {
+        const body = (await initialResponse.json()) as T;
+        return body;
+      }
+
+      return null;
     }
 
     if (!this.interceptorHandlers.response?.length && !initialResponse.ok) {
       throw new Error(initialResponse.statusText);
     }
 
-    let body = (await initialResponse.json()) as T;
+    let body;
+    if (initialResponse.headers['Content-Length']) {
+      body = (await initialResponse.json()) as T;
+    }
+
     const response = {
       status: initialResponse.status,
       statusText: initialResponse.statusText,
