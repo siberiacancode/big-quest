@@ -37,6 +37,11 @@
   "infoCard.description.tariffChange": "Смена тарифа",
   "infoCard.description.applications": "Заявок",
 
+  "addressCard.description.street": "Улица",
+  "addressCard.description.house": "Дом",
+  "addressCard.description.details": "Детали",
+  "addressCard.description.workingTime": "Время работы",
+
   "table.column.status": "Статус",
   "table.column.organization": "Организация",
   "table.column.location": "Населенный пункт",
