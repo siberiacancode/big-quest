@@ -19,7 +19,7 @@ export const AddressCard = ({
   workingTime
 }: AddressCardProps) => {
   return (
-    <Card className='min-w-80 flex-1'>
+    <Card className='min-w-80 flex-1 bg-background'>
       <CardContent className='flex flex-row-reverse justify-between p-8 pb-12 pr-5 pt-4'>
         <div>
           <Edit3Icon className='right text-placeholder' />

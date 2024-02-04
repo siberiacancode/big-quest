@@ -9,7 +9,12 @@
 
   "button.login": "Войти",
   "button.add": "Добавить",
+  "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
+
+  "addressModal.title.addAddress": "Добавление адреса",
+  "addressModal.description.coordinates": "Координаты",
+  "addressModal.description.untill": "до",
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",
