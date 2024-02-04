@@ -93,3 +93,8 @@ interface AddressResponse {
   geo_lon: number;
   unrestrictedValue: string;
 }
+
+interface LoginEmailDto {
+  email: string;
+  password: string;
+}

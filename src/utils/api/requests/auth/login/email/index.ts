@@ -1,9 +1,6 @@
 import { api } from '@/utils/api/instance';
 
-export interface PostAuthLoginEmailParams {
-  email: string;
-  password: string;
-}
+export type PostAuthLoginEmailParams = LoginEmailDto;
 
 export const postAuthLoginEmail = async ({
   params,
