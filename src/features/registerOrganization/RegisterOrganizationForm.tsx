@@ -19,11 +19,11 @@ import {
 import { useRegisterOrganizationForm } from './hooks/useRegisterOrganizationForm';
 
 interface RegisterOrganizationFormProps {
-  onSuccessSubmit: () => void;
+  onRegistered: () => void;
 }
 
-export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizationFormProps) => {
-  const { state, form, functions } = useRegisterOrganizationForm({ onSuccessSubmit });
+export const RegisterOrganizationForm = ({ onRegistered }: RegisterOrganizationFormProps) => {
+  const { state, form, functions } = useRegisterOrganizationForm({ onRegistered });
 
   return (
     <Form {...form}>
@@ -146,7 +146,7 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
           type='submit'
           size='lg'
           className='w-full bg-taiga text-white hover:bg-taiga-foreground'
-          loading={state.registerLoading}
+          loading={state.isLoading}
         >
           <I18nText path='button.registerOrganization' />
         </Button>

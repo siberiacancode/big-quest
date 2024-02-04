@@ -11,11 +11,11 @@ import {
 } from '../constants/registerOrganizationSchema';
 
 interface UseRegisterOrganizationFormParams {
-  onSuccessSubmit: () => void;
+  onRegistered: () => void;
 }
 
 export const useRegisterOrganizationForm = ({
-  onSuccessSubmit
+  onRegistered
 }: UseRegisterOrganizationFormParams) => {
   const intl = useI18n();
 
@@ -39,12 +39,12 @@ export const useRegisterOrganizationForm = ({
       cancel: { label: 'Close' }
     });
 
-    onSuccessSubmit();
+    onRegistered();
   });
 
   return {
     state: {
-      registerLoading: postOrganizationRegister.isPending
+      isLoading: postOrganizationRegister.isPending
     },
     form: registerOrganizationForm,
     functions: { onSubmit }
