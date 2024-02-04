@@ -1,10 +1,8 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
-import { useDebounceCallback } from 'usehooks-ts';
 
-import { useGetDadataQuery, usePostOrganizationRegisterMutation } from '@/utils/api';
+import { usePostOrganizationRegisterMutation } from '@/utils/api';
 import { useI18n } from '@/utils/contexts';
 
 import {
@@ -15,8 +13,6 @@ import {
 interface UseRegisterOrganizationFormParams {
   onSuccessSubmit: () => void;
 }
-
-const LOCATION_SEARCH_DELAY = 600;
 
 export const useRegisterOrganizationForm = ({
   onSuccessSubmit
@@ -34,14 +30,6 @@ export const useRegisterOrganizationForm = ({
     }
   });
 
-  const [locationSearch, setLocationSearch] = React.useState('');
-  const debouncedSetLocationSearch = useDebounceCallback(setLocationSearch, LOCATION_SEARCH_DELAY);
-
-  const getDadata = useGetDadataQuery({
-    config: { params: { address: locationSearch } },
-    options: { enabled: locationSearch.length > 3 }
-  });
-
   const postOrganizationRegister = usePostOrganizationRegisterMutation();
 
   const onSubmit = registerOrganizationForm.handleSubmit(async (values) => {
@@ -56,11 +44,9 @@ export const useRegisterOrganizationForm = ({
 
   return {
     state: {
-      locations: getDadata.data,
-      locationsLoading: getDadata.isLoading,
       registerLoading: postOrganizationRegister.isPending
     },
     form: registerOrganizationForm,
-    functions: { onSubmit, onSearchChange: debouncedSetLocationSearch }
+    functions: { onSubmit }
   };
 };

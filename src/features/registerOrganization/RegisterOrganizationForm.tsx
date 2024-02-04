@@ -1,9 +1,9 @@
 'use client';
 
+import { DadataCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {
   Button,
-  Combobox,
   Form,
   FormControl,
   FormField,
@@ -15,7 +15,6 @@ import {
   RadioGroup,
   RadioGroupItem
 } from '@/components/ui';
-import { convertAddressesToComboboxItems } from '@/utils/helpers';
 
 import { useRegisterOrganizationForm } from './hooks/useRegisterOrganizationForm';
 
@@ -91,13 +90,10 @@ export const RegisterOrganizationForm = ({ onSuccessSubmit }: RegisterOrganizati
               <FormLabel>
                 <I18nText path='field.location.label' />
               </FormLabel>
-              <Combobox
+              <DadataCombobox
                 value={field.value}
                 className='w-full'
-                items={convertAddressesToComboboxItems(state.locations)}
-                onSelect={(newValue) => form.setValue('location', newValue!)}
-                onSearchChange={functions.onSearchChange}
-                loading={state.locationsLoading}
+                onSelect={(newValue) => form.setValue('location', newValue ?? '')}
               />
               <FormMessage>
                 {form.formState?.errors?.location && (

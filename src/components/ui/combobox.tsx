@@ -23,7 +23,7 @@ export interface ComboBoxItemType {
   label: string;
 }
 
-type ComboboxProps = {
+export type ComboboxProps = {
   value?: string;
   onSelect: (value: string | undefined) => void;
   items: ComboBoxItemType[];
@@ -34,7 +34,7 @@ type ComboboxProps = {
   unselect?: boolean;
   unselectMsg?: string;
   onSearchChange?: (e: string) => void;
-  loading: boolean;
+  loading?: boolean;
 };
 
 const popOverStyles = {
@@ -52,7 +52,7 @@ export const Combobox = ({
   unselect = false,
   unselectMsg = 'Оставить пустым',
   onSearchChange,
-  loading
+  loading = false
 }: ComboboxProps) => {
   const [open, setOpen] = React.useState(false);
 
