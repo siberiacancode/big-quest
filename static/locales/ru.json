@@ -1,5 +1,6 @@
 {
   "app.title": "Большой квест",
+  "partners.addresses.title": "Адреса",
 
   "org.auth.title": "Вход в личный кабинет",
   "org.auth.rememberMe": "Запомнить меня",
@@ -8,6 +9,7 @@
 
   "button.login": "Войти",
   "button.add": "Добавить",
+  "button.addAddress": "Добавить адрес",
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",

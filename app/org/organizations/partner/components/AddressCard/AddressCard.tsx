@@ -19,8 +19,8 @@ export const AddressCard = ({
   workingTime
 }: AddressCardProps) => {
   return (
-    <Card className='w-[448px]'>
-      <CardContent className='flex flex-row-reverse justify-between p-8 pb-12 pt-4'>
+    <Card className='min-w-80 flex-1'>
+      <CardContent className='flex flex-row-reverse justify-between p-8 pb-12 pr-5 pt-4'>
         <div>
           <Edit3Icon className='right text-placeholder' />
         </div>
