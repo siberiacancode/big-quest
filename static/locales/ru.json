@@ -3,6 +3,46 @@
   "button.add": "Добавить",
   "org.auth.title": "Вход",
   "button.login": "Войти",
+
+  "organization.profile.tariff.title": "Тариф",
+  "organization.profile.tariff.button": "Сменить тариф",
+  "organization.profile.tariff.activity": "Активностей",
+  "organization.profile.tariff.paid": "Платных",
+  "organization.profile.tariff.valid": "Действует",
+  "organization.profile.members": "Участники",
+
+  "organization.profile.entries": "Записи",
+
+  "organization.profile.journal.placeholder": "Оставьте заметку...",
+  "organization.profile.journal.title": "Журнал",
+
+  "organization.profile.information.title": "Информация о профиле",
+  "organization.profile.information.name": "Название",
+  "organization.profile.information.contactName": "Контактное имя",
+  "organization.profile.information.phone": "Телефон",
+  "organization.profile.information.email": "Сайт",
+  "organization.profile.information.city": "Населенный пункт",
+  "organization.profile.information.social": "Соц. сети",
+
+  "organization.profile.legalInfo.title": "Юр. информация",
+  "organization.profile.legalInfo.fullName": "Полное наименование юр. лица",
+  "organization.profile.legalInfo.legalAddress": "Юридический адрес",
+  "organization.profile.legalInfo.postAddress": "Почтовый адрес",
+  "organization.profile.legalInfo.inn": "ИНН",
+  "organization.profile.legalInfo.kpp": "КПП",
+  "organization.profile.legalInfo.ogrn": "ОГРН",
+
+  "organization.profile.requisites.title": "Реквизиты",
+  "organization.profile.requisites.bank": "Банк",
+  "organization.profile.requisites.bik": "БИК",
+  "organization.profile.requisites.checkingAccount": "Р/С",
+
+  "organization.profile.header.profile": "Профиль",
+  "organization.profile.header.addresses": "Адреса",
+  "organization.profile.header.employees": "Сотрудники",
+  "organization.profile.header.activities": "Активности",
+  "organization.profile.header.schedule": "Расписание",
+
   "field.email.label": "Почта",
   "field.password.label": "Пароль",
   "field.email.placeholder": "Введите почту...",
@@ -10,6 +50,7 @@
   "field.search.placeholder": "Найти...",
   "field.filter.placeholder": "Фильтровать...",
   "field.results.noResults": "Нет результатов",
+
   "navigation.link.organizations": "Организации",
   "navigation.link.lids": "Лиды",
   "navigation.link.main": "Главная",
@@ -20,6 +61,7 @@
   "navigation.link.mailing": "Рассылка",
   "navigation.link.news": "Новости",
   "navigation.link.profile": "Кабинет",
+
   "infoCard.title.partners": "Партнеры",
   "infoCard.title.sponsors": "Спонсоры",
   "infoCard.title.needsAttention": "Требует внимания",
@@ -28,15 +70,18 @@
   "infoCard.description.discussions": "Переговоры",
   "infoCard.description.tariffChange": "Смена тарифа",
   "infoCard.description.applications": "Заявок",
+
   "table.column.status": "Статус",
   "table.column.organization": "Организация",
   "table.column.location": "Населенный пункт",
   "table.column.type": "Тип",
   "table.column.rate": "Тариф",
   "table.column.daysCount": "Кол-во дней",
+
   "pagination.from": "из",
   "pagination.selected": "выбрано",
   "pagination.page": "страница",
+
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты"
 }
