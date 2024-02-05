@@ -3,7 +3,8 @@ import { useDebounceCallback } from 'usehooks-ts';
 
 import { Combobox, type ComboboxProps } from '@/components/ui';
 import { useGetDadataQuery } from '@/utils/api';
-import { convertAddressesToComboboxItems } from '@/utils/helpers';
+
+import { convertAddressesToComboboxItems } from './helpers/convertAddressesToComboboxItems';
 
 interface DadataComboboxProps extends Omit<ComboboxProps, 'items' | 'onSearchChange' | 'loading'> {}
 
