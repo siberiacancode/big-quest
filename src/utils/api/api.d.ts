@@ -70,3 +70,7 @@ type RequestParams<Params = undefined> = Params extends undefined
 interface BaseResponse {
   message: string;
 }
+
+type LegalType = 'SPONSOR' | 'PARTNER';
+
+type StageType = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';

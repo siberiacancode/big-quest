@@ -38,12 +38,12 @@ export const ProfileInformation = ({ organization }) => {
           <RowInfo title='organization.profile.information.name' value={organization.name} />
           <RowInfo
             title='organization.profile.information.contactName'
-            value={information?.contactName}
+            value={information.contactName}
           />
-          <RowInfo title='organization.profile.information.phone' value={information?.phone} />
-          <RowInfo title='organization.profile.information.email' value={information?.email} />
-          <RowInfo title='organization.profile.information.city' value={information?.city} />
-          <RowInfo title='organization.profile.information.social' value={information?.social} />
+          <RowInfo title='organization.profile.information.phone' value={information.phone} />
+          <RowInfo title='organization.profile.information.email' value={information.email} />
+          <RowInfo title='organization.profile.information.city' value={information.city} />
+          <RowInfo title='organization.profile.information.social' value={information.social} />
         </div>
         <Separator className='mt-4' />
         <Accordion type='single' collapsible>
@@ -54,19 +54,19 @@ export const ProfileInformation = ({ organization }) => {
             <AccordionContent className='flex flex-col gap-3'>
               <RowInfo
                 title='organization.profile.legalInfo.fullName'
-                value={information?.fullNameOfTheLegalEntity}
+                value={information.fullNameOfTheLegalEntity}
               />
               <RowInfo
                 title='organization.profile.legalInfo.legalAddress'
-                value={information?.legalAddress}
+                value={information.legalAddress}
               />
               <RowInfo
                 title='organization.profile.legalInfo.postAddress'
-                value={information?.postAggress}
+                value={information.postAggress}
               />
-              <RowInfo title='organization.profile.legalInfo.inn' value={information?.inn} />
-              <RowInfo title='organization.profile.legalInfo.kpp' value={information?.kpp} />
-              <RowInfo title='organization.profile.legalInfo.ogrn' value={information?.ogrn} />
+              <RowInfo title='organization.profile.legalInfo.inn' value={information.inn} />
+              <RowInfo title='organization.profile.legalInfo.kpp' value={information.kpp} />
+              <RowInfo title='organization.profile.legalInfo.ogrn' value={information.ogrn} />
             </AccordionContent>
           </AccordionItem>
         </Accordion>
@@ -78,11 +78,11 @@ export const ProfileInformation = ({ organization }) => {
               <I18nText path='organization.profile.requisites.title' />
             </AccordionTrigger>
             <AccordionContent className='flex flex-col gap-3'>
-              <RowInfo title='organization.profile.requisites.bank' value={requisites?.bank} />
-              <RowInfo title='organization.profile.requisites.bik' value={requisites?.bik} />
+              <RowInfo title='organization.profile.requisites.bank' value={requisites.bank} />
+              <RowInfo title='organization.profile.requisites.bik' value={requisites.bik} />
               <RowInfo
                 title='organization.profile.requisites.checkingAccount'
-                value={requisites?.checkingAccount}
+                value={requisites.checkingAccount}
               />
             </AccordionContent>
           </AccordionItem>

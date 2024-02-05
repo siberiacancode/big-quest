@@ -2,8 +2,7 @@
 
 import { I18nText } from '@/components/common';
 import { BreadcrumbItem, Breadcrumbs, Tabs, TabsContent } from '@/components/ui';
-import { ROUTES } from '@/utils/constants';
-import { HEADER_OPTIONS } from '@/utils/constants/profile/profileOptions';
+import { HEADER_OPTIONS, ROUTES } from '@/utils/constants';
 
 import { Header } from '../Header/Header';
 import { Profile } from '../Profile/Profile';

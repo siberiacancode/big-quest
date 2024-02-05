@@ -10,6 +10,6 @@ export const useWrapper = () => {
   const organization = useGetOrganizationByIdQuery({ id });
 
   return {
-    state: { organization: organization.data, organizationsLoading: organization.isLoading }
+    state: { organization: organization.data, isLoading: organization.isLoading }
   };
 };
