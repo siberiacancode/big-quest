@@ -30,7 +30,11 @@ export const Sidebar = ({ children, defaultOpen }: SidebarProps) => {
       >
         <Logo full={state.isOpen} />
         <Button
-          className='absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2'
+          className={cn(
+            'absolute bottom-0 translate-x-1/2 translate-y-1/2',
+            state.isOpen && '-right-8',
+            !state.isOpen && '-right-[22px]'
+          )}
           size='icon'
           variant='outline'
           onClick={functions.toggleSidebarOpen}

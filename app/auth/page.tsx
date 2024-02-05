@@ -6,8 +6,8 @@ import { I18nText, Logo } from '@/components/common';
 import { LoginForm } from './components/LoginForm/LoginForm';
 
 const AuthPage = () => (
-  <div className='flex h-screen flex-col items-center justify-between p-2'>
-    <div className='flex h-full items-center justify-around gap-28 xlx:gap-12 xlx:p-5'>
+  <div className='flex min-h-screen flex-col items-center justify-between p-2'>
+    <div className='flex flex-1 items-center justify-around gap-28 xlx:gap-12 xlx:p-5'>
       <div className='flex flex-col space-y-6'>
         <div className='mb-10'>
           <Logo className='fill-taiga' />
