@@ -7,17 +7,23 @@ import { Table as TableComponent } from '@/components/ui/table';
 
 import { DataTableBody } from './components/DataTableBody/DataTableBody';
 import { DataTableHeader } from './components/DataTableHeader/DataTableHeader';
+import { DataTablePagination } from './components/DataTablePagination/DataTablePagination';
 import { DataTableToolbar } from './components/DataTableToolbar/DataTableToolbar';
-import { TablePagination } from './components/TablePagination/TablePagination';
 import { useDataTable } from './hooks/useDataTable';
 
 interface DataTableProps<TData> {
   data: TData[];
+  pagination: Pagination;
   columns: ColumnDef<TData>[];
   toolbar: (table: Table<TData>) => React.ReactNode[];
 }
 
-export const DataTable = <TData,>({ data, columns, toolbar }: DataTableProps<TData>) => {
+export const DataTable = <TData,>({
+  data,
+  pagination,
+  columns,
+  toolbar
+}: DataTableProps<TData>) => {
   const table = useDataTable(data, columns);
 
   return (
@@ -32,9 +38,9 @@ export const DataTable = <TData,>({ data, columns, toolbar }: DataTableProps<TDa
       <div className='flex items-center justify-between mdx:flex-col'>
         <div className='text-sm text-muted-foreground mdx:pt-2'>
           {table.getFilteredSelectedRowModel().rows.length} <I18nText path='pagination.from' />{' '}
-          {table.getFilteredRowModel().rows.length} <I18nText path='pagination.selected' />
+          {pagination.count} <I18nText path='pagination.selected' />
         </div>
-        <TablePagination />
+        <DataTablePagination {...pagination} />
       </div>
     </div>
   );

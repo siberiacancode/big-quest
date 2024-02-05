@@ -101,6 +101,10 @@ interface LoginEmailDto {
 
 interface OrganizationTableResponse {
   rows: OrganizationTableRow[];
+  pagination: Pagination;
+}
+
+interface Pagination {
   limit: number;
   offset: number;
   count: number;

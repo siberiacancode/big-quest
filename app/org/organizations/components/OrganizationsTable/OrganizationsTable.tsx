@@ -11,15 +11,17 @@ import type { Application } from './types';
 
 interface DataTableProps {
   data: Application[];
+  pagination: Pagination;
 }
 
-export const OrganizationsTable = ({ data }: DataTableProps) => {
+export const OrganizationsTable = ({ data, pagination }: DataTableProps) => {
   const intl = useI18n();
 
   return (
     <DataTable
       data={data}
       columns={columns}
+      pagination={pagination}
       toolbar={(table) => [
         <Input
           placeholder={intl.formatMessage({ id: 'field.filter.placeholder' })}

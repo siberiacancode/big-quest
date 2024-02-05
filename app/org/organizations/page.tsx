@@ -96,7 +96,7 @@ const OrganizationsPage = () => (
         </InfoCardContent>
       </InfoCard>
     </div>
-    <OrganizationsTable data={data} />
+    <OrganizationsTable data={data} pagination={{ count: data.length * 3, offset: 4, limit: 15 }} />
   </div>
 );
 
