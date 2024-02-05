@@ -70,3 +70,12 @@ type RequestParams<Params = undefined> = Params extends undefined
 interface BaseResponse {
   message: string;
 }
+
+interface AddOrganizationAddressDto {
+  organization: string;
+  location: string;
+  street: string;
+  house: string;
+  details: string;
+  workingHours: string[];
+}
