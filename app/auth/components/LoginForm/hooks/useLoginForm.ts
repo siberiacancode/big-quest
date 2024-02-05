@@ -26,6 +26,9 @@ export const useLoginForm = () => {
   });
 
   return {
+    state: {
+      isLoading: postAuthLoginEmail.isPending
+    },
     form: loginForm,
     functions: { onSubmit }
   };
