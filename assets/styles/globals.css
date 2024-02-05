@@ -27,9 +27,10 @@
     --radius: 0.5rem;
 
     /* custom colors */
-    --placeholder: 0 0% 71%;
+    --placeholder: 0 0% 74%;
     --taiga-dark: 145 100% 10%;
     --taiga-light: 155 100% 17%;
+
   }
 
   .dark {
