@@ -29,6 +29,7 @@ export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
   const postAddOrganizationAddress = usePostAddOrganizationAddressMutation();
 
   const onSubmit = addAddressForm.handleSubmit(async (values) => {
+    console.log('Submitting form...', values);
     await postAddOrganizationAddress.mutateAsync(values);
 
     toast(intl.formatMessage({ id: 'feature.addAddress.success' }), {

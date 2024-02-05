@@ -15,6 +15,7 @@
   "addressModal.title.addAddress": "Добавление адреса",
   "addressModal.description.coordinates": "Координаты",
   "addressModal.description.untill": "до",
+  "addressModal.description.placeholder": "офис, вход, этаж",
   "feature.addAddress.success": "Адрес успешно добавлен",
 
   "field.email.label": "Email",
