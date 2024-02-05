@@ -4,12 +4,13 @@ import { cn } from '@/lib/utils';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactNode;
+  wrapperClassName?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, icon, ...props }, ref) => {
+  ({ className, type, icon, wrapperClassName, ...props }, ref) => {
     return (
-      <div className='relative w-full'>
+      <div className={cn('relative w-full', wrapperClassName)}>
         {!!icon && (
           <div className='pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2'>
             {icon}

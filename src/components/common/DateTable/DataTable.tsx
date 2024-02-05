@@ -1,31 +1,33 @@
 'use client';
 
+import type { ColumnDef, Table } from '@tanstack/react-table';
+
 import { I18nText } from '@/components/common';
-import { Table } from '@/components/ui/table';
+import { Table as TableComponent } from '@/components/ui/table';
 
 import { DataTableBody } from './components/DataTableBody/DataTableBody';
-import { DataTableFilters } from './components/DataTableFilters/DataTableFilters';
 import { DataTableHeader } from './components/DataTableHeader/DataTableHeader';
+import { DataTableToolbar } from './components/DataTableToolbar/DataTableToolbar';
 import { TablePagination } from './components/TablePagination/TablePagination';
-import { columns } from './constants/columns';
 import { useDataTable } from './hooks/useDataTable';
-import type { Application } from './types';
 
-interface DataTableProps {
-  data: Application[];
+interface DataTableProps<TData> {
+  data: TData[];
+  columns: ColumnDef<TData>[];
+  toolbar: (table: Table<TData>) => React.ReactNode[];
 }
 
-export const DataTable = ({ data }: DataTableProps) => {
+export const DataTable = <TData,>({ data, columns, toolbar }: DataTableProps<TData>) => {
   const table = useDataTable(data, columns);
 
   return (
-    <div className=' mt-10 w-full rounded-md bg-background p-4'>
-      <DataTableFilters table={table} />
+    <div className='mt-10 w-full rounded-md bg-background p-4'>
+      <DataTableToolbar table={table} toolbar={toolbar} />
       <div className='rounded-md border'>
-        <Table>
+        <TableComponent>
           <DataTableHeader table={table} />
           <DataTableBody table={table} columns={columns} />
-        </Table>
+        </TableComponent>
       </div>
       <div className='flex items-center justify-between mdx:flex-col'>
         <div className='text-sm text-muted-foreground mdx:pt-2'>

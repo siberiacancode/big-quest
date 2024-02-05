@@ -15,8 +15,8 @@ import {
 } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
 
-import { data } from './components/DataTable/constants/data';
-import { DataTable } from './components/DataTable/DataTable';
+import { data } from './components/OrganizationsTable/constants/data';
+import { OrganizationsTable } from './components/OrganizationsTable/OrganizationsTable';
 
 const OrganizationsPage = () => (
   <div className='bg-secondary px-4'>
@@ -96,7 +96,7 @@ const OrganizationsPage = () => (
         </InfoCardContent>
       </InfoCard>
     </div>
-    <DataTable data={data} />
+    <OrganizationsTable data={data} />
   </div>
 );
 

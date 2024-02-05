@@ -98,3 +98,24 @@ interface LoginEmailDto {
   email: string;
   password: string;
 }
+
+interface OrganizationTableResponse {
+  rows: OrganizationTableRow[];
+  limit: number;
+  offset: number;
+  count: number;
+}
+
+interface OrganizationTableRow {
+  id: string;
+  name: string;
+  description: string;
+  inn: string;
+  createdAt: '2024-01-30T15:21:59.974Z';
+  updatedAt: '2024-01-30T15:21:59.974Z';
+  information: string;
+  addresses: [];
+  requisites: string;
+  stage: 'CONCLUSION';
+  type: 'ORGANIZER';
+}

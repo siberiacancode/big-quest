@@ -4,11 +4,9 @@ import { flexRender } from '@tanstack/react-table';
 import { I18nText } from '@/components/common';
 import { TableBody, TableCell, TableRow } from '@/components/ui';
 
-import type { Application } from '../../types';
-
 interface DataTableBodyProps<TData> {
   table: Table<TData>;
-  columns: ColumnDef<Application>[];
+  columns: ColumnDef<TData>[];
 }
 
 export const DataTableBody = <TData,>({ table, columns }: DataTableBodyProps<TData>) => (
