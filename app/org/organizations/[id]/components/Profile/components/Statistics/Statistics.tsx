@@ -21,7 +21,7 @@ export const Statistics = () => {
           <InfoCardTitle className='text-lg	 font-bold	'>
             <I18nText path='organization.profile.tariff.title' /> Бесплатный
           </InfoCardTitle>
-          <InfoCardAction className='bg-transparent text-xs text-slate-500	'>
+          <InfoCardAction className='bg-transparent text-xs text-muted-foreground'>
             <Button variant='ghost' className=' p-2'>
               <I18nText path='organization.profile.tariff.button' />
             </Button>
@@ -29,19 +29,19 @@ export const Statistics = () => {
         </InfoCardHeader>
         <InfoCardContent className='mt-3 flex w-full justify-center'>
           <InfoCardItem className='flex flex-col items-center border-none'>
-            <InfoCardItemTitle className='text-2xl font-medium	'>10</InfoCardItemTitle>
+            <InfoCardItemTitle className='text-2xl font-medium'>10</InfoCardItemTitle>
             <InfoCardItemDescription className='flex'>
               <I18nText path='organization.profile.tariff.activity' />
             </InfoCardItemDescription>
           </InfoCardItem>
           <InfoCardItem className='flex flex-col items-center border-none'>
-            <InfoCardItemTitle className='text-2xl font-medium	'>10</InfoCardItemTitle>
+            <InfoCardItemTitle className='text-2xl font-medium'>10</InfoCardItemTitle>
             <InfoCardItemDescription className='flex'>
               <I18nText path='organization.profile.tariff.paid' />
             </InfoCardItemDescription>
           </InfoCardItem>
           <InfoCardItem className='flex flex-col items-center border-none'>
-            <InfoCardItemTitle className='text-2xl font-medium	'>10</InfoCardItemTitle>
+            <InfoCardItemTitle className='text-2xl font-medium'>10</InfoCardItemTitle>
             <InfoCardItemDescription className='flex'>
               <I18nText path='organization.profile.tariff.valid' />
             </InfoCardItemDescription>
@@ -51,7 +51,7 @@ export const Statistics = () => {
       <div className='flex gap-4'>
         <InfoCard>
           <InfoCardHeader className='p-5'>
-            <InfoCardTitle className='text-base	 font-medium	'>
+            <InfoCardTitle className='text-base	font-medium'>
               <I18nText path='organization.profile.members' />
             </InfoCardTitle>
             <InfoCardAction>
@@ -69,7 +69,7 @@ export const Statistics = () => {
         </InfoCard>
         <InfoCard>
           <InfoCardHeader className='p-5'>
-            <InfoCardTitle className='text-base	 font-medium	'>
+            <InfoCardTitle className='text-base	font-medium'>
               <I18nText path='organization.profile.entries' />
             </InfoCardTitle>
             <InfoCardAction>

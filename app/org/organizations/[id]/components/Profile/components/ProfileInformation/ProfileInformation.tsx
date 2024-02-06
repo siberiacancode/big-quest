@@ -21,7 +21,7 @@ export const ProfileInformation = ({ organization }) => {
   const { information, requisites } = organization;
   return (
     <InfoCard className='h-fit w-1/2 smx:w-full'>
-      <InfoCardHeader className=' pb-3 '>
+      <InfoCardHeader className='pb-3'>
         <InfoCardTitle className='text-lg font-bold'>
           <I18nText path='organization.profile.information.name' />
         </InfoCardTitle>
@@ -32,7 +32,7 @@ export const ProfileInformation = ({ organization }) => {
         </InfoCardAction>
       </InfoCardHeader>
       <InfoCardContent className='flex w-full flex-col px-7'>
-        <p className='text-xs font-medium text-slate-500	'>{organization.description}</p>
+        <p className='text-xs font-medium text-muted-foreground'>{organization.description}</p>
         <Separator className='my-5' />
         <div className='flex flex-col gap-3'>
           <RowInfo title='organization.profile.information.name' value={organization.name} />
@@ -47,7 +47,7 @@ export const ProfileInformation = ({ organization }) => {
         </div>
         <Separator className='mt-4' />
         <Accordion type='single' collapsible>
-          <AccordionItem value='item-1' className=' border-none'>
+          <AccordionItem value='item-1' className='border-none'>
             <AccordionTrigger className='text-md font-bold'>
               <I18nText path='organization.profile.legalInfo.title' />
             </AccordionTrigger>
@@ -73,7 +73,7 @@ export const ProfileInformation = ({ organization }) => {
         <Separator />
 
         <Accordion type='single' collapsible>
-          <AccordionItem value='item-1' className=' border-none'>
+          <AccordionItem value='item-1' className='border-none'>
             <AccordionTrigger className='text-md font-bold'>
               <I18nText path='organization.profile.requisites.title' />
             </AccordionTrigger>

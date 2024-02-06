@@ -4,7 +4,11 @@ import { cn } from '@/lib/utils';
 
 const TimelineContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ children, className, ...props }, ref) => (
-    <div ref={ref} className={cn('mb-5 text-sm	font-normal text-slate-500', className)} {...props}>
+    <div
+      ref={ref}
+      className={cn('mb-5 text-sm	font-normal text-muted-foreground', className)}
+      {...props}
+    >
       {children}
     </div>
   )
