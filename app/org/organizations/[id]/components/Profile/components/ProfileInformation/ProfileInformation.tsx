@@ -14,11 +14,15 @@ import {
   InfoCardTitle,
   Separator
 } from '@/components/ui';
+import type { Organization } from '@/utils/api/types/types';
 
 import { RowInfo } from './components/RowInfo/RowInfo';
 
-export const ProfileInformation = ({ organization }) => {
-  const { information, requisites } = organization;
+interface ProfileInformationProps {
+  organization: Organization;
+}
+
+export const ProfileInformation = ({ organization }: ProfileInformationProps) => {
   return (
     <InfoCard className='h-fit w-1/2 smx:w-full'>
       <InfoCardHeader className='pb-3'>
@@ -38,12 +42,24 @@ export const ProfileInformation = ({ organization }) => {
           <RowInfo title='organization.profile.information.name' value={organization.name} />
           <RowInfo
             title='organization.profile.information.contactName'
-            value={information.contactName}
+            value={organization.information?.contactName}
           />
-          <RowInfo title='organization.profile.information.phone' value={information.phone} />
-          <RowInfo title='organization.profile.information.email' value={information.email} />
-          <RowInfo title='organization.profile.information.city' value={information.city} />
-          <RowInfo title='organization.profile.information.social' value={information.social} />
+          <RowInfo
+            title='organization.profile.information.phone'
+            value={organization.information?.phone}
+          />
+          <RowInfo
+            title='organization.profile.information.email'
+            value={organization.information?.email}
+          />
+          <RowInfo
+            title='organization.profile.information.city'
+            value={organization.information?.city}
+          />
+          <RowInfo
+            title='organization.profile.information.social'
+            value={organization.information?.social}
+          />
         </div>
         <Separator className='mt-4' />
         <Accordion type='single' collapsible>
@@ -54,19 +70,28 @@ export const ProfileInformation = ({ organization }) => {
             <AccordionContent className='flex flex-col gap-3'>
               <RowInfo
                 title='organization.profile.legalInfo.fullName'
-                value={information.fullNameOfTheLegalEntity}
+                value={organization.information?.fullNameOfTheLegalEntity}
               />
               <RowInfo
                 title='organization.profile.legalInfo.legalAddress'
-                value={information.legalAddress}
+                value={organization.information?.legalAddress}
               />
               <RowInfo
                 title='organization.profile.legalInfo.postAddress'
-                value={information.postAggress}
+                value={organization.information?.postAggress}
               />
-              <RowInfo title='organization.profile.legalInfo.inn' value={information.inn} />
-              <RowInfo title='organization.profile.legalInfo.kpp' value={information.kpp} />
-              <RowInfo title='organization.profile.legalInfo.ogrn' value={information.ogrn} />
+              <RowInfo
+                title='organization.profile.legalInfo.inn'
+                value={organization.information?.inn}
+              />
+              <RowInfo
+                title='organization.profile.legalInfo.kpp'
+                value={organization.information?.kpp}
+              />
+              <RowInfo
+                title='organization.profile.legalInfo.ogrn'
+                value={organization.information?.ogrn}
+              />
             </AccordionContent>
           </AccordionItem>
         </Accordion>
@@ -77,12 +102,19 @@ export const ProfileInformation = ({ organization }) => {
             <AccordionTrigger className='text-md font-bold'>
               <I18nText path='organization.profile.requisites.title' />
             </AccordionTrigger>
+
             <AccordionContent className='flex flex-col gap-3'>
-              <RowInfo title='organization.profile.requisites.bank' value={requisites.bank} />
-              <RowInfo title='organization.profile.requisites.bik' value={requisites.bik} />
+              <RowInfo
+                title='organization.profile.requisites.bank'
+                value={organization.requisites?.bank}
+              />
+              <RowInfo
+                title='organization.profile.requisites.bik'
+                value={organization.requisites?.bik}
+              />
               <RowInfo
                 title='organization.profile.requisites.checkingAccount'
-                value={requisites.checkingAccount}
+                value={organization.requisites?.checkingAccount}
               />
             </AccordionContent>
           </AccordionItem>

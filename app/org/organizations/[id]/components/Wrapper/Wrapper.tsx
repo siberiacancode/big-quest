@@ -11,10 +11,9 @@ import { useWrapper } from './hooks/useWrapper';
 
 export const Wrapper = () => {
   const { state } = useWrapper();
-  const { organization } = state;
   return (
     <>
-      {organization && (
+      {state.organization && (
         <>
           <Breadcrumbs>
             <BreadcrumbItem href={ROUTES.ORG.ROOT}>
@@ -23,19 +22,19 @@ export const Wrapper = () => {
             <BreadcrumbItem href={ROUTES.ORG.ORGANIZATIONS}>
               <I18nText path='navigation.link.organizations' />
             </BreadcrumbItem>
-            <BreadcrumbItem>{organization.name}</BreadcrumbItem>
+            <BreadcrumbItem>{state.organization.name}</BreadcrumbItem>
           </Breadcrumbs>
           <Tabs defaultValue={HEADER_OPTIONS.PROFILE}>
-            <Header data={organization} />
+            <Header organization={state.organization} />
             <TabsContent value={HEADER_OPTIONS.PROFILE}>
-              <Profile data={organization} />
+              <Profile organization={state.organization} />
             </TabsContent>
-            {organization.type !== 'SPONSOR' && (
+            {state.organization.type !== 'SPONSOR' && (
               <>
-                <TabsContent value={HEADER_OPTIONS.ADDRESSES}> Address page</TabsContent>
-                <TabsContent value={HEADER_OPTIONS.EMPLOYEES}> Employees page</TabsContent>
-                <TabsContent value={HEADER_OPTIONS.ACTIVITIES}> Activities page</TabsContent>
-                <TabsContent value={HEADER_OPTIONS.SCHEDULE}> Schedule page</TabsContent>
+                <TabsContent value={HEADER_OPTIONS.ADDRESSES}>Address page</TabsContent>
+                <TabsContent value={HEADER_OPTIONS.EMPLOYEES}>Employees page</TabsContent>
+                <TabsContent value={HEADER_OPTIONS.ACTIVITIES}>Activities page</TabsContent>
+                <TabsContent value={HEADER_OPTIONS.SCHEDULE}>Schedule page</TabsContent>
               </>
             )}
           </Tabs>

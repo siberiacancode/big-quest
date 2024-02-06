@@ -1,11 +1,17 @@
+import type { Organization } from '@/utils/api/types/types';
+
 import { Journal, ProfileInformation, Statistics } from './components';
 
-export const Profile = ({ data }) => {
+interface ProfileProps {
+  organization: Organization;
+}
+
+export const Profile = ({ organization }: ProfileProps) => {
   return (
     <div className='mt-4 flex justify-center gap-[22px] smx:flex-col'>
-      <ProfileInformation organization={data} />
+      <ProfileInformation organization={organization} />
       <div className='flex w-1/2 flex-col gap-[22px] smx:w-full'>
-        {data.type === 'PARTNER' && <Statistics />}
+        {organization.type === 'PARTNER' && <Statistics />}
         <Journal />
       </div>
     </div>

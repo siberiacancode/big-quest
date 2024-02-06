@@ -1,6 +1,11 @@
 import { I18nText } from '@/components/common';
 
-export const RowInfo = ({ title, value = '' }) => {
+interface RowInfoProps {
+  title: LocaleMessageId;
+  value: string;
+}
+
+export const RowInfo = ({ title, value = '' }: RowInfoProps) => {
   return (
     <div className='flex text-xs'>
       <p className='mr-[10px] font-bold'>

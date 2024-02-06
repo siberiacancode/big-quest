@@ -2,11 +2,16 @@ import Image from 'next/image';
 
 import organizationBackground from '@/assets/images/organizationBackground.png';
 import { TabsList } from '@/components/ui';
+import type { Organization } from '@/utils/api/types/types';
 import { ORG_PROFILE_LINKS } from '@/utils/constants/profile/profileOptions';
 
 import { TabsTriggerWithIcon } from './components/TabsTriggerWithIcon/TabsTriggerWithIcon';
 
-export const Header = ({ data }) => {
+interface HeaderProps {
+  organization: Organization;
+}
+
+export const Header = ({ organization }: HeaderProps) => {
   return (
     <div className='flex flex-wrap gap-2'>
       <div className='relative mt-2.5 flex h-64 w-full flex-col items-center'>
@@ -25,15 +30,15 @@ export const Header = ({ data }) => {
               alt='org-background'
             />
             <div className='ml-5 flex flex-col justify-center'>
-              <p className='text-organization-title	text-lg font-bold'>{data.name} </p>
-              <p className='text-sm	font-medium text-muted-foreground'>
-                {data.stage === 'REQUEST' ? 'Запрос' : 'Сотрудничество'}
+              <p className='text-lg font-bold text-muted-foreground'>{organization.name} </p>
+              <p className='text-sm font-medium text-muted-foreground'>
+                {organization.stage === 'REQUEST' ? 'Запрос' : 'Сотрудничество'}
               </p>
             </div>
           </div>
           <div>
             <TabsList className='items-top text-organization-tabs flex w-full justify-end gap-1 bg-transparent'>
-              {data.type === 'PARTNER' ? (
+              {organization.type === 'PARTNER' ? (
                 ORG_PROFILE_LINKS.map((tab) => (
                   <TabsTriggerWithIcon value={tab.value} icon={tab.icon} title={tab.title} />
                 ))

@@ -3,7 +3,13 @@ import React from 'react';
 import { I18nText } from '@/components/common';
 import { TabsTrigger } from '@/components/ui/tabs';
 
-export const TabsTriggerWithIcon = ({ title, icon, value, ...props }) => {
+interface TabsTriggerWithIconProps {
+  title: LocaleMessageId;
+  value: string;
+  icon: React.ReactElement;
+}
+
+export const TabsTriggerWithIcon = ({ title, icon, value, ...props }: TabsTriggerWithIconProps) => {
   return (
     <TabsTrigger
       value={value}

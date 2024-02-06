@@ -18,11 +18,11 @@ export const Statistics = () => {
     <>
       <InfoCard>
         <InfoCardHeader className='p-5'>
-          <InfoCardTitle className='text-lg	 font-bold	'>
+          <InfoCardTitle className='text-lg font-bold'>
             <I18nText path='organization.profile.tariff.title' /> Бесплатный
           </InfoCardTitle>
           <InfoCardAction className='bg-transparent text-xs text-muted-foreground'>
-            <Button variant='ghost' className=' p-2'>
+            <Button variant='ghost' className='p-2'>
               <I18nText path='organization.profile.tariff.button' />
             </Button>
           </InfoCardAction>
