@@ -71,11 +71,24 @@ interface BaseResponse {
   message: string;
 }
 
+interface WorkingHours {
+  start: string;
+  end: string;
+}
+
 interface AddOrganizationAddressDto {
   organization: string;
   location: string;
   street: string;
   house: string;
   details: string;
-  workingHours: string[];
+  workingHours: {
+    Monday: WorkingHours;
+    Tuesday: WorkingHours;
+    Wednesday: WorkingHours;
+    Thursday: WorkingHours;
+    Friday: WorkingHours;
+    Saturday: WorkingHours;
+    Sunday: WorkingHours;
+  };
 }

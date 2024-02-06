@@ -22,7 +22,15 @@ export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
       street: '',
       house: '',
       details: '',
-      workingHours: ['']
+      workingHours: {
+        Monday: { start: '', end: '' },
+        Tuesday: { start: '', end: '' },
+        Wednesday: { start: '', end: '' },
+        Thursday: { start: '', end: '' },
+        Friday: { start: '', end: '' },
+        Saturday: { start: '', end: '' },
+        Sunday: { start: '', end: '' }
+      }
     }
   });
 

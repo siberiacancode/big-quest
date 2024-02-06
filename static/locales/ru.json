@@ -18,6 +18,14 @@
   "addressModal.description.placeholder": "офис, вход, этаж",
   "feature.addAddress.success": "Адрес успешно добавлен",
 
+  "dayOfWeek.Monday": "Пн",
+  "dayOfWeek.Tuesday": "Вт",
+  "dayOfWeek.Wednesday": "Ср",
+  "dayOfWeek.Thursday": "Чт",
+  "dayOfWeek.Friday": "Пт",
+  "dayOfWeek.Saturday": "Сб",
+  "dayOfWeek.Sunday": "Вс",
+
   "field.email.label": "Email",
   "field.password.label": "Пароль",
   "field.email.placeholder": "examples@mail.com",
