@@ -71,22 +71,15 @@ export class HttpClient {
     initialConfig: RequestConfig
   ) {
     if (!this.interceptorHandlers.response?.length && initialResponse.ok) {
-      if (initialResponse.headers['Content-Length']) {
-        const body = (await initialResponse.json()) as T;
-        return body;
-      }
-
-      return null;
+      const body = (await initialResponse?.json()) as T;
+      return body;
     }
 
     if (!this.interceptorHandlers.response?.length && !initialResponse.ok) {
       throw new Error(initialResponse.statusText);
     }
 
-    let body;
-    if (initialResponse.headers['Content-Length']) {
-      body = (await initialResponse.json()) as T;
-    }
+    let body = (await initialResponse?.json()) as T;
 
     const response = {
       status: initialResponse.status,
@@ -154,8 +147,6 @@ export class HttpClient {
   }
 
   get<T>(endpoint: string, options: Omit<RequestOptions, 'body'> = {}) {
-    // eslint-disable-next-line no-debugger
-    debugger;
     return this.request<T>(endpoint, 'GET', options);
   }
 

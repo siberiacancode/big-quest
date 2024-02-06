@@ -8,6 +8,11 @@ export const useRefreshTokens = (isAuthenticated: boolean) => {
     if (!isAuthenticated) return;
 
     const refreshInterceptor = generateRefreshTokenInterceptor();
-    return () => api.interceptors.response.eject(refreshInterceptor);
+    // const SSRCookiesInterceptor = generateSSRCookiesInterceptor();
+
+    return () => {
+      api.interceptors.response.eject(refreshInterceptor);
+      // api.interceptors.request.eject(SSRCookiesInterceptor);
+    };
   }, [isAuthenticated]);
 };

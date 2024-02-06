@@ -1,4 +1,5 @@
 import { AlertCircleIcon, HeartHandshakeIcon, TrendingUpIcon } from 'lucide-react';
+import { cookies } from 'next/headers';
 
 import { I18nText } from '@/components/common';
 import {
@@ -14,12 +15,11 @@ import {
   InfoCardTitle
 } from '@/components/ui';
 import { getOrganization } from '@/utils/api';
-import { ROUTES } from '@/utils/constants';
+import { COOKIES, ROUTES } from '@/utils/constants';
 
 import { OrganizationsTable } from './components/OrganizationsTable/OrganizationsTable';
 
 export interface OrganizationsPageProps {
-  params: { slug: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
@@ -40,18 +40,20 @@ const filterUndefinedParams = (params: {
   return filteredParams;
 };
 
-const OrganizationsPage = async ({ params, searchParams }: OrganizationsPageProps) => {
+const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
   const filteredSearchParams = filterUndefinedParams(searchParams);
-  console.log(filteredSearchParams);
+
+  const accessToken = cookies().get(COOKIES.ACCESS_TOKEN)?.value;
+  const refreshToken = cookies().get(COOKIES.REFRESH_TOKEN)?.value;
 
   const response = await getOrganization({
     config: {
-      params: filteredSearchParams
+      params: filteredSearchParams,
+      headers: {
+        Cookie: `${COOKIES.REFRESH_TOKEN}=${refreshToken};${COOKIES.ACCESS_TOKEN}=${accessToken};`
+      }
     }
   });
-
-  console.log(params);
-  console.log(searchParams);
 
   return (
     <div className='bg-secondary px-4'>
@@ -131,10 +133,7 @@ const OrganizationsPage = async ({ params, searchParams }: OrganizationsPageProp
           </InfoCardContent>
         </InfoCard>
       </div>
-      <OrganizationsTable
-        organizations={response.data.rows}
-        pagination={response.data.pagination}
-      />
+      <OrganizationsTable organizations={response.rows} pagination={response.pagination} />
     </div>
   );
 };
