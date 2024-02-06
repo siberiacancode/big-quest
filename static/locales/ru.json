@@ -47,12 +47,12 @@
   "infoCard.description.tariffChange": "Смена тарифа",
   "infoCard.description.applications": "Заявок",
 
-  "table.column.status": "Статус",
-  "table.column.organization": "Организация",
-  "table.column.location": "Населенный пункт",
-  "table.column.type": "Тип",
-  "table.column.rate": "Тариф",
-  "table.column.daysCount": "Кол-во дней",
+  "table.column.organization.stage": "Статус",
+  "table.column.organization.name": "Организация",
+  "table.column.organization.location": "Населенный пункт",
+  "table.column.organization.type": "Тип",
+  "table.column.organization.rate": "Тариф",
+  "table.column.organization.daysAmount": "Кол-во дней",
 
   "pagination.from": "из",
   "pagination.selected": "выбрано",

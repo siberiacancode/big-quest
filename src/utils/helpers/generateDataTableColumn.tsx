@@ -4,19 +4,17 @@ import type { ColumnDef } from '@tanstack/react-table';
 import { I18nText } from '@/components/common';
 import { Button } from '@/components/ui';
 
-import type { Application } from '../../../../../app/org/organizations/components/OrganizationsTable/types';
-
-interface ColumnConfig {
-  accessorKey: keyof Application;
+interface ColumnConfig<TData> {
+  accessorKey: keyof TData;
   sortable?: boolean;
   headerLabel: LocaleMessageId;
 }
 
-export const generateColumn = ({
+export const generateDataTableColumn = <TData,>({
   accessorKey,
   headerLabel,
   sortable = false
-}: ColumnConfig): ColumnDef<Application> => ({
+}: ColumnConfig<TData>): ColumnDef<TData> => ({
   accessorKey,
   header: ({ column }) => (
     <div className='text-left'>
@@ -36,7 +34,7 @@ export const generateColumn = ({
     </div>
   ),
   cell: ({ row }) => {
-    const value: string | number = row.getValue(accessorKey);
+    const value: string | number = row.getValue(String(accessorKey));
     return <div className='px-4 text-left font-medium'>{value}</div>;
   },
   enableSorting: sortable,

@@ -78,6 +78,7 @@ interface RegisterOrganizationDto {
 }
 
 type LegalType = 'SPONSOR' | 'PARTNER';
+type StageType = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
 
 type UserRole = 'organizer' | 'partner';
 
@@ -99,27 +100,61 @@ interface LoginEmailDto {
   password: string;
 }
 
-interface OrganizationTableResponse {
-  rows: OrganizationTableRow[];
-  pagination: Pagination;
+interface OrganizationPaginationResponse {
+  rows: OrganizationResponse[];
+  pagination: PaginationResponse;
 }
 
-interface Pagination {
+interface PaginationResponse {
   limit: number;
-  offset: number;
+  current: number;
   count: number;
 }
 
-interface OrganizationTableRow {
+interface OrganizationResponse {
   id: string;
   name: string;
   description: string;
   inn: string;
-  createdAt: '2024-01-30T15:21:59.974Z';
-  updatedAt: '2024-01-30T15:21:59.974Z';
-  information: string;
-  addresses: [];
-  requisites: string;
-  stage: 'CONCLUSION';
-  type: 'ORGANIZER';
+  information: OrganizationInformationDto;
+  addresses: OrganizationAddressDto[];
+  requisites: RequisitesDto;
+  stage: StageType;
+  type: LegalType;
+}
+
+interface OrganizationAddressDto {
+  locality: string;
+  street: string;
+  house: string;
+  details: string;
+  workingHours: WorkingHourDto;
+}
+
+interface WorkingHourDto {
+  day: number;
+  from: { hour: number; minutes: number };
+  to: { hour: number; minutes: number };
+  dayOff: boolean;
+}
+
+interface OrganizationInformationDto {
+  contactName: string;
+  phone: string;
+  email: string;
+  site: string;
+  city: string;
+  social: string;
+  fullNameOfTheLegalEntity: string;
+  legalAddress: string;
+  postAggress: string;
+  inn: string;
+  kpp: string;
+  ogrn: string;
+}
+
+interface RequisitesDto {
+  bank: string;
+  bik: string;
+  checkingAccount: string;
 }

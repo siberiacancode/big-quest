@@ -8,7 +8,7 @@ export const useDataTablePagination = () => {
   const onPaginationButtonClick = (pageIndex: number) => {
     const current = new URLSearchParams(Array.from(searchParams.entries()));
 
-    current.set('offset', String(pageIndex));
+    current.set('current', String(pageIndex));
 
     const search = current.toString();
     const query = search ? `?${search}` : '';

@@ -13,7 +13,7 @@ import { useDataTable } from './hooks/useDataTable';
 
 interface DataTableProps<TData> {
   data: TData[];
-  pagination: Pagination;
+  pagination: PaginationResponse;
   columns: ColumnDef<TData>[];
   toolbar: (table: Table<TData>) => React.ReactNode[];
 }
@@ -40,7 +40,7 @@ export const DataTable = <TData,>({
           {table.getFilteredSelectedRowModel().rows.length} <I18nText path='pagination.from' />{' '}
           {pagination.count} <I18nText path='pagination.selected' />
         </div>
-        <DataTablePagination {...pagination} />
+        <DataTablePagination pagination={pagination} />
       </div>
     </div>
   );

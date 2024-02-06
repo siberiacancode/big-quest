@@ -7,19 +7,19 @@ import { Button, Input } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
 import { columns } from './constants/columns';
-import type { Application } from './types';
+import { convertOrganizationsResponseToTableRows } from './helpers/convertOrganizationResponseToTableRow';
 
-interface DataTableProps {
-  data: Application[];
-  pagination: Pagination;
+interface OrganizationsTableProps {
+  organizations: OrganizationResponse[];
+  pagination: PaginationResponse;
 }
 
-export const OrganizationsTable = ({ data, pagination }: DataTableProps) => {
+export const OrganizationsTable = ({ organizations, pagination }: OrganizationsTableProps) => {
   const intl = useI18n();
 
   return (
     <DataTable
-      data={data}
+      data={convertOrganizationsResponseToTableRows(organizations)}
       columns={columns}
       pagination={pagination}
       toolbar={(table) => [
@@ -31,11 +31,11 @@ export const OrganizationsTable = ({ data, pagination }: DataTableProps) => {
         />,
         <Button variant='outline' size='sm' className='m-2 h-9'>
           <PlusCircledIcon className='mr-2 h-4 w-4' />
-          <I18nText path='table.column.status' />
+          <I18nText path='table.column.organization.stage' />
         </Button>,
         <Button variant='outline' size='sm' className='m-2 h-9'>
           <PlusCircledIcon className='mr-2 h-4 w-4' />
-          <I18nText path='table.column.location' />
+          <I18nText path='table.column.organization.location' />
         </Button>,
         <Button variant='outline' size='sm' className='mx-2 bg-secondary md:ml-auto'>
           <PlusCircledIcon className='mr-2 h-4 w-4' />

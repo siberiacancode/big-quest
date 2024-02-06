@@ -149,10 +149,13 @@ export class HttpClient {
     }
 
     const response: Response = await fetch(url, config);
+
     return this.runResponseInterceptors<T>(response, config);
   }
 
   get<T>(endpoint: string, options: Omit<RequestOptions, 'body'> = {}) {
+    // eslint-disable-next-line no-debugger
+    debugger;
     return this.request<T>(endpoint, 'GET', options);
   }
 

@@ -2,11 +2,9 @@ import type { ColumnDef } from '@tanstack/react-table';
 import { Edit3Icon } from 'lucide-react';
 
 import { Button, Checkbox } from '@/components/ui';
+import { generateDataTableColumn } from '@/utils/helpers';
 
-import { generateColumn } from '../../../../../../src/components/common/DateTable/helpers/generateColumn';
-import type { Application } from '../types';
-
-export const columns: ColumnDef<Application>[] = [
+export const columns: ColumnDef<OrganizationsTableRow>[] = [
   {
     id: 'select',
     header: ({ table }) => (
@@ -28,25 +26,33 @@ export const columns: ColumnDef<Application>[] = [
     enableSorting: false,
     enableHiding: false
   },
-  generateColumn({
-    accessorKey: 'organization',
-    headerLabel: 'table.column.organization'
+  generateDataTableColumn({
+    accessorKey: 'name',
+    headerLabel: 'table.column.organization.name'
   }),
-  generateColumn({
+  generateDataTableColumn({
     accessorKey: 'location',
-    headerLabel: 'table.column.location',
+    headerLabel: 'table.column.organization.location',
     sortable: true
   }),
-  generateColumn({ accessorKey: 'type', headerLabel: 'table.column.type', sortable: true }),
-  generateColumn({ accessorKey: 'rate', headerLabel: 'table.column.rate', sortable: true }),
-  generateColumn({
-    accessorKey: 'days_amount',
-    headerLabel: 'table.column.daysCount',
+  generateDataTableColumn({
+    accessorKey: 'type',
+    headerLabel: 'table.column.organization.type',
     sortable: true
   }),
-  generateColumn({
-    accessorKey: 'status',
-    headerLabel: 'table.column.status',
+  generateDataTableColumn({
+    accessorKey: 'rate',
+    headerLabel: 'table.column.organization.rate',
+    sortable: true
+  }),
+  generateDataTableColumn({
+    accessorKey: 'daysAmount',
+    headerLabel: 'table.column.organization.daysAmount',
+    sortable: true
+  }),
+  generateDataTableColumn({
+    accessorKey: 'stage',
+    headerLabel: 'table.column.organization.stage',
     sortable: true
   }),
   {

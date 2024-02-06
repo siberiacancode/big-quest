@@ -1,28 +1,12 @@
-// export const renderPageButtons = <TData,>({ table }: RenderPageButtonsProps<TData>) => {
-//   const pageCount: number = table.getPageCount();
-//   const currentPage: number = table.getState().pagination.pageIndex + 1;
+import { getPageCount } from './getPageCount';
 
-//   const renderPageButton = (page: number) => (
-//     <Button
-//       key={page}
-//       variant='outline'
-//       size='sm'
-//       onClick={() => table.setPageIndex(page - 1)}
-//       disabled={page === currentPage}
-//       className='rounded-lg'
-//     >
-//       {page}
-//     </Button>
-//   );
+export const getPaginationNumbers = ({ count, current, limit }: PaginationResponse) => {
+  const pageCount = getPageCount(limit, count);
+  const paginationNumbers: number[] = [];
 
-//   const pageButtons = [];
-//   for (
-//     let page = Math.max(1, currentPage - 2);
-//     page <= Math.min(pageCount, currentPage + 2);
-//     page += 1
-//   ) {
-//     pageButtons.push(renderPageButton(page));
-//   }
+  for (let page = Math.max(1, current - 2); page <= Math.min(pageCount, current + 2); page += 1) {
+    paginationNumbers.push(page);
+  }
 
-//   return pageButtons;
-// };
+  return paginationNumbers;
+};
