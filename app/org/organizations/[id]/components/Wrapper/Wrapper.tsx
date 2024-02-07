@@ -2,8 +2,9 @@
 
 import { I18nText } from '@/components/common';
 import { BreadcrumbItem, Breadcrumbs, Tabs, TabsContent } from '@/components/ui';
-import { HEADER_OPTIONS, ROUTES } from '@/utils/constants';
+import { ROUTES } from '@/utils/constants';
 
+import { HEADER_OPTIONS } from '../../constants/navigations';
 import { Header } from '../Header/Header';
 import { Profile } from '../Profile/Profile';
 
@@ -29,7 +30,7 @@ export const Wrapper = () => {
             <TabsContent value={HEADER_OPTIONS.PROFILE}>
               <Profile organization={state.organization} />
             </TabsContent>
-            {state.organization.type !== 'SPONSOR' && (
+            {state.organization.type === 'PARTNER' && (
               <>
                 <TabsContent value={HEADER_OPTIONS.ADDRESSES}>Address page</TabsContent>
                 <TabsContent value={HEADER_OPTIONS.EMPLOYEES}>Employees page</TabsContent>

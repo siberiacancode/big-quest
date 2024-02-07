@@ -1,9 +1,11 @@
 import { api } from '../../instance';
-import type { Organization } from '../../types/types';
 
-interface GetOrganizationById {
+interface GetOrganizationByIdParams {
   id: string;
 }
 
-export const getOrganizationById = async ({ params, config }: RequestParams<GetOrganizationById>) =>
-  api.get<Organization>(`organization/${params.id}`, config);
+export const getOrganizationById = async ({
+  params,
+  config
+}: RequestParams<GetOrganizationByIdParams>) =>
+  api.get<OrganizationResponse>(`organization/${params.id}`, config);

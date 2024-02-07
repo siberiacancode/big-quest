@@ -2,13 +2,13 @@ import Image from 'next/image';
 
 import organizationBackground from '@/assets/images/organizationBackground.png';
 import { TabsList } from '@/components/ui';
-import type { Organization } from '@/utils/api/types/types';
-import { ORG_PROFILE_LINKS } from '@/utils/constants/profile/profileOptions';
+
+import { PARTNER_PROFILE_LINKS, SPONSOR_PROFILE_LINKS } from '../../constants/navigations';
 
 import { TabsTriggerWithIcon } from './components/TabsTriggerWithIcon/TabsTriggerWithIcon';
 
 interface HeaderProps {
-  organization: Organization;
+  organization: OrganizationResponse;
 }
 
 export const Header = ({ organization }: HeaderProps) => (
@@ -37,15 +37,20 @@ export const Header = ({ organization }: HeaderProps) => (
         </div>
         <div>
           <TabsList className='items-top text-organization-tabs flex w-full justify-end gap-1 bg-transparent'>
-            {organization.type === 'PARTNER' ? (
-              ORG_PROFILE_LINKS.map((tab) => (
-                <TabsTriggerWithIcon value={tab.value} icon={tab.icon} title={tab.title} />
-              ))
-            ) : (
+            {organization.type === 'PARTNER' &&
+              PARTNER_PROFILE_LINKS.map((tab, index) => (
+                <TabsTriggerWithIcon
+                  key={index}
+                  value={tab.value}
+                  icon={tab.icon}
+                  title={tab.title as LocaleMessageId}
+                />
+              ))}
+            {organization.type === 'SPONSOR' && (
               <TabsTriggerWithIcon
-                value={ORG_PROFILE_LINKS[0].value}
-                icon={ORG_PROFILE_LINKS[0].icon}
-                title={ORG_PROFILE_LINKS[0].title}
+                value={SPONSOR_PROFILE_LINKS.value}
+                icon={SPONSOR_PROFILE_LINKS.icon}
+                title={SPONSOR_PROFILE_LINKS.title as LocaleMessageId}
               />
             )}
           </TabsList>

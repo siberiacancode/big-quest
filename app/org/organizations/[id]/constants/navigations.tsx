@@ -16,7 +16,13 @@ export const INFORMATION_OPTIONS = {
   SCHEDULE: 'schedule'
 };
 
-export const ORG_PROFILE_LINKS: ProfileLinkInfo[] = [
+export const SPONSOR_PROFILE_LINKS = {
+  icon: <UserIcon />,
+  title: 'organization.profile.header.profile',
+  value: HEADER_OPTIONS.PROFILE
+};
+
+export const PARTNER_PROFILE_LINKS = [
   {
     icon: <UserIcon />,
     title: 'organization.profile.header.profile',

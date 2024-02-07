@@ -1,9 +1,7 @@
-import type { Organization } from '@/utils/api/types/types';
-
 import { Journal, ProfileInformation, Statistics } from './components';
 
 interface ProfileProps {
-  organization: Organization;
+  organization: OrganizationResponse;
 }
 
 export const Profile = ({ organization }: ProfileProps) => (
