@@ -3,8 +3,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import { I18nText } from '@/components/common';
 import { Button } from '@/components/ui';
 
-import { getPaginationNumbers } from './helpers/a';
 import { getPageCount } from './helpers/getPageCount';
+import { getPaginationNumbers } from './helpers/getPaginationNumbers';
 import { useDataTablePagination } from './hooks/useDataTablePagination';
 
 interface DataTablePaginationProps {
@@ -32,19 +32,15 @@ export const DataTablePagination = ({ pagination }: DataTablePaginationProps) =>
         </Button>
 
         {getPaginationNumbers(pagination).map((pageIndex) => (
-          <>
-            {pageIndex <= getPageCount(pagination.limit, pagination.count) && (
-              <Button
-                key={pageIndex}
-                variant='outline'
-                size='sm'
-                className='h-8 w-8 rounded-lg border border-secondary font-normal'
-                onClick={() => functions.onPaginationButtonClick(pageIndex)}
-              >
-                {pageIndex}
-              </Button>
-            )}
-          </>
+          <Button
+            key={pageIndex}
+            variant='outline'
+            size='sm'
+            className='h-8 w-8 rounded-lg border border-secondary font-normal'
+            onClick={() => functions.onPaginationButtonClick(pageIndex)}
+          >
+            {pageIndex}
+          </Button>
         ))}
 
         {pagination.current > 3 && <span className='text-b mx-1 text-sm font-bold'>...</span>}
