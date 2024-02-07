@@ -71,13 +71,14 @@ interface BaseResponse {
   message: string;
 }
 
+// Этот тип и файл я позже удалю, пока нужно переработать структуру рабочих часов
 interface WorkingHours {
   start: string;
   end: string;
 }
 
-interface AddOrganizationAddressDto {
-  organization: string;
+interface OrganizationAddAddressDto {
+  organizationId: string;
   location: string;
   street: string;
   house: string;

@@ -14,7 +14,6 @@ import {
 
 import { AddAddressForm } from '../AddAddressForm/AddAddressForm';
 
-// import { WorkingTimeBlock } from '../WorkingTimeBlock/WorkingTimeBlock';
 import { useAddAddressDialog } from './hooks/useAddAddressDialog';
 
 export const AddAddressDialog = () => {

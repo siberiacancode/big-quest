@@ -1,9 +1,9 @@
 import { api } from '@/utils/api/instance';
 
-export type PostAddOrganizationAddressParams = AddOrganizationAddressDto;
+export type PostOrganizationAddAddressParams = OrganizationAddAddressDto;
 
-export const postAddOrganizationAddress = async ({
+export const postOrganizationAddAddress = async ({
   params,
   config
-}: RequestParams<PostAddOrganizationAddressParams>) =>
-  api.post('organization/1/addAddress', params, config);
+}: RequestParams<PostOrganizationAddAddressParams>) =>
+  api.post(`organization/${params.organizationId}/addAddress`, params, config);

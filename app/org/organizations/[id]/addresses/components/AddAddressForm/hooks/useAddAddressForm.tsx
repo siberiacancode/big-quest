@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 
-import { usePostAddOrganizationAddressMutation } from '@/utils/api';
+import { usePostOrganizationAddAddressMutation } from '@/utils/api';
 import { useI18n } from '@/utils/contexts';
 
 import { type AddAddressSchema, addAddressSchema } from '../constants/addAddressSchema';
@@ -17,7 +17,7 @@ export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
   const addAddressForm = useForm<AddAddressSchema>({
     resolver: zodResolver(addAddressSchema),
     defaultValues: {
-      organization: '',
+      organizationId: '',
       location: '',
       street: '',
       house: '',
@@ -34,7 +34,7 @@ export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
     }
   });
 
-  const postAddOrganizationAddress = usePostAddOrganizationAddressMutation();
+  const postAddOrganizationAddress = usePostOrganizationAddAddressMutation();
 
   const onSubmit = addAddressForm.handleSubmit(async (values) => {
     console.log('Submitting form...', values);

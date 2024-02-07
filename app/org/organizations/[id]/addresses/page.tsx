@@ -2,8 +2,9 @@ import { I18nText } from '@/components/common';
 
 import { AddAddressDialog } from './components/AddAddressDialog/AddAddressDialog';
 import { AddressesList } from './components/AddressesList/AddressesList';
+import { addresses } from './components/AddressesList/constants/fakeData';
 
-const PartnerPage = () => (
+const Addresses = () => (
   <>
     <div className='flex justify-between'>
       <h3 className='text-lg font-bold'>
@@ -11,8 +12,8 @@ const PartnerPage = () => (
       </h3>
       <AddAddressDialog />
     </div>
-    <AddressesList />
+    <AddressesList addresses={addresses} />
   </>
 );
 
-export default PartnerPage;
+export default Addresses;
