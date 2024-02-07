@@ -6,7 +6,7 @@ import { ROUTES } from '@/utils/constants';
 
 import { HEADER_OPTIONS } from '../../constants/navigations';
 import { Header } from '../Header/Header';
-import { Profile } from '../Profile/Profile';
+import { OrganizationProfile } from '../OrganizationProfile/OrganizationProfile';
 
 import { useWrapper } from './hooks/useWrapper';
 
@@ -28,7 +28,7 @@ export const Wrapper = () => {
           <Tabs defaultValue={HEADER_OPTIONS.PROFILE}>
             <Header organization={state.organization} />
             <TabsContent value={HEADER_OPTIONS.PROFILE}>
-              <Profile organization={state.organization} />
+              <OrganizationProfile organization={state.organization} />
             </TabsContent>
             {state.organization.type === 'PARTNER' && (
               <>

@@ -15,13 +15,13 @@ import {
   Separator
 } from '@/components/ui';
 
-import { RowInfo } from './components/RowInfo/RowInfo';
+import { OrganizationProfileCardInfo } from './components/OrganizationProfileCardInfo/OrganizationProfileCardInfo';
 
-interface ProfileInformationProps {
+interface OrganizationProfileCardProps {
   organization: OrganizationResponse;
 }
 
-export const ProfileInformation = ({ organization }: ProfileInformationProps) => (
+export const OrganizationProfileCard = ({ organization }: OrganizationProfileCardProps) => (
   <InfoCard className='h-fit w-1/2 smx:w-full'>
     <InfoCardHeader className='pb-3'>
       <InfoCardTitle className='text-lg font-bold'>
@@ -37,22 +37,24 @@ export const ProfileInformation = ({ organization }: ProfileInformationProps) =>
       <p className='text-xs font-medium text-muted-foreground'>{organization.description}</p>
       <Separator className='my-5' />
       <div className='flex flex-col gap-3'>
-        <RowInfo title='organization.profile.information.name'>{organization.name}</RowInfo>
-        <RowInfo title='organization.profile.information.contactName'>
+        <OrganizationProfileCardInfo title='organization.profile.information.name'>
+          {organization.name}
+        </OrganizationProfileCardInfo>
+        <OrganizationProfileCardInfo title='organization.profile.information.contactName'>
           {organization.information?.contactName}
-        </RowInfo>
-        <RowInfo title='organization.profile.information.phone'>
+        </OrganizationProfileCardInfo>
+        <OrganizationProfileCardInfo title='organization.profile.information.phone'>
           {organization.information?.phone}
-        </RowInfo>
-        <RowInfo title='organization.profile.information.email'>
+        </OrganizationProfileCardInfo>
+        <OrganizationProfileCardInfo title='organization.profile.information.email'>
           {organization.information?.email}
-        </RowInfo>
-        <RowInfo title='organization.profile.information.city'>
+        </OrganizationProfileCardInfo>
+        <OrganizationProfileCardInfo title='organization.profile.information.city'>
           {organization.information?.city}
-        </RowInfo>
-        <RowInfo title='organization.profile.information.social'>
+        </OrganizationProfileCardInfo>
+        <OrganizationProfileCardInfo title='organization.profile.information.social'>
           {organization.information?.social}
-        </RowInfo>
+        </OrganizationProfileCardInfo>
       </div>
       <Separator className='mt-4' />
       <Accordion type='single' collapsible>
@@ -61,24 +63,24 @@ export const ProfileInformation = ({ organization }: ProfileInformationProps) =>
             <I18nText path='organization.profile.legalInfo.title' />
           </AccordionTrigger>
           <AccordionContent className='flex flex-col gap-3'>
-            <RowInfo title='organization.profile.legalInfo.fullName'>
+            <OrganizationProfileCardInfo title='organization.profile.legalInfo.fullName'>
               {organization.information?.fullNameOfTheLegalEntity}
-            </RowInfo>
-            <RowInfo title='organization.profile.legalInfo.legalAddress'>
+            </OrganizationProfileCardInfo>
+            <OrganizationProfileCardInfo title='organization.profile.legalInfo.legalAddress'>
               {organization.information?.legalAddress}
-            </RowInfo>
-            <RowInfo title='organization.profile.legalInfo.postAddress'>
+            </OrganizationProfileCardInfo>
+            <OrganizationProfileCardInfo title='organization.profile.legalInfo.postAddress'>
               {organization.information?.postAggress}
-            </RowInfo>
-            <RowInfo title='organization.profile.legalInfo.inn'>
+            </OrganizationProfileCardInfo>
+            <OrganizationProfileCardInfo title='organization.profile.legalInfo.inn'>
               {organization.information?.inn}
-            </RowInfo>
-            <RowInfo title='organization.profile.legalInfo.kpp'>
+            </OrganizationProfileCardInfo>
+            <OrganizationProfileCardInfo title='organization.profile.legalInfo.kpp'>
               {organization.information?.kpp}
-            </RowInfo>
-            <RowInfo title='organization.profile.legalInfo.ogrn'>
+            </OrganizationProfileCardInfo>
+            <OrganizationProfileCardInfo title='organization.profile.legalInfo.ogrn'>
               {organization.information?.ogrn}
-            </RowInfo>
+            </OrganizationProfileCardInfo>
           </AccordionContent>
         </AccordionItem>
       </Accordion>
@@ -89,15 +91,15 @@ export const ProfileInformation = ({ organization }: ProfileInformationProps) =>
             <I18nText path='organization.profile.requisites.title' />
           </AccordionTrigger>
           <AccordionContent className='flex flex-col gap-3'>
-            <RowInfo title='organization.profile.requisites.bank'>
+            <OrganizationProfileCardInfo title='organization.profile.requisites.bank'>
               {organization.requisites?.bank}
-            </RowInfo>
-            <RowInfo title='organization.profile.requisites.bik'>
+            </OrganizationProfileCardInfo>
+            <OrganizationProfileCardInfo title='organization.profile.requisites.bik'>
               {organization.requisites?.bik}
-            </RowInfo>
-            <RowInfo title='organization.profile.requisites.checkingAccount'>
+            </OrganizationProfileCardInfo>
+            <OrganizationProfileCardInfo title='organization.profile.requisites.checkingAccount'>
               {organization.requisites?.checkingAccount}
-            </RowInfo>
+            </OrganizationProfileCardInfo>
           </AccordionContent>
         </AccordionItem>
       </Accordion>

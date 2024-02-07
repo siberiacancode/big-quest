@@ -1,12 +1,12 @@
-import { Journal, ProfileInformation, Statistics } from './components';
+import { Journal, OrganizationProfileCard, Statistics } from './components';
 
-interface ProfileProps {
+interface OrganizationProfileProps {
   organization: OrganizationResponse;
 }
 
-export const Profile = ({ organization }: ProfileProps) => (
+export const OrganizationProfile = ({ organization }: OrganizationProfileProps) => (
   <div className='mt-4 flex justify-center gap-[22px] smx:flex-col'>
-    <ProfileInformation organization={organization} />
+    <OrganizationProfileCard organization={organization} />
     <div className='flex w-1/2 flex-col gap-[22px] smx:w-full'>
       {organization.type === 'PARTNER' && <Statistics />}
       <Journal />

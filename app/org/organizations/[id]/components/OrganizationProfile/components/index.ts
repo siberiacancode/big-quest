@@ -1,3 +1,3 @@
 export * from './Journal/Journal';
-export * from './ProfileInformation/ProfileInformation';
+export * from './OrganizationProfileCard/OrganizationProfileCard';
 export * from './Statistics/Statistics';

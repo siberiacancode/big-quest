@@ -7,9 +7,12 @@ import { useGetOrganizationByIdQuery } from '@/utils/api';
 export const useWrapper = () => {
   const { id } = useParams();
 
-  const organization = useGetOrganizationByIdQuery({ id });
+  const getOrganizationByIdQuery = useGetOrganizationByIdQuery({ id });
 
   return {
-    state: { organization: organization.data, isLoading: organization.isLoading }
+    state: {
+      organization: getOrganizationByIdQuery.data,
+      isLoading: getOrganizationByIdQuery.isLoading
+    }
   };
 };

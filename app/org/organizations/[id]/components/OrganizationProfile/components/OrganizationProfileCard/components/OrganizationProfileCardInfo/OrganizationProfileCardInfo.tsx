@@ -1,11 +1,14 @@
 import { I18nText } from '@/components/common';
 
-interface RowInfoProps {
+interface OrganizationProfileCardInfoProps {
   title: LocaleMessageId;
   children: React.ReactNode;
 }
 
-export const RowInfo = ({ title, children }: RowInfoProps) => (
+export const OrganizationProfileCardInfo = ({
+  title,
+  children
+}: OrganizationProfileCardInfoProps) => (
   <div className='flex text-xs'>
     <p className='mr-[10px] font-bold'>
       <I18nText path={title} />
