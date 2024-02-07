@@ -3,13 +3,18 @@ import React from 'react';
 import { I18nText } from '@/components/common';
 import { TabsTrigger } from '@/components/ui/tabs';
 
-interface TabsTriggerWithIconProps {
+interface OrganizationHeaderTabsProps {
   title: LocaleMessageId;
   value: string;
   icon?: React.ReactElement;
 }
 
-export const TabsTriggerWithIcon = ({ title, icon, value, ...props }: TabsTriggerWithIconProps) => (
+export const OrganizationHeaderTabs = ({
+  title,
+  icon,
+  value,
+  ...props
+}: OrganizationHeaderTabsProps) => (
   <TabsTrigger
     value={value}
     className='border-1 flex min-w-32 justify-center gap-1 rounded-xl py-[10px] text-[10px] font-normal data-[state=active]:bg-foreground data-[state=active]:text-background 2lgx:min-w-3 lgx:min-w-32 mdx:min-w-3'

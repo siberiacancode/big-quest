@@ -5,13 +5,13 @@ import { TabsList } from '@/components/ui';
 
 import { PARTNER_PROFILE_LINKS, SPONSOR_PROFILE_LINKS } from '../../constants/navigations';
 
-import { TabsTriggerWithIcon } from './components/TabsTriggerWithIcon/TabsTriggerWithIcon';
+import { OrganizationHeaderTabs } from './components/OrganizationHeaderTabs/OrganizationHeaderTabs';
 
-interface HeaderProps {
+interface OrganizationHeaderProps {
   organization: OrganizationResponse;
 }
 
-export const Header = ({ organization }: HeaderProps) => (
+export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) => (
   <div className='flex flex-wrap gap-2'>
     <div className='relative mt-2.5 flex h-64 w-full flex-col items-center'>
       <Image
@@ -39,7 +39,7 @@ export const Header = ({ organization }: HeaderProps) => (
           <TabsList className='items-top text-organization-tabs flex w-full justify-end gap-1 bg-transparent'>
             {organization.type === 'PARTNER' &&
               PARTNER_PROFILE_LINKS.map((tab, index) => (
-                <TabsTriggerWithIcon
+                <OrganizationHeaderTabs
                   key={index}
                   value={tab.value}
                   icon={tab.icon}
@@ -47,7 +47,7 @@ export const Header = ({ organization }: HeaderProps) => (
                 />
               ))}
             {organization.type === 'SPONSOR' && (
-              <TabsTriggerWithIcon
+              <OrganizationHeaderTabs
                 value={SPONSOR_PROFILE_LINKS.value}
                 icon={SPONSOR_PROFILE_LINKS.icon}
                 title={SPONSOR_PROFILE_LINKS.title as LocaleMessageId}

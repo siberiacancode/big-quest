@@ -13,7 +13,7 @@ import {
   InfoCardTitle
 } from '@/components/ui';
 
-export const Statistics = () => (
+export const OrganizationProfileStatistics = () => (
   <>
     <InfoCard>
       <InfoCardHeader className='p-5'>

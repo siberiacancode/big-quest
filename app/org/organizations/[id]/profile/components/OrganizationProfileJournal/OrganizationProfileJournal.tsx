@@ -13,7 +13,7 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-export const Journal = () => {
+export const OrganizationProfileJournal = () => {
   const intl = useI18n();
 
   return (
