@@ -33,7 +33,7 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
             {/* Тут Димин компонент нужен будет для адреса, видимо */}
             <FormField
               control={form.control}
-              name='location'
+              name='locality'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
@@ -43,8 +43,8 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                     <Input {...field} />
                   </FormControl>
                   <FormMessage>
-                    {form.formState?.errors?.location && (
-                      <I18nText path={form.formState.errors.location.message as LocaleMessageId} />
+                    {form.formState?.errors?.locality && (
+                      <I18nText path={form.formState.errors.locality.message as LocaleMessageId} />
                     )}
                   </FormMessage>
                 </FormItem>

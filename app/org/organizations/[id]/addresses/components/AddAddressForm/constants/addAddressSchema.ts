@@ -9,26 +9,25 @@ import * as z from 'zod';
 //   })
 // });
 
-export const workingHoursSchema = z.object({
-  start: z.string(),
-  end: z.string()
+const workingTimeSchema = z.object({
+  hour: z.number(),
+  minutes: z.number()
+});
+
+const workingHourSchema = z.object({
+  day: z.number(),
+  from: workingTimeSchema,
+  to: workingTimeSchema,
+  dayOff: z.boolean()
 });
 
 export const addAddressSchema = z.object({
   organizationId: z.string(),
-  location: z.string().min(1, { message: 'validation.required' }),
+  locality: z.string().min(1, { message: 'validation.required' }),
   street: z.string().min(1, { message: 'validation.required' }),
   house: z.string().min(1, { message: 'validation.required' }),
   details: z.string(),
-  workingHours: z.object({
-    Monday: workingHoursSchema,
-    Tuesday: workingHoursSchema,
-    Wednesday: workingHoursSchema,
-    Thursday: workingHoursSchema,
-    Friday: workingHoursSchema,
-    Saturday: workingHoursSchema,
-    Sunday: workingHoursSchema
-  })
+  workingHours: z.array(workingHourSchema)
 });
 
 export type AddAddressSchema = z.infer<typeof addAddressSchema>;

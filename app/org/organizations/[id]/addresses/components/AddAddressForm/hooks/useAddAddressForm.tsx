@@ -18,19 +18,54 @@ export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
     resolver: zodResolver(addAddressSchema),
     defaultValues: {
       organizationId: '',
-      location: '',
+      locality: '',
       street: '',
       house: '',
       details: '',
-      workingHours: {
-        Monday: { start: '', end: '' },
-        Tuesday: { start: '', end: '' },
-        Wednesday: { start: '', end: '' },
-        Thursday: { start: '', end: '' },
-        Friday: { start: '', end: '' },
-        Saturday: { start: '', end: '' },
-        Sunday: { start: '', end: '' }
-      }
+      workingHours: [
+        {
+          day: 0,
+          from: { hour: 0, minutes: 0 },
+          to: { hour: 0, minutes: 0 },
+          dayOff: false
+        },
+        {
+          day: 1,
+          from: { hour: 0, minutes: 0 },
+          to: { hour: 0, minutes: 0 },
+          dayOff: false
+        },
+        {
+          day: 2,
+          from: { hour: 0, minutes: 0 },
+          to: { hour: 0, minutes: 0 },
+          dayOff: false
+        },
+        {
+          day: 3,
+          from: { hour: 0, minutes: 0 },
+          to: { hour: 0, minutes: 0 },
+          dayOff: false
+        },
+        {
+          day: 4,
+          from: { hour: 0, minutes: 0 },
+          to: { hour: 0, minutes: 0 },
+          dayOff: false
+        },
+        {
+          day: 5,
+          from: { hour: 0, minutes: 0 },
+          to: { hour: 0, minutes: 0 },
+          dayOff: false
+        },
+        {
+          day: 6,
+          from: { hour: 0, minutes: 0 },
+          to: { hour: 0, minutes: 0 },
+          dayOff: false
+        }
+      ]
     }
   });
 

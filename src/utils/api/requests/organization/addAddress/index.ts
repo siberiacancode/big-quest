@@ -1,6 +1,6 @@
 import { api } from '@/utils/api/instance';
 
-export type PostOrganizationAddAddressParams = OrganizationAddAddressDto;
+export type PostOrganizationAddAddressParams = OrganizationAddressDto;
 
 export const postOrganizationAddAddress = async ({
   params,

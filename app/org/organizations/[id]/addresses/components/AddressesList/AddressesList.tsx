@@ -1,7 +1,7 @@
 import { AddressCard } from '../AddressCard/AddressCard';
 
 interface AddressesListProps {
-  addresses: OrganizationAddresses[];
+  addresses: OrganizationAddressDto[];
 }
 
 export const AddressesList = ({ addresses }: AddressesListProps) => (

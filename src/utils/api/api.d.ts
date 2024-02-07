@@ -71,25 +71,23 @@ interface BaseResponse {
   message: string;
 }
 
-// Этот тип и файл я позже удалю, пока нужно переработать структуру рабочих часов
-interface WorkingHours {
-  start: string;
-  end: string;
+interface WorkingTimeDto {
+  hour: number;
+  minutes: number;
 }
 
-interface OrganizationAddAddressDto {
-  organizationId: string;
-  location: string;
+interface WorkingHourDto {
+  day: number;
+  from: WorkingTimeDto;
+  to: WorkingTimeDto;
+  dayOff: boolean;
+}
+
+interface OrganizationAddressDto {
+  organizationId: string; // Пока добавил сюда id, потому что на бэке его пока нет
+  locality: string;
   street: string;
   house: string;
-  details: string;
-  workingHours: {
-    Monday: WorkingHours;
-    Tuesday: WorkingHours;
-    Wednesday: WorkingHours;
-    Thursday: WorkingHours;
-    Friday: WorkingHours;
-    Saturday: WorkingHours;
-    Sunday: WorkingHours;
-  };
+  details?: string;
+  workingHours: WorkingHourDto[];
 }

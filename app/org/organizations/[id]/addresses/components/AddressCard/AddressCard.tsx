@@ -3,8 +3,10 @@ import { Edit3Icon } from 'lucide-react';
 import { I18nText } from '@/components/common';
 import { Card, CardContent } from '@/components/ui/card';
 
+import { WorkingHoursList } from './components/WorkingHoursList/WorkingHoursList';
+
 interface AddressCardProps {
-  address: OrganizationAddresses;
+  address: OrganizationAddressDto;
 }
 
 export const AddressCard = ({
@@ -48,7 +50,9 @@ export const AddressCard = ({
           <h3 className='flex-1 text-sm font-bold'>
             <I18nText path='addressCard.description.workingTime' />
           </h3>
-          <span className='flex-1 text-sm'>{workingHours}</span>
+          <span className='flex-1 text-sm'>
+            <WorkingHoursList workingHours={workingHours} />
+          </span>
         </div>
       </div>
     </CardContent>
