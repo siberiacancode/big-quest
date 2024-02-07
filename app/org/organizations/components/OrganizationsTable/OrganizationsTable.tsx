@@ -44,6 +44,10 @@ export const OrganizationsTable = ({ organizations, pagination }: OrganizationsT
               value: 'CONCLUSION',
               label: intl.formatMessage({ id: 'organization.stage.conclusion' })
             }
+            // {
+            //   value: 'CONCLUSION',
+            //   label: 'ddddddddddddddddddddddddddddddddddddddddddddddddddddddd'
+            // }
           ]}
           title={intl.formatMessage({ id: 'table.column.organization.stage' })}
         />,
@@ -53,8 +57,8 @@ export const OrganizationsTable = ({ organizations, pagination }: OrganizationsT
         </Button>,
         <RegisterOrganizationDialog
           trigger={
-            <Button variant='secondary' size='sm' className=''>
-              <PlusCircledIcon className='h-4 w-4' />
+            <Button variant='secondary' size='sm' className='mx-2 md:ml-auto'>
+              <PlusCircledIcon className='mr-2 size-4' />
               <I18nText path='button.add' />
             </Button>
           }

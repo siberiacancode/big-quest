@@ -35,13 +35,15 @@ export const DataTable = <TData,>({
           <DataTableBody table={table} columns={columns} />
         </TableComponent>
       </div>
-      <div className='flex items-center justify-between mdx:flex-col'>
-        <div className='text-sm text-muted-foreground mdx:pt-2'>
-          {table.getFilteredSelectedRowModel().rows.length} <I18nText path='pagination.from' />{' '}
-          {pagination.count} <I18nText path='pagination.selected' />
+      {!!pagination.count && (
+        <div className='flex items-center justify-between mdx:flex-col'>
+          <div className='text-sm text-muted-foreground mdx:pt-2'>
+            {table.getFilteredSelectedRowModel().rows.length} <I18nText path='pagination.from' />{' '}
+            {pagination.count} <I18nText path='pagination.selected' />
+          </div>
+          <DataTablePagination {...pagination} />
         </div>
-        <DataTablePagination {...pagination} />
-      </div>
+      )}
     </div>
   );
 };

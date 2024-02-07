@@ -5,17 +5,16 @@ export const getPaginationNumbers = ({
   count,
   limit
 }: PaginationResponse): (number | '...')[] => {
-  const maxButtons = 8;
+  const maxButtons = 5;
   const pageCount = getPageCount(limit, count);
   const numbers: (number | '...')[] = [];
 
   if (pageCount <= maxButtons) {
     // eslint-disable-next-line no-plusplus
-    for (let i = 1; i <= count; i++) {
+    for (let i = 1; i <= pageCount; i++) {
       numbers.push(i);
     }
   } else {
-    // Calculate the range of pages to display
     const leftOffset = Math.floor(maxButtons / 2);
     let start = current - leftOffset;
     let end = current + leftOffset;
@@ -23,9 +22,9 @@ export const getPaginationNumbers = ({
     if (start < 1) {
       start = 1;
       end = maxButtons;
-    } else if (end > count) {
-      end = count;
-      start = count - maxButtons + 1;
+    } else if (end > pageCount) {
+      end = pageCount;
+      start = pageCount - maxButtons + 1;
     }
 
     if (start > 1) {
@@ -38,9 +37,9 @@ export const getPaginationNumbers = ({
       numbers.push(i);
     }
 
-    if (end < count) {
-      if (end < count - 1) numbers.push('...');
-      numbers.push(count);
+    if (end < pageCount) {
+      if (end < pageCount - 1) numbers.push('...');
+      numbers.push(pageCount);
     }
   }
 

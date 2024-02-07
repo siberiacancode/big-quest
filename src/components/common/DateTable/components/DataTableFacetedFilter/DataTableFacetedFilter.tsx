@@ -48,7 +48,7 @@ export const DataTableFacetedFilter = ({
                         key={item.value}
                         className='rounded-sm px-1 font-normal'
                       >
-                        {item.label}
+                        <span className='max-w-[90px] truncate'>{item.label}</span>
                       </Badge>
                     ))}
               </div>

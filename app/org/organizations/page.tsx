@@ -116,10 +116,7 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
           </InfoCardContent>
         </InfoCard>
       </div>
-      <OrganizationsTable
-        organizations={response.rows}
-        pagination={{ count: 100, limit: 10, current: 7 }}
-      />
+      <OrganizationsTable organizations={response.rows} pagination={response.pagination} />
     </div>
   );
 };

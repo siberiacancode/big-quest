@@ -3,7 +3,7 @@ interface OrganizationsTableRow {
   name: string;
   stage: string;
   type: string;
-  daysAmount: number;
+  daysAmount: string;
   location: string;
-  rate: number;
+  rate: string;
 }

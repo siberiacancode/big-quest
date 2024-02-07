@@ -28,7 +28,7 @@ export const Sidebar = ({ children, defaultOpen }: SidebarProps) => {
           !state.isOpen && 'justify-center'
         )}
       >
-        <Logo full={state.isOpen} />
+        <Logo full={state.isOpen} className='fill-current' />
         <Button
           className={cn(
             'absolute bottom-0 translate-x-1/2 translate-y-1/2',

@@ -27,16 +27,15 @@ export type MultiComboboxProps = {
   noResultsMsg?: string;
   selectItemMsg?: string;
   className?: string;
-  unselect?: boolean;
-  unselectMsg?: string;
   onSearchChange?: (e: string) => void;
   loading?: boolean;
   trigger?: React.ReactNode;
 };
 
-const popOverStyles = {
-  width: 'var(--radix-popover-trigger-width)'
-};
+// const popOverStyles = {
+//   width: 'var(--radix-popover-trigger-width)'
+// };
+// popover-content-width-same-as-its-trigger
 
 export const MultiCombobox = ({
   values,
@@ -46,7 +45,6 @@ export const MultiCombobox = ({
   noResultsMsg = 'Ничего не найдено',
   selectItemMsg = 'Выберите из списка...',
   className,
-  unselect = false,
   onSearchChange,
   loading = false,
   trigger
@@ -67,10 +65,7 @@ export const MultiCombobox = ({
           </Button>
         )}
       </PopoverTrigger>
-      <PopoverContent
-        style={popOverStyles}
-        className='popover-content-width-same-as-its-trigger p-0'
-      >
+      <PopoverContent className='w-[200px] p-0' align='start'>
         <Command>
           {!!onSearchChange && (
             <Input
@@ -86,9 +81,7 @@ export const MultiCombobox = ({
             {loading && <ReloadIcon className='mx-auto h-4 w-4 animate-spin' />}
             {!loading && noResultsMsg}
           </CommandEmpty>
-          <ScrollArea
-            className={cn('max-h-[220px] overflow-auto', !items.length && !unselect && 'hidden')}
-          >
+          <ScrollArea className={cn('max-h-[220px] overflow-auto', !items.length && 'hidden')}>
             <CommandGroup>
               {items.map((item) => (
                 <CommandItem
@@ -98,6 +91,7 @@ export const MultiCombobox = ({
                       onSelect(values.filter((value) => value !== item.value));
                     else onSelect([...values, item.value]);
                   }}
+                  className='truncate'
                 >
                   <Check
                     className={cn(
@@ -105,7 +99,7 @@ export const MultiCombobox = ({
                       values.includes(item.value) ? 'opacity-100' : 'opacity-0'
                     )}
                   />
-                  {item.label}
+                  <p className='max-w-full truncate'>{item.label}</p>
                 </CommandItem>
               ))}
             </CommandGroup>

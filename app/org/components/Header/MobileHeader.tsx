@@ -20,7 +20,7 @@ export const MobileHeader = () => {
 
   return (
     <header className='flex h-20 w-full items-center justify-between bg-background px-6'>
-      <Logo full={false} />
+      <Logo full={false} className='fill-current' />
       <div
         className={cn(
           'fixed -top-full left-0 z-10 h-screen w-full bg-background py-24 opacity-0 transition-all',

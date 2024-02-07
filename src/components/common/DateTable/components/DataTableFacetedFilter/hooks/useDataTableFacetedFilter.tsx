@@ -7,8 +7,10 @@ export interface UseDataTableFacetedFilterParams {
 }
 
 export const useDataTableFacetedFilter = ({ columnName }: UseDataTableFacetedFilterParams) => {
-  const { setSearchParam } = useSearchParams();
-  const [selectedValues, setSelectedValues] = React.useState<string[]>([]);
+  const { searchParams, setSearchParam } = useSearchParams();
+  const [selectedValues, setSelectedValues] = React.useState<string[]>(
+    searchParams.getAll(columnName)
+  );
 
   const onFilterSelect = (values: string[]) => {
     setSelectedValues(values);
