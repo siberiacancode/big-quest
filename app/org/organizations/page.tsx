@@ -23,11 +23,20 @@ export interface OrganizationsPageProps {
 }
 
 const DEFAULT_ORGANIZATIONS_LIMIT = '10';
+const DEGAULT_ORGANIZATIONS_PAGE = '1';
 
 const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
   const response = await getOrganization({
-    config: { params: { ...searchParams, limit: DEFAULT_ORGANIZATIONS_LIMIT } }
+    config: {
+      params: {
+        limit: DEFAULT_ORGANIZATIONS_LIMIT,
+        current: DEGAULT_ORGANIZATIONS_PAGE,
+        ...searchParams
+      }
+    }
   });
+
+  console.log(response);
 
   return (
     <div className='bg-secondary px-4'>
@@ -107,7 +116,10 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
           </InfoCardContent>
         </InfoCard>
       </div>
-      <OrganizationsTable organizations={response.rows} pagination={response.pagination} />
+      <OrganizationsTable
+        organizations={response.rows}
+        pagination={{ count: 100, limit: 10, current: 7 }}
+      />
     </div>
   );
 };

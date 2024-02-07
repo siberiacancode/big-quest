@@ -1,20 +1,11 @@
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from '@/utils/hooks';
 
 export const useDataTablePagination = () => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const { searchParams, setSearchParam } = useSearchParams();
+  const currentParam = Number(searchParams.get('current')) ?? 1;
 
-  const onPaginationButtonClick = (pageIndex: number) => {
-    const current = new URLSearchParams(Array.from(searchParams.entries()));
+  const onPaginationButtonClick = (pageIndex: number) =>
+    setSearchParam('current', String(pageIndex));
 
-    current.set('current', String(pageIndex));
-
-    const search = current.toString();
-    const query = search ? `?${search}` : '';
-
-    router.push(`${pathname}${query}`);
-  };
-
-  return { functions: { onPaginationButtonClick } };
+  return { state: { currentParam }, functions: { onPaginationButtonClick } };
 };

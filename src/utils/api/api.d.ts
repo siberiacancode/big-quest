@@ -127,7 +127,7 @@ interface OrganizationAddressDto {
   locality: string;
   street: string;
   house: string;
-  details: string;
+  details?: string;
   workingHours: WorkingHourDto;
 }
 
@@ -139,18 +139,18 @@ interface WorkingHourDto {
 }
 
 interface OrganizationInformationDto {
-  contactName: string;
-  phone: string;
-  email: string;
-  site: string;
-  city: string;
-  social: string;
-  fullNameOfTheLegalEntity: string;
-  legalAddress: string;
-  postAggress: string;
-  inn: string;
-  kpp: string;
-  ogrn: string;
+  contactName?: string;
+  phone?: string;
+  email?: string;
+  site?: string;
+  city?: string;
+  social?: string;
+  fullNameOfTheLegalEntity?: string;
+  legalAddress?: string;
+  postAggress?: string;
+  inn?: string;
+  kpp?: string;
+  ogrn?: string;
 }
 
 interface RequisitesDto {

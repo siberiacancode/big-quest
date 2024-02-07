@@ -40,7 +40,7 @@ export const DataTable = <TData,>({
           {table.getFilteredSelectedRowModel().rows.length} <I18nText path='pagination.from' />{' '}
           {pagination.count} <I18nText path='pagination.selected' />
         </div>
-        <DataTablePagination pagination={pagination} />
+        <DataTablePagination {...pagination} />
       </div>
     </div>
   );
