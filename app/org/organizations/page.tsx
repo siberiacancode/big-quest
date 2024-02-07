@@ -19,36 +19,14 @@ import { ROUTES } from '@/utils/constants';
 import { OrganizationsTable } from './components/OrganizationsTable/OrganizationsTable';
 
 export interface OrganizationsPageProps {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: SearchParams;
 }
 
-const filterUndefinedParams = (searchParams: {
-  [key: string]: string | string[] | undefined;
-}): Record<string, string> => {
-  const filteredParams: Record<string, string> = {};
-
-  for (const key in searchParams) {
-    if (Object.prototype.hasOwnProperty.call(searchParams, key)) {
-      const value = searchParams[key];
-
-      if (Array.isArray(value)) {
-        filteredParams[key] = value.join(',');
-      } else if (value) {
-        filteredParams[key] = value;
-      }
-    }
-  }
-
-  return filteredParams;
-};
+const DEFAULT_ORGANIZATIONS_LIMIT = '10';
 
 const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
-  const filteredSearchParams = filterUndefinedParams(searchParams);
-
-  console.log(filteredSearchParams);
-
   const response = await getOrganization({
-    config: { params: filteredSearchParams }
+    config: { params: { ...searchParams, limit: DEFAULT_ORGANIZATIONS_LIMIT } }
   });
 
   return (

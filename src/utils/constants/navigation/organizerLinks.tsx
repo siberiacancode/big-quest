@@ -23,7 +23,7 @@ export const ORGANIZER_LINKS: NavigationLinkInfo[] = [
   },
   {
     text: 'navigation.link.organizations',
-    href: ROUTES.ORG.ORGANIZATIONS,
+    href: ROUTES.ORG.ORGANIZATIONS.ROOT,
     icon: <Building2Icon />
   },
   {

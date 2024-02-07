@@ -1,8 +1,11 @@
 import type { ColumnDef } from '@tanstack/react-table';
 import { Edit3Icon } from 'lucide-react';
+import Link from 'next/link';
 
 import { generateDataTableColumn } from '@/components/common';
-import { Button, Checkbox } from '@/components/ui';
+import { buttonVariants, Checkbox } from '@/components/ui';
+import { cn } from '@/lib/utils';
+import { ROUTES } from '@/utils/constants';
 
 export const columns: ColumnDef<OrganizationsTableRow>[] = [
   {
@@ -28,7 +31,8 @@ export const columns: ColumnDef<OrganizationsTableRow>[] = [
   },
   generateDataTableColumn({
     accessorKey: 'name',
-    headerLabel: 'table.column.organization.name'
+    headerLabel: 'table.column.organization.name',
+    sortable: true
   }),
   generateDataTableColumn({
     accessorKey: 'location',
@@ -60,10 +64,13 @@ export const columns: ColumnDef<OrganizationsTableRow>[] = [
   {
     id: 'actions',
     enableHiding: false,
-    cell: () => (
-      <Button variant='ghost' className='h-8 w-8 p-0'>
+    cell: ({ row }) => (
+      <Link
+        href={`${ROUTES.ORG.ORGANIZATIONS.ROOT}/${row.id}`}
+        className={cn('h-8 w-8 p-0', buttonVariants({ variant: 'ghost' }))}
+      >
         <Edit3Icon className='h-4 w-4' />
-      </Button>
+      </Link>
     )
   }
 ];

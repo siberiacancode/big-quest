@@ -53,13 +53,18 @@ export class HttpClient {
     };
   }
 
-  private createSearchParams(params: Record<string, string>) {
+  private createSearchParams(params: SearchParams) {
     const searchParams = new URLSearchParams();
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const key in params) {
       if (Object.prototype.hasOwnProperty.call(params, key)) {
-        searchParams.set(key, params[key]);
+        const value = params[key];
+
+        if (Array.isArray(value)) {
+          value.forEach((currentValue) => searchParams.append(key, currentValue));
+        } else if (value) {
+          searchParams.set(key, value);
+        }
       }
     }
 

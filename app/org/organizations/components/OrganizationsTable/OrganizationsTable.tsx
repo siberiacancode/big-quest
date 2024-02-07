@@ -3,6 +3,7 @@
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 
 import { DataTable, DataTableFacetedFilter, I18nText } from '@/components/common';
+import { RegisterOrganizationDialog } from '@/components/dialogs';
 import { Button, Input } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
@@ -50,10 +51,14 @@ export const OrganizationsTable = ({ organizations, pagination }: OrganizationsT
           <PlusCircledIcon className='mr-2 h-4 w-4' />
           <I18nText path='table.column.organization.location' />
         </Button>,
-        <Button variant='outline' size='sm' className='mx-2 bg-secondary md:ml-auto'>
-          <PlusCircledIcon className='mr-2 h-4 w-4' />
-          <I18nText path='button.add' />
-        </Button>
+        <RegisterOrganizationDialog
+          trigger={
+            <Button variant='secondary' size='sm' className=''>
+              <PlusCircledIcon className='h-4 w-4' />
+              <I18nText path='button.add' />
+            </Button>
+          }
+        />
       ]}
     />
   );

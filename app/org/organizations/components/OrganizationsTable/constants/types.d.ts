@@ -1,4 +1,5 @@
 interface OrganizationsTableRow {
+  id: string;
   name: string;
   stage: string;
   type: string;

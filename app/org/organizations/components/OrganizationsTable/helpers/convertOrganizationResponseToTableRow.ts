@@ -2,6 +2,7 @@ export const convertOrganizationsResponseToTableRows = (
   organizations: OrganizationResponse[]
 ): OrganizationsTableRow[] =>
   organizations.map((organization) => ({
+    id: organization.id,
     daysAmount: 0,
     location: organization.addresses[0]?.locality ?? '',
     name: organization.name,
