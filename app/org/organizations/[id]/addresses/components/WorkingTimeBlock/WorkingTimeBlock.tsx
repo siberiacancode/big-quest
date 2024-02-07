@@ -14,12 +14,12 @@ export const WorkingTimeBlock = ({ control }: WorkingTimeBlockProps) => (
     <h3 className='font-medium'>
       <I18nText path='addressCard.description.workingTime' />
     </h3>
-    <WorkingTimeItem control={control} day='Monday' />
-    <WorkingTimeItem control={control} day='Tuesday' />
-    <WorkingTimeItem control={control} day='Wednesday' />
-    <WorkingTimeItem control={control} day='Thursday' />
-    <WorkingTimeItem control={control} day='Friday' />
-    <WorkingTimeItem control={control} day='Saturday' />
-    <WorkingTimeItem control={control} day='Sunday' />
+    <WorkingTimeItem control={control} day={0} />
+    <WorkingTimeItem control={control} day={1} />
+    <WorkingTimeItem control={control} day={2} />
+    <WorkingTimeItem control={control} day={3} />
+    <WorkingTimeItem control={control} day={4} />
+    <WorkingTimeItem control={control} day={5} />
+    <WorkingTimeItem control={control} day={6} />
   </div>
 );

@@ -18,14 +18,6 @@
   "addressModal.description.placeholder": "офис, вход, этаж",
   "feature.addAddress.success": "Адрес успешно добавлен",
 
-  "dayOfWeek.Monday": "Пн",
-  "dayOfWeek.Tuesday": "Вт",
-  "dayOfWeek.Wednesday": "Ср",
-  "dayOfWeek.Thursday": "Чт",
-  "dayOfWeek.Friday": "Пт",
-  "dayOfWeek.Saturday": "Сб",
-  "dayOfWeek.Sunday": "Вс",
-
   "field.email.label": "Email",
   "field.password.label": "Пароль",
   "field.email.placeholder": "examples@mail.com",
@@ -53,6 +45,15 @@
   "infoCard.description.discussions": "Переговоры",
   "infoCard.description.tariffChange": "Смена тарифа",
   "infoCard.description.applications": "Заявок",
+
+  "dayOfWeek.1": "Пн",
+  "dayOfWeek.2": "Вт",
+  "dayOfWeek.3": "Ср",
+  "dayOfWeek.4": "Чт",
+  "dayOfWeek.5": "Пт",
+  "dayOfWeek.6": "Сб",
+  "dayOfWeek.7": "Вс",
+  "dayOfWeek.dayOff": "Выходной",
 
   "addressCard.description.street": "Улица",
   "addressCard.description.house": "Дом",

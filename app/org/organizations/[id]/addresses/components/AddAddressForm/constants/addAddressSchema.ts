@@ -1,14 +1,5 @@
 import * as z from 'zod';
 
-// export const workingHoursSchema = z.object({
-//   start: z.string().regex(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, {
-//     message: 'validation.invalidFormat'
-//   }),
-//   end: z.string().regex(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, {
-//     message: 'validation.invalidFormat'
-//   })
-// });
-
 const workingTimeSchema = z.object({
   hour: z.number(),
   minutes: z.number()

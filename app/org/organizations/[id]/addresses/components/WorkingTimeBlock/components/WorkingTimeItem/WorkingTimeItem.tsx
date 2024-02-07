@@ -5,18 +5,18 @@ import { Input } from '@/components/ui';
 
 interface WorkingTimeItemProps {
   control: any;
-  day: string;
+  day: number;
 }
 
 export const WorkingTimeItem = ({ day, control }: WorkingTimeItemProps) => (
   <div className='mt-3 flex'>
     <div className='w-6 rounded-md bg-gray-two p-1 px-1.5 text-center text-[10px] text-white'>
-      <I18nText path={`dayOfWeek.${day}` as LocaleMessageId} />
+      <I18nText path={`dayOfWeek.${day + 1}` as LocaleMessageId} />
     </div>
     <div>
       <Controller
         control={control}
-        name={`workingHours.${day}.start`}
+        name={`workingHours[${day}].from.hour`} // Надо фиксить
         render={({ field }) => (
           <>
             <Input className='mx-2 h-6 w-11 border-0 border-b p-1' placeholder='8:30' {...field} />
@@ -31,7 +31,7 @@ export const WorkingTimeItem = ({ day, control }: WorkingTimeItemProps) => (
     <div>
       <Controller
         control={control}
-        name={`workingHours.${day}.end`}
+        name={`workingHours[${day}].from.minutes`} // Надо фиксить
         render={({ field }) => (
           <Input className='mx-2 h-6 w-11 border-0 border-b p-1' placeholder='17:30' {...field} />
         )}

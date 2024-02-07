@@ -89,18 +89,6 @@ export const addresses = [
           minutes: 53
         },
         dayOff: true
-      },
-      {
-        day: 7,
-        from: {
-          hour: 10,
-          minutes: 42
-        },
-        to: {
-          hour: 12,
-          minutes: 38
-        },
-        dayOff: false
       }
     ]
   },
@@ -192,18 +180,6 @@ export const addresses = [
         to: {
           hour: 0,
           minutes: 17
-        },
-        dayOff: true
-      },
-      {
-        day: 7,
-        from: {
-          hour: 23,
-          minutes: 57
-        },
-        to: {
-          hour: 10,
-          minutes: 21
         },
         dayOff: true
       }
@@ -299,18 +275,6 @@ export const addresses = [
           minutes: 13
         },
         dayOff: false
-      },
-      {
-        day: 7,
-        from: {
-          hour: 7,
-          minutes: 31
-        },
-        to: {
-          hour: 2,
-          minutes: 46
-        },
-        dayOff: true
       }
     ]
   },
@@ -402,18 +366,6 @@ export const addresses = [
         to: {
           hour: 13,
           minutes: 49
-        },
-        dayOff: false
-      },
-      {
-        day: 7,
-        from: {
-          hour: 3,
-          minutes: 38
-        },
-        to: {
-          hour: 14,
-          minutes: 48
         },
         dayOff: false
       }

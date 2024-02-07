@@ -84,7 +84,7 @@ interface WorkingHourDto {
 }
 
 interface OrganizationAddressDto {
-  organizationId: string; // Пока добавил сюда id, потому что на бэке его пока нет
+  organizationId: string; // Добавил сюда id, потому что на бэке его пока нет
   locality: string;
   street: string;
   house: string;
