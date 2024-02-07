@@ -1,30 +1,18 @@
 import React from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
+import { useSearchParams } from '@/utils/hooks';
 
 export interface UseDataTableFacetedFilterParams {
   columnName: string;
 }
 
 export const useDataTableFacetedFilter = ({ columnName }: UseDataTableFacetedFilterParams) => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
+  const { setSearchParam } = useSearchParams();
   const [selectedValues, setSelectedValues] = React.useState<string[]>([]);
 
   const onFilterSelect = (values: string[]) => {
     setSelectedValues(values);
-
-    const current = new URLSearchParams(Array.from(searchParams.entries()));
-
-    values.forEach((value) => {
-      current.set(columnName, value);
-
-      const search = current.toString();
-      const query = search ? `?${search}` : '';
-
-      router.push(`${pathname}${query}`);
-    });
+    setSearchParam(columnName, values);
   };
 
   return { state: { selectedValues }, functions: { onFilterSelect } };

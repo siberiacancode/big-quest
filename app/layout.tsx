@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import { Toaster } from '@/components/ui/sonner';
+import { generateRefreshTokenInterceptor } from '@/utils/api/interceptors';
+import { generateHeadersInterceptor } from '@/utils/api/interceptors/generateHeadersInterceptor';
 import { getMessagesByLocale } from '@/utils/helpers';
 import { getDefaultTheme } from '@/utils/helpers/getDefaultTheme';
 
@@ -17,6 +19,9 @@ export const metadata: Metadata = {
 };
 
 const TOASTER_DURATION = 5000;
+
+generateHeadersInterceptor();
+generateRefreshTokenInterceptor();
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const locale = 'ru';

@@ -54,9 +54,9 @@
   "table.column.organization.rate": "Тариф",
   "table.column.organization.daysAmount": "Кол-во дней",
 
-  "stage.request": "Заявка",
-  "stage.conclusion": "Сотрудничество",
-  "stage.negotiation": "Переговоры",
+  "organization.stage.request": "Заявка",
+  "organization.stage.conclusion": "Сотрудничество",
+  "organization.stage.negotiation": "Переговоры",
 
   "pagination.from": "из",
   "pagination.selected": "выбрано",

@@ -71,7 +71,7 @@ export class HttpClient {
     initialConfig: RequestConfig
   ) {
     if (!this.interceptorHandlers.response?.length && initialResponse.ok) {
-      const body = (await initialResponse?.json()) as T;
+      const body = (await initialResponse.json()) as T;
       return body;
     }
 
@@ -79,8 +79,7 @@ export class HttpClient {
       throw new Error(initialResponse.statusText);
     }
 
-    let body = (await initialResponse?.json()) as T;
-
+    let body = (await initialResponse.json()) as T;
     const response = {
       status: initialResponse.status,
       statusText: initialResponse.statusText,
@@ -142,7 +141,6 @@ export class HttpClient {
     }
 
     const response: Response = await fetch(url, config);
-
     return this.runResponseInterceptors<T>(response, config);
   }
 
