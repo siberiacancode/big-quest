@@ -63,6 +63,7 @@ export class HttpClient {
       }
     }
 
+    console.log('-------------', searchParams.toString());
     return `?${searchParams.toString()}`;
   }
 

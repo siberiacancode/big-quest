@@ -27,8 +27,8 @@ export const OrganizationsTable = ({ organizations, pagination }: OrganizationsT
       toolbar={() => [
         <Input
           placeholder={intl.formatMessage({ id: 'field.filter.placeholder' })}
-          value={state.organizationFilter ?? ''}
-          onChange={(event) => functions.onInputFilterChange(event.target.value)}
+          defaultValue={state.organizationFilter ?? ''}
+          onChange={(event) => functions.onFilterInputChange(event.target.value)}
           wrapperClassName='max-w-sm'
         />,
         <DataTableFacetedFilter

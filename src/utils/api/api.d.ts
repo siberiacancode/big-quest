@@ -78,7 +78,7 @@ interface RegisterOrganizationDto {
 }
 
 type LegalType = 'SPONSOR' | 'PARTNER';
-type StageType = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
+type Stage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
 
 type UserRole = 'organizer' | 'partner';
 

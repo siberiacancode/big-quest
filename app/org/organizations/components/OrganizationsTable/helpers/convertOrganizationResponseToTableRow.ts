@@ -6,6 +6,6 @@ export const convertOrganizationsResponseToTableRows = (
     location: organization.addresses[0]?.locality ?? '',
     name: organization.name,
     rate: 0,
-    stage: organization.stage,
-    type: organization.type
+    stage: `organization.stage.${organization.stage.toLowerCase()}`,
+    type: `organization.legalType.${organization.type.toLowerCase()}`
   }));

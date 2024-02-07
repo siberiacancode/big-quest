@@ -1,5 +1,4 @@
 import { AlertCircleIcon, HeartHandshakeIcon, TrendingUpIcon } from 'lucide-react';
-import { cookies } from 'next/headers';
 
 import { I18nText } from '@/components/common';
 import {
@@ -15,7 +14,7 @@ import {
   InfoCardTitle
 } from '@/components/ui';
 import { getOrganization } from '@/utils/api';
-import { COOKIES, ROUTES } from '@/utils/constants';
+import { ROUTES } from '@/utils/constants';
 
 import { OrganizationsTable } from './components/OrganizationsTable/OrganizationsTable';
 
@@ -23,16 +22,19 @@ export interface OrganizationsPageProps {
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
-const filterUndefinedParams = (params: {
+const filterUndefinedParams = (searchParams: {
   [key: string]: string | string[] | undefined;
 }): Record<string, string> => {
   const filteredParams: Record<string, string> = {};
 
-  for (const key in params) {
-    if (Object.prototype.hasOwnProperty.call(params, key)) {
-      const value = params[key];
-      if (typeof value !== 'undefined') {
-        filteredParams[key] = value.toString();
+  for (const key in searchParams) {
+    if (Object.prototype.hasOwnProperty.call(searchParams, key)) {
+      const value = searchParams[key];
+
+      if (Array.isArray(value)) {
+        filteredParams[key] = value.join(',');
+      } else if (value) {
+        filteredParams[key] = value;
       }
     }
   }
@@ -43,16 +45,10 @@ const filterUndefinedParams = (params: {
 const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
   const filteredSearchParams = filterUndefinedParams(searchParams);
 
-  const accessToken = cookies().get(COOKIES.ACCESS_TOKEN)?.value;
-  const refreshToken = cookies().get(COOKIES.REFRESH_TOKEN)?.value;
+  console.log(filteredSearchParams);
 
   const response = await getOrganization({
-    config: {
-      params: filteredSearchParams,
-      headers: {
-        Cookie: `${COOKIES.REFRESH_TOKEN}=${refreshToken};${COOKIES.ACCESS_TOKEN}=${accessToken};`
-      }
-    }
+    config: { params: filteredSearchParams }
   });
 
   return (

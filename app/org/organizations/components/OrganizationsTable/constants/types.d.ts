@@ -1,7 +1,7 @@
 interface OrganizationsTableRow {
   name: string;
-  stage: StageType;
-  type: LegalType;
+  stage: string;
+  type: string;
   daysAmount: number;
   location: string;
   rate: number;

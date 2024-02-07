@@ -57,6 +57,9 @@
   "organization.stage.request": "Заявка",
   "organization.stage.conclusion": "Сотрудничество",
   "organization.stage.negotiation": "Переговоры",
+  "organization.legalType.organizer": "Организатор",
+  "organization.legalType.partner": "Партнер",
+  "organization.legalType.sponsor": "Спонсор",
 
   "pagination.from": "из",
   "pagination.selected": "выбрано",

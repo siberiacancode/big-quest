@@ -10,6 +10,8 @@ export const generateRefreshTokenInterceptor = () =>
       const originalConfig = error.config;
 
       if (!error.response) return Promise.reject(error);
+      console.log('-------------------');
+      console.log(error, originalConfig);
 
       if (
         error.response.status === 401 &&

@@ -1,8 +1,8 @@
 import type { ColumnDef } from '@tanstack/react-table';
 import { Edit3Icon } from 'lucide-react';
 
+import { generateDataTableColumn } from '@/components/common';
 import { Button, Checkbox } from '@/components/ui';
-import { generateDataTableColumn } from '@/utils/helpers';
 
 export const columns: ColumnDef<OrganizationsTableRow>[] = [
   {
@@ -38,7 +38,8 @@ export const columns: ColumnDef<OrganizationsTableRow>[] = [
   generateDataTableColumn({
     accessorKey: 'type',
     headerLabel: 'table.column.organization.type',
-    sortable: true
+    sortable: true,
+    translateValue: true
   }),
   generateDataTableColumn({
     accessorKey: 'rate',
@@ -53,7 +54,8 @@ export const columns: ColumnDef<OrganizationsTableRow>[] = [
   generateDataTableColumn({
     accessorKey: 'stage',
     headerLabel: 'table.column.organization.stage',
-    sortable: true
+    sortable: true,
+    translateValue: true
   }),
   {
     id: 'actions',
