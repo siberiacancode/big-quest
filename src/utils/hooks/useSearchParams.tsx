@@ -8,6 +8,14 @@ export const useSearchParams = () => {
   const setSearchParam = (key: string, value: string | string[]) => {
     const current = new URLSearchParams(searchParams);
 
+    if (!value.length) {
+      current.delete(key);
+      const search = current.toString();
+      const query = search ? `?${search}` : '';
+      router.push(`${pathname}${query}`);
+      return;
+    }
+
     if (!Array.isArray(value)) {
       current.set(key, value);
 

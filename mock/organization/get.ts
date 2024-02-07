@@ -44,7 +44,7 @@ export const organizationGetConfig: RestRequestConfig = {
             information: null,
             addresses: [],
             requisites: null,
-            stage: 'APPROVAL',
+            stage: 'REQUEST',
             type: 'SPONSOR'
           },
           {
@@ -57,7 +57,7 @@ export const organizationGetConfig: RestRequestConfig = {
             information: null,
             addresses: [],
             requisites: null,
-            stage: 'REVIEW',
+            stage: 'REQUEST',
             type: 'ORGANIZER'
           },
           {
@@ -96,7 +96,7 @@ export const organizationGetConfig: RestRequestConfig = {
             information: null,
             addresses: [],
             requisites: null,
-            stage: 'REVIEW',
+            stage: 'REQUEST',
             type: 'SPONSOR'
           },
           {
@@ -109,7 +109,7 @@ export const organizationGetConfig: RestRequestConfig = {
             information: null,
             addresses: [],
             requisites: null,
-            stage: 'APPROVAL',
+            stage: 'REQUEST',
             type: 'PARTNER'
           },
           {

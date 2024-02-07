@@ -10,7 +10,7 @@ export const DataTableToolbar = <TData,>({ table, toolbar }: DataTableToolbarPro
   const toolbarItems = toolbar(table);
 
   return (
-    <div className='flex flex-wrap items-center py-4 md:flex-nowrap'>
+    <div className='mb-[23px] mt-[11px] flex flex-wrap items-center gap-3 md:flex-nowrap'>
       {toolbarItems.map((toolbarItem, index) => (
         <React.Fragment key={index}>
           {index === toolbarItems.length - 1 && (

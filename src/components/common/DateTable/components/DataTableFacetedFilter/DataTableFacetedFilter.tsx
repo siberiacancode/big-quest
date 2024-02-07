@@ -24,7 +24,7 @@ export const DataTableFacetedFilter = ({
       items={items}
       onSelect={functions.onFilterSelect}
       trigger={
-        <Button variant='outline' size='sm' className='h-8 border-dashed'>
+        <Button variant='outline' size='sm' className=''>
           <PlusCircledIcon className='mr-2 h-4 w-4' />
           {title || columnName}
           {!!state.selectedValues.length && (

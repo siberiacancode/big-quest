@@ -11,20 +11,25 @@ export const columns: ColumnDef<OrganizationsTableRow>[] = [
   {
     id: 'select',
     header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate')
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label='Select all'
-      />
+      <div className='flex h-full items-center justify-center'>
+        <Checkbox
+          checked={
+            table.getIsAllPageRowsSelected() ||
+            (table.getIsSomePageRowsSelected() && 'indeterminate')
+          }
+          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          aria-label='Select all'
+        />
+      </div>
     ),
     cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label='Select row'
-      />
+      <div className='flex h-full items-center justify-center'>
+        <Checkbox
+          checked={row.getIsSelected()}
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label='Select row'
+        />
+      </div>
     ),
     enableSorting: false,
     enableHiding: false
@@ -66,10 +71,12 @@ export const columns: ColumnDef<OrganizationsTableRow>[] = [
     enableHiding: false,
     cell: ({ row }) => (
       <Link
-        href={`${ROUTES.ORG.ORGANIZATIONS.ROOT}/${row.id}`}
+        href={`${ROUTES.ORG.ORGANIZATIONS.ROOT}/${row.original.id}`}
         className={cn('h-8 w-8 p-0', buttonVariants({ variant: 'ghost' }))}
       >
-        <Edit3Icon className='h-4 w-4' />
+        <div>
+          <Edit3Icon className='size-4' />
+        </div>
       </Link>
     )
   }

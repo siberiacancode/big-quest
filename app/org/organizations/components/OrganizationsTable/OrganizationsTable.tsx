@@ -51,10 +51,21 @@ export const OrganizationsTable = ({ organizations, pagination }: OrganizationsT
           ]}
           title={intl.formatMessage({ id: 'table.column.organization.stage' })}
         />,
-        <Button variant='outline' size='sm' className='m-2 h-9'>
-          <PlusCircledIcon className='mr-2 h-4 w-4' />
-          <I18nText path='table.column.organization.location' />
-        </Button>,
+        <DataTableFacetedFilter
+          columnName='location'
+          items={[
+            { value: 'REQUEST', label: intl.formatMessage({ id: 'organization.stage.request' }) },
+            {
+              value: 'NEGOTIATION',
+              label: intl.formatMessage({ id: 'organization.stage.negotiation' })
+            },
+            {
+              value: 'CONCLUSION',
+              label: intl.formatMessage({ id: 'organization.stage.conclusion' })
+            }
+          ]}
+          title={intl.formatMessage({ id: 'table.column.organization.location' })}
+        />,
         <RegisterOrganizationDialog
           trigger={
             <Button variant='secondary' size='sm' className='mx-2 md:ml-auto'>
