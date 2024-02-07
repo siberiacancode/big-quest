@@ -21,7 +21,7 @@ export const Journal = () => {
       <div className='flex items-end'>
         <Textarea
           className='h-24 w-full px-3 py-4'
-          placeholder={intl.formatMessage({ id: 'organization.profile.journal.placeholder' })}
+          placeholder={intl.formatMessage({ id: 'field.note.placeholder' })}
         />
         <Button variant='secondary' className='ml-3 mr-1 h-8 w-8 p-2'>
           <SendHorizonalIcon />

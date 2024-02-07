@@ -12,8 +12,6 @@
   "organization.profile.members": "Участники",
 
   "organization.profile.entries": "Записи",
-
-  "organization.profile.journal.placeholder": "Оставьте заметку...",
   "organization.profile.journal.title": "Журнал",
 
   "organization.profile.information.title": "Информация о профиле",
@@ -50,6 +48,7 @@
   "field.search.placeholder": "Найти...",
   "field.filter.placeholder": "Фильтровать...",
   "field.results.noResults": "Нет результатов",
+  "field.note.placeholder": "Оставьте заметку...",
 
   "navigation.link.organizations": "Организации",
   "navigation.link.lids": "Лиды",

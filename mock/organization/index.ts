@@ -1,7 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
 export const organizationByIdConfig: RestRequestConfig = {
-  path: '/organization/1',
+  path: '/organization/:id',
   method: 'get',
   routes: [
     {
@@ -44,17 +44,14 @@ export const organizationByIdConfig: RestRequestConfig = {
         createdAt: 'PARTNER',
         updatedAt: 'PARTNER'
       },
+      entities: { params: { id: 1 } },
       interceptors: {
         response: (data, { request, setStatusCode }) => {
-          if (
-            request.path.includes('/1') &&
-            request.cookies.refreshToken &&
-            request.cookies.accessToken
-          ) {
+          if (request.cookies.refreshToken && request.cookies.accessToken) {
             return data;
           }
-          setStatusCode(404);
-          return { message: 'Не удалось найти организацию по ID = 1' };
+          setStatusCode(401);
+          return { message: 'Unauthorized' };
         }
       }
     }
