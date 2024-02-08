@@ -91,7 +91,6 @@ export const MultiCombobox = ({
                       onSelect(values.filter((value) => value !== item.value));
                     else onSelect([...values, item.value]);
                   }}
-                  className='truncate'
                 >
                   <Check
                     className={cn(
@@ -99,7 +98,7 @@ export const MultiCombobox = ({
                       values.includes(item.value) ? 'opacity-100' : 'opacity-0'
                     )}
                   />
-                  <p className='max-w-full truncate'>{item.label}</p>
+                  <p className='max-w-[150px] break-words'>{item.label}</p>
                 </CommandItem>
               ))}
             </CommandGroup>
