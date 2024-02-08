@@ -1,5 +1,6 @@
 {
   "app.title": "Большой квест",
+  "app.error": "Что-то пошло не так",
 
   "org.auth.title": "Вход в личный кабинет",
   "org.auth.rememberMe": "Запомнить меня",

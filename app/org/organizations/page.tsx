@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { AlertCircleIcon, HeartHandshakeIcon, TrendingUpIcon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
@@ -23,14 +24,14 @@ export interface OrganizationsPageProps {
 }
 
 const DEFAULT_ORGANIZATIONS_LIMIT = '10';
-const DEGAULT_ORGANIZATIONS_PAGE = '1';
+const DEFAULT_ORGANIZATIONS_PAGE = '1';
 
 const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
   const response = await getOrganization({
     config: {
       params: {
         limit: DEFAULT_ORGANIZATIONS_LIMIT,
-        current: DEGAULT_ORGANIZATIONS_PAGE,
+        current: DEFAULT_ORGANIZATIONS_PAGE,
         ...searchParams
       }
     }
@@ -116,7 +117,10 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
           </InfoCardContent>
         </InfoCard>
       </div>
-      <OrganizationsTable organizations={response.rows} pagination={response.pagination} />
+      {/* Что-то работу саспенаса я не увидел, может что-то не понимаю */}
+      <Suspense fallback={<p>Loading...</p>}>
+        <OrganizationsTable organizations={response.rows} pagination={response.pagination} />
+      </Suspense>
     </div>
   );
 };

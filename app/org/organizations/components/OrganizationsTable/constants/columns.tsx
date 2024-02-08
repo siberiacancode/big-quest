@@ -52,8 +52,7 @@ export const columns: ColumnDef<OrganizationsTableRow>[] = [
   }),
   generateDataTableColumn({
     accessorKey: 'rate',
-    headerLabel: 'table.column.organization.rate',
-    sortable: true
+    headerLabel: 'table.column.organization.rate'
   }),
   generateDataTableColumn({
     accessorKey: 'daysAmount',
