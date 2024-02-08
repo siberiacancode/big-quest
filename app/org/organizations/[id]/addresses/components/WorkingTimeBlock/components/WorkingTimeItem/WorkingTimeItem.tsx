@@ -16,10 +16,10 @@ export const WorkingTimeItem = ({ day, control }: WorkingTimeItemProps) => (
     <div>
       <Controller
         control={control}
-        name={`workingHours[${day}].from.hour`} // Надо фиксить
+        name={`workingHours.${day}.from`}
         render={({ field }) => (
           <>
-            <Input className='mx-2 h-6 w-11 border-0 border-b p-1' placeholder='8:30' {...field} />
+            <Input className='mx-2 h-6 w-11 border-0 border-b p-1' placeholder='9:00' {...field} />
             {/* {fieldState?.error && (
               <span className='text-sm text-red-500'>{fieldState.error.message}</span>
             )} */}
@@ -31,9 +31,9 @@ export const WorkingTimeItem = ({ day, control }: WorkingTimeItemProps) => (
     <div>
       <Controller
         control={control}
-        name={`workingHours[${day}].from.minutes`} // Надо фиксить
+        name={`workingHours.${day}.to`}
         render={({ field }) => (
-          <Input className='mx-2 h-6 w-11 border-0 border-b p-1' placeholder='17:30' {...field} />
+          <Input className='mx-2 h-6 w-11 border-0 border-b p-1' placeholder='18:00' {...field} />
         )}
       />
     </div>
