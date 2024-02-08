@@ -37,8 +37,6 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
     }
   });
 
-  console.log(response);
-
   return (
     <div className='bg-secondary px-4'>
       <Breadcrumbs>
