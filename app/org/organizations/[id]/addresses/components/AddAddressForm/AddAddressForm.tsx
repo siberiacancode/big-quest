@@ -2,6 +2,7 @@
 
 import { useIntl } from 'react-intl';
 
+import { DadataCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -30,18 +31,19 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
       <form onSubmit={functions.onSubmit} className='flex w-full flex-col items-end'>
         <div className='flex w-full gap-5 smx:flex-col'>
           <div className='flex-1 space-y-3'>
-            {/* Тут Димин компонент нужен будет для адреса, видимо */}
             <FormField
               control={form.control}
               name='locality'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    <I18nText path='table.column.location' />
+                    <I18nText path='field.location.label' />
                   </FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
+                  <DadataCombobox
+                    value={field.value}
+                    className='w-full'
+                    onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                  />
                   <FormMessage>
                     {form.formState?.errors?.locality && (
                       <I18nText path={form.formState.errors.locality.message as LocaleMessageId} />
@@ -114,7 +116,6 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                 </FormItem>
               )}
             />
-            {/* Сделать обработку времени */}
             <WorkingTimeBlock control={form.control} />
           </div>
         </div>
