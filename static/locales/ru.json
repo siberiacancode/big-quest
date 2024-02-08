@@ -7,7 +7,6 @@
   "org.auth.footer.siteRules": "Правила пользования сайтом",
   "org.auth.footer.privacyPolicy": "Политика конфиденциальности",
 
-  "button.login": "Войти",
   "button.add": "Добавить",
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
@@ -17,6 +16,9 @@
   "addressModal.description.untill": "до",
   "addressModal.description.placeholder": "офис, вход, этаж",
   "feature.addAddress.success": "Адрес успешно добавлен",
+  "button.login": "Войти",
+  "button.registerOrganization": "Отправить заявку",
+  "button.goToRegisterOrganization": "Оставить заявку",
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",
@@ -25,6 +27,14 @@
   "field.search.placeholder": "Найти...",
   "field.filter.placeholder": "Фильтровать...",
   "field.results.noResults": "Нет результатов",
+  "field.organization.label": "Название организации",
+  "field.location.label": "Населенный пункт",
+  "field.contactName.label": "Ваше имя",
+  "field.phone.label": "Телефон",
+
+  "radio.legalType.label": "Выберите форму сотрудничества",
+  "radio.legalType.partner.label": "Партнер",
+  "radio.legalType.sponsor.label": "Спонсор",
 
   "navigation.link.organizations": "Организации",
   "navigation.link.lids": "Лиды",
@@ -72,5 +82,8 @@
   "pagination.page": "страница",
 
   "validation.required": "Данное поле не может быть пустым",
-  "validation.email.format": "Неверный формат электронной почты"
+  "validation.email.format": "Неверный формат электронной почты",
+
+  "feature.registerOrganization.title": "Заполните заявку",
+  "feature.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время"
 }

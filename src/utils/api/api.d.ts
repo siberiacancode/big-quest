@@ -1,5 +1,3 @@
-type UserRole = 'organizer' | 'partner';
-
 interface MutationSettings<Params = void, Func = unknown> {
   config?: ApiRequestConfig;
   options?: import('@tanstack/react-query').UseMutationOptions<
@@ -90,4 +88,32 @@ interface OrganizationAddressDto {
   house: string;
   details?: string;
   workingHours: WorkingHourDto[];
+}
+interface RegisterOrganizationDto {
+  organization: string;
+  location: string;
+  type: LegalType;
+  contactName: string;
+  phone: string;
+}
+type LegalType = 'SPONSOR' | 'PARTNER';
+
+type UserRole = 'organizer' | 'partner';
+
+interface AddressResponse {
+  country: string;
+  region: string;
+  city: string;
+  postal_code: string;
+  street: string;
+  house: string;
+  flat: number;
+  geo_lat: number;
+  geo_lon: number;
+  unrestrictedValue: string;
+}
+
+interface LoginEmailDto {
+  email: string;
+  password: string;
 }

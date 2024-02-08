@@ -16,11 +16,13 @@ const config = {
       lgx: { max: '1023px' },
       mdx: { max: '767px' },
       smx: { max: '639px' },
+      xsx: { max: '475px' },
       '2xl': { min: '1400px' },
       xl: { min: '1280px' },
       lg: { min: '1024px' },
       md: { min: '768px' },
-      sm: { min: '640px' }
+      sm: { min: '640px' },
+      xs: { min: '475px' }
     },
     container: {
       center: true,
@@ -69,6 +71,9 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         }
+      },
+      backgroundColor: {
+        taiga: { DEFAULT: 'hsl(var(--taiga-light))', foreground: 'hsl(var(--taiga-dark))' }
       },
       borderRadius: {
         lg: 'var(--radius)',

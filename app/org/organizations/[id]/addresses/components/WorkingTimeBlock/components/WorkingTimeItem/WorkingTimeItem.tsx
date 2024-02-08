@@ -2,6 +2,7 @@ import { Controller } from 'react-hook-form';
 
 import { I18nText } from '@/components/common';
 import { Input } from '@/components/ui';
+import { cn } from '@/lib/utils';
 
 interface WorkingTimeItemProps {
   control: any;
@@ -10,7 +11,12 @@ interface WorkingTimeItemProps {
 
 export const WorkingTimeItem = ({ day, control }: WorkingTimeItemProps) => (
   <div className='mt-3 flex'>
-    <div className='w-6 rounded-md bg-gray-two p-1 px-1.5 text-center text-[10px] text-white'>
+    <div
+      className={cn(
+        'w-6 rounded-md bg-gray-two p-1 px-1.5 text-center text-[10px] text-white',
+        day === 6 && `bg-secondary text-current`
+      )}
+    >
       <I18nText path={`dayOfWeek.${day + 1}` as LocaleMessageId} />
     </div>
     <div>

@@ -10,7 +10,7 @@ interface WorkingTimeBlockProps {
   control: Control<AddAddressSchema>;
 }
 export const WorkingTimeBlock = ({ control }: WorkingTimeBlockProps) => (
-  <div>
+  <>
     <h3 className='font-medium'>
       <I18nText path='addressCard.description.workingTime' />
     </h3>
@@ -21,5 +21,5 @@ export const WorkingTimeBlock = ({ control }: WorkingTimeBlockProps) => (
     <WorkingTimeItem control={control} day={4} />
     <WorkingTimeItem control={control} day={5} />
     <WorkingTimeItem control={control} day={6} />
-  </div>
+  </>
 );
