@@ -21,7 +21,6 @@ export const useSearchParams = () => {
 
       const search = current.toString();
       const query = search ? `?${search}` : '';
-
       router.push(`${pathname}${query}`);
     } else {
       current.delete(key);

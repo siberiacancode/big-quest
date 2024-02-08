@@ -121,6 +121,8 @@ interface OrganizationResponse {
   requisites: RequisitesDto;
   stage: StageType;
   type: LegalType;
+  createdAt: string;
+  updatedAt: string;
 }
 
 interface OrganizationAddressDto {
@@ -145,6 +147,10 @@ interface OrganizationInformationDto {
   site?: string;
   city?: string;
   social?: string;
+  coordinates?: {
+    latitude: number;
+    longitude: number;
+  };
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
   postAggress?: string;

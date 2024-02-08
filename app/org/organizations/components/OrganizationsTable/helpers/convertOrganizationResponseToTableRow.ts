@@ -4,7 +4,7 @@ export const convertOrganizationsResponseToTableRows = (
   organizations?.map((organization) => ({
     id: organization.id,
     daysAmount: '-',
-    location: organization?.information?.city ?? 'Нема',
+    location: organization?.information?.city ?? '-',
     name: organization.name,
     rate: '-',
     stage: `organization.stage.${organization.stage.toLowerCase()}`,
