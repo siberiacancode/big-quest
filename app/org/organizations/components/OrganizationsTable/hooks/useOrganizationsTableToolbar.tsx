@@ -39,7 +39,17 @@ export const useOrganizationsTableToolbar = ({
         ]}
         title={intl.formatMessage({ id: 'table.column.organization.stage' })}
       />,
-      <Button />,
+      <DataTableFacetedFilter
+        columnName='location'
+        items={[
+          { value: 'г. Томск', label: 'г. Томск' },
+          { value: 'г. Новосибирск', label: 'г. Новосибирск' },
+          { value: 'г. Северск', label: 'г. Северск' },
+          { value: 'Кемерово', label: 'Кемерово' },
+          { value: 'Санкт-Петербург', label: 'Санкт-Петербург' }
+        ]}
+        title={intl.formatMessage({ id: 'table.column.organization.location' })}
+      />,
       <RegisterOrganizationDialog
         trigger={
           <Button variant='secondary' size='sm' className='mx-2 md:ml-auto'>

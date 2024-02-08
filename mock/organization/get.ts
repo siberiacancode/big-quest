@@ -862,6 +862,27 @@ export const organizationGetConfig: RestRequestConfig = {
     {
       entities: { query: { current: 1, organization: 'what' } },
       data: { rows: [], pagination: { current: 1, count: 0, limit: 10 } }
+    },
+    {
+      entities: { query: { current: 1, location: 'г. Томск' } },
+      data: {
+        rows: [
+          {
+            id: '97666f2d-e6f4-4939-a471-b948495002a3',
+            name: 'Фильтрация по населенному пункту',
+            description: null,
+            inn: null,
+            createdAt: '2024-02-07T11:02:34.186Z',
+            updatedAt: '2024-02-07T11:02:34.186Z',
+            information: { city: 'г.Томск' },
+            addresses: [],
+            requisites: null,
+            stage: 'NEGOTIATION',
+            type: 'SPONSOR'
+          }
+        ],
+        pagination: { current: 1, count: 1, limit: 10 }
+      }
     }
   ]
 };

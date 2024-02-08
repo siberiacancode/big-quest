@@ -66,6 +66,8 @@
   "pagination.selected": "выбрано",
   "pagination.page": "страница",
 
+  "combobox.selected": "Выбрано",
+
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты",
 

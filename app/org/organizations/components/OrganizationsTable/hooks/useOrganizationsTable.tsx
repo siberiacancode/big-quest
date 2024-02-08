@@ -7,11 +7,15 @@ import { useOrganizationsTableToolbar } from './useOrganizationsTableToolbar';
 const FILTER_INPUT_DELAY = 500;
 
 export const useOrganizationsTable = () => {
-  const { searchParams, setSearchParam } = useSearchParams();
+  const { searchParams, setSearchParams } = useSearchParams();
   const organizationFilter = searchParams.get('organization');
 
   const onOrganizationFilterChange = useDebounceCallback(
-    (value: string) => setSearchParam('organization', value),
+    (value: string) =>
+      setSearchParams([
+        { key: 'organization', value },
+        { key: 'current', value: '1' }
+      ]),
     FILTER_INPUT_DELAY
   );
 

@@ -118,7 +118,7 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
         </InfoCard>
       </div>
       {/* Что-то работу саспенаса я не увидел, может что-то не понимаю */}
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense key={JSON.stringify(searchParams)} fallback={<p>Loading...</p>}>
         <OrganizationsTable organizations={response.rows} pagination={response.pagination} />
       </Suspense>
     </div>

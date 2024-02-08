@@ -1,5 +1,6 @@
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 
+import { I18nText } from '@/components/common';
 import type { ComboBoxItemType } from '@/components/ui';
 import { Badge, Button, MultiCombobox, Separator } from '@/components/ui';
 
@@ -36,7 +37,7 @@ export const DataTableFacetedFilter = ({
               <div className='hidden space-x-1 lg:flex'>
                 {state.selectedValues.length > 2 && (
                   <Badge variant='secondary' className='rounded-sm px-1 font-normal'>
-                    {state.selectedValues.length} selected
+                    {state.selectedValues.length} <I18nText path='combobox.selected' />
                   </Badge>
                 )}
                 {state.selectedValues.length <= 2 &&
