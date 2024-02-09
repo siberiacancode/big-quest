@@ -164,3 +164,16 @@ interface RequisitesDto {
   bik: string;
   checkingAccount: string;
 }
+
+interface DashBoardResponse {
+  partners: Legals;
+  sponsors: Legals;
+  applications: number;
+  negotiation: number;
+  tariffChange: number;
+}
+
+interface Legals {
+  total: number;
+  growthPerMonth: number;
+}

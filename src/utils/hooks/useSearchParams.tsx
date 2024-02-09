@@ -13,9 +13,7 @@ export const useSearchParams = () => {
 
       const search = urlSearchParams.toString();
       query = search ? `?${search}` : '';
-    }
-
-    if (!Array.isArray(value)) {
+    } else if (!Array.isArray(value)) {
       urlSearchParams.set(key, value);
 
       const search = urlSearchParams.toString();

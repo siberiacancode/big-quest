@@ -1,23 +1,13 @@
 import { Suspense } from 'react';
-import { AlertCircleIcon, HeartHandshakeIcon, TrendingUpIcon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
-import {
-  BreadcrumbItem,
-  Breadcrumbs,
-  InfoCard,
-  InfoCardAction,
-  InfoCardContent,
-  InfoCardHeader,
-  InfoCardItem,
-  InfoCardItemDescription,
-  InfoCardItemTitle,
-  InfoCardTitle
-} from '@/components/ui';
-import { getOrganization } from '@/utils/api';
+import { BreadcrumbItem, Breadcrumbs } from '@/components/ui';
+import { getOrganization, getOrganizationDashboard } from '@/utils/api';
 import { ROUTES } from '@/utils/constants';
 
+import { OrganizationsDashboard } from './components/OrganizationsDashboard/OrganizationsDashboard';
 import { OrganizationsTable } from './components/OrganizationsTable/OrganizationsTable';
+import OrganizationsLoading from './loading';
 
 export interface OrganizationsPageProps {
   searchParams: SearchParams;
@@ -27,15 +17,18 @@ const DEFAULT_ORGANIZATIONS_LIMIT = '10';
 const DEFAULT_ORGANIZATIONS_PAGE = '1';
 
 const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
-  const response = await getOrganization({
-    config: {
-      params: {
-        limit: DEFAULT_ORGANIZATIONS_LIMIT,
-        current: DEFAULT_ORGANIZATIONS_PAGE,
-        ...searchParams
+  const [organizationResponse, dashboardResponse] = await Promise.all([
+    getOrganization({
+      config: {
+        params: {
+          limit: DEFAULT_ORGANIZATIONS_LIMIT,
+          current: DEFAULT_ORGANIZATIONS_PAGE,
+          ...searchParams
+        }
       }
-    }
-  });
+    }),
+    getOrganizationDashboard({})
+  ]);
 
   return (
     <div className='bg-secondary px-4'>
@@ -47,77 +40,13 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
           <I18nText path='navigation.link.organizations' />
         </BreadcrumbItem>
       </Breadcrumbs>
-      <div className='flex flex-wrap gap-2'>
-        <InfoCard>
-          <InfoCardHeader>
-            <InfoCardTitle>
-              <I18nText path='infoCard.title.partners' />
-            </InfoCardTitle>
-            <InfoCardAction>
-              <HeartHandshakeIcon size={20} strokeWidth={1.5} />
-            </InfoCardAction>
-          </InfoCardHeader>
-          <InfoCardContent>
-            <InfoCardItem>
-              <InfoCardItemTitle>560</InfoCardItemTitle>
-              <InfoCardItemDescription className='flex gap-1'>
-                <TrendingUpIcon size={14} /> +24 <I18nText path='infoCard.description.perMonth' />
-              </InfoCardItemDescription>
-            </InfoCardItem>
-          </InfoCardContent>
-        </InfoCard>
-        <InfoCard>
-          <InfoCardHeader>
-            <InfoCardTitle>
-              <I18nText path='infoCard.title.sponsors' />
-            </InfoCardTitle>
-            <InfoCardAction>
-              <HeartHandshakeIcon size={20} strokeWidth={1.5} />
-            </InfoCardAction>
-          </InfoCardHeader>
-          <InfoCardContent>
-            <InfoCardItem>
-              <InfoCardItemTitle>56</InfoCardItemTitle>
-              <InfoCardItemDescription className='flex gap-1'>
-                <TrendingUpIcon size={14} /> +24 <I18nText path='infoCard.description.perMonth' />
-              </InfoCardItemDescription>
-            </InfoCardItem>
-          </InfoCardContent>
-        </InfoCard>
-        <InfoCard className='w-5/12'>
-          <InfoCardHeader>
-            <InfoCardTitle>
-              <I18nText path='infoCard.title.needsAttention' />
-            </InfoCardTitle>
-            <InfoCardAction>
-              <AlertCircleIcon size={20} strokeWidth={1.5} />
-            </InfoCardAction>
-          </InfoCardHeader>
-          <InfoCardContent>
-            <InfoCardItem>
-              <InfoCardItemTitle>6</InfoCardItemTitle>
-              <InfoCardItemDescription className='flex gap-1'>
-                <I18nText path='infoCard.description.applications' />
-              </InfoCardItemDescription>
-            </InfoCardItem>
-            <InfoCardItem>
-              <InfoCardItemTitle>10</InfoCardItemTitle>
-              <InfoCardItemDescription className='flex gap-1'>
-                <I18nText path='infoCard.description.discussions' />
-              </InfoCardItemDescription>
-            </InfoCardItem>
-            <InfoCardItem>
-              <InfoCardItemTitle>13</InfoCardItemTitle>
-              <InfoCardItemDescription className='flex gap-1'>
-                <I18nText path='infoCard.description.tariffChange' />
-              </InfoCardItemDescription>
-            </InfoCardItem>
-          </InfoCardContent>
-        </InfoCard>
-      </div>
       {/* Что-то работу саспенаса я не увидел, может что-то не понимаю */}
-      <Suspense key={JSON.stringify(searchParams)} fallback={<p>Loading...</p>}>
-        <OrganizationsTable organizations={response.rows} pagination={response.pagination} />
+      <Suspense key={JSON.stringify(searchParams)} fallback={<OrganizationsLoading />}>
+        <OrganizationsDashboard dashboard={dashboardResponse} />
+        <OrganizationsTable
+          organizations={organizationResponse.rows}
+          pagination={organizationResponse.pagination}
+        />
       </Suspense>
     </div>
   );
