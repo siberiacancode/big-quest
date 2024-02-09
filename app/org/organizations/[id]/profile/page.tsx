@@ -10,7 +10,7 @@ interface OrganizationProfilePageProps {
 
 const OrganizationProfilePage = async ({ params }: OrganizationProfilePageProps) => {
   const organization = await getOrganizationById({
-    config: { params }
+    params
   });
 
   return (

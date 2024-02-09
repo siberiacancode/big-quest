@@ -1,4 +1,11 @@
 import { api } from '../../instance';
 
-export const getOrganizationById = async ({ config }: RequestParams) =>
-  api.get<OrganizationResponse>(`organization/${config?.params?.id}`, config);
+interface GetOrganizationByIdParams {
+  id: string;
+}
+
+export const getOrganizationById = async ({
+  params,
+  config
+}: RequestParams<GetOrganizationByIdParams>) =>
+  api.get<OrganizationResponse>(`organization/${params.id}`, config);

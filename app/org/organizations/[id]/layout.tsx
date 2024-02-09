@@ -13,7 +13,7 @@ interface OrganizationPageLayoutProps {
 
 const OrganizationPageLayout = async ({ params, children }: OrganizationPageLayoutProps) => {
   const organization = await getOrganizationById({
-    config: { params }
+    params
   });
 
   return (
