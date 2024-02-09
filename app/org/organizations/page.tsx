@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import React from 'react';
 
 import { getOrganization, getOrganizationDashboard } from '@/utils/api';
 
@@ -32,13 +32,13 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
   return (
     <div className='bg-secondary px-4'>
       <NextBreadcrumbs />
-      <Suspense fallback={<OrganizationsLoading />}>
+      <React.Suspense fallback={<OrganizationsLoading />}>
         <OrganizationsDashboard dashboard={dashboardResponse} />
         <OrganizationsTable
           organizations={organizationResponse.rows}
           pagination={organizationResponse.pagination}
         />
-      </Suspense>
+      </React.Suspense>
     </div>
   );
 };
