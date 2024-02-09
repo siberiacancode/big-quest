@@ -6,7 +6,6 @@ import { OrgBreadcrumbs } from '../components/OrgBreadcrumbs/OrgBreadcrumbs';
 
 import { OrganizationsDashboard } from './components/OrganizationsDashboard/OrganizationsDashboard';
 import { OrganizationsTable } from './components/OrganizationsTable/OrganizationsTable';
-import OrganizationsLoading from './loading';
 
 export interface OrganizationsPageProps {
   searchParams: SearchParams;
@@ -32,13 +31,11 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
   return (
     <div className='bg-secondary px-4'>
       <OrgBreadcrumbs />
-      <React.Suspense fallback={<OrganizationsLoading />}>
-        <OrganizationsDashboard dashboard={dashboardResponse} />
-        <OrganizationsTable
-          organizations={organizationResponse.rows}
-          pagination={organizationResponse.pagination}
-        />
-      </React.Suspense>
+      <OrganizationsDashboard dashboard={dashboardResponse} />
+      <OrganizationsTable
+        organizations={organizationResponse.rows}
+        pagination={organizationResponse.pagination}
+      />
     </div>
   );
 };
