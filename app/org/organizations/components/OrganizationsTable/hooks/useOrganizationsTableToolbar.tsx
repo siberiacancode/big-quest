@@ -22,7 +22,7 @@ export const useOrganizationsTableToolbar = ({
         placeholder={intl.formatMessage({ id: 'field.filter.placeholder' })}
         defaultValue={organizationFilter ?? ''}
         onChange={(event) => onOrganizationFilterChange(event.target.value)}
-        wrapperClassName='max-w-sm'
+        className='max-w-[180px]'
       />,
       <DataTableFacetedFilter
         columnName='stage'

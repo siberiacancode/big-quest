@@ -9,7 +9,7 @@ interface NextBreadcrumbsProps {
   idBreadcrumb?: string;
 }
 
-export const NextBreadcrumbs = ({ idBreadcrumb = 'id' }: NextBreadcrumbsProps) => {
+export const OrgBreadcrumbs = ({ idBreadcrumb = 'id' }: NextBreadcrumbsProps) => {
   const pathname = usePathname();
   const pathnames = pathname.split('/').filter((path) => path);
 
@@ -21,7 +21,7 @@ export const NextBreadcrumbs = ({ idBreadcrumb = 'id' }: NextBreadcrumbsProps) =
         const translateHref = href.replaceAll('/', '.');
 
         return (
-          <BreadcrumbItem href={href}>
+          <BreadcrumbItem key={href} href={href}>
             {isId && idBreadcrumb}
             {!isId && <I18nText path={`navigation.link${translateHref}` as LocaleMessageId} />}
           </BreadcrumbItem>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { getOrganization, getOrganizationDashboard } from '@/utils/api';
 
-import { NextBreadcrumbs } from '../components/NextBreadcrumbs/NextBreadcrumbs';
+import { OrgBreadcrumbs } from '../components/OrgBreadcrumbs/OrgBreadcrumbs';
 
 import { OrganizationsDashboard } from './components/OrganizationsDashboard/OrganizationsDashboard';
 import { OrganizationsTable } from './components/OrganizationsTable/OrganizationsTable';
@@ -31,7 +31,7 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
 
   return (
     <div className='bg-secondary px-4'>
-      <NextBreadcrumbs />
+      <OrgBreadcrumbs />
       <React.Suspense fallback={<OrganizationsLoading />}>
         <OrganizationsDashboard dashboard={dashboardResponse} />
         <OrganizationsTable
