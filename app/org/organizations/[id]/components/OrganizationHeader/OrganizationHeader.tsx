@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import organizationBackground from '@/assets/images/organizationBackground.png';
+import { I18nText } from '@/components/common';
 import { TabsList } from '@/components/ui';
 
 import { PARTNER_PROFILE_LINKS, SPONSOR_PROFILE_LINKS } from '../../constants/navigations';
@@ -21,17 +22,19 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
         alt='org-background'
       />
       <div className='absolute bottom-0 mx-4 mt-auto h-36 w-[96%] rounded-lg border-none bg-background/70 pb-4 pl-4 pr-4 pt-3 shadow-sm backdrop-blur-lg'>
-        <div className='flex'>
+        <div className='flex gap-5'>
           <Image
             priority={false}
             className='h-20 w-20 rounded border-none'
             src={organizationBackground}
             alt='org-background'
           />
-          <div className='ml-5 flex flex-col justify-center'>
-            <p className='text-lg font-bold text-muted-foreground'>{organization.name} </p>
+          <div className='flex flex-col justify-center'>
+            <p className='text-lg font-bold text-foreground'>{organization.name} </p>
             <p className='text-sm font-medium text-muted-foreground'>
-              {organization.stage === 'REQUEST' ? 'Запрос' : 'Сотрудничество'}
+              <I18nText
+                path={`organization.stage.${organization.stage.toLowerCase()}` as LocaleMessageId}
+              />
             </p>
           </div>
         </div>

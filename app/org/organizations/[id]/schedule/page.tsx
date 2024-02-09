@@ -1,3 +1,3 @@
-const page = () => <div>Schedule page</div>;
+const OrganizationSchedulePage = () => <div>Schedule page</div>;
 
-export default page;
+export default OrganizationSchedulePage;

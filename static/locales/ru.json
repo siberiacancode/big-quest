@@ -4,6 +4,9 @@
   "org.auth.title": "Вход",
   "button.login": "Войти",
 
+  "organization.stage.request": "Заявка",
+  "organization.stage.negotiation": "Сотрудничество",
+  "organization.stage.conclusion": "Завершен",
   "organization.profile.tariff.title": "Тариф",
   "organization.profile.tariff.button": "Сменить тариф",
   "organization.profile.tariff.activity": "Активностей",

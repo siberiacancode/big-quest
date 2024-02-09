@@ -65,7 +65,9 @@ const config = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
-        }
+        },
+        tabsBackground: 'hsl(var(--tabs-background))',
+        tabsText: 'hsl(var(--tabs-text))'
       },
       borderRadius: {
         lg: 'var(--radius)',

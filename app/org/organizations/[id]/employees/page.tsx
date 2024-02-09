@@ -1,3 +1,3 @@
-const page = () => <div>Employees page</div>;
+const OrganizationEmployeesPage = () => <div>Employees page</div>;
 
-export default page;
+export default OrganizationEmployeesPage;
