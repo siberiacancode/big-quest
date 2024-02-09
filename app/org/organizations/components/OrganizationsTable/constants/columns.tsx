@@ -7,6 +7,8 @@ import { buttonVariants, Checkbox } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { ROUTES } from '@/utils/constants';
 
+import type { OrganizationsTableRow } from '../helpers/convertOrganizationsToTableRows';
+
 export const columns: ColumnDef<OrganizationsTableRow>[] = [
   {
     id: 'select',

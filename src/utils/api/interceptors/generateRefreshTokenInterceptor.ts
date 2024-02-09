@@ -11,8 +11,6 @@ export const generateRefreshTokenInterceptor = () =>
 
       if (!error.response) return Promise.reject(error);
 
-      console.log(error, originalConfig);
-
       if (
         error.response.status === 401 &&
         !originalConfig._retry &&

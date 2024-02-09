@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 
 import { Toaster } from '@/components/ui/sonner';
 import { generateRefreshTokenInterceptor } from '@/utils/api/interceptors';
-import { generateHeadersInterceptor } from '@/utils/api/interceptors/generateHeadersInterceptor';
+import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
 import { getMessagesByLocale } from '@/utils/helpers';
 import { getDefaultTheme } from '@/utils/helpers/getDefaultTheme';
 
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const TOASTER_DURATION = 5000;
 
-generateHeadersInterceptor();
+generateServerHeadersInterceptor();
 generateRefreshTokenInterceptor();
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {

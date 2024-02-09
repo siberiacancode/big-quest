@@ -26,7 +26,7 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
         }
       }
     }),
-    getOrganizationDashboard({})
+    getOrganizationDashboard()
   ]);
 
   return (

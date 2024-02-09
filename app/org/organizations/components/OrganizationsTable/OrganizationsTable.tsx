@@ -3,7 +3,7 @@
 import { DataTable } from '@/components/common';
 
 import { columns } from './constants/columns';
-import { convertOrganizationsResponseToTableRows } from './helpers/convertOrganizationResponseToTableRow';
+import { convertOrganizationsToTableRows } from './helpers/convertOrganizationsToTableRows';
 import { useOrganizationsTable } from './hooks/useOrganizationsTable';
 
 interface OrganizationsTableProps {
@@ -16,7 +16,7 @@ export const OrganizationsTable = ({ organizations, pagination }: OrganizationsT
 
   return (
     <DataTable
-      data={convertOrganizationsResponseToTableRows(organizations)}
+      data={convertOrganizationsToTableRows(organizations)}
       columns={columns}
       pagination={pagination}
       toolbar={state.toolbar}

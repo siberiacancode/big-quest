@@ -32,11 +32,6 @@ export type MultiComboboxProps = {
   trigger?: React.ReactNode;
 };
 
-// const popOverStyles = {
-//   width: 'var(--radix-popover-trigger-width)'
-// };
-// popover-content-width-same-as-its-trigger
-
 export const MultiCombobox = ({
   values,
   onSelect,

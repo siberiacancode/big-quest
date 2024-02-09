@@ -1,4 +1,14 @@
-export const convertOrganizationsResponseToTableRows = (
+export interface OrganizationsTableRow {
+  id: string;
+  name: string;
+  stage: string;
+  type: string;
+  daysAmount: string;
+  location: string;
+  rate: string;
+}
+
+export const convertOrganizationsToTableRows = (
   organizations: OrganizationResponse[]
 ): OrganizationsTableRow[] =>
   organizations?.map((organization) => ({

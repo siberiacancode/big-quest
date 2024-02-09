@@ -2,7 +2,7 @@ import { headers } from 'next/headers';
 
 import { api } from '../instance';
 
-export const generateHeadersInterceptor = () =>
+export const generateServerHeadersInterceptor = () =>
   api.interceptors.request.use((config) => {
     const headersList = headers();
     const cookie = headersList.get('cookie');
