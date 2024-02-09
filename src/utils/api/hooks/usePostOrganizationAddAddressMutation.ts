@@ -8,7 +8,7 @@ export const usePostOrganizationAddAddressMutation = (
 ) =>
   useMutation({
     // TODO - add key
-    mutationKey: ['postAddOrganizationAddress'],
+    mutationKey: ['postOrganizationAddAddress'],
     mutationFn: (params) =>
       postOrganizationAddAddress({ params, ...(settings?.config && { config: settings.config }) }),
     ...settings?.options

@@ -1,19 +1,6 @@
 import * as z from 'zod';
 
-// const workingTimeSchema = z.object({
-//   hour: z.string(),
-//   minutes: z.string()
-// });
-
-// const workingHourSchema = z.object({
-//   // day: z.number(),
-//   from: workingTimeSchema,
-//   to: workingTimeSchema,
-//   dayOff: z.boolean()
-// });
-
 const workingHourSchema = z.object({
-  // day: z.number(),
   from: z.string(),
   to: z.string(),
   dayOff: z.boolean()

@@ -32,7 +32,7 @@ export const AddAddressDialog = () => {
           <I18nText path='button.addAddress' />
         </Button>
       </DialogTrigger>
-      <DialogContent className='flex h-fit w-11/12 max-w-[713px] flex-col rounded-lg'>
+      <DialogContent className='flex h-fit w-11/12 max-w-[713px] flex-col rounded-lg smx:max-h-[90%]'>
         <DialogClose>
           <XIcon className='h-6 w-6' />
         </DialogClose>
@@ -41,7 +41,7 @@ export const AddAddressDialog = () => {
             <I18nText path='addressModal.title.addAddress' />
           </DialogTitle>
         </DialogHeader>
-        <div className='flex h-full flex-col items-end justify-between rounded-lg border p-5'>
+        <div className='flex h-full flex-col items-end justify-between overflow-y-auto rounded-lg border p-5'>
           <AddAddressForm onAdded={functions.onAdded} />
         </div>
       </DialogContent>
