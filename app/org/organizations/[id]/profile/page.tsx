@@ -1,14 +1,30 @@
-'use client';
+import { getOrganizationById } from '@/utils/api/requests/organization';
 
-import { OrganizationProfileJournal, OrganizationProfileStatistics } from './components';
+import {
+  OrganizationProfileCard,
+  OrganizationProfileJournal,
+  OrganizationProfileStatistics
+} from './components';
 
-const page = () => (
-  <div className='mt-4 flex justify-center gap-[22px] smx:flex-col'>
-    <div className='flex w-1/2 flex-col gap-[22px] smx:w-full'>
-      <OrganizationProfileStatistics />
-      <OrganizationProfileJournal />
+interface Props {
+  params: { id: string };
+}
+
+const page = async ({ params }: Props) => {
+  const organization = await getOrganizationById({
+    config: { params }
+  });
+
+  return (
+    <div className='mt-4 flex justify-center gap-[22px] smx:flex-col'>
+      <OrganizationProfileCard organization={organization} />
+
+      <div className='flex w-1/2 flex-col gap-[22px] smx:w-full'>
+        <OrganizationProfileStatistics />
+        <OrganizationProfileJournal />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default page;

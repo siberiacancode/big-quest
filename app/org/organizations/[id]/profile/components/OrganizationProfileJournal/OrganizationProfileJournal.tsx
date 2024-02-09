@@ -1,3 +1,5 @@
+'use client';
+
 import { SendHorizonalIcon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
