@@ -119,6 +119,8 @@ interface RequisitesDto {
 interface OrganizationResponse {
   id: string;
   name: string;
+  logo: string;
+  background: string;
   description: string;
   inn: string;
   information: OrganizationInformationDto;
