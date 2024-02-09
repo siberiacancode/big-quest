@@ -1,12 +1,23 @@
 'use client';
 
 import { I18nText } from '@/components/common';
-import { BreadcrumbItem, Breadcrumbs, Tabs, TabsContent } from '@/components/ui';
+import { BreadcrumbItem, Breadcrumbs, Tabs } from '@/components/ui';
+import { getOrganizationById } from '@/utils/api/requests/organization';
 import { ROUTES } from '@/utils/constants';
 
+import { OrganizationHeader } from './components/OrganizationHeader/OrganizationHeader';
 import { HEADER_OPTIONS } from './constants/navigations';
 
-const OrganizationPageLayout = () => {
+interface OrganizationPageLayoutProps {
+  params: { id: string };
+  children: React.ReactNode;
+}
+
+const OrganizationPageLayout = async ({ params, children }: OrganizationPageLayoutProps) => {
+  const organization = await getOrganizationById({
+    config: { params }
+  });
+
   return (
     <div className='bg-secondary px-4'>
       <Breadcrumbs>
@@ -16,17 +27,13 @@ const OrganizationPageLayout = () => {
         <BreadcrumbItem href={ROUTES.ORG.ORGANIZATIONS}>
           <I18nText path='navigation.link.organizations' />
         </BreadcrumbItem>
-        <BreadcrumbItem>state.organization.name</BreadcrumbItem>
+        <BreadcrumbItem href={ROUTES.ORG.ORGANIZATIONS}>{organization.name}</BreadcrumbItem>
       </Breadcrumbs>
+
       <Tabs defaultValue={HEADER_OPTIONS.PROFILE}>
-        <TabsContent value={HEADER_OPTIONS.PROFILE}>Profile Page</TabsContent>
-        <>
-          <TabsContent value={HEADER_OPTIONS.ADDRESSES}>Address page</TabsContent>
-          <TabsContent value={HEADER_OPTIONS.EMPLOYEES}>Employees page</TabsContent>
-          <TabsContent value={HEADER_OPTIONS.ACTIVITIES}>Activities page</TabsContent>
-          <TabsContent value={HEADER_OPTIONS.SCHEDULE}>Schedule page</TabsContent>
-        </>
+        <OrganizationHeader organization={organization} />
       </Tabs>
+      {children}
     </div>
   );
 };

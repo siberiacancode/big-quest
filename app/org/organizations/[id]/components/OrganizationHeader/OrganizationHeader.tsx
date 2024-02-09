@@ -44,6 +44,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
                   value={tab.value}
                   icon={tab.icon}
                   title={tab.title as LocaleMessageId}
+                  link={tab.link}
                 />
               ))}
             {organization.type === 'SPONSOR' && (
@@ -51,6 +52,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
                 value={SPONSOR_PROFILE_LINKS.value}
                 icon={SPONSOR_PROFILE_LINKS.icon}
                 title={SPONSOR_PROFILE_LINKS.title as LocaleMessageId}
+                link={SPONSOR_PROFILE_LINKS.link}
               />
             )}
           </TabsList>
