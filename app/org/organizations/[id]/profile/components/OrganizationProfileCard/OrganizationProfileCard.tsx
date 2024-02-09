@@ -15,6 +15,7 @@ import {
   Separator
 } from '@/components/ui';
 
+import { OrganizationProfileCardIcons } from './components/OrganizationProfileCardIcons/OrganizationProfileCardIcons';
 import { OrganizationProfileCardInfo } from './components/OrganizationProfileCardInfo/OrganizationProfileCardInfo';
 
 interface OrganizationProfileCardProps {
@@ -53,7 +54,11 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
           {organization.information?.city}
         </OrganizationProfileCardInfo>
         <OrganizationProfileCardInfo title='organization.profile.information.social'>
-          {organization.information?.social}
+          <span className='flex gap-2'>
+            {organization.information?.social?.map((link: string, index: number) => (
+              <OrganizationProfileCardIcons key={index} link={link} />
+            ))}
+          </span>
         </OrganizationProfileCardInfo>
       </div>
       <Separator className='mt-4' />

@@ -17,7 +17,7 @@ export const organizationByIdConfig: RestRequestConfig = {
           email: 'abcdefjh1@mail.ru',
           site: 'www.risovashki_nsk.ru',
           city: 'г. Новосибирск',
-          social: 'string',
+          social: ['https://wa.me/me', 'https://t.me/me', 'https://vk.com/me'],
           fullNameOfTheLegalEntity: 'ООО “Рисовашки”',
           legalAddress: ' ООО “Рисовашки”',
           postAggress: 'Иванов Иван Иванович г. Москва ул. Ленина, д. 10, кв. 20 101000',
