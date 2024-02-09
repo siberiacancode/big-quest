@@ -1,9 +1,8 @@
 import { Suspense } from 'react';
 
-import { I18nText } from '@/components/common';
-import { BreadcrumbItem, Breadcrumbs } from '@/components/ui';
 import { getOrganization, getOrganizationDashboard } from '@/utils/api';
-import { ROUTES } from '@/utils/constants';
+
+import { NextBreadcrumbs } from '../components/NextBreadcrumbs/NextBreadcrumbs';
 
 import { OrganizationsDashboard } from './components/OrganizationsDashboard/OrganizationsDashboard';
 import { OrganizationsTable } from './components/OrganizationsTable/OrganizationsTable';
@@ -32,16 +31,8 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
 
   return (
     <div className='bg-secondary px-4'>
-      <Breadcrumbs>
-        <BreadcrumbItem href={ROUTES.ORG.ROOT}>
-          <I18nText path='navigation.link.main' />
-        </BreadcrumbItem>
-        <BreadcrumbItem>
-          <I18nText path='navigation.link.organizations' />
-        </BreadcrumbItem>
-      </Breadcrumbs>
-      {/* Что-то работу саспенаса я не увидел, может что-то не понимаю */}
-      <Suspense key={JSON.stringify(searchParams)} fallback={<OrganizationsLoading />}>
+      <NextBreadcrumbs />
+      <Suspense fallback={<OrganizationsLoading />}>
         <OrganizationsDashboard dashboard={dashboardResponse} />
         <OrganizationsTable
           organizations={organizationResponse.rows}

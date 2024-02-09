@@ -1,6 +1,10 @@
+import { Loader2Icon } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
+
 const OrganizationsLoading = () => (
-  <div className='flex h-screen w-full items-center justify-center'>
-    <h1 className='text-2xl font-bold'>Loading...</h1>
+  <div className='flex items-center justify-center'>
+    <Loader2Icon className={cn('my-28 h-16 w-16 animate-spin text-primary/60')} />
   </div>
 );
 
