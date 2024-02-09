@@ -1,14 +1,14 @@
 import * as z from 'zod';
 
 const workingHourSchema = z.object({
-  from: z.string(),
-  to: z.string(),
+  from: z.string().regex(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, { message: 'validation.time.format' }),
+  to: z.string().regex(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, { message: 'validation.time.format' }),
   dayOff: z.boolean()
 });
 
 export const addAddressSchema = z.object({
   organizationId: z.string(),
-  locality: z.string().min(1, { message: 'validation.required' }),
+  locality: z.string(),
   street: z.string().min(1, { message: 'validation.required' }),
   house: z.string().min(1, { message: 'validation.required' }),
   details: z.string(),

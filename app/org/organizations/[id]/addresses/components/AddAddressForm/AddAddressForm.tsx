@@ -116,7 +116,7 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                 </FormItem>
               )}
             />
-            <WorkingTimeBlock control={form.control} />
+            <WorkingTimeBlock form={form} />
           </div>
         </div>
 
