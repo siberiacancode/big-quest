@@ -15,6 +15,7 @@ export * from './info-card';
 export * from './input';
 export * from './label';
 export * from './multi-combobox';
+export * from './pagination';
 export * from './password-input';
 export * from './pattern-format-input';
 export * from './phone-number-input';

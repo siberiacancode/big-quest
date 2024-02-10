@@ -16,13 +16,15 @@ interface DataTableProps<TData> {
   pagination: PaginationResponse;
   columns: ColumnDef<TData>[];
   toolbar: (table: Table<TData>) => React.ReactNode[];
+  onPaginationButtonClick: (page: number) => void;
 }
 
 export const DataTable = <TData,>({
   data,
   pagination,
   columns,
-  toolbar
+  toolbar,
+  onPaginationButtonClick
 }: DataTableProps<TData>) => {
   const table = useDataTable(data, columns);
 
@@ -41,7 +43,10 @@ export const DataTable = <TData,>({
             {table.getFilteredSelectedRowModel().rows.length} <I18nText path='pagination.from' />{' '}
             {pagination.count} <I18nText path='pagination.selected' />
           </div>
-          <DataTablePagination {...pagination} />
+          <DataTablePagination
+            onPaginationButtonClick={onPaginationButtonClick}
+            pagination={pagination}
+          />
         </div>
       )}
     </div>

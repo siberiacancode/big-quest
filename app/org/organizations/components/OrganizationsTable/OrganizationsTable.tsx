@@ -12,13 +12,14 @@ interface OrganizationsTableProps {
 }
 
 export const OrganizationsTable = ({ organizations, pagination }: OrganizationsTableProps) => {
-  const { state } = useOrganizationsTable();
+  const { functions, state } = useOrganizationsTable();
 
   return (
     <DataTable
       data={convertOrganizationsToTableRows(organizations)}
       columns={columns}
       pagination={pagination}
+      onPaginationButtonClick={functions.onPaginationButtonClick}
       toolbar={state.toolbar}
     />
   );

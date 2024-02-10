@@ -12,7 +12,7 @@ const FILTER_INPUT_DELAY = 500;
 
 export const useOrganizationsTable = () => {
   const intl = useI18n();
-  const { searchParams, setSearchParams } = useSearchParams();
+  const { searchParams, setSearchParams, setSearchParam } = useSearchParams();
 
   const organizationFilter = searchParams.get('organization');
   const [selectedLocations, seSelectedLocations] = React.useState<string[]>(() =>
@@ -21,6 +21,8 @@ export const useOrganizationsTable = () => {
   const [selectedStages, setSelectedStages] = React.useState<string[]>(() =>
     searchParams.getAll('stage')
   );
+
+  const onPaginationButtonClick = (page: number) => setSearchParam('current', String(page));
 
   const onOrganizationFilterChange = useDebounceCallback(
     (value: string) =>
@@ -85,19 +87,22 @@ export const useOrganizationsTable = () => {
         ]}
         title={intl.formatMessage({ id: 'table.column.organization.location' })}
       />,
-      <RegisterOrganizationDialog
-        trigger={
-          <Button variant='secondary' size='sm' className='mx-2 md:ml-auto'>
-            <PlusCircledIcon className='mr-2 size-4' />
-            <I18nText path='button.add' />
-          </Button>
-        }
-      />
+      <div className='flex flex-1 justify-items-end'>
+        <RegisterOrganizationDialog
+          trigger={
+            <Button variant='secondary' size='sm' className='mx-2 md:ml-auto'>
+              <PlusCircledIcon className='mr-2 size-4' />
+              <I18nText path='button.add' />
+            </Button>
+          }
+        />
+      </div>
     ],
     [onOrganizationFilterChange, organizationFilter]
   );
 
   return {
-    state: { toolbar }
+    state: { toolbar },
+    functions: { onPaginationButtonClick }
   };
 };

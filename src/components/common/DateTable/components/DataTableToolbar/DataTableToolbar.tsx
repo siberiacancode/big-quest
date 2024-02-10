@@ -12,12 +12,7 @@ export const DataTableToolbar = <TData,>({ table, toolbar }: DataTableToolbarPro
   return (
     <div className='mb-[23px] mt-[11px] flex flex-wrap items-center gap-3 md:flex-nowrap'>
       {toolbarItems.map((toolbarItem, index) => (
-        <React.Fragment key={index}>
-          {index === toolbarItems.length - 1 && (
-            <div className='flex flex-1 justify-items-end'>{toolbarItem}</div>
-          )}
-          {index !== toolbarItems.length - 1 && toolbarItem}
-        </React.Fragment>
+        <React.Fragment key={index}>{toolbarItem}</React.Fragment>
       ))}
     </div>
   );
