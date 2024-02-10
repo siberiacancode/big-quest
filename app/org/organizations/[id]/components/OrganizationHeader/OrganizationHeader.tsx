@@ -3,13 +3,6 @@ import Image from 'next/image';
 import background from '@/assets/images/background/organization.png';
 import logo from '@/assets/images/logo/organization.png';
 import { I18nText } from '@/components/common';
-import { Tabs, TabsList } from '@/components/ui';
-
-import {
-  HEADER_OPTIONS,
-  PARTNER_PROFILE_LINKS,
-  SPONSOR_PROFILE_LINKS
-} from '../../constants/navigations';
 
 import { OrganizationHeaderTabs } from './components/OrganizationHeaderTabs/OrganizationHeaderTabs';
 
@@ -43,30 +36,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
             </p>
           </div>
         </div>
-        <div>
-          <Tabs defaultValue={HEADER_OPTIONS.PROFILE}>
-            <TabsList className='items-top text-organization-tabs flex w-full justify-end gap-1 bg-transparent'>
-              {organization.type === 'PARTNER' &&
-                PARTNER_PROFILE_LINKS.map((tab, index) => (
-                  <OrganizationHeaderTabs
-                    key={index}
-                    value={tab.value}
-                    icon={tab.icon}
-                    title={tab.title as LocaleMessageId}
-                    link={tab.link}
-                  />
-                ))}
-              {organization.type === 'SPONSOR' && (
-                <OrganizationHeaderTabs
-                  value={SPONSOR_PROFILE_LINKS.value}
-                  icon={SPONSOR_PROFILE_LINKS.icon}
-                  title={SPONSOR_PROFILE_LINKS.title as LocaleMessageId}
-                  link={SPONSOR_PROFILE_LINKS.link}
-                />
-              )}
-            </TabsList>
-          </Tabs>
-        </div>
+        <OrganizationHeaderTabs organization={organization} />
       </div>
     </div>
   </div>

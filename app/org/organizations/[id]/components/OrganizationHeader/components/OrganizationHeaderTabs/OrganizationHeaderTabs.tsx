@@ -1,33 +1,48 @@
-import React from 'react';
-import Link from 'next/link';
+'use client';
 
-import { I18nText } from '@/components/common';
-import { TabsTrigger } from '@/components/ui/tabs';
+import { usePathname } from 'next/navigation';
 
-interface OrganizationHeaderTabsProps {
-  title: LocaleMessageId;
-  value: string;
-  icon?: React.ReactElement;
-  link: string;
-}
+import { Tabs, TabsList } from '@/components/ui';
 
-export const OrganizationHeaderTabs = ({
-  title,
-  icon,
-  value,
-  link,
-  ...props
-}: OrganizationHeaderTabsProps) => (
-  <Link href={link}>
-    <TabsTrigger
-      value={value}
-      className='border-1 flex min-w-[135px] justify-center gap-2 rounded-xl py-[10px] text-[10px] font-normal data-[state=active]:bg-tabsBackground data-[state=active]:text-tabsText data-[state=active]:drop-shadow-md 2lgx:min-w-3 lgx:min-w-[135px] mdx:min-w-3'
-      {...props}
-    >
-      {icon && React.cloneElement(icon, { className: 'w-4 h-4' })}
-      <p className='hidden lgx:block mdx:hidden 2lg:block'>
-        <I18nText path={title} />
-      </p>
-    </TabsTrigger>
-  </Link>
-);
+import {
+  HEADER_OPTIONS,
+  PARTNER_PROFILE_LINKS,
+  SPONSOR_PROFILE_LINKS
+} from '../../../../constants/navigations';
+
+import { OrganizationHeaderTabsTrigger } from './components/OrganizationHeaderTabsTrigger/OrganizationHeaderTabsTrigger';
+
+export const OrganizationHeaderTabs = ({ organization }) => {
+  const pathname = usePathname();
+  const lastSegment = pathname
+    .split('/')
+    .filter((path) => !!path)
+    .pop();
+
+  return (
+    <div>
+      <Tabs defaultValue={HEADER_OPTIONS[lastSegment?.toUpperCase() ?? 'PROFILE']}>
+        <TabsList className='items-top text-organization-tabs flex w-full justify-end gap-1 bg-transparent'>
+          {organization.type === 'PARTNER' &&
+            PARTNER_PROFILE_LINKS.map((tab, index) => (
+              <OrganizationHeaderTabsTrigger
+                key={index}
+                value={tab.value}
+                icon={tab.icon}
+                title={tab.title as LocaleMessageId}
+                link={tab.link}
+              />
+            ))}
+          {organization.type === 'SPONSOR' && (
+            <OrganizationHeaderTabsTrigger
+              value={SPONSOR_PROFILE_LINKS.value}
+              icon={SPONSOR_PROFILE_LINKS.icon}
+              title={SPONSOR_PROFILE_LINKS.title as LocaleMessageId}
+              link={SPONSOR_PROFILE_LINKS.link}
+            />
+          )}
+        </TabsList>
+      </Tabs>
+    </div>
+  );
+};
