@@ -29,6 +29,7 @@
   "radio.legalType.partner.label": "Партнер",
   "radio.legalType.sponsor.label": "Спонсор",
 
+  "navigation.link.default": "Текущая",
   "navigation.link.org.organizations": "Организации",
   "navigation.link.org.lids": "Лиды",
   "navigation.link.org": "Главная",
