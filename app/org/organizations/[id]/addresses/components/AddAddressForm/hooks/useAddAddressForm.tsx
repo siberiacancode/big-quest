@@ -23,13 +23,13 @@ export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
       house: '',
       details: '',
       workingHours: {
-        '0': { from: '9:00', to: '18:00', dayOff: false },
-        '1': { from: '9:00', to: '18:00', dayOff: false },
-        '2': { from: '9:00', to: '18:00', dayOff: false },
-        '3': { from: '9:00', to: '18:00', dayOff: false },
-        '4': { from: '9:00', to: '18:00', dayOff: false },
-        '5': { from: '9:00', to: '18:00', dayOff: false },
-        '6': { from: '9:00', to: '18:00', dayOff: false }
+        '0': { from: '09:00', to: '18:00', dayOff: false },
+        '1': { from: '09:00', to: '18:00', dayOff: false },
+        '2': { from: '09:00', to: '18:00', dayOff: false },
+        '3': { from: '09:00', to: '18:00', dayOff: false },
+        '4': { from: '09:00', to: '18:00', dayOff: false },
+        '5': { from: '09:00', to: '18:00', dayOff: false },
+        '6': { from: '09:00', to: '18:00', dayOff: false }
       }
     }
   });

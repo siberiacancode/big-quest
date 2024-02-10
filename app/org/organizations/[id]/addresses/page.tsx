@@ -1,3 +1,5 @@
+'use client';
+
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 
 import { I18nText } from '@/components/common';

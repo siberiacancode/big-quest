@@ -1,5 +1,5 @@
 import { I18nText } from '@/components/common';
-import { FormField, FormMessage, Input } from '@/components/ui';
+import { ClockInput, FormField, FormMessage } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 interface WorkingTimeItemProps {
@@ -23,7 +23,11 @@ export const WorkingTimeItem = ({ day, form }: WorkingTimeItemProps) => (
         name={`workingHours.${day}.from`}
         render={({ field }) => (
           <>
-            <Input className='mx-2 h-6 w-11 border-0 border-b p-1' placeholder='9:00' {...field} />
+            <ClockInput
+              className='mx-2 h-6 w-11 border-0 border-b p-1'
+              placeholder='09:00'
+              {...field}
+            />
             <FormMessage className='text-xs'>
               {form.formState.errors?.workingHours?.[day]?.from && (
                 <I18nText
@@ -42,7 +46,11 @@ export const WorkingTimeItem = ({ day, form }: WorkingTimeItemProps) => (
         name={`workingHours.${day}.to`}
         render={({ field }) => (
           <>
-            <Input className='mx-2 h-6 w-11 border-0 border-b p-1' placeholder='9:00' {...field} />
+            <ClockInput
+              className='mx-2 h-6 w-11 border-0 border-b p-1'
+              placeholder='18:00'
+              {...field}
+            />
             <FormMessage className='text-xs'>
               {form.formState.errors?.workingHours?.[day]?.to && (
                 <I18nText
