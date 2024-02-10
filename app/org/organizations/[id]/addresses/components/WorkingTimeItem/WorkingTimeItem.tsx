@@ -20,7 +20,7 @@ export const WorkingTimeItem = ({ day, form }: WorkingTimeItemProps) => (
     <div>
       <FormField
         control={form.control}
-        name={`workingHours.${day}.from`}
+        name={`workingHours.${day}.time.from`}
         render={({ field }) => (
           <>
             <ClockInput
@@ -29,9 +29,11 @@ export const WorkingTimeItem = ({ day, form }: WorkingTimeItemProps) => (
               {...field}
             />
             <FormMessage className='text-xs'>
-              {form.formState.errors?.workingHours?.[day]?.from && (
+              {form.formState.errors?.workingHours?.[day]?.time?.from && (
                 <I18nText
-                  path={form.formState.errors.workingHours[day].from.message as LocaleMessageId}
+                  path={
+                    form.formState.errors.workingHours[day].time.from.message as LocaleMessageId
+                  }
                 />
               )}
             </FormMessage>
@@ -43,7 +45,7 @@ export const WorkingTimeItem = ({ day, form }: WorkingTimeItemProps) => (
     <div>
       <FormField
         control={form.control}
-        name={`workingHours.${day}.to`}
+        name={`workingHours.${day}.time.to`}
         render={({ field }) => (
           <>
             <ClockInput
@@ -52,9 +54,9 @@ export const WorkingTimeItem = ({ day, form }: WorkingTimeItemProps) => (
               {...field}
             />
             <FormMessage className='text-xs'>
-              {form.formState.errors?.workingHours?.[day]?.to && (
+              {form.formState.errors?.workingHours?.[day]?.time?.to && (
                 <I18nText
-                  path={form.formState.errors.workingHours[day].to.message as LocaleMessageId}
+                  path={form.formState.errors.workingHours[day].time.to.message as LocaleMessageId}
                 />
               )}
             </FormMessage>

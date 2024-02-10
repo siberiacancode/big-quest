@@ -1,5 +1,3 @@
-'use client';
-
 import { useIntl } from 'react-intl';
 
 import { DadataCombobox } from '@/components/comboboxes';

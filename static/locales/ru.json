@@ -84,7 +84,7 @@
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты",
   "validation.time.format": "Неверный формат времени",
-
+  "validation.time.requiredBoth": "Необходимы оба значения времени",
   "feature.registerOrganization.title": "Заполните заявку",
   "feature.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время"
 }
