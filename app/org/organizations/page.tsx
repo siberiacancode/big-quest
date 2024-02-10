@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { getOrganization, getOrganizationDashboard } from '@/utils/api';
 
 import { OrgBreadcrumbs } from '../components/OrgBreadcrumbs/OrgBreadcrumbs';
@@ -15,7 +13,7 @@ const DEFAULT_ORGANIZATIONS_LIMIT = '10';
 const DEFAULT_ORGANIZATIONS_PAGE = '1';
 
 const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
-  const [organizationResponse, dashboardResponse] = await Promise.all([
+  const [organizationsResponse, organizationsDashboard] = await Promise.all([
     getOrganization({
       config: {
         params: {
@@ -31,10 +29,10 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
   return (
     <div className='bg-secondary px-4'>
       <OrgBreadcrumbs />
-      <OrganizationsDashboard dashboard={dashboardResponse} />
+      <OrganizationsDashboard dashboard={organizationsDashboard} />
       <OrganizationsTable
-        organizations={organizationResponse.rows}
-        pagination={organizationResponse.pagination}
+        organizations={organizationsResponse.rows}
+        pagination={organizationsResponse.pagination}
       />
     </div>
   );

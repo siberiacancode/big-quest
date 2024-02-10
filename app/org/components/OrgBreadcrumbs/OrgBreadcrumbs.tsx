@@ -1,17 +1,20 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 
 import { I18nText } from '@/components/common';
 import { BreadcrumbItem, Breadcrumbs } from '@/components/ui';
 
 interface NextBreadcrumbsProps {
-  idBreadcrumb?: string;
+  idBreadcrumbs?: Record<string, string>;
 }
 
-export const OrgBreadcrumbs = ({ idBreadcrumb = 'id' }: NextBreadcrumbsProps) => {
+export const OrgBreadcrumbs = ({ idBreadcrumbs = {} }: NextBreadcrumbsProps) => {
+  const params = useParams();
   const pathname = usePathname();
   const pathnames = pathname.split('/').filter((path) => path);
+  console.log(pathname);
+  console.log(idBreadcrumbs, params);
 
   return (
     <Breadcrumbs>
@@ -22,7 +25,7 @@ export const OrgBreadcrumbs = ({ idBreadcrumb = 'id' }: NextBreadcrumbsProps) =>
 
         return (
           <BreadcrumbItem key={href} href={href}>
-            {isId && idBreadcrumb}
+            {isId && 'id'}
             {!isId && <I18nText path={`navigation.link${translateHref}` as LocaleMessageId} />}
           </BreadcrumbItem>
         );
