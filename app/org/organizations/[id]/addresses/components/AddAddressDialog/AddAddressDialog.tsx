@@ -1,11 +1,9 @@
 'use client';
 
-import { PlusCircledIcon } from '@radix-ui/react-icons';
 import { XIcon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
 import {
-  Button,
   Dialog,
   DialogClose,
   DialogContent,
@@ -18,20 +16,16 @@ import { AddAddressForm } from '../AddAddressForm/AddAddressForm';
 
 import { useAddAddressDialog } from './hooks/useAddAddressDialog';
 
-export const AddAddressDialog = () => {
+interface AddAddressDialogProps {
+  trigger: JSX.Element;
+}
+
+export const AddAddressDialog = ({ trigger }: AddAddressDialogProps) => {
   const { functions } = useAddAddressDialog();
+
   return (
     <Dialog>
-      <DialogTrigger>
-        <Button
-          variant='secondary'
-          className='mx-2 bg-background p-5 font-medium hover:bg-background '
-          size='sm'
-        >
-          <PlusCircledIcon className='mr-2 h-4 w-4' />
-          <I18nText path='button.addAddress' />
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className='flex h-fit w-11/12 max-w-[713px] flex-col rounded-lg smx:max-h-[90%]'>
         <DialogClose>
           <XIcon className='h-6 w-6' />

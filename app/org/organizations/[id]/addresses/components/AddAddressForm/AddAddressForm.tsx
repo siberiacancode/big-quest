@@ -15,7 +15,7 @@ import {
   Input
 } from '@/components/ui';
 
-import { WorkingTimeBlock } from '../WorkingTimeBlock/WorkingTimeBlock';
+import { WorkingTimeItem } from '../WorkingTimeItem/WorkingTimeItem';
 
 import { useAddAddressForm } from './hooks/useAddAddressForm';
 
@@ -24,8 +24,9 @@ interface AddAddressFormProps {
 }
 
 export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
-  const { state, form, functions } = useAddAddressForm({ onAdded });
   const intl = useIntl();
+  const { state, form, functions } = useAddAddressForm({ onAdded });
+
   return (
     <Form {...form}>
       <form onSubmit={functions.onSubmit} className='flex w-full flex-col items-end'>
@@ -116,7 +117,12 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                 </FormItem>
               )}
             />
-            <WorkingTimeBlock form={form} />
+            <h3 className='font-medium'>
+              <I18nText path='addressCard.description.workingTime' />
+            </h3>
+            {Array.from({ length: 7 }, (_, index) => (
+              <WorkingTimeItem key={index} day={index} form={form} />
+            ))}
           </div>
         </div>
 

@@ -33,27 +33,25 @@ export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
       }
     }
   });
-  console.log(addAddressForm.formState.errors);
 
   const postOrganizationAddAddress = usePostOrganizationAddAddressMutation();
 
   const onSubmit = addAddressForm.handleSubmit(async (values) => {
-    const formattedWorkingHours = Object.entries(values.workingHours).map(([day, time]) => ({
+    const formattedWorkingHours = Object.entries(values.workingHours).map(([day, element]) => ({
       day: Number(day),
       from: {
-        hour: Number(time.from.split(':')[0]),
-        minutes: Number(time.from.split(':')[1])
+        hour: Number(element.from.split(':')[0]),
+        minutes: Number(element.from.split(':')[1])
       },
       to: {
-        hour: Number(time.to.split(':')[0]),
-        minutes: Number(time.to.split(':')[1])
+        hour: Number(element.to.split(':')[0]),
+        minutes: Number(element.to.split(':')[1])
       },
-      dayOff: time.dayOff
+      dayOff: element.dayOff
     }));
 
     const formattedValues = { ...values, workingHours: formattedWorkingHours };
 
-    console.log('Submitting form...', formattedValues);
     await postOrganizationAddAddress.mutateAsync(formattedValues);
 
     toast(intl.formatMessage({ id: 'feature.addAddress.success' }), {
