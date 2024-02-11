@@ -5,12 +5,12 @@ import { OrganizationProfileJournal } from './components/OrganizationProfileJour
 import { OrganizationProfileStatistics } from './components/OrganizationProfileStatistics/OrganizationProfileStatistics';
 
 interface OrganizationProfilePageProps {
-  params: { id: string };
+  params: { organizationId: string };
 }
 
 const OrganizationProfilePage = async ({ params }: OrganizationProfilePageProps) => {
   const organization = await getOrganizationById({
-    params
+    params: { id: params.organizationId }
   });
 
   return (

@@ -96,9 +96,11 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
             </OrganizationProfileCardInfoTitle>
             <OrganizationProfileCardInfoContent>
               <span className='flex gap-2'>
-                {organization.information.social.map((link: string, index: number) => (
-                  <OrganizationProfileCardInfoIcon key={index} link={link} />
-                ))}
+                {['https://wa.me/me', 'https://t.me/me', 'https://vk.com/me'].map(
+                  (link: string, index: number) => (
+                    <OrganizationProfileCardInfoIcon key={index} link={link} />
+                  )
+                )}
               </span>
             </OrganizationProfileCardInfoContent>
           </OrganizationProfileCardInfo>

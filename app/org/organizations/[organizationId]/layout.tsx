@@ -5,13 +5,13 @@ import { getOrganizationById } from '@/utils/api/requests';
 import { OrganizationHeader } from './components/OrganizationHeader/OrganizationHeader';
 
 interface OrganizationPageLayoutProps {
-  params: { id: string };
+  params: { organizationId: string };
   children: React.ReactNode;
 }
 
 const OrganizationPageLayout = async ({ params, children }: OrganizationPageLayoutProps) => {
   const organization = await getOrganizationById({
-    params
+    params: { id: params.organizationId }
   });
 
   return (

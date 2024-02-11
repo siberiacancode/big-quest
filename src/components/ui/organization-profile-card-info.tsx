@@ -36,10 +36,12 @@ const OrganizationProfileCardInfoIcon = React.forwardRef<
   OrganizationProfileCardSocialIconsProps
 >(({ link, ...props }, ref) => (
   <Link href={link}>
-    {link.includes('vk.com') && <VkIcon ref={ref} className='text-muted-foreground' {...props} />}
+    {link.includes('vk.com') && (
+      <VkIcon ref={ref} className='text-muted-foreground hover:text-foreground' {...props} />
+    )}
 
     {!link.includes('vk.com') && (
-      <span className=' flex h-4 w-4 items-center justify-center rounded-full bg-muted-foreground p-[1px]'>
+      <span className=' flex h-4 w-4 items-center justify-center rounded-full bg-muted-foreground p-[1px] hover:bg-foreground'>
         <Link2Icon className='h-[10px] w-[10px] text-background' />
       </span>
     )}
