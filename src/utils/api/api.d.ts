@@ -69,6 +69,27 @@ interface BaseResponse {
   message: string;
 }
 
+interface WorkingTimeDto {
+  hour: number;
+  minutes: number;
+}
+
+interface WorkingHourDto {
+  day: number;
+  from: WorkingTimeDto;
+  to: WorkingTimeDto;
+  dayOff: boolean;
+}
+
+interface OrganizationAddressDto {
+  organizationId: string;
+  locality: string;
+  street: string;
+  house: string;
+  details?: string;
+  workingHours: WorkingHourDto[];
+}
+
 interface RegisterOrganizationDto {
   organization: string;
   location: string;
@@ -76,7 +97,6 @@ interface RegisterOrganizationDto {
   contactName: string;
   phone: string;
 }
-
 type LegalType = 'SPONSOR' | 'PARTNER';
 
 type UserRole = 'organizer' | 'partner';
@@ -92,6 +112,17 @@ interface AddressResponse {
   geo_lat: number;
   geo_lon: number;
   unrestrictedValue: string;
+}
+
+interface OrganizationAddressesResponse {
+  addresses: {
+    organizationId: string;
+    locality: string;
+    street: string;
+    house: string;
+    details?: string;
+    workingHours: WorkingHourDto[];
+  }[];
 }
 
 interface LoginEmailDto {

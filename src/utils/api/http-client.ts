@@ -53,13 +53,18 @@ export class HttpClient {
     };
   }
 
-  private createSearchParams(params: Record<string, string>) {
+  private createSearchParams(params: SearchParams) {
     const searchParams = new URLSearchParams();
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const key in params) {
       if (Object.prototype.hasOwnProperty.call(params, key)) {
-        searchParams.set(key, params[key]);
+        const value = params[key];
+
+        if (Array.isArray(value)) {
+          value.forEach((currentValue) => searchParams.append(key, currentValue));
+        } else if (value) {
+          searchParams.set(key, value);
+        }
       }
     }
 
@@ -71,23 +76,15 @@ export class HttpClient {
     initialConfig: RequestConfig
   ) {
     if (!this.interceptorHandlers.response?.length && initialResponse.ok) {
-      if (initialResponse.headers['Content-Length']) {
-        const body = (await initialResponse.json()) as T;
-        return body;
-      }
-
-      return null;
+      const body = (await initialResponse.json()) as T;
+      return body;
     }
 
     if (!this.interceptorHandlers.response?.length && !initialResponse.ok) {
       throw new Error(initialResponse.statusText);
     }
 
-    let body;
-    if (initialResponse.headers['Content-Length']) {
-      body = (await initialResponse.json()) as T;
-    }
-
+    let body = (await initialResponse.json()) as T;
     const response = {
       status: initialResponse.status,
       statusText: initialResponse.statusText,

@@ -6,12 +6,12 @@ import { Input } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
 export const HeaderSearch = () => {
-  const intl = useI18n();
+  const i18n = useI18n();
 
   return (
     <Input
       className='h-12 bg-secondary'
-      placeholder={intl.formatMessage({ id: 'field.search.placeholder' })}
+      placeholder={i18n.formatMessage({ id: 'field.search.placeholder' })}
       type='search'
       icon={<SearchIcon className='opacity-50' />}
     />
