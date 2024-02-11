@@ -12,9 +12,10 @@ interface UseAddAddressFormParams {
 }
 
 export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
-  const intl = useI18n();
+  const i18n = useI18n();
 
   const addAddressForm = useForm<AddAddressSchema>({
+    mode: 'onSubmit',
     resolver: zodResolver(addAddressSchema),
     defaultValues: {
       organizationId: '',
@@ -29,7 +30,7 @@ export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
         '3': { time: { from: '09:00', to: '18:00' }, dayOff: false },
         '4': { time: { from: '09:00', to: '18:00' }, dayOff: false },
         '5': { time: { from: '09:00', to: '18:00' }, dayOff: false },
-        '6': { time: { from: '09:00', to: '18:00' }, dayOff: false }
+        '6': { time: { from: '09:00', to: '18:00' }, dayOff: true }
       }
     }
   });
@@ -59,7 +60,7 @@ export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
 
     await postOrganizationAddAddress.mutateAsync(formattedValues);
 
-    toast(intl.formatMessage({ id: 'feature.addAddress.success' }), {
+    toast(i18n.formatMessage({ id: 'dialog.addAddress.success' }), {
       cancel: { label: 'Close' }
     });
 

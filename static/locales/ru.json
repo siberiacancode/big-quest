@@ -11,11 +11,6 @@
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
 
-  "addressModal.title.addAddress": "Добавление адреса",
-  "addressModal.description.coordinates": "Координаты",
-  "addressModal.description.untill": "до",
-  "addressModal.description.placeholder": "офис, вход, этаж",
-  "feature.addAddress.success": "Адрес успешно добавлен",
   "button.login": "Войти",
   "button.registerOrganization": "Отправить заявку",
   "button.goToRegisterOrganization": "Оставить заявку",
@@ -31,6 +26,12 @@
   "field.location.label": "Населенный пункт",
   "field.contactName.label": "Ваше имя",
   "field.phone.label": "Телефон",
+  "field.street.house": "Улица",
+  "field.house.label": "Дом",
+  "field.street.label": "Улица",
+  "field.street.placeholder": "ул.",
+  "field.details.label": "Детали",
+  "field.details.placeholder": "офис, вход, этаж",
 
   "radio.legalType.label": "Выберите форму сотрудничества",
   "radio.legalType.partner.label": "Партнер",
@@ -65,9 +66,6 @@
   "dayOfWeek.7": "Вс",
   "dayOfWeek.dayOff": "Выходной",
 
-  "addressCard.description.street": "Улица",
-  "addressCard.description.house": "Дом",
-  "addressCard.description.details": "Детали",
   "addressCard.description.workingTime": "Время работы",
 
   "table.column.status": "Статус",
@@ -83,8 +81,11 @@
 
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты",
-  "validation.time.format": "Неверный формат времени",
   "validation.time.requiredBoth": "Необходимы оба значения времени",
-  "feature.registerOrganization.title": "Заполните заявку",
-  "feature.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время"
+
+  "dialog.registerOrganization.title": "Заполните заявку",
+  "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
+  "dialog.addAddress.title": "Добавление адреса",
+  "dialog.addAddress.form.untill": "до",
+  "dialog.addAddress.success": "Адрес успешно добавлен"
 }

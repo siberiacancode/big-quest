@@ -27,21 +27,21 @@ export const AddressCard = ({
 
         <div className='flex justify-between'>
           <h3 className='flex-1 text-sm font-bold'>
-            <I18nText path='addressCard.description.street' />
+            <I18nText path='field.street.label' />
           </h3>
           <span className='flex-1 text-sm'>{street}</span>
         </div>
 
         <div className='flex justify-between'>
           <h3 className='flex-1 text-sm font-bold'>
-            <I18nText path='addressCard.description.house' />
+            <I18nText path='field.house.label' />
           </h3>
           <span className='flex-1 text-sm'>{house}</span>
         </div>
 
         <div className='flex justify-between'>
           <h3 className='flex-1 text-sm font-bold'>
-            <I18nText path='addressCard.description.details' />
+            <I18nText path='field.details.label' />
           </h3>
           <span className='flex-1 text-sm'>{details}</span>
         </div>

@@ -32,7 +32,7 @@ export const AddAddressDialog = ({ trigger }: AddAddressDialogProps) => {
         </DialogClose>
         <DialogHeader>
           <DialogTitle className='text-xl font-bold'>
-            <I18nText path='addressModal.title.addAddress' />
+            <I18nText path='dialog.addAddress.title' />
           </DialogTitle>
         </DialogHeader>
         <div className='flex h-full flex-col items-end justify-between overflow-y-auto rounded-lg border p-5'>

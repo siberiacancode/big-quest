@@ -1,32 +1,14 @@
 import * as z from 'zod';
 
 const timeSchema = z.object({
-  from: z
-    .string()
-    .regex(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, { message: 'validation.time.format' })
-    .optional()
-    .or(z.literal('')),
-  to: z
-    .string()
-    .regex(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, { message: 'validation.time.format' })
-    .optional()
-    .or(z.literal(''))
+  from: z.string(),
+  to: z.string()
 });
 
-const workingHourSchema = z
-  .object({
-    time: timeSchema,
-    dayOff: z.boolean()
-  })
-  .refine(
-    (data) => {
-      const { from, to } = data.time;
-      return (from !== '' && to !== '') || (from === '' && to === '');
-    },
-    {
-      message: 'validation.time.requiredBoth'
-    }
-  );
+const workingHourSchema = z.object({
+  time: timeSchema,
+  dayOff: z.boolean()
+});
 
 export const addAddressSchema = z.object({
   organizationId: z.string(),

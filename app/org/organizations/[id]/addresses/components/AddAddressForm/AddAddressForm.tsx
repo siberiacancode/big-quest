@@ -1,9 +1,8 @@
-import { useIntl } from 'react-intl';
-
 import { DadataCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {
   Button,
+  ClockInput,
   Form,
   FormControl,
   FormField,
@@ -12,8 +11,8 @@ import {
   FormMessage,
   Input
 } from '@/components/ui';
-
-import { WorkingTimeItem } from '../WorkingTimeItem/WorkingTimeItem';
+import { cn } from '@/lib/utils';
+import { useI18n } from '@/utils/contexts';
 
 import { useAddAddressForm } from './hooks/useAddAddressForm';
 
@@ -22,7 +21,7 @@ interface AddAddressFormProps {
 }
 
 export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
-  const intl = useIntl();
+  const i18n = useI18n();
   const { state, form, functions } = useAddAddressForm({ onAdded });
 
   return (
@@ -57,10 +56,15 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    <I18nText path='addressCard.description.street' />
+                    <I18nText path='field.street.label' />
                   </FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input
+                      {...field}
+                      placeholder={i18n.formatMessage({
+                        id: 'field.street.placeholder'
+                      })}
+                    />
                   </FormControl>
                   <FormMessage>
                     {form.formState?.errors?.street && (
@@ -76,7 +80,7 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    <I18nText path='addressCard.description.house' />
+                    <I18nText path='field.house.label' />
                   </FormLabel>
                   <FormControl>
                     <Input {...field} />
@@ -97,13 +101,13 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    <I18nText path='addressCard.description.details' />
+                    <I18nText path='field.details.label' />
                   </FormLabel>
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder={intl.formatMessage({
-                        id: 'addressModal.description.placeholder'
+                      placeholder={i18n.formatMessage({
+                        id: 'field.details.placeholder'
                       })}
                     />
                   </FormControl>
@@ -118,9 +122,74 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
             <h3 className='font-medium'>
               <I18nText path='addressCard.description.workingTime' />
             </h3>
-            {Array.from({ length: 7 }, (_, index) => (
-              <WorkingTimeItem key={index} day={index} form={form} />
-            ))}
+            {Array.from({ length: 7 }, (_, index) => {
+              const day = index as 0 | 1 | 2 | 3 | 4 | 5 | 6;
+              const dayOff = form.watch(`workingHours.${day}.dayOff`);
+
+              return (
+                <div className='mt-3 flex' key={day}>
+                  <Button
+                    type='button'
+                    onClick={() => form.setValue(`workingHours.${day}.dayOff`, !dayOff)}
+                    variant={dayOff ? 'secondary' : 'default'}
+                    className={cn('max-h-6 w-6 rounded-md p-1 px-1.5 text-center text-[10px]')}
+                  >
+                    <I18nText path={`dayOfWeek.${day + 1}` as LocaleMessageId} />
+                  </Button>
+                  <div>
+                    <FormField
+                      control={form.control}
+                      name={`workingHours.${day}.time.from`}
+                      render={({ field }) => (
+                        <>
+                          <ClockInput
+                            className='mx-2 h-6 w-11 border-0 border-b p-1'
+                            placeholder='09:00'
+                            {...field}
+                          />
+                          <FormMessage className='text-xs'>
+                            {form.formState.errors?.workingHours?.[day]?.time?.from && (
+                              <I18nText
+                                path={
+                                  form.formState.errors?.workingHours[day]?.time?.from
+                                    ?.message as LocaleMessageId
+                                }
+                              />
+                            )}
+                          </FormMessage>
+                        </>
+                      )}
+                    />
+                  </div>
+                  <I18nText path='dialog.addAddress.form.untill' />
+                  <div>
+                    <FormField
+                      control={form.control}
+                      name={`workingHours.${day}.time.to`}
+                      render={({ field }) => (
+                        <>
+                          <ClockInput
+                            className='mx-2 h-6 w-11 border-0 border-b p-1'
+                            placeholder='18:00'
+                            {...field}
+                          />
+                          <FormMessage className='text-xs'>
+                            {form.formState.errors?.workingHours?.[day]?.time?.to && (
+                              <I18nText
+                                path={
+                                  form.formState.errors?.workingHours[day]?.time?.to
+                                    ?.message as LocaleMessageId
+                                }
+                              />
+                            )}
+                          </FormMessage>
+                        </>
+                      )}
+                    />
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
