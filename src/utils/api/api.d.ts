@@ -113,6 +113,7 @@ interface AddressResponse {
   geo_lon: number;
   unrestrictedValue: string;
 }
+
 interface OrganizationAddressesResponse {
   addresses: {
     organizationId: string;
@@ -123,6 +124,7 @@ interface OrganizationAddressesResponse {
     workingHours: WorkingHourDto[];
   }[];
 }
+
 interface LoginEmailDto {
   email: string;
   password: string;
