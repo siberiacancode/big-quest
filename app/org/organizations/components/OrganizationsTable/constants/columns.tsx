@@ -28,7 +28,10 @@ export const columns: ColumnDef<OrganizationsTableRow>[] = [
       <div className='flex h-full items-center justify-center'>
         <Checkbox
           checked={row.getIsSelected()}
-          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          onCheckedChange={(value) => {
+            console.log('@', value);
+            row.toggleSelected(!!value);
+          }}
           aria-label='Select row'
         />
       </div>

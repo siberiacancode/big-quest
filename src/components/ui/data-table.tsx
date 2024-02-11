@@ -5,7 +5,6 @@ import { CaretSortIcon, PlusCircledIcon } from '@radix-ui/react-icons';
 import type { ColumnDef, Table } from '@tanstack/react-table';
 import { flexRender } from '@tanstack/react-table';
 
-import { I18nText } from '@/components/common';
 import type { MultiComboboxProps } from '@/components/ui';
 import {
   Badge,
@@ -27,6 +26,7 @@ import {
 } from '@/components/ui';
 import { useSearchParams } from '@/utils/hooks';
 
+import { I18nText } from '../common';
 import { getPageIndex } from '../common/DateTable/components/DataTablePagination/helpers/getPageIndex';
 import { getPaginationNumbers } from '../common/DateTable/components/DataTablePagination/helpers/getPaginationNumbers';
 
@@ -88,23 +88,15 @@ export const DataTableBody = (props: React.ComponentProps<typeof TableBody>) => 
   const dataTableContext = React.useContext(DataTableContext);
   return (
     <TableBody {...props}>
-      {dataTableContext.table.getRowModel().rows?.length ? (
-        dataTableContext.table.getRowModel().rows.map((row) => (
-          <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
-            {row.getVisibleCells().map((cell) => (
-              <TableCell key={cell.id}>
-                {flexRender(cell.column.columnDef.cell, cell.getContext())}
-              </TableCell>
-            ))}
-          </TableRow>
-        ))
-      ) : (
-        <TableRow>
-          <TableCell colSpan={dataTableContext.columns.length} className='h-24 text-center'>
-            <I18nText path='field.results.noResults' />
-          </TableCell>
+      {dataTableContext.table.getRowModel().rows.map((row) => (
+        <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
+          {row.getVisibleCells().map((cell) => (
+            <TableCell key={cell.id}>
+              {flexRender(cell.column.columnDef.cell, cell.getContext())}
+            </TableCell>
+          ))}
         </TableRow>
-      )}
+      ))}
     </TableBody>
   );
 };
@@ -267,9 +259,8 @@ export const DataTablePagination = ({
   <div>
     <Pagination {...props}>
       <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious href='#' onClick={() => onClick(current - 1)} />
-        </PaginationItem>
+        <PaginationPrevious href='#' onClick={() => onClick(current - 1)} />
+
         {getPaginationNumbers({ current, count, limit }).map((page) => (
           <PaginationItem>
             {page === '...' && <PaginationEllipsis />}
@@ -286,26 +277,25 @@ export const DataTablePagination = ({
             )}
           </PaginationItem>
         ))}
-        <PaginationItem>
-          <PaginationNext href='#' onClick={() => onClick(current + 1)} />
-        </PaginationItem>
+
+        <PaginationNext href='#' onClick={() => onClick(current + 1)} />
       </PaginationContent>
     </Pagination>
   </div>
 );
 
-interface DataTableSelectedLabelProps extends React.ComponentProps<'div'> {
+interface DataTableSelectedLabelProps extends Omit<React.ComponentProps<'div'>, 'children'> {
   count: number;
+  children: (count: number, selectedCount: number) => React.ReactNode;
 }
 
 export const DataTableSelectedLabel = React.forwardRef<HTMLDivElement, DataTableSelectedLabelProps>(
-  ({ count, ...props }, ref) => {
+  ({ count, children, ...props }, ref) => {
     const dataTableContext = React.useContext(DataTableContext);
-
+    const selectedCount = dataTableContext.table.getFilteredSelectedRowModel().rows.length;
     return (
       <div ref={ref} className='text-sm text-muted-foreground mdx:pt-2' {...props}>
-        {dataTableContext.table.getFilteredSelectedRowModel().rows.length}{' '}
-        <I18nText path='pagination.from' /> {count} <I18nText path='pagination.selected' />
+        {children(count, selectedCount)}
       </div>
     );
   }
