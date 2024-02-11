@@ -11,8 +11,7 @@ const workingHourSchema = z.object({
 });
 
 export const addAddressSchema = z.object({
-  organizationId: z.string(),
-  locality: z.string(),
+  locality: z.string().min(1, { message: 'validation.required' }),
   street: z.string().min(1, { message: 'validation.required' }),
   house: z.string().min(1, { message: 'validation.required' }),
   details: z.string(),

@@ -144,7 +144,7 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                         <>
                           <ClockInput
                             className='mx-2 h-6 w-11 border-0 border-b p-1'
-                            placeholder='09:00'
+                            disabled={dayOff}
                             {...field}
                           />
                           <FormMessage className='text-xs'>
@@ -170,7 +170,7 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                         <>
                           <ClockInput
                             className='mx-2 h-6 w-11 border-0 border-b p-1'
-                            placeholder='18:00'
+                            disabled={dayOff}
                             {...field}
                           />
                           <FormMessage className='text-xs'>

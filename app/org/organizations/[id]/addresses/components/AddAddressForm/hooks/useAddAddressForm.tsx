@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
 import { usePostOrganizationAddAddressMutation } from '@/utils/api';
@@ -13,12 +14,12 @@ interface UseAddAddressFormParams {
 
 export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
   const i18n = useI18n();
+  const params = useParams<{ id: string }>();
 
   const addAddressForm = useForm<AddAddressSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(addAddressSchema),
     defaultValues: {
-      organizationId: '',
       locality: '',
       street: '',
       house: '',
@@ -39,26 +40,29 @@ export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
 
   const onSubmit = addAddressForm.handleSubmit(async (values) => {
     const formattedWorkingHours = Object.entries(values.workingHours).map(([day, element]) => {
-      const fromParts = (element.time.from || '').split(':');
-      const toParts = (element.time.to || '').split(':');
+      const [from1, from2] = element.time.from.split(':');
+      const [to1, to2] = element.time.to.split(':');
 
-      const fromHour = fromParts[0] ? Number(fromParts[0]) : 0;
-      const fromMinutes = fromParts[1] ? Number(fromParts[1]) : 0;
+      const fromHour = Number(from1);
+      const fromMinutes = Number(from2);
 
-      const toHour = toParts[0] ? Number(toParts[0]) : 0;
-      const toMinutes = toParts[1] ? Number(toParts[1]) : 0;
+      const toHour = Number(to1);
+      const toMinutes = Number(to2);
 
       return {
         day: Number(day),
         from: { hour: fromHour, minutes: fromMinutes },
         to: { hour: toHour, minutes: toMinutes },
-        dayOff: !element.time.from && !element.time.to
+        dayOff: element.dayOff
       };
     });
 
     const formattedValues = { ...values, workingHours: formattedWorkingHours };
 
-    await postOrganizationAddAddress.mutateAsync(formattedValues);
+    await postOrganizationAddAddress.mutateAsync({
+      ...formattedValues,
+      organizationId: params.id
+    });
 
     toast(i18n.formatMessage({ id: 'dialog.addAddress.success' }), {
       cancel: { label: 'Close' }
