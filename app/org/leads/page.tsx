@@ -1,3 +1,3 @@
-const LidsPage = () => <div>lids</div>;
+const LeadsPage = () => <div>leads</div>;
 
-export default LidsPage;
+export default LeadsPage;

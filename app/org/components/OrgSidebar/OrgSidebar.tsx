@@ -1,6 +1,8 @@
 'use client';
 
-import { Sidebar, type SidebarProps } from '../../../components/Sidebar/Sidebar';
+import type { SidebarProps } from 'app/components';
+import { Sidebar } from 'app/components';
+
 import { SidebarNavigation } from '../navigation/SidebarNavigation/SidebarNavigation';
 
 type OrgSidebarProps = Omit<SidebarProps, 'children'>;

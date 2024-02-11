@@ -1,5 +1,3 @@
-type UserRole = 'organizer' | 'partner';
-
 interface MutationSettings<Params = void, Func = unknown> {
   config?: ApiRequestConfig;
   options?: import('@tanstack/react-query').UseMutationOptions<
@@ -75,6 +73,8 @@ type LegalType = 'PARTNER' | 'FRANCHISEE' | 'SPONSOR' | 'ORGANIZER';
 
 type Stage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
 
+type UserRole = 'organizer' | 'partner';
+
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
@@ -106,4 +106,62 @@ interface OrganizationResponse {
   requisites?: RequisitesDto;
   stage: Stage;
   type: LegalType;
+}
+
+interface WorkingTimeDto {
+  hour: number;
+  minutes: number;
+}
+
+interface WorkingHourDto {
+  day: number;
+  from: WorkingTimeDto;
+  to: WorkingTimeDto;
+  dayOff: boolean;
+}
+
+interface OrganizationAddressDto {
+  organizationId: string;
+  locality: string;
+  street: string;
+  house: string;
+  details?: string;
+  workingHours: WorkingHourDto[];
+}
+
+interface RegisterOrganizationDto {
+  organization: string;
+  location: string;
+  type: LegalType;
+  contactName: string;
+  phone: string;
+}
+
+interface AddressResponse {
+  country: string;
+  region: string;
+  city: string;
+  postal_code: string;
+  street: string;
+  house: string;
+  flat: number;
+  geo_lat: number;
+  geo_lon: number;
+  unrestrictedValue: string;
+}
+
+interface OrganizationAddressesResponse {
+  addresses: {
+    organizationId: string;
+    locality: string;
+    street: string;
+    house: string;
+    details?: string;
+    workingHours: WorkingHourDto[];
+  }[];
+}
+
+interface LoginEmailDto {
+  email: string;
+  password: string;
 }

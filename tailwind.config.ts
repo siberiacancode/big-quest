@@ -17,12 +17,14 @@ const config = {
       lgx: { max: '1023px' },
       mdx: { max: '767px' },
       smx: { max: '639px' },
+      xsx: { max: '475px' },
       '2xl': { min: '1400px' },
       xl: { min: '1280px' },
       '2lg': { min: '1124px' },
       lg: { min: '1024px' },
       md: { min: '768px' },
-      sm: { min: '640px' }
+      sm: { min: '640px' },
+      xs: { min: '475px' }
     },
     container: {
       center: true,
@@ -38,10 +40,16 @@ const config = {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        placeholder: 'hsl(var(--placeholder))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))'
         },
+        gray: {
+          two: 'hsl(var(--gray-two))',
+          light: 'hsl(var(--gray-light))'
+        },
+        taiga: { DEFAULT: 'hsl(var(--taiga-light))', foreground: 'hsl(var(--taiga-dark))' },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))'
@@ -68,6 +76,9 @@ const config = {
         },
         tabsBackground: 'hsl(var(--tabs-background))',
         tabsText: 'hsl(var(--tabs-text))'
+      },
+      backgroundColor: {
+        taiga: { DEFAULT: 'hsl(var(--taiga-light))', foreground: 'hsl(var(--taiga-dark))' }
       },
       borderRadius: {
         lg: 'var(--radius)',

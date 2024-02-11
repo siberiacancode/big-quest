@@ -1,8 +1,20 @@
 {
   "app.title": "Большой квест",
+  "partners.addresses.title": "Адреса",
+
+  "org.auth.title": "Вход в личный кабинет",
+  "org.auth.rememberMe": "Запомнить меня",
+  "org.auth.footer.siteRules": "Правила пользования сайтом",
+  "org.auth.footer.privacyPolicy": "Политика конфиденциальности",
+
   "button.add": "Добавить",
-  "org.auth.title": "Вход",
+  "button.save": "Сохранить",
+  "button.addAddress": "Добавить адрес",
+
   "button.login": "Войти",
+  
+  "button.registerOrganization": "Отправить заявку",
+  "button.goToRegisterOrganization": "Оставить заявку",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
@@ -44,13 +56,23 @@
   "organization.profile.header.activities": "Активности",
   "organization.profile.header.schedule": "Расписание",
 
-  "field.email.label": "Почта",
+  "field.email.label": "Email",
   "field.password.label": "Пароль",
-  "field.email.placeholder": "Введите почту...",
-  "field.password.placeholder": "Введите пароль...",
+  "field.email.placeholder": "examples@mail.com",
+  "field.password.placeholder": "**********",
   "field.search.placeholder": "Найти...",
   "field.filter.placeholder": "Фильтровать...",
   "field.results.noResults": "Нет результатов",
+  "field.organization.label": "Название организации",
+  "field.location.label": "Населенный пункт",
+  "field.contactName.label": "Ваше имя",
+  "field.phone.label": "Телефон",
+  "field.street.house": "Улица",
+  "field.house.label": "Дом",
+  "field.street.label": "Улица",
+  "field.street.placeholder": "ул.",
+  "field.details.label": "Детали",
+  "field.details.placeholder": "офис, вход, этаж",
   "field.note.placeholder": "Оставьте заметку...",
 
   "navigation.link.org.organizations": "Организации",
@@ -64,6 +86,10 @@
   "navigation.link.org.news": "Новости",
   "navigation.link.org.profile": "Кабинет",
 
+  "radio.legalType.label": "Выберите форму сотрудничества",
+  "radio.legalType.partner.label": "Партнер",
+  "radio.legalType.sponsor.label": "Спонсор",
+
   "infoCard.title.partners": "Партнеры",
   "infoCard.title.sponsors": "Спонсоры",
   "infoCard.title.needsAttention": "Требует внимания",
@@ -72,6 +98,17 @@
   "infoCard.description.discussions": "Переговоры",
   "infoCard.description.tariffChange": "Смена тарифа",
   "infoCard.description.applications": "Заявок",
+
+  "dayOfWeek.1": "Пн",
+  "dayOfWeek.2": "Вт",
+  "dayOfWeek.3": "Ср",
+  "dayOfWeek.4": "Чт",
+  "dayOfWeek.5": "Пт",
+  "dayOfWeek.6": "Сб",
+  "dayOfWeek.7": "Вс",
+  "dayOfWeek.dayOff": "Выходной",
+
+  "addressCard.description.workingTime": "Время работы",
 
   "table.column.status": "Статус",
   "table.column.organization": "Организация",
@@ -85,5 +122,12 @@
   "pagination.page": "страница",
 
   "validation.required": "Данное поле не может быть пустым",
-  "validation.email.format": "Неверный формат электронной почты"
+  "validation.email.format": "Неверный формат электронной почты",
+  "validation.time.requiredBoth": "Необходимы оба значения времени",
+
+  "dialog.registerOrganization.title": "Заполните заявку",
+  "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
+  "dialog.addAddress.title": "Добавление адреса",
+  "dialog.addAddress.form.untill": "до",
+  "dialog.addAddress.success": "Адрес успешно добавлен"
 }

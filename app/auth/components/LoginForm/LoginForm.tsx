@@ -1,27 +1,29 @@
-import React from 'react';
+'use client';
 
 import { I18nText } from '@/components/common';
 import {
   Button,
+  Checkbox,
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
   Input,
   PasswordInput
 } from '@/components/ui';
-import { useI18n } from '@/utils/contexts/i18n';
+import { useI18n } from '@/utils/contexts';
 
 import { useLoginForm } from './hooks/useLoginForm';
 
 export const LoginForm = () => {
-  const intl = useI18n();
-  const { form, functions } = useLoginForm();
+  const i18n = useI18n();
+  const { state, form, functions } = useLoginForm();
 
   return (
     <Form {...form}>
-      <form onSubmit={functions.onSubmit} className='space-y-5'>
+      <form onSubmit={functions.onSubmit} className='space-y-3'>
         <FormField
           control={form.control}
           name='email'
@@ -32,15 +34,15 @@ export const LoginForm = () => {
               </FormLabel>
               <FormControl>
                 <Input
-                  placeholder={intl.formatMessage({ id: 'field.email.placeholder' })}
+                  placeholder={i18n.formatMessage({ id: 'field.email.placeholder' })}
                   {...field}
                 />
               </FormControl>
-              <FormLabel>
+              <FormMessage>
                 {form?.formState?.errors?.email && (
                   <I18nText path={form.formState.errors.email.message as LocaleMessageId} />
                 )}
-              </FormLabel>
+              </FormMessage>
             </FormItem>
           )}
         />
@@ -54,21 +56,34 @@ export const LoginForm = () => {
               </FormLabel>
               <FormControl>
                 <PasswordInput
-                  placeholder={intl.formatMessage({ id: 'field.password.placeholder' })}
                   {...field}
+                  placeholder={i18n.formatMessage({ id: 'field.password.placeholder' })}
                 />
               </FormControl>
-              <FormLabel>
+              <FormMessage>
                 {form.formState?.errors?.password && (
                   <I18nText path={form.formState.errors.password.message as LocaleMessageId} />
                 )}
-              </FormLabel>
+              </FormMessage>
             </FormItem>
           )}
         />
-        <Button type='submit'>
-          <I18nText path='button.login' />
-        </Button>
+        <div className='flex flex-col space-y-6'>
+          <div className='mt-3 flex items-center'>
+            <Checkbox />
+            <span className='px-2 text-xs text-muted-foreground'>
+              <I18nText path='org.auth.rememberMe' />
+            </span>
+          </div>
+          <Button
+            type='submit'
+            size='lg'
+            className='w-full bg-taiga hover:bg-taiga-foreground'
+            loading={state.isLoading}
+          >
+            <I18nText path='button.login' />
+          </Button>
+        </div>
       </form>
     </Form>
   );
