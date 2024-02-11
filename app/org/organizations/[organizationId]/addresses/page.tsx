@@ -8,12 +8,12 @@ import { AddAddressDialog } from './components/AddAddressDialog/AddAddressDialog
 import { AddressCard } from './components/AddressCard/AddressCard';
 
 interface OrganizationAddressesPageProps {
-  params: { id: string };
+  params: { organizationId: string };
 }
 
 const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
   const organizationAddresses = await getOrganizationAddressesById({
-    params: { id: params.id }
+    params: { id: params.organizationId }
   });
 
   return (
@@ -31,7 +31,7 @@ const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
           }
         />
       </div>
-      <div className='m-3 mt-4 gap-5 2xlx:grid-cols-2 xlx:flex xlx:flex-wrap 2xl:grid-cols-3 xl:grid'>
+      <div className='gap-5 2xlx:grid-cols-2 xlx:flex xlx:flex-wrap 2xl:grid-cols-3 xl:grid'>
         {organizationAddresses.addresses.map((address, index) => (
           <AddressCard key={index} address={address} />
         ))}

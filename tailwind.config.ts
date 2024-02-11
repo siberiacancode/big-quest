@@ -13,12 +13,14 @@ const config = {
     screens: {
       '2xlx': { max: '1400px' },
       xlx: { max: '1279px' },
+      '2lgx': { max: '1124px' },
       lgx: { max: '1023px' },
       mdx: { max: '767px' },
       smx: { max: '639px' },
       xsx: { max: '475px' },
       '2xl': { min: '1400px' },
       xl: { min: '1280px' },
+      '2lg': { min: '1124px' },
       lg: { min: '1024px' },
       md: { min: '768px' },
       sm: { min: '640px' },
@@ -71,7 +73,9 @@ const config = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
-        }
+        },
+        tabsBackground: 'hsl(var(--tabs-background))',
+        tabsText: 'hsl(var(--tabs-text))'
       },
       backgroundColor: {
         taiga: { DEFAULT: 'hsl(var(--taiga-light))', foreground: 'hsl(var(--taiga-dark))' }

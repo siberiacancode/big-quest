@@ -32,6 +32,8 @@
     --gray-light: 0, 0%, 90%, 1;
     --taiga-dark: 145 100% 10%;
     --taiga-light: 155 100% 17%;
+    --tabs-background: 0 0% 100%;
+    --tabs-text: 0 0% 10%;
   }
 
   .dark {
@@ -61,6 +63,8 @@
     --gray-light: 0, 0%, 18%, 1;
     --taiga-dark: 145, 100%, 10%;
     --taiga-light: 155, 100%, 17%;
+    --tabs-background: 0 0% 100%;
+    --tabs-text: 0 0% 10%;
   }
 }
 
