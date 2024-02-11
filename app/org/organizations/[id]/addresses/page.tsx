@@ -15,18 +15,14 @@ const AddressesPage = () => (
       </h3>
       <AddAddressDialog
         trigger={
-          <Button
-            variant='secondary'
-            className='mx-2 bg-background p-5 font-medium hover:bg-background '
-            size='sm'
-          >
+          <Button variant='default' className='mx-2 p-5 font-medium' size='sm'>
             <PlusCircledIcon className='mr-2 h-4 w-4' />
             <I18nText path='button.addAddress' />
           </Button>
         }
       />
     </div>
-    <div className='m-3 mt-4 flex flex-wrap gap-5'>
+    <div className='m-3 mt-4 flex flex-wrap justify-center gap-5'>
       {addresses.map((address, index) => (
         <AddressCard key={index} address={address} />
       ))}

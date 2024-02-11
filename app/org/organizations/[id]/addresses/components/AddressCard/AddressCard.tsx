@@ -12,7 +12,7 @@ interface AddressCardProps {
 export const AddressCard = ({
   address: { locality, street, house, details, workingHours }
 }: AddressCardProps) => (
-  <Card className='min-w-80 flex-1 bg-background'>
+  <Card className='min-w-96 flex-1'>
     <CardContent className='flex flex-row-reverse justify-between p-8 pb-12 pr-5 pt-4'>
       <div>
         <Edit3Icon className='right text-placeholder' />
