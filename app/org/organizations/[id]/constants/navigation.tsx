@@ -1,6 +1,6 @@
 import { ActivityIcon, MapPinIcon, UserIcon, UsersRoundIcon } from 'lucide-react';
 
-export const HEADER_OPTIONS = {
+export const ORGANIZATION_PROFILE_TAB_VALUES = {
   PROFILE: 'profile',
   ADDRESSES: 'addresses',
   EMPLOYEES: 'employees',
@@ -16,42 +16,44 @@ export const INFORMATION_OPTIONS = {
   SCHEDULE: 'schedule'
 };
 
-export const SPONSOR_PROFILE_LINKS = {
-  icon: <UserIcon />,
-  title: 'organization.profile.header.profile',
-  value: HEADER_OPTIONS.PROFILE,
-  link: 'profile'
-};
-
-export const PARTNER_PROFILE_LINKS = [
+export const SPONSOR_PROFILE_TABS = [
   {
     icon: <UserIcon />,
     title: 'organization.profile.header.profile',
-    value: HEADER_OPTIONS.PROFILE,
+    value: ORGANIZATION_PROFILE_TAB_VALUES.PROFILE,
+    link: 'profile'
+  }
+];
+
+export const PARTNER_PROFILE_TABS = [
+  {
+    icon: <UserIcon />,
+    title: 'organization.profile.header.profile',
+    value: ORGANIZATION_PROFILE_TAB_VALUES.PROFILE,
     link: 'profile'
   },
   {
     icon: <MapPinIcon />,
     title: 'organization.profile.header.addresses',
-    value: HEADER_OPTIONS.ADDRESSES,
+    value: ORGANIZATION_PROFILE_TAB_VALUES.ADDRESSES,
     link: 'addresses'
   },
   {
     icon: <UsersRoundIcon />,
     title: 'organization.profile.header.employees',
-    value: HEADER_OPTIONS.EMPLOYEES,
+    value: ORGANIZATION_PROFILE_TAB_VALUES.EMPLOYEES,
     link: 'employees'
   },
   {
     icon: <ActivityIcon />,
     title: 'organization.profile.header.activities',
-    value: HEADER_OPTIONS.ACTIVITIES,
+    value: ORGANIZATION_PROFILE_TAB_VALUES.ACTIVITIES,
     link: 'activities'
   },
   {
     icon: <ActivityIcon />,
     title: 'organization.profile.header.schedule',
-    value: HEADER_OPTIONS.SCHEDULE,
+    value: ORGANIZATION_PROFILE_TAB_VALUES.SCHEDULE,
     link: 'schedule'
   }
 ];

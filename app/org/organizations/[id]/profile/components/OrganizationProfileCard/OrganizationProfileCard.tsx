@@ -12,11 +12,12 @@ import {
   InfoCardContent,
   InfoCardHeader,
   InfoCardTitle,
+  OrganizationProfileCardInfo,
+  OrganizationProfileCardInfoContent,
+  OrganizationProfileCardInfoIcon,
+  OrganizationProfileCardInfoTitle,
   Separator
 } from '@/components/ui';
-
-import { OrganizationProfileCardIcons } from './components/OrganizationProfileCardIcons/OrganizationProfileCardIcons';
-import { OrganizationProfileCardInfo } from './components/OrganizationProfileCardInfo/OrganizationProfileCardInfo';
 
 interface OrganizationProfileCardProps {
   organization: OrganizationResponse;
@@ -38,25 +39,30 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
       <p className='text-xs font-medium text-muted-foreground'>{organization.description}</p>
       <Separator className='my-5' />
       <div className='flex flex-col gap-3'>
-        <OrganizationProfileCardInfo title='organization.profile.information.name'>
-          {organization.name}
+        <OrganizationProfileCardInfo>
+          <OrganizationProfileCardInfoTitle>
+            <I18nText path='organization.profile.information.name' />
+          </OrganizationProfileCardInfoTitle>
+          <OrganizationProfileCardInfoContent>
+            {organization.name}
+          </OrganizationProfileCardInfoContent>
         </OrganizationProfileCardInfo>
         <OrganizationProfileCardInfo title='organization.profile.information.contactName'>
-          {organization.information?.contactName}
+          {organization.information.contactName}
         </OrganizationProfileCardInfo>
         <OrganizationProfileCardInfo title='organization.profile.information.phone'>
-          {organization.information?.phone}
+          {organization.information.phone}
         </OrganizationProfileCardInfo>
         <OrganizationProfileCardInfo title='organization.profile.information.email'>
-          {organization.information?.email}
+          {organization.information.email}
         </OrganizationProfileCardInfo>
         <OrganizationProfileCardInfo title='organization.profile.information.city'>
-          {organization.information?.city}
+          {organization.information.city}
         </OrganizationProfileCardInfo>
         <OrganizationProfileCardInfo title='organization.profile.information.social'>
           <span className='flex gap-2'>
             {organization.information?.social?.map((link: string, index: number) => (
-              <OrganizationProfileCardIcons key={index} link={link} />
+              <OrganizationProfileCardInfoIcon key={index} link={link} />
             ))}
           </span>
         </OrganizationProfileCardInfo>
@@ -69,22 +75,22 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
           </AccordionTrigger>
           <AccordionContent className='flex flex-col gap-3'>
             <OrganizationProfileCardInfo title='organization.profile.legalInfo.fullName'>
-              {organization.information?.fullNameOfTheLegalEntity}
+              {organization.information.fullNameOfTheLegalEntity}
             </OrganizationProfileCardInfo>
             <OrganizationProfileCardInfo title='organization.profile.legalInfo.legalAddress'>
-              {organization.information?.legalAddress}
+              {organization.information.legalAddress}
             </OrganizationProfileCardInfo>
             <OrganizationProfileCardInfo title='organization.profile.legalInfo.postAddress'>
-              {organization.information?.postAggress}
+              {organization.information.postAggress}
             </OrganizationProfileCardInfo>
             <OrganizationProfileCardInfo title='organization.profile.legalInfo.inn'>
-              {organization.information?.inn}
+              {organization.information.inn}
             </OrganizationProfileCardInfo>
             <OrganizationProfileCardInfo title='organization.profile.legalInfo.kpp'>
-              {organization.information?.kpp}
+              {organization.information.kpp}
             </OrganizationProfileCardInfo>
             <OrganizationProfileCardInfo title='organization.profile.legalInfo.ogrn'>
-              {organization.information?.ogrn}
+              {organization.information.ogrn}
             </OrganizationProfileCardInfo>
           </AccordionContent>
         </AccordionItem>
@@ -97,13 +103,13 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
           </AccordionTrigger>
           <AccordionContent className='flex flex-col gap-3'>
             <OrganizationProfileCardInfo title='organization.profile.requisites.bank'>
-              {organization.requisites?.bank}
+              {organization.requisites.bank}
             </OrganizationProfileCardInfo>
             <OrganizationProfileCardInfo title='organization.profile.requisites.bik'>
-              {organization.requisites?.bik}
+              {organization.requisites.bik}
             </OrganizationProfileCardInfo>
             <OrganizationProfileCardInfo title='organization.profile.requisites.checkingAccount'>
-              {organization.requisites?.checkingAccount}
+              {organization.requisites.checkingAccount}
             </OrganizationProfileCardInfo>
           </AccordionContent>
         </AccordionItem>

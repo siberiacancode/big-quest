@@ -10,6 +10,7 @@ export * from './hover-card';
 export * from './info-card';
 export * from './input';
 export * from './label';
+export * from './organization-profile-card-info';
 export * from './passwordInput';
 export * from './separator';
 export * from './sonner';

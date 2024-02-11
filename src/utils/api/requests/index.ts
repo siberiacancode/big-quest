@@ -1,3 +1,3 @@
 export * from './auth/login';
 export * from './auth/refreshTokens';
-export * from './organization';
+export * from './organization/id';
