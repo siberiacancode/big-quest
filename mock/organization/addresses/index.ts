@@ -1,6 +1,6 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const organizationByIdConfig: RestRequestConfig = {
+export const organizationAddressesByIdConfig: RestRequestConfig = {
   path: '/organization/:id/addresses',
   method: 'get',
   routes: [
@@ -377,16 +377,7 @@ export const organizationByIdConfig: RestRequestConfig = {
           }
         ]
       },
-      entities: { params: { id: 1 } },
-      interceptors: {
-        response: (data, { request, setStatusCode }) => {
-          if (request.cookies.refreshToken && request.cookies.accessToken) {
-            return data;
-          }
-          setStatusCode(401);
-          return { message: 'Unauthorized' };
-        }
-      }
+      entities: { params: { id: 1 } }
     }
   ]
 };

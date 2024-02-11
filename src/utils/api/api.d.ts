@@ -89,6 +89,7 @@ interface OrganizationAddressDto {
   details?: string;
   workingHours: WorkingHourDto[];
 }
+
 interface RegisterOrganizationDto {
   organization: string;
   location: string;
@@ -112,7 +113,16 @@ interface AddressResponse {
   geo_lon: number;
   unrestrictedValue: string;
 }
-
+interface OrganizationAddressesResponse {
+  addresses: {
+    organizationId: string;
+    locality: string;
+    street: string;
+    house: string;
+    details?: string;
+    workingHours: WorkingHourDto[];
+  }[];
+}
 interface LoginEmailDto {
   email: string;
   password: string;

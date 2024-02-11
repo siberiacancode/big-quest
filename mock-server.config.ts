@@ -3,6 +3,7 @@ import type { MockServerConfig } from 'mock-config-server';
 import {
   dadataConfig,
   loginEmailConfig,
+  organizationAddressesByIdConfig,
   organizationRegisterConfig,
   refreshTokensConfig
 } from './mock';
@@ -16,7 +17,13 @@ const mockServerConfig: MockServerConfig = {
     credentials: true
   },
   rest: {
-    configs: [loginEmailConfig, refreshTokensConfig, organizationRegisterConfig, dadataConfig]
+    configs: [
+      loginEmailConfig,
+      refreshTokensConfig,
+      organizationRegisterConfig,
+      dadataConfig,
+      organizationAddressesByIdConfig
+    ]
   }
 };
 
