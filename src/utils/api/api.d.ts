@@ -75,39 +75,13 @@ type LegalType = 'PARTNER' | 'FRANCHISEE' | 'SPONSOR' | 'ORGANIZER';
 
 type Stage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
 
-interface WorkingTimeDto {
-  hour: number;
-  minutes: number;
-}
-
-interface WorkingHourDto {
-  day: number;
-  from: WorkingTimeDto;
-  to: WorkingTimeDto;
-  dayOff: boolean;
-}
-
-interface OrganizationInformationDto {
-  contactName: string;
-  phone: string;
-  email: string;
-  site: string;
-  city: string;
-  social: string[];
-  fullNameOfTheLegalEntity: string;
-  legalAddress: string;
-  postAggress: string;
-  inn: string;
-  kpp: string;
-  ogrn: string;
-}
-
-interface OrganizationAddressDto {
-  locality: string;
-  street: string;
-  house: string;
-  details?: string;
-  workingHours: WorkingHourDto[];
+interface LegalInformationDto {
+  fullNameOfTheLegalEntity?: string;
+  legalAddress?: string;
+  postAggress?: string;
+  inn?: string;
+  kpp?: string;
+  ogrn?: string;
 }
 
 interface RequisitesDto {
@@ -117,17 +91,19 @@ interface RequisitesDto {
 }
 
 interface OrganizationResponse {
+  contactName: string;
+  phone: number;
+  email?: string;
+  site?: string;
+  social?: string[];
+  background?: string;
+  avatar?: string;
+  locality?: string;
   id: string;
-  name: string;
-  logo: string;
-  background: string;
-  description: string;
-  inn: string;
-  information: OrganizationInformationDto;
-  addresses: Array<OrganizationAddressDto>;
-  requisites: RequisitesDto;
+  name?: string;
+  description?: string;
+  legalInfo?: LegalInformationDto;
+  requisites?: RequisitesDto;
   stage: Stage;
   type: LegalType;
-  createdAt: Date;
-  updatedAt: Date;
 }

@@ -24,7 +24,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
           <Image
             priority={false}
             className='h-20 w-20 rounded border-none'
-            src={organization.logo ?? logo}
+            src={organization.avatar ?? logo}
             alt='org-background'
           />
           <div className='flex flex-col justify-center'>

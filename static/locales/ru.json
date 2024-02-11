@@ -22,7 +22,7 @@
   "organization.profile.information.contactName": "Контактное имя",
   "organization.profile.information.phone": "Телефон",
   "organization.profile.information.email": "Сайт",
-  "organization.profile.information.city": "Населенный пункт",
+  "organization.profile.information.locality": "Населенный пункт",
   "organization.profile.information.social": "Соц. сети",
 
   "organization.profile.legalInfo.title": "Юр. информация",
