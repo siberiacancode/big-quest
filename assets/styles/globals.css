@@ -29,6 +29,7 @@
     /* custom colors */
     --gray-two: 0, 0%, 31%, 1;
     --placeholder: 0, 0%, 74%, 1;
+    --gray-light: 0, 0%, 90%, 1;
     --taiga-dark: 145 100% 10%;
     --taiga-light: 155 100% 17%;
   }
@@ -57,6 +58,7 @@
     /* custom colors */
     --gray-two: 0, 0%, 31%, 1;
     --placeholder: 0, 0%, 74%, 1;
+    --gray-light: 0, 0%, 18%, 1;
     --taiga-dark: 145, 100%, 10%;
     --taiga-light: 155, 100%, 17%;
   }

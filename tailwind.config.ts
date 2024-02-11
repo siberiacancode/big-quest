@@ -44,7 +44,8 @@ const config = {
           foreground: 'hsl(var(--primary-foreground))'
         },
         gray: {
-          two: 'hsl(var(--gray-two))'
+          two: 'hsl(var(--gray-two))',
+          light: 'hsl(var(--gray-light))'
         },
         taiga: { DEFAULT: 'hsl(var(--taiga-light))', foreground: 'hsl(var(--taiga-dark))' },
         secondary: {
