@@ -5,7 +5,7 @@ import { Button } from '@/components/ui';
 
 import { AddAddressDialog } from './components/AddAddressDialog/AddAddressDialog';
 import { AddressCard } from './components/AddressCard/AddressCard';
-import { addresses } from './components/constants/fakeData';
+import { addresses } from './constants/fakeData';
 
 const AddressesPage = () => (
   <>

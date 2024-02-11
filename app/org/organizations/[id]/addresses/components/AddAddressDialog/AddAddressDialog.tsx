@@ -12,8 +12,7 @@ import {
   DialogTrigger
 } from '@/components/ui';
 
-import { AddAddressForm } from '../AddAddressForm/AddAddressForm';
-
+import { AddAddressForm } from './components/AddAddressForm/AddAddressForm';
 import { useAddAddressDialog } from './hooks/useAddAddressDialog';
 
 interface AddAddressDialogProps {
