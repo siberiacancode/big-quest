@@ -31,22 +31,38 @@ interface OrganizationProfileCardSocialIconsProps extends React.ComponentPropsWi
   link: string;
 }
 
+export const getSocial = (link: string): 'vk' | 'unknown' => {
+  if (link.includes('vk.com')) return 'vk';
+  return 'unknown';
+};
+
+const UnknownSocialIcon = () => (
+  <span className='flex size-4 items-center justify-center rounded-full bg-muted-foreground p-[1px] hover:bg-foreground'>
+    <Link2Icon className='h-[10px] w-[10px] text-background' />
+  </span>
+);
+
+const SOCIAL_LINKS = {
+  vk: VkIcon,
+  unknown: UnknownSocialIcon
+};
+
 const OrganizationProfileCardInfoIcon = React.forwardRef<
   SVGSVGElement,
   OrganizationProfileCardSocialIconsProps
->(({ link, ...props }, ref) => (
-  <Link href={link}>
-    {link.includes('vk.com') && (
-      <VkIcon ref={ref} className='text-muted-foreground hover:text-foreground' {...props} />
-    )}
+>(({ link, ...props }, ref) => {
+  const SocialIcon = SOCIAL_LINKS[getSocial(link)];
 
-    {!link.includes('vk.com') && (
-      <span className=' flex h-4 w-4 items-center justify-center rounded-full bg-muted-foreground p-[1px] hover:bg-foreground'>
-        <Link2Icon className='h-[10px] w-[10px] text-background' />
-      </span>
-    )}
-  </Link>
-));
+  return (
+    <Link href={link}>
+      <SocialIcon
+        ref={ref}
+        className='size-4 text-muted-foreground hover:text-foreground'
+        {...props}
+      />
+    </Link>
+  );
+});
 
 export {
   OrganizationProfileCardInfo,

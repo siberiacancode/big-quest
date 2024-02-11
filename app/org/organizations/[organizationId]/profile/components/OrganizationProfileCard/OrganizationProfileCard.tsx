@@ -96,11 +96,9 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
             </OrganizationProfileCardInfoTitle>
             <OrganizationProfileCardInfoContent>
               <span className='flex gap-2'>
-                {['https://wa.me/me', 'https://t.me/me', 'https://vk.com/me'].map(
-                  (link: string, index: number) => (
-                    <OrganizationProfileCardInfoIcon key={index} link={link} />
-                  )
-                )}
+                {organization.information.social.map((link, index) => (
+                  <OrganizationProfileCardInfoIcon key={index} link={link} />
+                ))}
               </span>
             </OrganizationProfileCardInfoContent>
           </OrganizationProfileCardInfo>
@@ -108,7 +106,7 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
       </div>
       <Separator className='mt-4' />
       <Accordion type='single' collapsible>
-        <AccordionItem value='item-1' className='border-none'>
+        <AccordionItem value='organization.information' className='border-none'>
           <AccordionTrigger className='text-md font-bold'>
             <I18nText path='organization.profile.legalInfo.title' />
           </AccordionTrigger>
