@@ -8,14 +8,6 @@ export const ORGANIZATION_PROFILE_TAB_VALUES = {
   SCHEDULE: 'schedule'
 };
 
-export const INFORMATION_OPTIONS = {
-  PROFILE: 'organization.profile.information.name',
-  ADDRESSES: 'organization.profile.information.profile',
-  EMPLOYEES: 'employees',
-  ACTIVITIES: 'activities',
-  SCHEDULE: 'schedule'
-};
-
 export const SPONSOR_PROFILE_TABS = [
   {
     icon: <UserIcon />,

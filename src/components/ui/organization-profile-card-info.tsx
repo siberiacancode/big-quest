@@ -1,10 +1,14 @@
 import React from 'react';
+import { Link2Icon } from '@radix-ui/react-icons';
+import Link from 'next/link';
 
-import { TelegramIcon, VkIcon, WhatsappIcon } from '@/components/icons/organization';
+import { VkIcon } from '@/assets/icons/organization';
 import { cn } from '@/lib/utils';
 
 const OrganizationProfileCardInfo = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
-  ({ className, ...props }, ref) => <div ref={ref} className={cn('flex', className)} {...props} />
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn('flex items-center ', className)} {...props} />
+  )
 );
 OrganizationProfileCardInfo.displayName = 'OrganizationProfileCardInfo';
 
@@ -31,15 +35,15 @@ const OrganizationProfileCardInfoIcon = React.forwardRef<
   SVGSVGElement,
   OrganizationProfileCardSocialIconsProps
 >(({ link, ...props }, ref) => (
-  <>
+  <Link href={link}>
     {link.includes('vk.com') && <VkIcon ref={ref} className='text-muted-foreground' {...props} />}
-    {link.includes('t.me') && (
-      <TelegramIcon ref={ref} className='text-muted-foreground' {...props} />
+
+    {!link.includes('vk.com') && (
+      <span className=' flex h-4 w-4 items-center justify-center rounded-full bg-muted-foreground p-[1px]'>
+        <Link2Icon className='h-[10px] w-[10px] text-background' />
+      </span>
     )}
-    {link.includes('wa.') && (
-      <WhatsappIcon ref={ref} className='text-muted-foreground' {...props} />
-    )}
-  </>
+  </Link>
 ));
 
 export {

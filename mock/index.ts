@@ -1,2 +1,2 @@
 export * from './auth';
-export * from './organization';
+export * from './organization/id';

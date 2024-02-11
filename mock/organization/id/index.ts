@@ -50,6 +50,7 @@ export const organizationByIdConfig: RestRequestConfig = {
           if (request.cookies.refreshToken && request.cookies.accessToken) {
             return data;
           }
+
           setStatusCode(401);
           return { message: 'Unauthorized' };
         }
