@@ -38,7 +38,7 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
     <InfoCardContent className='flex w-full flex-col px-7'>
       <p className='text-xs font-medium text-muted-foreground'>{organization.description}</p>
       <Separator className='my-5' />
-      <div className='flex flex-col gap-3'>
+      <div className='flex flex-col gap-3 text-sm'>
         {organization.name && (
           <OrganizationProfileCardInfo>
             <OrganizationProfileCardInfoTitle>

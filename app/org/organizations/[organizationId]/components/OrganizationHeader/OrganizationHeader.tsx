@@ -16,7 +16,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
       <Image
         priority={false}
         className='h-[168px] w-full rounded-lg'
-        src={organization.background ?? background}
+        src={organization.background || background}
         alt='org-background'
       />
       <div className='absolute bottom-0 mx-4 mt-auto h-36 w-[96%] rounded-lg border-none bg-background/70 pb-4 pl-4 pr-4 pt-3 shadow-sm backdrop-blur-lg'>
@@ -24,7 +24,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
           <Image
             priority={false}
             className='h-20 w-20 rounded border-none'
-            src={organization.avatar ?? logo}
+            src={organization.avatar || logo}
             alt='org-background'
           />
           <div className='flex flex-col justify-center'>
