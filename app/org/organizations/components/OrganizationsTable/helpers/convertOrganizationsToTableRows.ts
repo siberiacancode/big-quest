@@ -11,7 +11,7 @@ export interface OrganizationsTableRow {
 export const convertOrganizationsToTableRows = (
   organizations: OrganizationResponse[]
 ): OrganizationsTableRow[] =>
-  organizations?.map((organization) => ({
+  organizations.map((organization) => ({
     id: organization.id,
     daysAmount: '-',
     location: organization?.information?.city ?? '-',

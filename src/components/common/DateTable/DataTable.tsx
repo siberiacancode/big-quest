@@ -11,22 +11,22 @@ import { DataTablePagination } from './components/DataTablePagination/DataTableP
 import { DataTableToolbar } from './components/DataTableToolbar/DataTableToolbar';
 import { useDataTable } from './hooks/useDataTable';
 
-interface DataTableProps<TData> {
-  data: TData[];
+interface DataTableProps<Data> {
+  rows: Data[];
   pagination: PaginationResponse;
-  columns: ColumnDef<TData>[];
-  toolbar: (table: Table<TData>) => React.ReactNode[];
+  columns: ColumnDef<Data>[];
+  toolbar: (table: Table<Data>) => React.ReactNode[];
   onPaginationButtonClick: (page: number) => void;
 }
 
-export const DataTable = <TData,>({
-  data,
+export const DataTable = <Data,>({
+  rows,
   pagination,
   columns,
   toolbar,
   onPaginationButtonClick
-}: DataTableProps<TData>) => {
-  const table = useDataTable(data, columns);
+}: DataTableProps<Data>) => {
+  const table = useDataTable(rows, columns);
 
   return (
     <div className='mt-10 w-full rounded-md bg-background p-4'>
@@ -38,15 +38,17 @@ export const DataTable = <TData,>({
         </TableComponent>
       </div>
       {!!pagination.count && (
-        <div className='flex items-center justify-between mdx:flex-col'>
+        <div className='mt-8 flex items-center justify-between mdx:flex-col'>
           <div className='text-sm text-muted-foreground mdx:pt-2'>
             {table.getFilteredSelectedRowModel().rows.length} <I18nText path='pagination.from' />{' '}
             {pagination.count} <I18nText path='pagination.selected' />
           </div>
-          <DataTablePagination
-            onPaginationButtonClick={onPaginationButtonClick}
-            pagination={pagination}
-          />
+          <div>
+            <DataTablePagination
+              onPaginationButtonClick={onPaginationButtonClick}
+              pagination={pagination}
+            />
+          </div>
         </div>
       )}
     </div>

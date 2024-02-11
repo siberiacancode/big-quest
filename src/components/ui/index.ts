@@ -7,6 +7,7 @@ export * from './checkbox';
 export * from './collapsible';
 export * from './combobox';
 export * from './command';
+export * from './data-table';
 export * from './dialog';
 export * from './dropdown-menu';
 export * from './form';
