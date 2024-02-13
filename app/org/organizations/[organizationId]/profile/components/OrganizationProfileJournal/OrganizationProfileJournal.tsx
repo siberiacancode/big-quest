@@ -11,7 +11,8 @@ import {
   Timeline,
   TimelineContent,
   TimelineItem,
-  TimelineTitle
+  TimelineTitle,
+  Typography
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
@@ -22,15 +23,17 @@ export const OrganizationProfileJournal = () => {
     <Card className='flex w-full flex-col p-4  '>
       <div className='flex items-end'>
         <Textarea
-          className='h-24 w-full px-3 py-4'
+          className='h-24 w-full border  border-secondary px-3 py-4'
           placeholder={intl.formatMessage({ id: 'field.note.placeholder' })}
         />
         <Button variant='secondary' className='ml-3 mr-1 h-8 w-8 p-2'>
           <SendHorizonalIcon />
         </Button>
       </div>
-      <CardTitle className='mt-5 text-lg font-bold'>
-        <I18nText path='organization.profile.journal.title' />
+      <CardTitle className='mt-5'>
+        <Typography variant='h5' tag='p'>
+          <I18nText path='organization.profile.journal.title' />
+        </Typography>
       </CardTitle>
       <Timeline>
         {Array(3)
