@@ -1,5 +1,5 @@
 import { I18nText } from '@/components/common';
-import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui';
+import { AccordionContent, AccordionItem, AccordionTrigger, Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 import { OpenedNavigationSubLink } from './OpenedNavigationSubLink';
@@ -26,14 +26,18 @@ export const OpenedNavigationNestedLink = ({
       <div className={cn('flex items-center justify-between')}>
         <div className='flex gap-3'>
           {link.icon}
-          <I18nText path={link.text} />
+          <Typography variant='sub1' tag='p'>
+            <I18nText path={link.text} />
+          </Typography>
         </div>
       </div>
     </AccordionTrigger>
     <AccordionContent className='flex flex-col items-center gap-3'>
       {link.subLinks?.map((subLink, index) => (
         <OpenedNavigationSubLink key={index} link={subLink} isActive={pathname === subLink.href}>
-          <I18nText path={subLink.text} />
+          <Typography variant='sub1' tag='p'>
+            <I18nText path={subLink.text} />
+          </Typography>
         </OpenedNavigationSubLink>
       ))}
     </AccordionContent>

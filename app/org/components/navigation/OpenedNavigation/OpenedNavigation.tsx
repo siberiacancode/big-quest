@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { I18nText } from '@/components/common';
-import { Accordion } from '@/components/ui';
+import { Accordion, Typography } from '@/components/ui';
 
 import { NavigationSingleLink } from '../NavigationSingleLink/NavigationSingleLink';
 
@@ -28,7 +28,9 @@ export const OpenedNavigation = ({ links, pathname }: OpenedSidebarNavigationPro
             <div className='flex'>
               <NavigationSingleLink isActive={pathname === link.href} link={link}>
                 {link.icon}
-                <I18nText path={link.text} />
+                <Typography variant='sub1' tag='p'>
+                  <I18nText path={link.text} />
+                </Typography>
               </NavigationSingleLink>
             </div>
           )}
