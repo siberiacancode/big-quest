@@ -9,6 +9,9 @@ interface OrganizationProfilePageProps {
 }
 
 const OrganizationProfilePage = async ({ params }: OrganizationProfilePageProps) => {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 100000);
+  });
   const organization = await getOrganizationById({
     params: { id: params.organizationId }
   });

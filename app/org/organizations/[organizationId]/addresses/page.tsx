@@ -13,7 +13,7 @@ interface OrganizationAddressesPageProps {
 
 const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
   await new Promise((resolve) => {
-    setTimeout(resolve, 200000);
+    setTimeout(resolve, 100000);
   });
   const organizationAddresses = await getOrganizationAddressesById({
     params: { id: params.organizationId }
