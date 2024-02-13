@@ -26,15 +26,20 @@ export const TablePagination = () => {
         >
           01
         </Button>
-        <Typography variant='sub2' tag='p'>
-          {pageIndex > 3 && <span className='mx-1'>...</span>}
-        </Typography>
+        {pageIndex > 3 && (
+          <Typography variant='sub2' tag='p' className='mx-1'>
+            ...
+          </Typography>
+        )}
+
         {/* {renderPageButtons({ table })} */}
         {pageIndex < pageCount - 3 && (
           <>
-            <Typography variant='sub2' tag='p'>
-              {pageIndex < pageCount - 4 && <span className='mx-1'>...</span>}
-            </Typography>
+            {pageIndex < pageCount - 4 && (
+              <Typography variant='sub2' tag='p' className='mx-1'>
+                ...
+              </Typography>
+            )}
             <Button
               variant='outline'
               size='sm'
@@ -45,7 +50,6 @@ export const TablePagination = () => {
             </Button>
           </>
         )}
-
         <Button variant='outline' size='sm' disabled={false} className='border-none'>
           <ChevronRightIcon className='h-6 w-6 stroke-2 font-normal' />
         </Button>

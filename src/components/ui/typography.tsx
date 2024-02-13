@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 const typographyVariants = cva('text-foreground', {
   variants: {
     variant: {
-      default: '',
       h1: 'leading-10 font-medium text-[32px]',
       h2: 'leading-10 font-bold text-3xl',
       h3: 'leading-[31px] font-medium text-2xl',
@@ -26,7 +25,7 @@ const typographyVariants = cva('text-foreground', {
     }
   },
   defaultVariants: {
-    variant: 'default'
+    variant: 'sub1'
   }
 });
 
