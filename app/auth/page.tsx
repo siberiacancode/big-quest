@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import AuthImage from '@/assets/images/auth.webp';
 import { I18nText, Logo } from '@/components/common';
+import { Typography } from '@/components/ui';
 
 import { LoginForm } from './components/LoginForm/LoginForm';
 
@@ -13,24 +14,24 @@ const AuthPage = () => (
           <Logo className='fill-taiga' />
         </div>
         <div>
-          <h3 className='my-[30px] text-center text-4xl font-bold xlx:text-2xl'>
+          <Typography variant='h2' tag='h2' className='my-[30px] text-center text-4xl xlx:text-2xl'>
             <I18nText path='org.auth.title' />
-          </h3>
+          </Typography>
           <LoginForm />
         </div>
       </div>
       <Image src={AuthImage} alt='auth image' className='w-[36rem] xlx:block xlx:w-96 mdx:hidden' />
     </div>
-    <footer className='m-3 flex flex-wrap justify-center divide-x divide-solid divide-gray-700 text-xs *:px-1 mdx:divide-x-0'>
-      <span>
+    <footer className='m-3 flex flex-wrap justify-center divide-x divide-solid divide-gray-700 *:px-1 mdx:divide-x-0'>
+      <Typography variant='body3' className='text-foreground'>
         Copyright © {new Date().getFullYear()} <I18nText path='app.title' />
-      </span>
-      <span className='text-muted-foreground underline'>
+      </Typography>
+      <Typography variant='body3' className='underline'>
         <I18nText path='org.auth.footer.siteRules' />
-      </span>
-      <span className='text-muted-foreground underline'>
+      </Typography>
+      <Typography variant='body3' className='underline'>
         <I18nText path='org.auth.footer.privacyPolicy' />
-      </span>
+      </Typography>
     </footer>
   </div>
 );

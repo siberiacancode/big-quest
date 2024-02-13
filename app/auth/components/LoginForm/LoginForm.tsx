@@ -11,7 +11,8 @@ import {
   FormLabel,
   FormMessage,
   Input,
-  PasswordInput
+  PasswordInput,
+  Typography
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
@@ -71,9 +72,9 @@ export const LoginForm = () => {
         <div className='flex flex-col space-y-6'>
           <div className='mt-3 flex items-center'>
             <Checkbox />
-            <span className='px-2 text-xs text-muted-foreground'>
+            <Typography variant='body3' tag='p' className='px-2'>
               <I18nText path='org.auth.rememberMe' />
-            </span>
+            </Typography>
           </div>
           <Button
             type='submit'
