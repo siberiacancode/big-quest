@@ -25,7 +25,7 @@ interface OrganizationsTableProps {
 }
 
 export const OrganizationsTable = ({ organizations, pagination }: OrganizationsTableProps) => {
-  const rows = React.useMemo(() => convertOrganizationsToTableRows(organizations), []);
+  const rows = React.useMemo(() => convertOrganizationsToTableRows(organizations), [organizations]);
   const table = useDataTable(rows, columns);
   const { state, functions } = useOrganizationsTable();
 

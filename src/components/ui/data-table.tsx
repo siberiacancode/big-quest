@@ -27,6 +27,7 @@ import {
 import { useSearchParams } from '@/utils/hooks';
 
 import { I18nText } from '../common';
+import { getPageCount } from '../common/DateTable/components/DataTablePagination/helpers/getPageCount';
 import { getPageIndex } from '../common/DateTable/components/DataTablePagination/helpers/getPageIndex';
 import { getPaginationNumbers } from '../common/DateTable/components/DataTablePagination/helpers/getPaginationNumbers';
 
@@ -217,7 +218,7 @@ export interface DataTableToolbarProps<TData> extends React.ComponentProps<'div'
 }
 
 export const DataTableToolbar = React.forwardRef<HTMLDivElement, DataTableToolbarProps<any>>(
-  <Data,>({ toolbar, ...props }: DataTableToolbarProps<Data>, ref) => {
+  <TData,>({ toolbar, ...props }: DataTableToolbarProps<TData>, ref) => {
     const dataTableContext = React.useContext(DataTableContext);
     const toolbarItems = toolbar(dataTableContext.table);
 
@@ -259,7 +260,13 @@ export const DataTablePagination = ({
   <div>
     <Pagination {...props}>
       <PaginationContent>
-        <PaginationPrevious href='#' onClick={() => onClick(current - 1)} />
+        <PaginationPrevious
+          variant='outline'
+          size='icon'
+          disabled={current + 1 >= getPageCount(limit, count)}
+          onClick={() => onClick(current - 1)}
+          className='mr-3 size-8 border-none'
+        />
 
         {getPaginationNumbers({ current, count, limit }).map((page) => (
           <PaginationItem>
@@ -278,7 +285,13 @@ export const DataTablePagination = ({
           </PaginationItem>
         ))}
 
-        <PaginationNext href='#' onClick={() => onClick(current + 1)} />
+        <PaginationNext
+          variant='outline'
+          size='icon'
+          disabled={current + 1 >= getPageCount(limit, count)}
+          onClick={() => onClick(current + 1)}
+          className='ml-3 size-8 border-none'
+        />
       </PaginationContent>
     </Pagination>
   </div>

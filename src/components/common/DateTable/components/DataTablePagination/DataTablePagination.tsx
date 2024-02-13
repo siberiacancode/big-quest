@@ -23,7 +23,7 @@ export const DataTablePagination = ({
   <Pagination>
     <PaginationContent>
       <PaginationItem>
-        <PaginationPrevious href='#' onClick={() => onPaginationButtonClick(current - 1)} />
+        <PaginationPrevious onClick={() => onPaginationButtonClick(current - 1)} />
       </PaginationItem>
       {getPaginationNumbers({ current, count, limit }).map((page) => (
         <PaginationItem>
@@ -42,7 +42,7 @@ export const DataTablePagination = ({
         </PaginationItem>
       ))}
       <PaginationItem>
-        <PaginationNext href='#' onClick={() => onPaginationButtonClick(current + 1)} />
+        <PaginationNext onClick={() => onPaginationButtonClick(current + 1)} />
       </PaginationItem>
     </PaginationContent>
   </Pagination>
