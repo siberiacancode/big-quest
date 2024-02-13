@@ -1,6 +1,7 @@
 import { Edit3Icon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
+import { Typography } from '@/components/ui';
 import { Card, CardContent } from '@/components/ui/card';
 
 import { WorkingHoursList } from './components/WorkingHoursList/WorkingHoursList';
@@ -19,40 +20,48 @@ export const AddressCard = ({
       </div>
       <div className='mt-6 flex flex-1 flex-col space-y-3'>
         <div className='flex justify-between'>
-          <h3 className='flex-1 text-sm font-bold'>
+          <Typography variant='sub2' tag='h3' className='flex-1'>
             <I18nText path='table.column.location' />
-          </h3>
-          <span className='flex-1 text-sm'>{locality}</span>
+          </Typography>
+          <Typography variant='body2' tag='p' className='flex-1'>
+            {locality}
+          </Typography>
         </div>
 
         <div className='flex justify-between'>
-          <h3 className='flex-1 text-sm font-bold'>
+          <Typography variant='sub2' tag='h3' className='flex-1'>
             <I18nText path='field.street.label' />
-          </h3>
-          <span className='flex-1 text-sm'>{street}</span>
+          </Typography>
+          <Typography variant='body2' tag='p' className='flex-1'>
+            {street}
+          </Typography>
         </div>
 
         <div className='flex justify-between'>
-          <h3 className='flex-1 text-sm font-bold'>
+          <Typography variant='sub2' tag='h3' className='flex-1'>
             <I18nText path='field.house.label' />
-          </h3>
-          <span className='flex-1 text-sm'>{house}</span>
+          </Typography>
+          <Typography variant='body2' tag='p' className='flex-1'>
+            {house}
+          </Typography>
         </div>
 
         <div className='flex justify-between'>
-          <h3 className='flex-1 text-sm font-bold'>
+          <Typography variant='sub2' tag='h3' className='flex-1'>
             <I18nText path='field.details.label' />
-          </h3>
-          <span className='flex-1 text-sm'>{details}</span>
+          </Typography>
+          <Typography variant='body2' tag='p' className='flex-1'>
+            {details}
+          </Typography>
         </div>
 
         <div className='flex justify-between'>
-          <h3 className='flex-1 text-sm font-bold'>
+          <Typography variant='sub2' tag='h3' className='flex-1'>
             <I18nText path='addressCard.description.workingTime' />
-          </h3>
-          <span className='flex-1 text-sm'>
+          </Typography>
+          <Typography variant='body2' className='flex-1'>
             <WorkingHoursList workingHours={workingHours} />
-          </span>
+          </Typography>
         </div>
       </div>
     </CardContent>
