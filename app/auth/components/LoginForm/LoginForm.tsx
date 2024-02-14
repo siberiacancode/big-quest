@@ -11,8 +11,7 @@ import {
   FormLabel,
   FormMessage,
   Input,
-  PasswordInput,
-  Typography
+  PasswordInput
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
@@ -35,6 +34,7 @@ export const LoginForm = () => {
               </FormLabel>
               <FormControl>
                 <Input
+                  disabled={state.isLoading}
                   placeholder={i18n.formatMessage({ id: 'field.email.placeholder' })}
                   {...field}
                 />
@@ -57,8 +57,9 @@ export const LoginForm = () => {
               </FormLabel>
               <FormControl>
                 <PasswordInput
-                  {...field}
+                  disabled={state.isLoading}
                   placeholder={i18n.formatMessage({ id: 'field.password.placeholder' })}
+                  {...field}
                 />
               </FormControl>
               <FormMessage>
@@ -71,10 +72,20 @@ export const LoginForm = () => {
         />
         <div className='flex flex-col space-y-6'>
           <div className='mt-3 flex items-center'>
-            <Checkbox />
-            <Typography variant='body3' tag='p' className='px-2'>
+            <FormField
+              control={form.control}
+              name='password'
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Checkbox disabled={state.isLoading} {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <span className='px-2 text-xs text-muted-foreground'>
               <I18nText path='org.auth.rememberMe' />
-            </Typography>
+            </span>
           </div>
           <Button
             type='submit'
