@@ -2,8 +2,7 @@ import type { ColumnDef } from '@tanstack/react-table';
 import { Edit3Icon } from 'lucide-react';
 import Link from 'next/link';
 
-import { generateDataTableColumn } from '@/components/common';
-import { buttonVariants, Checkbox } from '@/components/ui';
+import { buttonVariants, Checkbox, generateDataTableColumn } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { ROUTES } from '@/utils/constants';
 

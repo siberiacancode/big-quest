@@ -2,9 +2,9 @@ import React from 'react';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 import { useDebounceCallback } from 'usehooks-ts';
 
-import { DataTableFacetedFilter, I18nText } from '@/components/common';
+import { I18nText } from '@/components/common';
 import { RegisterOrganizationDialog } from '@/components/dialogs';
-import { Button, Input } from '@/components/ui';
+import { Button, DataTableFacetedFilter, Input } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 import { useSearchParams } from '@/utils/hooks';
 

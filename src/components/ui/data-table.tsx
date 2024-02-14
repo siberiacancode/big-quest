@@ -2,8 +2,21 @@
 
 import React from 'react';
 import { CaretSortIcon, PlusCircledIcon } from '@radix-ui/react-icons';
-import type { ColumnDef, Table } from '@tanstack/react-table';
-import { flexRender } from '@tanstack/react-table';
+import type {
+  ColumnDef,
+  ColumnFiltersState,
+  SortingState,
+  Table,
+  VisibilityState
+} from '@tanstack/react-table';
+import {
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable
+} from '@tanstack/react-table';
 
 import type { MultiComboboxProps } from '@/components/ui';
 import {
@@ -27,9 +40,6 @@ import {
 import { useSearchParams } from '@/utils/hooks';
 
 import { I18nText } from '../common';
-import { getPageCount } from '../common/DateTable/components/DataTablePagination/helpers/getPageCount';
-import { getPageIndex } from '../common/DateTable/components/DataTablePagination/helpers/getPageIndex';
-import { getPaginationNumbers } from '../common/DateTable/components/DataTablePagination/helpers/getPaginationNumbers';
 
 type DataTableContextValue<TData = any> = {
   rows: TData;
@@ -39,6 +49,54 @@ type DataTableContextValue<TData = any> = {
 };
 
 const DataTableContext = React.createContext<DataTableContextValue>({} as DataTableContextValue);
+
+export const getPageCount = (limit: number, count: number) => Math.ceil(count / limit);
+export const getPageIndex = (current: number) => (current < 10 ? `0${current}` : current);
+export const getPaginationNumbers = ({
+  current,
+  count,
+  limit
+}: PaginationResponse): (number | '...')[] => {
+  const maxButtons = 5;
+  const pageCount = getPageCount(limit, count);
+  const numbers: (number | '...')[] = [];
+
+  if (pageCount <= maxButtons) {
+    // eslint-disable-next-line no-plusplus
+    for (let i = 1; i <= pageCount; i++) {
+      numbers.push(i);
+    }
+  } else {
+    const leftOffset = Math.floor(maxButtons / 2);
+    let start = current - leftOffset;
+    let end = current + leftOffset;
+
+    if (start < 1) {
+      start = 1;
+      end = maxButtons;
+    } else if (end > pageCount) {
+      end = pageCount;
+      start = pageCount - maxButtons + 1;
+    }
+
+    if (start > 1) {
+      numbers.push(1);
+      if (start > 2) numbers.push('...');
+    }
+
+    // eslint-disable-next-line no-plusplus
+    for (let i = start; i <= end; i++) {
+      numbers.push(i);
+    }
+
+    if (end < pageCount) {
+      if (end < pageCount - 1) numbers.push('...');
+      numbers.push(pageCount);
+    }
+  }
+
+  return numbers;
+};
 
 interface DataTableProps<TData> extends React.ComponentProps<'div'> {
   children: React.ReactNode;
@@ -314,3 +372,65 @@ export const DataTableSelectedLabel = React.forwardRef<HTMLDivElement, DataTable
   }
 );
 DataTableSelectedLabel.displayName = 'DataTableSelectedLabel';
+
+export interface ColumnConfig<TData> {
+  accessorKey: keyof TData;
+  sortable?: boolean;
+  headerLabel: LocaleMessageId;
+  translateValue?: boolean;
+}
+
+export const generateDataTableColumn = <TData,>({
+  accessorKey,
+  headerLabel,
+  sortable = false,
+  translateValue = false
+}: ColumnConfig<TData>): ColumnDef<TData> => ({
+  accessorKey,
+  header: () => (
+    <DataTableColumnHeader
+      columnName={String(accessorKey)}
+      headerLabel={headerLabel}
+      sortable={sortable}
+    >
+      <I18nText path={headerLabel} />
+      <CaretSortIcon className='ml-2 h-4 w-4' />
+    </DataTableColumnHeader>
+  ),
+  cell: ({ row }) => (
+    <div className='px-4 text-left font-medium'>
+      {translateValue && <I18nText path={row.getValue(String(accessorKey)) as LocaleMessageId} />}
+      {!translateValue && row.getValue(String(accessorKey))}
+    </div>
+  ),
+  enableSorting: sortable,
+  enableHiding: true
+});
+
+export const useDataTable = <TData,>(initialData: TData[], columns: ColumnDef<TData>[]) => {
+  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
+  const [rowSelection, setRowSelection] = React.useState({});
+
+  const table = useReactTable({
+    data: initialData,
+    columns,
+    onSortingChange: setSorting,
+    onColumnFiltersChange: setColumnFilters,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    onColumnVisibilityChange: setColumnVisibility,
+    onRowSelectionChange: setRowSelection,
+    state: {
+      sorting,
+      columnFilters,
+      columnVisibility,
+      rowSelection
+    }
+  });
+
+  return table;
+};

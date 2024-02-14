@@ -3,7 +3,6 @@
 import React from 'react';
 
 import { I18nText } from '@/components/common';
-import { useDataTable } from '@/components/common/DateTable/hooks/useDataTable';
 import {
   DataTable,
   DataTableBody,
@@ -12,7 +11,8 @@ import {
   DataTableHeader,
   DataTablePagination,
   DataTableSelectedLabel,
-  DataTableToolbar
+  DataTableToolbar,
+  useDataTable
 } from '@/components/ui';
 
 import { columns } from './constants/columns';
