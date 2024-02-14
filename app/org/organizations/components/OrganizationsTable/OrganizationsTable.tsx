@@ -45,7 +45,7 @@ export const OrganizationsTable = ({ organizations, pagination }: OrganizationsT
             </>
           )}
         </DataTableSelectedLabel>
-        <DataTablePagination pagination={pagination} onClick={functions.onPaginationButtonClick} />
+        <DataTablePagination pagination={pagination} onClick={functions.onPaginationClick} />
       </DataTableBottomContent>
     </DataTable>
   );

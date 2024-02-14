@@ -22,7 +22,7 @@ export const useOrganizationsTable = () => {
     searchParams.getAll('stage')
   );
 
-  const onPaginationButtonClick = (page: number) => setSearchParam('current', String(page));
+  const onPaginationClick = (page: number) => setSearchParam('current', String(page));
 
   const onOrganizationFilterChange = useDebounceCallback(
     (value: string) =>
@@ -103,6 +103,6 @@ export const useOrganizationsTable = () => {
 
   return {
     state: { toolbar },
-    functions: { onPaginationButtonClick }
+    functions: { onPaginationClick }
   };
 };
