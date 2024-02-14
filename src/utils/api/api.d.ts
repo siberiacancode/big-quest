@@ -1,5 +1,3 @@
-type UserRole = 'organizer' | 'partner';
-
 interface MutationSettings<Params = void, Func = unknown> {
   config?: ApiRequestConfig;
   options?: import('@tanstack/react-query').UseMutationOptions<
@@ -69,4 +67,101 @@ type RequestParams<Params = undefined> = Params extends undefined
 
 interface BaseResponse {
   message: string;
+}
+
+type LegalType = 'PARTNER' | 'FRANCHISEE' | 'SPONSOR' | 'ORGANIZER';
+
+type Stage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
+
+type UserRole = 'organizer' | 'partner';
+
+interface LegalInformationDto {
+  fullNameOfTheLegalEntity?: string;
+  legalAddress?: string;
+  postAggress?: string;
+  inn?: string;
+  kpp?: string;
+  ogrn?: string;
+}
+
+interface RequisitesDto {
+  bank: string;
+  bik: string;
+  checkingAccount: string;
+}
+
+interface OrganizationResponse {
+  contactName: string;
+  phone: number;
+  email?: string;
+  site?: string;
+  social?: string[];
+  background?: string;
+  avatar?: string;
+  locality?: string;
+  id: string;
+  name?: string;
+  description?: string;
+  legalInfo?: LegalInformationDto;
+  requisites?: RequisitesDto;
+  stage: Stage;
+  type: LegalType;
+}
+
+interface WorkingTimeDto {
+  hour: number;
+  minutes: number;
+}
+
+interface WorkingHourDto {
+  day: number;
+  from: WorkingTimeDto;
+  to: WorkingTimeDto;
+  dayOff: boolean;
+}
+
+interface OrganizationAddressDto {
+  organizationId: string;
+  locality: string;
+  street: string;
+  house: string;
+  details?: string;
+  workingHours: WorkingHourDto[];
+}
+
+interface RegisterOrganizationDto {
+  organization: string;
+  location: string;
+  type: LegalType;
+  contactName: string;
+  phone: string;
+}
+
+interface AddressResponse {
+  country: string;
+  region: string;
+  city: string;
+  postal_code: string;
+  street: string;
+  house: string;
+  flat: number;
+  geo_lat: number;
+  geo_lon: number;
+  unrestrictedValue: string;
+}
+
+interface OrganizationAddressesResponse {
+  addresses: {
+    organizationId: string;
+    locality: string;
+    street: string;
+    house: string;
+    details?: string;
+    workingHours: WorkingHourDto[];
+  }[];
+}
+
+interface LoginEmailDto {
+  email: string;
+  password: string;
 }

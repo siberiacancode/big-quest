@@ -2,8 +2,6 @@ import { AlertCircleIcon, HeartHandshakeIcon, TrendingUpIcon } from 'lucide-reac
 
 import { I18nText } from '@/components/common';
 import {
-  BreadcrumbItem,
-  Breadcrumbs,
   InfoCard,
   InfoCardAction,
   InfoCardContent,
@@ -13,21 +11,15 @@ import {
   InfoCardItemTitle,
   InfoCardTitle
 } from '@/components/ui';
-import { ROUTES } from '@/utils/constants';
+
+import { OrgBreadcrumbs } from '../components/OrgBreadcrumbs/OrgBreadcrumbs';
 
 import { data } from './components/DataTable/constants/data';
 import { DataTable } from './components/DataTable/DataTable';
 
 const OrganizationsPage = () => (
   <div className='bg-secondary px-4'>
-    <Breadcrumbs>
-      <BreadcrumbItem href={ROUTES.ORG.ROOT}>
-        <I18nText path='navigation.link.main' />
-      </BreadcrumbItem>
-      <BreadcrumbItem>
-        <I18nText path='navigation.link.organizations' />
-      </BreadcrumbItem>
-    </Breadcrumbs>
+    <OrgBreadcrumbs />
     <div className='flex flex-wrap gap-2'>
       <InfoCard>
         <InfoCardHeader>

@@ -8,5 +8,8 @@ export const ROUTES = {
       PARTICIPANTS: '/org/lids/participants',
       ORGANIZATIONS: '/org/lids/organizations'
     }
+  },
+  LANDING: {
+    ROOT: '/landing'
   }
 };

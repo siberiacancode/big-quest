@@ -1,6 +1,6 @@
 import type { MockServerConfig } from 'mock-config-server';
 
-import { loginEmailConfig, refreshTokensConfig } from './mock';
+import * as requests from './mock';
 
 const mockServerConfig: MockServerConfig = {
   baseUrl: '/api/1.0',
@@ -11,7 +11,7 @@ const mockServerConfig: MockServerConfig = {
     credentials: true
   },
   rest: {
-    configs: [loginEmailConfig, refreshTokensConfig]
+    configs: Object.values(requests)
   }
 };
 
