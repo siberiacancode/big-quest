@@ -37,6 +37,7 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui';
+import { cn } from '@/lib/utils';
 import { useSearchParams } from '@/utils/hooks';
 
 import { I18nText } from '../common';
@@ -44,7 +45,7 @@ import { I18nText } from '../common';
 type DataTableContextValue<TData = any> = {
   rows: TData;
   table: Table<TData>;
-
+  isPending: boolean;
   columns: ColumnDef<TData>[];
 };
 
@@ -103,6 +104,7 @@ interface DataTableProps<TData> extends React.ComponentProps<'div'> {
   rows: TData;
   table: Table<TData>;
   columns: ColumnDef<TData>[];
+  isPending: boolean;
 }
 
 export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any>>(
@@ -111,12 +113,18 @@ export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any>>(
       () => ({
         columns: props.columns,
         rows: props.rows,
-        table: props.table
+        table: props.table,
+        isPending: props.isPending
       }),
       []
     );
+
     return (
-      <div className='mt-10 w-full rounded-md bg-background p-4' ref={ref} {...props}>
+      <div
+        className={cn('mt-10 w-full rounded-md bg-background p-4', props.isPending && 'opacity-60')}
+        ref={ref}
+        {...props}
+      >
         <DataTableContext.Provider value={value}>{children}</DataTableContext.Provider>
       </div>
     );
@@ -314,46 +322,47 @@ export const DataTablePagination = ({
   pagination: { count, current, limit },
   onClick,
   ...props
-}: DataTablePaginationProps) => (
-  <div>
-    <Pagination {...props}>
-      <PaginationContent>
-        <PaginationPrevious
-          variant='outline'
-          size='icon'
-          disabled={current + 1 >= getPageCount(limit, count)}
-          onClick={() => onClick(current - 1)}
-          className='mr-3 size-8 border-none'
-        />
+}: DataTablePaginationProps) =>
+  getPageCount(limit, count) > 1 && (
+    <div>
+      <Pagination {...props}>
+        <PaginationContent>
+          <PaginationPrevious
+            variant='outline'
+            size='icon'
+            disabled={current + 1 >= getPageCount(limit, count)}
+            onClick={() => onClick(current - 1)}
+            className='mr-3 size-8 border-none'
+          />
 
-        {getPaginationNumbers({ current, count, limit }).map((page) => (
-          <PaginationItem>
-            {page === '...' && <PaginationEllipsis />}
-            {page !== '...' && (
-              <Button
-                key={page}
-                variant={current === page ? 'secondary' : 'outline'}
-                size='sm'
-                className='h-8 w-8 rounded-lg border border-secondary font-normal'
-                onClick={() => onClick(page)}
-              >
-                {getPageIndex(page)}
-              </Button>
-            )}
-          </PaginationItem>
-        ))}
+          {getPaginationNumbers({ current, count, limit }).map((page) => (
+            <PaginationItem>
+              {page === '...' && <PaginationEllipsis />}
+              {page !== '...' && (
+                <Button
+                  key={page}
+                  variant={current === page ? 'secondary' : 'outline'}
+                  size='sm'
+                  className='h-8 w-8 rounded-lg border border-secondary font-normal'
+                  onClick={() => onClick(page)}
+                >
+                  {getPageIndex(page)}
+                </Button>
+              )}
+            </PaginationItem>
+          ))}
 
-        <PaginationNext
-          variant='outline'
-          size='icon'
-          disabled={current + 1 >= getPageCount(limit, count)}
-          onClick={() => onClick(current + 1)}
-          className='ml-3 size-8 border-none'
-        />
-      </PaginationContent>
-    </Pagination>
-  </div>
-);
+          <PaginationNext
+            variant='outline'
+            size='icon'
+            disabled={current + 1 >= getPageCount(limit, count)}
+            onClick={() => onClick(current + 1)}
+            className='ml-3 size-8 border-none'
+          />
+        </PaginationContent>
+      </Pagination>
+    </div>
+  );
 
 interface DataTableSelectedLabelProps extends Omit<React.ComponentProps<'div'>, 'children'> {
   count: number;

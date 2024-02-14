@@ -13,6 +13,7 @@ const FILTER_INPUT_DELAY = 500;
 export const useOrganizationsTable = () => {
   const intl = useI18n();
   const { searchParams, setSearchParams, setSearchParam } = useSearchParams();
+  const [isPending, startTransition] = React.useTransition();
 
   const organizationFilter = searchParams.get('organization');
   const [selectedLocations, seSelectedLocations] = React.useState<string[]>(() =>
@@ -22,31 +23,38 @@ export const useOrganizationsTable = () => {
     searchParams.getAll('stage')
   );
 
-  const onPaginationClick = (page: number) => setSearchParam('current', String(page));
+  const onPaginationClick = (page: number) =>
+    startTransition(() => setSearchParam('current', String(page)));
 
   const onOrganizationFilterChange = useDebounceCallback(
     (value: string) =>
-      setSearchParams([
-        { key: 'organization', value },
-        { key: 'current', value: '1' }
-      ]),
+      startTransition(() =>
+        setSearchParams([
+          { key: 'organization', value },
+          { key: 'current', value: '1' }
+        ])
+      ),
     FILTER_INPUT_DELAY
   );
 
   const onLocationsSelect = (values: string[]) => {
-    setSearchParams([
-      { key: 'location', value: values },
-      { key: 'current', value: '1' }
-    ]);
+    startTransition(() => {
+      setSearchParams([
+        { key: 'location', value: values },
+        { key: 'current', value: '1' }
+      ]);
+    });
 
     seSelectedLocations(values);
   };
 
   const onStagesSelect = (values: string[]) => {
-    setSearchParams([
-      { key: 'stage', value: values },
-      { key: 'current', value: '1' }
-    ]);
+    startTransition(() =>
+      setSearchParams([
+        { key: 'stage', value: values },
+        { key: 'current', value: '1' }
+      ])
+    );
 
     setSelectedStages(values);
   };
@@ -90,7 +98,7 @@ export const useOrganizationsTable = () => {
       <div className='flex flex-1 justify-items-end'>
         <RegisterOrganizationDialog
           trigger={
-            <Button variant='secondary' size='sm' className='mx-2 md:ml-auto'>
+            <Button disabled={isPending} variant='secondary' size='sm' className='mx-2 md:ml-auto'>
               <PlusCircledIcon className='mr-2 size-4' />
               <I18nText path='button.add' />
             </Button>
@@ -102,7 +110,7 @@ export const useOrganizationsTable = () => {
   );
 
   return {
-    state: { toolbar },
+    state: { toolbar, isPending },
     functions: { onPaginationClick }
   };
 };

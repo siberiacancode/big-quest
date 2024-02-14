@@ -10,6 +10,9 @@ const mockServerConfig: MockServerConfig = {
     allowedHeaders: ['content-type', 'authorization'],
     credentials: true
   },
+  interceptors: {
+    request: ({ setDelay }) => setDelay(1000)
+  },
   rest: {
     configs: Object.values(requests)
   }
