@@ -83,7 +83,6 @@ export const LoginForm = () => {
                 </FormItem>
               )}
             />
-
             <span className='px-2 text-xs text-muted-foreground'>
               <I18nText path='org.auth.rememberMe' />
             </span>

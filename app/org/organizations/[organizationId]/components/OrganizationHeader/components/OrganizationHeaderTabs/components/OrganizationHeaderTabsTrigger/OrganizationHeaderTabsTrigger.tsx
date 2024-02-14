@@ -18,7 +18,7 @@ export const OrganizationHeaderTabsTrigger = ({
   <Link href={link}>
     <TabsTrigger
       value={value}
-      className='border-1 flex min-w-[135px] justify-center gap-2 rounded-xl py-[10px] text-[10px] font-normal data-[state=active]:bg-tabsBackground data-[state=active]:text-tabsText data-[state=active]:drop-shadow-md 2lgx:min-w-3 lgx:min-w-[135px] mdx:min-w-3'
+      className='border-1 flex min-w-[135px] justify-center gap-2 rounded-xl py-[10px] text-xs font-normal data-[state=active]:bg-tabsBackground data-[state=active]:text-tabsText data-[state=active]:drop-shadow-md 2lgx:min-w-3 lgx:min-w-[135px] mdx:min-w-3'
       {...props}
     >
       {children}

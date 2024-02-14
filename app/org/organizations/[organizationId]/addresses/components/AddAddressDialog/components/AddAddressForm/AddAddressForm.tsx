@@ -9,7 +9,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  Input
+  Input,
+  Typography
 } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
@@ -119,9 +120,9 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                 </FormItem>
               )}
             />
-            <h3 className='font-medium'>
+            <Typography variant='sub1' tag='p'>
               <I18nText path='addressCard.description.workingTime' />
-            </h3>
+            </Typography>
             {Array.from({ length: 7 }, (_, index) => {
               const day = index as 0 | 1 | 2 | 3 | 4 | 5 | 6;
               const dayOff = form.watch(`workingHours.${day}.dayOff`);

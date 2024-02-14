@@ -9,7 +9,8 @@ import {
   InfoCardItem,
   InfoCardItemDescription,
   InfoCardItemTitle,
-  InfoCardTitle
+  InfoCardTitle,
+  Typography
 } from '@/components/ui';
 
 import { OrgBreadcrumbs } from '../components/OrgBreadcrumbs/OrgBreadcrumbs';
@@ -24,7 +25,9 @@ const OrganizationsPage = () => (
       <InfoCard>
         <InfoCardHeader>
           <InfoCardTitle>
-            <I18nText path='infoCard.title.partners' />
+            <Typography variant='sub1' tag='p'>
+              <I18nText path='infoCard.title.partners' />
+            </Typography>
           </InfoCardTitle>
           <InfoCardAction>
             <HeartHandshakeIcon size={20} strokeWidth={1.5} />
@@ -34,7 +37,10 @@ const OrganizationsPage = () => (
           <InfoCardItem>
             <InfoCardItemTitle>560</InfoCardItemTitle>
             <InfoCardItemDescription className='flex gap-1'>
-              <TrendingUpIcon size={14} /> +24 <I18nText path='infoCard.description.perMonth' />
+              <TrendingUpIcon size={14} />
+              <Typography variant='body4' tag='p'>
+                +24 <I18nText path='infoCard.description.perMonth' />
+              </Typography>
             </InfoCardItemDescription>
           </InfoCardItem>
         </InfoCardContent>
@@ -42,7 +48,9 @@ const OrganizationsPage = () => (
       <InfoCard>
         <InfoCardHeader>
           <InfoCardTitle>
-            <I18nText path='infoCard.title.sponsors' />
+            <Typography variant='sub1' tag='p'>
+              <I18nText path='infoCard.title.sponsors' />
+            </Typography>
           </InfoCardTitle>
           <InfoCardAction>
             <HeartHandshakeIcon size={20} strokeWidth={1.5} />
@@ -52,7 +60,10 @@ const OrganizationsPage = () => (
           <InfoCardItem>
             <InfoCardItemTitle>56</InfoCardItemTitle>
             <InfoCardItemDescription className='flex gap-1'>
-              <TrendingUpIcon size={14} /> +24 <I18nText path='infoCard.description.perMonth' />
+              <TrendingUpIcon size={14} />
+              <Typography variant='body4' tag='p'>
+                +24 <I18nText path='infoCard.description.perMonth' />
+              </Typography>
             </InfoCardItemDescription>
           </InfoCardItem>
         </InfoCardContent>
@@ -60,7 +71,9 @@ const OrganizationsPage = () => (
       <InfoCard className='w-5/12'>
         <InfoCardHeader>
           <InfoCardTitle>
-            <I18nText path='infoCard.title.needsAttention' />
+            <Typography variant='sub1' tag='p'>
+              <I18nText path='infoCard.title.needsAttention' />
+            </Typography>
           </InfoCardTitle>
           <InfoCardAction>
             <AlertCircleIcon size={20} strokeWidth={1.5} />
@@ -70,19 +83,25 @@ const OrganizationsPage = () => (
           <InfoCardItem>
             <InfoCardItemTitle>6</InfoCardItemTitle>
             <InfoCardItemDescription className='flex gap-1'>
-              <I18nText path='infoCard.description.applications' />
+              <Typography variant='body4' tag='p'>
+                <I18nText path='infoCard.description.applications' />
+              </Typography>
             </InfoCardItemDescription>
           </InfoCardItem>
           <InfoCardItem>
             <InfoCardItemTitle>10</InfoCardItemTitle>
             <InfoCardItemDescription className='flex gap-1'>
-              <I18nText path='infoCard.description.discussions' />
+              <Typography variant='body4' tag='p'>
+                <I18nText path='infoCard.description.discussions' />
+              </Typography>
             </InfoCardItemDescription>
           </InfoCardItem>
           <InfoCardItem>
             <InfoCardItemTitle>13</InfoCardItemTitle>
             <InfoCardItemDescription className='flex gap-1'>
-              <I18nText path='infoCard.description.tariffChange' />
+              <Typography variant='body4' tag='p'>
+                <I18nText path='infoCard.description.tariffChange' />
+              </Typography>
             </InfoCardItemDescription>
           </InfoCardItem>
         </InfoCardContent>

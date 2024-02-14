@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 
 import { I18nText } from '@/components/common';
-import { Button } from '@/components/ui';
+import { Button, Typography } from '@/components/ui';
 
 const pageIndex: number = 1;
 const pageCount: number = 6;
@@ -10,10 +10,10 @@ const pageCount: number = 6;
 export const TablePagination = () => {
   return (
     <div className='flex flex-col-reverse items-center justify-end gap-2 space-x-2 py-3 md:flex-row'>
-      <span className='text-b text-sm font-semibold'>
+      <Typography variant='sub3' tag='p'>
         {pageCount < 10 ? `0${pageIndex + 1}` : pageIndex} <I18nText path='pagination.page' />{' '}
         <I18nText path='pagination.from' /> {pageCount}
-      </span>
+      </Typography>
       <div className='flex items-center gap-2'>
         <Button variant='outline' size='sm' disabled={false} className='border-none'>
           <ChevronLeftIcon className='h-6 w-6 stroke-2' />
@@ -26,13 +26,19 @@ export const TablePagination = () => {
         >
           01
         </Button>
-        {pageIndex > 3 && <span className='text-b mx-1 text-sm font-bold'>...</span>}
+        {pageIndex > 3 && (
+          <Typography variant='sub2' tag='p' className='mx-1'>
+            ...
+          </Typography>
+        )}
 
         {/* {renderPageButtons({ table })} */}
         {pageIndex < pageCount - 3 && (
           <>
             {pageIndex < pageCount - 4 && (
-              <span className='text-b mx-1 text-sm font-bold'>...</span>
+              <Typography variant='sub2' tag='p' className='mx-1'>
+                ...
+              </Typography>
             )}
             <Button
               variant='outline'
