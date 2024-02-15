@@ -1,3 +1,4 @@
+import { InfoCardSkeleton } from '@/components/ui';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const OrganizationProfileLoading = () => (
@@ -21,26 +22,10 @@ const OrganizationProfileLoading = () => (
       </div>
     </div>
     <div className='flex-1 space-y-6'>
-      <div className='h-48 flex-1 space-y-4 rounded bg-background p-8 px-6'>
-        <Skeleton className='h-12 rounded-xl' />
-        <div className='flex gap-3'>
-          <Skeleton className='h-16 w-1/3 rounded-xl' />
-          <Skeleton className='h-16 w-1/3 rounded-xl' />
-          <Skeleton className='h-16 w-1/3 rounded-xl' />
-        </div>
-      </div>
+      <InfoCardSkeleton multiplyBlockCount={3} className='pt-6' />
       <div className='flex flex-1 gap-6'>
-        <div className='w-1/2 space-y-6 rounded bg-background p-4'>
-          <Skeleton className='h-8 w-full rounded-xl' />
-          <div className='space-y-3'>
-            <Skeleton className='h-16 w-1/3 rounded-xl' />
-            <Skeleton className='h-4 w-1/2 rounded-xl' />
-          </div>
-        </div>
-        <div className='w-1/2 space-y-6 rounded bg-background p-4'>
-          <Skeleton className='h-8 w-full rounded-xl' />
-          <Skeleton className='h-16 w-1/3 rounded-xl' />
-        </div>
+        <InfoCardSkeleton withDescription className='w-1/2' />
+        <InfoCardSkeleton className='w-1/2' />
       </div>
       <div className='flex h-fit min-h-72 min-w-[340px] flex-1 flex-col space-y-3 rounded bg-background p-6'>
         <div className='space-y-7'>
@@ -56,6 +41,7 @@ const OrganizationProfileLoading = () => (
           <Skeleton className='h-8 w-full rounded-xl' />
         </div>
       </div>
+      <InfoCardSkeleton />
     </div>
   </div>
 );
