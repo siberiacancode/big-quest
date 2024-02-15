@@ -110,7 +110,7 @@ export const useOrganizationsTable = () => {
   );
 
   return {
-    state: { toolbar, isPending },
+    state: { toolbar, isLoading: isPending },
     functions: { onPaginationClick }
   };
 };

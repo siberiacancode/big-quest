@@ -30,7 +30,7 @@ export const OrganizationsTable = ({ organizations, pagination }: OrganizationsT
   const { state, functions } = useOrganizationsTable();
 
   return (
-    <DataTable table={table} columns={columns} rows={rows} isPending={state.isPending}>
+    <DataTable table={table} columns={columns} rows={rows} loading={state.isLoading}>
       <DataTableToolbar toolbar={state.toolbar} />
       <DataTableComponent>
         <DataTableHeader />
