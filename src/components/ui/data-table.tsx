@@ -17,18 +17,27 @@ import {
   getSortedRowModel,
   useReactTable
 } from '@tanstack/react-table';
+import { CheckIcon } from 'lucide-react';
 
-import type { MultiComboboxProps } from '@/components/ui';
+import type { ComboBoxItemType } from '@/components/ui';
 import {
   Badge,
   Button,
-  MultiCombobox,
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
   Pagination,
   PaginationContent,
   PaginationEllipsis,
   PaginationItem,
   PaginationNext,
   PaginationPrevious,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+  ScrollArea,
   Separator,
   Table as TableComponent,
   TableBody,
@@ -236,48 +245,91 @@ export const DataTableColumnHeaderLabel = React.forwardRef<
 ));
 DataTableColumnHeaderLabel.displayName = 'DataTableColumnHeaderLabel';
 
-export interface DataTableFacetedFilterProps extends MultiComboboxProps {
+export interface DataTableFacetedFilterProps {
+  values: string[];
+  onSelect: (value: string[]) => void;
+  items: ComboBoxItemType[];
+  searchPlaceholder?: string;
+  noResultsMsg?: string;
   title: string;
 }
 
-export const DataTableFacetedFilter = ({ title, ...props }: DataTableFacetedFilterProps) => (
-  <MultiCombobox
-    trigger={
-      <Button variant='outline' size='sm' className=''>
-        <PlusCircledIcon className='mr-2 h-4 w-4' />
-        {title}
-        {!!props.values.length && (
-          <>
-            <Separator orientation='vertical' className='mx-2 h-4' />
-            <Badge variant='secondary' className='rounded-sm px-1 font-normal lg:hidden'>
-              {props.values.length}
-            </Badge>
-            <div className='hidden space-x-1 lg:flex'>
-              {props.values.length > 2 && (
-                <Badge variant='secondary' className='rounded-sm px-1 font-normal'>
-                  {props.values.length} <I18nText path='combobox.selected' />
-                </Badge>
-              )}
-              {props.values.length <= 2 &&
-                props.items
-                  .filter((item) => props.values.includes(item.value))
-                  .map((item) => (
-                    <Badge
-                      variant='secondary'
-                      key={item.value}
-                      className='rounded-sm px-1 font-normal'
-                    >
-                      <span className='max-w-[90px] truncate'>{item.label}</span>
-                    </Badge>
-                  ))}
-            </div>
-          </>
-        )}
-      </Button>
-    }
-    {...props}
-  />
-);
+export const DataTableFacetedFilter = ({
+  title,
+  items,
+  onSelect,
+  values,
+  noResultsMsg = 'Ничего не найдено',
+  searchPlaceholder = 'Поиск...'
+}: DataTableFacetedFilterProps) => {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <Popover open={open} onOpenChange={setOpen} modal>
+      <PopoverTrigger asChild>
+        <Button variant='outline' size='sm' className=''>
+          <PlusCircledIcon className='mr-2 h-4 w-4' />
+          {title}
+          {!!values.length && (
+            <>
+              <Separator orientation='vertical' className='mx-2 h-4' />
+              <Badge variant='secondary' className='rounded-sm px-1 font-normal lg:hidden'>
+                {values.length}
+              </Badge>
+              <div className='hidden space-x-1 lg:flex'>
+                {values.length > 2 && (
+                  <Badge variant='secondary' className='rounded-sm px-1 font-normal'>
+                    {values.length} <I18nText path='combobox.selected' />
+                  </Badge>
+                )}
+                {values.length <= 2 &&
+                  items
+                    .filter((item) => values.includes(item.value))
+                    .map((item) => (
+                      <Badge
+                        variant='secondary'
+                        key={item.value}
+                        className='rounded-sm px-1 font-normal'
+                      >
+                        <span className='max-w-[90px] truncate'>{item.label}</span>
+                      </Badge>
+                    ))}
+              </div>
+            </>
+          )}
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className='w-[200px] p-0' align='start'>
+        <Command>
+          <CommandInput placeholder={searchPlaceholder} />
+          <CommandEmpty>{noResultsMsg}</CommandEmpty>
+          <ScrollArea className={cn('max-h-[220px] overflow-auto', !items.length && 'hidden')}>
+            <CommandGroup>
+              {items.map((item) => (
+                <CommandItem
+                  key={item.value}
+                  onSelect={() => {
+                    if (values.includes(item.value))
+                      onSelect(values.filter((value) => value !== item.value));
+                    else onSelect([...values, item.value]);
+                  }}
+                >
+                  <CheckIcon
+                    className={cn(
+                      'mr-2 h-4 w-4',
+                      values.includes(item.value) ? 'opacity-100' : 'opacity-0'
+                    )}
+                  />
+                  <p className='max-w-[150px] break-words'>{item.label}</p>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </ScrollArea>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  );
+};
 
 export interface DataTableToolbarProps<TData> extends React.ComponentProps<'div'> {
   toolbar: (table: Table<TData>) => React.ReactNode[];

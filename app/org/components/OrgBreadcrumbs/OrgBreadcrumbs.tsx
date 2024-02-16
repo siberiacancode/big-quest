@@ -24,7 +24,7 @@ export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
         const isId = !!~idKeyIndex;
 
         const href = `/${pathnames.slice(0, index + 1).join('/')}`;
-        const translateHref = href.replaceAll('/', '');
+        const translateHref = href.replaceAll('/', '.');
 
         return (
           <BreadcrumbItem key={href} href={href}>
