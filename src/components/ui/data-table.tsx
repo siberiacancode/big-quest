@@ -117,20 +117,20 @@ interface DataTableProps<TData> extends React.ComponentProps<'div'> {
 }
 
 export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any>>(
-  <TData,>({ children, ...props }: DataTableProps<TData>, ref) => {
+  <TData,>({ children, columns, rows, table, loading, ...props }: DataTableProps<TData>, ref) => {
     const value = React.useMemo(
       () => ({
-        columns: props.columns,
-        rows: props.rows,
-        table: props.table,
-        loading: props.loading
+        columns,
+        rows,
+        table,
+        loading
       }),
       []
     );
 
     return (
       <div
-        className={cn('mt-10 w-full rounded-md bg-background p-4', props.loading && 'opacity-60')}
+        className={cn('mt-10 w-full rounded-md bg-background p-4', loading && 'opacity-60')}
         ref={ref}
         {...props}
       >
@@ -388,7 +388,7 @@ export const DataTablePagination = ({
           />
 
           {getPaginationNumbers({ current, count, limit }).map((page) => (
-            <PaginationItem>
+            <PaginationItem key={page}>
               {page === '...' && <PaginationEllipsis />}
               {page !== '...' && (
                 <Button
