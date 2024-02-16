@@ -53,37 +53,34 @@ const OrganizationsPageLoading = () => (
       <div className='w-full rounded-md '>
         <div className='w-full caption-bottom rounded-lg border border-secondary'>
           <div className='flex h-12 border-b border-secondary bg-secondary' />
-          <div className='flex flex-col border-secondary [&_div:last-child]:border-0'>
+          <div className='flex flex-col'>
             {Array(10)
               .fill({})
               .map((_, index) => (
-                <div
-                  key={index}
-                  className='flex border-b border-secondary [&_div:last-child]:border-0'
-                >
-                  <div className='flex items-center p-4 pr-0 align-middle'>
-                    <Skeleton className='h-4 w-4 rounded-sm align-middle' />
+                <div key={index} className='flex border-b border-secondary'>
+                  <div className='flex items-center py-4 pl-4'>
+                    <Skeleton className='h-4 w-4 rounded-sm' />
                   </div>
-                  <div className='flex w-36 items-center p-4 align-middle'>
+                  <div className='flex w-[14%] items-center py-4 pl-4'>
                     <Skeleton className='mx-4 h-4 w-full' />
                   </div>
-                  <div className='flex w-56 items-center p-4 align-middle'>
+                  <div className='flex w-[22%] items-center py-4'>
+                    <Skeleton className='mx-4 h-4 w-full max-w-48' />
+                  </div>
+                  <div className='flex w-[14%] items-center py-4'>
                     <Skeleton className='mx-4 h-4 w-full' />
                   </div>
-                  <div className='flex w-36 items-center p-4 align-middle'>
+                  <div className='flex w-[12%] items-center py-4'>
                     <Skeleton className='mx-4 h-4 w-full' />
                   </div>
-                  <div className='flex w-32 items-center p-4 align-middle'>
+                  <div className='flex w-[17%] items-center py-4'>
                     <Skeleton className='mx-4 h-4 w-full' />
                   </div>
-                  <div className='flex w-44 items-center p-4 align-middle'>
+                  <div className='flex w-[14%] items-center py-4'>
                     <Skeleton className='mx-4 h-4 w-full' />
                   </div>
-                  <div className='flex w-36 items-center p-4 align-middle'>
-                    <Skeleton className='mx-4 h-4 w-full' />
-                  </div>
-                  <div className=' w-8 p-4 align-middle'>
-                    <Skeleton className='h-8 w-8 rounded-sm align-middle' />
+                  <div className='py-4'>
+                    <Skeleton className='mr-2 h-8 w-8 rounded-sm' />
                   </div>
                 </div>
               ))}
@@ -98,11 +95,11 @@ const OrganizationsPageLoading = () => (
           <Skeleton className='h-10 w-1/3' />
           <div className='flex items-center gap-2'>
             <Skeleton className='h-5 w-32' />
-            <Skeleton className='h-8 w-12 px-3' />
+            <Skeleton className='h-8 w-12' />
             <Skeleton className='h-8 w-8' />
             <Skeleton className='h-8 w-8' />
-            <Skeleton className='h-8 w-8 rounded-lg' />
-            <Skeleton className='h-8 w-12 px-3' />
+            <Skeleton className='h-8 w-8' />
+            <Skeleton className='h-8 w-12' />
           </div>
         </div>
       </div>
