@@ -45,7 +45,7 @@ import { I18nText } from '../common';
 type DataTableContextValue<TData = any> = {
   rows: TData;
   table: Table<TData>;
-  isPending: boolean;
+  loading?: boolean;
   columns: ColumnDef<TData>[];
 };
 
@@ -104,7 +104,7 @@ interface DataTableProps<TData> extends React.ComponentProps<'div'> {
   rows: TData;
   table: Table<TData>;
   columns: ColumnDef<TData>[];
-  isPending: boolean;
+  loading?: boolean;
 }
 
 export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any>>(
@@ -114,14 +114,14 @@ export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any>>(
         columns: props.columns,
         rows: props.rows,
         table: props.table,
-        isPending: props.isPending
+        loading: props.loading
       }),
       []
     );
 
     return (
       <div
-        className={cn('mt-10 w-full rounded-md bg-background p-4', props.isPending && 'opacity-60')}
+        className={cn('mt-10 w-full rounded-md bg-background p-4', props.loading && 'opacity-60')}
         ref={ref}
         {...props}
       >

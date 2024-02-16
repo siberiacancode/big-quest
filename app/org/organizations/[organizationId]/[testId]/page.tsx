@@ -3,7 +3,7 @@ import { OrgBreadcrumbs } from 'app/org/components/OrgBreadcrumbs/OrgBreadcrumbs
 const Page = () => {
   return (
     <div>
-      <OrgBreadcrumbs idBreadcrumbs={{ organizationId: 'ромашки', testId: 'тест' }} /> organization
+      <OrgBreadcrumbs ids={{ organizationId: 'ромашки', testId: 'тест' }} /> organization
     </div>
   );
 };

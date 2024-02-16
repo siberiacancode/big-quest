@@ -26,8 +26,6 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
     getOrganizationDashboard()
   ]);
 
-  console.log(organizationsResponse);
-
   return (
     <div className='bg-secondary px-4'>
       <OrgBreadcrumbs />
