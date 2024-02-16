@@ -1,4 +1,5 @@
 export * from './accordion';
+export * from './address-card-skeleton';
 export * from './breadcrumbs';
 export * from './button';
 export * from './card';
