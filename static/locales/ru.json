@@ -1,5 +1,8 @@
 {
   "app.title": "Большой квест",
+  "app.error": "Что-то пошло не так",
+  "app.loading": "Пожалуйста подождите...",
+
   "partners.addresses.title": "Адреса",
 
   "org.auth.title": "Вход в личный кабинет",
@@ -12,13 +15,16 @@
   "button.addAddress": "Добавить адрес",
 
   "button.login": "Войти",
-  
+
   "button.registerOrganization": "Отправить заявку",
   "button.goToRegisterOrganization": "Оставить заявку",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
   "organization.stage.conclusion": "Завершен",
+  "organization.legalType.organizer": "Организатор",
+  "organization.legalType.partner": "Партнер",
+  "organization.legalType.sponsor": "Спонсор",
   "organization.profile.tariff.title": "Тариф",
   "organization.profile.tariff.button": "Сменить тариф",
   "organization.profile.tariff.activity": "Активностей",
@@ -75,7 +81,13 @@
   "field.details.placeholder": "офис, вход, этаж",
   "field.note.placeholder": "Оставьте заметку...",
 
+  "navigation.link.default": "Текущая",
   "navigation.link.org.organizations": "Организации",
+  "navigation.link.org.organizations.profile": "Профиль",
+  "navigation.link.org.organizations.addresses": "Адреса",
+  "navigation.link.org.organizations.employees": "Сотрудники",
+  "navigation.link.org.organizations.activities": "Активности",
+  "navigation.link.org.organizations.schedule": "Расписание",
   "navigation.link.org.lids": "Лиды",
   "navigation.link.org": "Главная",
   "navigation.link.org.activities": "Активности",
@@ -95,9 +107,16 @@
   "infoCard.title.needsAttention": "Требует внимания",
   "infoCard.description.perMonth": "за месяц",
   "infoCard.description.leads": "Лиды",
-  "infoCard.description.discussions": "Переговоры",
+  "infoCard.description.negotiation": "Переговоры",
   "infoCard.description.tariffChange": "Смена тарифа",
   "infoCard.description.applications": "Заявок",
+
+  "table.column.organization.stage": "Статус",
+  "table.column.organization.name": "Организация",
+  "table.column.organization.location": "Населенный пункт",
+  "table.column.organization.type": "Тип",
+  "table.column.organization.rate": "Тариф",
+  "table.column.organization.daysAmount": "Кол-во дней",
 
   "dayOfWeek.1": "Пн",
   "dayOfWeek.2": "Вт",
@@ -120,6 +139,8 @@
   "pagination.from": "из",
   "pagination.selected": "выбрано",
   "pagination.page": "страница",
+
+  "combobox.selected": "Выбрано",
 
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты",

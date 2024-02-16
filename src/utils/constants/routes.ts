@@ -1,7 +1,7 @@
 export const ROUTES = {
   ORG: {
     ROOT: '/org/',
-    ORGANIZATIONS: '/org/organizations',
+    ORGANIZATIONS: { ROOT: '/org/organizations' },
     ACTIVITIES: '/org/activities',
     LIDS: {
       ROOT: '/org/lids',

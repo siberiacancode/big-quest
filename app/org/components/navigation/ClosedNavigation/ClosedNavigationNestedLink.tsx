@@ -16,7 +16,10 @@ export const ClosedNavigationNestedLink = ({
 }: ClosedNavigationNestedLinkProps) => (
   <DropdownMenu>
     <DropdownMenuTrigger asChild>
-      <Button className='h-auto w-auto p-3' variant={isActive ? 'secondary' : 'ghost'}>
+      <Button
+        className='flex h-auto w-auto justify-start p-3'
+        variant={isActive ? 'secondary' : 'ghost'}
+      >
         {link.icon}
       </Button>
     </DropdownMenuTrigger>

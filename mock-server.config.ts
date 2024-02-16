@@ -12,7 +12,7 @@ const mockServerConfig: MockServerConfig = {
   },
   interceptors: {
     request: async ({ setDelay }) => {
-      await setDelay(1000000);
+      await setDelay(1000);
     }
   },
   rest: {
