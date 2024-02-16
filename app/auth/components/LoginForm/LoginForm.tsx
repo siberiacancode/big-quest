@@ -18,8 +18,8 @@ import { useI18n } from '@/utils/contexts';
 import { useLoginForm } from './hooks/useLoginForm';
 
 export const LoginForm = () => {
+  const i18n = useI18n();
   const { state, form, functions } = useLoginForm();
-  const intl = useI18n();
 
   return (
     <Form {...form}>
@@ -34,7 +34,8 @@ export const LoginForm = () => {
               </FormLabel>
               <FormControl>
                 <Input
-                  placeholder={intl.formatMessage({ id: 'field.email.placeholder' })}
+                  disabled={state.isLoading}
+                  placeholder={i18n.formatMessage({ id: 'field.email.placeholder' })}
                   {...field}
                 />
               </FormControl>
@@ -56,8 +57,9 @@ export const LoginForm = () => {
               </FormLabel>
               <FormControl>
                 <PasswordInput
+                  disabled={state.isLoading}
+                  placeholder={i18n.formatMessage({ id: 'field.password.placeholder' })}
                   {...field}
-                  placeholder={intl.formatMessage({ id: 'field.password.placeholder' })}
                 />
               </FormControl>
               <FormMessage>
@@ -70,7 +72,17 @@ export const LoginForm = () => {
         />
         <div className='flex flex-col space-y-6'>
           <div className='mt-3 flex items-center'>
-            <Checkbox />
+            <FormField
+              control={form.control}
+              name='password'
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Checkbox disabled={state.isLoading} {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
             <span className='px-2 text-xs text-muted-foreground'>
               <I18nText path='org.auth.rememberMe' />
             </span>

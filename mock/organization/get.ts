@@ -9,7 +9,7 @@ export const organizationGetConfig: RestRequestConfig = {
       data: {
         rows: [
           {
-            id: '87666f2d-e6f4-4939-a471-b948495002a3',
+            id: '1',
             name: 'Apple',
             description: null,
             inn: null,

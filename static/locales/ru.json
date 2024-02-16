@@ -3,15 +3,64 @@
   "app.error": "Что-то пошло не так",
   "app.loading": "Пожалуйста подождите...",
 
+  "partners.addresses.title": "Адреса",
+
   "org.auth.title": "Вход в личный кабинет",
   "org.auth.rememberMe": "Запомнить меня",
   "org.auth.footer.siteRules": "Правила пользования сайтом",
   "org.auth.footer.privacyPolicy": "Политика конфиденциальности",
 
   "button.add": "Добавить",
+  "button.save": "Сохранить",
+  "button.addAddress": "Добавить адрес",
+
   "button.login": "Войти",
+
   "button.registerOrganization": "Отправить заявку",
   "button.goToRegisterOrganization": "Оставить заявку",
+
+  "organization.stage.request": "Заявка",
+  "organization.stage.negotiation": "Сотрудничество",
+  "organization.stage.conclusion": "Завершен",
+  "organization.legalType.organizer": "Организатор",
+  "organization.legalType.partner": "Партнер",
+  "organization.legalType.sponsor": "Спонсор",
+  "organization.profile.tariff.title": "Тариф",
+  "organization.profile.tariff.button": "Сменить тариф",
+  "organization.profile.tariff.activity": "Активностей",
+  "organization.profile.tariff.paid": "Платных",
+  "organization.profile.tariff.valid": "Действует",
+  "organization.profile.members": "Участники",
+
+  "organization.profile.entries": "Записи",
+  "organization.profile.journal.title": "Журнал",
+
+  "organization.profile.information.title": "Информация о профиле",
+  "organization.profile.information.name": "Название",
+  "organization.profile.information.contactName": "Контактное имя",
+  "organization.profile.information.phone": "Телефон",
+  "organization.profile.information.email": "Сайт",
+  "organization.profile.information.locality": "Населенный пункт",
+  "organization.profile.information.social": "Соц. сети",
+
+  "organization.profile.legalInfo.title": "Юр. информация",
+  "organization.profile.legalInfo.fullName": "Полное наименование юр. лица",
+  "organization.profile.legalInfo.legalAddress": "Юридический адрес",
+  "organization.profile.legalInfo.postAddress": "Почтовый адрес",
+  "organization.profile.legalInfo.inn": "ИНН",
+  "organization.profile.legalInfo.kpp": "КПП",
+  "organization.profile.legalInfo.ogrn": "ОГРН",
+
+  "organization.profile.requisites.title": "Реквизиты",
+  "organization.profile.requisites.bank": "Банк",
+  "organization.profile.requisites.bik": "БИК",
+  "organization.profile.requisites.checkingAccount": "Р/С",
+
+  "organization.profile.header.profile": "Профиль",
+  "organization.profile.header.addresses": "Адреса",
+  "organization.profile.header.employees": "Сотрудники",
+  "organization.profile.header.activities": "Активности",
+  "organization.profile.header.schedule": "Расписание",
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",
@@ -24,13 +73,21 @@
   "field.location.label": "Населенный пункт",
   "field.contactName.label": "Ваше имя",
   "field.phone.label": "Телефон",
-
-  "radio.legalType.label": "Выберите форму сотрудничества",
-  "radio.legalType.partner.label": "Партнер",
-  "radio.legalType.sponsor.label": "Спонсор",
+  "field.street.house": "Улица",
+  "field.house.label": "Дом",
+  "field.street.label": "Улица",
+  "field.street.placeholder": "ул.",
+  "field.details.label": "Детали",
+  "field.details.placeholder": "офис, вход, этаж",
+  "field.note.placeholder": "Оставьте заметку...",
 
   "navigation.link.default": "Текущая",
   "navigation.link.org.organizations": "Организации",
+  "navigation.link.org.organizations.profile": "Профиль",
+  "navigation.link.org.organizations.addresses": "Адреса",
+  "navigation.link.org.organizations.employees": "Сотрудники",
+  "navigation.link.org.organizations.activities": "Активности",
+  "navigation.link.org.organizations.schedule": "Расписание",
   "navigation.link.org.lids": "Лиды",
   "navigation.link.org": "Главная",
   "navigation.link.org.activities": "Активности",
@@ -40,6 +97,10 @@
   "navigation.link.org.mailing": "Рассылка",
   "navigation.link.org.news": "Новости",
   "navigation.link.org.profile": "Кабинет",
+
+  "radio.legalType.label": "Выберите форму сотрудничества",
+  "radio.legalType.partner.label": "Партнер",
+  "radio.legalType.sponsor.label": "Спонсор",
 
   "infoCard.title.partners": "Партнеры",
   "infoCard.title.sponsors": "Спонсоры",
@@ -57,12 +118,23 @@
   "table.column.organization.rate": "Тариф",
   "table.column.organization.daysAmount": "Кол-во дней",
 
-  "organization.stage.request": "Заявка",
-  "organization.stage.conclusion": "Сотрудничество",
-  "organization.stage.negotiation": "Переговоры",
-  "organization.legalType.organizer": "Организатор",
-  "organization.legalType.partner": "Партнер",
-  "organization.legalType.sponsor": "Спонсор",
+  "dayOfWeek.1": "Пн",
+  "dayOfWeek.2": "Вт",
+  "dayOfWeek.3": "Ср",
+  "dayOfWeek.4": "Чт",
+  "dayOfWeek.5": "Пт",
+  "dayOfWeek.6": "Сб",
+  "dayOfWeek.7": "Вс",
+  "dayOfWeek.dayOff": "Выходной",
+
+  "addressCard.description.workingTime": "Время работы",
+
+  "table.column.status": "Статус",
+  "table.column.organization": "Организация",
+  "table.column.location": "Населенный пункт",
+  "table.column.type": "Тип",
+  "table.column.rate": "Тариф",
+  "table.column.daysCount": "Кол-во дней",
 
   "pagination.from": "из",
   "pagination.selected": "выбрано",
@@ -72,7 +144,11 @@
 
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты",
+  "validation.time.requiredBoth": "Необходимы оба значения времени",
 
-  "feature.registerOrganization.title": "Заполните заявку",
-  "feature.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время"
+  "dialog.registerOrganization.title": "Заполните заявку",
+  "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
+  "dialog.addAddress.title": "Добавление адреса",
+  "dialog.addAddress.form.untill": "до",
+  "dialog.addAddress.success": "Адрес успешно добавлен"
 }

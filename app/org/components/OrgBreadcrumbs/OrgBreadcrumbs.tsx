@@ -6,7 +6,7 @@ import { I18nText } from '@/components/common';
 import { BreadcrumbItem, Breadcrumbs } from '@/components/ui';
 
 interface OrgBreadcrumbsProps {
-  ids?: Record<string, string>;
+  ids?: Record<string, string | undefined>;
 }
 
 export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
@@ -21,15 +21,22 @@ export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
     <Breadcrumbs>
       {pathnames.map((path, index) => {
         const idKeyIndex = paramValues.findIndex((param) => param === path);
-        const isId = !!~idKeyIndex;
+        const isPathId = !!~idKeyIndex;
 
         const href = `/${pathnames.slice(0, index + 1).join('/')}`;
-        const translateHref = href.replaceAll('/', '.');
+        const hrefWithoutIds = pathnames
+          .slice(0, index + 1)
+          .filter(
+            (currentPath) => !~paramValues.findIndex((currentParam) => currentParam === currentPath)
+          );
+
+        const translateHref = `.${hrefWithoutIds.join('.')}`;
 
         return (
           <BreadcrumbItem key={href} href={href}>
-            {isId && (ids[paramKeys[idKeyIndex]] || <I18nText path='navigation.link.default' />)}
-            {!isId && <I18nText path={`navigation.link${translateHref}` as LocaleMessageId} />}
+            {isPathId &&
+              (ids[paramKeys[idKeyIndex]] ?? <I18nText path='navigation.link.default' />)}
+            {!isPathId && <I18nText path={`navigation.link${translateHref}` as LocaleMessageId} />}
           </BreadcrumbItem>
         );
       })}

@@ -71,7 +71,7 @@ export const columns: ColumnDef<OrganizationsTableRow>[] = [
     enableHiding: false,
     cell: ({ row }) => (
       <Link
-        href={`${ROUTES.ORG.ORGANIZATIONS.ROOT}/${row.original.id}`}
+        href={`${ROUTES.ORG.ORGANIZATIONS.ROOT}/${row.original.id}/profile`}
         className={cn('h-8 w-8 p-0', buttonVariants({ variant: 'ghost' }))}
       >
         <div>
