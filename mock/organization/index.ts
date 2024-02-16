@@ -1,3 +1,3 @@
-export * from './id';
-export * from './id/addresses';
-export * from './register';
+export * from './id/addresses/get';
+export * from './id/get';
+export * from './register/post';
