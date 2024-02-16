@@ -42,13 +42,15 @@ const OrganizationsPageLoading = () => (
       </div>
     </div>
     <div className='mt-10 w-full rounded-md bg-background p-4'>
-      <div className='flex w-full flex-wrap py-4 md:flex-nowrap'>
-        <div className='flex w-2/3 items-center mdx:flex-wrap'>
-          <Skeleton className='h-9 w-2/6 max-w-sm rounded-lg' />
-          <Skeleton className='m-2 h-9 w-1/6 rounded-lg' />
-          <Skeleton className='m-2 h-9 w-2/6 rounded-lg' />
+      <div className='flex w-full flex-wrap py-4 md:flex-nowrap md:items-center'>
+        <div className='flex items-center mdx:flex-wrap'>
+          <div className='relative w-full'>
+            <Skeleton className='h-9 w-full min-w-56 max-w-sm rounded-lg' />
+          </div>
+          <Skeleton className='m-2 h-9 w-24 min-w-24 rounded-lg' />
+          <Skeleton className='h-9 w-44 min-w-44 rounded-lg' />
         </div>
-        <Skeleton className='mx-2 h-9 w-[116px] rounded-lg md:ml-auto' />
+        <Skeleton className='mx-2 inline-flex h-9 w-[116px] items-center rounded-lg md:ml-auto' />
       </div>
       <div className='w-full caption-bottom rounded-lg border border-secondary'>
         <div className='flex h-12 border-b border-secondary bg-secondary' />
