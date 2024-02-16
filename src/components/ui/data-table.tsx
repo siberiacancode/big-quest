@@ -254,6 +254,8 @@ export interface DataTableFacetedFilterProps {
   title: string;
 }
 
+const MAX_SHOWN_FILTER_ITEMS = 2;
+
 export const DataTableFacetedFilter = ({
   title,
   items,
@@ -277,12 +279,12 @@ export const DataTableFacetedFilter = ({
                 {values.length}
               </Badge>
               <div className='hidden space-x-1 lg:flex'>
-                {values.length > 2 && (
+                {values.length > MAX_SHOWN_FILTER_ITEMS && (
                   <Badge variant='secondary' className='rounded-sm px-1 font-normal'>
                     {values.length} <I18nText path='combobox.selected' />
                   </Badge>
                 )}
-                {values.length <= 2 &&
+                {values.length <= MAX_SHOWN_FILTER_ITEMS &&
                   items
                     .filter((item) => values.includes(item.value))
                     .map((item) => (
