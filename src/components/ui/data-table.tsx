@@ -457,7 +457,6 @@ export const generateDataTableColumn = <TData,>({
       sortable={sortable}
     >
       <I18nText path={headerLabel} />
-      <CaretSortIcon className='ml-2 h-4 w-4' />
     </DataTableColumnHeader>
   ),
   cell: ({ row }) => (

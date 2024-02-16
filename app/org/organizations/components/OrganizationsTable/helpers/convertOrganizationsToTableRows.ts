@@ -15,7 +15,7 @@ export const convertOrganizationsToTableRows = (
     id: organization.id,
     daysAmount: '-',
     location: organization?.information?.city ?? '-',
-    name: organization.name,
+    name: organization.name ?? '-',
     rate: '-',
     stage: `organization.stage.${organization.stage.toLowerCase()}`,
     type: `organization.legalType.${organization.type.toLowerCase()}`
