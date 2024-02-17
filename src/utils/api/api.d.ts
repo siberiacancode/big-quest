@@ -243,3 +243,14 @@ interface Legals {
   total: number;
   growthPerMonth: number;
 }
+
+interface UpdateOrganizationDto {
+  id: string;
+  locality?: string;
+  name?: string;
+  description?: string;
+  inn?: string;
+  information?: OrganizationInformationDto;
+  requisites?: RequisitesDto;
+  stage?: string;
+}

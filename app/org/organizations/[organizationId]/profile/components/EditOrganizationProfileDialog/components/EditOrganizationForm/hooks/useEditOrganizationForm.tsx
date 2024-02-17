@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import { usePutOrganizationMutation } from '@/utils/api';
+
 import type { EditOrganizationProfileSchema } from '../constants/editOrganizationProfileSchema';
 import { editOrganizationProfileSchema } from '../constants/editOrganizationProfileSchema';
 
@@ -15,9 +17,11 @@ export const useEditOrganizationForm = ({ organization }: UseEditOrganizationFor
     }
   });
 
+  const putOrganizationMutation = usePutOrganizationMutation();
+
   const onSubmit = editOrganizationForm.handleSubmit(async () => {
     // TODO
-    // await postAuthLoginEmail.mutateAsync(values);
+    await putOrganizationMutation.mutateAsync({ id: '1' });
   });
 
   return { state: {}, form: editOrganizationForm, functions: { onSubmit } };
