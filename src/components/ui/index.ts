@@ -1,4 +1,5 @@
 export * from './accordion';
+export * from './address-card-skeleton';
 export * from './badge';
 export * from './breadcrumbs';
 export * from './button';
@@ -14,6 +15,7 @@ export * from './dropdown-menu';
 export * from './form';
 export * from './hover-card';
 export * from './info-card';
+export * from './info-card-skeleton';
 export * from './input';
 export * from './label';
 export * from './number-format-input';
