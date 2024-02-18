@@ -12,9 +12,6 @@ interface OrganizationAddressesPageProps {
 }
 
 const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 70000);
-  });
   const organizationAddresses = await getOrganizationAddressesById({
     params: { id: params.organizationId }
   });
