@@ -1,107 +1,36 @@
+import { InfoCardSkeleton } from '@/components/ui';
 import { Skeleton } from '@/components/ui/skeleton';
+import { TableSkeleton } from '@/components/ui/table-skeleton';
 
 const OrganizationsPageLoading = () => (
   <div className='bg-secondary px-4'>
-    <div className='mb-4 h-6 w-[170px] rounded-lg' />
+    <div className='w-[170px] rounded-lg py-6' />
     <div className='flex flex-wrap gap-2 2smx:flex-col'>
       <div className='flex w-6/12 flex-wrap gap-2 2smx:w-full 2smx:flex-row'>
-        <div className='flex flex-auto flex-col gap-2 rounded-lg bg-background p-6 shadow-sm'>
-          <div className='mb-1 flex justify-between'>
-            <Skeleton className='h-8 w-3/5 rounded-lg' />
-            <Skeleton className='h-9 w-9 rounded-full' />
-          </div>
-          <Skeleton className='h-9 w-1/3 rounded-lg' />
-          <Skeleton className='h-4 w-1/2 rounded-lg' />
-        </div>
-        <div className='flex flex-auto flex-col gap-2 rounded-lg bg-background p-6 shadow-sm'>
-          <div className='mb-1 flex justify-between'>
-            <Skeleton className='h-8 w-3/5 rounded-lg' />
-            <Skeleton className='h-9 w-9 rounded-full' />
-          </div>
-          <Skeleton className='h-9 w-1/3 rounded-lg' />
-          <Skeleton className='h-4 w-1/2 rounded-lg' />
-        </div>
+        <InfoCardSkeleton />
+        <InfoCardSkeleton />
       </div>
-      <div className='flex w-5/12 flex-auto flex-col gap-2 rounded-lg bg-background p-6 shadow-sm 2smx:w-full'>
-        <div className='mb-1 flex justify-between'>
-          <Skeleton className='h-8 w-2/5 rounded-lg' />
-          <Skeleton className='h-9 w-9 rounded-full' />
-        </div>
-        <div className='flex justify-between'>
-          <div className='flex w-1/4 flex-col gap-2'>
-            <Skeleton className='h-9 w-5/6 rounded-lg' />
-            <Skeleton className='h-4 rounded-lg' />
-          </div>
-          <div className='flex w-1/4 flex-col gap-2'>
-            <Skeleton className='h-9 w-5/6 rounded-lg' />
-            <Skeleton className='h-4 rounded-lg' />
-          </div>
-          <div className='flex w-1/4 flex-col gap-2'>
-            <Skeleton className='h-9 w-5/6 rounded-lg' />
-            <Skeleton className='h-4 rounded-lg' />
-          </div>
-        </div>
-      </div>
+      <InfoCardSkeleton itemsCount={3} className='w-5/12 2smx:w-full' />
     </div>
     <div className='mt-10 w-full rounded-md bg-background p-4'>
-      <div className='flex w-full flex-wrap py-4 md:flex-nowrap md:items-center'>
-        <div className='flex items-center mdx:flex-wrap'>
-          <div className='relative w-full'>
-            <Skeleton className='h-9 w-full min-w-56 max-w-sm rounded-lg' />
-          </div>
-          <Skeleton className='m-2 h-9 w-24 min-w-24 rounded-lg' />
-          <Skeleton className='h-9 w-44 min-w-44 rounded-lg' />
-        </div>
+      <div className='mb-[23px] mt-[11px] flex w-full flex-wrap items-center gap-3 md:flex-nowrap md:items-center'>
+        <Skeleton className='h-9 w-[180px] max-w-[180px] rounded-lg' />
+        <Skeleton className='h-9 w-24 min-w-24 rounded-lg' />
+        <Skeleton className='h-9 w-44 min-w-44 rounded-lg' />
         <Skeleton className='mx-2 inline-flex h-9 w-[116px] items-center rounded-lg md:ml-auto' />
       </div>
-      <div className='w-full caption-bottom rounded-lg border border-secondary'>
-        <div className='flex h-12 border-b border-secondary bg-secondary' />
-        <div className='flex flex-col'>
-          {Array(10)
-            .fill({})
-            .map((_, index) => (
-              <div key={index} className='flex border-b border-secondary last:border-0'>
-                <div className='flex items-center py-4 pl-4 smx:pl-2'>
-                  <Skeleton className='h-4 w-4 rounded-sm' />
-                </div>
-                <div className='flex w-[14%] items-center py-4 pl-4  smx:pl-1'>
-                  <Skeleton className='mx-4 h-4 w-full smx:mx-1' />
-                </div>
-                <div className='flex w-[22%] items-center py-4 '>
-                  <Skeleton className='mx-4 h-4 w-full max-w-48 smx:mx-1' />
-                </div>
-                <div className='flex w-[14%] items-center py-4'>
-                  <Skeleton className='mx-4 h-4 w-full smx:mx-1' />
-                </div>
-                <div className='flex w-[12%] items-center py-4'>
-                  <Skeleton className='mx-4 h-4 w-full smx:mx-1' />
-                </div>
-                <div className='flex w-[17%] items-center py-4'>
-                  <Skeleton className='mx-4 h-4 w-full smx:mx-1' />
-                </div>
-                <div className='flex w-[14%] items-center py-4'>
-                  <Skeleton className='mx-4 h-4 w-full smx:mx-1' />
-                </div>
-                <div className='py-4'>
-                  <Skeleton className='smx:rounded-xs mr-2 h-8 w-8 rounded-sm smx:h-6 smx:w-6' />
-                </div>
-              </div>
-            ))}
-        </div>
-      </div>
-      <div className='flex w-full items-center justify-between mdx:flex-col'>
+      <TableSkeleton />
+      <div className='mt-8 flex w-full items-center justify-between mdx:flex-col'>
         <div className='mdx:pt-2'>
-          <Skeleton className='h-5 w-28' />
-        </div>
-        <div className='flex flex-col-reverse items-center justify-end gap-2 space-x-2 py-3 md:flex-row'>
           <Skeleton className='h-5 w-32' />
-          <div className='flex items-center gap-2'>
-            <Skeleton className='h-8 w-12' />
-            <Skeleton className='h-8 w-8' />
-            <Skeleton className='h-8 w-8' />
-            <Skeleton className='h-8 w-8' />
-            <Skeleton className='h-8 w-12' />
-          </div>
+        </div>
+
+        <div className='flex items-center gap-2 mdx:pt-2'>
+          <Skeleton className='h-8 w-12' />
+          <Skeleton className='h-8 w-8' />
+          <Skeleton className='h-8 w-8' />
+          <Skeleton className='h-8 w-8' />
+          <Skeleton className='h-8 w-12' />
         </div>
       </div>
     </div>
