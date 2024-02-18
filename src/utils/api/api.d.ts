@@ -27,7 +27,7 @@ type RequestConfig = RequestInit & {
   url: string;
   _retry?: boolean;
   headers?: Record<string, string>;
-  params?: Record<string, string>;
+  params?: SearchParams;
 };
 interface InterceptorResponseResult {
   success: Response['ok'];
@@ -58,7 +58,7 @@ interface Interceptors {
 
 interface RequestOptions extends Omit<RequestInit, 'method'> {
   headers?: Record<string, string>;
-  params?: Record<string, string>;
+  params?: SearchParams;
 }
 
 type RequestParams<Params = undefined> = Params extends undefined
@@ -164,4 +164,82 @@ interface OrganizationAddressesResponse {
 interface LoginEmailDto {
   email: string;
   password: string;
+}
+
+interface OrganizationPaginationResponse {
+  rows: OrganizationResponse[];
+  pagination: PaginationResponse;
+}
+
+interface PaginationResponse {
+  limit: number;
+  current: number;
+  count: number;
+}
+
+interface OrganizationResponse {
+  id: string;
+  name: string;
+  description: string;
+  inn: string;
+  information: OrganizationInformationDto;
+  addresses: OrganizationAddressDto[];
+  requisites: RequisitesDto;
+  stage: StageType;
+  type: LegalType;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface OrganizationAddressDto {
+  locality: string;
+  street: string;
+  house: string;
+  details?: string;
+  workingHours: WorkingHourDto;
+}
+
+interface WorkingHourDto {
+  day: number;
+  from: { hour: number; minutes: number };
+  to: { hour: number; minutes: number };
+  dayOff: boolean;
+}
+
+interface OrganizationInformationDto {
+  contactName?: string;
+  phone?: string;
+  email?: string;
+  site?: string;
+  city?: string;
+  social?: string;
+  coordinates?: {
+    latitude: number;
+    longitude: number;
+  };
+  fullNameOfTheLegalEntity?: string;
+  legalAddress?: string;
+  postAggress?: string;
+  inn?: string;
+  kpp?: string;
+  ogrn?: string;
+}
+
+interface RequisitesDto {
+  bank: string;
+  bik: string;
+  checkingAccount: string;
+}
+
+interface DashBoardResponse {
+  partners: Legals;
+  sponsors: Legals;
+  applications: number;
+  negotiation: number;
+  tariffChange: number;
+}
+
+interface Legals {
+  total: number;
+  growthPerMonth: number;
 }

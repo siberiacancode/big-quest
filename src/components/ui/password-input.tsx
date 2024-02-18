@@ -10,7 +10,7 @@ export const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className='relative'>
-        <Input type={showPassword ? 'text' : 'password'} ref={ref} {...props} />
+        <Input ref={ref} type={showPassword ? 'text' : 'password'} disabled={disabled} {...props} />
         <Button
           type='button'
           variant='ghost'

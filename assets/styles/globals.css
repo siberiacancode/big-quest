@@ -22,7 +22,7 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89.8%;
-    --input: 240 20% 99%;
+    --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --radius: 0.5rem;
 
@@ -32,6 +32,7 @@
     --gray-light: 0, 0%, 90%, 1;
     --taiga-dark: 145 100% 10%;
     --taiga-light: 155 100% 17%;
+    --input-bg: 240 20% 99%;
     --tabs-background: 0 0% 100%;
     --tabs-text: 0 0% 10%;
   }
@@ -58,6 +59,7 @@
     --ring: 0 0% 83.1%;
 
     /* custom colors */
+    --input-bg: 0 0% 14.9%;
     --gray-two: 0, 0%, 31%, 1;
     --placeholder: 0, 0%, 74%, 1;
     --gray-light: 0, 0%, 18%, 1;
