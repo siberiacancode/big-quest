@@ -16,7 +16,8 @@ import {
   OrganizationProfileCardInfoContent,
   OrganizationProfileCardInfoIcon,
   OrganizationProfileCardInfoTitle,
-  Separator
+  Separator,
+  Typography
 } from '@/components/ui';
 
 interface OrganizationProfileCardProps {
@@ -25,9 +26,11 @@ interface OrganizationProfileCardProps {
 
 export const OrganizationProfileCard = ({ organization }: OrganizationProfileCardProps) => (
   <InfoCard className='h-fit w-1/2 smx:w-full'>
-    <InfoCardHeader className='pb-3'>
-      <InfoCardTitle className='text-lg font-bold'>
-        <I18nText path='organization.profile.information.name' />
+    <InfoCardHeader className='pb-0'>
+      <InfoCardTitle>
+        <Typography variant='h5' tag='h5'>
+          <I18nText path='organization.profile.information.name' />
+        </Typography>
       </InfoCardTitle>
       <InfoCardAction className='rounded-none bg-transparent'>
         <Button variant='ghost' className='ml-3 mr-1 h-8 w-8 p-2'>
@@ -36,7 +39,9 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
       </InfoCardAction>
     </InfoCardHeader>
     <InfoCardContent className='flex w-full flex-col px-7'>
-      <p className='text-xs font-medium text-muted-foreground'>{organization.description}</p>
+      <Typography variant='body2' tag='p' className='text-muted-foreground'>
+        {organization.description}
+      </Typography>
       <Separator className='my-5' />
       <div className='flex flex-col gap-3 text-sm'>
         {organization.name && (
@@ -107,8 +112,10 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
       <Separator className='mt-4' />
       <Accordion type='single' collapsible>
         <AccordionItem value='organization.legalInfo' className='border-none'>
-          <AccordionTrigger className='text-md font-bold'>
-            <I18nText path='organization.profile.legalInfo.title' />
+          <AccordionTrigger>
+            <Typography variant='h7' tag='h6'>
+              <I18nText path='organization.profile.legalInfo.title' />
+            </Typography>
           </AccordionTrigger>
           {organization.legalInfo && (
             <AccordionContent className='flex flex-col gap-3'>
@@ -179,8 +186,10 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
       <Separator />
       <Accordion type='single' collapsible>
         <AccordionItem value='item-1' className='border-none'>
-          <AccordionTrigger className='text-md font-bold'>
-            <I18nText path='organization.profile.requisites.title' />
+          <AccordionTrigger>
+            <Typography variant='h7' tag='h6'>
+              <I18nText path='organization.profile.requisites.title' />
+            </Typography>
           </AccordionTrigger>
           {organization.requisites && (
             <AccordionContent className='flex flex-col gap-3'>

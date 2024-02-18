@@ -13,7 +13,8 @@ export const useLoginForm = () => {
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: '',
-      password: ''
+      password: '',
+      rememberMe: false
     }
   });
 

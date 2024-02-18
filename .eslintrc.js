@@ -25,7 +25,8 @@ module.exports = {
         'promise/always-return': 'off',
         'class-methods-use-this': 'off',
         '@typescript-eslint/naming-convention': 'warn',
-        'no-underscore-dangle': 'warn'
+        'no-underscore-dangle': 'warn',
+        'no-bitwise': 'warn'
       }
     }
   ]

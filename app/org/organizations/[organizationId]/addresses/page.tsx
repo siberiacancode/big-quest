@@ -1,7 +1,7 @@
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 
 import { I18nText } from '@/components/common';
-import { Button } from '@/components/ui';
+import { Button, Typography } from '@/components/ui';
 import { getOrganizationAddressesById } from '@/utils/api/requests';
 
 import { AddAddressDialog } from './components/AddAddressDialog/AddAddressDialog';
@@ -19,9 +19,9 @@ const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
   return (
     <>
       <div className='flex justify-between'>
-        <h3 className='text-lg font-bold'>
+        <Typography variant='h5' tag='h5'>
           <I18nText path='partners.addresses.title' />
-        </h3>
+        </Typography>
         <AddAddressDialog
           trigger={
             <Button variant='light' className='mx-2 p-5' size='sm'>

@@ -34,6 +34,7 @@ export const LoginForm = () => {
               </FormLabel>
               <FormControl>
                 <Input
+                  disabled={state.isLoading}
                   placeholder={i18n.formatMessage({ id: 'field.email.placeholder' })}
                   {...field}
                 />
@@ -56,8 +57,9 @@ export const LoginForm = () => {
               </FormLabel>
               <FormControl>
                 <PasswordInput
-                  {...field}
+                  disabled={state.isLoading}
                   placeholder={i18n.formatMessage({ id: 'field.password.placeholder' })}
+                  {...field}
                 />
               </FormControl>
               <FormMessage>
@@ -70,7 +72,17 @@ export const LoginForm = () => {
         />
         <div className='flex flex-col space-y-6'>
           <div className='mt-3 flex items-center'>
-            <Checkbox />
+            <FormField
+              control={form.control}
+              name='password'
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Checkbox disabled={state.isLoading} {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
             <span className='px-2 text-xs text-muted-foreground'>
               <I18nText path='org.auth.rememberMe' />
             </span>
@@ -78,7 +90,7 @@ export const LoginForm = () => {
           <Button
             type='submit'
             size='lg'
-            className='w-full bg-taiga hover:bg-taiga-foreground'
+            className='w-full bg-taiga text-white hover:bg-taiga-foreground'
             loading={state.isLoading}
           >
             <I18nText path='button.login' />
