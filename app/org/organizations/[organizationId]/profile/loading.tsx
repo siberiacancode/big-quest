@@ -22,7 +22,7 @@ const OrganizationProfileLoading = () => (
       </div>
     </div>
     <div className='flex-1 space-y-6'>
-      <InfoCardSkeleton multiplyItemsCount={3} className='pt-6' />
+      <InfoCardSkeleton itemsCount={3} className='pt-6' />
       <div className='flex flex-1 gap-6'>
         <InfoCardSkeleton className='w-1/2' />
         <InfoCardSkeleton className='w-1/2' />
