@@ -28,12 +28,12 @@ export const AddEmploeeDialog = ({ trigger }: AddEmploeeDialogProps) => {
         <DialogHeader>
           <DialogTitle>
             <Typography variant='h4' tag='h4'>
-              <I18nText path='dialog.addAddress.title' />
+              <I18nText path='dialog.addEmployee.title' />
             </Typography>
           </DialogTitle>
         </DialogHeader>
         <div className='flex h-full flex-col items-end justify-between overflow-y-auto rounded-lg border p-5'>
-          {/* <AddAddressForm onAdded={functions.onAdded} /> */}
+          {/* <AddEmploeeForm onAdded={functions.onAdded} /> */}
         </div>
       </DialogContent>
     </Dialog>

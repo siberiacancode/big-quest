@@ -64,6 +64,9 @@
   "organization.profile.header.activities": "Активности",
   "organization.profile.header.schedule": "Расписание",
 
+  "organization.employee.email": "Email",
+  "organization.employee.phoneNumber": "Телефон",
+
   "field.email.label": "Email",
   "field.password.label": "Пароль",
   "field.email.placeholder": "examples@mail.com",
@@ -151,6 +154,7 @@
   "dialog.registerOrganization.title": "Заполните заявку",
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
   "dialog.addAddress.title": "Добавление адреса",
+  "dialog.addEmployee.title": "Добавление сотрудника",
   "dialog.addAddress.form.untill": "до",
   "dialog.addAddress.success": "Адрес успешно добавлен"
 }
