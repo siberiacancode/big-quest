@@ -4,6 +4,7 @@
   "app.loading": "Пожалуйста подождите...",
 
   "partners.addresses.title": "Адреса",
+  "partners.activities.title": "Активности",
 
   "org.auth.title": "Вход в личный кабинет",
   "org.auth.rememberMe": "Запомнить меня",
@@ -13,6 +14,7 @@
   "button.add": "Добавить",
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
+  "button.addActivities": "Добавить активность",
 
   "button.login": "Войти",
 
