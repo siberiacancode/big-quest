@@ -243,3 +243,11 @@ interface Legals {
   total: number;
   growthPerMonth: number;
 }
+
+interface EmployeeDto {
+  id: string;
+  fullname: string;
+  email: string;
+  employeeRole: string;
+  phoneNumber: string;
+}
