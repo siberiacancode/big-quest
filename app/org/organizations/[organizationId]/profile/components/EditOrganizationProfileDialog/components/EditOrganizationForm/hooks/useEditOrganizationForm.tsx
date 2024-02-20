@@ -9,6 +9,7 @@ import { editOrganizationProfileSchema } from '../constants/editOrganizationProf
 interface UseEditOrganizationFormParams {
   organization: OrganizationResponse;
 }
+
 export const useEditOrganizationForm = ({ organization }: UseEditOrganizationFormParams) => {
   const editOrganizationForm = useForm<EditOrganizationProfileSchema>({
     resolver: zodResolver(editOrganizationProfileSchema),
@@ -21,8 +22,12 @@ export const useEditOrganizationForm = ({ organization }: UseEditOrganizationFor
 
   const onSubmit = editOrganizationForm.handleSubmit(async () => {
     // TODO
-    await putOrganizationMutation.mutateAsync({ id: '1' });
+    await putOrganizationMutation.mutateAsync({ id: organization.id });
   });
 
-  return { state: {}, form: editOrganizationForm, functions: { onSubmit } };
+  return {
+    state: { isLoading: putOrganizationMutation.isPending },
+    form: editOrganizationForm,
+    functions: { onSubmit }
+  };
 };

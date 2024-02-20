@@ -1,3 +1,5 @@
+'use client';
+
 import { Edit3Icon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
@@ -31,7 +33,7 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
     <InfoCardHeader className='pb-0'>
       <InfoCardTitle>
         <Typography variant='h5' tag='h5'>
-          <I18nText path='organization.profile.information.name' />
+          <I18nText path='organization.profile.information.title' />
         </Typography>
       </InfoCardTitle>
       <InfoCardAction className='rounded-none bg-transparent'>

@@ -1,7 +1,15 @@
 import { XIcon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
-import { Dialog, DialogClose, DialogContent, DialogTrigger, Typography } from '@/components/ui';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  Typography
+} from '@/components/ui';
 
 import { EditOrganizationForm } from './components/EditOrganizationForm/EditOrganizationForm';
 import { useEditOrganizationProfileDialog } from './hooks/useEditOrganizationProfileDialog';
@@ -20,19 +28,20 @@ export const EditOrganizationProfileDialog = ({
   return (
     <Dialog open={state.open} onOpenChange={functions.setOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent>
+      <DialogContent className='max-h-screen min-h-screen max-w-[600px] overflow-y-auto'>
         <DialogClose>
-          <XIcon className='h-4 w-4' />
+          <XIcon className='h-6 w-6' />
         </DialogClose>
-        <div className=''>
-          <div className=''>
-            <Typography variant='h2' tag='h2'>
-              <I18nText path='dialog.registerOrganization.title' />
+        <DialogHeader>
+          <DialogTitle>
+            <Typography variant='h2'>
+              <I18nText path='dialog.editOrganizationProfile.title' />
             </Typography>
-            <div className=''>
-              <EditOrganizationForm organization={organization} />
-            </div>
-          </div>
+          </DialogTitle>
+        </DialogHeader>
+
+        <div className=''>
+          <EditOrganizationForm organization={organization} />
         </div>
       </DialogContent>
     </Dialog>
