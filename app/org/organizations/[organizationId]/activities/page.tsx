@@ -1,3 +1,4 @@
+import React from 'react';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 
 import { I18nText } from '@/components/common';
@@ -6,8 +7,8 @@ import { Button, Typography } from '@/components/ui';
 import { ActivityCard } from './components/ActivityCard/ActivityCard';
 
 const OrganizationActivitiesPage = () => (
-  <div>
-    <div className='flex justify-between'>
+  <>
+    <div className='flex flex-wrap justify-between'>
       <Typography variant='h5' tag='h5'>
         <I18nText path='partners.activities.title' />
       </Typography>
@@ -17,18 +18,16 @@ const OrganizationActivitiesPage = () => (
         <I18nText path='button.addActivities' />
       </Button>
     </div>
-    <div className='flex w-full justify-center'>
-      <div className='mt-4 flex flex-wrap gap-7 xsx:flex xsx:grid-cols-none xsx:flex-col xsx:items-center'>
-        {Array(5)
-          .fill({})
-          .map((_, index) => (
-            <span key={index}>
-              <ActivityCard />
-            </span>
-          ))}
-      </div>
+    <div className='mb-6 grid w-full grid-cols-5 gap-7 3xlx:grid-cols-4 xlx:grid-cols-3 mdx:grid-cols-2 2xsx:grid-cols-1'>
+      {Array(5)
+        .fill({})
+        .map((_, index) => (
+          <React.Fragment key={index}>
+            <ActivityCard />
+          </React.Fragment>
+        ))}
     </div>
-  </div>
+  </>
 );
 
 export default OrganizationActivitiesPage;

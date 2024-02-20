@@ -6,9 +6,13 @@ import { Button, Separator, Typography } from '@/components/ui';
 
 export const ActivityCard = () => {
   return (
-    <div className='w-72 rounded-lg bg-background p-4 2mdx:w-full xsx:w-full'>
+    <div className='w-full rounded-lg bg-background p-4'>
       <div className='relative'>
-        <Image className='h-64 w-full rounded-lg' src={background} alt='org-background' />
+        <Image
+          className='w-full rounded-lg 4xlx:max-h-72 4xl:max-h-96'
+          src={background}
+          alt='activity-background'
+        />
         <div className='absolute top-0 flex w-full items-center justify-between p-3'>
           <div className='rounded-md bg-secondary px-3 py-2'>
             <Typography variant='sub4' tag='p'>

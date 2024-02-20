@@ -1,4 +1,5 @@
 export * from './accordion';
+export * from './activity-card-skeleton';
 export * from './address-card-skeleton';
 export * from './badge';
 export * from './breadcrumbs';
@@ -28,6 +29,7 @@ export * from './popover';
 export * from './radio-group';
 export * from './scroll-area';
 export * from './separator';
+export * from './skeleton';
 export * from './sonner';
 export * from './table';
 export * from './tabs';
