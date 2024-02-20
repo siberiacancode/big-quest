@@ -64,6 +64,11 @@
   "organization.profile.header.activities": "Активности",
   "organization.profile.header.schedule": "Расписание",
 
+  "organization.activities.status.draft": "Черновик",
+  "organization.activities.status.published": "Опубликован",
+
+  "organization.activities.category.education": "Образование",
+
   "field.email.label": "Email",
   "field.password.label": "Пароль",
   "field.email.placeholder": "examples@mail.com",

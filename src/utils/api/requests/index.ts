@@ -4,6 +4,7 @@ export * from './dadata';
 export * from './organization';
 export * from './organization/addAddress';
 export * from './organization/dashboard';
+export * from './organization/getActivities';
 export * from './organization/getAddresses';
 export * from './organization/id';
 export * from './organization/register';

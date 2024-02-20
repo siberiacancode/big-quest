@@ -75,6 +75,10 @@ type Stage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
 
 type UserRole = 'organizer' | 'partner';
 
+type ActivityCategory = 'EDUCATION';
+
+type ActivityStatus = 'DRAFT' | 'PUBLISHED';
+
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
@@ -159,6 +163,21 @@ interface OrganizationAddressesResponse {
     details?: string;
     workingHours: WorkingHourDto[];
   }[];
+}
+
+interface OrganizationActivitiesResponse {
+  images: string[];
+  category: ActivityCategory;
+  status: ActivityStatus;
+  participants: number;
+  likes: number;
+  title: string;
+  description: string;
+  ageMin: number;
+  ageMax: number;
+  allowRepeat: boolean;
+  price: number;
+  time: number;
 }
 
 interface LoginEmailDto {
