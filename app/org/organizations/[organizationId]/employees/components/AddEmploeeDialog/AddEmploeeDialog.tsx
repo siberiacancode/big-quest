@@ -13,11 +13,15 @@ import {
   Typography
 } from '@/components/ui';
 
+import { AddEmployeeForm } from './components/AddEmployeeForm/AddEmployeeForm';
+import { useAddEmployeeDialog } from './useAddEmployeeDialog/useAddEmployeeDialog';
+
 interface AddEmploeeDialogProps {
   trigger: JSX.Element;
 }
 
 export const AddEmploeeDialog = ({ trigger }: AddEmploeeDialogProps) => {
+  const { functions } = useAddEmployeeDialog();
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
@@ -26,14 +30,17 @@ export const AddEmploeeDialog = ({ trigger }: AddEmploeeDialogProps) => {
           <XIcon className='h-6 w-6' />
         </DialogClose>
         <DialogHeader>
-          <DialogTitle>
+          <DialogTitle className='space-y-2'>
             <Typography variant='h4' tag='h4'>
               <I18nText path='dialog.addEmployee.title' />
+            </Typography>
+            <Typography variant='body1' tag='h4'>
+              <I18nText path='dialog.addEmployee.description' />
             </Typography>
           </DialogTitle>
         </DialogHeader>
         <div className='flex h-full flex-col items-end justify-between overflow-y-auto rounded-lg border p-5'>
-          {/* <AddEmploeeForm onAdded={functions.onAdded} /> */}
+          <AddEmployeeForm onAdded={functions.onAdded} />
         </div>
       </DialogContent>
     </Dialog>
