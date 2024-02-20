@@ -24,13 +24,15 @@ const OrganizationsPageLoading = () => (
         <div className='mdx:pt-2'>
           <Skeleton className='h-5 w-32' />
         </div>
-
-        <div className='flex items-center gap-2 mdx:pt-2'>
-          <Skeleton className='h-8 w-12' />
-          <Skeleton className='h-8 w-8' />
-          <Skeleton className='h-8 w-8' />
-          <Skeleton className='h-8 w-8' />
-          <Skeleton className='h-8 w-12' />
+        <div className='flex flex-col-reverse items-center gap-2 py-3 md:flex-row'>
+          <Skeleton className='h-5 w-32' />
+          <div className='flex items-center gap-2'>
+            <Skeleton className='h-8 w-12' />
+            <Skeleton className='h-8 w-8' />
+            <Skeleton className='h-8 w-8' />
+            <Skeleton className='h-8 w-8' />
+            <Skeleton className='h-8 w-12' />
+          </div>
         </div>
       </div>
     </div>

@@ -12,6 +12,9 @@ import {
   DataTablePagination,
   DataTableSelectedLabel,
   DataTableToolbar,
+  getPageCount,
+  getPageIndex,
+  Typography,
   useDataTable
 } from '@/components/ui';
 
@@ -45,7 +48,13 @@ export const OrganizationsTable = ({ organizations, pagination }: OrganizationsT
             </>
           )}
         </DataTableSelectedLabel>
-        <DataTablePagination pagination={pagination} onClick={functions.onPaginationClick} />
+        <div className='flex flex-col-reverse items-center gap-2 py-3 md:flex-row'>
+          <Typography variant='sub2' tag='p' className='text-nowrap'>
+            {getPageIndex(pagination.current)} <I18nText path='pagination.page' />{' '}
+            <I18nText path='pagination.from' /> {getPageCount(pagination.limit, pagination.count)}
+          </Typography>
+          <DataTablePagination pagination={pagination} onClick={functions.onPaginationClick} />
+        </div>
       </DataTableBottomContent>
     </DataTable>
   );
