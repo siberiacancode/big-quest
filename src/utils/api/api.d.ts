@@ -78,7 +78,7 @@ type UserRole = 'organizer' | 'partner';
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
-  postAggress?: string;
+  postAddress?: string;
   inn?: string;
   kpp?: string;
   ogrn?: string;
@@ -219,7 +219,7 @@ interface OrganizationInformationDto {
   };
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
-  postAggress?: string;
+  postAddress?: string;
   inn?: string;
   kpp?: string;
   ogrn?: string;

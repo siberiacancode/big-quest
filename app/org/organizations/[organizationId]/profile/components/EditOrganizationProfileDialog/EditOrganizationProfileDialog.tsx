@@ -11,7 +11,7 @@ import {
   Typography
 } from '@/components/ui';
 
-import { EditOrganizationForm } from './components/EditOrganizationForm/EditOrganizationForm';
+import { EditOrganizationProfileForm } from './components/EditOrganizationProfileForm/EditOrganizationProfileForm';
 import { useEditOrganizationProfileDialog } from './hooks/useEditOrganizationProfileDialog';
 
 interface EditOrganizationProfileDialogProps {
@@ -41,7 +41,7 @@ export const EditOrganizationProfileDialog = ({
         </DialogHeader>
 
         <div className=''>
-          <EditOrganizationForm organization={organization} />
+          <EditOrganizationProfileForm organization={organization} />
         </div>
       </DialogContent>
     </Dialog>

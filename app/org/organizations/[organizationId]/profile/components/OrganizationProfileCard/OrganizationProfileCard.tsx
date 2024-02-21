@@ -148,13 +148,13 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
                   </OrganizationProfileCardInfoContent>
                 </OrganizationProfileCardInfo>
               )}
-              {organization.legalInfo.postAggress && (
+              {organization.legalInfo.postAddress && (
                 <OrganizationProfileCardInfo>
                   <OrganizationProfileCardInfoTitle>
                     <I18nText path='organization.profile.legalInfo.postAddress' />
                   </OrganizationProfileCardInfoTitle>
                   <OrganizationProfileCardInfoContent>
-                    {organization.legalInfo.postAggress}
+                    {organization.legalInfo.postAddress}
                   </OrganizationProfileCardInfoContent>
                 </OrganizationProfileCardInfo>
               )}

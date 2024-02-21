@@ -1,30 +1,37 @@
+import { DadataCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {
+  BikInput,
   Button,
+  CheckingAccountInput,
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
+  InnInput,
   Input,
+  KppInput,
+  OgrnInput,
+  PhoneNumberInput,
   Typography
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import { useEditOrganizationForm } from './hooks/useEditOrganizationForm';
+import { useEditOrganizationProfileForm } from './hooks/useEditOrganizationProfileForm';
 
 interface EditOrganizationFormProps {
   organization: OrganizationResponse;
 }
 
-export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps) => {
+export const EditOrganizationProfileForm = ({ organization }: EditOrganizationFormProps) => {
   const intl = useI18n();
-  const { form, functions, state } = useEditOrganizationForm({ organization });
+  const { form, functions, state } = useEditOrganizationProfileForm({ organization });
 
   return (
     <Form {...form}>
-      <form onSubmit={functions.onSubmit} className=''>
+      <form onSubmit={functions.onSubmit} className='space-y-3'>
         <Typography variant='h5' tag='h5'>
           <I18nText path='organization.profile.information.title' />
         </Typography>
@@ -37,12 +44,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <I18nText path='field.organization.name.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
-                  })}
-                />
+                <Input {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.name && (
@@ -61,12 +63,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <I18nText path='field.organization.contactName.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
-                  })}
-                />
+                <Input {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.information?.contactName && (
@@ -87,12 +84,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <I18nText path='field.organization.phone.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
-                  })}
-                />
+                <PhoneNumberInput {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.information?.phone && (
@@ -116,7 +108,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <Input
                   {...field}
                   placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
+                    id: 'field.email.placeholder'
                   })}
                 />
               </FormControl>
@@ -142,7 +134,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <Input
                   {...field}
                   placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
+                    id: 'field.organization.site.placeholder'
                   })}
                 />
               </FormControl>
@@ -165,11 +157,10 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <I18nText path='field.organization.locality.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
-                  })}
+                <DadataCombobox
+                  value={field.value}
+                  className='w-full'
+                  onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
                 />
               </FormControl>
               <FormMessage>
@@ -193,7 +184,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <Input
                   {...field}
                   placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
+                    id: 'field.organization.social.placeholder'
                   })}
                 />
               </FormControl>
@@ -207,7 +198,6 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
             </FormItem>
           )}
         />
-        {/* // ? TODO */}
         <Typography variant='h5' tag='h5' className='mt-5'>
           <I18nText path='organization.profile.legalInfo.title' />
         </Typography>
@@ -221,12 +211,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <I18nText path='field.organization.fullName.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
-                  })}
-                />
+                <Input {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.information?.fullNameOfTheLegalEntity && (
@@ -250,11 +235,10 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <I18nText path='field.organization.legalAddress.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
-                  })}
+                <DadataCombobox
+                  value={field.value}
+                  className='w-full'
+                  onSelect={(newValue) => form.setValue('information.legalAddress', newValue ?? '')}
                 />
               </FormControl>
               <FormMessage>
@@ -276,11 +260,10 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <I18nText path='field.organization.postAddress.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
-                  })}
+                <DadataCombobox
+                  value={field.value}
+                  className='w-full'
+                  onSelect={(newValue) => form.setValue('information.postAddress', newValue ?? '')}
                 />
               </FormControl>
               <FormMessage>
@@ -302,12 +285,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <I18nText path='field.organization.inn.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
-                  })}
-                />
+                <InnInput {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.inn && (
@@ -326,12 +304,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <I18nText path='field.organization.kpp.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
-                  })}
-                />
+                <KppInput {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.information?.kpp && (
@@ -352,12 +325,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <I18nText path='field.organization.ogrn.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
-                  })}
-                />
+                <OgrnInput {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.information?.ogrn && (
@@ -384,7 +352,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <Input
                   {...field}
                   placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
+                    id: 'field.organization.bank.placeholder'
                   })}
                 />
               </FormControl>
@@ -407,12 +375,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <I18nText path='field.organization.bik.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
-                  })}
-                />
+                <BikInput {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.requisites?.bik && (
@@ -433,12 +396,7 @@ export const EditOrganizationForm = ({ organization }: EditOrganizationFormProps
                 <I18nText path='field.organization.checkingAccount.label' />
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder={intl.formatMessage({
-                    id: 'field.default.placeholder'
-                  })}
-                />
+                <CheckingAccountInput {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.requisites?.checkingAccount && (
