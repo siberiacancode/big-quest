@@ -14,28 +14,28 @@ export const editOrganizationProfileSchema = z.object({
     .string()
     .min(1, { message: 'validation.required' })
     .max(128, { message: 'validation.max' }),
-  description: z.string().max(1000, { message: 'validation.max' }),
-  inn: innSchema,
+  description: z.string().max(1000, { message: 'validation.max' }).optional(),
+  inn: innSchema.optional(),
   information: z.object({
-    postAddress: z.string().max(1000, { message: 'validation.max' }),
+    postAddress: z.string().max(1000, { message: 'validation.max' }).optional(),
     contactName: z
       .string()
       .min(1, { message: 'validation.required' })
       .max(128, { message: 'validation.max' }),
     phone: z.string().min(1, { message: 'validation.required' }),
-    email: z.string(),
-    site: z.string(),
-    city: z.string(),
-    social: z.string(),
-    fullNameOfTheLegalEntity: z.string().max(1000, { message: 'validation.max' }),
-    legalAddress: z.string().max(1000, { message: 'validation.max' }),
-    kpp: kppSchema,
-    ogrn: ogrnSchema
+    email: z.string().optional(),
+    site: z.string().optional(),
+    city: z.string().optional(),
+    social: z.string().optional(),
+    fullNameOfTheLegalEntity: z.string().max(1000, { message: 'validation.max' }).optional(),
+    legalAddress: z.string().max(1000, { message: 'validation.max' }).optional(),
+    kpp: kppSchema.optional(),
+    ogrn: ogrnSchema.optional()
   }),
   requisites: z.object({
-    bank: z.string().max(128, { message: 'validation.max' }),
-    bik: bikSchema,
-    checkingAccount: checkingAccountSchema
+    bank: z.string().max(128, { message: 'validation.max' }).optional(),
+    bik: bikSchema.optional(),
+    checkingAccount: checkingAccountSchema.optional()
   })
 });
 

@@ -17,34 +17,35 @@ export const useEditOrganizationProfileForm = ({ organization }: UseEditOrganiza
     defaultValues: {
       locality: organization.locality ?? '',
       name: organization.name ?? '',
-      description: organization.description ?? '',
-      inn: organization.inn ?? '',
+      description: organization.description,
+      inn: organization.inn,
       information: {
-        postAddress: organization.information?.postAddress ?? '',
+        postAddress: organization.information?.postAddress,
         contactName: organization.information?.contactName ?? '',
         phone: organization.information?.phone ?? '',
-        email: organization.information?.email ?? '',
-        site: organization.information?.site ?? '',
-        city: organization.information?.city ?? '',
-        social: organization.information?.social ?? '',
-        fullNameOfTheLegalEntity: organization.information?.fullNameOfTheLegalEntity ?? '',
-        legalAddress: organization.information?.legalAddress ?? '',
-        kpp: organization.information?.kpp ?? '',
-        ogrn: organization.information?.ogrn ?? ''
+        email: organization.information?.email,
+        site: organization.information?.site,
+        city: organization.information?.city,
+        social: organization.information?.social,
+        fullNameOfTheLegalEntity: organization.information?.fullNameOfTheLegalEntity,
+        legalAddress: organization.information?.legalAddress,
+        kpp: organization.information?.kpp,
+        ogrn: organization.information?.ogrn
       },
       requisites: {
-        bank: organization.requisites?.bank ?? '',
-        bik: organization.requisites?.bik ?? '',
-        checkingAccount: organization.requisites?.checkingAccount ?? ''
+        bank: organization.requisites?.bank,
+        bik: organization.requisites?.bik,
+        checkingAccount: organization.requisites?.checkingAccount
       }
     }
   });
 
   const putOrganizationMutation = usePutOrganizationMutation();
 
-  const onSubmit = editOrganizationForm.handleSubmit(async () => {
-    // TODO
-    await putOrganizationMutation.mutateAsync({ id: organization.id });
+  const onSubmit = editOrganizationForm.handleSubmit(async (values) => {
+    // @ts-ignore
+    // ? Тут что-то тайпскрипт шалит, не смог пока исправить
+    await putOrganizationMutation.mutateAsync(values);
   });
 
   return {

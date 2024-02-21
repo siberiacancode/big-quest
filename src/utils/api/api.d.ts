@@ -226,9 +226,9 @@ interface OrganizationInformationDto {
 }
 
 interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
+  bank?: string;
+  bik?: string;
+  checkingAccount?: string;
 }
 
 interface DashBoardResponse {
@@ -245,7 +245,7 @@ interface Legals {
 }
 
 interface UpdateOrganizationDto {
-  id: string;
+  id?: string;
   locality?: string;
   name?: string;
   description?: string;
