@@ -47,7 +47,7 @@ export const AddEmployeeForm = ({ onAdded }: AddEmployeeFormProps) => {
                       value={field.value}
                       onValueChange={(newValue) => form.setValue('role', newValue ?? '')}
                     >
-                      <SelectTrigger className='h-8 w-[180px]'>
+                      <SelectTrigger className='h-8 w-48'>
                         <SelectValue placeholder='Роль' />
                       </SelectTrigger>
                       <SelectContent>

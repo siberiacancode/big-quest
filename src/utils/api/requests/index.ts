@@ -3,6 +3,7 @@ export * from './auth/refreshTokens';
 export * from './dadata';
 export * from './organization';
 export * from './organization/addAddress';
+export * from './organization/addEmployee';
 export * from './organization/dashboard';
 export * from './organization/getAddresses';
 export * from './organization/id';

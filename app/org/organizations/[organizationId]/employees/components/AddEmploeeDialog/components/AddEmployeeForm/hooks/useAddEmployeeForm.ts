@@ -1,8 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-// import { useParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
+import { usePostOrganizationAddEmployeeMutation } from '@/utils/api/hooks/usePostOrganizationAddEmployeeMutation';
 import { useI18n } from '@/utils/contexts';
 
 import { type AddEmployeeSchema, addEmployeeSchema } from '../constants/addEmployeeSchema';
@@ -14,7 +15,7 @@ interface UseAddEmployeeFormParams {
 export const useAddEmployeeForm = ({ onAdded }: UseAddEmployeeFormParams) => {
   const i18n = useI18n();
 
-  //   const params = useParams<{ id: string }>();
+  const params = useParams<{ id: string }>();
 
   const addEmployeeForm = useForm<AddEmployeeSchema>({
     mode: 'onSubmit',
@@ -28,14 +29,13 @@ export const useAddEmployeeForm = ({ onAdded }: UseAddEmployeeFormParams) => {
     }
   });
 
-  //   const postOrganizationAddEmployee = usePostOrganizationAddAddressMutation();
+  const postOrganizationAddEmployee = usePostOrganizationAddEmployeeMutation();
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/require-await
-  const onSubmit = addEmployeeForm.handleSubmit(async () => {
-    // await postOrganizationAddEmployee.mutateAsync({
-    //   ...values,
-    //   organizationId: params.id
-    // });
+  const onSubmit = addEmployeeForm.handleSubmit(async (values) => {
+    await postOrganizationAddEmployee.mutateAsync({
+      ...values,
+      organizationId: params.id
+    });
 
     toast(i18n.formatMessage({ id: 'dialog.addAddress.success' }), {
       cancel: { label: 'Close' }

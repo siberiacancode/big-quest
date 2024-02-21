@@ -129,6 +129,15 @@ interface OrganizationAddressDto {
   workingHours: WorkingHourDto[];
 }
 
+interface OrganizationEmployeeDto {
+  organizationId: string;
+  role: string;
+  name: string;
+  name: string;
+  email: string;
+  phone: string;
+}
+
 interface RegisterOrganizationDto {
   organization: string;
   location: string;
