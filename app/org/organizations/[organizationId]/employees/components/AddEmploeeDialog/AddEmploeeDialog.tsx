@@ -25,7 +25,7 @@ export const AddEmploeeDialog = ({ trigger }: AddEmploeeDialogProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className='flex h-fit w-11/12 max-w-[713px] flex-col rounded-lg smx:max-h-[90%]'>
+      <DialogContent className='flex h-fit w-11/12 max-w-[500px] flex-col rounded-lg smx:max-h-[90%]'>
         <DialogClose>
           <XIcon className='h-6 w-6' />
         </DialogClose>

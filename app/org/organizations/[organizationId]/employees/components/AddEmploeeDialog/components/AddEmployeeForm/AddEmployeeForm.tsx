@@ -7,7 +7,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  Input
+  Input,
+  PhoneNumberInput,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
@@ -24,7 +30,7 @@ export const AddEmployeeForm = ({ onAdded }: AddEmployeeFormProps) => {
   return (
     <Form {...form}>
       <form onSubmit={functions.onSubmit} className='flex w-full flex-col items-end'>
-        <div className='flex w-full gap-5 smx:flex-col'>
+        <div className='mb-7 flex w-full gap-5 smx:flex-col'>
           <div className='flex-1 space-y-3'>
             <FormField
               control={form.control}
@@ -32,15 +38,30 @@ export const AddEmployeeForm = ({ onAdded }: AddEmployeeFormProps) => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    <I18nText path='field.street.label' />
+                    <I18nText path='field.role.label' />
                   </FormLabel>
                   <FormControl>
-                    <Input
+                    <Select
+                      defaultValue='Leading'
                       {...field}
-                      placeholder={i18n.formatMessage({
-                        id: 'field.street.placeholder'
-                      })}
-                    />
+                      value={field.value}
+                      onValueChange={(newValue) => form.setValue('role', newValue ?? '')}
+                    >
+                      <SelectTrigger className='h-8 w-[180px]'>
+                        <SelectValue placeholder='Роль' />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value='administrator'>
+                          <I18nText path='organization.employee.role.administrator' />
+                        </SelectItem>
+                        <SelectItem value='leading'>
+                          <I18nText path='organization.employee.role.leading' />
+                        </SelectItem>
+                        <SelectItem value='manager'>
+                          <I18nText path='organization.employee.role.manager' />
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
                   </FormControl>
                   <FormMessage>
                     {form.formState?.errors?.role && (
@@ -52,11 +73,30 @@ export const AddEmployeeForm = ({ onAdded }: AddEmployeeFormProps) => {
             />
             <FormField
               control={form.control}
+              name='surname'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    <I18nText path='field.surname.label' />
+                  </FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage>
+                    {form.formState?.errors?.surname && (
+                      <I18nText path={form.formState.errors.surname.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
               name='name'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    <I18nText path='field.house.label' />
+                    <I18nText path='field.name.label' />
                   </FormLabel>
                   <FormControl>
                     <Input {...field} />
@@ -69,27 +109,42 @@ export const AddEmployeeForm = ({ onAdded }: AddEmployeeFormProps) => {
                 </FormItem>
               )}
             />
-          </div>
-          <div className='flex-1 space-y-3'>
             <FormField
               control={form.control}
-              name='surname'
+              name='email'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    <I18nText path='field.details.label' />
+                    <I18nText path='field.email.label' />
                   </FormLabel>
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder={i18n.formatMessage({
-                        id: 'field.details.placeholder'
-                      })}
+                      placeholder={i18n.formatMessage({ id: 'field.email.placeholder' })}
                     />
                   </FormControl>
                   <FormMessage>
-                    {form.formState?.errors?.surname && (
-                      <I18nText path={form.formState.errors.surname.message as LocaleMessageId} />
+                    {form.formState?.errors?.email && (
+                      <I18nText path={form.formState.errors.email.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='phone'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    <I18nText path='field.phone.label' />
+                  </FormLabel>
+                  <FormControl>
+                    <PhoneNumberInput {...field} />
+                  </FormControl>
+                  <FormMessage>
+                    {form.formState?.errors?.phone && (
+                      <I18nText path={form.formState.errors.phone.message as LocaleMessageId} />
                     )}
                   </FormMessage>
                 </FormItem>
@@ -97,8 +152,13 @@ export const AddEmployeeForm = ({ onAdded }: AddEmployeeFormProps) => {
             />
           </div>
         </div>
-
-        <Button type='submit' variant='secondary' loading={state.isLoading}>
+        <Button
+          type='submit'
+          variant='default'
+          size='lg'
+          loading={state.isLoading}
+          className='w-full'
+        >
           <I18nText path='button.add' />
         </Button>
       </form>
