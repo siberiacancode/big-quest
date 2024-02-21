@@ -87,6 +87,20 @@
   "field.details.label": "Детали",
   "field.details.placeholder": "офис, вход, этаж",
   "field.note.placeholder": "Оставьте заметку...",
+  "field.name.label": "Название",
+  "field.name.placeholder": "Введите название...",
+  "field.category.label": "Категория",
+  "field.description.label": "Описание",
+  "field.description.placeholder": "Введите описание...",
+  "field.ageRestriction.label": "Возрастное ограничение",
+  "field.ageRestriction.before": "до",
+  "field.duration.label": "Продолжительность",
+  "field.duration.minutes": "мин",
+  "field.status.label": "Статус",
+  "field.price.label": "Стоимость",
+  "field.price.currency": "руб",
+  "field.allowRepeat.label": "Повторное прохождение",
+  "field.allowRepeat.option": "Не разрешать",
 
   "navigation.link.default": "Текущая",
   "navigation.link.org.organizations": "Организации",
@@ -157,5 +171,6 @@
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
   "dialog.addAddress.title": "Добавление адреса",
   "dialog.addAddress.form.untill": "до",
-  "dialog.addAddress.success": "Адрес успешно добавлен"
+  "dialog.addAddress.success": "Адрес успешно добавлен",
+  "dialog.addActivity.title": "Активность"
 }
