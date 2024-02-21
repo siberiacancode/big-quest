@@ -24,26 +24,25 @@ export const TableSkeleton = React.forwardRef<HTMLDivElement, TableSkeletonProps
               <div className='flex items-center py-4 pl-4 smx:pl-2'>
                 <Skeleton className='h-4 w-4 rounded-sm' />
               </div>
-              <div className='flex w-[14%] items-center py-4 pl-4  smx:pl-1'>
-                <Skeleton className='mx-4 h-4 w-full smx:mx-1' />
-              </div>
-              <div className='flex w-[22%] items-center py-4 '>
-                <Skeleton className='mx-4 h-4 w-full max-w-48 smx:mx-1' />
-              </div>
-              <div className='flex w-[14%] items-center py-4'>
-                <Skeleton className='mx-4 h-4 w-full smx:mx-1' />
-              </div>
-              <div className='flex w-[12%] items-center py-4'>
-                <Skeleton className='mx-4 h-4 w-full smx:mx-1' />
-              </div>
-              <div className='flex w-[17%] items-center py-4'>
-                <Skeleton className='mx-4 h-4 w-full smx:mx-1' />
-              </div>
-              <div className='flex w-[14%] items-center py-4'>
-                <Skeleton className='mx-4 h-4 w-full smx:mx-1' />
+              <div className='grid w-full grid-cols-5 mdx:grid-cols-4 xsx:grid-cols-3 '>
+                <div className='flex items-center py-4 pl-4 smx:pl-1'>
+                  <Skeleton className='mx-3 h-4 w-full smx:mx-1' />
+                </div>
+                <div className='flex items-center py-4'>
+                  <Skeleton className='mx-3 h-4 w-full smx:mx-1' />
+                </div>
+                <div className='flex items-center py-4'>
+                  <Skeleton className='mx-3 h-4 w-full smx:mx-1' />
+                </div>
+                <div className='flex items-center py-4 xsx:hidden'>
+                  <Skeleton className='mx-3 h-4 w-full smx:mx-1' />
+                </div>
+                <div className='flex items-center py-4 mdx:hidden'>
+                  <Skeleton className='mx-3 h-4 w-full smx:mx-1' />
+                </div>
               </div>
               <div className='py-4'>
-                <Skeleton className='smx:rounded-xs mr-2 h-8 w-8 rounded-sm smx:h-6 smx:w-6' />
+                <Skeleton className='smx:rounded-xs mx-4 h-8 w-8 rounded-sm smx:h-6 smx:w-6' />
               </div>
             </div>
           ))}
