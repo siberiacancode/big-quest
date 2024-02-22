@@ -1,4 +1,6 @@
 import { api } from '@/utils/api/instance';
 
-export const getDadata = async ({ config }: RequestParams) =>
-  api.get<AddressResponse[]>('dadata', config);
+export type GetDadataRequestConfig = RequestConfig | void;
+
+export const getDadata = async (requestConfig?: GetDadataRequestConfig) =>
+  api.get<AddressResponse[]>('dadata', requestConfig?.config);

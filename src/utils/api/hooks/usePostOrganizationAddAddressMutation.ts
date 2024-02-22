@@ -1,14 +1,17 @@
 import { useMutation } from '@tanstack/react-query';
 
-import type { PostOrganizationAddAddressParams } from '../requests/organization/addAddress';
+import type { PostOrganizationAddAddressRequestConfig } from '../requests/organization/addAddress';
 import { postOrganizationAddAddress } from '../requests/organization/addAddress';
 
 export const usePostOrganizationAddAddressMutation = (
-  settings?: MutationSettings<PostOrganizationAddAddressParams, typeof postOrganizationAddAddress>
+  settings?: MutationSettings<
+    PostOrganizationAddAddressRequestConfig,
+    typeof postOrganizationAddAddress
+  >
 ) =>
   useMutation({
     mutationKey: ['postOrganizationAddAddress'],
-    mutationFn: (params) =>
-      postOrganizationAddAddress({ params, ...(settings?.config && { config: settings.config }) }),
+    mutationFn: ({ params, config }) =>
+      postOrganizationAddAddress({ params, config: { ...settings?.config, ...config } }),
     ...settings?.options
   });

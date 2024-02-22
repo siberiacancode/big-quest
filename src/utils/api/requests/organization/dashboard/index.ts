@@ -1,4 +1,7 @@
 import { api } from '../../../instance';
 
-export const getOrganizationDashboard = async (params?: RequestParams) =>
-  api.get<DashBoardResponse>('organization/dashboard', params?.config);
+export type GetOrganizationDashboardRequestConfig = RequestConfig | void;
+
+export const getOrganizationDashboard = async (
+  requestConfig?: GetOrganizationDashboardRequestConfig
+) => api.get<DashBoardResponse>('organization/dashboard', requestConfig?.config);
