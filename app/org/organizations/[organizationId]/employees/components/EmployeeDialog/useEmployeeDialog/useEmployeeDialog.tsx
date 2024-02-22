@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const useAddEmployeeDialog = () => {
+export const useEmployeeDialog = () => {
   const [open, setOpen] = React.useState(false);
 
   const onAdded = () => setOpen(false);

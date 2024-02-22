@@ -8,11 +8,11 @@ import { useI18n } from '@/utils/contexts';
 
 import { type AddEmployeeSchema, addEmployeeSchema } from '../constants/addEmployeeSchema';
 
-interface UseAddEmployeeFormParams {
+interface UseEmployeeFormParams {
   onAdded: () => void;
 }
 
-export const useAddEmployeeForm = ({ onAdded }: UseAddEmployeeFormParams) => {
+export const useEmployeeForm = ({ onAdded }: UseEmployeeFormParams) => {
   const i18n = useI18n();
 
   const params = useParams<{ id: string }>();

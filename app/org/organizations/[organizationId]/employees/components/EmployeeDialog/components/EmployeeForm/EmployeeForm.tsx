@@ -17,15 +17,16 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import { useAddEmployeeForm } from './hooks/useAddEmployeeForm';
+import { useEmployeeForm } from './hooks/useEmployeeForm';
 
-interface AddEmployeeFormProps {
+interface EmployeeFormProps {
   onAdded: () => void;
+  actionType: 'add' | 'edit';
 }
 
-export const AddEmployeeForm = ({ onAdded }: AddEmployeeFormProps) => {
+export const EmployeeForm = ({ onAdded, actionType }: EmployeeFormProps) => {
   const i18n = useI18n();
-  const { state, form, functions } = useAddEmployeeForm({ onAdded });
+  const { state, form, functions } = useEmployeeForm({ onAdded });
 
   return (
     <Form {...form}>
@@ -159,7 +160,8 @@ export const AddEmployeeForm = ({ onAdded }: AddEmployeeFormProps) => {
           loading={state.isLoading}
           className='w-full'
         >
-          <I18nText path='button.add' />
+          {actionType === 'add' && <I18nText path='button.add' />}
+          {actionType === 'edit' && <I18nText path='button.save' />}
         </Button>
       </form>
     </Form>

@@ -15,7 +15,6 @@
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
   "button.addEmployee": "Добавить сотрудника",
-
   "button.login": "Войти",
 
   "button.registerOrganization": "Отправить заявку",
@@ -161,6 +160,7 @@
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
   "dialog.addAddress.title": "Добавление адреса",
   "dialog.addEmployee.title": "Добавление сотрудника",
+  "dialog.editEmployee.title": "Редактирование сотрудника",
   "dialog.addEmployee.description": "Заполните форму и загрузите изображение",
   "dialog.addAddress.form.untill": "до",
   "dialog.addAddress.success": "Адрес успешно добавлен"
