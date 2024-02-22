@@ -17,7 +17,7 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import { useEmployeeForm } from './hooks/useEmployeeForm';
+import { useAddEmployeeForm } from './hooks/useAddEmployeeForm';
 
 interface EmployeeFormProps {
   onAdded: () => void;
@@ -26,7 +26,8 @@ interface EmployeeFormProps {
 
 export const EmployeeForm = ({ onAdded, actionType }: EmployeeFormProps) => {
   const i18n = useI18n();
-  const { state, form, functions } = useEmployeeForm({ onAdded });
+  const { state, form, functions } = useAddEmployeeForm({ onAdded });
+  // в зависмости от actionType я хотел юзать или useAddEmployeeForm или useEditEmployeeForm, но так нельзя, похоже, поэтому надо что-то придумать
 
   return (
     <Form {...form}>

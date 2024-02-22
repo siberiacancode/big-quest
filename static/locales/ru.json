@@ -163,5 +163,7 @@
   "dialog.editEmployee.title": "Редактирование сотрудника",
   "dialog.addEmployee.description": "Заполните форму и загрузите изображение",
   "dialog.addAddress.form.untill": "до",
-  "dialog.addAddress.success": "Адрес успешно добавлен"
+  "dialog.addAddress.success": "Адрес успешно добавлен",
+  "dialog.addEmployee.success": "Сотрудник успешно добавлен",
+  "dialog.editEmployee.success": "Информация о сотруднике успешно отредактирована"
 }

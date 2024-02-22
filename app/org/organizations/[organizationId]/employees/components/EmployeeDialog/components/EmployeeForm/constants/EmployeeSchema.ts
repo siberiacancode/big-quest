@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-export const addEmployeeSchema = z.object({
+export const employeeSchema = z.object({
   role: z.string().min(1, { message: 'validation.required' }), // Тут нужно enum бы или просто через union строки
   surname: z.string().min(1, { message: 'validation.required' }),
   name: z.string().min(1, { message: 'validation.required' }),
@@ -15,4 +15,4 @@ export const addEmployeeSchema = z.object({
   phone: z.string().min(1, { message: 'validation.required' })
 });
 
-export type AddEmployeeSchema = z.infer<typeof addEmployeeSchema>;
+export type EmployeeSchema = z.infer<typeof employeeSchema>;

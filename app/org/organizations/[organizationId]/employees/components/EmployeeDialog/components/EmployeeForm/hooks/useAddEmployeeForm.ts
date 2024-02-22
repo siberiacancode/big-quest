@@ -6,20 +6,21 @@ import { toast } from 'sonner';
 import { usePostOrganizationAddEmployeeMutation } from '@/utils/api/hooks/usePostOrganizationAddEmployeeMutation';
 import { useI18n } from '@/utils/contexts';
 
-import { type AddEmployeeSchema, addEmployeeSchema } from '../constants/addEmployeeSchema';
+import type { EmployeeSchema } from '../constants/EmployeeSchema';
+import { employeeSchema } from '../constants/EmployeeSchema';
 
-interface UseEmployeeFormParams {
+interface UseAddEmployeeFormParams {
   onAdded: () => void;
 }
 
-export const useEmployeeForm = ({ onAdded }: UseEmployeeFormParams) => {
+export const useAddEmployeeForm = ({ onAdded }: UseAddEmployeeFormParams) => {
   const i18n = useI18n();
 
-  const params = useParams<{ id: string }>();
+  const params = useParams<{ organizationId: string }>();
 
-  const addEmployeeForm = useForm<AddEmployeeSchema>({
+  const addEmployeeForm = useForm<EmployeeSchema>({
     mode: 'onSubmit',
-    resolver: zodResolver(addEmployeeSchema),
+    resolver: zodResolver(employeeSchema),
     defaultValues: {
       role: '',
       name: '',
@@ -34,10 +35,10 @@ export const useEmployeeForm = ({ onAdded }: UseEmployeeFormParams) => {
   const onSubmit = addEmployeeForm.handleSubmit(async (values) => {
     await postOrganizationAddEmployee.mutateAsync({
       ...values,
-      organizationId: params.id
+      organizationId: params.organizationId
     });
 
-    toast(i18n.formatMessage({ id: 'dialog.addAddress.success' }), {
+    toast(i18n.formatMessage({ id: 'dialog.addEmployee.success' }), {
       cancel: { label: 'Close' }
     });
 
