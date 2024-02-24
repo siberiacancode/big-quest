@@ -1,3 +1,5 @@
+'use client';
+
 import { XIcon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
@@ -28,7 +30,7 @@ export const EditOrganizationProfileDialog = ({
   return (
     <Dialog open={state.open} onOpenChange={functions.setOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className='max-h-screen min-h-screen max-w-[600px] overflow-y-auto'>
+      <DialogContent className='h-[90%] max-w-[600px]'>
         <DialogClose>
           <XIcon className='h-6 w-6' />
         </DialogClose>
@@ -40,9 +42,7 @@ export const EditOrganizationProfileDialog = ({
           </DialogTitle>
         </DialogHeader>
 
-        <div className=''>
-          <EditOrganizationProfileForm organization={organization} />
-        </div>
+        <EditOrganizationProfileForm organization={organization} />
       </DialogContent>
     </Dialog>
   );

@@ -1,14 +1,14 @@
 import * as z from 'zod';
 
-import type { NumberFormatInputProps } from './number-format-input';
-import { NumberFormatInput } from './number-format-input';
+import type { InputProps } from './input';
+import { Input } from './input';
 
-export type BikInputProps = NumberFormatInputProps;
+export type BikInputProps = InputProps;
 
 export const BIK_LENGTH = 9;
 
-export const bikSchema = z.string().length(BIK_LENGTH, { message: 'validation.bik.format' });
+export const bikSchema = z.string().length(BIK_LENGTH, { message: 'validation.format' });
 
 export const BikInput = (props: BikInputProps) => (
-  <NumberFormatInput minLength={BIK_LENGTH} maxLength={BIK_LENGTH} {...props} />
+  <Input minLength={BIK_LENGTH} maxLength={BIK_LENGTH} {...props} />
 );

@@ -1,5 +1,3 @@
-'use client';
-
 import { Edit3Icon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';

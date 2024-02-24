@@ -169,11 +169,7 @@
   "validation.email.format": "Неверный формат электронной почты",
   "validation.time.requiredBoth": "Необходимы оба значения времени",
   "validation.max": "Превышен лимит символов",
-  "validation.inn.format": "Неверный формат ИНН",
-  "validation.kpp.format": "Неверный формат КПП",
-  "validation.ogrn.format": "Неверный формат ОГРН",
-  "validation.bik.format": "Неверный формат БИК",
-  "validation.checkingAccount.format": "Неверный формат Р/С",
+  "validation.format": "Неверный формат",
 
   "dialog.registerOrganization.title": "Заполните заявку",
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
