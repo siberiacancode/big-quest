@@ -178,9 +178,8 @@
   "dialog.addAddress.success": "Адрес успешно добавлен",
   "dialog.editOrganizationProfile.title": "Редактирование профиля",
 
-  "tooltip.inn": "Инфа об ИНН",
-  "tooltip.kpp": "Инфа о КПП",
-  "tooltip.ogrn": "Инфа о ОГРН",
-  "tooltip.bik": "Инфа о БИК",
-  "tooltip.checkingAccount": "Инфа о Р/С"
+  "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
+  "tooltip.kpp": "КПП - 9 цифр",
+  "tooltip.ogrn": "ОГРН - 13 цифр, ОГРНИП - 15 цифр",
+  "tooltip.bik": "БИК - 9 цифр"
 }

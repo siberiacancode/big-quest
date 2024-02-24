@@ -1,5 +1,3 @@
-import { InfoIcon } from 'lucide-react';
-
 import { DadataCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {
@@ -17,10 +15,6 @@ import {
   KppInput,
   OgrnInput,
   PhoneNumberInput,
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
   Typography
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
@@ -42,7 +36,7 @@ export const EditOrganizationProfileForm = ({
   return (
     <Form {...form}>
       <form onSubmit={functions.onSubmit} className='h-[100%] min-h-[100px]'>
-        <div className='h-[95%] space-y-4 overflow-y-auto pb-4 pr-3'>
+        <div className='h-[95%] space-y-4 overflow-y-auto px-2 pb-4'>
           <Typography variant='h5' tag='h5'>
             <I18nText path='organization.profile.information.title' />
           </Typography>
@@ -303,17 +297,7 @@ export const EditOrganizationProfileForm = ({
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  <TooltipProvider delayDuration={300}>
-                    <Tooltip>
-                      <TooltipTrigger className='flex items-center gap-2'>
-                        <I18nText path='field.organization.inn.label' />
-                        <InfoIcon className=' size-4' />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <I18nText path='tooltip.inn' />
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
+                  <I18nText path='field.organization.inn.label' />
                 </FormLabel>
                 <FormControl>
                   <InnInput {...field} />
