@@ -176,5 +176,11 @@
   "dialog.addAddress.title": "Добавление адреса",
   "dialog.addAddress.form.untill": "до",
   "dialog.addAddress.success": "Адрес успешно добавлен",
-  "dialog.editOrganizationProfile.title": "Редактируйте профиль"
+  "dialog.editOrganizationProfile.title": "Редактирование профиля",
+
+  "tooltip.inn": "Инфа об ИНН",
+  "tooltip.kpp": "Инфа о КПП",
+  "tooltip.ogrn": "Инфа о ОГРН",
+  "tooltip.bik": "Инфа о БИК",
+  "tooltip.checkingAccount": "Инфа о Р/С"
 }

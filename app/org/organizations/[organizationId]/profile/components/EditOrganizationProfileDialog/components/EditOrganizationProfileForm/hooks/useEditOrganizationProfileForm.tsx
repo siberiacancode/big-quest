@@ -8,9 +8,13 @@ import { editOrganizationProfileSchema } from '../constants/editOrganizationProf
 
 interface UseEditOrganizationFormParams {
   organization: OrganizationResponse;
+  onEdited: () => void;
 }
 
-export const useEditOrganizationProfileForm = ({ organization }: UseEditOrganizationFormParams) => {
+export const useEditOrganizationProfileForm = ({
+  organization,
+  onEdited
+}: UseEditOrganizationFormParams) => {
   const editOrganizationForm = useForm<EditOrganizationProfileSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(editOrganizationProfileSchema),
@@ -43,9 +47,9 @@ export const useEditOrganizationProfileForm = ({ organization }: UseEditOrganiza
   const putOrganizationMutation = usePutOrganizationMutation();
 
   const onSubmit = editOrganizationForm.handleSubmit(async (values) => {
-    // @ts-ignore
-    // ? Тут что-то тайпскрипт шалит, не смог пока исправить
-    await putOrganizationMutation.mutateAsync(values);
+    await putOrganizationMutation.mutateAsync({ params: { ...values, id: organization.id } });
+
+    onEdited();
   });
 
   return {

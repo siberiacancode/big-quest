@@ -36,13 +36,13 @@ export const EditOrganizationProfileDialog = ({
         </DialogClose>
         <DialogHeader>
           <DialogTitle>
-            <Typography variant='h2'>
+            <Typography tag='h4' variant='h4'>
               <I18nText path='dialog.editOrganizationProfile.title' />
             </Typography>
           </DialogTitle>
         </DialogHeader>
 
-        <EditOrganizationProfileForm organization={organization} />
+        <EditOrganizationProfileForm organization={organization} onEdited={functions.onEdited} />
       </DialogContent>
     </Dialog>
   );

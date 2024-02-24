@@ -84,12 +84,6 @@ interface LegalInformationDto {
   ogrn?: string;
 }
 
-interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
-}
-
 interface OrganizationResponse {
   contactName: string;
   phone: number;

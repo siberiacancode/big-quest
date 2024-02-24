@@ -5,7 +5,8 @@ import {
   checkingAccountSchema,
   innSchema,
   kppSchema,
-  ogrnSchema
+  ogrnSchema,
+  phoneNumberSchema
 } from '@/components/ui';
 
 export const editOrganizationProfileSchema = z.object({
@@ -22,7 +23,7 @@ export const editOrganizationProfileSchema = z.object({
       .string()
       .min(1, { message: 'validation.required' })
       .max(128, { message: 'validation.max' }),
-    phone: z.string().min(1, { message: 'validation.required' }),
+    phone: phoneNumberSchema.min(1, { message: 'validation.required' }),
     email: z.string().optional(),
     site: z.string().optional(),
     city: z.string().optional(),
