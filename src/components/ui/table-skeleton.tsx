@@ -5,11 +5,11 @@ import { cn } from '@/lib/utils';
 import { Skeleton } from './skeleton';
 
 interface TableSkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
-  itemsCount?: number;
+  rowsCount?: number;
 }
 
 export const TableSkeleton = React.forwardRef<HTMLDivElement, TableSkeletonProps>(
-  ({ itemsCount = 10, className, ...props }, ref) => (
+  ({ rowsCount = 10, className, ...props }, ref) => (
     <div
       ref={ref}
       className={cn('w-full caption-bottom rounded-lg border border-secondary', className)}
@@ -17,7 +17,7 @@ export const TableSkeleton = React.forwardRef<HTMLDivElement, TableSkeletonProps
     >
       <div className='flex h-12 border-b border-secondary bg-secondary' />
       <div className='flex flex-col'>
-        {Array(itemsCount)
+        {Array(rowsCount)
           .fill({})
           .map((_, index) => (
             <div key={index} className='flex border-b border-secondary last:border-0'>

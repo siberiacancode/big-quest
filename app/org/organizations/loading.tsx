@@ -1,6 +1,4 @@
-import { InfoCardSkeleton } from '@/components/ui';
-import { Skeleton } from '@/components/ui/skeleton';
-import { TableSkeleton } from '@/components/ui/table-skeleton';
+import { InfoCardSkeleton, Skeleton, TableSkeleton } from '@/components/ui';
 
 const OrganizationsPageLoading = () => (
   <div className='bg-secondary px-4'>
