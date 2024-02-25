@@ -31,7 +31,6 @@
   "organization.profile.tariff.paid": "Платных",
   "organization.profile.tariff.valid": "Действует",
   "organization.profile.members": "Участники",
-  "organization.profile.edited": "Профиль успешно изменен",
 
   "organization.profile.entries": "Записи",
   "organization.profile.journal.title": "Журнал",
@@ -179,6 +178,7 @@
   "dialog.addAddress.form.untill": "до",
   "dialog.addAddress.success": "Адрес успешно добавлен",
   "dialog.editOrganizationProfile.title": "Редактирование профиля",
+  "dialog.editOrganizationProfile.success": "Профиль успешно изменен",
 
   "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
   "tooltip.kpp": "КПП - 9 цифр",

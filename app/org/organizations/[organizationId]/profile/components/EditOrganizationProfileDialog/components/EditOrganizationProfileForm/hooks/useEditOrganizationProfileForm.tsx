@@ -32,7 +32,9 @@ export const useEditOrganizationProfileForm = ({
         email: organization.information?.email,
         site: organization.information?.site,
         city: organization.information?.city,
-        social: convertSocialToFormValues(organization.information?.social),
+        social: organization.information?.social
+          ? convertSocialToFormValues(organization.information.social)
+          : [{}],
         fullNameOfTheLegalEntity: organization.information?.fullNameOfTheLegalEntity,
         legalAddress: organization.information?.legalAddress,
         kpp: organization.information?.kpp,
@@ -54,7 +56,7 @@ export const useEditOrganizationProfileForm = ({
   const putOrganizationMutation = usePutOrganizationMutation();
 
   const onSubmit = editOrganizationForm.handleSubmit(async (values) => {
-    const preparedValues = {
+    const putOrganizationParams = {
       ...values,
       id: organization.id,
       information: {
@@ -63,7 +65,7 @@ export const useEditOrganizationProfileForm = ({
       }
     };
 
-    await putOrganizationMutation.mutateAsync({ params: preparedValues });
+    await putOrganizationMutation.mutateAsync({ params: putOrganizationParams });
 
     onEdited();
   });

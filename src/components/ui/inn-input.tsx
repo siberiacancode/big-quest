@@ -5,7 +5,8 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 
 import { I18nText } from '../common';
 
-import { Input, type InputProps } from './input';
+import type { InputProps } from './input';
+import { Input } from './input';
 
 export type InnInputProps = InputProps;
 
