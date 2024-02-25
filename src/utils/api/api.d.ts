@@ -206,7 +206,7 @@ interface OrganizationInformationDto {
   email?: string;
   site?: string;
   city?: string;
-  social?: string;
+  social?: string[];
   coordinates?: {
     latitude: number;
     longitude: number;

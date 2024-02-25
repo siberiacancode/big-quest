@@ -1,10 +1,12 @@
-import { useForm } from 'react-hook-form';
+import { useFieldArray, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { usePutOrganizationMutation } from '@/utils/api';
 
 import type { EditOrganizationProfileSchema } from '../constants/editOrganizationProfileSchema';
 import { editOrganizationProfileSchema } from '../constants/editOrganizationProfileSchema';
+import { convertFormValuesToSocial } from '../helpers/convertFormValuesToSocial';
+import { convertSocialToFormValues } from '../helpers/convertSocialToFormValues';
 
 interface UseEditOrganizationFormParams {
   organization: OrganizationResponse;
@@ -30,7 +32,7 @@ export const useEditOrganizationProfileForm = ({
         email: organization.information?.email,
         site: organization.information?.site,
         city: organization.information?.city,
-        social: organization.information?.social,
+        social: convertSocialToFormValues(organization.information?.social),
         fullNameOfTheLegalEntity: organization.information?.fullNameOfTheLegalEntity,
         legalAddress: organization.information?.legalAddress,
         kpp: organization.information?.kpp,
@@ -44,16 +46,30 @@ export const useEditOrganizationProfileForm = ({
     }
   });
 
+  const socialField = useFieldArray({
+    name: 'information.social',
+    control: editOrganizationForm.control
+  });
+
   const putOrganizationMutation = usePutOrganizationMutation();
 
   const onSubmit = editOrganizationForm.handleSubmit(async (values) => {
-    await putOrganizationMutation.mutateAsync({ params: { ...values, id: organization.id } });
+    const preparedValues = {
+      ...values,
+      id: organization.id,
+      information: {
+        ...values.information,
+        social: convertFormValuesToSocial(values.information.social)
+      }
+    };
+
+    await putOrganizationMutation.mutateAsync({ params: preparedValues });
 
     onEdited();
   });
 
   return {
-    state: { isLoading: putOrganizationMutation.isPending },
+    state: { isLoading: putOrganizationMutation.isPending, socialField },
     form: editOrganizationForm,
     functions: { onSubmit }
   };

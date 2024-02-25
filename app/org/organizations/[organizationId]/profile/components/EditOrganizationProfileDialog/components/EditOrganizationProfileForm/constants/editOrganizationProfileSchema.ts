@@ -27,7 +27,13 @@ export const editOrganizationProfileSchema = z.object({
     email: z.string().optional(),
     site: z.string().optional(),
     city: z.string().optional(),
-    social: z.string().optional(),
+    social: z
+      .array(
+        z.object({
+          value: z.string().url({ message: 'validation.url.format' }).optional()
+        })
+      )
+      .optional(),
     fullNameOfTheLegalEntity: z.string().max(1000, { message: 'validation.max' }).optional(),
     legalAddress: z.string().max(1000, { message: 'validation.max' }).optional(),
     kpp: kppSchema.optional(),

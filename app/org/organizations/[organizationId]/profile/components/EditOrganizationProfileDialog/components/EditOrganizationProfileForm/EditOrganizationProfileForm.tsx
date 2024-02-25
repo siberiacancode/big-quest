@@ -1,3 +1,5 @@
+import { PlusIcon, Trash2Icon } from 'lucide-react';
+
 import { DadataCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {
@@ -25,6 +27,8 @@ interface EditOrganizationFormProps {
   organization: OrganizationResponse;
   onEdited: () => void;
 }
+
+export const MAX_SOCIAL_LINKS_COUNT = 3;
 
 export const EditOrganizationProfileForm = ({
   organization,
@@ -178,33 +182,63 @@ export const EditOrganizationProfileForm = ({
               </FormItem>
             )}
           />
-          {/* // ? TODO */}
-          <FormField
-            control={form.control}
-            name='information.social'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>
-                  <I18nText path='field.organization.social.label' />
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    {...field}
-                    placeholder={intl.formatMessage({
-                      id: 'field.organization.social.placeholder'
-                    })}
-                  />
-                </FormControl>
-                <FormMessage>
-                  {form.formState?.errors?.information?.social && (
-                    <I18nText
-                      path={form.formState.errors.information.social.message as LocaleMessageId}
-                    />
-                  )}
-                </FormMessage>
-              </FormItem>
-            )}
-          />
+          <div className='space-y-3'>
+            {state.socialField.fields.map((currentField, index) => (
+              <FormField
+                control={form.control}
+                key={currentField.id}
+                name={`information.social.${index}.value`}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      <I18nText path='field.organization.social.label' />
+                    </FormLabel>
+                    <FormControl>
+                      <div className='flex'>
+                        <Input
+                          {...field}
+                          placeholder={intl.formatMessage({
+                            id: 'field.organization.social.placeholder'
+                          })}
+                        />
+                        <Button
+                          type='button'
+                          variant='outline'
+                          size='icon'
+                          className='ml-2'
+                          disabled={!index}
+                          onClick={() => state.socialField.remove(index)}
+                        >
+                          <Trash2Icon className='size-5' />
+                        </Button>
+                      </div>
+                    </FormControl>
+                    <FormMessage>
+                      {form.formState?.errors?.information?.social &&
+                        form.formState?.errors?.information?.social[index] && (
+                          <I18nText
+                            path={
+                              form.formState?.errors?.information?.social[index]?.value
+                                ?.message as LocaleMessageId
+                            }
+                          />
+                        )}
+                    </FormMessage>
+                  </FormItem>
+                )}
+              />
+            ))}
+          </div>
+          <Button
+            type='button'
+            variant='outline'
+            size='icon'
+            disabled={state.socialField.fields.length >= MAX_SOCIAL_LINKS_COUNT}
+            onClick={() => state.socialField.append({})}
+          >
+            <PlusIcon className='size-5' />
+          </Button>
+
           <Typography variant='h5' tag='h5' className='mt-5'>
             <I18nText path='organization.profile.legalInfo.title' />
           </Typography>

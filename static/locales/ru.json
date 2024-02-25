@@ -31,6 +31,7 @@
   "organization.profile.tariff.paid": "Платных",
   "organization.profile.tariff.valid": "Действует",
   "organization.profile.members": "Участники",
+  "organization.profile.edited": "Профиль успешно изменен",
 
   "organization.profile.entries": "Записи",
   "organization.profile.journal.title": "Журнал",
@@ -167,6 +168,7 @@
 
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты",
+  "validation.url.format": "Неверный формат ссылки",
   "validation.time.requiredBoth": "Необходимы оба значения времени",
   "validation.max": "Превышен лимит символов",
   "validation.format": "Неверный формат",
