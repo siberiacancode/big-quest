@@ -16,6 +16,7 @@ const config = {
       '2lgx': { max: '1124px' },
       lgx: { max: '1023px' },
       mdx: { max: '767px' },
+      '2smx': { max: '600px' },
       smx: { max: '639px' },
       xsx: { max: '475px' },
       '2xl': { min: '1400px' },
@@ -23,6 +24,7 @@ const config = {
       '2lg': { min: '1124px' },
       lg: { min: '1024px' },
       md: { min: '768px' },
+      '2sm': { min: '600px' },
       sm: { min: '640px' },
       xs: { min: '475px' }
     },
