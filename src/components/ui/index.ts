@@ -32,6 +32,7 @@ export * from './separator';
 export * from './skeleton';
 export * from './sonner';
 export * from './table';
+export * from './table-skeleton';
 export * from './tabs';
 export * from './textarea';
 export * from './timeline';
