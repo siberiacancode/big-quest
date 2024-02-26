@@ -3,6 +3,9 @@
   "app.error": "Что-то пошло не так",
   "app.loading": "Пожалуйста подождите...",
 
+  "app.imageDownload.pressToDownload.title": "Нажмите, чтобы загрузить",
+  "app.imageDownload.pressToDownload.subtitle": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
+
   "partners.addresses.title": "Адреса",
   "partners.employees.title": "Сотрудники",
 

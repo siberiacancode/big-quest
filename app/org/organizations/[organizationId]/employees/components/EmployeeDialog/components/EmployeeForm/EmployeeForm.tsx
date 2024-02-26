@@ -1,3 +1,4 @@
+import { DownloadPhotoIcon } from '@/assets/icons/inputTypeFile/DownloadPhotoIcon';
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -13,7 +14,8 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
+  SelectValue,
+  Typography
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
@@ -34,6 +36,44 @@ export const EmployeeForm = ({ onAdded, actionType }: EmployeeFormProps) => {
       <form onSubmit={functions.onSubmit} className='flex w-full flex-col items-end'>
         <div className='mb-7 flex w-full gap-5 smx:flex-col'>
           <div className='flex-1 space-y-3'>
+            <FormField
+              control={form.control}
+              name='image'
+              render={({ field }) => (
+                <FormItem>
+                  <div className='flex gap-2'>
+                    <div>
+                      <FormControl>
+                        <div className='relative h-28 w-28  items-center rounded-xl border-2 border-dashed'>
+                          <label htmlFor='inputTag' className='block h-28 cursor-pointer'>
+                            <input
+                              id='inputTag'
+                              type='file'
+                              className='invisible h-28 w-28 cursor-pointer'
+                              {...field}
+                            />
+                          </label>
+                          <DownloadPhotoIcon className='absolute right-[34px] top-[37px] -z-20 ' />
+                        </div>
+                      </FormControl>
+                    </div>
+                    <div>
+                      <Typography variant='sub2'>
+                        <I18nText path='app.imageDownload.pressToDownload.title' />
+                      </Typography>
+                      <Typography variant='body2'>
+                        <I18nText path='app.imageDownload.pressToDownload.subtitle' />
+                      </Typography>
+                    </div>
+                  </div>
+                  <FormMessage>
+                    {form.formState?.errors?.image && (
+                      <I18nText path={form.formState.errors.image.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name='role'

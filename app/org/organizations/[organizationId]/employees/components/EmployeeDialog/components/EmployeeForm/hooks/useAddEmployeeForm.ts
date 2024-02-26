@@ -22,6 +22,7 @@ export const useAddEmployeeForm = ({ onAdded }: UseAddEmployeeFormParams) => {
     mode: 'onSubmit',
     resolver: zodResolver(employeeSchema),
     defaultValues: {
+      image: undefined,
       role: '',
       name: '',
       surname: '',
