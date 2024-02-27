@@ -2,23 +2,24 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams } from 'next/navigation';
 
-import { usePostOrganizationAddUserMutation } from '@/utils/api/hooks/usePostOrganizationAddUserMutation';
+import { usePostOrganizationActionMutation } from '@/utils/api/hooks/usePostOrganizationActionMutation';
 
 import type { EmployeeSchema } from '../constants/EmployeeSchema';
 import { employeeSchema } from '../constants/EmployeeSchema';
 
-interface UseAddEmployeeFormParams {
+interface UseActionEmployeeFormParams {
   onAdded: () => void;
+  actionType: 'add' | 'edit';
 }
 
-export const useAddEmployeeForm = ({ onAdded }: UseAddEmployeeFormParams) => {
+export const useActionEmployeeForm = ({ onAdded, actionType }: UseActionEmployeeFormParams) => {
   const params = useParams<{ organizationId: string }>();
 
   const addEmployeeForm = useForm<EmployeeSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(employeeSchema),
     defaultValues: {
-      image: undefined,
+      // image: undefined,
       role: '',
       name: '',
       surname: '',
@@ -27,13 +28,15 @@ export const useAddEmployeeForm = ({ onAdded }: UseAddEmployeeFormParams) => {
     }
   });
 
-  const postOrganizationAddEmployee = usePostOrganizationAddUserMutation();
+  const postOrganizationAddEmployee = usePostOrganizationActionMutation();
 
   const onSubmit = addEmployeeForm.handleSubmit(async (values) => {
-    await postOrganizationAddEmployee.mutateAsync({
-      params: { ...values, organizationId: params.organizationId }
-    });
+    const mutationParams = {
+      params: { ...values, organizationId: params.organizationId },
+      actionType
+    };
 
+    await postOrganizationAddEmployee.mutateAsync(mutationParams);
     onAdded();
   });
 

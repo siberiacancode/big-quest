@@ -1,4 +1,4 @@
-import { DownloadPhotoIcon } from '@/assets/icons/inputTypeFile/DownloadPhotoIcon';
+// import { DownloadPhotoIcon } from '@/assets/icons/inputTypeFile/DownloadPhotoIcon';
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -14,12 +14,12 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-  Typography
+  SelectValue
+  // Typography
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import { useAddEmployeeForm } from './hooks/useAddEmployeeForm';
+import { useActionEmployeeForm } from './hooks/useActionEmployeeForm';
 
 interface EmployeeFormProps {
   onAdded: () => void;
@@ -28,7 +28,7 @@ interface EmployeeFormProps {
 
 export const EmployeeForm = ({ onAdded, actionType }: EmployeeFormProps) => {
   const i18n = useI18n();
-  const { state, form, functions } = useAddEmployeeForm({ onAdded });
+  const { state, form, functions } = useActionEmployeeForm({ onAdded, actionType });
   // в зависмости от actionType я хотел юзать или useAddEmployeeForm или useEditEmployeeForm, но так нельзя, похоже, поэтому надо что-то придумать
 
   // const [imageUrl, setImageUrl] = useState('');
@@ -46,7 +46,7 @@ export const EmployeeForm = ({ onAdded, actionType }: EmployeeFormProps) => {
       <form onSubmit={functions.onSubmit} className='flex w-full flex-col items-end'>
         <div className='mb-7 flex w-full gap-5 smx:flex-col'>
           <div className='flex-1 space-y-3'>
-            <FormField
+            {/* <FormField
               control={form.control}
               name='image'
               render={({ field }) => (
@@ -83,7 +83,7 @@ export const EmployeeForm = ({ onAdded, actionType }: EmployeeFormProps) => {
                   </FormMessage>
                 </FormItem>
               )}
-            />
+            /> */}
             <FormField
               control={form.control}
               name='role'

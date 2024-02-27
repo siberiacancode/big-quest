@@ -137,7 +137,7 @@ interface OrganizationEmployeeDto {
   name: string;
   email: string;
   phone: string;
-  image?: any;
+  // image?: any;
 }
 
 interface RegisterOrganizationDto {
