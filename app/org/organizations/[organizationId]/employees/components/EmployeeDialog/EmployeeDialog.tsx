@@ -31,26 +31,14 @@ export const EmployeeDialog = ({ trigger, actionType }: EmployeeDialogProps) => 
           <XIcon className='h-6 w-6' />
         </DialogClose>
         <DialogHeader>
-          {actionType === 'add' && (
-            <DialogTitle className='space-y-2'>
-              <Typography variant='h4' tag='h4'>
-                <I18nText path='dialog.addEmployee.title' />
-              </Typography>
-              <Typography variant='body1' tag='h4'>
-                <I18nText path='dialog.addEmployee.description' />
-              </Typography>
-            </DialogTitle>
-          )}
-          {actionType === 'edit' && (
-            <DialogTitle className='space-y-2'>
-              <Typography variant='h4' tag='h4'>
-                <I18nText path='dialog.editEmployee.title' />
-              </Typography>
-              <Typography variant='body1' tag='h4'>
-                <I18nText path='dialog.addEmployee.description' />
-              </Typography>
-            </DialogTitle>
-          )}
+          <DialogTitle className='space-y-2'>
+            <Typography variant='h4' tag='h4'>
+              <I18nText path={`dialog.${actionType}Employee.title`} />
+            </Typography>
+            <Typography variant='body1' tag='h4'>
+              <I18nText path='dialog.addEmployee.description' />
+            </Typography>
+          </DialogTitle>
         </DialogHeader>
         <div className='flex h-full flex-col items-end justify-between overflow-y-auto rounded-lg border p-5'>
           <EmployeeForm onAdded={functions.onAdded} actionType={actionType} />

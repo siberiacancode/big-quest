@@ -35,8 +35,7 @@ export const useEditEmployeeForm = ({ onAdded }: UseEditEmployeeFormParams) => {
 
   const onSubmit = editEmployeeForm.handleSubmit(async (values) => {
     await postOrganizationEditEmployee.mutateAsync({
-      ...values,
-      organizationId: params.organizationId
+      params: { ...values, organizationId: params.organizationId }
     });
 
     toast(i18n.formatMessage({ id: 'dialog.editEmployee.success' }), {

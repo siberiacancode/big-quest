@@ -35,8 +35,7 @@ export const useAddEmployeeForm = ({ onAdded }: UseAddEmployeeFormParams) => {
 
   const onSubmit = addEmployeeForm.handleSubmit(async (values) => {
     await postOrganizationAddEmployee.mutateAsync({
-      ...values,
-      organizationId: params.organizationId
+      params: { ...values, organizationId: params.organizationId }
     });
 
     toast(i18n.formatMessage({ id: 'dialog.addEmployee.success' }), {

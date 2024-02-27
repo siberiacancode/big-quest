@@ -31,6 +31,16 @@ export const EmployeeForm = ({ onAdded, actionType }: EmployeeFormProps) => {
   const { state, form, functions } = useAddEmployeeForm({ onAdded });
   // в зависмости от actionType я хотел юзать или useAddEmployeeForm или useEditEmployeeForm, но так нельзя, похоже, поэтому надо что-то придумать
 
+  // const [imageUrl, setImageUrl] = useState('');
+
+  // const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const file = event.target.files?.[0];
+  //   if (file) {
+  //     const url = URL.createObjectURL(file);
+  //     setImageUrl(url);
+  //   }
+  // };
+
   return (
     <Form {...form}>
       <form onSubmit={functions.onSubmit} className='flex w-full flex-col items-end'>
@@ -41,7 +51,7 @@ export const EmployeeForm = ({ onAdded, actionType }: EmployeeFormProps) => {
               name='image'
               render={({ field }) => (
                 <FormItem>
-                  <div className='flex gap-2'>
+                  <div className='flex items-center gap-2'>
                     <div>
                       <FormControl>
                         <div className='relative h-28 w-28  items-center rounded-xl border-2 border-dashed'>
