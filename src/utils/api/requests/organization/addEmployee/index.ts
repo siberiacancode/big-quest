@@ -1,11 +1,8 @@
 import { api } from '@/utils/api/instance';
 
-export type PostOrganizationAddEmployeeParams = OrganizationEmployeeDto;
+export type PostOrganizationAddUserParams = OrganizationEmployeeDto;
 
-export type PostOrganizationAddEmployeeConfig = RequestConfig<PostOrganizationAddEmployeeParams>;
+export type PostOrganizationAddUserConfig = RequestConfig<PostOrganizationAddUserParams>;
 
-export const postOrganizationAddEmployee = async ({
-  params,
-  config
-}: PostOrganizationAddEmployeeConfig) =>
-  api.post(`organization/${params.organizationId}/addEmployee`, params, config);
+export const postOrganizationAddUser = async ({ params, config }: PostOrganizationAddUserConfig) =>
+  api.post(`organization/add-user`, params, config);

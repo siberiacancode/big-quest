@@ -14,15 +14,15 @@ import {
 } from '@/components/ui';
 
 import { EmployeeForm } from './components/EmployeeForm/EmployeeForm';
-import { useEmployeeDialog } from './useEmployeeDialog/useEmployeeDialog';
+import { useActionEmployeeDialog } from './useActionEmployeeDialog/useActionEmployeeDialog';
 
-interface EmployeeDialogProps {
+interface ActionEmployeeDialogProps {
   trigger: JSX.Element;
   actionType: 'add' | 'edit';
 }
 
-export const EmployeeDialog = ({ trigger, actionType }: EmployeeDialogProps) => {
-  const { functions } = useEmployeeDialog();
+export const ActionEmployeeDialog = ({ trigger, actionType }: ActionEmployeeDialogProps) => {
+  const { functions } = useActionEmployeeDialog();
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
