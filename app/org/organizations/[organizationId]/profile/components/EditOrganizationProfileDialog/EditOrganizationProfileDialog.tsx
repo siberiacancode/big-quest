@@ -30,12 +30,12 @@ export const EditOrganizationProfileDialog = ({
   return (
     <Dialog open={state.open} onOpenChange={functions.setOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className='h-[90%] max-w-[600px]'>
+      <DialogContent className='h-[90%] max-w-[600px] smx:h-screen smx:w-screen'>
         <DialogClose>
           <XIcon className='h-6 w-6' />
         </DialogClose>
         <DialogHeader>
-          <DialogTitle>
+          <DialogTitle asChild>
             <Typography tag='h4' variant='h4'>
               <I18nText path='dialog.editOrganizationProfile.title' />
             </Typography>

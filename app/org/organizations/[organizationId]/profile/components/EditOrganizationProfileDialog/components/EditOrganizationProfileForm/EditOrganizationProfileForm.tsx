@@ -183,7 +183,7 @@ export const EditOrganizationProfileForm = ({
             )}
           />
           <div className='space-y-3'>
-            {state.socialField.fields.map((currentField, index) => (
+            {form.socialField.fields.map((currentField, index) => (
               <FormField
                 control={form.control}
                 key={currentField.id}
@@ -207,7 +207,7 @@ export const EditOrganizationProfileForm = ({
                           size='icon'
                           className='ml-2'
                           disabled={!index}
-                          onClick={() => state.socialField.remove(index)}
+                          onClick={() => form.socialField.remove(index)}
                         >
                           <Trash2Icon className='size-5' />
                         </Button>
@@ -233,8 +233,8 @@ export const EditOrganizationProfileForm = ({
             type='button'
             variant='outline'
             size='icon'
-            disabled={state.socialField.fields.length >= MAX_SOCIAL_LINKS_COUNT}
-            onClick={() => state.socialField.append({})}
+            disabled={form.socialField.fields.length >= MAX_SOCIAL_LINKS_COUNT}
+            onClick={() => form.socialField.append({})}
           >
             <PlusIcon className='size-5' />
           </Button>
@@ -334,7 +334,7 @@ export const EditOrganizationProfileForm = ({
                   <I18nText path='field.organization.inn.label' />
                 </FormLabel>
                 <FormControl>
-                  <InnInput {...field} />
+                  <InnInput tooltip={intl.formatMessage({ id: 'tooltip.inn' })} {...field} />
                 </FormControl>
                 <FormMessage>
                   {form.formState?.errors?.inn && (
@@ -353,7 +353,7 @@ export const EditOrganizationProfileForm = ({
                   <I18nText path='field.organization.kpp.label' />
                 </FormLabel>
                 <FormControl>
-                  <KppInput {...field} />
+                  <KppInput tooltip={intl.formatMessage({ id: 'tooltip.kpp' })} {...field} />
                 </FormControl>
                 <FormMessage>
                   {form.formState?.errors?.information?.kpp && (
@@ -374,7 +374,7 @@ export const EditOrganizationProfileForm = ({
                   <I18nText path='field.organization.ogrn.label' />
                 </FormLabel>
                 <FormControl>
-                  <OgrnInput {...field} />
+                  <OgrnInput tooltip={intl.formatMessage({ id: 'tooltip.ogrn' })} {...field} />
                 </FormControl>
                 <FormMessage>
                   {form.formState?.errors?.information?.ogrn && (
@@ -424,7 +424,7 @@ export const EditOrganizationProfileForm = ({
                   <I18nText path='field.organization.bik.label' />
                 </FormLabel>
                 <FormControl>
-                  <BikInput {...field} />
+                  <BikInput tooltip={intl.formatMessage({ id: 'tooltip.bik' })} {...field} />
                 </FormControl>
                 <FormMessage>
                   {form.formState?.errors?.requisites?.bik && (
@@ -460,7 +460,7 @@ export const EditOrganizationProfileForm = ({
             )}
           />
         </div>
-        <Button className='sticky bottom-0 w-full' type='submit' loading={state.isLoading}>
+        <Button className='bottom-0 w-full' type='submit' loading={state.isLoading}>
           <I18nText path='button.save' />
         </Button>
       </form>

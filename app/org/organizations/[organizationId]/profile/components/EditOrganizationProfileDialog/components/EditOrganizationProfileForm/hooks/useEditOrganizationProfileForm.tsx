@@ -71,8 +71,8 @@ export const useEditOrganizationProfileForm = ({
   });
 
   return {
-    state: { isLoading: putOrganizationMutation.isPending, socialField },
-    form: editOrganizationForm,
+    state: { isLoading: putOrganizationMutation.isPending },
+    form: { ...editOrganizationForm, socialField },
     functions: { onSubmit }
   };
 };
