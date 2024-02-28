@@ -2,10 +2,10 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams } from 'next/navigation';
 
-import { usePostOrganizationActionMutation } from '@/utils/api/hooks/usePostOrganizationActionMutation';
-
 import type { EmployeeSchema } from '../constants/EmployeeSchema';
 import { employeeSchema } from '../constants/EmployeeSchema';
+
+import { usePostOrganizationActionEmployeeMutation } from './usePostOrganizationActionEmployeeMutation';
 
 interface UseActionEmployeeFormParams {
   onAdded: () => void;
@@ -28,7 +28,7 @@ export const useActionEmployeeForm = ({ onAdded, actionType }: UseActionEmployee
     }
   });
 
-  const postOrganizationAddEmployee = usePostOrganizationActionMutation();
+  const postOrganizationAddEmployee = usePostOrganizationActionEmployeeMutation();
 
   const onSubmit = addEmployeeForm.handleSubmit(async (values) => {
     const mutationParams = {
@@ -36,6 +36,7 @@ export const useActionEmployeeForm = ({ onAdded, actionType }: UseActionEmployee
       actionType
     };
 
+    // @ts-ignore
     await postOrganizationAddEmployee.mutateAsync(mutationParams);
     onAdded();
   });
