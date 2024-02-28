@@ -1,13 +1,19 @@
 import { useMutation } from '@tanstack/react-query';
 
-import type { PostOrganizationAddUserConfig } from '@/utils/api';
+import type {
+  PostOrganizationAddUserConfig,
+  PostOrganizationEditEmployeeConfig
+} from '@/utils/api';
 import { postOrganizationAddUser, postOrganizationEditEmployee } from '@/utils/api';
 
 export const usePostOrganizationActionEmployeeMutation = (
   settings?: MutationSettings<
-    PostOrganizationAddUserConfig & {
-      action: 'add' | 'edit';
-    },
+    | (PostOrganizationAddUserConfig & {
+        action: 'add';
+      })
+    | (PostOrganizationEditEmployeeConfig & {
+        action: 'edit';
+      }),
     typeof postOrganizationAddUser
   >
 ) =>
