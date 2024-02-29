@@ -7,5 +7,5 @@ interface GetOrganizationByIdParams {
 export const getOrganizationById = async ({
   params,
   config
-}: RequestParams<GetOrganizationByIdParams>) =>
+}: RequestConfig<GetOrganizationByIdParams>) =>
   api.get<OrganizationResponse>(`organization/${params.id}`, config);

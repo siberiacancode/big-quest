@@ -73,7 +73,7 @@ export class HttpClient {
 
   private async runResponseInterceptors<T>(
     initialResponse: Response,
-    initialConfig: RequestConfig
+    initialConfig: _RequestConfig
   ) {
     if (!this.interceptorHandlers.response?.length && initialResponse.ok) {
       const body = (await initialResponse.json()) as T;
@@ -111,7 +111,7 @@ export class HttpClient {
     return body;
   }
 
-  private runRequestInterceptors(initialConfig: RequestConfig) {
+  private runRequestInterceptors(initialConfig: _RequestConfig) {
     let config = initialConfig;
 
     this.interceptorHandlers.request?.forEach(({ onSuccess, onFailure }) => {
@@ -131,7 +131,7 @@ export class HttpClient {
   }
 
   private async request<T>(endpoint: string, method: RequestMethod, options: RequestOptions = {}) {
-    const defaultConfig: RequestConfig = {
+    const defaultConfig: _RequestConfig = {
       ...options,
       url: endpoint,
       method,
@@ -178,7 +178,7 @@ export class HttpClient {
     });
   }
 
-  call<T>(options: RequestConfig) {
+  call<T>(options: _RequestConfig) {
     return this.request<T>(options.url, options.method, {
       ...options
     });

@@ -14,16 +14,16 @@ import {
   Typography
 } from '@/components/ui';
 
-import { AddActivityForm } from './components/AddActivityForm/AddActivityForm';
-import { AddActivityImages } from './components/AddActivityImages/AddActivityImages';
-import { useAddActivityDialog } from './hooks/useAddActivityDialog';
+import { ActivityForm } from './components/ActivityForm/ActivityForm';
+import { ActivityImages } from './components/ActivityImages/ActivityImages';
+import { useActionActivityDialog } from './useActionActivityDialog/useActionActivityDialog';
 
-interface AddActivityDialogProps {
+interface ActivityDialogProps {
   trigger: JSX.Element;
 }
 
-export const AddActivityDialog = ({ trigger }: AddActivityDialogProps) => {
-  const { functions } = useAddActivityDialog();
+export const ActivityDialog = ({ trigger }: ActivityDialogProps) => {
+  const { functions } = useActionActivityDialog();
 
   return (
     <Dialog>
@@ -40,10 +40,10 @@ export const AddActivityDialog = ({ trigger }: AddActivityDialogProps) => {
           </DialogTitle>
         </DialogHeader>
         <div className='flex h-max gap-4 px-5 smx:px-0'>
-          <AddActivityImages />
+          <ActivityImages />
         </div>
         <div className='mx-5 flex h-full flex-col items-end justify-between overflow-y-auto rounded-lg border p-5 px-5 smx:mx-0'>
-          <AddActivityForm onAdded={functions.onAdded} />
+          <ActivityForm onAdded={functions.onAdded} />
         </div>
         <div className='flex w-full justify-center'>
           <Button className='h-8 w-28' size='sm' type='submit' variant='secondary'>

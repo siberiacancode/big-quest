@@ -5,5 +5,5 @@ export type PostOrganizationRegisterParams = RegisterOrganizationDto;
 export const postOrganizationRegister = async ({
   params,
   config
-}: RequestParams<PostOrganizationRegisterParams>) =>
+}: RequestConfig<PostOrganizationRegisterParams>) =>
   api.post('organization/register', params, config);

@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import background from '@/assets/images/background/activity.png';
 
-export const AddActivityImages = () => {
+export const ActivityImages = () => {
   return (
     <div className='grid w-full grid-cols-2 items-center gap-4 xsx:gap-2'>
       <Image

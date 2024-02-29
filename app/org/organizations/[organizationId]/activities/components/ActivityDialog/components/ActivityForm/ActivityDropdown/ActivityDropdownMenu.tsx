@@ -12,10 +12,10 @@ import {
   Typography
 } from '@/components/ui';
 
-import { useAddActivityDropdownMenu } from './hooks/useAddActivityDropdownMenu';
+import { useActivityDropdownMenu } from './hooks/useActivityDropdownMenu';
 
-export const AddActivityDropdownMenu = () => {
-  const { state, functions } = useAddActivityDropdownMenu();
+export const ActivityDropdownMenu = () => {
+  const { state, functions } = useActivityDropdownMenu();
   const [position, setPosition] = React.useState('bottom');
 
   return (

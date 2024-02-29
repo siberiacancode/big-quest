@@ -6,7 +6,7 @@ import { I18nText } from '@/components/common';
 import { Button, Separator, Typography } from '@/components/ui';
 
 interface ActivityCardProps {
-  activity: OrganizationActivitiesResponse;
+  activity: ActivityResponse;
 }
 
 export const ActivityCard = ({ activity }: ActivityCardProps) => (
@@ -14,8 +14,8 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => (
     <div className='relative'>
       <Image
         className='w-full rounded-lg 4xlx:max-h-72 4xl:max-h-96'
-        src={activity.images[0] || background}
-        alt='activity-background'
+        src={activity.cover || background}
+        alt='activity-cover'
       />
       <div className='absolute top-0 flex w-full items-center justify-between p-3'>
         {activity.status && (
@@ -37,11 +37,7 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => (
     <div className='mb-2 mt-3 flex justify-between text-muted-foreground'>
       {activity.category && (
         <Typography variant='sub4' tag='p' className='text-muted-foreground'>
-          <I18nText
-            path={
-              `organization.activities.category.${activity.category.toLowerCase()}` as LocaleMessageId
-            }
-          />
+          {activity.category}
         </Typography>
       )}
       <div className='flex gap-4'>
@@ -59,19 +55,19 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => (
         </div>
       </div>
     </div>
-    <Typography variant='h7'>{activity.title}</Typography>
+    <Typography variant='h7'>{activity.name}</Typography>
     <Separator className='my-4' />
     <div className='mb-1 flex justify-between'>
       <div className='flex gap-2'>
         <UserRoundIcon className='h-4 w-4 text-muted-foreground' />
         <Typography variant='body3' tag='p' className='text-foreground'>
-          от {activity.ageMin}+ лет
+          от {activity.ageLimit[0]}+ лет
         </Typography>
       </div>
       <div className='flex gap-2'>
         <Clock5Icon className='h-4 w-4 text-muted-foreground' />
         <Typography variant='body3' tag='p' className='text-foreground'>
-          {activity.time / 60} ч
+          {activity.duration / 60} ч
         </Typography>
       </div>
     </div>

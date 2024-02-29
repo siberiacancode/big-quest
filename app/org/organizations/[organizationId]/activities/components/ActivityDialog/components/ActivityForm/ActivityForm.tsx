@@ -1,3 +1,5 @@
+import { Controller } from 'react-hook-form';
+
 import { I18nText } from '@/components/common';
 import {
   Form,
@@ -12,16 +14,17 @@ import {
 import { Switch } from '@/components/ui/switch';
 import { useI18n } from '@/utils/contexts';
 
-import { AddActivityDropdownMenu } from './AddActivityDropdown/AddActivityDropdownMenu';
-import { useAddActivityForm } from './hooks/useAddActivityForm';
+import { useActionActivityForm } from '../../hooks/useActionActivityForm';
 
-interface AddActivityFormProps {
+import { ActivityDropdownMenu } from './ActivityDropdown/ActivityDropdownMenu';
+
+interface ActivityFormProps {
   onAdded: () => void;
 }
 
-export const AddActivityForm = ({ onAdded }: AddActivityFormProps) => {
+export const ActivityForm = ({ onAdded }: ActivityFormProps) => {
   const i18n = useI18n();
-  const { form, functions } = useAddActivityForm({ onAdded });
+  const { form, functions } = useActionActivityForm({ onAdded, actionType: 'add' });
 
   return (
     <Form {...form}>
@@ -83,25 +86,45 @@ export const AddActivityForm = ({ onAdded }: AddActivityFormProps) => {
               />{' '}
               <FormField
                 control={form.control}
-                name='ageRestriction'
-                render={({ field }) => (
+                name='ageLimit'
+                render={() => (
                   <FormItem>
                     <FormLabel className='text-base'>
                       <I18nText path='field.ageRestriction.label' />
                     </FormLabel>
                     <FormControl>
                       <div className='flex items-center gap-2'>
-                        <Input className='h-7 max-w-12 text-center' {...field} placeholder='0' />
+                        <Controller
+                          name='ageLimit.min'
+                          control={form.control}
+                          render={({ field }) => (
+                            <Input
+                              className='h-7 max-w-12 text-center'
+                              {...field}
+                              placeholder='0'
+                            />
+                          )}
+                        />
                         <Typography variant='body2' className='text-muted-foreground'>
                           <I18nText path='field.ageRestriction.before' />
                         </Typography>
-                        <Input className='h-7 max-w-12 text-center' {...field} placeholder='10' />
+                        <Controller
+                          name='ageLimit.max'
+                          control={form.control}
+                          render={({ field }) => (
+                            <Input
+                              className='h-7 max-w-12 text-center'
+                              {...field}
+                              placeholder='10'
+                            />
+                          )}
+                        />
                       </div>
                     </FormControl>
                     <FormMessage>
-                      {form.formState?.errors?.ageRestriction && (
+                      {form.formState?.errors?.ageLimit && (
                         <I18nText
-                          path={form.formState.errors.ageRestriction.message as LocaleMessageId}
+                          path={form.formState.errors.ageLimit.message as LocaleMessageId}
                         />
                       )}
                     </FormMessage>
@@ -144,11 +167,11 @@ export const AddActivityForm = ({ onAdded }: AddActivityFormProps) => {
             <div className='flex-1 space-y-3'>
               <div className='flex flex-col gap-2'>
                 <I18nText path='field.category.label' />
-                <AddActivityDropdownMenu />
+                <ActivityDropdownMenu />
               </div>
               <div className='flex flex-col gap-2'>
                 <I18nText path='field.status.label' />
-                <AddActivityDropdownMenu />
+                <ActivityDropdownMenu />
               </div>
               <FormField
                 control={form.control}

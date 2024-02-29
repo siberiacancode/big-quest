@@ -23,7 +23,7 @@ interface QuerySettings<Func = unknown> {
 
 type BaseUrl = string;
 type RequestMethod = RequestInit['method'];
-type RequestConfig = RequestInit & {
+type _RequestConfig = RequestInit & {
   url: string;
   _retry?: boolean;
   headers?: Record<string, string>;
@@ -36,9 +36,9 @@ interface InterceptorResponseResult {
   data: any;
 }
 type SuccessResponseFun = (res: InterceptorResponseResult) => InterceptorResponseResult['data'];
-type SuccessRequestFun = (options: RequestConfig) => RequestConfig;
+type SuccessRequestFun = (options: _RequestConfig) => _RequestConfig;
 
-type ResponseError = Error & { config: RequestConfig; response: InterceptorResponseResult };
+type ResponseError = Error & { config: _RequestConfig; response: InterceptorResponseResult };
 type FailureResponseFun = (e: ResponseError) => any;
 type FailureRequestFun = (e: ResponseError) => any;
 
@@ -61,7 +61,7 @@ interface RequestOptions extends Omit<RequestInit, 'method'> {
   params?: SearchParams;
 }
 
-type RequestParams<Params = undefined> = Params extends undefined
+type RequestConfig<Params = undefined> = Params extends undefined
   ? { config?: RequestOptions }
   : { params: Params; config?: RequestOptions };
 
@@ -77,7 +77,9 @@ type UserRole = 'organizer' | 'partner';
 
 type ActivityCategory = 'EDUCATION';
 
-type ActivityStatus = 'DRAFT' | 'PUBLISHED';
+type ActivityStatus = 'DRAFT' | 'MODERATION' | 'EDITING' | 'PUBLISHED' | 'CLOSED';
+
+type ActivityView = 'ONLINE' | 'OFFLINE';
 
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
@@ -165,19 +167,56 @@ interface OrganizationAddressesResponse {
   }[];
 }
 
-interface OrganizationActivitiesResponse {
-  images: string[];
-  category: ActivityCategory;
+interface CreateActivityDto {
+  name: string;
+  category: string;
+  description?: string;
+  ageLimit: number[];
+  price: number;
+  duration: number;
+  replay: boolean;
+  organizationId: string;
+  files: File[];
+}
+
+interface Time {
+  hour: number;
+  minutes: number;
+}
+
+interface Schedule {
+  address: string;
+  leadingEmployeeId: string;
+  entry: boolean;
+  regular: boolean;
+  date: Date;
+  time: Time;
+  maxNumberOfParticipants: number;
+  period: number[];
+}
+
+interface ActivityResponse {
+  id: string;
+  cover: string;
+  content: string[];
+  name: string;
+  description: string;
+  ageLimit: number[];
+  price: number;
+  nutsCount: number;
+  duration: number;
+  replay: boolean;
+  view: ActivityView;
   status: ActivityStatus;
+  category: string;
   participants: number;
   likes: number;
-  title: string;
-  description: string;
-  ageMin: number;
-  ageMax: number;
-  allowRepeat: boolean;
-  price: number;
-  time: number;
+  schedule: Schedule[];
+}
+
+interface ActivityWithPaginationResponse {
+  rows: ActivityResponse[];
+  pagination: PaginationResponse;
 }
 
 interface LoginEmailDto {
