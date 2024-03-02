@@ -29,7 +29,6 @@ interface EmployeeFormProps {
 export const EmployeeForm = ({ onAdded, actionType }: EmployeeFormProps) => {
   const i18n = useI18n();
   const { state, form, functions } = useActionEmployeeForm({ onAdded, actionType });
-  // в зависмости от actionType я хотел юзать или useAddEmployeeForm или useEditEmployeeForm, но так нельзя, похоже, поэтому надо что-то придумать
 
   // const [imageUrl, setImageUrl] = useState('');
 
