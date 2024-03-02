@@ -1,4 +1,4 @@
-import { api } from '../../../instance';
+import { api } from '../../../../instance';
 
 interface GetOrganizationByIdParams {
   id: string;

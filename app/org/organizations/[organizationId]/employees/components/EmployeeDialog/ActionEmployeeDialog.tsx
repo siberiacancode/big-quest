@@ -22,7 +22,7 @@ interface ActionEmployeeDialogProps {
 }
 
 export const ActionEmployeeDialog = ({ trigger, actionType }: ActionEmployeeDialogProps) => {
-  const { functions } = useActionEmployeeDialog();
+  const { functions } = useActionEmployeeDialog({ actionType });
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
