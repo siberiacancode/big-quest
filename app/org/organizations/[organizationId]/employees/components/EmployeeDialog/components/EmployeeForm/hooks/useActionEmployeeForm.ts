@@ -28,16 +28,14 @@ export const useActionEmployeeForm = ({ onAdded, actionType }: UseActionEmployee
     }
   });
 
-  const postOrganizationAddEmployee = usePostOrganizationActionEmployeeMutation();
+  const postOrganizationActionEmployee = usePostOrganizationActionEmployeeMutation();
 
   const onSubmit = addEmployeeForm.handleSubmit(async (values) => {
     const mutationParams = {
       params: { ...values, organizationId: params.organizationId },
-      actionType
+      action: actionType
     };
-
-    // @ts-ignore
-    await postOrganizationAddEmployee.mutateAsync(mutationParams);
+    await postOrganizationActionEmployee.mutateAsync(mutationParams);
     onAdded();
   });
 
