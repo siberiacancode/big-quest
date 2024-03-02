@@ -11,7 +11,7 @@ interface EmployeeCardProps {
 }
 
 export const EmployeeCard = ({ employee }: EmployeeCardProps) => (
-  <Card className='relative min-w-[320px] flex-1'>
+  <Card className='relative min-w-[330px] flex-1'>
     <CardContent className='flex flex-row-reverse items-center justify-center p-8 pb-12 pr-5 pt-4'>
       <ActionEmployeeDialog
         trigger={

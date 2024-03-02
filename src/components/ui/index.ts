@@ -12,6 +12,7 @@ export * from './command';
 export * from './data-table';
 export * from './dialog';
 export * from './dropdown-menu';
+export * from './employee-card-skeleton';
 export * from './form';
 export * from './hover-card';
 export * from './info-card';
