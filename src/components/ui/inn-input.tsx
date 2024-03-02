@@ -1,3 +1,4 @@
+import React from 'react';
 import { InfoIcon } from 'lucide-react';
 import * as z from 'zod';
 
@@ -18,20 +19,28 @@ export const innSchema = z
   .min(INN_MIN_LENGTH, { message: 'validation.format' })
   .max(INN_MAX_LENGTH, { message: 'validation.format' });
 
-export const InnInput = ({ tooltip, ...props }: InnInputProps) => (
-  <div className='relative'>
-    <Input className='pr-12' minLength={INN_MIN_LENGTH} maxLength={INN_MAX_LENGTH} {...props} />
-    {!!tooltip && (
-      <div className='absolute right-3 top-[10px]'>
-        <TooltipProvider delayDuration={300}>
-          <Tooltip>
-            <TooltipTrigger>
-              <InfoIcon className=' size-4' />
-            </TooltipTrigger>
-            <TooltipContent side='left'>{tooltip}</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
-    )}
-  </div>
+export const InnInput = React.forwardRef<HTMLInputElement, InnInputProps>(
+  ({ tooltip, ...props }, ref) => (
+    <div className='relative'>
+      <Input
+        className='pr-12'
+        minLength={INN_MIN_LENGTH}
+        maxLength={INN_MAX_LENGTH}
+        {...props}
+        ref={ref}
+      />
+      {!!tooltip && (
+        <div className='absolute right-3 top-[10px]'>
+          <TooltipProvider delayDuration={300}>
+            <Tooltip>
+              <TooltipTrigger>
+                <InfoIcon className=' size-4' />
+              </TooltipTrigger>
+              <TooltipContent side='left'>{tooltip}</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+      )}
+    </div>
+  )
 );
