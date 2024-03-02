@@ -8,8 +8,8 @@ interface UseActionEmployeeDialogProps {
 }
 
 export const useActionEmployeeDialog = ({ actionType }: UseActionEmployeeDialogProps) => {
-  const [open, setOpen] = React.useState(false);
   const i18n = useI18n();
+  const [open, setOpen] = React.useState(false);
 
   const onAdded = () => {
     if (actionType === 'add') {

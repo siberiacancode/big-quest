@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { Separator } from './separator';
 import { Skeleton } from './skeleton';
 
-interface EmployeeCardSkeletonProps extends React.HTMLAttributes<HTMLDivElement> {}
+type EmployeeCardSkeletonProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const EmployeeCardSkeleton = React.forwardRef<HTMLDivElement, EmployeeCardSkeletonProps>(
   ({ className, ...props }, ref) => (
@@ -30,7 +30,6 @@ export const EmployeeCardSkeleton = React.forwardRef<HTMLDivElement, EmployeeCar
           <Skeleton className='h-6 w-full' />
         </div>
       </div>
-      {/* </div> */}
     </div>
   )
 );

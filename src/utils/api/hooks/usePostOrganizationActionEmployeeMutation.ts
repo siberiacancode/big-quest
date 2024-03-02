@@ -1,20 +1,20 @@
 import { useMutation } from '@tanstack/react-query';
 
 import type {
-  PostOrganizationAddUserConfig,
+  PostOrganizationAddEmployeeConfig,
   PostOrganizationEditEmployeeConfig
-} from '@/utils/api';
-import { postOrganizationAddUser, postOrganizationEditEmployee } from '@/utils/api';
+} from '../requests';
+import { postOrganizationAddEmployee, postOrganizationEditEmployee } from '../requests';
 
 export const usePostOrganizationActionEmployeeMutation = (
   settings?: MutationSettings<
-    | (PostOrganizationAddUserConfig & {
+    | (PostOrganizationAddEmployeeConfig & {
         action: 'add';
       })
     | (PostOrganizationEditEmployeeConfig & {
         action: 'edit';
       }),
-    typeof postOrganizationAddUser
+    typeof postOrganizationAddEmployee
   >
 ) =>
   useMutation({
@@ -25,7 +25,7 @@ export const usePostOrganizationActionEmployeeMutation = (
       }
 
       if (action === 'add') {
-        return postOrganizationAddUser({ params, config: { ...settings?.config, ...config } });
+        return postOrganizationAddEmployee({ params, config: { ...settings?.config, ...config } });
       }
 
       throw new Error('Invalid action');

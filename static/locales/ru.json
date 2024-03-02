@@ -3,9 +3,6 @@
   "app.error": "Что-то пошло не так",
   "app.loading": "Пожалуйста подождите...",
 
-  "app.imageDownload.pressToDownload.title": "Нажмите, чтобы загрузить",
-  "app.imageDownload.pressToDownload.subtitle": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
-
   "partners.addresses.title": "Адреса",
   "partners.employees.title": "Сотрудники",
 
@@ -93,6 +90,8 @@
   "field.name.label": "Имя",
   "field.surname.label": "Фамилия",
   "field.role.label": "Роль",
+  "field.imageDownload.title": "Нажмите, чтобы загрузить",
+  "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
 
   "navigation.link.default": "Текущая",
   "navigation.link.org.organizations": "Организации",
@@ -161,12 +160,15 @@
 
   "dialog.registerOrganization.title": "Заполните заявку",
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
+
   "dialog.addAddress.title": "Добавление адреса",
-  "dialog.addEmployee.title": "Добавление сотрудника",
-  "dialog.editEmployee.title": "Редактирование сотрудника",
-  "dialog.addEmployee.description": "Заполните форму и загрузите изображение",
   "dialog.addAddress.form.untill": "до",
   "dialog.addAddress.success": "Адрес успешно добавлен",
+
+  "dialog.addEmployee.title": "Добавление сотрудника",
+  "dialog.addEmployee.description": "Заполните форму и загрузите изображение",
   "dialog.addEmployee.success": "Сотрудник успешно добавлен",
+
+  "dialog.editEmployee.title": "Редактирование сотрудника",
   "dialog.editEmployee.success": "Информация о сотруднике успешно отредактирована"
 }
