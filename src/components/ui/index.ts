@@ -12,6 +12,7 @@ export * from './command';
 export * from './data-table';
 export * from './dialog';
 export * from './dropdown-menu';
+export * from './dropzone-image';
 export * from './form';
 export * from './hover-card';
 export * from './info-card';

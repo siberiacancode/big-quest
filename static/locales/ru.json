@@ -151,5 +151,10 @@
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
   "dialog.addAddress.title": "Добавление адреса",
   "dialog.addAddress.form.untill": "до",
-  "dialog.addAddress.success": "Адрес успешно добавлен"
+  "dialog.addAddress.success": "Адрес успешно добавлен",
+
+  "dropzone.image.error": "Разрешена загрузка 1 файла-изображения",
+  "dropzone.docs.error": "Разрешена загрузка 1 файла-документа",
+
+  "toast.cancel.label": "Закрыть"
 }
