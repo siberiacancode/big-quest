@@ -61,6 +61,7 @@ export const useEditOrganizationProfileForm = ({
       id: organization.id,
       information: {
         ...values.information,
+        phone: `7${values.information.phone}`,
         social: convertFormValuesToSocial(values.information.social)
       }
     };

@@ -5,7 +5,7 @@ import { PatternFormatInput } from './pattern-format-input';
 
 type PhoneNumberInputProps = Omit<PatternFormatProps, 'format'>;
 
-export const PHONE_NUMBER_LENGTH = 18;
+export const PHONE_NUMBER_LENGTH = 10;
 
 export const phoneNumberSchema = z
   .string()

@@ -5,7 +5,7 @@ import { PatternFormatInput } from './pattern-format-input';
 
 export type CheckingAccountInputProps = Omit<PatternFormatProps, 'format'>;
 
-export const CHECKING_ACCOUNT_LENGTH = 25;
+export const CHECKING_ACCOUNT_LENGTH = 20;
 
 export const checkingAccountSchema = z
   .string()

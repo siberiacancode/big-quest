@@ -25,8 +25,8 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
           <Image
             priority={false}
             className='h-20 w-20 rounded border-none'
-            width={20}
-            height={20}
+            width={80}
+            height={80}
             src={organization.avatar || logo}
             alt='org-background'
           />

@@ -89,13 +89,13 @@ export const EditOrganizationProfileForm = ({
           <FormField
             control={form.control}
             name='information.phone'
-            render={({ field }) => (
+            render={({ field: { onChange, ...field } }) => (
               <FormItem>
                 <FormLabel>
                   <I18nText path='field.organization.phone.label' />
                 </FormLabel>
                 <FormControl>
-                  <PhoneNumberInput {...field} />
+                  <PhoneNumberInput onValueChange={({ value }) => onChange(value)} {...field} />
                 </FormControl>
                 <FormMessage>
                   {form.formState?.errors?.information?.phone && (
@@ -439,13 +439,13 @@ export const EditOrganizationProfileForm = ({
           <FormField
             control={form.control}
             name='requisites.checkingAccount'
-            render={({ field }) => (
+            render={({ field: { onChange, ...field } }) => (
               <FormItem>
                 <FormLabel>
                   <I18nText path='field.organization.checkingAccount.label' />
                 </FormLabel>
                 <FormControl>
-                  <CheckingAccountInput {...field} />
+                  <CheckingAccountInput onValueChange={({ value }) => onChange(value)} {...field} />
                 </FormControl>
                 <FormMessage>
                   {form.formState?.errors?.requisites?.checkingAccount && (
