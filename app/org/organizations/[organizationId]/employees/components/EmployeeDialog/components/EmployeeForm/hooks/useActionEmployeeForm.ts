@@ -31,11 +31,11 @@ export const useActionEmployeeForm = ({ onAction, actionType }: UseActionEmploye
   const postOrganizationActionEmployee = usePostOrganizationActionEmployeeMutation();
 
   const onSubmit = actionEmployeeForm.handleSubmit(async (values) => {
-    const mutationParams = {
+    const postOrganizationActionEmployeeParams = {
       params: { ...values, organizationId: params.organizationId },
       action: actionType
     };
-    await postOrganizationActionEmployee.mutateAsync(mutationParams);
+    await postOrganizationActionEmployee.mutateAsync(postOrganizationActionEmployeeParams);
     onAction();
     router.refresh();
   });
