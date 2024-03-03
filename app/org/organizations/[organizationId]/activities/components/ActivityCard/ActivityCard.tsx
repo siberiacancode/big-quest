@@ -107,13 +107,19 @@ export const ActivityCard = ({ activity = activityObj }: ActivityCardProps) => {
               <div className='flex gap-2'>
                 <UserRoundIcon className='h-4 w-4 text-muted-foreground' />
                 <Typography variant='body3' tag='p' className='text-foreground'>
-                  от {activity.ageLimit[0]}+ лет
+                  <I18nText
+                    path='activityCard.ageLimit.label'
+                    values={{ ageMin: activity.ageLimit[0] }}
+                  />
                 </Typography>
               </div>
               <div className='flex gap-2'>
                 <Clock5Icon className='h-4 w-4 text-muted-foreground' />
                 <Typography variant='body3' tag='p' className='text-foreground'>
-                  {activity.duration / 60} ч
+                  <I18nText
+                    path='activityCard.duration.label'
+                    values={{ duration: activity.duration / 60 }}
+                  />
                 </Typography>
               </div>
             </div>

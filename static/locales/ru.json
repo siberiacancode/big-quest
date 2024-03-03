@@ -161,6 +161,9 @@
   "table.column.rate": "Тариф",
   "table.column.daysCount": "Кол-во дней",
 
+  "activityCard.ageLimit.label": "от {ageMin}+ лет",
+  "activityCard.duration.label": "{duration} ч",
+
   "pagination.from": "из",
   "pagination.selected": "выбрано",
   "pagination.page": "страница",
