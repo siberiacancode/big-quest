@@ -7,43 +7,42 @@ import Image from 'next/image';
 
 import { Button, DropzoneImage } from '@/components/ui';
 
+import { ACCEPT_FILE_TYPES } from './constants/constants';
 import type { FileType } from './constants/types';
-import { acceptFileTypes } from './constants/types';
 import { useDropzoneCard } from './hooks/useDropzoneCard';
 
 interface DropzoneCardProps {
   file: File | undefined;
-  setFile: (props: File | undefined) => void;
+  onChange: (props: File | undefined) => void;
   url?: string;
-  fileType?: FileType;
+  type?: FileType;
   className?: string;
 }
 
 export const DropzoneCard = ({
   file,
-  setFile,
+  onChange,
   url = '',
-  fileType = 'image',
+  type = 'image',
   ...props
 }: DropzoneCardProps) => {
-  const { state, functions } = useDropzoneCard({ url, setFile, fileType });
+  const { functions } = useDropzoneCard({ onChange, type });
 
   const { getRootProps, getInputProps } = useDropzone({
     maxFiles: 1,
-    accept: acceptFileTypes[fileType],
+    accept: ACCEPT_FILE_TYPES[type],
     onDropRejected: functions.onError,
-    onDropAccepted: functions.handleFileChange
+    onDropAccepted: (files: File[]) => onChange(files[0])
   });
 
   return (
     <div {...getRootProps()} {...props}>
-      {state.fileUrl ? (
+      {url || file ? (
         <div className='relative h-full w-full'>
           <Image
             className='h-full w-full rounded-lg border'
-            width={147}
-            height={125}
-            src={state.fileUrl}
+            fill
+            src={url || URL.createObjectURL(file as File)}
             alt='activity-image'
           />
           <Button
@@ -58,7 +57,7 @@ export const DropzoneCard = ({
           </Button>
         </div>
       ) : (
-        <DropzoneImage getInputProps={getInputProps} />
+        <DropzoneImage {...getInputProps} />
       )}
     </div>
   );

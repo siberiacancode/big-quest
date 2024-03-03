@@ -18,7 +18,7 @@ import { useI18n } from '@/utils/contexts';
 import { useLoginForm } from './hooks/useLoginForm';
 
 export const LoginForm = () => {
-  const i18n = useI18n();
+  const intl = useI18n();
   const { state, form, functions } = useLoginForm();
 
   return (
@@ -35,7 +35,7 @@ export const LoginForm = () => {
               <FormControl>
                 <Input
                   disabled={state.isLoading}
-                  placeholder={i18n.formatMessage({ id: 'field.email.placeholder' })}
+                  placeholder={intl.formatMessage({ id: 'field.email.placeholder' })}
                   {...field}
                 />
               </FormControl>
@@ -58,7 +58,7 @@ export const LoginForm = () => {
               <FormControl>
                 <PasswordInput
                   disabled={state.isLoading}
-                  placeholder={i18n.formatMessage({ id: 'field.password.placeholder' })}
+                  placeholder={intl.formatMessage({ id: 'field.password.placeholder' })}
                   {...field}
                 />
               </FormControl>

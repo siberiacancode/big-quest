@@ -22,7 +22,7 @@ interface AddAddressFormProps {
 }
 
 export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
-  const i18n = useI18n();
+  const intl = useI18n();
   const { state, form, functions } = useAddAddressForm({ onAdded });
 
   return (
@@ -62,7 +62,7 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder={i18n.formatMessage({
+                      placeholder={intl.formatMessage({
                         id: 'field.street.placeholder'
                       })}
                     />
@@ -107,7 +107,7 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder={i18n.formatMessage({
+                      placeholder={intl.formatMessage({
                         id: 'field.details.placeholder'
                       })}
                     />
