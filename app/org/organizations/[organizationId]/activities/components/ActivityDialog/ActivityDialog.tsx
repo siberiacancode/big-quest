@@ -4,7 +4,6 @@ import { XIcon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
 import {
-  Button,
   Dialog,
   DialogClose,
   DialogContent,
@@ -16,17 +15,20 @@ import {
 
 import { ActivityForm } from './components/ActivityForm/ActivityForm';
 import { ActivityImages } from './components/ActivityImages/ActivityImages';
+import { ActivityInfo } from './components/ActivityInfo/ActivityInfo';
 import { useActionActivityDialog } from './useActionActivityDialog/useActionActivityDialog';
 
 interface ActivityDialogProps {
   trigger: JSX.Element;
+  actionType: ActivityActionType;
+  activity?: ActivityResponse;
 }
 
-export const ActivityDialog = ({ trigger }: ActivityDialogProps) => {
-  const { functions } = useActionActivityDialog();
+export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialogProps) => {
+  const { state, functions } = useActionActivityDialog({ actionType });
 
   return (
-    <Dialog>
+    <Dialog open={state.open} onOpenChange={functions.setOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className='flex h-fit w-11/12 max-w-[713px] flex-col rounded-lg smx:max-h-[90%]'>
         <DialogClose>
@@ -42,16 +44,11 @@ export const ActivityDialog = ({ trigger }: ActivityDialogProps) => {
         <div className='flex h-max gap-4 px-5 smx:px-0'>
           <ActivityImages />
         </div>
-        <div className='mx-5 flex h-full flex-col items-end justify-between overflow-y-auto rounded-lg border p-5 px-5 smx:mx-0'>
-          <ActivityForm onAdded={functions.onAdded} />
-        </div>
-        <div className='flex w-full justify-center'>
-          <Button className='h-8 w-28' size='sm' type='submit' variant='secondary'>
-            <Typography variant='sub4'>
-              <I18nText path='button.save' />
-            </Typography>
-          </Button>
-        </div>
+        {actionType === 'info' && activity ? (
+          <ActivityInfo activity={activity} />
+        ) : (
+          <ActivityForm actionType={actionType} activity={activity} onAction={functions.onAction} />
+        )}
       </DialogContent>
     </Dialog>
   );

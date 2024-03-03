@@ -10,4 +10,4 @@ export type PostOrganizationEditActivityConfig = {
 export const postOrganizationEditActivity = async ({
   params,
   config
-}: PostOrganizationEditActivityConfig) => api.put(`activity/${params.id}`, params, config);
+}: PostOrganizationEditActivityConfig) => api.post(`activity/${params.id}`, params, config);

@@ -38,6 +38,7 @@ const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPage
               <I18nText path='button.addActivities' />
             </Button>
           }
+          actionType='add'
         />
       </div>
       <div className='mb-6 grid w-full grid-cols-5 gap-7 3xlx:grid-cols-4 xlx:grid-cols-3 mdx:grid-cols-2 2xsx:grid-cols-1'>

@@ -81,6 +81,8 @@ type ActivityStatus = 'DRAFT' | 'MODERATION' | 'EDITING' | 'PUBLISHED' | 'CLOSED
 
 type ActivityView = 'ONLINE' | 'OFFLINE';
 
+type ActivityActionType = 'add' | 'edit' | 'info';
+
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;

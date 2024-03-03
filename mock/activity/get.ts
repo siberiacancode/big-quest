@@ -132,11 +132,6 @@ export const getOrganizationActivitiesByOrganizationId: RestRequestConfig = {
           }
         ],
         pagination: { current: 1, limit: 10, organizationId: 1 }
-      },
-      interceptors: {
-        response: (data, { request }) => {
-          console.log(request.url, data);
-        }
       }
     }
   ]
