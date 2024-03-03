@@ -41,7 +41,7 @@ export const ActionEmployeeDialog = ({ trigger, actionType }: ActionEmployeeDial
           </DialogTitle>
         </DialogHeader>
         <div className='flex h-full flex-col items-end justify-between overflow-y-auto rounded-lg border p-5'>
-          <EmployeeForm onAdded={functions.onAdded} actionType={actionType} />
+          <EmployeeForm onAction={functions.onAction} actionType={actionType} />
         </div>
       </DialogContent>
     </Dialog>

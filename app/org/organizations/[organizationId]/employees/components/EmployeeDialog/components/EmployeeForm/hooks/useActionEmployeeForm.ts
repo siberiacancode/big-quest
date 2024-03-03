@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
 import { usePostOrganizationActionEmployeeMutation } from '@/utils/api/hooks/usePostOrganizationActionEmployeeMutation';
 
@@ -8,13 +8,14 @@ import type { EmployeeSchema } from '../constants/EmployeeSchema';
 import { employeeSchema } from '../constants/EmployeeSchema';
 
 interface UseActionEmployeeFormParams {
-  onAdded: () => void;
+  onAction: () => void;
   actionType: 'add' | 'edit';
 }
 
-export const useActionEmployeeForm = ({ onAdded, actionType }: UseActionEmployeeFormParams) => {
+export const useActionEmployeeForm = ({ onAction, actionType }: UseActionEmployeeFormParams) => {
   const params = useParams<{ organizationId: string }>();
-  const addEmployeeForm = useForm<EmployeeSchema>({
+  const router = useRouter();
+  const actionEmployeeForm = useForm<EmployeeSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(employeeSchema),
     defaultValues: {
@@ -29,20 +30,21 @@ export const useActionEmployeeForm = ({ onAdded, actionType }: UseActionEmployee
 
   const postOrganizationActionEmployee = usePostOrganizationActionEmployeeMutation();
 
-  const onSubmit = addEmployeeForm.handleSubmit(async (values) => {
+  const onSubmit = actionEmployeeForm.handleSubmit(async (values) => {
     const mutationParams = {
       params: { ...values, organizationId: params.organizationId },
       action: actionType
     };
     await postOrganizationActionEmployee.mutateAsync(mutationParams);
-    onAdded();
+    onAction();
+    router.refresh();
   });
 
   return {
     state: {
       isLoading: false
     },
-    form: addEmployeeForm,
+    form: actionEmployeeForm,
     functions: { onSubmit }
   };
 };

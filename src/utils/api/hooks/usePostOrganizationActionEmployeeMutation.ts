@@ -14,7 +14,7 @@ export const usePostOrganizationActionEmployeeMutation = (
     | (PostOrganizationEditEmployeeConfig & {
         action: 'edit';
       }),
-    typeof postOrganizationAddEmployee
+    typeof postOrganizationEditEmployee | typeof postOrganizationAddEmployee
   >
 ) =>
   useMutation({

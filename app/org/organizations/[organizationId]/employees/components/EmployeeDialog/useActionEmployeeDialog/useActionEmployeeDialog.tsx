@@ -3,15 +3,11 @@ import { toast } from 'sonner';
 
 import { useI18n } from '@/utils/contexts';
 
-interface UseActionEmployeeDialogProps {
-  actionType: 'add' | 'edit';
-}
-
-export const useActionEmployeeDialog = ({ actionType }: UseActionEmployeeDialogProps) => {
+export const useActionEmployeeDialog = ({ actionType }) => {
   const i18n = useI18n();
   const [open, setOpen] = React.useState(false);
 
-  const onAdded = () => {
+  const onAction = () => {
     if (actionType === 'add') {
       toast(i18n.formatMessage({ id: 'dialog.addEmployee.success' }), {
         cancel: { label: 'Close' }
@@ -27,5 +23,5 @@ export const useActionEmployeeDialog = ({ actionType }: UseActionEmployeeDialogP
     setOpen(false);
   };
 
-  return { state: { open }, functions: { setOpen, onAdded } };
+  return { state: { open }, functions: { setOpen, onAction } };
 };

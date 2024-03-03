@@ -22,13 +22,13 @@ import { useI18n } from '@/utils/contexts';
 import { useActionEmployeeForm } from './hooks/useActionEmployeeForm';
 
 interface EmployeeFormProps {
-  onAdded: () => void;
+  onAction: () => void;
   actionType: 'add' | 'edit';
 }
 
-export const EmployeeForm = ({ onAdded, actionType }: EmployeeFormProps) => {
+export const EmployeeForm = ({ onAction, actionType }: EmployeeFormProps) => {
   const i18n = useI18n();
-  const { state, form, functions } = useActionEmployeeForm({ onAdded, actionType });
+  const { state, form, functions } = useActionEmployeeForm({ onAction, actionType });
 
   // const [imageUrl, setImageUrl] = useState('');
 
