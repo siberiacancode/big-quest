@@ -6,8 +6,15 @@ import { Card, CardContent } from '@/components/ui/card';
 
 import { ActionEmployeeDialog } from '../EmployeeDialog/ActionEmployeeDialog';
 
+interface EmployeeData {
+  fullname: string;
+  email: string;
+  employeeRole: string;
+  phoneNumber: string;
+}
+
 interface EmployeeCardProps {
-  employee: EmployeeDto;
+  employee: EmployeeData;
 }
 
 export const EmployeeCard = ({ employee }: EmployeeCardProps) => (
