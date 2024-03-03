@@ -1,5 +1,6 @@
 import { useFieldArray, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
 
 import { usePutOrganizationMutation } from '@/utils/api';
 
@@ -17,6 +18,7 @@ export const useEditOrganizationProfileForm = ({
   organization,
   onEdited
 }: UseEditOrganizationFormParams) => {
+  const router = useRouter();
   const editOrganizationForm = useForm<EditOrganizationProfileSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(editOrganizationProfileSchema),
@@ -24,21 +26,19 @@ export const useEditOrganizationProfileForm = ({
       locality: organization.locality ?? '',
       name: organization.name ?? '',
       description: organization.description,
-      inn: organization.inn,
+      inn: organization.information.inn,
       information: {
-        postAddress: organization.information?.postAddress,
-        contactName: organization.information?.contactName ?? '',
-        phone: organization.information?.phone ?? '',
-        email: organization.information?.email,
-        site: organization.information?.site,
-        city: organization.information?.city,
-        social: organization.information?.social
-          ? convertSocialToFormValues(organization.information.social)
-          : [{}],
-        fullNameOfTheLegalEntity: organization.information?.fullNameOfTheLegalEntity,
-        legalAddress: organization.information?.legalAddress,
-        kpp: organization.information?.kpp,
-        ogrn: organization.information?.ogrn
+        postAddress: organization.information.postAddress,
+        contactName: organization.contactName ?? '',
+        phone: organization.phone ? String(organization.phone).slice(1) : '',
+        email: organization.email,
+        site: organization.site,
+        city: organization.information.city,
+        social: organization.social ? convertSocialToFormValues(organization.social) : [{}],
+        fullNameOfTheLegalEntity: organization.information.fullNameOfTheLegalEntity,
+        legalAddress: organization.information.legalAddress,
+        kpp: organization.information.kpp,
+        ogrn: organization.information.ogrn
       },
       requisites: {
         bank: organization.requisites?.bank,
@@ -66,6 +66,7 @@ export const useEditOrganizationProfileForm = ({
     };
 
     await putOrganizationMutation.mutateAsync({ params: putOrganizationParams });
+    router.refresh();
 
     onEdited();
   });

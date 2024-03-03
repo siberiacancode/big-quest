@@ -34,7 +34,7 @@ export const InnInput = React.forwardRef<HTMLInputElement, InnInputProps>(
           <TooltipProvider delayDuration={300}>
             <Tooltip>
               <TooltipTrigger>
-                <InfoIcon className=' size-4' />
+                <InfoIcon className='size-4' />
               </TooltipTrigger>
               <TooltipContent side='left'>{tooltip}</TooltipContent>
             </Tooltip>
