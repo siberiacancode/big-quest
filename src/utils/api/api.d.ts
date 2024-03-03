@@ -23,7 +23,7 @@ interface QuerySettings<Func = unknown> {
 
 type BaseUrl = string;
 type RequestMethod = RequestInit['method'];
-type RequestConfig = RequestInit & {
+type _RequestConfig = RequestInit & {
   url: string;
   _retry?: boolean;
   headers?: Record<string, string>;
@@ -36,9 +36,9 @@ interface InterceptorResponseResult {
   data: any;
 }
 type SuccessResponseFun = (res: InterceptorResponseResult) => InterceptorResponseResult['data'];
-type SuccessRequestFun = (options: RequestConfig) => RequestConfig;
+type SuccessRequestFun = (options: _RequestConfig) => _RequestConfig;
 
-type ResponseError = Error & { config: RequestConfig; response: InterceptorResponseResult };
+type ResponseError = Error & { config: _RequestConfig; response: InterceptorResponseResult };
 type FailureResponseFun = (e: ResponseError) => any;
 type FailureRequestFun = (e: ResponseError) => any;
 
@@ -61,7 +61,7 @@ interface RequestOptions extends Omit<RequestInit, 'method'> {
   params?: SearchParams;
 }
 
-type RequestParams<Params = undefined> = Params extends undefined
+type RequestConfig<Params = undefined> = Params extends undefined
   ? { config?: RequestOptions }
   : { params: Params; config?: RequestOptions };
 
@@ -78,16 +78,10 @@ type UserRole = 'organizer' | 'partner';
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
-  postAggress?: string;
+  postAddress?: string;
   inn?: string;
   kpp?: string;
   ogrn?: string;
-}
-
-interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
 }
 
 interface OrganizationResponse {
@@ -212,23 +206,23 @@ interface OrganizationInformationDto {
   email?: string;
   site?: string;
   city?: string;
-  social?: string;
+  social?: string[];
   coordinates?: {
     latitude: number;
     longitude: number;
   };
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
-  postAggress?: string;
+  postAddress?: string;
   inn?: string;
   kpp?: string;
   ogrn?: string;
 }
 
 interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
+  bank?: string;
+  bik?: string;
+  checkingAccount?: string;
 }
 
 interface DashBoardResponse {
@@ -242,4 +236,15 @@ interface DashBoardResponse {
 interface Legals {
   total: number;
   growthPerMonth: number;
+}
+
+interface UpdateOrganizationDto {
+  id?: string;
+  locality?: string;
+  name?: string;
+  description?: string;
+  inn?: string;
+  information?: OrganizationInformationDto;
+  requisites?: RequisitesDto;
+  stage?: string;
 }
