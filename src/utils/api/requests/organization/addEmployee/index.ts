@@ -7,4 +7,4 @@ export type PostOrganizationAddEmployeeConfig = RequestConfig<PostOrganizationAd
 export const postOrganizationAddEmployee = async ({
   params,
   config
-}: PostOrganizationAddEmployeeConfig) => api.post(`organization/add-employee`, params, config);
+}: PostOrganizationAddEmployeeConfig) => api.post('organization/add-employee', params, config);
