@@ -19,16 +19,19 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
+import type { EmployeeData } from '../../../EmployeeCard/EmployeeCard';
+
 import { useActionEmployeeForm } from './hooks/useActionEmployeeForm';
 
 interface EmployeeFormProps {
   onAction: () => void;
   actionType: 'add' | 'edit';
+  employee?: EmployeeData;
 }
 
-export const EmployeeForm = ({ onAction, actionType }: EmployeeFormProps) => {
+export const EmployeeForm = ({ onAction, actionType, employee }: EmployeeFormProps) => {
   const i18n = useI18n();
-  const { state, form, functions } = useActionEmployeeForm({ onAction, actionType });
+  const { state, form, functions } = useActionEmployeeForm({ onAction, actionType, employee });
 
   // const [imageUrl, setImageUrl] = useState('');
 
@@ -102,13 +105,13 @@ export const EmployeeForm = ({ onAction, actionType }: EmployeeFormProps) => {
                         <SelectValue placeholder='Роль' />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value='administrator'>
+                        <SelectItem value='Administrator'>
                           <I18nText path='organization.employee.role.administrator' />
                         </SelectItem>
-                        <SelectItem value='leading'>
+                        <SelectItem value='Leading'>
                           <I18nText path='organization.employee.role.leading' />
                         </SelectItem>
-                        <SelectItem value='manager'>
+                        <SelectItem value='Manager'>
                           <I18nText path='organization.employee.role.manager' />
                         </SelectItem>
                       </SelectContent>

@@ -6,11 +6,13 @@ import { Card, CardContent } from '@/components/ui/card';
 
 import { ActionEmployeeDialog } from '../EmployeeDialog/ActionEmployeeDialog';
 
-interface EmployeeData {
-  fullname: string;
+export interface EmployeeData {
+  id: string;
+  name: string;
+  surname: string;
   email: string;
-  employeeRole: string;
-  phoneNumber: string;
+  role: string;
+  phone: string;
 }
 
 interface EmployeeCardProps {
@@ -25,6 +27,7 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => (
           <Edit3Icon className='right absolute right-4 top-4 cursor-pointer text-placeholder' />
         }
         actionType='edit'
+        employee={employee}
       />
 
       <div className='flex flex-1 flex-col items-center space-y-3 pt-4'>
@@ -32,10 +35,10 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => (
           <div className='h-16 w-16 rounded-full bg-slate-700' />
           <div className='mt-2 flex flex-col items-center space-y-1'>
             <Typography variant='h4' tag='h3' className='flex-1'>
-              {employee.fullname}
+              {employee.name} {employee.surname}
             </Typography>
             <Typography variant='body1' tag='h3' className='flex-1'>
-              {employee.employeeRole}
+              {employee.role}
             </Typography>
           </div>
         </div>
@@ -54,7 +57,7 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => (
               {employee.email}
             </Typography>
             <Typography variant='sub1' tag='p' className='flex-1 font-normal'>
-              {employee.phoneNumber}
+              {employee.phone}
             </Typography>
           </div>
         </div>

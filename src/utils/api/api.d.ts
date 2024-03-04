@@ -134,7 +134,7 @@ interface OrganizationEmployeeDto {
   organizationId: string;
   role: string;
   name: string;
-  name: string;
+  surname: string;
   email: string;
   phone: string;
   // image?: any;
@@ -257,10 +257,12 @@ interface Legals {
 
 interface EmployeeDto {
   id: string;
-  fullname: string;
+  role: string;
+  name: string;
+  surname: string;
   email: string;
-  employeeRole: string;
-  phoneNumber: string;
+  phone: string;
+  // image?: any;
 }
 
 interface UpdateOrganizationDto {
