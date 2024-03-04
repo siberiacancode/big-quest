@@ -11,12 +11,11 @@ import { ACCEPT_FILE_TYPES } from './constants/constants';
 import type { FileType } from './constants/types';
 import { useDropzoneCard } from './hooks/useDropzoneCard';
 
-interface DropzoneCardProps {
+interface DropzoneCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   file: File | undefined;
   onChange: (props: File | undefined) => void;
   url?: string;
   type?: FileType;
-  className?: string;
 }
 
 export const DropzoneCard = ({
