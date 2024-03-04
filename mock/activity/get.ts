@@ -1,6 +1,6 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const getOrganizationActivitiesByOrganizationId: RestRequestConfig = {
+export const getActivities: RestRequestConfig = {
   path: '/activity',
   method: 'get',
   routes: [
@@ -9,8 +9,8 @@ export const getOrganizationActivitiesByOrganizationId: RestRequestConfig = {
         rows: [
           {
             id: '1',
-            cover: '',
-            content: [''],
+            cover: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
+            content: ['http://localhost:31299/api/1.0/static/activity/image-2.png'],
             name: 'Рисуем живопись',
             description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
@@ -42,8 +42,8 @@ export const getOrganizationActivitiesByOrganizationId: RestRequestConfig = {
           },
           {
             id: '1',
-            cover: '',
-            content: [''],
+            cover: null,
+            content: [],
             name: 'Рисуем живопись',
             description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
@@ -61,8 +61,8 @@ export const getOrganizationActivitiesByOrganizationId: RestRequestConfig = {
           },
           {
             id: '1',
-            cover: '',
-            content: [''],
+            cover: 'http://localhost:31299/api/1.0/static/activity/image-4.png',
+            content: [],
             name: 'Рисуем живопись',
             description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
@@ -94,11 +94,9 @@ export const getOrganizationActivitiesByOrganizationId: RestRequestConfig = {
           },
           {
             id: '1',
-            cover: '',
-            content: [''],
+            cover: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
+            content: ['http://localhost:31299/api/1.0/static/activity/image-2.png'],
             name: 'Рисуем живопись',
-            description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
             ageLimit: [7, 13],
             price: 100,
             duration: 120,
@@ -113,11 +111,9 @@ export const getOrganizationActivitiesByOrganizationId: RestRequestConfig = {
           },
           {
             id: '1',
-            cover: '',
-            content: [''],
+            cover: null,
+            content: [],
             name: 'Рисуем живопись',
-            description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
             ageLimit: [7, 13],
             price: 100,
             duration: 120,

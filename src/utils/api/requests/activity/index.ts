@@ -1,8 +1,12 @@
 import { api } from '@/utils/api/instance';
 
-export type GetOrganizationActivitiesByIdConfig = RequestConfig;
+export type GetActivitiesConfig = RequestConfig | void;
 
-export const getOrganizationActivitiesByOrganizationId = async ({
-  config
-}: GetOrganizationActivitiesByIdConfig) =>
-  api.get<ActivityWithPaginationResponse>('activity', config);
+export const getActivities = async (requestConfig?: GetActivitiesConfig) =>
+  api.get<ActivityWithPaginationResponse>('activity', requestConfig?.config);
+
+export type PostActivityParams = CreateActivityDto;
+export type PostActivityConfig = RequestConfig<PostActivityParams>;
+
+export const postActivity = async ({ params, config }: PostActivityConfig) =>
+  api.post<ActivityResponse>('activity', params, config);

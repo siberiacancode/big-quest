@@ -81,8 +81,6 @@ type ActivityStatus = 'DRAFT' | 'MODERATION' | 'EDITING' | 'PUBLISHED' | 'CLOSED
 
 type ActivityView = 'ONLINE' | 'OFFLINE';
 
-type ActivityActionType = 'add' | 'edit' | 'info';
-
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
@@ -199,10 +197,10 @@ interface Schedule {
 
 interface ActivityResponse {
   id: string;
-  cover: string;
-  content: string[];
+  cover?: string;
+  content?: string[];
   name: string;
-  description: string;
+  description?: string;
   ageLimit: number[];
   price: number;
   nutsCount: number;
@@ -213,7 +211,7 @@ interface ActivityResponse {
   category: string;
   participants: number;
   likes: number;
-  schedule: Schedule[];
+  schedule?: Schedule[];
 }
 
 interface ActivityWithPaginationResponse {

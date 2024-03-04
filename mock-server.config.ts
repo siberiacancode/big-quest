@@ -18,6 +18,10 @@ const mockServerConfig: MockServerConfig = {
   },
   rest: {
     configs: Object.values(requests)
+  },
+  staticPath: {
+    path: '/mock/static',
+    prefix: '/static'
   }
 };
 

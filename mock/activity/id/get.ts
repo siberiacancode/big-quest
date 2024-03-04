@@ -1,7 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const getOrganizationActivityById: RestRequestConfig = {
-  path: '/activity/1',
+export const getActivityById: RestRequestConfig = {
+  path: '/activity/:id',
   method: 'get',
   routes: [
     {
@@ -9,7 +9,7 @@ export const getOrganizationActivityById: RestRequestConfig = {
         {
           id: '1',
           cover: '',
-          content: [''],
+          content: [],
           name: 'Рисуем живопись',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',

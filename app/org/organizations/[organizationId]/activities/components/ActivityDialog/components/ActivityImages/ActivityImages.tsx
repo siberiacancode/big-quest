@@ -9,15 +9,15 @@ export const ActivityImages = () => (
       src={background}
       alt='activity-image-1'
     />
-    <div className='grid grid-cols-2 gap-2'>
-      <div>
-        <Image className='max-h-[125px] rounded-lg' src={background} alt='activity-image-2' />
-        <Image className='mt-2 max-h-[125px] rounded-lg' src={background} alt='activity-image-3' />
-      </div>
-      <div>
-        <Image className='max-h-[125px] rounded-lg' src={background} alt='activity-image-4' />
-        <Image className='mt-2 max-h-[125px] rounded-lg' src={background} alt='activity-image-5' />
-      </div>
+    <div className='grid grid-cols-2 grid-rows-2 gap-2'>
+      {Array.from({ length: 4 }, (_, index) => (
+        <Image
+          key={index}
+          className='max-h-[125px] rounded-lg'
+          src={background}
+          alt={`activity-image-${index}`}
+        />
+      ))}
     </div>
   </div>
 );

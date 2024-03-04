@@ -14,9 +14,9 @@ import {
 } from '@/components/ui';
 
 import { ActivityForm } from './components/ActivityForm/ActivityForm';
-import { ActivityImages } from './components/ActivityImages/ActivityImages';
 import { ActivityInfo } from './components/ActivityInfo/ActivityInfo';
-import { useActionActivityDialog } from './useActionActivityDialog/useActionActivityDialog';
+import type { ActivityActionType } from './constants/types';
+import { useActionActivityDialog } from './hooks/useActionActivityDialog';
 
 interface ActivityDialogProps {
   trigger: JSX.Element;
@@ -41,9 +41,7 @@ export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialog
             </Typography>
           </DialogTitle>
         </DialogHeader>
-        <div className='flex h-max gap-4 px-5 smx:px-0'>
-          <ActivityImages />
-        </div>
+
         {actionType === 'info' && activity ? (
           <ActivityInfo activity={activity} />
         ) : (

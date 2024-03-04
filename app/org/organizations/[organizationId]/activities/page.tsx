@@ -3,7 +3,7 @@ import { PlusCircledIcon } from '@radix-ui/react-icons';
 
 import { I18nText } from '@/components/common';
 import { Button, Typography } from '@/components/ui';
-import { getOrganizationActivitiesByOrganizationId } from '@/utils/api';
+import { getActivities } from '@/utils/api';
 
 import { ActivityCard } from './components/ActivityCard/ActivityCard';
 import { ActivityDialog } from './components/ActivityDialog/ActivityDialog';
@@ -16,7 +16,7 @@ const DEFAULT_ACTIVITIES_LIMIT = '10';
 const DEFAULT_ACTIVITIES_PAGE = '1';
 
 const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPageProps) => {
-  const organizationActivities = await getOrganizationActivitiesByOrganizationId({
+  const organizationActivities = await getActivities({
     config: {
       params: {
         limit: DEFAULT_ACTIVITIES_LIMIT,
@@ -25,6 +25,7 @@ const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPage
       }
     }
   });
+
   return (
     <>
       <div className='flex flex-wrap justify-between'>

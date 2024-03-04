@@ -16,12 +16,15 @@ import {
   FormLabel,
   FormMessage,
   Input,
+  Switch,
   Typography
 } from '@/components/ui';
-import { Switch } from '@/components/ui/switch';
 import { useI18n } from '@/utils/contexts';
 
-import { ACTIVITY_STATUS_DROPDOWN_VALUES } from './constants/values';
+import type { ActivityActionType } from '../../constants/types';
+import { ActivityImages } from '../ActivityImages/ActivityImages';
+
+import { ACTIVITY_STATUS_DROPDOWN_VALUES } from './constants/activityStatusDropdownValues';
 import { useActionActivityForm } from './hooks/useActionActivityForm';
 
 interface ActivityFormProps {
@@ -31,7 +34,7 @@ interface ActivityFormProps {
 }
 
 export const ActivityForm = ({ onAction, actionType, activity }: ActivityFormProps) => {
-  const i18n = useI18n();
+  const intl = useI18n();
   const { state, form, functions } = useActionActivityForm({
     onAction,
     activity,
@@ -44,6 +47,9 @@ export const ActivityForm = ({ onAction, actionType, activity }: ActivityFormPro
         onSubmit={functions.onSubmit}
         className='flex h-full flex-col items-end justify-between gap-4 overflow-y-auto px-5 smx:px-0'
       >
+        <div className='flex h-max gap-4 px-5 smx:px-0'>
+          <ActivityImages />
+        </div>
         <div className='flex w-full flex-col overflow-y-auto rounded-lg border  p-5'>
           <div className='flex w-full justify-between gap-24 smx:flex-col smx:gap-2'>
             <div className='flex-1 space-y-3'>
@@ -59,7 +65,7 @@ export const ActivityForm = ({ onAction, actionType, activity }: ActivityFormPro
                       <Input
                         className='max-w-72'
                         {...field}
-                        placeholder={i18n.formatMessage({
+                        placeholder={intl.formatMessage({
                           id: 'field.name.placeholder'
                         })}
                       />
@@ -84,7 +90,7 @@ export const ActivityForm = ({ onAction, actionType, activity }: ActivityFormPro
                       <Input
                         className='max-w-72 text-wrap'
                         {...field}
-                        placeholder={i18n.formatMessage({
+                        placeholder={intl.formatMessage({
                           id: 'field.description.placeholder'
                         })}
                       />
@@ -244,7 +250,7 @@ export const ActivityForm = ({ onAction, actionType, activity }: ActivityFormPro
                         <DropdownMenuTrigger asChild>
                           <div className='flex h-10 max-w-40 cursor-pointer items-center justify-between gap-2 rounded-md border border-secondary bg-input-foreground px-3 py-2'>
                             <Typography variant='body2'>
-                              {i18n.formatMessage({
+                              {intl.formatMessage({
                                 id: `organization.activities.status.${field.value.toLowerCase()}`
                               })}
                             </Typography>

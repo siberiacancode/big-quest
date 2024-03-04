@@ -5,10 +5,11 @@ import { useParams } from 'next/navigation';
 
 import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
 
-import type { ActivitySchema } from '../constants/ActivitySchema';
-import { activitySchema } from '../constants/ActivitySchema';
+import type { ActivityActionType } from '../../../constants/types';
+import type { ActivitySchema } from '../constants/activitySchema';
+import { activitySchema } from '../constants/activitySchema';
 
-import { usePostOrganizationActionActivityMutation } from './usePostOrganizationActionActivityMutation';
+import { usePostActionActivityMutation } from './usePostActionActivityMutation';
 
 interface UseActionActivityFormParams {
   onAction: () => void;
@@ -28,23 +29,16 @@ export const useActionActivityForm = ({
 
   const categoryResponse = useGetCategoryQuery();
 
-  const emptyData = {
-    name: '',
-    description: '',
-    ageLimit: { min: 7, max: 14 },
+  const defaultValues = {
+    name: activity?.name ?? '',
+    description: activity?.description ?? '',
+    ageLimit: { min: activity?.ageLimit[0] ?? 7, max: activity?.ageLimit[1] ?? 14 },
     duration: 120,
-    price: 720,
-    replay: false,
-    status: 'DRAFT',
-    category: ''
+    price: activity?.duration ?? 720,
+    replay: activity?.replay ?? false,
+    status: activity?.status ?? 'DRAFT',
+    category: activity?.category ?? ''
   };
-
-  const defaultValues = activity
-    ? {
-        ...activity,
-        ageLimit: { min: activity.ageLimit[0], max: activity.ageLimit[1] }
-      }
-    : emptyData;
 
   const activityForm = useForm<ActivitySchema>({
     mode: 'onSubmit',
@@ -52,25 +46,25 @@ export const useActionActivityForm = ({
     defaultValues
   });
 
-  const postOrganizationActionActivity = usePostOrganizationActionActivityMutation();
+  const postActionActivityMutation = usePostActionActivityMutation();
 
   const onSubmit = activityForm.handleSubmit(async (values) => {
-    const ageLimitArray = [values?.ageLimit?.min, values.ageLimit?.max];
     const formattedValues = {
       ...values,
-      ageLimit: ageLimitArray,
+      ageLimit: [values?.ageLimit?.min, values.ageLimit?.max],
       organizationId: params.organizationId
     };
 
     const tempAddedFields =
       actionType === 'edit' ? { ...activity, ...formattedValues } : formattedValues;
 
-    const mutationParams = {
+    const postActionActivityParams = {
       params: { ...tempAddedFields, ...(actionType === 'edit' && activity && { id: activity.id }) },
       action: actionType
     };
+
     // @ts-ignore
-    await postOrganizationActionActivity.mutateAsync(mutationParams);
+    await postActionActivityMutation.mutateAsync(postActionActivityParams);
 
     onAction();
   });
