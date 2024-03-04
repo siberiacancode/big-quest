@@ -13,7 +13,7 @@ interface UseAddAddressFormParams {
 }
 
 export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
-  const intl = useI18n();
+  const i18n = useI18n();
   const params = useParams<{ id: string }>();
 
   const addAddressForm = useForm<AddAddressSchema>({
@@ -64,7 +64,7 @@ export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
       organizationId: params.id
     });
 
-    toast(intl.formatMessage({ id: 'dialog.addAddress.success' }), {
+    toast(i18n.formatMessage({ id: 'dialog.addAddress.success' }), {
       cancel: { label: 'Close' }
     });
 

@@ -17,7 +17,7 @@ interface UseRegisterOrganizationFormParams {
 export const useRegisterOrganizationForm = ({
   onRegistered
 }: UseRegisterOrganizationFormParams) => {
-  const intl = useI18n();
+  const i18n = useI18n();
 
   const registerOrganizationForm = useForm<RegisterOrganizationSchema>({
     resolver: zodResolver(registerOrganizationSchema),
@@ -35,7 +35,7 @@ export const useRegisterOrganizationForm = ({
   const onSubmit = registerOrganizationForm.handleSubmit(async (values) => {
     await postOrganizationRegister.mutateAsync(values);
 
-    toast(intl.formatMessage({ id: 'dialog.registerOrganization.success' }), {
+    toast(i18n.formatMessage({ id: 'dialog.registerOrganization.success' }), {
       cancel: { label: 'Close' }
     });
 

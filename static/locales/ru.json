@@ -13,6 +13,7 @@
   "button.add": "Добавить",
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
+  "button.close": "Закрыть",
 
   "button.login": "Войти",
 
@@ -154,7 +155,5 @@
   "dialog.addAddress.success": "Адрес успешно добавлен",
 
   "dropzone.image.error": "Разрешена загрузка 1 файла-изображения",
-  "dropzone.docs.error": "Разрешена загрузка 1 файла-документа",
-
-  "toast.cancel.label": "Закрыть"
+  "dropzone.docs.error": "Разрешена загрузка 1 файла-документа"
 }

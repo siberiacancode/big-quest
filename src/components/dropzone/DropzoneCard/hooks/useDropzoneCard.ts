@@ -10,16 +10,14 @@ interface UseDropzoneCardProps {
 }
 
 export const useDropzoneCard = ({ onChange, type }: UseDropzoneCardProps) => {
-  const intl = useI18n();
+  const i18n = useI18n();
 
   const onError = () =>
-    toast.error(intl.formatMessage({ id: `dropzone.${type}.error` }), {
-      cancel: { label: intl.formatMessage({ id: 'toast.cancel.label' }) }
+    toast.error(i18n.formatMessage({ id: `dropzone.${type}.error` }), {
+      cancel: { label: i18n.formatMessage({ id: 'button.close' }) }
     });
 
-  const deleteFile = () => {
-    onChange(undefined);
-  };
+  const deleteFile = () => onChange(undefined);
 
   return {
     functions: { onError, deleteFile }
