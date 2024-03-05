@@ -12,19 +12,12 @@ import type { FileType } from './constants/types';
 import { useDropzoneCard } from './hooks/useDropzoneCard';
 
 interface DropzoneCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  file: File | undefined;
-  onChange: (props: File | undefined) => void;
-  url?: string;
+  value?: File | string;
+  onChange: (props?: File) => void;
   type?: FileType;
 }
 
-export const DropzoneCard = ({
-  file,
-  onChange,
-  url = '',
-  type = 'image',
-  ...props
-}: DropzoneCardProps) => {
+export const DropzoneCard = ({ value, onChange, type = 'image', ...props }: DropzoneCardProps) => {
   const { functions } = useDropzoneCard({ onChange, type });
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -36,12 +29,12 @@ export const DropzoneCard = ({
 
   return (
     <div {...getRootProps()} {...props}>
-      {url || file ? (
+      {value ? (
         <div className='relative h-full w-full'>
           <Image
             className='h-full w-full rounded-lg border'
             fill
-            src={url || URL.createObjectURL(file as File)}
+            src={typeof value === 'string' ? value : URL.createObjectURL(value)}
             alt='activity-image'
           />
           <Button

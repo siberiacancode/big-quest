@@ -11,5 +11,5 @@ interface CardImageProps {
 export const CardImage = (props: CardImageProps) => {
   const [file, setFile] = React.useState<File | undefined>();
 
-  return <DropzoneCard file={file} onChange={setFile} {...props} />;
+  return <DropzoneCard value={file} onChange={setFile} {...props} />;
 };
