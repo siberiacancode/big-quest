@@ -2,7 +2,7 @@ import { ActivityCardSkeleton, Skeleton } from '@/components/ui';
 
 const ActivitiesLoading = () => (
   <>
-    <div className='flex justify-between'>
+    <div className='flex flex-wrap justify-between gap-3'>
       <Skeleton className='h-8 w-32 bg-background' />
       <Skeleton className='h-10 w-56 bg-background' />
     </div>

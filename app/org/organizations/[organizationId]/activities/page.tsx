@@ -28,13 +28,13 @@ const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPage
 
   return (
     <>
-      <div className='flex flex-wrap justify-between'>
+      <div className='flex flex-wrap justify-between gap-3'>
         <Typography variant='h5' tag='h5'>
           <I18nText path='partners.activities.title' />
         </Typography>
         <ActivityDialog
           trigger={
-            <Button variant='light' className='mx-2 p-5' size='sm'>
+            <Button variant='light' className='p-5' size='sm'>
               <PlusCircledIcon className='mr-2 h-4 w-4' />
               <I18nText path='button.addActivities' />
             </Button>

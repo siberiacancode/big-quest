@@ -14,16 +14,15 @@ interface ActivityCardProps {
 }
 
 export const ActivityCard = ({ activity }: ActivityCardProps) => (
-  <div className='w-full rounded-lg bg-background p-4'>
-    <div className='relative'>
-      <div className='relative'>
+  <div className='h-[397px] w-full rounded-lg bg-background p-4'>
+    <div className='relative h-2/3'>
+      <div className='mdx-h-1/2 relative h-full w-full'>
         <Image
           className='w-full rounded-lg'
           src={activity.cover ?? background}
-          height={background.height}
-          width={background.width}
+          fill
           alt='activity-cover'
-          sizes='4xlx:max-h-72 4xl:max-h-96 '
+          sizes='4xlx:max-h-72'
         />
       </div>
       <div className='absolute top-0 flex w-full items-center justify-between p-3'>
