@@ -77,7 +77,8 @@ const config = {
           foreground: 'hsl(var(--card-foreground))'
         },
         tabsBackground: 'hsl(var(--tabs-background))',
-        tabsText: 'hsl(var(--tabs-text))'
+        tabsText: 'hsl(var(--tabs-text))',
+        dropzoneBorder: 'hsl(var(--dropzone-border))'
       },
       backgroundColor: {
         taiga: { DEFAULT: 'hsl(var(--taiga-light))', foreground: 'hsl(var(--taiga-dark))' }

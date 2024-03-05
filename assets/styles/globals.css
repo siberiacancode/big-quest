@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  
+
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -35,6 +35,7 @@
     --input-bg: 240 20% 99%;
     --tabs-background: 0 0% 100%;
     --tabs-text: 0 0% 10%;
+    --dropzone-border: 0 0% 89.8%;
   }
 
   .dark {
@@ -54,7 +55,7 @@
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 90%;
+    --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
 
@@ -67,6 +68,7 @@
     --taiga-light: 155, 100%, 17%;
     --tabs-background: 0 0% 100%;
     --tabs-text: 0 0% 10%;
+    --dropzone-border: 0 0% 90%;
   }
 }
 
