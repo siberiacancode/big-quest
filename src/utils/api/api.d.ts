@@ -130,8 +130,19 @@ interface OrganizationAddressDto {
   workingHours: WorkingHourDto[];
 }
 
-interface OrganizationEmployeeDto {
-  organizationId: string;
+interface AddEmployeeDto {
+  legalEntityId?: string;
+  role: string;
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  // image?: any;
+}
+
+interface EditEmployeeDto {
+  userId: string;
+  legalEntityId?: string;
   role: string;
   name: string;
   surname: string;

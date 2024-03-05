@@ -42,9 +42,14 @@ export const useActionEmployeeForm = ({
 
   const onSubmit = actionEmployeeForm.handleSubmit(async (values) => {
     const postOrganizationActionEmployeeParams = {
-      params: { ...values, organizationId: params.organizationId },
+      params: {
+        ...values,
+        legalEntityId: params.organizationId,
+        ...(actionType === 'edit' && { userId: employee!.id })
+      },
       action: actionType
     };
+    // @ts-ignore
     await postOrganizationActionEmployee.mutateAsync(postOrganizationActionEmployeeParams);
     onAction();
     router.refresh();

@@ -34,7 +34,7 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => (
         <div className='mb-2 flex flex-col items-center'>
           <div className='h-16 w-16 rounded-full bg-slate-700' />
           <div className='mt-2 flex flex-col items-center space-y-1'>
-            <Typography variant='h7' tag='p' className='flex-1 text-'>
+            <Typography variant='h7' tag='p' className='flex-1'>
               {employee.name} {employee.surname}
             </Typography>
             <Typography variant='body3' tag='p' className='flex-1'>
