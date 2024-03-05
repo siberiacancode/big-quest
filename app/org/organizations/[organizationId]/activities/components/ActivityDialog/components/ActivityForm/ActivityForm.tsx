@@ -27,13 +27,17 @@ import { ActivityImages } from '../ActivityImages/ActivityImages';
 import { ACTIVITY_STATUS_DROPDOWN_VALUES } from './constants/activityStatusDropdownValues';
 import { useActionActivityForm } from './hooks/useActionActivityForm';
 
-interface ActivityFormProps {
+interface ActivityFormProps<ActionType extends ActivityActionType> {
   onAction: () => void;
-  actionType: ActivityActionType;
-  activity?: ActivityResponse;
+  actionType: ActionType;
+  activity: ActionType extends 'edit' ? ActivityResponse : undefined;
 }
 
-export const ActivityForm = ({ onAction, actionType, activity }: ActivityFormProps) => {
+export const ActivityForm = <ActionType extends ActivityActionType>({
+  onAction,
+  actionType,
+  activity
+}: ActivityFormProps<ActionType>) => {
   const intl = useI18n();
   const { state, form, functions } = useActionActivityForm({
     onAction,
