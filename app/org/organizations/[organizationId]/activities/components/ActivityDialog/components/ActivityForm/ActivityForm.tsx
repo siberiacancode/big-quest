@@ -318,7 +318,7 @@ export const ActivityForm = <ActionType extends ActivityActionType>({
               />
             </div>
           </div>
-          <div className='mb-8 mt-3 grid w-full grid-cols-2 gap-24 smx:grid-cols-1 smx:gap-2'>
+          <div className='mt-2 grid w-full grid-cols-2 gap-24 smx:grid-cols-1 smx:gap-3'>
             <Typography variant='sub1'>
               <I18nText path='field.replay.label' />
             </Typography>

@@ -30,7 +30,7 @@ export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialog
   return (
     <Dialog open={state.open} onOpenChange={functions.setOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className='flex h-fit w-11/12 max-w-[713px] flex-col rounded-lg smx:max-h-[90%]'>
+      <DialogContent className='h-[90%] max-w-[713px] smx:h-screen smx:w-screen'>
         <DialogClose>
           <XIcon className='h-6 w-6' />
         </DialogClose>
