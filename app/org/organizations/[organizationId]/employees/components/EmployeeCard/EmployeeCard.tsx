@@ -34,10 +34,10 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => (
         <div className='mb-2 flex flex-col items-center'>
           <div className='h-16 w-16 rounded-full bg-slate-700' />
           <div className='mt-2 flex flex-col items-center space-y-1'>
-            <Typography variant='h4' tag='h3' className='flex-1'>
+            <Typography variant='h7' tag='p' className='flex-1 text-'>
               {employee.name} {employee.surname}
             </Typography>
-            <Typography variant='body1' tag='h3' className='flex-1'>
+            <Typography variant='body3' tag='p' className='flex-1'>
               {employee.role}
             </Typography>
           </div>
@@ -45,18 +45,18 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => (
         <Separator />
         <div className='flex space-x-6'>
           <div className='flex-1 space-y-2'>
-            <Typography variant='sub1' tag='p' className='flex-1'>
+            <Typography variant='sub2' tag='p' className='flex-1'>
               <I18nText path='organization.employee.email' />
             </Typography>
-            <Typography variant='sub1' tag='p' className='flex-1'>
+            <Typography variant='sub2' tag='p' className='flex-1'>
               <I18nText path='organization.employee.phoneNumber' />
             </Typography>
           </div>
           <div className='flex-1 space-y-2'>
-            <Typography variant='sub1' tag='p' className='flex-1 font-normal'>
+            <Typography variant='sub3' tag='p' className='flex-1 font-normal'>
               {employee.email}
             </Typography>
-            <Typography variant='sub1' tag='p' className='flex-1 font-normal'>
+            <Typography variant='sub3' tag='p' className='flex-1 font-normal'>
               {employee.phone}
             </Typography>
           </div>

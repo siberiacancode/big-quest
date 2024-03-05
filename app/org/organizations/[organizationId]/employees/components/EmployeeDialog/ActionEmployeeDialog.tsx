@@ -33,7 +33,7 @@ export const ActionEmployeeDialog = ({
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className='flex h-fit w-11/12 max-w-[500px] flex-col rounded-lg smx:max-h-[90%]'>
+      <DialogContent className='flex h-fit w-11/12 max-w-[500px] mdx:w-full mdx:h-full flex-col rounded-lg'>
         <DialogClose>
           <XIcon className='h-6 w-6' />
         </DialogClose>
