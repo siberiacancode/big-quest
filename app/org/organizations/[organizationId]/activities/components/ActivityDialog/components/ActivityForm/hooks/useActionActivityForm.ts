@@ -49,22 +49,32 @@ export const useActionActivityForm = ({
   const postActionActivityMutation = usePostActionActivityMutation();
 
   const onSubmit = activityForm.handleSubmit(async (values) => {
-    const formattedValues = {
+    const requestParams = {
       ...values,
       ageLimit: [values?.ageLimit?.min, values.ageLimit?.max],
       organizationId: params.organizationId
     };
 
-    const tempAddedFields =
-      actionType === 'edit' ? { ...activity, ...formattedValues } : formattedValues;
+    if (actionType === 'add') {
+      const postActionActivityParams = {
+        params: requestParams,
+        action: actionType
+      } as const;
 
-    const postActionActivityParams = {
-      params: { ...tempAddedFields, ...(actionType === 'edit' && activity && { id: activity.id }) },
-      action: actionType
-    };
+      await postActionActivityMutation.mutateAsync(postActionActivityParams);
+    }
 
-    // @ts-ignore
-    await postActionActivityMutation.mutateAsync(postActionActivityParams);
+    if (actionType === 'edit') {
+      const postActionActivityParams = {
+        params: {
+          ...requestParams,
+          id: activity!.id
+        },
+        action: actionType
+      } as const;
+
+      await postActionActivityMutation.mutateAsync(postActionActivityParams);
+    }
 
     onAction();
   });

@@ -8,9 +8,13 @@ interface ActivityCardSkeletonProps extends React.HTMLAttributes<HTMLDivElement>
 
 export const ActivityCardSkeleton = React.forwardRef<HTMLDivElement, ActivityCardSkeletonProps>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('w-full rounded-lg bg-background p-4', className)} {...props}>
-      <div className='relative'>
-        <Skeleton className='w-full rounded-lg pb-full 4xlx:pb-72 3xlx:pb-full 4xl:pb-96' />
+    <div
+      ref={ref}
+      className={cn('h-[397px] w-full rounded-lg bg-background p-4', className)}
+      {...props}
+    >
+      <div className='relative h-2/3'>
+        <Skeleton className='mdx-h-1/2 relative h-full w-full rounded-lg ' />
         <div className='absolute top-0 flex w-full items-center justify-between p-3'>
           <Skeleton className='h-8 w-24 rounded-md bg-background' />
           <Skeleton className='h-8 w-8 rounded-full bg-background' />

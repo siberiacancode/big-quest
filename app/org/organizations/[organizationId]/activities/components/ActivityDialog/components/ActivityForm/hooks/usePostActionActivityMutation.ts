@@ -19,7 +19,7 @@ export const usePostActionActivityMutation = (
     mutationFn: ({ params, action, config }) => {
       if (action === 'edit') {
         return postActivityById({
-          params: { ...params, id: '1' },
+          params: { ...params },
           config: { ...settings?.config, ...config }
         });
       }

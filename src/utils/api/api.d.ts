@@ -176,7 +176,7 @@ interface CreateActivityDto {
   duration: number;
   replay: boolean;
   organizationId: string;
-  files: File[];
+  files?: File[];
 }
 
 interface Time {
