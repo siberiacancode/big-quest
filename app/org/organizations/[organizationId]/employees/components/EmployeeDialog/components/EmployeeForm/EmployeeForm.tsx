@@ -1,4 +1,3 @@
-// import { DownloadPhotoIcon } from '@/assets/icons/inputTypeFile/DownloadPhotoIcon';
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -15,7 +14,6 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue
-  // Typography
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
@@ -33,59 +31,11 @@ export const EmployeeForm = ({ onAction, actionType, employee }: EmployeeFormPro
   const i18n = useI18n();
   const { state, form, functions } = useActionEmployeeForm({ onAction, actionType, employee });
 
-  // const [imageUrl, setImageUrl] = useState('');
-
-  // const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const file = event.target.files?.[0];
-  //   if (file) {
-  //     const url = URL.createObjectURL(file);
-  //     setImageUrl(url);
-  //   }
-  // };
-
   return (
     <Form {...form}>
       <form onSubmit={functions.onSubmit} className='flex w-full flex-col items-end'>
         <div className='mb-7 flex w-full gap-5 smx:flex-col'>
           <div className='flex-1 space-y-3'>
-            {/* <FormField
-              control={form.control}
-              name='image'
-              render={({ field }) => (
-                <FormItem>
-                  <div className='flex items-center gap-2'>
-                    <div>
-                      <FormControl>
-                        <div className='relative h-28 w-28  items-center rounded-xl border-2 border-dashed'>
-                          <label htmlFor='inputTag' className='block h-28 cursor-pointer'>
-                            <input
-                              id='inputTag'
-                              type='file'
-                              className='invisible h-28 w-28 cursor-pointer'
-                              {...field}
-                            />
-                          </label>
-                          <DownloadPhotoIcon className='absolute right-[34px] top-[37px] -z-20 ' />
-                        </div>
-                      </FormControl>
-                    </div>
-                    <div>
-                      <Typography variant='sub2'>
-                        <I18nText path='app.imageDownload.pressToDownload.title' />
-                      </Typography>
-                      <Typography variant='body2'>
-                        <I18nText path='app.imageDownload.pressToDownload.subtitle' />
-                      </Typography>
-                    </div>
-                  </div>
-                  <FormMessage>
-                    {form.formState?.errors?.image && (
-                      <I18nText path={form.formState.errors.image.message as LocaleMessageId} />
-                    )}
-                  </FormMessage>
-                </FormItem>
-              )}
-            /> */}
             <FormField
               control={form.control}
               name='role'
