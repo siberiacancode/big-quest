@@ -16,7 +16,7 @@ import {
 import type { EmployeeData } from '../EmployeeCard/EmployeeCard';
 
 import { EmployeeForm } from './components/EmployeeForm/EmployeeForm';
-import { useActionEmployeeDialog } from './useActionEmployeeDialog/useActionEmployeeDialog';
+import { useActionEmployeeDialog } from './hooks/useActionEmployeeDialog/useActionEmployeeDialog';
 
 interface ActionEmployeeDialogProps {
   trigger: JSX.Element;

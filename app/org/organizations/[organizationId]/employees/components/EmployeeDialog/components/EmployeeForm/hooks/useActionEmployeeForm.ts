@@ -1,56 +1,69 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { usePostOrganizationActionEmployeeMutation } from 'app/org/organizations/[organizationId]/employees/components/EmployeeDialog/components/EmployeeForm/hooks/usePostOrganizationActionEmployeeMutation';
 import { useParams, useRouter } from 'next/navigation';
 
 import type { EmployeeData } from '../../../../EmployeeCard/EmployeeCard';
+import type { EmployeeActionType } from '../../../constants/types';
 import type { EmployeeSchema } from '../constants/EmployeeSchema';
 import { employeeSchema } from '../constants/EmployeeSchema';
 
+import { usePostOrganizationActionEmployeeMutation } from './usePostOrganizationActionEmployeeMutation';
+
 interface UseActionEmployeeFormParams {
   onAction: () => void;
-  actionType: 'add' | 'edit';
+  actionType: EmployeeActionType;
   employee?: EmployeeData;
 }
 
 export const useActionEmployeeForm = ({
   onAction,
-  actionType,
-  employee
+  employee,
+  actionType
 }: UseActionEmployeeFormParams) => {
   const params = useParams<{ organizationId: string }>();
   const router = useRouter();
 
-  const emptyData = {
-    // image: undefined,
-    role: '',
-    name: '',
-    surname: '',
-    email: '',
-    phone: ''
-  };
-
-  const defaultValues = employee ?? emptyData;
-
   const actionEmployeeForm = useForm<EmployeeSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(employeeSchema),
-    defaultValues
+    defaultValues: {
+      role: employee?.role ?? '',
+      name: employee?.name ?? '',
+      surname: employee?.surname ?? '',
+      email: employee?.email ?? '',
+      phone: employee?.phone ?? ''
+    }
   });
 
   const postOrganizationActionEmployee = usePostOrganizationActionEmployeeMutation();
 
   const onSubmit = actionEmployeeForm.handleSubmit(async (values) => {
-    const postOrganizationActionEmployeeParams = {
-      params: {
-        ...values,
-        legalEntityId: params.organizationId,
-        ...(actionType === 'edit' && { userId: employee!.id })
-      },
-      action: actionType
+    const requestParams = {
+      ...values,
+      legalEntityId: params.organizationId
     };
-    // @ts-ignore
-    await postOrganizationActionEmployee.mutateAsync(postOrganizationActionEmployeeParams);
+
+    if (actionType === 'add') {
+      const postOrganizationActionEmployeeParams = {
+        params: requestParams,
+        action: actionType
+      } as const;
+
+      await postOrganizationActionEmployee.mutateAsync(postOrganizationActionEmployeeParams);
+    }
+
+    if (actionType === 'edit') {
+      const postOrganizationActionEmployeeParams = {
+        params: {
+          ...requestParams,
+          userId: employee!.id
+        },
+        action: actionType
+      } as const;
+
+      await postOrganizationActionEmployee.mutateAsync(postOrganizationActionEmployeeParams);
+    }
+
     onAction();
     router.refresh();
   });
