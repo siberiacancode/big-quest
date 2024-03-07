@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 import { Skeleton } from './skeleton';
 
-interface ActivityCardSkeletonProps extends React.HTMLAttributes<HTMLDivElement> {}
+type ActivityCardSkeletonProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const ActivityCardSkeleton = React.forwardRef<HTMLDivElement, ActivityCardSkeletonProps>(
   ({ className, ...props }, ref) => (

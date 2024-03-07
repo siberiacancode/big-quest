@@ -52,7 +52,7 @@ export const ActivityActionForm = <ActionType extends ActivityActionType>({
         className='flex h-full flex-col items-end justify-between gap-4 overflow-y-auto px-5 smx:px-0'
       >
         <div className='flex h-max gap-4 px-5 smx:px-0'>
-          <ActivityImages name={activity.name ?? 'name'} />
+          <ActivityImages name={activity?.name ?? 'name'} />
         </div>
         <div className='flex w-full flex-col overflow-y-auto rounded-lg border  p-5'>
           <div className='flex w-full justify-between gap-24 smx:flex-col smx:gap-2'>

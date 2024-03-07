@@ -1,8 +1,8 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const postActivityById: RestRequestConfig = {
+export const putActivityById: RestRequestConfig = {
   path: '/activity/:id',
-  method: 'post',
+  method: 'put',
   routes: [
     {
       data: { message: 'success' },

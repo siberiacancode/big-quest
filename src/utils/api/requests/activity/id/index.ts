@@ -1,10 +1,10 @@
 import { api } from '@/utils/api/instance';
 
-interface PostActivityByIdParams {
+interface PutActivityByIdParams {
   id: string;
 }
 
-export type PostActivityByIdConfig = RequestConfig<PostActivityByIdParams>;
+export type PutActivityByIdConfig = RequestConfig<PutActivityByIdParams>;
 
-export const postActivityById = async ({ params, config }: PostActivityByIdConfig) =>
-  api.post(`activity/${params.id}`, params, config);
+export const putActivityById = async ({ params, config }: PutActivityByIdConfig) =>
+  api.put(`activity/${params.id}`, params, config);

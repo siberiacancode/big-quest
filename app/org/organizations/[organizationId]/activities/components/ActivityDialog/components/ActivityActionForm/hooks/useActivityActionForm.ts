@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
 import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
 
@@ -22,6 +22,7 @@ export const useActivityActionForm = ({
   actionType,
   activity
 }: UseActivityActionFormParams) => {
+  const router = useRouter();
   const params = useParams<{ organizationId: string }>();
   const [isCategoryOpen, setIsCategoryOpen] = React.useState(false);
   const [isStatusOpen, setIsStatusOpen] = React.useState(false);
@@ -74,6 +75,8 @@ export const useActivityActionForm = ({
 
       await postActivityActionMutation.mutateAsync(postActivityActionParams);
     }
+
+    router.refresh();
 
     onAction();
   });
