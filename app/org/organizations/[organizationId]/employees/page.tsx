@@ -13,7 +13,10 @@ interface OrganizationEmployeesPageProps {
 
 const OrganizationEmployeesPage = async ({ params }: OrganizationEmployeesPageProps) => {
   const organizationEmployees = await getOrganizationEmployees({
-    params: { id: params.organizationId }
+    params: { id: params.organizationId },
+    config: {
+      cache: 'no-store'
+    }
   });
 
   return (

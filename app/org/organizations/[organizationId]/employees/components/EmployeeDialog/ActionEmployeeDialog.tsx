@@ -13,8 +13,10 @@ import {
   Typography
 } from '@/components/ui';
 
+import type { EmployeeData } from '../../constants/types';
+
 import { ActionEmployeeForm } from './components/ActionEmployeeForm/ActionEmployeeForm';
-import type { EmployeeActionType, EmployeeData } from './constants/types';
+import type { EmployeeActionType } from './constants/types';
 import { useActionEmployeeDialog } from './hooks/useActionEmployeeDialog/useActionEmployeeDialog';
 
 interface ActionEmployeeDialogProps {

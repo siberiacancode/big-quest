@@ -2,7 +2,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams, useRouter } from 'next/navigation';
 
-import type { EmployeeActionType, EmployeeData } from '../../../constants/types';
+import type { EmployeeData } from '../../../../../constants/types';
+import type { EmployeeActionType } from '../../../constants/types';
 import type { EmployeeSchema } from '../constants/EmployeeSchema';
 import { employeeSchema } from '../constants/EmployeeSchema';
 

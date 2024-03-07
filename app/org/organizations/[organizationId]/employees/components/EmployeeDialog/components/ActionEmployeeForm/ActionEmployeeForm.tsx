@@ -17,7 +17,8 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import type { EmployeeActionType, EmployeeData } from '../../constants/types';
+import type { EmployeeData } from '../../../../constants/types';
+import type { EmployeeActionType } from '../../constants/types';
 
 import { useActionEmployeeForm } from './hooks/useActionEmployeeForm';
 

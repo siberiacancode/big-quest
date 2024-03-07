@@ -4,8 +4,8 @@ import { I18nText } from '@/components/common';
 import { Separator, Typography } from '@/components/ui';
 import { Card, CardContent } from '@/components/ui/card';
 
+import type { EmployeeData } from '../../constants/types';
 import { ActionEmployeeDialog } from '../EmployeeDialog/ActionEmployeeDialog';
-import type { EmployeeData } from '../EmployeeDialog/constants/types';
 
 interface EmployeeCardProps {
   employee: EmployeeData;
