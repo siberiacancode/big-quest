@@ -8,4 +8,4 @@ export const postOrganizationAddAddress = async ({
   params: { organizationId, ...params },
   config
 }: PostOrganizationAddAddressRequestConfig) =>
-  api.post(`organization/${organizationId}/addAddress`, params, config);
+  api.post(`organization/${organizationId}/add-address`, params, config);

@@ -13,14 +13,13 @@ import {
   Typography
 } from '@/components/ui';
 
-import type { EmployeeData } from '../EmployeeCard/EmployeeCard';
-
-import { EmployeeForm } from './components/EmployeeForm/EmployeeForm';
+import { ActionEmployeeForm } from './components/ActionEmployeeForm/ActionEmployeeForm';
+import type { EmployeeActionType, EmployeeData } from './constants/types';
 import { useActionEmployeeDialog } from './hooks/useActionEmployeeDialog/useActionEmployeeDialog';
 
 interface ActionEmployeeDialogProps {
   trigger: JSX.Element;
-  actionType: 'add' | 'edit';
+  actionType: EmployeeActionType;
   employee?: EmployeeData;
 }
 
@@ -48,7 +47,11 @@ export const ActionEmployeeDialog = ({
           </DialogTitle>
         </DialogHeader>
         <div className='flex h-full flex-col items-end justify-between overflow-y-auto rounded-lg border p-5'>
-          <EmployeeForm onAction={functions.onAction} actionType={actionType} employee={employee} />
+          <ActionEmployeeForm
+            onAction={functions.onAction}
+            actionType={actionType}
+            employee={employee}
+          />
         </div>
       </DialogContent>
     </Dialog>

@@ -17,22 +17,21 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import type { EmployeeData } from '../../../EmployeeCard/EmployeeCard';
-import type { EmployeeActionType } from '../../constants/types';
+import type { EmployeeActionType, EmployeeData } from '../../constants/types';
 
 import { useActionEmployeeForm } from './hooks/useActionEmployeeForm';
 
-interface EmployeeFormProps<ActionType extends EmployeeActionType> {
+interface ActionEmployeeProps<ActionType extends EmployeeActionType> {
   onAction: () => void;
   actionType: ActionType;
   employee: ActionType extends 'edit' ? EmployeeData : undefined;
 }
 
-export const EmployeeForm = <ActionType extends EmployeeActionType>({
+export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
   onAction,
   actionType,
   employee
-}: EmployeeFormProps<ActionType>) => {
+}: ActionEmployeeProps<ActionType>) => {
   const i18n = useI18n();
   const { state, form, functions } = useActionEmployeeForm({ onAction, actionType, employee });
 

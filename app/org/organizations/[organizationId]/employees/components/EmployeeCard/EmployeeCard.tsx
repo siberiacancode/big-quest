@@ -5,15 +5,7 @@ import { Separator, Typography } from '@/components/ui';
 import { Card, CardContent } from '@/components/ui/card';
 
 import { ActionEmployeeDialog } from '../EmployeeDialog/ActionEmployeeDialog';
-
-export interface EmployeeData {
-  id: string;
-  name: string;
-  surname: string;
-  email: string;
-  role: string;
-  phone: string;
-}
+import type { EmployeeData } from '../EmployeeDialog/constants/types';
 
 interface EmployeeCardProps {
   employee: EmployeeData;

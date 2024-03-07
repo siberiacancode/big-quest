@@ -7,4 +7,4 @@ export type PostOrganizationEditEmployeeConfig = RequestConfig<PostOrganizationE
 export const postOrganizationEditEmployee = async ({
   params,
   config
-}: PostOrganizationEditEmployeeConfig) => api.put(`organization/edit-employee`, params, config);
+}: PostOrganizationEditEmployeeConfig) => api.put('organization/edit-employee', params, config);
