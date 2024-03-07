@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-export const activitySchema = z.object({
+export const activityActionSchema = z.object({
   name: z.string().min(1, { message: 'validation.required' }),
   category: z.string().min(1, { message: 'validation.required' }),
   description: z.string().optional(),
@@ -14,4 +14,4 @@ export const activitySchema = z.object({
   status: z.string().min(1, { message: 'validation.required' })
 });
 
-export type ActivitySchema = z.infer<typeof activitySchema>;
+export type ActivityActionSchema = z.infer<typeof activityActionSchema>;

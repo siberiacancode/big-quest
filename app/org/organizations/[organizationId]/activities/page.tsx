@@ -22,7 +22,8 @@ const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPage
         limit: DEFAULT_ACTIVITIES_LIMIT,
         current: DEFAULT_ACTIVITIES_PAGE,
         ...params
-      }
+      },
+      cache: 'no-store'
     }
   });
 

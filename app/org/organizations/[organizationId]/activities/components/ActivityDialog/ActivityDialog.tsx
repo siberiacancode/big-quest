@@ -13,10 +13,10 @@ import {
   Typography
 } from '@/components/ui';
 
-import { ActivityForm } from './components/ActivityForm/ActivityForm';
+import { ActivityActionForm } from './components/ActivityActionForm/ActivityActionForm';
 import { ActivityInfo } from './components/ActivityInfo/ActivityInfo';
 import type { ActivityActionType } from './constants/types';
-import { useActionActivityDialog } from './hooks/useActionActivityDialog';
+import { useActivityDialog } from './hooks/useActivityDialog';
 
 interface ActivityDialogProps {
   trigger: JSX.Element;
@@ -25,7 +25,7 @@ interface ActivityDialogProps {
 }
 
 export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialogProps) => {
-  const { state, functions } = useActionActivityDialog({ actionType });
+  const { state, functions } = useActivityDialog({ actionType });
 
   return (
     <Dialog open={state.open} onOpenChange={functions.setOpen}>
@@ -45,7 +45,11 @@ export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialog
         {actionType === 'info' && activity ? (
           <ActivityInfo activity={activity} />
         ) : (
-          <ActivityForm actionType={actionType} activity={activity} onAction={functions.onAction} />
+          <ActivityActionForm
+            actionType={actionType}
+            activity={activity}
+            onAction={functions.onAction}
+          />
         )}
       </DialogContent>
     </Dialog>

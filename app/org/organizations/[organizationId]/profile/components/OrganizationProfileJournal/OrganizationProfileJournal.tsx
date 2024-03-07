@@ -17,14 +17,14 @@ import {
 import { useI18n } from '@/utils/contexts';
 
 export const OrganizationProfileJournal = () => {
-  const intl = useI18n();
+  const i18n = useI18n();
 
   return (
     <Card className='flex w-full flex-col p-4'>
       <div className='flex items-end'>
         <Textarea
           className='h-24 w-full border border-secondary px-3 py-4'
-          placeholder={intl.formatMessage({ id: 'field.note.placeholder' })}
+          placeholder={i18n.formatMessage({ id: 'field.note.placeholder' })}
         />
         <Button variant='secondary' className='ml-3 mr-1 h-8 w-8 p-2'>
           <SendHorizonalIcon />

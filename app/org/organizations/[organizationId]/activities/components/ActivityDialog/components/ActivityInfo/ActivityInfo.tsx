@@ -3,15 +3,33 @@ import Image from 'next/image';
 import background from '@/assets/images/background/activity.png';
 import { I18nText } from '@/components/common';
 import { Switch, Typography } from '@/components/ui';
-
-import type { ActivityProps } from '../../../ActivityCard/constants/types';
+import { useI18n } from '@/utils/contexts';
 
 interface ActivityInfoProps {
-  activity: ActivityProps;
+  activity: {
+    id: string;
+    cover?: string;
+    content?: string[];
+    name: string;
+    description?: string;
+    ageLimit: number[];
+    price: number;
+    nutsCount: number;
+    duration: number;
+    replay: boolean;
+    view: ActivityView;
+    status: ActivityStatus;
+    category: string;
+    participants: number;
+    likes: number;
+    schedule?: Schedule[];
+  };
 }
 
 export const ActivityInfo = ({ activity }: ActivityInfoProps) => {
+  const i18n = useI18n();
   const [lowerAgeLimit, upperAgeLimit] = activity.ageLimit;
+
   return (
     <div className='flex h-full flex-col items-end justify-between gap-4 overflow-y-auto px-5 smx:px-0'>
       <div className='grid h-screen max-h-[260px] w-full grid-cols-2 items-center gap-4 px-5 xsx:max-h-[130px] xsx:gap-2'>
@@ -21,7 +39,7 @@ export const ActivityInfo = ({ activity }: ActivityInfoProps) => {
             src={activity.cover ?? background}
             fill
             object-fit='cover'
-            alt='activity-image'
+            alt={i18n.formatMessage({ id: `activity.image.alt` }, { name: activity.name })}
           />
         </div>
         <div className='grid h-full grid-cols-2 grid-rows-2 gap-2'>
@@ -33,7 +51,7 @@ export const ActivityInfo = ({ activity }: ActivityInfoProps) => {
                   src={activity.content[index]}
                   fill
                   object-fit='cover'
-                  alt='activity-image-2'
+                  alt={i18n.formatMessage({ id: `activity.image.alt` }, { name: activity.name })}
                 />
               ) : (
                 <div className='h-full w-full rounded-lg border-2 border-dashed border-border' />

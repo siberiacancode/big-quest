@@ -6,28 +6,27 @@ import { useParams } from 'next/navigation';
 import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
 
 import type { ActivityActionType } from '../../../constants/types';
-import type { ActivitySchema } from '../constants/activitySchema';
-import { activitySchema } from '../constants/activitySchema';
+import type { ActivityActionSchema } from '../constants/activityActionSchema';
+import { activityActionSchema } from '../constants/activityActionSchema';
 
-import { usePostActionActivityMutation } from './usePostActionActivityMutation';
+import { usePostActivityActionMutation } from './usePostActivityActionMutation';
 
-interface UseActionActivityFormParams {
+interface UseActivityActionFormParams {
   onAction: () => void;
   actionType: ActivityActionType;
   activity?: ActivityResponse;
 }
 
-export const useActionActivityForm = ({
+export const useActivityActionForm = ({
   onAction,
   actionType,
   activity
-}: UseActionActivityFormParams) => {
+}: UseActivityActionFormParams) => {
+  const params = useParams<{ organizationId: string }>();
   const [isCategoryOpen, setIsCategoryOpen] = React.useState(false);
   const [isStatusOpen, setIsStatusOpen] = React.useState(false);
 
-  const params = useParams<{ organizationId: string }>();
-
-  const categoryResponse = useGetCategoryQuery();
+  const getCategoryQuery = useGetCategoryQuery();
 
   const defaultValues = {
     name: activity?.name ?? '',
@@ -40,13 +39,13 @@ export const useActionActivityForm = ({
     category: activity?.category ?? ''
   };
 
-  const activityForm = useForm<ActivitySchema>({
+  const activityForm = useForm<ActivityActionSchema>({
     mode: 'onSubmit',
-    resolver: zodResolver(activitySchema),
+    resolver: zodResolver(activityActionSchema),
     defaultValues
   });
 
-  const postActionActivityMutation = usePostActionActivityMutation();
+  const postActivityActionMutation = usePostActivityActionMutation();
 
   const onSubmit = activityForm.handleSubmit(async (values) => {
     const requestParams = {
@@ -56,16 +55,16 @@ export const useActionActivityForm = ({
     };
 
     if (actionType === 'add') {
-      const postActionActivityParams = {
+      const postActivityActionParams = {
         params: requestParams,
         action: actionType
       } as const;
 
-      await postActionActivityMutation.mutateAsync(postActionActivityParams);
+      await postActivityActionMutation.mutateAsync(postActivityActionParams);
     }
 
     if (actionType === 'edit') {
-      const postActionActivityParams = {
+      const postActivityActionParams = {
         params: {
           ...requestParams,
           id: activity!.id
@@ -73,7 +72,7 @@ export const useActionActivityForm = ({
         action: actionType
       } as const;
 
-      await postActionActivityMutation.mutateAsync(postActionActivityParams);
+      await postActivityActionMutation.mutateAsync(postActivityActionParams);
     }
 
     onAction();
@@ -81,9 +80,9 @@ export const useActionActivityForm = ({
 
   return {
     state: {
+      categoryValues: getCategoryQuery.data,
       isCategoryOpen,
-      isStatusOpen,
-      categoryValues: categoryResponse.data
+      isStatusOpen
     },
     form: activityForm,
     functions: { onSubmit, setIsCategoryOpen, setIsStatusOpen }

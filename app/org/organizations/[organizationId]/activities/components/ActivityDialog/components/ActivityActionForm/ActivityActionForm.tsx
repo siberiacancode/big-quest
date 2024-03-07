@@ -24,22 +24,22 @@ import { useI18n } from '@/utils/contexts';
 import type { ActivityActionType } from '../../constants/types';
 import { ActivityImages } from '../ActivityImages/ActivityImages';
 
-import { ACTIVITY_STATUS_DROPDOWN_VALUES } from './constants/activityStatusDropdownValues';
-import { useActionActivityForm } from './hooks/useActionActivityForm';
+import { ACTIVITY_ACTION_STATUS_DROPDOWN_VALUES } from './constants/activityActionStatusDropdownValues';
+import { useActivityActionForm } from './hooks/useActivityActionForm';
 
-interface ActivityFormProps<ActionType extends ActivityActionType> {
+interface ActivityActionFormProps<ActionType extends ActivityActionType> {
   onAction: () => void;
   actionType: ActionType;
   activity: ActionType extends 'edit' ? ActivityResponse : undefined;
 }
 
-export const ActivityForm = <ActionType extends ActivityActionType>({
+export const ActivityActionForm = <ActionType extends ActivityActionType>({
   onAction,
   actionType,
   activity
-}: ActivityFormProps<ActionType>) => {
-  const intl = useI18n();
-  const { state, form, functions } = useActionActivityForm({
+}: ActivityActionFormProps<ActionType>) => {
+  const i18n = useI18n();
+  const { state, form, functions } = useActivityActionForm({
     onAction,
     activity,
     actionType
@@ -52,7 +52,7 @@ export const ActivityForm = <ActionType extends ActivityActionType>({
         className='flex h-full flex-col items-end justify-between gap-4 overflow-y-auto px-5 smx:px-0'
       >
         <div className='flex h-max gap-4 px-5 smx:px-0'>
-          <ActivityImages />
+          <ActivityImages name={activity.name ?? 'name'} />
         </div>
         <div className='flex w-full flex-col overflow-y-auto rounded-lg border  p-5'>
           <div className='flex w-full justify-between gap-24 smx:flex-col smx:gap-2'>
@@ -69,7 +69,7 @@ export const ActivityForm = <ActionType extends ActivityActionType>({
                       <Input
                         className='max-w-72'
                         {...field}
-                        placeholder={intl.formatMessage({
+                        placeholder={i18n.formatMessage({
                           id: 'field.name.placeholder'
                         })}
                       />
@@ -94,7 +94,7 @@ export const ActivityForm = <ActionType extends ActivityActionType>({
                       <Input
                         className='max-w-72 text-wrap'
                         {...field}
-                        placeholder={intl.formatMessage({
+                        placeholder={i18n.formatMessage({
                           id: 'field.description.placeholder'
                         })}
                       />
@@ -108,7 +108,7 @@ export const ActivityForm = <ActionType extends ActivityActionType>({
                     </FormMessage>
                   </FormItem>
                 )}
-              />{' '}
+              />
               <FormField
                 control={form.control}
                 name='ageLimit'
@@ -254,7 +254,7 @@ export const ActivityForm = <ActionType extends ActivityActionType>({
                         <DropdownMenuTrigger asChild>
                           <div className='flex h-10 max-w-40 cursor-pointer items-center justify-between gap-2 rounded-md border border-secondary bg-input-foreground px-3 py-2'>
                             <Typography variant='body2'>
-                              {intl.formatMessage({
+                              {i18n.formatMessage({
                                 id: `organization.activities.status.${field.value.toLowerCase()}`
                               })}
                             </Typography>
@@ -267,19 +267,21 @@ export const ActivityForm = <ActionType extends ActivityActionType>({
                             value={field.value}
                             onValueChange={field.onChange}
                           >
-                            {ACTIVITY_STATUS_DROPDOWN_VALUES.map((value: string, idx: number) => (
-                              <DropdownMenuRadioItem
-                                key={idx}
-                                className='cursor-pointer bg-background text-start'
-                                value={value}
-                              >
-                                <I18nText
-                                  path={
-                                    `organization.activities.status.${value.toLowerCase()}` as LocaleMessageId
-                                  }
-                                />
-                              </DropdownMenuRadioItem>
-                            ))}
+                            {ACTIVITY_ACTION_STATUS_DROPDOWN_VALUES.map(
+                              (value: string, idx: number) => (
+                                <DropdownMenuRadioItem
+                                  key={idx}
+                                  className='cursor-pointer bg-background text-start'
+                                  value={value}
+                                >
+                                  <I18nText
+                                    path={
+                                      `organization.activities.status.${value.toLowerCase()}` as LocaleMessageId
+                                    }
+                                  />
+                                </DropdownMenuRadioItem>
+                              )
+                            )}
                           </DropdownMenuRadioGroup>
                         </DropdownMenuContent>
                       </DropdownMenu>
