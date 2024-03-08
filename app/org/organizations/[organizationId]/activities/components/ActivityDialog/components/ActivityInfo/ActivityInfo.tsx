@@ -68,7 +68,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
           <div className='flex-1 space-y-3'>
             <div className='flex flex-col gap-2'>
               <Typography variant='sub1'>
-                <I18nText path='field.name.label' />
+                <I18nText path='field.title.label' />
               </Typography>
               <Typography variant='body1'>{activity.name}</Typography>
             </div>

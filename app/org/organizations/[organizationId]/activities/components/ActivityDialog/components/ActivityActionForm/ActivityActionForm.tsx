@@ -65,7 +65,7 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className='text-base'>
-                      <I18nText path='field.name.label' />
+                      <I18nText path='field.title.label' />
                     </FormLabel>
                     <FormControl>
                       <Input
