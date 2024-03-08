@@ -23,6 +23,7 @@
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
   "organization.stage.conclusion": "Завершен",
+  "organization.legalType.franchisee": "Франчайзи",
   "organization.legalType.organizer": "Организатор",
   "organization.legalType.partner": "Партнер",
   "organization.legalType.sponsor": "Спонсор",
@@ -40,7 +41,8 @@
   "organization.profile.information.name": "Название",
   "organization.profile.information.contactName": "Контактное имя",
   "organization.profile.information.phone": "Телефон",
-  "organization.profile.information.email": "Сайт",
+  "organization.profile.information.email": "Почта",
+  "organization.profile.information.site": "Сайт",
   "organization.profile.information.locality": "Населенный пункт",
   "organization.profile.information.social": "Соц. сети",
 
@@ -90,8 +92,32 @@
   "field.name.label": "Имя",
   "field.surname.label": "Фамилия",
   "field.role.label": "Роль",
+
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
+
+  "field.default.placeholder": "Заполните",
+
+  "field.organization.name.label": "Название",
+  "field.organization.contactName.label": "Контактное имя",
+  "field.organization.phone.label": "Телефон",
+  "field.organization.email.label": "Почта",
+  "field.organization.site.label": "Сайт",
+  "field.organization.site.placeholder": "example.com",
+  "field.organization.locality.label": "Населенный пункт",
+  "field.organization.social.label": "Соц. сети",
+  "field.organization.social.placeholder": "vk.com",
+  "field.organization.fullName.label": "Полное наименование юр. лица",
+  "field.organization.legalAddress.label": "Юридический адрес",
+  "field.organization.postAddress.label": "Почтовый адрес",
+  "field.organization.inn.label": "ИНН",
+  "field.organization.kpp.label": "КПП",
+  "field.organization.ogrn.label": "ОГРН",
+  "field.organization.title.label": "Реквизиты",
+  "field.organization.bank.label": "Банк",
+  "field.organization.bank.placeholder": "ПАО Банк",
+  "field.organization.bik.label": "БИК",
+  "field.organization.checkingAccount.label": "Р/С",
 
   "navigation.link.default": "Текущая",
   "navigation.link.org.organizations": "Организации",
@@ -156,7 +182,10 @@
 
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты",
+  "validation.url.format": "Неверный формат ссылки",
   "validation.time.requiredBoth": "Необходимы оба значения времени",
+  "validation.max": "Превышен лимит символов",
+  "validation.format": "Неверный формат",
 
   "dialog.registerOrganization.title": "Заполните заявку",
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
@@ -170,5 +199,13 @@
   "dialog.addEmployee.success": "Сотрудник успешно добавлен",
 
   "dialog.editEmployee.title": "Редактирование сотрудника",
-  "dialog.editEmployee.success": "Информация о сотруднике успешно отредактирована"
+  "dialog.editEmployee.success": "Информация о сотруднике успешно отредактирована",
+
+  "dialog.editOrganizationProfile.title": "Редактирование профиля",
+  "dialog.editOrganizationProfile.success": "Профиль успешно изменен",
+
+  "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
+  "tooltip.kpp": "КПП - 9 цифр",
+  "tooltip.ogrn": "ОГРН - 13 цифр, ОГРНИП - 15 цифр",
+  "tooltip.bik": "БИК - 9 цифр"
 }

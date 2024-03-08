@@ -23,7 +23,7 @@ interface QuerySettings<Func = unknown> {
 
 type BaseUrl = string;
 type RequestMethod = RequestInit['method'];
-// eslint-disable-next-line @typescript-eslint/naming-convention
+
 type _RequestConfig = RequestInit & {
   url: string;
   _retry?: boolean;
@@ -79,16 +79,10 @@ type UserRole = 'organizer' | 'partner';
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
-  postAggress?: string;
+  postAddress?: string;
   inn?: string;
   kpp?: string;
   ogrn?: string;
-}
-
-interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
 }
 
 interface OrganizationResponse {
@@ -234,23 +228,23 @@ interface OrganizationInformationDto {
   email?: string;
   site?: string;
   city?: string;
-  social?: string;
+  social?: string[];
   coordinates?: {
     latitude: number;
     longitude: number;
   };
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
-  postAggress?: string;
+  postAddress?: string;
   inn?: string;
   kpp?: string;
   ogrn?: string;
 }
 
 interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
+  bank?: string;
+  bik?: string;
+  checkingAccount?: string;
 }
 
 interface DashBoardResponse {

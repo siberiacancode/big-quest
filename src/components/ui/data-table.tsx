@@ -380,7 +380,7 @@ export const DataTablePagination = ({
   getPageCount(limit, count) > 1 && (
     <div>
       <Pagination {...props}>
-        <PaginationContent>
+        <PaginationContent className='flex flex-wrap justify-center'>
           <PaginationPrevious
             variant='outline'
             size='icon'
