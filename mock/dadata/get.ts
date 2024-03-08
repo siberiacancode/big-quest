@@ -1,7 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const getDadata: RestRequestConfig = {
-  path: '/dadata',
+export const getAddress: RestRequestConfig = {
+  path: '/Address',
   method: 'get',
   routes: [
     {

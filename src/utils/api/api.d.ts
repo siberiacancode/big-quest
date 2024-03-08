@@ -142,6 +142,7 @@ interface AddressResponse {
   geo_lat: number;
   geo_lon: number;
   unrestrictedValue: string;
+  value: string;
 }
 
 interface OrganizationAddressesResponse {

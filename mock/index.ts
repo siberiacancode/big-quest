@@ -1,3 +1,3 @@
+export * from './Address/get';
 export * from './auth';
-export * from './dadata/get';
 export * from './organization';
