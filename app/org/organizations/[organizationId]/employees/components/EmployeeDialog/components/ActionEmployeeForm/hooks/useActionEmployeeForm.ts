@@ -70,7 +70,7 @@ export const useActionEmployeeForm = ({
 
   return {
     state: {
-      isLoading: false
+      isLoading: postOrganizationActionEmployee.isPending
     },
     form: actionEmployeeForm,
     functions: { onSubmit }
