@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 import { Skeleton } from './skeleton';
 
-interface AddressCardSkeletonProps extends React.HTMLAttributes<HTMLDivElement> {}
+type AddressCardSkeletonProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const AddressCardSkeleton = React.forwardRef<HTMLDivElement, AddressCardSkeletonProps>(
   ({ className, ...props }, ref) => (

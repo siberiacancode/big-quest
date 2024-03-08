@@ -18,7 +18,7 @@ export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
   const pathnames = pathname.split('/').filter((path) => path);
 
   return (
-    <Breadcrumbs>
+    <Breadcrumbs className='flex-wrap'>
       {pathnames.map((path, index) => {
         const idKeyIndex = paramValues.findIndex((param) => param === path);
         const isPathId = !!~idKeyIndex;

@@ -1,0 +1,177 @@
+import { I18nText } from '@/components/common';
+import {
+  Button,
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  Input,
+  PhoneNumberInput,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui';
+import { useI18n } from '@/utils/contexts';
+
+import type { EmployeeData } from '../../../../constants/types';
+import type { EmployeeActionType } from '../../constants/types';
+
+import { useActionEmployeeForm } from './hooks/useActionEmployeeForm';
+
+interface ActionEmployeeProps<ActionType extends EmployeeActionType> {
+  onAction: () => void;
+  actionType: ActionType;
+  employee: ActionType extends 'edit' ? EmployeeData : undefined;
+}
+
+export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
+  onAction,
+  actionType,
+  employee
+}: ActionEmployeeProps<ActionType>) => {
+  const i18n = useI18n();
+  const { state, form, functions } = useActionEmployeeForm({ onAction, actionType, employee });
+
+  return (
+    <Form {...form}>
+      <form onSubmit={functions.onSubmit} className='flex w-full flex-col items-end'>
+        <div className='mb-7 flex w-full gap-5 smx:flex-col'>
+          <div className='flex-1 space-y-3'>
+            <FormField
+              control={form.control}
+              disabled={state.isLoading}
+              name='role'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    <I18nText path='field.role.label' />
+                  </FormLabel>
+                  <FormControl>
+                    <Select {...field} value={field.value} onValueChange={field.onChange}>
+                      <SelectTrigger className='h-8 w-48'>
+                        <SelectValue placeholder='Роль' />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value='Administrator'>
+                          <I18nText path='organization.employee.role.administrator' />
+                        </SelectItem>
+                        <SelectItem value='Leading'>
+                          <I18nText path='organization.employee.role.leading' />
+                        </SelectItem>
+                        <SelectItem value='Manager'>
+                          <I18nText path='organization.employee.role.manager' />
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage>
+                    {form.formState?.errors?.role && (
+                      <I18nText path={form.formState.errors.role.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              disabled={state.isLoading}
+              name='surname'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    <I18nText path='field.surname.label' />
+                  </FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage>
+                    {form.formState?.errors?.surname && (
+                      <I18nText path={form.formState.errors.surname.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              disabled={state.isLoading}
+              name='name'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    <I18nText path='field.name.label' />
+                  </FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage>
+                    {form.formState?.errors?.name && (
+                      <I18nText path={form.formState.errors.name.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              disabled={state.isLoading}
+              name='email'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    <I18nText path='field.email.label' />
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      placeholder={i18n.formatMessage({ id: 'field.email.placeholder' })}
+                    />
+                  </FormControl>
+                  <FormMessage>
+                    {form.formState?.errors?.email && (
+                      <I18nText path={form.formState.errors.email.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              disabled={state.isLoading}
+              name='phone'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    <I18nText path='field.phone.label' />
+                  </FormLabel>
+                  <FormControl>
+                    <PhoneNumberInput {...field} />
+                  </FormControl>
+                  <FormMessage>
+                    {form.formState?.errors?.phone && (
+                      <I18nText path={form.formState.errors.phone.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
+        <Button
+          type='submit'
+          variant='default'
+          size='lg'
+          loading={state.isLoading}
+          className='w-full'
+        >
+          {actionType === 'add' && <I18nText path='button.add' />}
+          {actionType === 'edit' && <I18nText path='button.save' />}
+        </Button>
+      </form>
+    </Form>
+  );
+};

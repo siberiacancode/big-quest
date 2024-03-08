@@ -23,7 +23,8 @@ interface QuerySettings<Func = unknown> {
 
 type BaseUrl = string;
 type RequestMethod = RequestInit['method'];
-type RequestConfig = RequestInit & {
+
+type _RequestConfig = RequestInit & {
   url: string;
   _retry?: boolean;
   headers?: Record<string, string>;
@@ -36,9 +37,9 @@ interface InterceptorResponseResult {
   data: any;
 }
 type SuccessResponseFun = (res: InterceptorResponseResult) => InterceptorResponseResult['data'];
-type SuccessRequestFun = (options: RequestConfig) => RequestConfig;
+type SuccessRequestFun = (options: _RequestConfig) => _RequestConfig;
 
-type ResponseError = Error & { config: RequestConfig; response: InterceptorResponseResult };
+type ResponseError = Error & { config: _RequestConfig; response: InterceptorResponseResult };
 type FailureResponseFun = (e: ResponseError) => any;
 type FailureRequestFun = (e: ResponseError) => any;
 
@@ -61,7 +62,7 @@ interface RequestOptions extends Omit<RequestInit, 'method'> {
   params?: SearchParams;
 }
 
-type RequestParams<Params = undefined> = Params extends undefined
+type RequestConfig<Params = undefined> = Params extends undefined
   ? { config?: RequestOptions }
   : { params: Params; config?: RequestOptions };
 
@@ -75,19 +76,19 @@ type Stage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
 
 type UserRole = 'organizer' | 'partner';
 
+type ActivityCategory = 'EDUCATION';
+
+type ActivityStatus = 'DRAFT' | 'MODERATION' | 'EDITING' | 'PUBLISHED' | 'CLOSED';
+
+type ActivityView = 'ONLINE' | 'OFFLINE';
+
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
-  postAggress?: string;
+  postAddress?: string;
   inn?: string;
   kpp?: string;
   ogrn?: string;
-}
-
-interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
 }
 
 interface OrganizationResponse {
@@ -129,6 +130,27 @@ interface OrganizationAddressDto {
   workingHours: WorkingHourDto[];
 }
 
+interface AddEmployeeDto {
+  legalEntityId?: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  // image?: any;
+}
+
+interface EditEmployeeDto {
+  userId: string;
+  legalEntityId?: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  // image?: any;
+}
+
 interface RegisterOrganizationDto {
   organization: string;
   location: string;
@@ -159,6 +181,58 @@ interface OrganizationAddressesResponse {
     details?: string;
     workingHours: WorkingHourDto[];
   }[];
+}
+
+interface CreateActivityDto {
+  name: string;
+  category: string;
+  description?: string;
+  ageLimit: number[];
+  price: number;
+  duration: number;
+  replay: boolean;
+  organizationId: string;
+  files?: File[];
+}
+
+interface Time {
+  hour: number;
+  minutes: number;
+}
+
+interface Schedule {
+  address: string;
+  leadingEmployeeId: string;
+  entry: boolean;
+  regular: boolean;
+  date: Date;
+  time: Time;
+  maxNumberOfParticipants: number;
+  period: number[];
+}
+
+interface ActivityResponse {
+  id: string;
+  cover?: string;
+  content?: string[];
+  name: string;
+  description?: string;
+  ageLimit: number[];
+  price: number;
+  nutsCount: number;
+  duration: number;
+  replay: boolean;
+  view: ActivityView;
+  status: ActivityStatus;
+  category: string;
+  participants: number;
+  likes: number;
+  schedule?: Schedule[];
+}
+
+interface ActivityWithPaginationResponse {
+  rows: ActivityResponse[];
+  pagination: PaginationResponse;
 }
 
 interface LoginEmailDto {
@@ -212,23 +286,23 @@ interface OrganizationInformationDto {
   email?: string;
   site?: string;
   city?: string;
-  social?: string;
+  social?: string[];
   coordinates?: {
     latitude: number;
     longitude: number;
   };
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
-  postAggress?: string;
+  postAddress?: string;
   inn?: string;
   kpp?: string;
   ogrn?: string;
 }
 
 interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
+  bank?: string;
+  bik?: string;
+  checkingAccount?: string;
 }
 
 interface DashBoardResponse {
@@ -242,4 +316,25 @@ interface DashBoardResponse {
 interface Legals {
   total: number;
   growthPerMonth: number;
+}
+
+interface EmployeeDto {
+  id: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  // image?: any;
+}
+
+interface UpdateOrganizationDto {
+  id?: string;
+  locality?: string;
+  name?: string;
+  description?: string;
+  inn?: string;
+  information?: OrganizationInformationDto;
+  requisites?: RequisitesDto;
+  stage?: string;
 }

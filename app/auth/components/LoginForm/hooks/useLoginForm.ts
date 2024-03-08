@@ -21,7 +21,7 @@ export const useLoginForm = () => {
   const postAuthLoginEmail = usePostAuthLoginEmailMutation();
 
   const onSubmit = loginForm.handleSubmit(async (values) => {
-    await postAuthLoginEmail.mutateAsync(values);
+    await postAuthLoginEmail.mutateAsync({ params: values });
 
     router.replace('/org/organizations');
   });

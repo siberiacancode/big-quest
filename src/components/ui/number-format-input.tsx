@@ -2,7 +2,7 @@ import { NumberFormatBase, type NumberFormatBaseProps } from 'react-number-forma
 
 import { Input } from './input';
 
-interface NumberFormatInputProps extends NumberFormatBaseProps {}
+export type NumberFormatInputProps = NumberFormatBaseProps;
 
 export const NumberFormatInput = (props: NumberFormatInputProps) => (
   <NumberFormatBase {...props} customInput={Input} />
