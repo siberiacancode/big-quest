@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import background from '@/assets/images/background/activity.png';
 import { I18nText } from '@/components/common';
-import { Switch, Typography } from '@/components/ui';
+import { Typography } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
 interface ActivityInfoProps {
@@ -31,7 +31,7 @@ export const ActivityInfo = ({ activity }: ActivityInfoProps) => {
   const [lowerAgeLimit, upperAgeLimit] = activity.ageLimit;
 
   return (
-    <div className='flex h-full flex-col items-end justify-between gap-4 overflow-y-auto px-5 smx:px-0'>
+    <div className='flex flex-col items-end gap-4 overflow-y-auto px-5 smx:px-0'>
       <div className='grid h-screen max-h-[260px] w-full grid-cols-2 items-center gap-4 px-5 xsx:max-h-[130px] xsx:gap-2'>
         <div className='relative h-full'>
           <Image
@@ -127,22 +127,15 @@ export const ActivityInfo = ({ activity }: ActivityInfoProps) => {
                 {activity.price} <I18nText path='field.price.currency' />
               </Typography>
             </div>
-          </div>
-        </div>
-        <div className='mb-8 mt-3 grid w-full grid-cols-2 gap-24 smx:grid-cols-1 smx:gap-2'>
-          <Typography variant='sub1'>
-            <I18nText path='field.replay.label' />
-          </Typography>
+            <div className='flex flex-col gap-2'>
+              <Typography variant='sub1'>
+                <I18nText path='field.replay.label' />
+              </Typography>
 
-          <div className='flex items-center space-x-2'>
-            <Switch
-              id='allow-repeat-mode'
-              className='h-6 cursor-default'
-              checked={activity.replay}
-            />
-            <Typography variant='body1' tag='label' className='text-foreground'>
-              <I18nText path='field.replay.option' />
-            </Typography>
+              <Typography variant='body1'>
+                <I18nText path={`field.replay.option.${activity.replay}`} />
+              </Typography>
+            </div>
           </div>
         </div>
       </div>

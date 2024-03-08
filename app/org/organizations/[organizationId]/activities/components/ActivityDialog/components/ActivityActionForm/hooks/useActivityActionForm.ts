@@ -85,7 +85,8 @@ export const useActivityActionForm = ({
     state: {
       categoryValues: getCategoryQuery.data,
       isCategoryOpen,
-      isStatusOpen
+      isStatusOpen,
+      isLoading: postActivityActionMutation.isPending
     },
     form: activityForm,
     functions: { onSubmit, setIsCategoryOpen, setIsStatusOpen }

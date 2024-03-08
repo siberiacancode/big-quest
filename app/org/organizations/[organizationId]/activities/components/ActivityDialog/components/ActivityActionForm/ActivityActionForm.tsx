@@ -17,6 +17,7 @@ import {
   FormMessage,
   Input,
   Switch,
+  Textarea,
   Typography
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
@@ -60,6 +61,7 @@ export const ActivityActionForm = <ActionType extends ActivityActionType>({
               <FormField
                 control={form.control}
                 name='name'
+                disabled={state.isLoading}
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className='text-base'>
@@ -85,13 +87,14 @@ export const ActivityActionForm = <ActionType extends ActivityActionType>({
               <FormField
                 control={form.control}
                 name='description'
+                disabled={state.isLoading}
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className='text-base'>
                       <I18nText path='field.description.label' />
                     </FormLabel>
                     <FormControl>
-                      <Input
+                      <Textarea
                         className='max-w-72 text-wrap'
                         {...field}
                         placeholder={i18n.formatMessage({
@@ -112,6 +115,7 @@ export const ActivityActionForm = <ActionType extends ActivityActionType>({
               <FormField
                 control={form.control}
                 name='ageLimit'
+                disabled={state.isLoading}
                 render={() => (
                   <FormItem>
                     <FormLabel className='text-base'>
@@ -122,6 +126,7 @@ export const ActivityActionForm = <ActionType extends ActivityActionType>({
                         <Controller
                           name='ageLimit.min'
                           control={form.control}
+                          disabled={state.isLoading}
                           render={({ field }) => (
                             <Input
                               className='h-9 max-w-12 text-center'
@@ -136,6 +141,7 @@ export const ActivityActionForm = <ActionType extends ActivityActionType>({
                         <Controller
                           name='ageLimit.max'
                           control={form.control}
+                          disabled={state.isLoading}
                           render={({ field }) => (
                             <Input
                               className='h-9 max-w-12 text-center'
@@ -159,6 +165,7 @@ export const ActivityActionForm = <ActionType extends ActivityActionType>({
               <FormField
                 control={form.control}
                 name='duration'
+                disabled={state.isLoading}
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className='text-base'>
@@ -192,6 +199,7 @@ export const ActivityActionForm = <ActionType extends ActivityActionType>({
               <FormField
                 control={form.control}
                 name='category'
+                disabled={state.isLoading}
                 render={({ field }) => (
                   <FormItem className='flex flex-col'>
                     <FormLabel className='text-base'>
@@ -241,6 +249,7 @@ export const ActivityActionForm = <ActionType extends ActivityActionType>({
               <FormField
                 control={form.control}
                 name='status'
+                disabled={state.isLoading}
                 render={({ field }) => (
                   <FormItem className='flex flex-col'>
                     <FormLabel className='text-base'>
@@ -297,6 +306,7 @@ export const ActivityActionForm = <ActionType extends ActivityActionType>({
               <FormField
                 control={form.control}
                 name='price'
+                disabled={state.isLoading}
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className='text-base'>
@@ -318,43 +328,47 @@ export const ActivityActionForm = <ActionType extends ActivityActionType>({
                   </FormItem>
                 )}
               />
+              <FormField
+                control={form.control}
+                name='replay'
+                disabled={state.isLoading}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='text-base'>
+                      <I18nText path='field.replay.label' />
+                    </FormLabel>
+                    <FormControl>
+                      <div className='flex items-center space-x-2 pt-1'>
+                        <Switch
+                          id='allow-repeat-mode'
+                          className='h-6'
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                        />
+                        <Typography variant='body1' tag='label' className='text-foreground'>
+                          <I18nText path={`field.replay.option.${field.value}`} />
+                        </Typography>
+                      </div>
+                    </FormControl>
+                    <FormMessage>
+                      {form.formState?.errors?.price && (
+                        <I18nText path={form.formState.errors.price.message as LocaleMessageId} />
+                      )}
+                    </FormMessage>
+                  </FormItem>
+                )}
+              />
             </div>
-          </div>
-          <div className='mt-2 grid w-full grid-cols-2 gap-24 smx:grid-cols-1 smx:gap-3'>
-            <Typography variant='sub1'>
-              <I18nText path='field.replay.label' />
-            </Typography>
-
-            <FormField
-              control={form.control}
-              name='replay'
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <div className='flex items-center space-x-2'>
-                      <Switch
-                        id='allow-repeat-mode'
-                        className='h-6'
-                        checked={field.value}
-                        onCheckedChange={field.onChange}
-                      />
-                      <Typography variant='body1' tag='label' className='text-foreground'>
-                        <I18nText path='field.replay.option' />
-                      </Typography>
-                    </div>
-                  </FormControl>
-                  <FormMessage>
-                    {form.formState?.errors?.price && (
-                      <I18nText path={form.formState.errors.price.message as LocaleMessageId} />
-                    )}
-                  </FormMessage>
-                </FormItem>
-              )}
-            />
           </div>
         </div>
         <div className='flex w-full justify-center'>
-          <Button type='submit' className='h-8 w-28' size='sm' variant='secondary'>
+          <Button
+            type='submit'
+            className='h-8 w-28'
+            size='sm'
+            loading={state.isLoading}
+            variant='secondary'
+          >
             <Typography variant='sub4'>
               <I18nText path='button.save' />
             </Typography>
