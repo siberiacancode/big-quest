@@ -126,7 +126,7 @@ interface OrganizationAddressDto {
 
 interface AddEmployeeDto {
   legalEntityId?: string;
-  role: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
   name: string;
   surname: string;
   email: string;
@@ -137,7 +137,7 @@ interface AddEmployeeDto {
 interface EditEmployeeDto {
   userId: string;
   legalEntityId?: string;
-  role: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
   name: string;
   surname: string;
   email: string;
@@ -262,7 +262,7 @@ interface Legals {
 
 interface EmployeeDto {
   id: string;
-  role: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
   name: string;
   surname: string;
   email: string;

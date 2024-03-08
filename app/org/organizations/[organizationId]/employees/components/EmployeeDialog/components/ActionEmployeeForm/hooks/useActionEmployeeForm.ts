@@ -27,7 +27,7 @@ export const useActionEmployeeForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(employeeSchema),
     defaultValues: {
-      role: employee?.role ?? '',
+      role: employee?.role ?? 'Manager',
       name: employee?.name ?? '',
       surname: employee?.surname ?? '',
       email: employee?.email ?? '',

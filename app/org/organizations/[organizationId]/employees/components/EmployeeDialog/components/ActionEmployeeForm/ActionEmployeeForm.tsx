@@ -51,12 +51,7 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
                     <I18nText path='field.role.label' />
                   </FormLabel>
                   <FormControl>
-                    <Select
-                      defaultValue='Leading'
-                      {...field}
-                      value={field.value}
-                      onValueChange={(newValue) => form.setValue('role', newValue ?? '')}
-                    >
+                    <Select {...field} value={field.value} onValueChange={field.onChange}>
                       <SelectTrigger className='h-8 w-48'>
                         <SelectValue placeholder='Роль' />
                       </SelectTrigger>

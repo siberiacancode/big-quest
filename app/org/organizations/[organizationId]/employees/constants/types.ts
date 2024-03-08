@@ -3,6 +3,6 @@ export interface EmployeeData {
   name: string;
   surname: string;
   email: string;
-  role: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
   phone: string;
 }
