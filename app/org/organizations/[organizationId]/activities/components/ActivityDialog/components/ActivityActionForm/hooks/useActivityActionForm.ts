@@ -13,7 +13,7 @@ import { usePostActivityActionMutation } from './usePostActivityActionMutation';
 
 interface UseActivityActionFormParams {
   onAction: () => void;
-  actionType: ActivityActionType;
+  actionType: Exclude<ActivityActionType, 'info'>;
   activity?: ActivityResponse;
 }
 
@@ -64,7 +64,7 @@ export const useActivityActionForm = ({
       await postActivityActionMutation.mutateAsync(postActivityActionParams);
     }
 
-    if (actionType === 'edit' || actionType === 'info') {
+    if (actionType === 'edit') {
       const postActivityActionParams = {
         params: {
           ...requestParams,

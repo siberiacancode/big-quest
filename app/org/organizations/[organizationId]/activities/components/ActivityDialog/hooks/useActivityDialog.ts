@@ -3,15 +3,14 @@ import { toast } from 'sonner';
 
 import { useI18n } from '@/utils/contexts';
 
-export const useActivityDialog = ({ actionType }) => {
+import type { ActivityActionType } from '../constants/types';
+
+export const useActivityDialog = ({ actionType: externalActionType }) => {
   const i18n = useI18n();
   const [open, setOpen] = React.useState(false);
-  const [editInfo, setEditInfo] = React.useState(true);
+  const [actionType, setActionType] = React.useState<ActivityActionType>(externalActionType);
 
-  const onOpenChange = () => {
-    setOpen((prev) => !prev);
-    setEditInfo(false);
-  };
+  const onOpenChange = () => setOpen(!open);
 
   const onAction = () => {
     if (actionType === 'add') {
@@ -26,8 +25,10 @@ export const useActivityDialog = ({ actionType }) => {
       });
     }
 
-    onOpenChange();
+    setOpen(false);
   };
 
-  return { state: { open, editInfo }, functions: { setOpen, setEditInfo, onOpenChange, onAction } };
+  const onEdit = () => setActionType('edit');
+
+  return { state: { open, actionType }, functions: { setOpen, onEdit, onOpenChange, onAction } };
 };

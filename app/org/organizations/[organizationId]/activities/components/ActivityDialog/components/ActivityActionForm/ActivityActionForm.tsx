@@ -28,13 +28,13 @@ import { ActivityImages } from '../ActivityImages/ActivityImages';
 import { ACTIVITY_ACTION_STATUS_DROPDOWN_VALUES } from './constants/activityActionStatusDropdownValues';
 import { useActivityActionForm } from './hooks/useActivityActionForm';
 
-interface ActivityActionFormProps<ActionType extends ActivityActionType> {
+interface ActivityActionFormProps<ActionType extends Exclude<ActivityActionType, 'info'>> {
   onAction: () => void;
   actionType: ActionType;
   activity: ActionType extends 'edit' ? ActivityResponse : undefined;
 }
 
-export const ActivityActionForm = <ActionType extends ActivityActionType>({
+export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType, 'info'>>({
   onAction,
   actionType,
   activity
