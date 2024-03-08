@@ -23,6 +23,7 @@ interface QuerySettings<Func = unknown> {
 
 type BaseUrl = string;
 type RequestMethod = RequestInit['method'];
+
 type _RequestConfig = RequestInit & {
   url: string;
   _retry?: boolean;
@@ -121,6 +122,27 @@ interface OrganizationAddressDto {
   house: string;
   details?: string;
   workingHours: WorkingHourDto[];
+}
+
+interface AddEmployeeDto {
+  legalEntityId?: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  // image?: any;
+}
+
+interface EditEmployeeDto {
+  userId: string;
+  legalEntityId?: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  // image?: any;
 }
 
 interface RegisterOrganizationDto {
@@ -236,6 +258,16 @@ interface DashBoardResponse {
 interface Legals {
   total: number;
   growthPerMonth: number;
+}
+
+interface EmployeeDto {
+  id: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  // image?: any;
 }
 
 interface UpdateOrganizationDto {

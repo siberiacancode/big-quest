@@ -4,6 +4,7 @@
   "app.loading": "Пожалуйста подождите...",
 
   "partners.addresses.title": "Адреса",
+  "partners.employees.title": "Сотрудники",
 
   "org.auth.title": "Вход в личный кабинет",
   "org.auth.rememberMe": "Запомнить меня",
@@ -13,7 +14,7 @@
   "button.add": "Добавить",
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
-
+  "button.addEmployee": "Добавить сотрудника",
   "button.login": "Войти",
 
   "button.registerOrganization": "Отправить заявку",
@@ -64,6 +65,12 @@
   "organization.profile.header.activities": "Активности",
   "organization.profile.header.schedule": "Расписание",
 
+  "organization.employee.email": "Email",
+  "organization.employee.phoneNumber": "Телефон",
+  "organization.employee.role.administrator": "Администратор",
+  "organization.employee.role.leading": "Ведущий",
+  "organization.employee.role.manager": "Менеджер",
+
   "field.email.label": "Email",
   "field.password.label": "Пароль",
   "field.email.placeholder": "examples@mail.com",
@@ -82,6 +89,13 @@
   "field.details.label": "Детали",
   "field.details.placeholder": "офис, вход, этаж",
   "field.note.placeholder": "Оставьте заметку...",
+  "field.name.label": "Имя",
+  "field.surname.label": "Фамилия",
+  "field.role.label": "Роль",
+
+  "field.imageDownload.title": "Нажмите, чтобы загрузить",
+  "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
+
   "field.default.placeholder": "Заполните",
 
   "field.organization.name.label": "Название",
@@ -175,9 +189,18 @@
 
   "dialog.registerOrganization.title": "Заполните заявку",
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
+
   "dialog.addAddress.title": "Добавление адреса",
   "dialog.addAddress.form.untill": "до",
   "dialog.addAddress.success": "Адрес успешно добавлен",
+
+  "dialog.addEmployee.title": "Добавление сотрудника",
+  "dialog.addEmployee.description": "Заполните форму и загрузите изображение",
+  "dialog.addEmployee.success": "Сотрудник успешно добавлен",
+
+  "dialog.editEmployee.title": "Редактирование сотрудника",
+  "dialog.editEmployee.success": "Информация о сотруднике успешно отредактирована",
+
   "dialog.editOrganizationProfile.title": "Редактирование профиля",
   "dialog.editOrganizationProfile.success": "Профиль успешно изменен",
 
