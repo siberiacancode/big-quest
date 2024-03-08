@@ -8,6 +8,7 @@ import {
   DataTableBody,
   DataTableBottomContent,
   DataTableComponent,
+  DataTableCurrentPageLabel,
   DataTableHeader,
   DataTablePagination,
   DataTableSelectedLabel,
@@ -23,7 +24,7 @@ import { convertOrganizationsToTableRows } from './helpers/convertOrganizationsT
 import { useOrganizationsTable } from './hooks/useOrganizationsTable';
 
 interface OrganizationsTableProps {
-  organizations: OrganizationResponse[];
+  organizations: OrganizationListResponse[];
   pagination: PaginationResponse;
 }
 
@@ -49,10 +50,14 @@ export const OrganizationsTable = ({ organizations, pagination }: OrganizationsT
           )}
         </DataTableSelectedLabel>
         <div className='flex flex-col-reverse items-center gap-2 py-3 md:flex-row'>
-          <Typography variant='sub2' tag='p' className='text-nowrap'>
-            {getPageIndex(pagination.current)} <I18nText path='pagination.page' />{' '}
-            <I18nText path='pagination.from' /> {getPageCount(pagination.limit, pagination.count)}
-          </Typography>
+          <DataTableCurrentPageLabel pagination={pagination}>
+            <Typography variant='sub2' tag='p' className='text-nowrap'>
+              {getPageIndex(pagination.current)} <I18nText path='pagination.page' />{' '}
+              <I18nText path='pagination.from' />{' '}
+              {getPageIndex(getPageCount(pagination.limit, pagination.count))}
+            </Typography>
+          </DataTableCurrentPageLabel>
+
           <DataTablePagination pagination={pagination} onClick={functions.onPaginationClick} />
         </div>
       </DataTableBottomContent>

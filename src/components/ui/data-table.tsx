@@ -252,6 +252,7 @@ export interface DataTableFacetedFilterProps {
   searchPlaceholder?: string;
   noResultsMsg?: string;
   title: string;
+  isMulti?: boolean;
 }
 
 const MAX_SHOWN_FILTER_ITEMS = 2;
@@ -262,7 +263,8 @@ export const DataTableFacetedFilter = ({
   onSelect,
   values,
   noResultsMsg = 'Ничего не найдено',
-  searchPlaceholder = 'Поиск...'
+  searchPlaceholder = 'Поиск...',
+  isMulti = false
 }: DataTableFacetedFilterProps) => {
   const [open, setOpen] = React.useState(false);
 
@@ -311,9 +313,13 @@ export const DataTableFacetedFilter = ({
                 <CommandItem
                   key={item.value}
                   onSelect={() => {
-                    if (values.includes(item.value))
+                    if (values.includes(item.value)) {
                       onSelect(values.filter((value) => value !== item.value));
-                    else onSelect([...values, item.value]);
+                    } else if (isMulti) {
+                      onSelect([...values, item.value]);
+                    } else {
+                      onSelect([item.value]);
+                    }
                   }}
                 >
                   <CheckIcon
@@ -384,7 +390,7 @@ export const DataTablePagination = ({
           <PaginationPrevious
             variant='outline'
             size='icon'
-            disabled={current + 1 >= getPageCount(limit, count)}
+            disabled={current <= 1}
             onClick={() => onClick(current - 1)}
             className='mr-3 size-8 border-none'
           />
@@ -433,6 +439,23 @@ export const DataTableSelectedLabel = React.forwardRef<HTMLDivElement, DataTable
       </div>
     );
   }
+);
+DataTableSelectedLabel.displayName = 'DataTableSelectedLabel';
+
+interface DataTableCurrentPageLabelProps extends React.ComponentProps<'div'> {
+  pagination: PaginationResponse;
+}
+
+export const DataTableCurrentPageLabel = React.forwardRef<
+  HTMLDivElement,
+  DataTableCurrentPageLabelProps
+>(
+  ({ pagination: { count, limit }, children, ...props }, ref) =>
+    !!getPageCount(limit, count) && (
+      <div ref={ref} {...props}>
+        {children}
+      </div>
+    )
 );
 DataTableSelectedLabel.displayName = 'DataTableSelectedLabel';
 

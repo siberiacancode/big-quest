@@ -163,7 +163,7 @@ interface LoginEmailDto {
 }
 
 interface OrganizationPaginationResponse {
-  rows: OrganizationResponse[];
+  rows: OrganizationListResponse[];
   pagination: PaginationResponse;
 }
 
@@ -249,4 +249,14 @@ interface UpdateOrganizationDto {
   information?: OrganizationInformationDto;
   requisites?: RequisitesDto;
   stage?: string;
+}
+
+interface OrganizationListResponse {
+  id: string;
+  name: string;
+  locality: string;
+  tariff: string;
+  countDays: string;
+  stage: Stage;
+  type: LegalType;
 }

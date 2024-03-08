@@ -40,7 +40,7 @@ export const useOrganizationsTable = () => {
   const onLocationsSelect = (values: string[]) => {
     startTransition(() => {
       setSearchParams([
-        { key: 'location', value: values },
+        { key: 'locality', value: values },
         { key: 'current', value: '1' }
       ]);
     });
@@ -93,7 +93,7 @@ export const useOrganizationsTable = () => {
           { value: 'Кемерово', label: 'Кемерово' },
           { value: 'Санкт-Петербург', label: 'Санкт-Петербург' }
         ]}
-        title={intl.formatMessage({ id: 'table.column.organization.location' })}
+        title={intl.formatMessage({ id: 'table.column.organization.locality' })}
       />,
       <div className='flex flex-1 justify-items-end'>
         <RegisterOrganizationDialog
@@ -106,7 +106,15 @@ export const useOrganizationsTable = () => {
         />
       </div>
     ],
-    [onOrganizationFilterChange, organizationFilter]
+    [
+      onOrganizationFilterChange,
+      organizationFilter,
+      selectedLocations,
+      selectedStages,
+      isPending,
+      onLocationsSelect,
+      onStagesSelect
+    ]
   );
 
   return {
