@@ -162,7 +162,7 @@ interface LoginEmailDto {
   password: string;
 }
 
-interface OrganizationPaginationResponse {
+interface OrganizationListPaginationResponse {
   rows: OrganizationListResponse[];
   pagination: PaginationResponse;
 }

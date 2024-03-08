@@ -18,7 +18,7 @@ export const getOrganizationById: RestRequestConfig = {
         name: 'ООО Рисовашки',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore',
-        legalInfo: {
+        information: {
           postAddress: 'Иванов Иван Иванович г. Москва ул. Ленина, д. 10, кв. 20 101000',
           fullNameOfTheLegalEntity: 'ООО “Рисовашки',
           legalAddress: 'ООО “Рисовашки”',
@@ -29,18 +29,17 @@ export const getOrganizationById: RestRequestConfig = {
         requisites: {
           bank: 'ПАО Сбербанк',
           bik: '044525225',
-          checkingAccount: '111.22.333.4.5555.6666666'
+          checkingAccount: '00055165739881705595'
         },
         stage: 'REQUEST',
         type: 'PARTNER'
       },
-      entities: { params: { id: 1 } },
       interceptors: {
         response: (data, { request, setStatusCode }) => {
-          if (request.cookies.refreshToken && request.cookies.accessToken) {
+          if (request.cookies.refreshtoken && request.cookies.accessToken) {
             return data;
           }
-          return data;
+
           setStatusCode(401);
           return { message: 'Unauthorized' };
         }

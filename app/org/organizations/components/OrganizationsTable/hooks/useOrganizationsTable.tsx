@@ -17,7 +17,7 @@ export const useOrganizationsTable = () => {
 
   const organizationFilter = searchParams.get('organization');
   const [selectedLocations, seSelectedLocations] = React.useState<string[]>(() =>
-    searchParams.getAll('location')
+    searchParams.getAll('locality')
   );
   const [selectedStages, setSelectedStages] = React.useState<string[]>(() =>
     searchParams.getAll('stage')
