@@ -1,3 +1,4 @@
+import { Edit3Icon } from 'lucide-react';
 import Image from 'next/image';
 
 import background from '@/assets/images/background/activity.png';
@@ -24,9 +25,10 @@ interface ActivityInfoProps {
     likes: number;
     schedule?: Schedule[];
   };
+  setEditInfo: (props: boolean) => void;
 }
 
-export const ActivityInfo = ({ activity }: ActivityInfoProps) => {
+export const ActivityInfo = ({ activity, setEditInfo }: ActivityInfoProps) => {
   const i18n = useI18n();
   const [lowerAgeLimit, upperAgeLimit] = activity.ageLimit;
 
@@ -60,7 +62,11 @@ export const ActivityInfo = ({ activity }: ActivityInfoProps) => {
           ))}
         </div>
       </div>
-      <div className='flex w-full flex-col overflow-y-auto rounded-lg border p-5'>
+      <div className='relative flex w-full flex-col overflow-y-auto rounded-lg border p-5'>
+        <Edit3Icon
+          className='absolute right-4 top-4 hover:cursor-pointer'
+          onClick={() => setEditInfo(true)}
+        />
         <div className='flex w-full justify-between gap-24 smx:flex-col smx:gap-2'>
           <div className='flex-1 space-y-3'>
             <div className='flex flex-col gap-2'>

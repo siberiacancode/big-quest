@@ -6,6 +6,12 @@ import { useI18n } from '@/utils/contexts';
 export const useActivityDialog = ({ actionType }) => {
   const i18n = useI18n();
   const [open, setOpen] = React.useState(false);
+  const [editInfo, setEditInfo] = React.useState(true);
+
+  const onOpenChange = () => {
+    setOpen((prev) => !prev);
+    setEditInfo(false);
+  };
 
   const onAction = () => {
     if (actionType === 'add') {
@@ -20,8 +26,8 @@ export const useActivityDialog = ({ actionType }) => {
       });
     }
 
-    setOpen(false);
+    onOpenChange();
   };
 
-  return { state: { open }, functions: { setOpen, onAction } };
+  return { state: { open, editInfo }, functions: { setOpen, setEditInfo, onOpenChange, onAction } };
 };

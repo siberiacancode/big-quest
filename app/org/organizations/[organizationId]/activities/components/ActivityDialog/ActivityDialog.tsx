@@ -28,7 +28,7 @@ export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialog
   const { state, functions } = useActivityDialog({ actionType });
 
   return (
-    <Dialog open={state.open} onOpenChange={functions.setOpen}>
+    <Dialog open={state.open} onOpenChange={functions.onOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className='h-[90%] max-w-[713px] smx:h-screen smx:w-screen'>
         <DialogClose>
@@ -42,8 +42,8 @@ export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialog
           </DialogTitle>
         </DialogHeader>
 
-        {actionType === 'info' && activity ? (
-          <ActivityInfo activity={activity} />
+        {actionType === 'info' && !state.editInfo && activity ? (
+          <ActivityInfo activity={activity} setEditInfo={functions.setEditInfo} />
         ) : (
           <ActivityActionForm
             actionType={actionType}

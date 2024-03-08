@@ -64,13 +64,13 @@ export const useActivityActionForm = ({
       await postActivityActionMutation.mutateAsync(postActivityActionParams);
     }
 
-    if (actionType === 'edit') {
+    if (actionType === 'edit' || actionType === 'info') {
       const postActivityActionParams = {
         params: {
           ...requestParams,
           id: activity!.id
         },
-        action: actionType
+        action: 'edit'
       } as const;
 
       await postActivityActionMutation.mutateAsync(postActivityActionParams);
