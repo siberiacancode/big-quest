@@ -16,7 +16,7 @@ export const convertOrganizationsToTableRows = (
     name: organization.name ?? '-',
     locality: organization.locality ?? '-',
     countDays: organization.countDays ?? '-',
-    tariff: organization.tariff ?? '-',
+    tariff: organization.tariff === 'infinite' ? '∞' : organization.tariff,
     stage: `organization.stage.${organization.stage.toLowerCase()}`,
     type: `organization.legalType.${organization.type.toLowerCase()}`
   }));
