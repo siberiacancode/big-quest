@@ -4,6 +4,7 @@
   "app.loading": "Пожалуйста подождите...",
 
   "partners.addresses.title": "Адреса",
+  "partners.activities.title": "Активности",
   "partners.employees.title": "Сотрудники",
 
   "org.auth.title": "Вход в личный кабинет",
@@ -14,7 +15,9 @@
   "button.add": "Добавить",
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
+  "button.addActivities": "Добавить активность",
   "button.addEmployee": "Добавить сотрудника",
+
   "button.login": "Войти",
 
   "button.registerOrganization": "Отправить заявку",
@@ -65,6 +68,11 @@
   "organization.profile.header.activities": "Активности",
   "organization.profile.header.schedule": "Расписание",
 
+  "organization.activities.status.draft": "Черновик",
+  "organization.activities.status.moderation": "Модерация",
+  "organization.activities.status.editing": "Редактирование",
+  "organization.activities.status.closed": "Закрыта",
+  "organization.activities.status.published": "Опубликована",
   "organization.employee.email": "Email",
   "organization.employee.phoneNumber": "Телефон",
   "organization.employee.role.administrator": "Администратор",
@@ -89,6 +97,23 @@
   "field.details.label": "Детали",
   "field.details.placeholder": "офис, вход, этаж",
   "field.note.placeholder": "Оставьте заметку...",
+  "field.title.label": "Название",
+  "field.name.placeholder": "Введите название...",
+  "field.category.label": "Категория",
+  "field.description.label": "Описание",
+  "field.description.placeholder": "Введите описание...",
+  "field.ageLimit.label": "Возрастное ограничение",
+  "field.ageLimit.before": "до",
+  "field.ageLimit.years": "{lowerAgeLimit} - {upperAgeLimit} лет",
+  "field.duration.label": "Продолжительность",
+  "field.duration.minutes": "мин",
+  "field.duration.hours": " ({hours} ч)",
+  "field.status.label": "Статус",
+  "field.price.label": "Стоимость",
+  "field.price.currency": "руб",
+  "field.replay.label": "Повторное прохождение",
+  "field.replay.option.false": "Не разрешать",
+  "field.replay.option.true": "Разрешать",
   "field.name.label": "Имя",
   "field.surname.label": "Фамилия",
   "field.role.label": "Роль",
@@ -174,6 +199,10 @@
   "table.column.rate": "Тариф",
   "table.column.daysCount": "Кол-во дней",
 
+  "activityCard.ageLimit.label": "от {ageMin}+ лет",
+  "activityCard.duration.label": "{duration} ч",
+  "activity.image.alt": "Изображение активности {name}",
+
   "pagination.from": "из",
   "pagination.selected": "выбрано",
   "pagination.page": "страница",
@@ -193,6 +222,11 @@
   "dialog.addAddress.title": "Добавление адреса",
   "dialog.addAddress.form.untill": "до",
   "dialog.addAddress.success": "Адрес успешно добавлен",
+
+  "dialog.addActivity.title": "Активность",
+  "dialog.addActivity.success": "Активность успешно добавлена",
+
+  "dialog.editActivity.success": "Активность успешно изменена",
 
   "dialog.addEmployee.title": "Добавление сотрудника",
   "dialog.addEmployee.description": "Заполните форму и загрузите изображение",

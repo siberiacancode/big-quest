@@ -1,4 +1,5 @@
 export * from './accordion';
+export * from './activity-card-skeleton';
 export * from './address-card-skeleton';
 export * from './badge';
 export * from './bik-input';
@@ -37,6 +38,7 @@ export * from './select';
 export * from './separator';
 export * from './skeleton';
 export * from './sonner';
+export * from './switch';
 export * from './table';
 export * from './table-skeleton';
 export * from './tabs';

@@ -11,7 +11,7 @@ import { useSearchParams } from '@/utils/hooks';
 const FILTER_INPUT_DELAY = 500;
 
 export const useOrganizationsTable = () => {
-  const intl = useI18n();
+  const i18n = useI18n();
   const { searchParams, setSearchParams, setSearchParam } = useSearchParams();
   const [isPending, startTransition] = React.useTransition();
 
@@ -62,7 +62,7 @@ export const useOrganizationsTable = () => {
   const toolbar = React.useCallback(
     () => [
       <Input
-        placeholder={intl.formatMessage({ id: 'field.filter.placeholder' })}
+        placeholder={i18n.formatMessage({ id: 'field.filter.placeholder' })}
         defaultValue={organizationFilter ?? ''}
         onChange={(event) => onOrganizationFilterChange(event.target.value)}
         className='max-w-[180px]'
@@ -71,17 +71,17 @@ export const useOrganizationsTable = () => {
         values={selectedStages}
         onSelect={onStagesSelect}
         items={[
-          { value: 'REQUEST', label: intl.formatMessage({ id: 'organization.stage.request' }) },
+          { value: 'REQUEST', label: i18n.formatMessage({ id: 'organization.stage.request' }) },
           {
             value: 'NEGOTIATION',
-            label: intl.formatMessage({ id: 'organization.stage.negotiation' })
+            label: i18n.formatMessage({ id: 'organization.stage.negotiation' })
           },
           {
             value: 'CONCLUSION',
-            label: intl.formatMessage({ id: 'organization.stage.conclusion' })
+            label: i18n.formatMessage({ id: 'organization.stage.conclusion' })
           }
         ]}
-        title={intl.formatMessage({ id: 'table.column.organization.stage' })}
+        title={i18n.formatMessage({ id: 'table.column.organization.stage' })}
       />,
       <DataTableFacetedFilter
         values={selectedLocations}
@@ -93,7 +93,7 @@ export const useOrganizationsTable = () => {
           { value: 'Кемерово', label: 'Кемерово' },
           { value: 'Санкт-Петербург', label: 'Санкт-Петербург' }
         ]}
-        title={intl.formatMessage({ id: 'table.column.organization.location' })}
+        title={i18n.formatMessage({ id: 'table.column.organization.location' })}
       />,
       <div className='flex flex-1 justify-items-end'>
         <RegisterOrganizationDialog

@@ -76,6 +76,12 @@ type Stage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
 
 type UserRole = 'organizer' | 'partner';
 
+type ActivityCategory = 'EDUCATION';
+
+type ActivityStatus = 'DRAFT' | 'MODERATION' | 'EDITING' | 'PUBLISHED' | 'CLOSED';
+
+type ActivityView = 'ONLINE' | 'OFFLINE';
+
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
@@ -175,6 +181,58 @@ interface OrganizationAddressesResponse {
     details?: string;
     workingHours: WorkingHourDto[];
   }[];
+}
+
+interface CreateActivityDto {
+  name: string;
+  category: string;
+  description?: string;
+  ageLimit: number[];
+  price: number;
+  duration: number;
+  replay: boolean;
+  organizationId: string;
+  files?: File[];
+}
+
+interface Time {
+  hour: number;
+  minutes: number;
+}
+
+interface Schedule {
+  address: string;
+  leadingEmployeeId: string;
+  entry: boolean;
+  regular: boolean;
+  date: Date;
+  time: Time;
+  maxNumberOfParticipants: number;
+  period: number[];
+}
+
+interface ActivityResponse {
+  id: string;
+  cover?: string;
+  content?: string[];
+  name: string;
+  description?: string;
+  ageLimit: number[];
+  price: number;
+  nutsCount: number;
+  duration: number;
+  replay: boolean;
+  view: ActivityView;
+  status: ActivityStatus;
+  category: string;
+  participants: number;
+  likes: number;
+  schedule?: Schedule[];
+}
+
+interface ActivityWithPaginationResponse {
+  rows: ActivityResponse[];
+  pagination: PaginationResponse;
 }
 
 interface LoginEmailDto {

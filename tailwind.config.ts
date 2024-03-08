@@ -11,14 +11,19 @@ const config = {
   prefix: '',
   theme: {
     screens: {
+      '4xlx': { max: '2560px' },
+      '3xlx': { max: '1750px' },
       '2xlx': { max: '1400px' },
-      xlx: { max: '1279px' },
+      xlx: { max: '1280px' },
       '2lgx': { max: '1124px' },
       lgx: { max: '1023px' },
-      mdx: { max: '767px' },
+      mdx: { max: '768px' },
       '2smx': { max: '600px' },
       smx: { max: '639px' },
+      '2xsx': { max: '560px' },
       xsx: { max: '475px' },
+      '4xl': { min: '2560px' },
+      '3xl': { min: '1750px' },
       '2xl': { min: '1400px' },
       xl: { min: '1280px' },
       '2lg': { min: '1124px' },
@@ -26,6 +31,7 @@ const config = {
       md: { min: '768px' },
       '2sm': { min: '600px' },
       sm: { min: '640px' },
+      '2xs': { min: '560px' },
       xs: { min: '475px' }
     },
     container: {
@@ -103,6 +109,10 @@ const config = {
       },
       transitionProperty: {
         width: 'width'
+      },
+      padding: {
+        '1/2': '50%',
+        full: '100%'
       }
     }
   },
