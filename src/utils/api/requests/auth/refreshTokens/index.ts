@@ -1,4 +1,6 @@
 import { api } from '@/utils/api/instance';
 
-export const getRefreshTokens = async (params?: RequestConfig) =>
-  api.get('auth/refresh-tokens', params?.config);
+export type GetRefreshTokensRequestConfig = RequestConfig | void;
+
+export const getRefreshTokens = async (requestConfig?: GetRefreshTokensRequestConfig) =>
+  api.get('auth/refresh-tokens', requestConfig?.config);

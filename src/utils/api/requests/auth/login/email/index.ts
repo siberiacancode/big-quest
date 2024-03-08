@@ -1,8 +1,7 @@
 import { api } from '@/utils/api/instance';
 
 export type PostAuthLoginEmailParams = LoginEmailDto;
+export type PostAuthLoginEmailRequestConfig = RequestConfig<PostAuthLoginEmailParams>;
 
-export const postAuthLoginEmail = async ({
-  params,
-  config
-}: RequestConfig<PostAuthLoginEmailParams>) => api.post('auth/login/email', params, config);
+export const postAuthLoginEmail = async ({ params, config }: PostAuthLoginEmailRequestConfig) =>
+  api.post('auth/login/email', params, config);

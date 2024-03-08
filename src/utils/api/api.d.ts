@@ -84,16 +84,10 @@ type ActivityView = 'ONLINE' | 'OFFLINE';
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
-  postAggress?: string;
+  postAddress?: string;
   inn?: string;
   kpp?: string;
   ogrn?: string;
-}
-
-interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
 }
 
 interface OrganizationResponse {
@@ -270,23 +264,23 @@ interface OrganizationInformationDto {
   email?: string;
   site?: string;
   city?: string;
-  social?: string;
+  social?: string[];
   coordinates?: {
     latitude: number;
     longitude: number;
   };
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
-  postAggress?: string;
+  postAddress?: string;
   inn?: string;
   kpp?: string;
   ogrn?: string;
 }
 
 interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
+  bank?: string;
+  bik?: string;
+  checkingAccount?: string;
 }
 
 interface DashBoardResponse {
@@ -300,4 +294,15 @@ interface DashBoardResponse {
 interface Legals {
   total: number;
   growthPerMonth: number;
+}
+
+interface UpdateOrganizationDto {
+  id?: string;
+  locality?: string;
+  name?: string;
+  description?: string;
+  inn?: string;
+  information?: OrganizationInformationDto;
+  requisites?: RequisitesDto;
+  stage?: string;
 }

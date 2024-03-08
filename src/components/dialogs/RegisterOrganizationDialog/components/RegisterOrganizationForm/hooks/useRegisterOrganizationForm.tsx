@@ -33,7 +33,7 @@ export const useRegisterOrganizationForm = ({
   const postOrganizationRegister = usePostOrganizationRegisterMutation();
 
   const onSubmit = registerOrganizationForm.handleSubmit(async (values) => {
-    await postOrganizationRegister.mutateAsync(values);
+    await postOrganizationRegister.mutateAsync({ params: values });
 
     toast(i18n.formatMessage({ id: 'dialog.registerOrganization.success' }), {
       cancel: { label: 'Close' }

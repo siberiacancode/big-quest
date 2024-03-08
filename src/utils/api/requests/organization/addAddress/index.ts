@@ -1,9 +1,11 @@
 import { api } from '@/utils/api/instance';
 
 export type PostOrganizationAddAddressParams = OrganizationAddressDto;
+export type PostOrganizationAddAddressRequestConfig =
+  RequestConfig<PostOrganizationAddAddressParams>;
 
 export const postOrganizationAddAddress = async ({
-  params,
+  params: { organizationId, ...params },
   config
-}: RequestConfig<PostOrganizationAddAddressParams>) =>
-  api.post(`organization/${params.organizationId}/addAddress`, params, config);
+}: PostOrganizationAddAddressRequestConfig) =>
+  api.post(`organization/${organizationId}/addAddress`, params, config);
