@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 import { Button, DropzoneImage } from '@/components/ui';
 
-import { ACCEPT_FILE_TYPES } from './constants/constants';
+import { ACCEPT_FILE_TYPES } from './constants/acceptFileTypes';
 import type { FileType } from './constants/types';
 import { useDropzoneCard } from './hooks/useDropzoneCard';
 
