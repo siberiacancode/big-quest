@@ -1,7 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
 export const getAddress: RestRequestConfig = {
-  path: '/Address',
+  path: '/address',
   method: 'get',
   routes: [
     {
@@ -11,24 +11,20 @@ export const getAddress: RestRequestConfig = {
           region: 'Томская область',
           city: 'Томск',
           postal_code: '13123123',
-          street: 'Ленина',
-          house: '12',
-          flat: '12',
           geo_lat: 123123,
           geo_lon: 13123,
-          unrestrictedValue: 'Томская область, Томск'
+          unrestrictedValue: 'Томская область, Томск',
+          cityWithType: 'г. Томск'
         },
         {
           country: 'Россия',
           region: 'Новосибирская область',
           city: 'Новосибирск',
           postal_code: '13123123',
-          street: 'Ленина',
-          house: '12',
-          flat: '12',
           geo_lat: 123123,
           geo_lon: 13123,
-          unrestrictedValue: 'Новосибирская область, Новосибирск ddddddddddddddddddddddddddddddd'
+          unrestrictedValue: 'Новосибирская область, Новосибирск ddddddddddddddddddddddddddddddd',
+          cityWithType: 'г. Новосибирск'
         }
       ]
     },
@@ -42,12 +38,10 @@ export const getAddress: RestRequestConfig = {
           region: 'Томская область',
           city: 'Томск',
           postal_code: '13123123',
-          street: 'Ленина',
-          house: '12',
-          flat: '12',
           geo_lat: 123123,
           geo_lon: 13123,
-          unrestrictedValue: 'Томская область, Томск'
+          unrestrictedValue: 'Томская область, Томск',
+          cityWithType: 'г. Томск'
         }
       ]
     }

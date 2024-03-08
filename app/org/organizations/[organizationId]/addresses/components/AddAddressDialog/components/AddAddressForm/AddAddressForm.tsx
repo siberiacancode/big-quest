@@ -15,6 +15,7 @@ import {
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 
+import { convertLocalitiesToComboboxItems } from './helpers/convertLocalitiesToComboboxItems';
 import { useAddAddressForm } from './hooks/useAddAddressForm';
 
 interface AddAddressFormProps {
@@ -42,6 +43,7 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                    convertAddressesToComboboxItems={convertLocalitiesToComboboxItems}
                   />
                   <FormMessage>
                     {form.formState?.errors?.locality && (

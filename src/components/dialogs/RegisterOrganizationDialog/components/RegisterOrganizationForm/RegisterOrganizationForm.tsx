@@ -16,7 +16,7 @@ import {
   RadioGroupItem
 } from '@/components/ui';
 
-import { convertAddressesToComboboxItems } from './helpers/convertAddressesToComboboxItems';
+import { convertLocationsToComboboxItems } from './helpers/convertLocationsToComboboxItems';
 import { useRegisterOrganizationForm } from './hooks/useRegisterOrganizationForm';
 
 interface RegisterOrganizationFormProps {
@@ -95,7 +95,7 @@ export const RegisterOrganizationForm = ({ onRegistered }: RegisterOrganizationF
                 value={field.value}
                 className='w-full'
                 onSelect={(newValue) => form.setValue('location', newValue ?? '')}
-                convertAddressesToComboboxItems={convertAddressesToComboboxItems}
+                convertAddressesToComboboxItems={convertLocationsToComboboxItems}
               />
               <FormMessage>
                 {form.formState?.errors?.location && (
