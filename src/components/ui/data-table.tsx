@@ -56,6 +56,7 @@ type DataTableContextValue<TData = any> = {
   table: Table<TData>;
   loading?: boolean;
   columns: ColumnDef<TData>[];
+  pagination: PaginationResponse;
 };
 
 const DataTableContext = React.createContext<DataTableContextValue>({} as DataTableContextValue);
@@ -114,18 +115,23 @@ interface DataTableProps<TData> extends React.ComponentProps<'div'> {
   table: Table<TData>;
   columns: ColumnDef<TData>[];
   loading?: boolean;
+  pagination: PaginationResponse;
 }
 
 export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any>>(
-  <TData,>({ children, columns, rows, table, loading, ...props }: DataTableProps<TData>, ref) => {
+  <TData,>(
+    { children, columns, rows, table, loading, pagination, ...props }: DataTableProps<TData>,
+    ref
+  ) => {
     const value = React.useMemo(
       () => ({
         columns,
         rows,
         table,
-        loading
+        loading,
+        pagination
       }),
-      []
+      [pagination]
     );
 
     return (
@@ -374,89 +380,98 @@ DataTableBottomContent.displayName = 'DataTablePaginationContent';
 
 interface DataTablePaginationProps
   extends Omit<React.ComponentProps<typeof Pagination>, 'onClick'> {
-  pagination: PaginationResponse;
   onClick: (page: number) => void;
 }
 
-export const DataTablePagination = ({
-  pagination: { count, current, limit },
-  onClick,
-  ...props
-}: DataTablePaginationProps) =>
-  getPageCount(limit, count) > 1 && (
-    <div>
-      <Pagination {...props}>
-        <PaginationContent className='flex flex-wrap justify-center'>
-          <PaginationPrevious
-            variant='outline'
-            size='icon'
-            disabled={current <= 1}
-            onClick={() => onClick(current - 1)}
-            className='mr-3 size-8 border-none'
-          />
+export const DataTablePagination = ({ onClick, ...props }: DataTablePaginationProps) => {
+  const dataTableContext = React.useContext(DataTableContext);
 
-          {getPaginationNumbers({ current, count, limit }).map((page) => (
-            <PaginationItem key={page}>
-              {page === '...' && <PaginationEllipsis />}
-              {page !== '...' && (
-                <Button
-                  key={page}
-                  variant={current === page ? 'secondary' : 'outline'}
-                  size='sm'
-                  className='h-8 w-8 rounded-lg border border-secondary font-normal'
-                  onClick={() => onClick(page)}
-                >
-                  {getPageIndex(page)}
-                </Button>
-              )}
-            </PaginationItem>
-          ))}
+  return (
+    getPageCount(dataTableContext.pagination.limit, dataTableContext.pagination.count) > 1 && (
+      <div>
+        <Pagination {...props}>
+          <PaginationContent className='flex flex-wrap justify-center'>
+            <PaginationPrevious
+              variant='outline'
+              size='icon'
+              disabled={dataTableContext.pagination.current <= 1}
+              onClick={() => onClick(dataTableContext.pagination.current - 1)}
+              className='mr-3 size-8 border-none'
+            />
 
-          <PaginationNext
-            variant='outline'
-            size='icon'
-            disabled={current + 1 >= getPageCount(limit, count)}
-            onClick={() => onClick(current + 1)}
-            className='ml-3 size-8 border-none'
-          />
-        </PaginationContent>
-      </Pagination>
-    </div>
+            {getPaginationNumbers(dataTableContext.pagination).map((page) => (
+              <PaginationItem key={page}>
+                {page === '...' && <PaginationEllipsis />}
+                {page !== '...' && (
+                  <Button
+                    key={page}
+                    variant={dataTableContext.pagination.current === page ? 'secondary' : 'outline'}
+                    size='sm'
+                    className='h-8 w-8 rounded-lg border border-secondary font-normal'
+                    onClick={() => onClick(page)}
+                  >
+                    {getPageIndex(page)}
+                  </Button>
+                )}
+              </PaginationItem>
+            ))}
+
+            <PaginationNext
+              variant='outline'
+              size='icon'
+              disabled={
+                dataTableContext.pagination.current + 1 >=
+                getPageCount(dataTableContext.pagination.limit, dataTableContext.pagination.count)
+              }
+              onClick={() => onClick(dataTableContext.pagination.current + 1)}
+              className='ml-3 size-8 border-none'
+            />
+          </PaginationContent>
+        </Pagination>
+      </div>
+    )
   );
-
+};
 interface DataTableSelectedLabelProps extends Omit<React.ComponentProps<'div'>, 'children'> {
-  count: number;
   children: (count: number, selectedCount: number) => React.ReactNode;
 }
 
 export const DataTableSelectedLabel = React.forwardRef<HTMLDivElement, DataTableSelectedLabelProps>(
-  ({ count, children, ...props }, ref) => {
+  ({ children, ...props }, ref) => {
     const dataTableContext = React.useContext(DataTableContext);
     const selectedCount = dataTableContext.table.getFilteredSelectedRowModel().rows.length;
+
     return (
       <div ref={ref} className='text-sm text-muted-foreground mdx:pt-2' {...props}>
-        {children(count, selectedCount)}
+        {children(dataTableContext.pagination.count, selectedCount)}
       </div>
     );
   }
 );
 DataTableSelectedLabel.displayName = 'DataTableSelectedLabel';
 
-interface DataTableCurrentPageLabelProps extends React.ComponentProps<'div'> {
-  pagination: PaginationResponse;
+interface DataTableCurrentPageLabelProps extends Omit<React.ComponentProps<'div'>, 'children'> {
+  children: (count: number, current: number, limit: number) => React.ReactNode;
 }
 
 export const DataTableCurrentPageLabel = React.forwardRef<
   HTMLDivElement,
   DataTableCurrentPageLabelProps
->(
-  ({ pagination: { count, limit }, children, ...props }, ref) =>
-    !!getPageCount(limit, count) && (
+>(({ children, ...props }, ref) => {
+  const dataTableContext = React.useContext(DataTableContext);
+
+  return (
+    !!getPageCount(dataTableContext.pagination.limit, dataTableContext.pagination.count) && (
       <div ref={ref} {...props}>
-        {children}
+        {children(
+          dataTableContext.pagination.count,
+          dataTableContext.pagination.current,
+          dataTableContext.pagination.limit
+        )}
       </div>
     )
-);
+  );
+});
 DataTableSelectedLabel.displayName = 'DataTableSelectedLabel';
 
 export interface ColumnConfig<TData> {

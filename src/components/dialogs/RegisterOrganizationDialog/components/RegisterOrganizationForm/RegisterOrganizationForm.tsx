@@ -95,7 +95,7 @@ export const RegisterOrganizationForm = ({ onRegistered }: RegisterOrganizationF
                 value={field.value}
                 className='w-full'
                 onSelect={(newValue) => form.setValue('location', newValue ?? '')}
-                convertAddressesToComboboxItems={convertLocationsToComboboxItems}
+                convertAddresses={convertLocationsToComboboxItems}
               />
               <FormMessage>
                 {form.formState?.errors?.location && (

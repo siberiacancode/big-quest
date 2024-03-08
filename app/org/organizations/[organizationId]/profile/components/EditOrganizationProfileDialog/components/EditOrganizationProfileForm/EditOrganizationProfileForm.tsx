@@ -21,9 +21,7 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import { convertLegalAddressesToComboboxItems } from './helpers/convertLegalAddressesToComboboxItems';
 import { convertLocalitiesToComboboxItems } from './helpers/convertLocalitiesToComboboxItems';
-import { convertPostAddressesToComboboxItems } from './helpers/convertPostAddressesToComboboxItems';
 import { useEditOrganizationProfileForm } from './hooks/useEditOrganizationProfileForm';
 
 interface EditOrganizationFormProps {
@@ -175,7 +173,7 @@ export const EditOrganizationProfileForm = ({
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
-                    convertAddressesToComboboxItems={convertLocalitiesToComboboxItems}
+                    convertAddresses={convertLocalitiesToComboboxItems}
                   />
                 </FormControl>
                 <FormMessage>
@@ -286,7 +284,6 @@ export const EditOrganizationProfileForm = ({
                     onSelect={(newValue) =>
                       form.setValue('information.legalAddress', newValue ?? '')
                     }
-                    convertAddressesToComboboxItems={convertLegalAddressesToComboboxItems}
                   />
                 </FormControl>
                 <FormMessage>
@@ -316,7 +313,6 @@ export const EditOrganizationProfileForm = ({
                     onSelect={(newValue) =>
                       form.setValue('information.postAddress', newValue ?? '')
                     }
-                    convertAddressesToComboboxItems={convertPostAddressesToComboboxItems}
                   />
                 </FormControl>
                 <FormMessage>

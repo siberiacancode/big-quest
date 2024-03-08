@@ -43,7 +43,7 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
-                    convertAddressesToComboboxItems={convertLocalitiesToComboboxItems}
+                    convertAddresses={convertLocalitiesToComboboxItems}
                   />
                   <FormMessage>
                     {form.formState?.errors?.locality && (

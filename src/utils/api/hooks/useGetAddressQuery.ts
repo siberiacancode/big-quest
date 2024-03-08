@@ -4,7 +4,7 @@ import { getAddress } from '../requests/address';
 
 export const useGetAddressQuery = (settings?: QuerySettings<typeof getAddress>) =>
   useQuery({
-    queryKey: ['getAddress', settings?.config?.params.address],
-    queryFn: () => getAddress({ config: settings?.config }),
+    queryKey: ['getAddress', settings?.config?.config?.params?.address],
+    queryFn: () => getAddress({ config: settings?.config?.config }),
     ...settings?.options
   });

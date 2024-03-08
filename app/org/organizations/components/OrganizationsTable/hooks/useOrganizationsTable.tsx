@@ -111,7 +111,6 @@ export const useOrganizationsTable = () => {
       organizationFilter,
       selectedLocations,
       selectedStages,
-      isPending,
       onLocationsSelect,
       onStagesSelect
     ]
