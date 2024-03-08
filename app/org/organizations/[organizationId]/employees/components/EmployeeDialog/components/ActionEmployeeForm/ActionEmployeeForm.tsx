@@ -43,6 +43,7 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
           <div className='flex-1 space-y-3'>
             <FormField
               control={form.control}
+              disabled={state.isLoading}
               name='role'
               render={({ field }) => (
                 <FormItem>
@@ -82,6 +83,7 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
             />
             <FormField
               control={form.control}
+              disabled={state.isLoading}
               name='surname'
               render={({ field }) => (
                 <FormItem>
@@ -101,6 +103,7 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
             />
             <FormField
               control={form.control}
+              disabled={state.isLoading}
               name='name'
               render={({ field }) => (
                 <FormItem>
@@ -120,6 +123,7 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
             />
             <FormField
               control={form.control}
+              disabled={state.isLoading}
               name='email'
               render={({ field }) => (
                 <FormItem>
@@ -142,6 +146,7 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
             />
             <FormField
               control={form.control}
+              disabled={state.isLoading}
               name='phone'
               render={({ field }) => (
                 <FormItem>
