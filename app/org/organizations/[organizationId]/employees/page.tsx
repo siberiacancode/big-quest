@@ -20,7 +20,7 @@ const OrganizationEmployeesPage = async ({ params }: OrganizationEmployeesPagePr
   });
 
   return (
-    <>
+    <div className='space-y-4'>
       <div className='flex justify-between'>
         <Typography variant='h5' tag='h5'>
           <I18nText path='partners.employees.title' />
@@ -40,7 +40,7 @@ const OrganizationEmployeesPage = async ({ params }: OrganizationEmployeesPagePr
           <EmployeeCard key={index} employee={employee} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
