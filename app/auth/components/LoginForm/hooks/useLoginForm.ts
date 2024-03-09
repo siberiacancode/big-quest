@@ -26,17 +26,17 @@ export const useLoginForm = () => {
   });
 
   const postAuthLoginEmailMutation = usePostAuthLoginEmailMutation();
-  const getUserMeQueryMutation = useGetUserMeMutation();
+  const getUserMeMutation = useGetUserMeMutation();
 
   const onSubmit = loginForm.handleSubmit(async (values) => {
     await postAuthLoginEmailMutation.mutateAsync({ params: values });
 
-    const getUserMeQueryMutationResponse = await getUserMeQueryMutation.mutateAsync();
+    const getUserMeMutationResponse = await getUserMeMutation.mutateAsync();
 
-    setUser(getUserMeQueryMutationResponse);
+    setUser(getUserMeMutationResponse);
     setSession({ isAuthenticated: true });
 
-    handleLogin(getUserMeQueryMutationResponse);
+    handleLogin(getUserMeMutationResponse);
     router.replace(ROUTES.ORG.ORGANIZATIONS.ROOT);
   });
 

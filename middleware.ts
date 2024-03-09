@@ -19,9 +19,9 @@ const clearCookies = (
 ) => cookies.forEach((cookie) => response.cookies.delete(cookie));
 
 export async function middleware(request: NextRequest) {
-  console.log('\nMIDDLEWARE:');
-  console.log('request.url: ', request.url);
-  console.log('\n');
+  console.info('\nMIDDLEWARE REQUEST:', request.method, request.url, new Date());
+
+  if (request.method !== 'GET') return NextResponse.next();
 
   const authTokenCookie = request.cookies.get(COOKIES.ACCESS_TOKEN);
   const refreshTokenCookie = request.cookies.get(COOKIES.REFRESH_TOKEN);
@@ -38,8 +38,8 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(ROUTES.AUTH, request.url));
   }
 
-  const tokensTimerCookie = request.cookies.get(COOKIES.TOKENS_TIMER);
   if (isAuthenticated) {
+    const tokensTimerCookie = request.cookies.get(COOKIES.TOKENS_TIMER);
     if (tokensTimerCookie?.value && +tokensTimerCookie.value < Date.now()) {
       console.log('@.3 update tokens and user data');
 
@@ -58,48 +58,6 @@ export async function middleware(request: NextRequest) {
 
         return response;
       }
-
-      // try {
-      //   const getUserMeResponse = await getUserMe();
-      //   console.log('@', getUserMeResponse);
-
-      //   // if (getUserMeResponse.roles.includes('SUPERADMIN') && request.url.includes(ROUTES.AUTH)) {
-      //   //   console.log('@.4 SUPERADMIN');
-      //   //   return NextResponse.redirect(new URL(ROUTES.ORG.ORGANIZATIONS.ROOT, request.url));
-      //   // }
-      //   try {
-      //     await getRefreshTokens();
-      //   } catch (error) {
-      //     console.log('@.5 getRefreshTokens first error');
-      //     const response = NextResponse.redirect(new URL(ROUTES.AUTH, request.url));
-      //     response.cookies.delete(COOKIES.REFRESH_TOKEN);
-      //     response.cookies.delete(COOKIES.ACCESS_TOKEN);
-      //     return response;
-      //   }
-      // } catch (error: any) {
-      //   const responseError = error.cause as ResponseError;
-      //   // console.log('@', responseError);
-      //   if (responseError.response.status !== 401) {
-      //     console.log('@.6 getUserMeResponse error, not 401');
-      //     const response = NextResponse.redirect(new URL(ROUTES.AUTH, request.url));
-      //     response.cookies.delete(COOKIES.REFRESH_TOKEN);
-      //     response.cookies.delete(COOKIES.ACCESS_TOKEN);
-      //     return response;
-      //   }
-
-      //   console.log('@status', responseError.response.status);
-
-      //   try {
-      //     await getRefreshTokens();
-      //   } catch (error) {
-      //     console.log('@.7 getRefreshTokens second error');
-
-      //     const response = NextResponse.redirect(new URL(ROUTES.AUTH, request.url));
-      //     response.cookies.delete(COOKIES.REFRESH_TOKEN);
-      //     response.cookies.delete(COOKIES.ACCESS_TOKEN);
-      //     return response;
-      //   }
-      // }
 
       const response = NextResponse.redirect(new URL(request.url));
 
