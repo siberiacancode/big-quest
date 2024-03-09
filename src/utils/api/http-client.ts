@@ -140,6 +140,8 @@ export class HttpClient {
   }
 
   private async request<T>(endpoint: string, method: RequestMethod, options: RequestOptions = {}) {
+    console.info('REQUEST:', method?.toUpperCase(), endpoint, new Date());
+
     const defaultConfig: _RequestConfig = {
       ...options,
       url: endpoint,

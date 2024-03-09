@@ -19,7 +19,10 @@ const clearCookies = (
 ) => cookies.forEach((cookie) => response.cookies.delete(cookie));
 
 export async function middleware(request: NextRequest) {
+  console.log('\nMIDDLEWARE:');
   console.log('request.url: ', request.url);
+  console.log('\n');
+
   const authTokenCookie = request.cookies.get(COOKIES.ACCESS_TOKEN);
   const refreshTokenCookie = request.cookies.get(COOKIES.REFRESH_TOKEN);
 
@@ -106,7 +109,7 @@ export async function middleware(request: NextRequest) {
 
       response.headers.set(
         'Set-cookie',
-        `${setTokens}, ${COOKIES.TOKENS_TIMER}=${createTokensTimer(5)}`
+        `${setTokens}, ${COOKIES.TOKENS_TIMER}=${createTokensTimer(5)}; Path=/; Expires=Tue, 09 Apr 2024 08:13:54 GMT; HttpOnly; SameSite=Lax`
       );
 
       return response;
