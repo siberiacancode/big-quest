@@ -9,3 +9,4 @@ export * from './organization/dashboard';
 export * from './organization/getAddresses';
 export * from './organization/id';
 export * from './organization/register';
+export * from './user/me';

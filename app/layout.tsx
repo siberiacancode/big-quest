@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { cookies } from 'next/headers';
 
 import { Toaster } from '@/components/ui/sonner';
-import { generateRefreshTokenInterceptor } from '@/utils/api/interceptors';
 import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
+import { COOKIES } from '@/utils/constants';
 import { getMessagesByLocale } from '@/utils/helpers';
 import { getDefaultTheme } from '@/utils/helpers/getDefaultTheme';
 
@@ -21,19 +22,27 @@ export const metadata: Metadata = {
 const TOASTER_DURATION = 5000;
 
 generateServerHeadersInterceptor();
-generateRefreshTokenInterceptor();
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+const RootLayout = ({ children }: RootLayoutProps) => {
   const locale = 'ru';
   const messages = getMessagesByLocale(locale);
   const defaultTheme = getDefaultTheme();
+
+  const userSessionCookie = cookies().get(COOKIES.USER_SESSION);
 
   return (
     <html className={defaultTheme} lang='en'>
       <body className={`min-h-screen bg-background font-sans antialiased ${inter.className}`}>
         <Providers
+          user={{
+            defaultUser: userSessionCookie?.value ? JSON.parse(userSessionCookie.value) : null
+          }}
           i18n={{ locale, messages }}
-          session={{ defaultSession: { isAuthenticated: true } }}
+          session={{ defaultSession: { isAuthenticated: !!userSessionCookie?.value } }}
           theme={{ defaultTheme }}
         >
           {children}

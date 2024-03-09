@@ -30,9 +30,11 @@ type _RequestConfig = RequestInit & {
   params?: SearchParams;
 };
 interface InterceptorResponseResult {
+  headers: Response['headers'];
   success: Response['ok'];
   status: Response['status'];
   statusText: Response['statusText'];
+  url: string;
   data: any;
 }
 type SuccessResponseFun = (res: InterceptorResponseResult) => InterceptorResponseResult['data'];
@@ -300,4 +302,21 @@ interface DashBoardResponse {
 interface Legals {
   total: number;
   growthPerMonth: number;
+}
+
+interface UserResponse {
+  id: string;
+  email: string;
+  createdAt: string;
+  updatedAt: string;
+  roles: ['SUPERADMIN'];
+  isBlocked: boolean;
+  isActive: boolean;
+  name: string;
+  surname: string;
+  middleName: string;
+  lastLogin: string;
+  passportId: string;
+  sex: 'MALE';
+  avatar: string;
 }

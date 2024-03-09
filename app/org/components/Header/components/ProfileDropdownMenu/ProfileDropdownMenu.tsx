@@ -25,7 +25,7 @@ export const ProfileDropdownMenu = () => {
           </div>
           <div className='flex flex-col justify-between'>
             <Typography variant='h6' tag='p'>
-              Имя фамилия
+              {state.user.name} {state.user.surname}
             </Typography>
             <Typography variant='body2' tag='p' className='text-muted-foreground'>
               Админ

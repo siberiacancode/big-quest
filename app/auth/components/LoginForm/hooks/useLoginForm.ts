@@ -3,12 +3,19 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 
 import { usePostAuthLoginEmailMutation } from '@/utils/api';
+import { useGetUserMeMutation } from '@/utils/api/hooks';
+import { ROUTES } from '@/utils/constants';
+import { useSession, useUser } from '@/utils/contexts';
+import { handleLogin } from '@/utils/jwt/handleLogin';
 
 import type { LoginSchema } from '../constants/loginSchema';
 import { loginSchema } from '../constants/loginSchema';
 
 export const useLoginForm = () => {
   const router = useRouter();
+  const { setUser } = useUser();
+  const { setSession } = useSession();
+
   const loginForm = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -18,17 +25,24 @@ export const useLoginForm = () => {
     }
   });
 
-  const postAuthLoginEmail = usePostAuthLoginEmailMutation();
+  const postAuthLoginEmailMutation = usePostAuthLoginEmailMutation();
+  const getUserMeQueryMutation = useGetUserMeMutation();
 
   const onSubmit = loginForm.handleSubmit(async (values) => {
-    await postAuthLoginEmail.mutateAsync(values);
+    await postAuthLoginEmailMutation.mutateAsync(values);
 
-    router.replace('/org/organizations');
+    const getUserMeQueryMutationResponse = await getUserMeQueryMutation.mutateAsync();
+
+    setUser(getUserMeQueryMutationResponse);
+    setSession({ isAuthenticated: true });
+
+    handleLogin(getUserMeQueryMutationResponse);
+    router.replace(ROUTES.ORG.ORGANIZATIONS.ROOT);
   });
 
   return {
     state: {
-      isLoading: postAuthLoginEmail.isPending
+      isLoading: postAuthLoginEmailMutation.isPending
     },
     form: loginForm,
     functions: { onSubmit }
