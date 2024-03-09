@@ -5,6 +5,7 @@
 
   "partners.addresses.title": "Адреса",
   "partners.activities.title": "Активности",
+  "partners.employees.title": "Сотрудники",
 
   "org.auth.title": "Вход в личный кабинет",
   "org.auth.rememberMe": "Запомнить меня",
@@ -15,6 +16,7 @@
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
   "button.addActivities": "Добавить активность",
+  "button.addEmployee": "Добавить сотрудника",
 
   "button.login": "Войти",
 
@@ -42,7 +44,8 @@
   "organization.profile.information.name": "Название",
   "organization.profile.information.contactName": "Контактное имя",
   "organization.profile.information.phone": "Телефон",
-  "organization.profile.information.email": "Сайт",
+  "organization.profile.information.email": "Почта",
+  "organization.profile.information.site": "Сайт",
   "organization.profile.information.locality": "Населенный пункт",
   "organization.profile.information.social": "Соц. сети",
 
@@ -70,6 +73,11 @@
   "organization.activities.status.editing": "Редактирование",
   "organization.activities.status.closed": "Закрыта",
   "organization.activities.status.published": "Опубликована",
+  "organization.employee.email": "Email",
+  "organization.employee.phoneNumber": "Телефон",
+  "organization.employee.role.administrator": "Администратор",
+  "organization.employee.role.leading": "Ведущий",
+  "organization.employee.role.manager": "Менеджер",
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",
@@ -89,7 +97,7 @@
   "field.details.label": "Детали",
   "field.details.placeholder": "офис, вход, этаж",
   "field.note.placeholder": "Оставьте заметку...",
-  "field.name.label": "Название",
+  "field.title.label": "Название",
   "field.name.placeholder": "Введите название...",
   "field.category.label": "Категория",
   "field.description.label": "Описание",
@@ -106,6 +114,35 @@
   "field.replay.label": "Повторное прохождение",
   "field.replay.option.false": "Не разрешать",
   "field.replay.option.true": "Разрешать",
+  "field.name.label": "Имя",
+  "field.surname.label": "Фамилия",
+  "field.role.label": "Роль",
+
+  "field.imageDownload.title": "Нажмите, чтобы загрузить",
+  "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
+
+  "field.default.placeholder": "Заполните",
+
+  "field.organization.name.label": "Название",
+  "field.organization.contactName.label": "Контактное имя",
+  "field.organization.phone.label": "Телефон",
+  "field.organization.email.label": "Почта",
+  "field.organization.site.label": "Сайт",
+  "field.organization.site.placeholder": "example.com",
+  "field.organization.locality.label": "Населенный пункт",
+  "field.organization.social.label": "Соц. сети",
+  "field.organization.social.placeholder": "vk.com",
+  "field.organization.fullName.label": "Полное наименование юр. лица",
+  "field.organization.legalAddress.label": "Юридический адрес",
+  "field.organization.postAddress.label": "Почтовый адрес",
+  "field.organization.inn.label": "ИНН",
+  "field.organization.kpp.label": "КПП",
+  "field.organization.ogrn.label": "ОГРН",
+  "field.organization.title.label": "Реквизиты",
+  "field.organization.bank.label": "Банк",
+  "field.organization.bank.placeholder": "ПАО Банк",
+  "field.organization.bik.label": "БИК",
+  "field.organization.checkingAccount.label": "Р/С",
 
   "navigation.link.default": "Текущая",
   "navigation.link.org.organizations": "Организации",
@@ -174,14 +211,35 @@
 
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты",
+  "validation.url.format": "Неверный формат ссылки",
   "validation.time.requiredBoth": "Необходимы оба значения времени",
+  "validation.max": "Превышен лимит символов",
+  "validation.format": "Неверный формат",
 
   "dialog.registerOrganization.title": "Заполните заявку",
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
+
   "dialog.addAddress.title": "Добавление адреса",
   "dialog.addAddress.form.untill": "до",
   "dialog.addAddress.success": "Адрес успешно добавлен",
+
   "dialog.addActivity.title": "Активность",
   "dialog.addActivity.success": "Активность успешно добавлена",
-  "dialog.editActivity.success": "Активность успешно изменена"
+
+  "dialog.editActivity.success": "Активность успешно изменена",
+
+  "dialog.addEmployee.title": "Добавление сотрудника",
+  "dialog.addEmployee.description": "Заполните форму и загрузите изображение",
+  "dialog.addEmployee.success": "Сотрудник успешно добавлен",
+
+  "dialog.editEmployee.title": "Редактирование сотрудника",
+  "dialog.editEmployee.success": "Информация о сотруднике успешно отредактирована",
+
+  "dialog.editOrganizationProfile.title": "Редактирование профиля",
+  "dialog.editOrganizationProfile.success": "Профиль успешно изменен",
+
+  "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
+  "tooltip.kpp": "КПП - 9 цифр",
+  "tooltip.ogrn": "ОГРН - 13 цифр, ОГРНИП - 15 цифр",
+  "tooltip.bik": "БИК - 9 цифр"
 }

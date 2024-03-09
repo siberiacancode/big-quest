@@ -125,13 +125,13 @@ export const RegisterOrganizationForm = ({ onRegistered }: RegisterOrganizationF
         <FormField
           control={form.control}
           name='phone'
-          render={({ field }) => (
+          render={({ field: { onChange, ...field } }) => (
             <FormItem>
               <FormLabel>
                 <I18nText path='field.phone.label' />
               </FormLabel>
               <FormControl>
-                <PhoneNumberInput {...field} />
+                <PhoneNumberInput onValueChange={({ value }) => onChange(value)} {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.phone && (

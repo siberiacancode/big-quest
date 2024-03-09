@@ -29,7 +29,7 @@ export const useLoginForm = () => {
   const getUserMeQueryMutation = useGetUserMeMutation();
 
   const onSubmit = loginForm.handleSubmit(async (values) => {
-    await postAuthLoginEmailMutation.mutateAsync(values);
+    await postAuthLoginEmailMutation.mutateAsync({ params: values });
 
     const getUserMeQueryMutationResponse = await getUserMeQueryMutation.mutateAsync();
 

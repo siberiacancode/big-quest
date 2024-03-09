@@ -23,6 +23,7 @@ interface QuerySettings<Func = unknown> {
 
 type BaseUrl = string;
 type RequestMethod = RequestInit['method'];
+
 type _RequestConfig = RequestInit & {
   url: string;
   _retry?: boolean;
@@ -86,16 +87,10 @@ type ActivityView = 'ONLINE' | 'OFFLINE';
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
-  postAggress?: string;
+  postAddress?: string;
   inn?: string;
   kpp?: string;
   ogrn?: string;
-}
-
-interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
 }
 
 interface OrganizationResponse {
@@ -135,6 +130,27 @@ interface OrganizationAddressDto {
   house: string;
   details?: string;
   workingHours: WorkingHourDto[];
+}
+
+interface AddEmployeeDto {
+  legalEntityId?: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  // image?: any;
+}
+
+interface EditEmployeeDto {
+  userId: string;
+  legalEntityId?: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  // image?: any;
 }
 
 interface RegisterOrganizationDto {
@@ -272,23 +288,23 @@ interface OrganizationInformationDto {
   email?: string;
   site?: string;
   city?: string;
-  social?: string;
+  social?: string[];
   coordinates?: {
     latitude: number;
     longitude: number;
   };
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
-  postAggress?: string;
+  postAddress?: string;
   inn?: string;
   kpp?: string;
   ogrn?: string;
 }
 
 interface RequisitesDto {
-  bank: string;
-  bik: string;
-  checkingAccount: string;
+  bank?: string;
+  bik?: string;
+  checkingAccount?: string;
 }
 
 interface DashBoardResponse {
@@ -319,4 +335,25 @@ interface UserResponse {
   passportId: string;
   sex: 'MALE';
   avatar: string;
+}
+
+interface EmployeeDto {
+  id: string;
+  role: 'Administrator' | 'Leading' | 'Manager';
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  // image?: any;
+}
+
+interface UpdateOrganizationDto {
+  id?: string;
+  locality?: string;
+  name?: string;
+  description?: string;
+  inn?: string;
+  information?: OrganizationInformationDto;
+  requisites?: RequisitesDto;
+  stage?: string;
 }

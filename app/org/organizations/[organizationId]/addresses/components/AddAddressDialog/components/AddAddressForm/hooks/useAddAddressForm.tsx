@@ -60,8 +60,7 @@ export const useAddAddressForm = ({ onAdded }: UseAddAddressFormParams) => {
     const formattedValues = { ...values, workingHours: formattedWorkingHours };
 
     await postOrganizationAddAddress.mutateAsync({
-      ...formattedValues,
-      organizationId: params.id
+      params: { ...formattedValues, organizationId: params.id }
     });
 
     toast(i18n.formatMessage({ id: 'dialog.addAddress.success' }), {

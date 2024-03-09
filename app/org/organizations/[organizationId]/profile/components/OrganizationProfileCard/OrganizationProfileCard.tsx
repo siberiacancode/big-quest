@@ -20,6 +20,8 @@ import {
   Typography
 } from '@/components/ui';
 
+import { EditOrganizationProfileDialog } from '../EditOrganizationProfileDialog/EditOrganizationProfileDialog';
+
 interface OrganizationProfileCardProps {
   organization: OrganizationResponse;
 }
@@ -29,13 +31,18 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
     <InfoCardHeader className='pb-0'>
       <InfoCardTitle>
         <Typography variant='h5' tag='h5'>
-          <I18nText path='organization.profile.information.name' />
+          <I18nText path='organization.profile.information.title' />
         </Typography>
       </InfoCardTitle>
       <InfoCardAction className='rounded-none bg-transparent'>
-        <Button variant='ghost' className='ml-3 mr-1 h-8 w-8 p-2'>
-          <Edit3Icon size={20} strokeWidth={1.5} />
-        </Button>
+        <EditOrganizationProfileDialog
+          organization={organization}
+          trigger={
+            <Button variant='ghost' className='ml-3 mr-1 h-8 w-8 p-2'>
+              <Edit3Icon size={20} strokeWidth={1.5} />
+            </Button>
+          }
+        />
       </InfoCardAction>
     </InfoCardHeader>
     <InfoCardContent className='flex w-full flex-col px-7'>
@@ -139,13 +146,13 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
                   </OrganizationProfileCardInfoContent>
                 </OrganizationProfileCardInfo>
               )}
-              {organization.legalInfo.postAggress && (
+              {organization.legalInfo.postAddress && (
                 <OrganizationProfileCardInfo>
                   <OrganizationProfileCardInfoTitle>
                     <I18nText path='organization.profile.legalInfo.postAddress' />
                   </OrganizationProfileCardInfoTitle>
                   <OrganizationProfileCardInfoContent>
-                    {organization.legalInfo.postAggress}
+                    {organization.legalInfo.postAddress}
                   </OrganizationProfileCardInfoContent>
                 </OrganizationProfileCardInfo>
               )}
