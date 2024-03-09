@@ -333,7 +333,7 @@ interface UserResponse {
   middleName: string;
   lastLogin: string;
   passportId: string;
-  sex: 'MALE';
+  sex: 'MALE' | 'FEMALE';
   avatar: string;
 }
 

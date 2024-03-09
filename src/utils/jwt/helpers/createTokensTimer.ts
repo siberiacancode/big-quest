@@ -1,2 +1,4 @@
+const ONE_MINUTE = 60000;
+
 export const createTokensTimer = (minutes: number) =>
-  new Date(Date.now() + minutes * 60000).getTime().toString();
+  new Date(Date.now() + minutes * ONE_MINUTE).getTime().toString();

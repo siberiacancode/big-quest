@@ -11,7 +11,7 @@ import { createTokensTimer } from '@/utils/jwt/helpers/createTokensTimer';
 generateSetTokensInterceptor();
 generateServerHeadersInterceptor();
 
-const UN_AUTH_ROUTES = [ROUTES.AUTH];
+const UNAUTH_ROUTES = [ROUTES.AUTH];
 
 const clearCookies = (
   response: NextResponse,
@@ -63,8 +63,6 @@ export async function middleware(request: NextRequest) {
 
       const { setTokens } = api.headers;
 
-      console.log('@tokens update for browser', setTokens);
-
       response.headers.set(
         'Set-cookie',
         `${setTokens}, ${COOKIES.TOKENS_TIMER}=${createTokensTimer(5)}; Path=/; Expires=Tue, 09 Apr 2024 08:13:54 GMT; HttpOnly; SameSite=Lax`
@@ -74,14 +72,14 @@ export async function middleware(request: NextRequest) {
     }
 
     const userSessionCookie = request.cookies.get(COOKIES.USER_SESSION);
+
     if (userSessionCookie?.value) {
       const userSession: UserResponse = JSON.parse(userSessionCookie.value);
 
       if (
         userSession.roles.includes('SUPERADMIN') &&
-        UN_AUTH_ROUTES.some((route) => request.url.includes(route))
+        UNAUTH_ROUTES.some((route) => request.url.includes(route))
       ) {
-        console.log('@.4 SUPERADMIN from UN_AUTH_ROUTES');
         return NextResponse.redirect(new URL(ROUTES.ORG.ORGANIZATIONS.ROOT, request.url));
       }
     }

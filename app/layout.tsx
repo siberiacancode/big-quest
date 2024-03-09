@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { cookies } from 'next/headers';
 
 import { Toaster } from '@/components/ui/sonner';
 import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
-import { COOKIES } from '@/utils/constants';
 import { getMessagesByLocale } from '@/utils/helpers';
 import { getDefaultTheme } from '@/utils/helpers/getDefaultTheme';
+import { getUserSession } from '@/utils/helpers/getUserSession';
 
 import Providers from './providers';
 
@@ -32,17 +31,17 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   const messages = getMessagesByLocale(locale);
   const defaultTheme = getDefaultTheme();
 
-  const userSessionCookie = cookies().get(COOKIES.USER_SESSION);
+  const userSession = getUserSession();
 
   return (
     <html className={defaultTheme} lang='en'>
       <body className={`min-h-screen bg-background font-sans antialiased ${inter.className}`}>
         <Providers
           user={{
-            defaultUser: userSessionCookie?.value ? JSON.parse(userSessionCookie.value) : null
+            defaultUser: userSession
           }}
           i18n={{ locale, messages }}
-          session={{ defaultSession: { isAuthenticated: !!userSessionCookie?.value } }}
+          session={{ defaultSession: { isAuthenticated: !!userSession } }}
           theme={{ defaultTheme }}
         >
           {children}
