@@ -7,7 +7,6 @@ export const getActivityById: RestRequestConfig = {
     {
       data: [
         {
-          id: '1',
           cover: '',
           content: [],
           name: 'Рисуем живопись',
@@ -39,7 +38,8 @@ export const getActivityById: RestRequestConfig = {
             }
           ]
         }
-      ]
+      ],
+      entities: { params: { id: 1 } }
     }
   ]
 };

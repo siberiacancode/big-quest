@@ -19,6 +19,7 @@ module.exports = {
       }
     ];
   },
+  // eslint-disable-next-line no-dupe-keys
   images: {
     domains: ['localhost']
   }

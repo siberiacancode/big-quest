@@ -318,6 +318,14 @@ interface Legals {
   growthPerMonth: number;
 }
 
+interface ActivitiesDashBoardResponse {
+  total: Legals;
+  active: Legals;
+  moderation: number;
+  draft: number;
+  edit: number;
+}
+
 interface EmployeeDto {
   id: string;
   role: 'Administrator' | 'Leading' | 'Manager';

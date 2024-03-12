@@ -28,7 +28,7 @@ export const ORGANIZER_LINKS: NavigationLinkInfo[] = [
   },
   {
     text: 'navigation.link.org.activities',
-    href: ROUTES.ORG.ROOT,
+    href: ROUTES.ORG.ACTIVITIES,
     icon: <ActivityIcon />
   },
   {
