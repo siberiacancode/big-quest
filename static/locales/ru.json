@@ -80,6 +80,11 @@
   "organization.employee.role.leading": "Ведущий",
   "organization.employee.role.manager": "Менеджер",
 
+  "activity.category.cooking": "Кулинария",
+  "activity.category.sport": "Спорт",
+  "activity.category.media": "Медиа",
+  "activity.category.culture": "Культура",
+
   "field.email.label": "Email",
   "field.password.label": "Пароль",
   "field.email.placeholder": "examples@mail.com",

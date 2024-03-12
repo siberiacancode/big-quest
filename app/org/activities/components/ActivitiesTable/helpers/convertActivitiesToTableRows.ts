@@ -8,4 +8,15 @@ export interface ActivitiesTableRow {
   type: string;
 }
 
-// export const convertActivitiesToTableRows = (
+export const convertActivitiesToTableRows = (
+  activities: ActivitiesResponse[]
+): ActivitiesTableRow[] =>
+  activities.map((activity) => ({
+    id: activity.id,
+    organization: activity.organization ?? '-',
+    activity: activity.activity ?? '-',
+    location: activity.location ?? '-',
+    status: activity.status ?? '-',
+    category: activity.category ?? '-',
+    type: activity.type ?? '-'
+  }));

@@ -245,7 +245,7 @@ interface OrganizationPaginationResponse {
   pagination: PaginationResponse;
 }
 
-interface ActvitiesResponse {
+interface ActivitiesResponse {
   id: string;
   organization: string;
   activity: string;
@@ -255,8 +255,8 @@ interface ActvitiesResponse {
   type: string;
 }
 
-interface ActvitiesPaginationResponse {
-  rows: ActvitiesResponse[];
+interface ActivitiesPaginationResponse {
+  rows: ActivitiesResponse[];
   pagination: PaginationResponse;
 }
 
