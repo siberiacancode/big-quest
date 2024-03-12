@@ -37,33 +37,33 @@ export const columns: ColumnDef<ActivitiesTableRow>[] = [
   },
   generateDataTableColumn({
     accessorKey: 'organization',
-    headerLabel: 'table.column.organization.name',
+    headerLabel: 'table.column.activities.organization',
     sortable: true
   }),
   generateDataTableColumn({
     accessorKey: 'activity',
-    headerLabel: 'table.column.organization.name',
+    headerLabel: 'table.column.activities.activity',
     sortable: true
   }),
   generateDataTableColumn({
     accessorKey: 'location',
-    headerLabel: 'table.column.organization.location',
+    headerLabel: 'table.column.activities.location',
     sortable: true
   }),
   generateDataTableColumn({
     accessorKey: 'status',
-    headerLabel: 'table.column.organization.type',
+    headerLabel: 'table.column.activities.status',
     sortable: true,
     translateValue: true
   }),
   generateDataTableColumn({
     accessorKey: 'category',
-    headerLabel: 'table.column.organization.daysAmount',
+    headerLabel: 'table.column.activities.category',
     sortable: true
   }),
   generateDataTableColumn({
     accessorKey: 'type',
-    headerLabel: 'table.column.organization.rate'
+    headerLabel: 'table.column.activities.type'
   }),
   {
     id: 'actions',

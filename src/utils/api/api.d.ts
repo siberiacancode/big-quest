@@ -245,6 +245,21 @@ interface OrganizationPaginationResponse {
   pagination: PaginationResponse;
 }
 
+interface ActvitiesResponse {
+  id: string;
+  organization: string;
+  activity: string;
+  location: string;
+  status: string;
+  category: string;
+  type: string;
+}
+
+interface ActvitiesPaginationResponse {
+  rows: ActvitiesResponse[];
+  pagination: PaginationResponse;
+}
+
 interface PaginationResponse {
   limit: number;
   current: number;

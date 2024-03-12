@@ -188,6 +188,13 @@
   "table.column.organization.rate": "Тариф",
   "table.column.organization.daysAmount": "Кол-во дней",
 
+  "table.column.activities.organization": "Организация",
+  "table.column.activities.activity": "Активность",
+  "table.column.activities.location": "Населенный пункт",
+  "table.column.activities.status": "Статус",
+  "table.column.activities.category": "Категория",
+  "table.column.activities.type": "Вид",
+
   "dayOfWeek.1": "Пн",
   "dayOfWeek.2": "Вт",
   "dayOfWeek.3": "Ср",

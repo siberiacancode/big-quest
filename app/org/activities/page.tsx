@@ -1,4 +1,4 @@
-import { getActivitiesDashboard } from '@/utils/api/requests/activity/dashboard';
+import { getActivitiesDashboard } from '@/utils/api/requests/activities/dashboard';
 
 import { OrgBreadcrumbs } from '../components/OrgBreadcrumbs/OrgBreadcrumbs';
 
