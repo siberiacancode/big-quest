@@ -250,7 +250,7 @@ interface ActivitiesResponse {
   organization: string;
   activity: string;
   location: string;
-  status: string;
+  stage: string;
   category: string;
   type: string;
 }

@@ -3,7 +3,7 @@ export interface ActivitiesTableRow {
   organization: string;
   activity: string;
   location: string;
-  status: string;
+  stage: string;
   category: string;
   type: string;
 }
@@ -16,7 +16,7 @@ export const convertActivitiesToTableRows = (
     organization: activity.organization ?? '-',
     activity: activity.activity ?? '-',
     location: activity.location ?? '-',
-    status: activity.status ?? '-',
+    stage: activity.stage ?? '-',
     category: activity.category ?? '-',
     type: activity.type ?? '-'
   }));

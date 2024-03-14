@@ -51,7 +51,7 @@ export const columns: ColumnDef<ActivitiesTableRow>[] = [
     sortable: true
   }),
   generateDataTableColumn({
-    accessorKey: 'status',
+    accessorKey: 'stage',
     headerLabel: 'table.column.activities.status',
     sortable: true,
     translateValue: true
