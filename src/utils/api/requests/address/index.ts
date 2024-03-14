@@ -1,6 +1,10 @@
 import { api } from '@/utils/api/instance';
 
-export type GetAddressRequestConfig = RequestConfig | void;
+export interface GetAddressParams {
+  address: string;
+}
 
-export const getAddress = async (requestConfig?: GetAddressRequestConfig) =>
-  api.get<AddressResponse[]>('Address', requestConfig?.config);
+export type GetAddressRequestConfig = RequestConfig<GetAddressParams>;
+
+export const getAddress = async ({ params, config }: GetAddressRequestConfig) =>
+  api.get<AddressResponse[]>('address', { ...config, params: { ...config?.params, ...params } });

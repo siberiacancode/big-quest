@@ -20,17 +20,19 @@ export const AddressCombobox = ({
   const [locationSearch, setLocationSearch] = React.useState('');
   const debouncedSetLocationSearch = useDebounceCallback(setLocationSearch, LOCATION_SEARCH_DELAY);
 
-  const getAddress = useGetAddressQuery({
-    config: { config: { params: { address: locationSearch }, cache: 'no-store' } },
-    options: { enabled: locationSearch.length > 3 }
-  });
+  const getAddressQuery = useGetAddressQuery(
+    { address: locationSearch },
+    {
+      options: { enabled: locationSearch.length > 3 }
+    }
+  );
 
   return (
     <Combobox
       {...props}
-      items={getAddress.data ? convertAddresses(getAddress.data) : []}
+      items={getAddressQuery.data ? convertAddresses(getAddressQuery.data) : []}
       onSearchChange={debouncedSetLocationSearch}
-      loading={getAddress.isLoading}
+      loading={getAddressQuery.isLoading}
     />
   );
 };
