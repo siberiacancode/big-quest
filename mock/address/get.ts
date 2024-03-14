@@ -1,6 +1,6 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const getAddress: RestRequestConfig = {
+export const getAddressConfig: RestRequestConfig = {
   path: '/address',
   method: 'get',
   routes: [

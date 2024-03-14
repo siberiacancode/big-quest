@@ -1,6 +1,6 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const getOrganizationById: RestRequestConfig = {
+export const getOrganizationByIdConfig: RestRequestConfig = {
   path: '/organization/:id',
   method: 'get',
   routes: [
