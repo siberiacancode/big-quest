@@ -1,4 +1,5 @@
 export const ROUTES = {
+  AUTH: '/auth',
   ORG: {
     ROOT: '/org/',
     ORGANIZATIONS: { ROOT: '/org/organizations' },

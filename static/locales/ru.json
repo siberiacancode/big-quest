@@ -20,6 +20,8 @@
   "button.addEmployee": "Добавить сотрудника",
 
   "button.login": "Войти",
+  "button.registration": "Регистрация",
+  "button.entrance": "Вход",
 
   "button.registerOrganization": "Отправить заявку",
   "button.goToRegisterOrganization": "Оставить заявку",
@@ -245,5 +247,9 @@
   "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
   "tooltip.kpp": "КПП - 9 цифр",
   "tooltip.ogrn": "ОГРН - 13 цифр, ОГРНИП - 15 цифр",
-  "tooltip.bik": "БИК - 9 цифр"
+  "tooltip.bik": "БИК - 9 цифр",
+
+  "landing.info.title.highlight": "Единственный в мире ",
+  "landing.info.title": " маркетплейс активностей для детей с игровыми элементами",
+  "landing.info.subtitle": "Более <green>4000+ пользователей</green> уже с нами, присоединяйся!"
 }
