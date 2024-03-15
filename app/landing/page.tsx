@@ -10,7 +10,7 @@ const LandingPage = () => (
   <div>
     <InfoBlock />
     <NewsBlock />
-    <StatisticsBlock />
+    <StatisticsBlock activitiesAmount={3000} awardsAmount={1150} participantsAmount={10000} />
     <SponsorsBlock />
     <FeedbackSlider />
     <LeaveRequestBlock />

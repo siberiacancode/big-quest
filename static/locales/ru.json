@@ -251,5 +251,9 @@
 
   "landing.info.title.highlight": "Единственный в мире ",
   "landing.info.title": " маркетплейс активностей для детей с игровыми элементами",
-  "landing.info.subtitle": "Более <green>4000+ пользователей</green> уже с нами, присоединяйся!"
+  "landing.info.subtitle": "Более <green>4000+ пользователей</green> уже с нами, присоединяйся!",
+  "landing.statistics.participants": "Количество участников",
+  "landing.statistics.activities": "Активностей на нашей площадке",
+  "landing.statistics.awards": "Выдано вознаграждений",
+  "landing.sponsors.title": "Спонсоры проекта"
 }
