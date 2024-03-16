@@ -2,13 +2,14 @@
 
 import { cookies } from 'next/headers';
 
-import { COOKIES } from '../constants';
+import { COOKIES } from '../../constants';
+import { TOKENS_TIMER_EXPIRATION } from '../constants/time';
 
-import { createTokensTimer } from './helpers/createTokensTimer';
+import { createTokensTimer } from './createTokensTimer';
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function handleLogin(sessionData: UserResponse) {
-  const tokensTimer = createTokensTimer(5);
+  const tokensTimer = createTokensTimer(TOKENS_TIMER_EXPIRATION);
 
   const encryptedSessionData = JSON.stringify(sessionData);
 

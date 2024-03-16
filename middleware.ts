@@ -6,7 +6,7 @@ import { api } from '@/utils/api/instance';
 import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
 import { generateSetTokensInterceptor } from '@/utils/api/interceptors/generateSetTokensInterceptor';
 import { COOKIES, ROUTES } from '@/utils/constants';
-import { createTokensTimer } from '@/utils/jwt/helpers/createTokensTimer';
+import { createTokensTimer, TOKENS_TIMER_EXPIRATION } from '@/utils/jwt/';
 
 generateSetTokensInterceptor();
 generateServerHeadersInterceptor();
@@ -59,13 +59,13 @@ export async function middleware(request: NextRequest) {
         return response;
       }
 
-      const response = NextResponse.redirect(new URL(request.url));
+      const response = NextResponse.next();
 
       const { setTokens } = api.headers;
 
       response.headers.set(
         'Set-cookie',
-        `${setTokens}, ${COOKIES.TOKENS_TIMER}=${createTokensTimer(5)}; Path=/; Expires=Tue, 09 Apr 2024 08:13:54 GMT; HttpOnly; SameSite=Lax`
+        `${setTokens}, ${COOKIES.TOKENS_TIMER}=${createTokensTimer(TOKENS_TIMER_EXPIRATION)}; Path=/; Expires=Tue, 09 Apr 2024 08:13:54 GMT; HttpOnly; SameSite=Lax`
       );
 
       return response;
