@@ -21,8 +21,6 @@ const getSubtitleGreenSpan = (children: React.ReactNode) => (
   <span className='font-medium text-taiga'>{children}</span>
 );
 
-const getBr = () => <br />;
-
 export const InfoBlock = () => {
   return (
     <div className='flex h-screen min-h-[500px] items-center justify-center overflow-x-hidden px-20 mdx:px-11 xsx:p-5'>
@@ -44,7 +42,7 @@ export const InfoBlock = () => {
             </div>
           </div>
           <Typography variant='h1' className='mdx:text-2xl xsx:text-lg'>
-            <I18nText path='landing.info.title' values={{ br: getBr }} />
+            <I18nText path='landing.info.title' values={{ br: <br /> }} />
           </Typography>
 
           <div className='mt-6 flex items-center xsx:mt-3 xsx:flex-col xsx:items-center xsx:gap-3'>
@@ -61,7 +59,7 @@ export const InfoBlock = () => {
                 path='landing.info.subtitle'
                 values={{
                   green: getSubtitleGreenSpan,
-                  br: getBr
+                  br: <br />
                 }}
               />
             </Typography>

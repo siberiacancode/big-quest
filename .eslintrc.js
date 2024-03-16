@@ -26,7 +26,8 @@ module.exports = {
         'class-methods-use-this': 'off',
         '@typescript-eslint/naming-convention': 'warn',
         'no-underscore-dangle': 'warn',
-        'no-bitwise': 'warn'
+        'no-bitwise': 'warn',
+        'react/no-unstable-nested-components': 'warn'
       }
     }
   ]
