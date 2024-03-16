@@ -74,6 +74,10 @@
   "organization.activities.status.editing": "Редактирование",
   "organization.activities.status.closed": "Закрыта",
   "organization.activities.status.published": "Опубликована",
+
+  "organization.activities.view.offline": "Оффлайн",
+  "organization.activities.view.online": "Онлайн",
+
   "organization.employee.email": "Email",
   "organization.employee.phoneNumber": "Телефон",
   "organization.employee.role.administrator": "Администратор",
@@ -198,7 +202,7 @@
   "table.column.activities.location": "Населенный пункт",
   "table.column.activities.status": "Статус",
   "table.column.activities.category": "Категория",
-  "table.column.activities.type": "Вид",
+  "table.column.activities.view": "Вид",
 
   "dayOfWeek.1": "Пн",
   "dayOfWeek.2": "Вт",

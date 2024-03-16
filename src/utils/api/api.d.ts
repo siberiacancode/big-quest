@@ -250,9 +250,9 @@ interface ActivitiesResponse {
   organization: string;
   activity: string;
   location: string;
-  stage: string;
+  status: ActivityStatus;
   category: string;
-  type: string;
+  view: ActivityView;
 }
 
 interface ActivitiesPaginationResponse {
