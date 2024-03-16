@@ -300,7 +300,7 @@ export const activitiesGetConfig: RestRequestConfig = {
     },
     {
       entities: {
-        query: { current: 1, status: 'NEGOTIATION' }
+        query: { current: 1, status: 'MODERATION' }
       },
       data: {
         rows: [
@@ -309,7 +309,7 @@ export const activitiesGetConfig: RestRequestConfig = {
             organization: 'Apple',
             activity: 'Cool activity',
             location: 'Novosibirsk',
-            status: 'NEGOTIATION',
+            status: 'MODERATION',
             category: 'COOKING',
             view: 'OFFLINE'
           },
@@ -318,7 +318,7 @@ export const activitiesGetConfig: RestRequestConfig = {
             organization: 'Apple',
             activity: 'Cool activity',
             location: 'Novosibirsk',
-            status: 'NEGOTIATION',
+            status: 'MODERATION',
             category: 'COOKING',
             view: 'OFFLINE'
           },
@@ -327,7 +327,7 @@ export const activitiesGetConfig: RestRequestConfig = {
             organization: 'Apple',
             activity: 'Cool activity',
             location: 'Novosibirsk',
-            status: 'NEGOTIATION',
+            status: 'MODERATION',
             category: 'COOKING',
             view: 'OFFLINE'
           },
@@ -336,7 +336,7 @@ export const activitiesGetConfig: RestRequestConfig = {
             organization: 'Apple',
             activity: 'Cool activity',
             location: 'Novosibirsk',
-            status: 'NEGOTIATION',
+            status: 'MODERATION',
             category: 'COOKING',
             view: 'OFFLINE'
           },
@@ -345,7 +345,7 @@ export const activitiesGetConfig: RestRequestConfig = {
             organization: 'Apple',
             activity: 'Cool activity',
             location: 'Novosibirsk',
-            status: 'NEGOTIATION',
+            status: 'MODERATION',
             category: 'COOKING',
             view: 'OFFLINE'
           },
@@ -354,7 +354,7 @@ export const activitiesGetConfig: RestRequestConfig = {
             organization: 'Apple',
             activity: 'Cool activity',
             location: 'Novosibirsk',
-            status: 'NEGOTIATION',
+            status: 'MODERATION',
             category: 'COOKING',
             view: 'OFFLINE'
           },
@@ -363,7 +363,7 @@ export const activitiesGetConfig: RestRequestConfig = {
             organization: 'Apple',
             activity: 'Cool activity',
             location: 'Novosibirsk',
-            status: 'NEGOTIATION',
+            status: 'MODERATION',
             category: 'COOKING',
             view: 'OFFLINE'
           },
@@ -372,7 +372,7 @@ export const activitiesGetConfig: RestRequestConfig = {
             organization: 'Apple',
             activity: 'Cool activity',
             location: 'Novosibirsk',
-            status: 'NEGOTIATION',
+            status: 'MODERATION',
             category: 'COOKING',
             view: 'OFFLINE'
           },
@@ -381,7 +381,7 @@ export const activitiesGetConfig: RestRequestConfig = {
             organization: 'Apple',
             activity: 'Cool activity',
             location: 'Novosibirsk',
-            status: 'NEGOTIATION',
+            status: 'MODERATION',
             category: 'COOKING',
             view: 'OFFLINE'
           },
@@ -390,7 +390,7 @@ export const activitiesGetConfig: RestRequestConfig = {
             organization: 'Apple',
             activity: 'Cool activity',
             location: 'Novosibirsk',
-            status: 'NEGOTIATION',
+            status: 'MODERATION',
             category: 'COOKING',
             view: 'OFFLINE'
           }

@@ -18,8 +18,8 @@ export const useActivitiesTable = () => {
 
   const organizationFilter = searchParams.get('organization');
 
-  const [selectedStages, setSelectedStages] = React.useState<string[]>(() =>
-    searchParams.getAll('stage')
+  const [selectedStatuses, setSelectedStatuses] = React.useState<string[]>(() =>
+    searchParams.getAll('status')
   );
 
   const [selectedCategories, setSelectedCategories] = React.useState<string[]>(() =>
@@ -40,15 +40,15 @@ export const useActivitiesTable = () => {
     FILTER_INPUT_DELAY
   );
 
-  const onStagesSelect = (values: string[]) => {
+  const onStatusSelect = (values: string[]) => {
     startTransition(() =>
       setSearchParams([
-        { key: 'stage', value: values },
+        { key: 'status', value: values },
         { key: 'current', value: '1' }
       ])
     );
 
-    setSelectedStages(values);
+    setSelectedStatuses(values);
   };
 
   const onCategoriesSelect = (values: string[]) => {
@@ -106,17 +106,28 @@ export const useActivitiesTable = () => {
         title={i18n.formatMessage({ id: 'table.column.activities.category' })}
       />,
       <DataTableFacetedFilter
-        values={selectedStages}
-        onSelect={onStagesSelect}
+        values={selectedStatuses}
+        onSelect={onStatusSelect}
         items={[
-          { value: 'REQUEST', label: i18n.formatMessage({ id: 'organization.stage.request' }) },
           {
-            value: 'NEGOTIATION',
-            label: i18n.formatMessage({ id: 'organization.stage.negotiation' })
+            value: 'PUBLISHED',
+            label: i18n.formatMessage({ id: 'organization.activities.status.published' })
           },
           {
-            value: 'CONCLUSION',
-            label: i18n.formatMessage({ id: 'organization.stage.conclusion' })
+            value: 'MODERATION',
+            label: i18n.formatMessage({ id: 'organization.activities.status.moderation' })
+          },
+          {
+            value: 'EDITING',
+            label: i18n.formatMessage({ id: 'organization.activities.status.editing' })
+          },
+          {
+            value: 'DRAFT',
+            label: i18n.formatMessage({ id: 'organization.activities.status.draft' })
+          },
+          {
+            value: 'CLOSED',
+            label: i18n.formatMessage({ id: 'organization.activities.status.closed' })
           }
         ]}
         title={i18n.formatMessage({ id: 'table.column.organization.stage' })}
