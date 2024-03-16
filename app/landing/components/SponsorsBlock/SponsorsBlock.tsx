@@ -6,8 +6,8 @@ import { Typography } from '@/components/ui';
 
 export const SponsorsBlock = () => {
   return (
-    <div className='flex flex-col items-center px-10 pb-20 pt-14 mdx:pb-14 mdx:pt-8'>
-      <Typography variant='h1' tag='h2' className='mdx:text-[25px]'>
+    <div className='flex flex-col items-center px-10 py-[120px] mdx:py-14 xsx:py-8'>
+      <Typography variant='h1' tag='h2' className='xsx:text-[25px]'>
         <I18nText path='landing.sponsors.title' />
       </Typography>
       <div className='mt-16 grid grid-cols-4 gap-12 mdx:mt-7 mdx:grid-cols-3 mdx:gap-7 xsx:grid-cols-2'>

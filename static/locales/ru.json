@@ -255,5 +255,8 @@
   "landing.statistics.participants": "Количество участников",
   "landing.statistics.activities": "Активностей{br}на нашей площадке",
   "landing.statistics.awards": "Выдано вознаграждений",
-  "landing.sponsors.title": "Спонсоры проекта"
+  "landing.sponsors.title": "Спонсоры проекта",
+  "landing.leaveRequest.title": "Хотите стать частью нашего проекта?",
+  "landing.leaveRequest.subtitle": "Оставьте заявку!",
+  "landing.leaveRequest.description": "Заполните данные и в скором времени мы вам перезвоним."
 }
