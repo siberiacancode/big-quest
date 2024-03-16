@@ -1,3 +1,1 @@
-export const NewsBlock = () => {
-  return <div>NewsScreen</div>;
-};
+export const NewsBlock = () => <section id='news'>NewsScreen</section>;

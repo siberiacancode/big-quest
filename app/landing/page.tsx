@@ -1,3 +1,4 @@
+import { ActivitiesBlock } from './components/ActivitiesBlock/ActivitiesBlock';
 import { FeedbackSlider } from './components/FeedbackSlider/FeedbackSlider';
 import { Footer } from './components/Footer/Footer';
 import { InfoBlock } from './components/InfoBlock/InfoBlock';
@@ -11,6 +12,7 @@ const LandingPage = () => (
     <InfoBlock />
     <NewsBlock />
     <StatisticsBlock activitiesAmount={3000} awardsAmount={1150} participantsAmount={10000} />
+    <ActivitiesBlock />
     <SponsorsBlock />
     <FeedbackSlider />
     <LeaveRequestBlock />

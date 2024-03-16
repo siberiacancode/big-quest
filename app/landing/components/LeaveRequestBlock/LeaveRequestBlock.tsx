@@ -7,7 +7,7 @@ import { RegisterOrganizationDialog } from '@/components/dialogs';
 import { Button, Typography } from '@/components/ui';
 
 export const LeaveRequestBlock = () => (
-  <div className='relative flex px-16 py-[107px] 2lgx:items-center mdx:px-11 mdx:py-16 xsx:px-5'>
+  <section className='relative flex px-16 py-[108px] 2lgx:items-center mdx:px-11 mdx:py-16 xsx:px-5'>
     <div className='w-1/2 2lgx:mx-auto 2lgx:w-[90%] xsx:flex xsx:w-full xsx:flex-col xsx:items-center'>
       <Typography tag='h2' variant='h1' className='mdx:text-2xl xsx:text-center xsx:text-xl'>
         <I18nText path='landing.leaveRequest.title' />
@@ -38,8 +38,8 @@ export const LeaveRequestBlock = () => (
         }
       />
     </div>
-    <div className='absolute right-0 top-0 2lgx:hidden'>
+    <div className='absolute bottom-0 right-0 2lgx:hidden'>
       <Image src={leaveRequestImage} alt='leaveRequest' />
     </div>
-  </div>
+  </section>
 );

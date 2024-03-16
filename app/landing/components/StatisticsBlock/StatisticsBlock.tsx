@@ -12,7 +12,7 @@ export const StatisticsBlock = ({
   awardsAmount,
   participantsAmount
 }: StatisticsBlockProps) => (
-  <div className='flex w-full flex-wrap items-center justify-around bg-taiga px-5 py-7'>
+  <section className='flex w-full flex-wrap items-center justify-around bg-taiga px-5 py-7'>
     <div className='basis-1/3 px-3 py-3 text-center'>
       <Typography tag='p' className='text-[40px] font-bold text-white mdx:text-[32px]'>
         {participantsAmount}
@@ -37,5 +37,5 @@ export const StatisticsBlock = ({
         <I18nText path='landing.statistics.awards' />
       </Typography>
     </div>
-  </div>
+  </section>
 );

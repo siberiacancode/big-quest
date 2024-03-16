@@ -25,6 +25,7 @@
 
   "button.registerOrganization": "Отправить заявку",
   "button.goToRegisterOrganization": "Оставить заявку",
+  "button.organizationsEntrance": "Вход для организаций",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
@@ -258,5 +259,11 @@
   "landing.sponsors.title": "Спонсоры проекта",
   "landing.leaveRequest.title": "Хотите стать частью нашего проекта?",
   "landing.leaveRequest.subtitle": "Оставьте заявку!",
-  "landing.leaveRequest.description": "Заполните данные и в скором времени мы вам перезвоним."
+  "landing.leaveRequest.description": "Заполните данные и в скором времени мы вам перезвоним.",
+  "landing.footer.copyright": "Copyright © 2023 Большой квест | <useTerms>Правила пользования сайтом</useTerms> | <privacyPolicy>Политика конфиденциальности</privacyPolicy>",
+  "landing.footer.navigation.title": "Карта сайта",
+  "landing.footer.navigation.news": "Новости",
+  "landing.footer.navigation.activities": "Активности",
+  "landing.footer.navigation.sponsors": "Спонсоры",
+  "landing.footer.navigation.feedback": "Отзывы"
 }
