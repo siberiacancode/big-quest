@@ -76,7 +76,14 @@ type Stage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
 
 type UserRole = 'organizer' | 'partner';
 
-type ActivityCategory = 'EDUCATION';
+type ActivityCategory =
+  | 'COOKING'
+  | 'CULTURE'
+  | 'MEDIA'
+  | 'EDUCATION'
+  | 'ENTERTAINMENT'
+  | 'SPORT'
+  | 'CHALLENGE';
 
 type ActivityStatus = 'DRAFT' | 'MODERATION' | 'EDITING' | 'PUBLISHED' | 'CLOSED';
 
@@ -251,7 +258,7 @@ interface ActivitiesResponse {
   activity: string;
   location: string;
   status: ActivityStatus;
-  category: string;
+  category: ActivityCategory;
   view: ActivityView;
 }
 

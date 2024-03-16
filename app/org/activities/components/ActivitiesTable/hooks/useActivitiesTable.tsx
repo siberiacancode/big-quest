@@ -1,5 +1,6 @@
 import React from 'react';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
+import { Layers2 } from 'lucide-react';
 import { useDebounceCallback } from 'usehooks-ts';
 
 import { I18nText } from '@/components/common';
@@ -71,19 +72,35 @@ export const useActivitiesTable = () => {
       <DataTableFacetedFilter
         values={selectedCategories}
         onSelect={onCategoriesSelect}
+        icon={<Layers2 className='mr-2 h-4 w-4' />}
         items={[
-          { value: 'COOKING', label: i18n.formatMessage({ id: 'activity.category.cooking' }) },
           {
-            value: 'SPORT',
-            label: i18n.formatMessage({ id: 'activity.category.sport' })
-          },
-          {
-            value: 'MEDIA',
-            label: i18n.formatMessage({ id: 'activity.category.media' })
+            value: 'COOKING',
+            label: i18n.formatMessage({ id: 'organization.activities.category.cooking' })
           },
           {
             value: 'CULTURE',
-            label: i18n.formatMessage({ id: 'activity.category.culture' })
+            label: i18n.formatMessage({ id: 'organization.activities.category.culture' })
+          },
+          {
+            value: 'MEDIA',
+            label: i18n.formatMessage({ id: 'organization.activities.category.media' })
+          },
+          {
+            value: 'SPORT',
+            label: i18n.formatMessage({ id: 'organization.activities.category.sport' })
+          },
+          {
+            value: 'EDUCATION',
+            label: i18n.formatMessage({ id: 'organization.activities.category.education' })
+          },
+          {
+            value: 'ENTERTAINMENT',
+            label: i18n.formatMessage({ id: 'organization.activities.category.entertainment' })
+          },
+          {
+            value: 'CHALLENGE',
+            label: i18n.formatMessage({ id: 'organization.activities.category.challenge' })
           }
         ]}
         title={i18n.formatMessage({ id: 'table.column.activities.category' })}

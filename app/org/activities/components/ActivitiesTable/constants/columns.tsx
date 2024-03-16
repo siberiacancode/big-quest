@@ -2,7 +2,8 @@ import type { ColumnDef } from '@tanstack/react-table';
 import { Edit3Icon } from 'lucide-react';
 import Link from 'next/link';
 
-import { buttonVariants, Checkbox, generateDataTableColumn } from '@/components/ui';
+import { I18nText } from '@/components/common';
+import { Button, buttonVariants, Checkbox, generateDataTableColumn } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { ROUTES } from '@/utils/constants';
 
@@ -50,21 +51,40 @@ export const columns: ColumnDef<ActivitiesTableRow>[] = [
     headerLabel: 'table.column.activities.location',
     sortable: true
   }),
-  generateDataTableColumn({
-    accessorKey: 'status',
-    headerLabel: 'table.column.activities.status',
-    sortable: true,
-    translateValue: true
-  }),
+  {
+    id: 'status',
+    enableHiding: false,
+    header: () => <I18nText path='table.column.activities.status' />,
+    cell: ({ row }) => (
+      <Button variant='secondary'>
+        <I18nText
+          path={
+            `organization.activities.status.${row.original.status.toLowerCase()}` as LocaleMessageId
+          }
+        />
+      </Button>
+    )
+  },
   generateDataTableColumn({
     accessorKey: 'category',
     headerLabel: 'table.column.activities.category',
-    sortable: true
+    sortable: true,
+    translateValue: true
   }),
-  generateDataTableColumn({
-    accessorKey: 'view',
-    headerLabel: 'table.column.activities.view'
-  }),
+  {
+    id: 'view',
+    enableHiding: false,
+    header: () => <I18nText path='table.column.activities.view' />,
+    cell: ({ row }) => (
+      <Button variant='secondary'>
+        <I18nText
+          path={
+            `organization.activities.view.${row.original.view.toLowerCase()}` as LocaleMessageId
+          }
+        />
+      </Button>
+    )
+  },
   {
     id: 'actions',
     enableHiding: false,

@@ -16,7 +16,7 @@ export const convertActivitiesToTableRows = (
     organization: activity.organization ?? '-',
     activity: activity.activity ?? '-',
     location: activity.location ?? '-',
-    status: `organization.activities.status.${activity.status.toLowerCase()}`,
-    category: activity.category ?? '-',
-    view: `organization.activities.view.${activity.view.toLowerCase()}`
+    status: activity.status,
+    category: `organization.activities.category.${activity.category.toLowerCase()}`,
+    view: activity.view
   }));

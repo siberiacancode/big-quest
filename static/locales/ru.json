@@ -75,6 +75,14 @@
   "organization.activities.status.closed": "Закрыта",
   "organization.activities.status.published": "Опубликована",
 
+  "organization.activities.category.cooking": "Кулинария",
+  "organization.activities.category.culture": "Культура",
+  "organization.activities.category.media": "Медиа",
+  "organization.activities.category.sport": "Спорт",
+  "organization.activities.category.education": "Образование",
+  "organization.activities.category.entertainment": "Развлечение",
+  "organization.activities.category.challenge": "Челлендж",
+
   "organization.activities.view.offline": "Оффлайн",
   "organization.activities.view.online": "Онлайн",
 
@@ -83,11 +91,6 @@
   "organization.employee.role.administrator": "Администратор",
   "organization.employee.role.leading": "Ведущий",
   "organization.employee.role.manager": "Менеджер",
-
-  "activity.category.cooking": "Кулинария",
-  "activity.category.sport": "Спорт",
-  "activity.category.media": "Медиа",
-  "activity.category.culture": "Культура",
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",
