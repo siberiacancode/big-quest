@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 
 import { usePostAuthLoginEmailMutation } from '@/utils/api';
+import { ROUTES } from '@/utils/constants';
 
 import type { LoginSchema } from '../constants/loginSchema';
 import { loginSchema } from '../constants/loginSchema';
@@ -23,7 +24,7 @@ export const useLoginForm = () => {
   const onSubmit = loginForm.handleSubmit(async (values) => {
     await postAuthLoginEmail.mutateAsync({ params: values });
 
-    router.replace('/org/organizations');
+    router.replace(ROUTES.ORG.ORGANIZATIONS.ROOT);
   });
 
   return {

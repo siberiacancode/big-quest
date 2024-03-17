@@ -15,7 +15,6 @@ import { I18nText } from '@/components/common';
 import { BigQuestLogo } from '@/components/icons';
 import { buttonVariants, Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
-import { ROUTES } from '@/utils/constants';
 
 const getSubtitleGreenSpan = (children: React.ReactNode) => (
   <span className='font-medium text-taiga'>{children}</span>
@@ -74,7 +73,7 @@ export const InfoBlock = () => (
             <I18nText path='button.registration' />
           </Link>
           <Link
-            href={ROUTES.AUTH}
+            href='/'
             className={cn(
               buttonVariants({ size: 'lg', variant: 'ghost' }),
               'text-taiga hover:bg-taiga hover:text-white xs:basis-1/3'

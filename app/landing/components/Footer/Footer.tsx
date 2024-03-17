@@ -82,7 +82,7 @@ export const Footer = () => (
         </nav>
       </div>
       <div className='flex-grow-0'>
-        <Link href='/' className='text-white hover:underline'>
+        <Link href={ROUTES.AUTH} className='text-white hover:underline'>
           <I18nText path='button.organizationsEntrance' />
         </Link>
       </div>
