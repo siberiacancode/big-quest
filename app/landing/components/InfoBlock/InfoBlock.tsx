@@ -4,9 +4,9 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import redLine from '@/assets/icons/landing/redLine.svg';
-import yellowLine from '@/assets/icons/landing/yellowLine.svg';
-import yellowRhomb from '@/assets/icons/landing/yellowRhomb.svg';
+import redLine from '@/assets/icons/shapes/redLine.svg';
+import yellowLine from '@/assets/icons/shapes/yellowLine.svg';
+import yellowRhomb from '@/assets/icons/shapes/yellowRhomb.svg';
 import face1 from '@/assets/images/landing/faces/face1.png';
 import face2 from '@/assets/images/landing/faces/face2.png';
 import face3 from '@/assets/images/landing/faces/face3.png';

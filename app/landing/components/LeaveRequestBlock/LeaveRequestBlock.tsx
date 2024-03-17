@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import yellowWavyLine from '@/assets/icons/landing/yellowWavyLine.svg';
+import yellowWavyLine from '@/assets/icons/shapes/yellowWavyLine.svg';
 import leaveRequestImage from '@/assets/images/landing/leaveRequest.webp';
 import { I18nText } from '@/components/common';
 import { RegisterOrganizationDialog } from '@/components/dialogs';
