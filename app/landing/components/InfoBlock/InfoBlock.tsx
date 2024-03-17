@@ -22,7 +22,7 @@ const getSubtitleGreenSpan = (children: React.ReactNode) => (
 );
 
 export const InfoBlock = () => (
-  <section className='flex h-screen min-h-[500px] items-center justify-center overflow-x-hidden px-20 mdx:px-11 xsx:px-5'>
+  <section className='flex h-screen min-h-[600px] items-center justify-center overflow-x-hidden px-20 mdx:px-11 xsx:px-5'>
     <div className='flex w-full items-center justify-between xlx:justify-center'>
       <div className='relative xsx:flex xsx:flex-col xsx:items-center'>
         <div className='absolute -left-3 top-2/3 -translate-x-full xsx:left-3'>

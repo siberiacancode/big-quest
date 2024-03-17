@@ -25,9 +25,9 @@ const getPrivacyPolicyLink = (children: React.ReactNode) => (
 
 export const Footer = () => (
   <footer className='bg-taiga-foreground px-16 pt-[90px] text-white mdx:px-11 mdx:pt-16 xsx:px-5 xsx:pt-10'>
-    <div className='flex flex-wrap gap-7'>
+    <div className='flex flex-wrap gap-7 lgx:justify-around'>
       <div className='flex flex-shrink-0 flex-col lg:basis-1/4'>
-        <Logo full fill='white' />
+        <Logo fill='white' />
         <div className='mt-[57px] flex gap-3'>
           <Link href='https://vk.com/'>
             <Image src={vkIcon} alt='vk' />
@@ -40,7 +40,7 @@ export const Footer = () => (
           </Link>
         </div>
       </div>
-      <div className='flex-grow'>
+      <div className='lg:flex-grow'>
         <Typography tag='p' className='text-xl font-medium text-white'>
           <I18nText path='landing.footer.navigation.title' />
         </Typography>
