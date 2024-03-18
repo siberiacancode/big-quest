@@ -1,6 +1,3 @@
-'use client';
-
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -11,17 +8,7 @@ import { I18nText, Logo } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
 
-const getUseTermsLink = (children: React.ReactNode) => (
-  <Link href='/' className='whitespace-nowrap underline'>
-    {children}
-  </Link>
-);
-
-const getPrivacyPolicyLink = (children: React.ReactNode) => (
-  <Link href='/' className='whitespace-nowrap underline'>
-    {children}
-  </Link>
-);
+import { FooterCopyrightText } from './components/FooterCopyrightText/FooterCopyrightText';
 
 export const Footer = () => (
   <footer className='bg-taiga-foreground px-16 pt-[90px] text-white mdx:px-11 mdx:pt-16 xsx:px-5 xsx:pt-10'>
@@ -89,10 +76,7 @@ export const Footer = () => (
     </div>
     <div className='mt-[160px] border-t border-solid border-white py-[25px] lgx:mt-20 mdx:mt-10'>
       <Typography variant='body3' className='text-center'>
-        <I18nText
-          path='landing.footer.copyright'
-          values={{ useTerms: getUseTermsLink, privacyPolicy: getPrivacyPolicyLink }}
-        />
+        <FooterCopyrightText />
       </Typography>
     </div>
   </footer>
