@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
-import yellowWavyLine from '@/assets/icons/shapes/yellowWavyLine.svg';
 import leaveRequestImage from '@/assets/images/landing/leaveRequest.webp';
 import { I18nText } from '@/components/common';
 import { RegisterOrganizationDialog } from '@/components/dialogs';
+import { WavyLineIcon } from '@/components/icons';
 import { Button, Typography } from '@/components/ui';
 
 export const LeaveRequestSection = () => (
@@ -17,7 +17,7 @@ export const LeaveRequestSection = () => (
           <I18nText path='landing.leaveRequest.subtitle' />
         </Typography>
         <div className='absolute bottom-0 left-0 translate-y-1/2'>
-          <Image src={yellowWavyLine} alt='' className='max-w-full' />
+          <WavyLineIcon />
         </div>
       </div>
       <Typography

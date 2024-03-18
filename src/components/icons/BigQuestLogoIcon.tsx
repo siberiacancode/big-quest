@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const BigQuestLogo = React.forwardRef<SVGSVGElement, React.ComponentProps<'svg'>>(
+export const BigQuestLogoIcon = React.forwardRef<SVGSVGElement, React.ComponentProps<'svg'>>(
   (props, ref) => (
     <svg
       xmlns='http://www.w3.org/2000/svg'

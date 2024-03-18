@@ -1,10 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
-import telegramIcon from '@/assets/icons/social/telegramBlack.svg';
-import vkIcon from '@/assets/icons/social/vkBlack.svg';
-import whatsappIcon from '@/assets/icons/social/whatsappBlack.svg';
 import { I18nText, Logo } from '@/components/common';
+import { TelegramIcon, VkIcon, WhatsappIcon } from '@/components/icons';
 import { Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
 
@@ -17,13 +14,13 @@ export const Footer = () => (
         <Logo fill='white' />
         <div className='mt-[57px] flex gap-3'>
           <Link href='https://vk.com/'>
-            <Image src={vkIcon} alt='vk' />
+            <VkIcon className='fill-black' width='32' height='32' />
           </Link>
           <Link href='https://web.telegram.org/'>
-            <Image src={telegramIcon} alt='telegram' />
+            <TelegramIcon className='fill-black' width='32' height='32' />
           </Link>
           <Link href='https://web.whatsapp.com/'>
-            <Image src={whatsappIcon} alt='whatsapp' />
+            <WhatsappIcon className='fill-black' width='32' height='32' />
           </Link>
         </div>
       </div>
