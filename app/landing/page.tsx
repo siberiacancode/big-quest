@@ -1,23 +1,23 @@
-import { ActivitiesBlock } from './components/ActivitiesBlock/ActivitiesBlock';
+import { ActivitiesSection } from './components/ActivitiesSection/ActivitiesBlock';
+import { BannerSection } from './components/BannerSection/BannerSection';
 import { FeedbackSlider } from './components/FeedbackSlider/FeedbackSlider';
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
-import { InfoBlock } from './components/InfoBlock/InfoBlock';
-import { LeaveRequestBlock } from './components/LeaveRequestBlock/LeaveRequestBlock';
-import { NewsBlock } from './components/NewsBlock/NewsBlock';
-import { SponsorsBlock } from './components/SponsorsBlock/SponsorsBlock';
-import { StatisticsBlock } from './components/StatisticsBlock/StatisticsBlock';
+import { LeaveRequestSection } from './components/LeaveRequestSection/LeaveRequestSection';
+import { NewsSection } from './components/NewsSection/NewsSection';
+import { SponsorsSection } from './components/SponsorsSection/SponsorsSection';
+import { StatisticsSection } from './components/StatisticsSection/StatisticsSection';
 
 const LandingPage = () => (
   <div>
     <Header />
-    <InfoBlock />
-    <NewsBlock />
-    <StatisticsBlock activitiesAmount={3000} awardsAmount={1150} participantsAmount={10000} />
-    <ActivitiesBlock />
-    <SponsorsBlock />
+    <BannerSection />
+    <NewsSection />
+    <StatisticsSection />
+    <ActivitiesSection />
+    <SponsorsSection />
     <FeedbackSlider />
-    <LeaveRequestBlock />
+    <LeaveRequestSection />
     <Footer />
   </div>
 );

@@ -4,7 +4,7 @@ import portrait1 from '@/assets/images/landing/sponsors/portrait1.png';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 
-export const SponsorsBlock = () => (
+export const SponsorsSection = () => (
   <section
     id='sponsors'
     className='flex flex-col items-center px-10 pb-[120px] pt-14 mdx:pb-14 mdx:pt-8 xsx:pb-8 xsx:pt-6'
