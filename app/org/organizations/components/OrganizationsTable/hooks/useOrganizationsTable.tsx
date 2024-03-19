@@ -17,7 +17,7 @@ export const useOrganizationsTable = () => {
 
   const organizationFilter = searchParams.get('organization');
   const [selectedLocations, seSelectedLocations] = React.useState<string[]>(() =>
-    searchParams.getAll('location')
+    searchParams.getAll('locality')
   );
   const [selectedStages, setSelectedStages] = React.useState<string[]>(() =>
     searchParams.getAll('stage')
@@ -40,7 +40,7 @@ export const useOrganizationsTable = () => {
   const onLocationsSelect = (values: string[]) => {
     startTransition(() => {
       setSearchParams([
-        { key: 'location', value: values },
+        { key: 'locality', value: values },
         { key: 'current', value: '1' }
       ]);
     });
@@ -93,7 +93,7 @@ export const useOrganizationsTable = () => {
           { value: 'Кемерово', label: 'Кемерово' },
           { value: 'Санкт-Петербург', label: 'Санкт-Петербург' }
         ]}
-        title={i18n.formatMessage({ id: 'table.column.organization.location' })}
+        title={i18n.formatMessage({ id: 'table.column.organization.locality' })}
       />,
       <div className='flex flex-1 justify-items-end'>
         <RegisterOrganizationDialog
@@ -106,7 +106,14 @@ export const useOrganizationsTable = () => {
         />
       </div>
     ],
-    [onOrganizationFilterChange, organizationFilter]
+    [
+      onOrganizationFilterChange,
+      organizationFilter,
+      selectedLocations,
+      selectedStages,
+      onLocationsSelect,
+      onStagesSelect
+    ]
   );
 
   return {

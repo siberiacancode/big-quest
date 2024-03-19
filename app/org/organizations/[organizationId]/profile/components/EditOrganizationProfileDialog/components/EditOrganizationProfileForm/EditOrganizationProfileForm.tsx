@@ -1,6 +1,6 @@
 import { PlusIcon, Trash2Icon } from 'lucide-react';
 
-import { DadataCombobox } from '@/components/comboboxes';
+import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {
   BikInput,
@@ -21,6 +21,7 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
+import { convertLocalitiesToComboboxItems } from './helpers/convertLocalitiesToComboboxItems';
 import { useEditOrganizationProfileForm } from './hooks/useEditOrganizationProfileForm';
 
 interface EditOrganizationFormProps {
@@ -168,10 +169,11 @@ export const EditOrganizationProfileForm = ({
                   <I18nText path='field.organization.locality.label' />
                 </FormLabel>
                 <FormControl>
-                  <DadataCombobox
+                  <AddressCombobox
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                    convertAddresses={convertLocalitiesToComboboxItems}
                   />
                 </FormControl>
                 <FormMessage>
@@ -276,7 +278,7 @@ export const EditOrganizationProfileForm = ({
                   <I18nText path='field.organization.legalAddress.label' />
                 </FormLabel>
                 <FormControl>
-                  <DadataCombobox
+                  <AddressCombobox
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) =>
@@ -305,7 +307,7 @@ export const EditOrganizationProfileForm = ({
                   <I18nText path='field.organization.postAddress.label' />
                 </FormLabel>
                 <FormControl>
-                  <DadataCombobox
+                  <AddressCombobox
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) =>
