@@ -1,3 +1,5 @@
+export * from './activities';
+export * from './activities/dashboard';
 export * from './activity';
 export * from './activity/id';
 export * from './auth/login/email';

@@ -1,5 +1,4 @@
-import { getActivitiesTable } from '@/utils/api/requests/activities';
-import { getActivitiesDashboard } from '@/utils/api/requests/activities/dashboard';
+import { getActivities } from '@/utils/api';
 
 import { OrgBreadcrumbs } from '../components/OrgBreadcrumbs/OrgBreadcrumbs';
 
@@ -14,23 +13,20 @@ const DEFAULT_ORGANIZATIONS_LIMIT = '10';
 const DEFAULT_ORGANIZATIONS_PAGE = '1';
 
 const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
-  const [activitiesTableResponse, activitiesDashboard] = await Promise.all([
-    getActivitiesTable({
-      config: {
-        params: {
-          limit: DEFAULT_ORGANIZATIONS_LIMIT,
-          current: DEFAULT_ORGANIZATIONS_PAGE,
-          ...searchParams
-        }
+  const activitiesTableResponse = await getActivities({
+    config: {
+      params: {
+        limit: DEFAULT_ORGANIZATIONS_LIMIT,
+        current: DEFAULT_ORGANIZATIONS_PAGE,
+        ...searchParams
       }
-    }),
-    getActivitiesDashboard()
-  ]);
+    }
+  });
 
   return (
     <div className='bg-secondary px-4'>
       <OrgBreadcrumbs />
-      <ActivitiesDashboard dashboard={activitiesDashboard} />
+      <ActivitiesDashboard />
       <ActivitiesTable
         actvities={activitiesTableResponse.rows}
         pagination={activitiesTableResponse.pagination}

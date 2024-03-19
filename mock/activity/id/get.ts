@@ -7,6 +7,7 @@ export const getActivityById: RestRequestConfig = {
     {
       data: [
         {
+          id: '1',
           cover: '',
           content: [],
           name: 'Рисуем живопись',

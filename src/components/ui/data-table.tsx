@@ -1,6 +1,5 @@
 'use client';
 
-import type { ReactNode } from 'react';
 import React from 'react';
 import { CaretSortIcon, PlusCircledIcon } from '@radix-ui/react-icons';
 import type {
@@ -253,7 +252,7 @@ export interface DataTableFacetedFilterProps {
   searchPlaceholder?: string;
   noResultsMsg?: string;
   title: string;
-  icon?: ReactNode;
+  icon?: React.ReactNode;
 }
 
 const MAX_SHOWN_FILTER_ITEMS = 2;
