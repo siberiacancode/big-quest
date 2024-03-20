@@ -17,13 +17,13 @@ export const LeaveRequestSection = () => (
           <I18nText path='landing.leaveRequest.subtitle' />
         </Typography>
         <div className='absolute bottom-0 left-0 translate-y-1/2'>
-          <WavyLineIcon />
+          <WavyLineIcon width='100%' />
         </div>
       </div>
       <Typography
         tag='p'
         variant='body1'
-        className='mt-3 text-[20px] xlx:w-[90%] mdx:text-lg xsx:text-center xsx:text-[15px]'
+        className='mt-3 text-xl xlx:w-[90%] mdx:text-lg xsx:text-center xsx:text-base'
       >
         <I18nText path='landing.leaveRequest.description' />
       </Typography>
@@ -31,7 +31,7 @@ export const LeaveRequestSection = () => (
         trigger={
           <Button
             size='lg'
-            className='mt-[34px] w-1/2 bg-taiga text-white hover:bg-taiga-foreground mdx:mt-5 xsx:mt-[24px] xsx:w-full'
+            className='mt-[34px] w-1/2 bg-taiga text-white hover:bg-taiga-foreground mdx:mt-5 xsx:mt-6 xsx:w-full'
           >
             <I18nText path='button.goToRegisterOrganization' />
           </Button>

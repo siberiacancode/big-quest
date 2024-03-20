@@ -13,14 +13,14 @@ export const Footer = () => (
       <div className='flex flex-shrink-0 flex-col lg:basis-1/4'>
         <Logo fill='white' />
         <div className='mt-[57px] flex gap-3'>
+          <Link href='https://web.whatsapp.com/'>
+            <WhatsappIcon className='fill-black' width='32' height='32' />
+          </Link>
           <Link href='https://vk.com/'>
             <VkIcon className='fill-black' width='32' height='32' />
           </Link>
           <Link href='https://web.telegram.org/'>
             <TelegramIcon className='fill-black' width='32' height='32' />
-          </Link>
-          <Link href='https://web.whatsapp.com/'>
-            <WhatsappIcon className='fill-black' width='32' height='32' />
           </Link>
         </div>
       </div>
@@ -72,7 +72,7 @@ export const Footer = () => (
       </div>
     </div>
     <div className='mt-[160px] border-t border-solid border-white py-[25px] lgx:mt-20 mdx:mt-10'>
-      <Typography variant='body3' className='text-center'>
+      <Typography variant='body3' className='text-center text-white'>
         <FooterCopyrightText />
       </Typography>
     </div>

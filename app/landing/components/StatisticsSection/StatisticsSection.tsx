@@ -7,7 +7,7 @@ export const StatisticsSection = () => (
       <Typography tag='p' className='text-[40px] font-bold text-white mdx:text-[32px]'>
         10000
       </Typography>
-      <Typography className='whitespace-nowrap text-[24px] text-white mdx:text-[18px]'>
+      <Typography className='whitespace-nowrap text-2xl text-white mdx:text-lg'>
         <I18nText path='landing.statistics.participants' />
       </Typography>
     </div>
@@ -15,7 +15,7 @@ export const StatisticsSection = () => (
       <Typography tag='p' className='text-[40px] font-bold text-white mdx:text-[32px]'>
         3000
       </Typography>
-      <Typography className='whitespace-nowrap text-[24px] text-white mdx:text-[18px]'>
+      <Typography className='whitespace-nowrap text-2xl text-white mdx:text-lg'>
         <I18nText path='landing.statistics.activities' values={{ br: <br /> }} />
       </Typography>
     </div>
@@ -23,7 +23,7 @@ export const StatisticsSection = () => (
       <Typography tag='p' className='text-[40px] font-bold text-white mdx:text-[32px]'>
         1150
       </Typography>
-      <Typography className='whitespace-nowrap text-[24px] text-white mdx:text-[18px]'>
+      <Typography className='whitespace-nowrap text-2xl text-white mdx:text-lg'>
         <I18nText path='landing.statistics.awards' />
       </Typography>
     </div>

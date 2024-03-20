@@ -1,4 +1,4 @@
-import { ActivitiesSection } from './components/ActivitiesSection/ActivitiesBlock';
+import { ActivitiesSection } from './components/ActivitiesSection/ActivitiesSection';
 import { BannerSection } from './components/BannerSection/BannerSection';
 import { FeedbackSlider } from './components/FeedbackSlider/FeedbackSlider';
 import { LeaveRequestSection } from './components/LeaveRequestSection/LeaveRequestSection';
