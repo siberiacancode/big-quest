@@ -3,6 +3,15 @@ const nextConfig = {};
 
 module.exports = {
   ...nextConfig,
+  images: {
+    domains: ['localhost'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*'
+      }
+    ]
+  },
   rewrites() {
     return [
       {

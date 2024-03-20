@@ -28,7 +28,7 @@ export const RegisterOrganizationDialog = ({ trigger }: RegisterOrganizationModa
         <div className='flex items-center justify-center overflow-y-auto'>
           <Image className='absolute' src={treeBackground} alt='' />
           <div className='flex flex-col items-center'>
-            <Typography tag='h1' variant='h1'>
+            <Typography variant='h2' tag='h2'>
               <I18nText path='dialog.registerOrganization.title' />
             </Typography>
             <div className='round relative z-10 mt-16 border bg-background p-5 xsx:mt-7 xsx:w-full lg:mt-16 lg:p-10 sm:w-[450px]'>

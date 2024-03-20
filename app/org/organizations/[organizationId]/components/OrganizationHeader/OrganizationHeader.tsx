@@ -3,6 +3,7 @@ import Image from 'next/image';
 import background from '@/assets/images/background/organization.png';
 import logo from '@/assets/images/logo/organization.png';
 import { I18nText } from '@/components/common';
+import { Typography } from '@/components/ui';
 
 import { OrganizationHeaderTabs } from './components/OrganizationHeaderTabs/OrganizationHeaderTabs';
 
@@ -24,16 +25,20 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
           <Image
             priority={false}
             className='h-20 w-20 rounded border-none'
+            width={80}
+            height={80}
             src={organization.avatar || logo}
             alt='org-background'
           />
           <div className='flex flex-col justify-center'>
-            <p className='text-lg font-bold text-foreground'>{organization.name} </p>
-            <p className='text-sm font-medium text-muted-foreground'>
+            <Typography variant='h5' tag='h5'>
+              {organization.name}
+            </Typography>
+            <Typography variant='sub3' tag='p' className='text-muted-foreground'>
               <I18nText
                 path={`organization.stage.${organization.stage.toLowerCase()}` as LocaleMessageId}
               />
-            </p>
+            </Typography>
           </div>
         </div>
         <OrganizationHeaderTabs organization={organization} />

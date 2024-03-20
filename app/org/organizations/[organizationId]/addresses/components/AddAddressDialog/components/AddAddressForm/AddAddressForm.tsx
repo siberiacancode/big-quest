@@ -1,4 +1,4 @@
-import { DadataCombobox } from '@/components/comboboxes';
+import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -9,11 +9,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  Input
+  Input,
+  Typography
 } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 
+import { convertLocalitiesToComboboxItems } from './helpers/convertLocalitiesToComboboxItems';
 import { useAddAddressForm } from './hooks/useAddAddressForm';
 
 interface AddAddressFormProps {
@@ -37,10 +39,11 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                   <FormLabel>
                     <I18nText path='field.location.label' />
                   </FormLabel>
-                  <DadataCombobox
+                  <AddressCombobox
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                    convertAddresses={convertLocalitiesToComboboxItems}
                   />
                   <FormMessage>
                     {form.formState?.errors?.locality && (
@@ -119,9 +122,9 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                 </FormItem>
               )}
             />
-            <h3 className='font-medium'>
+            <Typography variant='sub1' tag='p'>
               <I18nText path='addressCard.description.workingTime' />
-            </h3>
+            </Typography>
             {Array.from({ length: 7 }, (_, index) => {
               const day = index as 0 | 1 | 2 | 3 | 4 | 5 | 6;
               const dayOff = form.watch(`workingHours.${day}.dayOff`);

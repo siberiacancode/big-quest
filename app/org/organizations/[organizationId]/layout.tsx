@@ -16,7 +16,7 @@ const OrganizationPageLayout = async ({ params, children }: OrganizationPageLayo
 
   return (
     <div className='bg-secondary px-4'>
-      <OrgBreadcrumbs idBreadcrumbs={organization.name} />
+      <OrgBreadcrumbs ids={{ organizationId: organization.name }} />
       <div className='flex flex-col gap-4'>
         <OrganizationHeader organization={organization} />
         {children}

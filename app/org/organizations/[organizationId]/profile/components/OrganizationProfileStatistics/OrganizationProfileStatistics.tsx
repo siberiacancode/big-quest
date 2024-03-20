@@ -10,17 +10,20 @@ import {
   InfoCardItem,
   InfoCardItemDescription,
   InfoCardItemTitle,
-  InfoCardTitle
+  InfoCardTitle,
+  Typography
 } from '@/components/ui';
 
 export const OrganizationProfileStatistics = () => (
   <>
     <InfoCard>
       <InfoCardHeader className='p-5'>
-        <InfoCardTitle className='text-lg font-bold'>
-          <I18nText path='organization.profile.tariff.title' /> Бесплатный
+        <InfoCardTitle>
+          <Typography variant='h5' tag='p'>
+            <I18nText path='organization.profile.tariff.title' /> Бесплатный
+          </Typography>
         </InfoCardTitle>
-        <InfoCardAction className='bg-transparent text-xs text-muted-foreground'>
+        <InfoCardAction className='bg-transparent '>
           <Button variant='ghost' className='p-2'>
             <I18nText path='organization.profile.tariff.button' />
           </Button>
@@ -28,21 +31,39 @@ export const OrganizationProfileStatistics = () => (
       </InfoCardHeader>
       <InfoCardContent className='mt-3 flex w-full justify-center'>
         <InfoCardItem className='flex flex-col items-center border-none'>
-          <InfoCardItemTitle className='text-2xl font-medium'>10</InfoCardItemTitle>
+          <InfoCardItemTitle>
+            <Typography variant='h3' tag='h3'>
+              10
+            </Typography>
+          </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>
-            <I18nText path='organization.profile.tariff.activity' />
+            <Typography variant='body2' tag='p' className='text-muted-foreground'>
+              <I18nText path='organization.profile.tariff.activity' />
+            </Typography>
           </InfoCardItemDescription>
         </InfoCardItem>
         <InfoCardItem className='flex flex-col items-center border-none'>
-          <InfoCardItemTitle className='text-2xl font-medium'>10</InfoCardItemTitle>
+          <InfoCardItemTitle>
+            <Typography variant='h3' tag='h3'>
+              10
+            </Typography>
+          </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>
-            <I18nText path='organization.profile.tariff.paid' />
+            <Typography variant='body2' tag='p' className='text-muted-foreground'>
+              <I18nText path='organization.profile.tariff.paid' />
+            </Typography>
           </InfoCardItemDescription>
         </InfoCardItem>
         <InfoCardItem className='flex flex-col items-center border-none'>
-          <InfoCardItemTitle className='text-2xl font-medium'>10</InfoCardItemTitle>
+          <InfoCardItemTitle>
+            <Typography variant='h3' tag='h3'>
+              10
+            </Typography>
+          </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>
-            <I18nText path='organization.profile.tariff.valid' />
+            <Typography variant='body2' tag='p' className='text-muted-foreground'>
+              <I18nText path='organization.profile.tariff.valid' />
+            </Typography>
           </InfoCardItemDescription>
         </InfoCardItem>
       </InfoCardContent>
@@ -50,8 +71,10 @@ export const OrganizationProfileStatistics = () => (
     <div className='flex gap-4'>
       <InfoCard>
         <InfoCardHeader className='p-5'>
-          <InfoCardTitle className='text-base	font-medium'>
-            <I18nText path='organization.profile.members' />
+          <InfoCardTitle>
+            <Typography variant='sub1' tag='p'>
+              <I18nText path='organization.profile.members' />
+            </Typography>
           </InfoCardTitle>
           <InfoCardAction>
             <UsersRoundIcon size={20} strokeWidth={1.5} />
@@ -61,15 +84,20 @@ export const OrganizationProfileStatistics = () => (
           <InfoCardItem>
             <InfoCardItemTitle>560</InfoCardItemTitle>
             <InfoCardItemDescription className='flex gap-1'>
-              <TrendingUpIcon size={14} /> +24 <I18nText path='infoCard.description.perMonth' />
+              <TrendingUpIcon size={14} />
+              <Typography variant='body4' tag='p'>
+                +24 <I18nText path='infoCard.description.perMonth' />
+              </Typography>
             </InfoCardItemDescription>
           </InfoCardItem>
         </InfoCardContent>
       </InfoCard>
       <InfoCard>
         <InfoCardHeader className='p-5'>
-          <InfoCardTitle className='text-base	font-medium'>
-            <I18nText path='organization.profile.entries' />
+          <InfoCardTitle>
+            <Typography variant='sub1' tag='p'>
+              <I18nText path='organization.profile.entries' />
+            </Typography>
           </InfoCardTitle>
           <InfoCardAction>
             <NotebookTextIcon size={20} strokeWidth={1.5} />

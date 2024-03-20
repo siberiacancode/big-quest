@@ -10,8 +10,17 @@ const mockServerConfig: MockServerConfig = {
     allowedHeaders: ['content-type', 'authorization'],
     credentials: true
   },
+  interceptors: {
+    request: async ({ setDelay }) => {
+      await setDelay(1000);
+    }
+  },
   rest: {
     configs: Object.values(requests)
+  },
+  staticPath: {
+    path: '/mock/static',
+    prefix: '/static'
   }
 };
 

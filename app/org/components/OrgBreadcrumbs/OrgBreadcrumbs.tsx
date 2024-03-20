@@ -1,38 +1,42 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 
 import { I18nText } from '@/components/common';
 import { BreadcrumbItem, Breadcrumbs } from '@/components/ui';
 
-interface NextBreadcrumbsProps {
-  idBreadcrumbs?: string;
+interface OrgBreadcrumbsProps {
+  ids?: Record<string, string | undefined>;
 }
 
-const isId = (path) => /[0-9]/.test(path) || path.includes('-');
-
-export const OrgBreadcrumbs = ({ idBreadcrumbs = 'id' }: NextBreadcrumbsProps) => {
+export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
+  const params = useParams();
   const pathname = usePathname();
-  const pathnames = pathname.split('/').filter((path) => !!path);
-  pathnames.forEach((path, index) => {
-    if (isId(path)) {
-      pathnames.splice(index + 1, 1);
-    }
-  });
+
+  const paramValues = Object.values(params);
+  const paramKeys = Object.keys(params);
+  const pathnames = pathname.split('/').filter((path) => path);
 
   return (
-    <Breadcrumbs>
+    <Breadcrumbs className='flex-wrap'>
       {pathnames.map((path, index) => {
-        const pathId = isId(path);
-        const href = `/${pathnames
-          .filter((path) => !isId(path))
+        const idKeyIndex = paramValues.findIndex((param) => param === path);
+        const isPathId = !!~idKeyIndex;
+
+        const href = `/${pathnames.slice(0, index + 1).join('/')}`;
+        const hrefWithoutIds = pathnames
           .slice(0, index + 1)
-          .join('/')}`;
-        const translateHref = href.replaceAll('/', '.');
+          .filter(
+            (currentPath) => !~paramValues.findIndex((currentParam) => currentParam === currentPath)
+          );
+
+        const translateHref = `.${hrefWithoutIds.join('.')}`;
+
         return (
-          <BreadcrumbItem key={`${href}${pathId}`} href={href}>
-            {pathId && idBreadcrumbs}
-            {!pathId && <I18nText path={`navigation.link${translateHref}` as LocaleMessageId} />}
+          <BreadcrumbItem key={href} href={href}>
+            {isPathId &&
+              (ids[paramKeys[idKeyIndex]] ?? <I18nText path='navigation.link.default' />)}
+            {!isPathId && <I18nText path={`navigation.link${translateHref}` as LocaleMessageId} />}
           </BreadcrumbItem>
         );
       })}

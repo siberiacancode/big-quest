@@ -1,6 +1,6 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const refreshTokensConfig: RestRequestConfig = {
+export const getAuthRefreshTokensConfig: RestRequestConfig = {
   path: '/auth/refresh-tokens',
   method: 'get',
   routes: [

@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import { Toaster } from '@/components/ui/sonner';
+import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
 import { getMessagesByLocale } from '@/utils/helpers';
 import { getDefaultTheme } from '@/utils/helpers/getDefaultTheme';
+import { getUserSession } from '@/utils/helpers/getUserSession';
 
 import Providers from './providers';
 
@@ -18,17 +20,28 @@ export const metadata: Metadata = {
 
 const TOASTER_DURATION = 5000;
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+generateServerHeadersInterceptor();
+
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+const RootLayout = ({ children }: RootLayoutProps) => {
   const locale = 'ru';
   const messages = getMessagesByLocale(locale);
   const defaultTheme = getDefaultTheme();
+
+  const userSession = getUserSession();
 
   return (
     <html className={defaultTheme} lang='en'>
       <body className={`min-h-screen bg-background font-sans antialiased ${inter.className}`}>
         <Providers
+          user={{
+            defaultUser: userSession
+          }}
           i18n={{ locale, messages }}
-          session={{ defaultSession: { isAuthenticated: true } }}
+          session={{ defaultSession: { isAuthenticated: !!userSession } }}
           theme={{ defaultTheme }}
         >
           {children}
