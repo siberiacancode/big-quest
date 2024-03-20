@@ -1,6 +1,6 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const postOrganizationRegister: RestRequestConfig = {
+export const postOrganizationRegisterConfig: RestRequestConfig = {
   path: '/organization/register',
   method: 'post',
   routes: [

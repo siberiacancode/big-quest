@@ -20,10 +20,13 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
           limit: DEFAULT_ORGANIZATIONS_LIMIT,
           current: DEFAULT_ORGANIZATIONS_PAGE,
           ...searchParams
-        }
+        },
+        cache: 'no-store'
       }
     }),
-    getOrganizationDashboard()
+    getOrganizationDashboard({
+      config: { cache: 'no-store' }
+    })
   ]);
 
   return (

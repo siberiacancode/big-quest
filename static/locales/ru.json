@@ -15,6 +15,7 @@
   "button.add": "Добавить",
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
+  "button.close": "Закрыть",
   "button.addActivities": "Добавить активность",
   "button.addEmployee": "Добавить сотрудника",
 
@@ -176,10 +177,10 @@
 
   "table.column.organization.stage": "Статус",
   "table.column.organization.name": "Организация",
-  "table.column.organization.location": "Населенный пункт",
+  "table.column.organization.locality": "Населенный пункт",
   "table.column.organization.type": "Тип",
-  "table.column.organization.rate": "Тариф",
-  "table.column.organization.daysAmount": "Кол-во дней",
+  "table.column.organization.tariff": "Тариф",
+  "table.column.organization.countDays": "Кол-во дней",
 
   "dayOfWeek.1": "Пн",
   "dayOfWeek.2": "Вт",
@@ -222,6 +223,9 @@
   "dialog.addAddress.title": "Добавление адреса",
   "dialog.addAddress.form.untill": "до",
   "dialog.addAddress.success": "Адрес успешно добавлен",
+
+  "dropzone.image.error": "Разрешена загрузка 1 файла-изображения",
+  "dropzone.docs.error": "Разрешена загрузка 1 файла-документа",
 
   "dialog.addActivity.title": "Активность",
   "dialog.addActivity.success": "Активность успешно добавлена",

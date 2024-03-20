@@ -41,8 +41,8 @@ export const columns: ColumnDef<OrganizationsTableRow>[] = [
     sortable: true
   }),
   generateDataTableColumn({
-    accessorKey: 'location',
-    headerLabel: 'table.column.organization.location',
+    accessorKey: 'locality',
+    headerLabel: 'table.column.organization.locality',
     sortable: true
   }),
   generateDataTableColumn({
@@ -52,12 +52,12 @@ export const columns: ColumnDef<OrganizationsTableRow>[] = [
     translateValue: true
   }),
   generateDataTableColumn({
-    accessorKey: 'rate',
-    headerLabel: 'table.column.organization.rate'
+    accessorKey: 'tariff',
+    headerLabel: 'table.column.organization.tariff'
   }),
   generateDataTableColumn({
-    accessorKey: 'daysAmount',
-    headerLabel: 'table.column.organization.daysAmount',
+    accessorKey: 'countDays',
+    headerLabel: 'table.column.organization.countDays',
     sortable: true
   }),
   generateDataTableColumn({

@@ -1,4 +1,4 @@
-import { DadataCombobox } from '@/components/comboboxes';
+import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -15,6 +15,7 @@ import {
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 
+import { convertLocalitiesToComboboxItems } from './helpers/convertLocalitiesToComboboxItems';
 import { useAddAddressForm } from './hooks/useAddAddressForm';
 
 interface AddAddressFormProps {
@@ -38,10 +39,11 @@ export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
                   <FormLabel>
                     <I18nText path='field.location.label' />
                   </FormLabel>
-                  <DadataCombobox
+                  <AddressCombobox
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                    convertAddresses={convertLocalitiesToComboboxItems}
                   />
                   <FormMessage>
                     {form.formState?.errors?.locality && (
