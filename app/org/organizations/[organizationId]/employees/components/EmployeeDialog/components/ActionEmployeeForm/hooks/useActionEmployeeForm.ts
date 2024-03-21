@@ -31,7 +31,8 @@ export const useActionEmployeeForm = ({
       name: employee?.name ?? '',
       surname: employee?.surname ?? '',
       email: employee?.email ?? '',
-      phone: employee?.phone ?? ''
+      phone: employee?.phone ?? '',
+      image: ''
     }
   });
 
@@ -42,6 +43,8 @@ export const useActionEmployeeForm = ({
       ...values,
       legalEntityId: params.organizationId
     };
+
+    console.log(requestParams);
 
     if (actionType === 'add') {
       const postOrganizationActionEmployeeParams = {

@@ -1,4 +1,5 @@
 import { I18nText } from '@/components/common';
+import { DropzoneCard } from '@/components/dropzone';
 import {
   Button,
   Form,
@@ -13,7 +14,8 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
+  SelectValue,
+  Typography
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
@@ -41,6 +43,33 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
       <form onSubmit={functions.onSubmit} className='flex w-full flex-col items-end'>
         <div className='mb-7 flex w-full gap-5 smx:flex-col'>
           <div className='flex-1 space-y-3'>
+            <FormField
+              control={form.control}
+              disabled={state.isLoading}
+              name='image'
+              render={({ field }) => (
+                <FormItem className='flex flex-row-reverse items-center gap-3'>
+                  <div>
+                    <Typography variant='sub2'>
+                      <I18nText path='field.imageDownload.title' />
+                    </Typography>
+                    <Typography variant='body2'>
+                      <I18nText path='field.imageDownload.description' />
+                    </Typography>
+                  </div>
+                  <FormControl>
+                    <div>
+                      <DropzoneCard {...field} className='h-32 w-32' />
+                    </div>
+                  </FormControl>
+                  <FormMessage>
+                    {form.formState?.errors?.role && (
+                      <I18nText path={form.formState.errors.role.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               disabled={state.isLoading}
