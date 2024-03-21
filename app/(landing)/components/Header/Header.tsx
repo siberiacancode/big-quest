@@ -3,9 +3,15 @@
 import { MenuIcon, XIcon } from 'lucide-react';
 import Link from 'next/link';
 
-import { DadataCombobox } from '@/components/comboboxes';
 import { I18nText, Logo } from '@/components/common';
-import { Button } from '@/components/ui';
+import {
+  Button,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { ROUTES } from '@/utils/constants';
 import { useHeader } from '@/utils/hooks';
@@ -35,7 +41,14 @@ export const Header = () => {
         )}
       >
         <div className='flex items-center gap-6 py-10 mdx:flex-col mdx:justify-center md:justify-end'>
-          <DadataCombobox value='г. Томск' onSelect={() => {}} />
+          <Select value='г. Томск'>
+            <SelectTrigger className='h-8 w-48'>
+              <SelectValue placeholder='г. Томск' />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value='г. Томск'>Томск</SelectItem>
+            </SelectContent>
+          </Select>
           <Link href={ROUTES.AUTH} className='hover:underline'>
             <I18nText path='button.organizationsEntrance' />
           </Link>
