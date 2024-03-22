@@ -18,9 +18,5 @@ module.exports = {
         destination: `${process.env.API_URL}/api/:path*`
       }
     ];
-  },
-  // eslint-disable-next-line no-dupe-keys
-  images: {
-    domains: ['localhost']
   }
 };
