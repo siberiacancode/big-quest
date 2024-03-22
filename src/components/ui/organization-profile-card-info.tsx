@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
 
-import { VkIcon } from '../icons';
+import { TelegramIcon, VkIcon, WhatsappIcon } from '../icons';
 
 const OrganizationProfileCardInfo = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
   ({ className, ...props }, ref) => (
@@ -45,6 +45,8 @@ const UnknownSocialIcon = () => (
 
 const SOCIAL_LINKS = {
   vk: VkIcon,
+  telegram: TelegramIcon,
+  whatsapp: WhatsappIcon,
   unknown: UnknownSocialIcon
 };
 

@@ -1,6 +1,6 @@
 import { ActivitiesSection } from './components/ActivitiesSection/ActivitiesSection';
 import { BannerSection } from './components/BannerSection/BannerSection';
-import { FeedbackSlider } from './components/FeedbackSlider/FeedbackSlider';
+import { FeedbackSection } from './components/FeedbackSection/FeedbackSection';
 import { LeaveRequestSection } from './components/LeaveRequestSection/LeaveRequestSection';
 import { NewsSection } from './components/NewsSection/NewsSection';
 import { SponsorsSection } from './components/SponsorsSection/SponsorsSection';
@@ -13,7 +13,7 @@ const LandingPage = () => (
     <StatisticsSection />
     <ActivitiesSection />
     <SponsorsSection />
-    <FeedbackSlider />
+    <FeedbackSection />
     <LeaveRequestSection />
   </>
 );

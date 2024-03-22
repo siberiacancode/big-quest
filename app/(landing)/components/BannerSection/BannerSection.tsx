@@ -12,8 +12,9 @@ import { I18nText } from '@/components/common';
 import { BigQuestLogoIcon, RhombIcon } from '@/components/icons';
 import { buttonVariants, Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
+import { ROUTES } from '@/utils/constants';
 
-const getSubtitleGreenSpan = (children: React.ReactNode) => (
+const getGreenSubtitle = (children: React.ReactNode) => (
   <span className='font-medium text-taiga'>{children}</span>
 );
 
@@ -53,7 +54,7 @@ export const BannerSection = () => (
             <I18nText
               path='landing.info.subtitle'
               values={{
-                green: getSubtitleGreenSpan,
+                green: getGreenSubtitle,
                 br: <br />
               }}
             />
@@ -61,7 +62,7 @@ export const BannerSection = () => (
         </div>
         <div className='mt-14 flex gap-4 xlx:mt-11 xlx:w-full mdx:mt-7 xsx:justify-center xsx:gap-2'>
           <Link
-            href='/'
+            href={ROUTES.REGISTER}
             className={cn(
               buttonVariants({ size: 'lg' }),
               'bg-taiga text-white hover:bg-taiga-foreground xs:basis-2/3'
