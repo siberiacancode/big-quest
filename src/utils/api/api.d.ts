@@ -137,7 +137,7 @@ interface AddEmployeeDto {
   surname: string;
   email: string;
   phone: string;
-  image?: any;
+  image?: File;
 }
 
 interface EditEmployeeDto {
@@ -148,7 +148,7 @@ interface EditEmployeeDto {
   surname: string;
   email: string;
   phone: string;
-  image?: any;
+  image?: File;
 }
 
 interface RegisterOrganizationDto {

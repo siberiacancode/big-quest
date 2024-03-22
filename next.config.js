@@ -18,8 +18,5 @@ module.exports = {
         destination: `${process.env.API_URL}/api/:path*`
       }
     ];
-  },
-  images: {
-    domains: ['localhost']
   }
 };

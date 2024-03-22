@@ -13,7 +13,8 @@ export const employeeSchema = z.object({
       message: 'validation.email.format'
     }),
   phone: z.string().min(1, { message: 'validation.required' }),
-  image: z.any()
+  image: z.instanceof(File)
+  // image: z.any()
   // .refine((files) => {
   //   return files?.[0]?.size <= MAX_FILE_SIZE;
   // }, `Max image size is 5MB.`)

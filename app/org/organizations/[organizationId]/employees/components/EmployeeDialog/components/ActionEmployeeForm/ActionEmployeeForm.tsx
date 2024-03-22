@@ -48,20 +48,26 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
               disabled={state.isLoading}
               name='image'
               render={({ field }) => (
-                <FormItem className='flex flex-row-reverse items-center gap-3'>
-                  <div>
-                    <Typography variant='sub2'>
-                      <I18nText path='field.imageDownload.title' />
-                    </Typography>
-                    <Typography variant='body2'>
-                      <I18nText path='field.imageDownload.description' />
-                    </Typography>
-                  </div>
+                <FormItem className='flex items-center gap-3'>
                   <FormControl>
                     <div>
                       <DropzoneCard {...field} className='h-32 w-32' />
                     </div>
                   </FormControl>
+                  <div>
+                    {form.getValues('image') ? (
+                      <Typography variant='sub2'>{form.getValues('image').name}</Typography>
+                    ) : (
+                      <>
+                        <Typography variant='sub2'>
+                          <I18nText path='field.imageDownload.title' />
+                        </Typography>
+                        <Typography variant='body2'>
+                          <I18nText path='field.imageDownload.description' />
+                        </Typography>
+                      </>
+                    )}
+                  </div>
                   <FormMessage>
                     {form.formState?.errors?.role && (
                       <I18nText path={form.formState.errors.role.message as LocaleMessageId} />
