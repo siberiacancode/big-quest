@@ -71,7 +71,7 @@ export const BannerSection = () => (
             <I18nText path='button.registration' />
           </Link>
           <Link
-            href='/'
+            href={ROUTES.AUTH}
             className={cn(
               buttonVariants({ size: 'lg', variant: 'ghost' }),
               'text-taiga hover:bg-taiga hover:text-white xs:basis-1/3'

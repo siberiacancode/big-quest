@@ -49,7 +49,7 @@ export const Header = () => {
               <SelectItem value='г. Томск'>Томск</SelectItem>
             </SelectContent>
           </Select>
-          <Link href={ROUTES.AUTH} className='hover:underline'>
+          <Link href={ROUTES.ORG.AUTH} className='hover:underline'>
             <I18nText path='button.organizationsEntrance' />
           </Link>
         </div>
