@@ -246,5 +246,7 @@
   "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
   "tooltip.kpp": "КПП - 9 цифр",
   "tooltip.ogrn": "ОГРН - 13 цифр, ОГРНИП - 15 цифр",
-  "tooltip.bik": "БИК - 9 цифр"
+  "tooltip.bik": "БИК - 9 цифр",
+
+  "landing.feedback.title": "Что о нас говорят"
 }

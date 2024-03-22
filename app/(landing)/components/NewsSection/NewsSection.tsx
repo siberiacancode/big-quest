@@ -23,11 +23,6 @@ export const NewsSection = () => (
       backgroundSize: 'cover'
     }}
   >
-    {/* <Image
-      src={newsBackground}
-      alt=''
-      className='absolute bottom-0 left-0 right-0 top-0 m-auto h-full w-full overflow-auto object-cover'
-    /> */}
     <Carousel className='mx-auto max-w-full'>
       <CarouselContent className='w-full'>
         {news.map((currentNews, index) => (

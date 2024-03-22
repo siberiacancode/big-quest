@@ -11,6 +11,6 @@ export const ROUTES = {
     }
   },
   LANDING: {
-    ROOT: '/landing'
+    ROOT: '/'
   }
 };

@@ -11,7 +11,7 @@ import { createTokensTimer, TOKENS_TIMER_EXPIRATION } from '@/utils/jwt/';
 generateSetTokensInterceptor();
 generateServerHeadersInterceptor();
 
-const UNAUTH_ROUTES = [ROUTES.AUTH];
+const UNAUTH_ROUTES = [ROUTES.AUTH, ROUTES.LANDING.ROOT];
 
 const clearCookies = (
   response: NextResponse,
@@ -28,7 +28,7 @@ export async function middleware(request: NextRequest) {
 
   const isAuthenticated = !!authTokenCookie && !!refreshTokenCookie;
 
-  if (!isAuthenticated && request.url.includes(ROUTES.AUTH)) {
+  if (!isAuthenticated && UNAUTH_ROUTES.some((route) => request.url.includes(route))) {
     console.log('@.1 !isAuthenticated page is auth');
     return NextResponse.next();
   }

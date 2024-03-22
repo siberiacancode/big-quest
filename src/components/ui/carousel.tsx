@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -181,7 +181,7 @@ CarouselItem.displayName = 'CarouselItem';
 
 export interface CarouselPreviousProps
   extends Omit<React.ComponentProps<typeof Button>, 'children'> {
-  children: (disabled: boolean) => React.ReactNode;
+  children?: (disabled: boolean) => React.ReactNode;
 }
 
 const CarouselPrevious = React.forwardRef<HTMLButtonElement, CarouselPreviousProps>(
@@ -205,7 +205,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, CarouselPreviousPro
         {...props}
       >
         {children && children(!canScrollPrev)}
-        {!children && <ArrowLeft className='h-4 w-4' />}
+        {!children && <ChevronLeftIcon className='h-4 w-4' />}
         <span className='sr-only'>Previous slide</span>
       </Button>
     );
@@ -214,7 +214,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, CarouselPreviousPro
 CarouselPrevious.displayName = 'CarouselPrevious';
 
 export interface CarouselNextProps extends Omit<React.ComponentProps<typeof Button>, 'children'> {
-  children: (disabled: boolean) => React.ReactNode;
+  children?: (disabled: boolean) => React.ReactNode;
 }
 
 const CarouselNext = React.forwardRef<HTMLButtonElement, CarouselNextProps>(
@@ -238,7 +238,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, CarouselNextProps>(
         {...props}
       >
         {children && children(!canScrollNext)}
-        {!children && <ArrowRight className='h-4 w-4' />}
+        {!children && <ChevronRightIcon className='h-4 w-4' />}
         <span className='sr-only'>Next slide</span>
       </Button>
     );
