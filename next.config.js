@@ -9,7 +9,8 @@ module.exports = {
         protocol: 'https',
         hostname: '*'
       }
-    ]
+    ],
+    domains: ['localhost']
   },
   rewrites() {
     return [
@@ -18,8 +19,5 @@ module.exports = {
         destination: `${process.env.API_URL}/api/:path*`
       }
     ];
-  },
-  images: {
-    domains: ['localhost']
   }
 };

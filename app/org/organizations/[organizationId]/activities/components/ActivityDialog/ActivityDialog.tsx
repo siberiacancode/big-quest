@@ -25,12 +25,12 @@ interface ActivityDialogProps {
 }
 
 export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialogProps) => {
-  const { state, functions } = useActivityDialog({ actionType });
+  const { state, functions } = useActivityDialog({ actionType, activity });
 
   return (
     <Dialog open={state.open} onOpenChange={functions.onOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className='h-[90%] max-w-[713px] smx:h-screen smx:w-screen'>
+      <DialogContent className='h-[95%] max-w-[713px] smx:h-screen smx:w-screen'>
         <DialogClose>
           <XIcon className='h-6 w-6' />
         </DialogClose>
@@ -43,12 +43,14 @@ export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialog
         </DialogHeader>
 
         {state.actionType === 'info' && activity && (
-          <ActivityInfo activity={activity} onEdit={functions.onEdit} />
+          <ActivityInfo activity={state.activity} setActionType={functions.setActionType} />
         )}
         {state.actionType !== 'info' && (
           <ActivityActionForm
             actionType={state.actionType}
-            activity={activity}
+            activity={state.activity}
+            externalActionType={actionType}
+            setActionType={functions.setActionType}
             onAction={functions.onAction}
           />
         )}

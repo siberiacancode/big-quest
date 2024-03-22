@@ -9,8 +9,26 @@ export const getActivities: RestRequestConfig = {
         rows: [
           {
             id: '1',
-            cover: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
-            content: ['http://localhost:31299/api/1.0/static/activity/image-2.png'],
+            media: [
+              {
+                id: 1,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
+                position: 1,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: true
+              },
+              {
+                id: 2,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
+                position: 2,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: false
+              }
+            ],
             name: 'Рисуем живопись',
             description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
@@ -42,8 +60,35 @@ export const getActivities: RestRequestConfig = {
           },
           {
             id: '1',
-            cover: null,
-            content: [],
+            media: [
+              {
+                id: 1,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
+                position: 1,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: FinalizationRegistry
+              },
+              {
+                id: 2,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
+                position: 2,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: false
+              },
+              {
+                id: 3,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
+                position: 3,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: true
+              }
+            ],
             name: 'Рисуем живопись',
             description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
@@ -61,8 +106,17 @@ export const getActivities: RestRequestConfig = {
           },
           {
             id: '1',
-            cover: 'http://localhost:31299/api/1.0/static/activity/image-4.png',
-            content: [],
+            media: [
+              {
+                id: 1,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
+                position: 1,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: true
+              }
+            ],
             name: 'Рисуем живопись',
             description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
@@ -94,8 +148,35 @@ export const getActivities: RestRequestConfig = {
           },
           {
             id: '1',
-            cover: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
-            content: ['http://localhost:31299/api/1.0/static/activity/image-2.png'],
+            media: [
+              {
+                id: 1,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
+                position: 1,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: FinalizationRegistry
+              },
+              {
+                id: 2,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
+                position: 2,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: false
+              },
+              {
+                id: 3,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
+                position: 3,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: true
+              }
+            ],
             name: 'Рисуем живопись',
             ageLimit: [7, 13],
             price: 100,
@@ -111,8 +192,26 @@ export const getActivities: RestRequestConfig = {
           },
           {
             id: '1',
-            cover: null,
-            content: [],
+            media: [
+              {
+                id: 1,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
+                position: 1,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: FinalizationRegistry
+              },
+              {
+                id: 2,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
+                position: 2,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: true
+              }
+            ],
             name: 'Рисуем живопись',
             ageLimit: [7, 13],
             price: 100,

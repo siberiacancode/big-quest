@@ -1,69 +1,71 @@
-import { Edit3Icon } from 'lucide-react';
+import React from 'react';
+import { Edit3Icon, WallpaperIcon } from 'lucide-react';
 import Image from 'next/image';
 
 import background from '@/assets/images/background/activity.png';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
+import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 
+import type { ActivityActionType, ActivityProps } from '../../constants/types';
+
 interface ActivityInfoProps {
-  activity: {
-    id: string;
-    cover?: string;
-    content?: string[];
-    name: string;
-    description?: string;
-    ageLimit: number[];
-    price: number;
-    nutsCount: number;
-    duration: number;
-    replay: boolean;
-    view: ActivityView;
-    status: ActivityStatus;
-    category: string;
-    participants: number;
-    likes: number;
-    schedule?: Schedule[];
-  };
-  onEdit: () => void;
+  activity: ActivityProps;
+  setActionType: (props: ActivityActionType) => void;
 }
 
-export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
+export const ActivityInfo = ({ activity, setActionType }: ActivityInfoProps) => {
   const i18n = useI18n();
   const [lowerAgeLimit, upperAgeLimit] = activity.ageLimit;
+  const [activityMedia] = React.useState(activity.media);
+  const [activeMediaFile, setActiveFile] = React.useState<{ url: string; isAvatar: boolean }>(
+    activityMedia[0]
+  );
 
+  console.log(activity.media);
   return (
-    <div className='flex flex-col items-end gap-4 overflow-y-auto px-5 smx:px-0'>
-      <div className='grid h-screen max-h-[260px] w-full grid-cols-2 items-center gap-4 px-5 xsx:max-h-[130px] xsx:gap-2'>
-        <div className='relative h-full'>
+    <div className='flex flex-col items-end gap-4 px-5 smx:px-0'>
+      <div className='grid h-screen max-h-[418px] w-full grid-cols-3 gap-3 xsx:max-h-[130px] xsx:gap-2'>
+        <div className='relative col-span-2 h-full max-w-[418px]'>
           <Image
-            className='w-full rounded-lg sm:max-h-64 sm:w-[300px]'
-            src={activity.cover ?? background}
+            className=' w-full rounded-lg sm:max-h-[418px] sm:w-[300px]'
+            src={activeMediaFile.url ?? background}
             fill
             object-fit='cover'
-            alt={i18n.formatMessage({ id: `activity.image.alt` }, { name: activity.name })}
+            alt={i18n.formatMessage({ id: 'activity.image.alt' }, { name: activity.name })}
           />
         </div>
-        <div className='grid h-full grid-cols-2 grid-rows-2 gap-2'>
-          {Array.from({ length: 4 }, (_, index) => (
-            <div className='relative'>
-              {activity.content && activity.content[index] ? (
+
+        <div className='grid h-fit grid-cols-2 gap-2'>
+          {activityMedia.map((item, index) => (
+            <div className='relative' key={index}>
+              <div className={cn('relative h-[100px] w-[100px]')}>
                 <Image
-                  className='max-h-[125px] w-full max-w-[150px] rounded-lg'
-                  src={activity.content[index]}
+                  className={cn(
+                    'rounded-lg',
+                    activeMediaFile.url === item.url && 'border-2 border-emerald-700'
+                  )}
+                  src={item.url}
                   fill
-                  object-fit='cover'
-                  alt={i18n.formatMessage({ id: `activity.image.alt` }, { name: activity.name })}
+                  onClick={() => setActiveFile({ url: item.url, isAvatar: item.isAvatar })}
+                  alt={i18n.formatMessage({ id: 'activity.image.alt' }, { name: activity.name })}
                 />
-              ) : (
-                <div className='h-full w-full rounded-lg border-2 border-dashed border-border' />
+              </div>
+              {item.isAvatar && (
+                <div className='absolute right-0 top-0 m-2 rounded-full bg-emerald-700 p-2'>
+                  <WallpaperIcon className='h-3 w-3 text-white' />
+                </div>
               )}
             </div>
           ))}
         </div>
       </div>
-      <div className='relative flex w-full flex-col overflow-y-auto rounded-lg border p-5'>
-        <Edit3Icon className='absolute right-4 top-4 hover:cursor-pointer' onClick={onEdit} />
+      <div className='relative flex w-full flex-col rounded-lg border p-5'>
+        <Edit3Icon
+          className='absolute right-4 top-4 hover:cursor-pointer'
+          onClick={() => setActionType('edit')}
+        />
         <div className='flex w-full justify-between gap-24 smx:flex-col smx:gap-2'>
           <div className='flex-1 space-y-3'>
             <div className='flex flex-col gap-2'>

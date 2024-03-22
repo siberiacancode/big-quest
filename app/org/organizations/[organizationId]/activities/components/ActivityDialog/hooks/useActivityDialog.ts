@@ -5,12 +5,19 @@ import { useI18n } from '@/utils/contexts';
 
 import type { ActivityActionType } from '../constants/types';
 
-export const useActivityDialog = ({ actionType: externalActionType }) => {
+export const useActivityDialog = ({ actionType: externalActionType, activity }) => {
   const i18n = useI18n();
   const [open, setOpen] = React.useState(false);
   const [actionType, setActionType] = React.useState<ActivityActionType>(externalActionType);
 
-  const onOpenChange = () => setOpen(!open);
+  const onOpenChange = () => {
+    setOpen(!open);
+    if (externalActionType === 'info') {
+      setActionType('info');
+    }
+  };
+
+  const getActivityByIdResponse = activity;
 
   const onAction = () => {
     if (actionType === 'add') {
@@ -24,11 +31,11 @@ export const useActivityDialog = ({ actionType: externalActionType }) => {
         cancel: { label: 'Close' }
       });
     }
-
     setOpen(false);
   };
 
-  const onEdit = () => setActionType('edit');
-
-  return { state: { open, actionType }, functions: { setOpen, onEdit, onOpenChange, onAction } };
+  return {
+    state: { open, actionType, activity: getActivityByIdResponse },
+    functions: { setOpen, onOpenChange, setActionType, onAction }
+  };
 };

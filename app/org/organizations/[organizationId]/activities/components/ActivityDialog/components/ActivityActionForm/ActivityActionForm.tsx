@@ -22,41 +22,58 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import type { ActivityActionType } from '../../constants/types';
-import { ActivityImages } from '../ActivityImages/ActivityImages';
+import type { ActivityActionType, ActivityProps } from '../../constants/types';
+import { ActivityMedia } from '../ActivityMedia/ActivityMedia';
+import { ActivityMediaProvider } from '../ActivityMedia/contexts';
 
 import { ACTIVITY_ACTION_STATUS_DROPDOWN_VALUES } from './constants/activityActionStatusDropdownValues';
 import { useActivityActionForm } from './hooks/useActivityActionForm';
 
 interface ActivityActionFormProps<ActionType extends Exclude<ActivityActionType, 'info'>> {
   onAction: () => void;
+  setActionType?: (props: ActivityActionType) => void;
   actionType: ActionType;
-  activity: ActionType extends 'edit' ? ActivityResponse : undefined;
+  activity: ActionType extends 'edit' ? ActivityProps : undefined;
+  externalActionType?: ActivityActionType;
 }
 
 export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType, 'info'>>({
   onAction,
+  setActionType = () => {},
+  activity,
   actionType,
-  activity
+  externalActionType = 'edit'
 }: ActivityActionFormProps<ActionType>) => {
   const i18n = useI18n();
   const { state, form, functions } = useActivityActionForm({
     onAction,
+    setActionType,
     activity,
-    actionType
+    actionType,
+    externalActionType
   });
 
   return (
     <Form {...form}>
       <form
         onSubmit={functions.onSubmit}
-        className='flex h-full flex-col items-end justify-between gap-4 overflow-y-auto px-5 smx:px-0'
+        className='flex h-full flex-col justify-between gap-4 overflow-y-auto px-5 smx:px-0'
       >
-        <div className='flex h-max gap-4 px-5 smx:px-0'>
-          <ActivityImages name={activity?.name ?? 'name'} />
+        <div className='flex h-max gap-4'>
+          <ActivityMediaProvider
+            defaultActivityMedia={activity?.media}
+            defaultActiveMediaFile={
+              activity?.media[0] && {
+                url: activity?.media[0]?.url,
+                isAvatar: activity?.media[0]?.isAvatar
+              }
+            }
+          >
+            <ActivityMedia activity={activity} />
+          </ActivityMediaProvider>
         </div>
-        <div className='flex w-full flex-col overflow-y-auto rounded-lg border  p-5'>
-          <div className='flex w-full justify-between gap-24 smx:flex-col smx:gap-2'>
+        <div className='flex w-full flex-col rounded-lg border p-5'>
+          <div className='flex justify-between gap-24 smx:flex-col smx:gap-2'>
             <div className='flex-1 space-y-3'>
               <FormField
                 control={form.control}

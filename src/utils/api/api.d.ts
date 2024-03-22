@@ -211,10 +211,19 @@ interface Schedule {
   period: number[];
 }
 
+interface MediaResponse {
+  id: number;
+  url: string;
+  position: number;
+  type: 'image' | 'video';
+  ext: string;
+  size: number;
+  isAvatar: boolean;
+}
+
 interface ActivityResponse {
   id: string;
-  cover?: string;
-  content?: string[];
+  media: MediaResponse[];
   name: string;
   description?: string;
   ageLimit: number[];

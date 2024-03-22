@@ -13,14 +13,18 @@ import { usePostActivityActionMutation } from './usePostActivityActionMutation';
 
 interface UseActivityActionFormParams {
   onAction: () => void;
+  setActionType: (props: ActivityActionType) => void;
   actionType: Exclude<ActivityActionType, 'info'>;
   activity?: ActivityResponse;
+  externalActionType: ActivityActionType;
 }
 
 export const useActivityActionForm = ({
   onAction,
+  setActionType,
   actionType,
-  activity
+  activity,
+  externalActionType
 }: UseActivityActionFormParams) => {
   const router = useRouter();
   const params = useParams<{ organizationId: string }>();
@@ -49,6 +53,7 @@ export const useActivityActionForm = ({
   const postActivityActionMutation = usePostActivityActionMutation();
 
   const onSubmit = activityForm.handleSubmit(async (values) => {
+    console.log('went to submit');
     const requestParams = {
       ...values,
       ageLimit: [values?.ageLimit?.min, values.ageLimit?.max],
@@ -77,6 +82,10 @@ export const useActivityActionForm = ({
     }
 
     router.refresh();
+
+    if (externalActionType === 'info') {
+      setActionType('info');
+    }
 
     onAction();
   });
