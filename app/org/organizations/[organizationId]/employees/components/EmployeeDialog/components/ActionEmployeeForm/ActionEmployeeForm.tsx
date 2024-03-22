@@ -67,12 +67,12 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
                         </Typography>
                       </>
                     )}
+                    <FormMessage>
+                      {form.formState?.errors?.image && (
+                        <I18nText path={form.formState.errors.image.message as LocaleMessageId} />
+                      )}
+                    </FormMessage>
                   </div>
-                  <FormMessage>
-                    {form.formState?.errors?.role && (
-                      <I18nText path={form.formState.errors.role.message as LocaleMessageId} />
-                    )}
-                  </FormMessage>
                 </FormItem>
               )}
             />

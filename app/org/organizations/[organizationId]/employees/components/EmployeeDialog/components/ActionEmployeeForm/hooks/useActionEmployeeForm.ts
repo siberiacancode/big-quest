@@ -44,8 +44,6 @@ export const useActionEmployeeForm = ({
       legalEntityId: params.organizationId
     };
 
-    console.log(requestParams);
-
     if (actionType === 'add') {
       const postOrganizationActionEmployeeParams = {
         params: requestParams,
