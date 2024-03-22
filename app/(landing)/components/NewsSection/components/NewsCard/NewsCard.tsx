@@ -7,16 +7,20 @@ export interface NewsCardProps {
 }
 
 export const NewsCard = ({ description, title }: NewsCardProps) => (
-  <div className='flex w-full flex-col items-center'>
-    <Typography tag='h3' className='text-[48px] leading-10 text-white'>
+  <div className='flex w-full flex-col items-center text-center'>
+    <Typography tag='h3' className='text-[48px] font-bold leading-10 text-white'>
       {title}
     </Typography>
     <Typography tag='p' className='mt-6 text-[32px] leading-10 text-white'>
       {description}
     </Typography>
 
-    <Button size='lg' variant='ghost' className='mt-8 text-taiga hover:bg-taiga hover:text-white'>
-      <I18nText path='button.login' />
+    <Button
+      size='lg'
+      variant='ghost'
+      className='mt-8 bg-white px-[68px] text-taiga hover:bg-taiga hover:text-white'
+    >
+      <I18nText path='button.learnDetails' />
     </Button>
   </div>
 );

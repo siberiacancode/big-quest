@@ -1,6 +1,7 @@
-import Image from 'next/image';
+'use client';
 
-import newsBackground from '@/assets/images/landing/newsBackground.webp';
+import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
+
 import {
   Carousel,
   CarouselContent,
@@ -13,10 +14,21 @@ import { NewsCard } from './components/NewsCard/NewsCard';
 import { news } from './constants/news';
 
 export const NewsSection = () => (
-  <div className='relative w-full pb-[134px] pt-[197px]'>
-    <Image src={newsBackground} alt='' className='absolute bottom-0 top-0 w-full' />
-
-    <Carousel className='w-full'>
+  <div
+    className='relative flex h-screen min-h-[500px] w-full flex-col items-center justify-center px-[268px]'
+    style={{
+      backgroundImage: 'url(/newsBackground.webp)',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover'
+    }}
+  >
+    {/* <Image
+      src={newsBackground}
+      alt=''
+      className='absolute bottom-0 left-0 right-0 top-0 m-auto h-full w-full overflow-auto object-cover'
+    /> */}
+    <Carousel className='mx-auto max-w-full'>
       <CarouselContent className='w-full'>
         {news.map((currentNews, index) => (
           <CarouselItem key={index} className='w-full'>
@@ -26,8 +38,12 @@ export const NewsSection = () => (
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className='-left-[156px] h-11 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100'>
+        {(disabled) => <ChevronLeftIcon color={disabled ? 'white' : 'black'} />}
+      </CarouselPrevious>
+      <CarouselNext className='-right-[156px] h-11 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100'>
+        {(disabled) => <ChevronRightIcon color={disabled ? 'white' : 'black'} />}
+      </CarouselNext>
     </Carousel>
   </div>
 );
