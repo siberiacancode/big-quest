@@ -8,3 +8,4 @@ export * from './organization/id/employees/get';
 export * from './organization/id/get';
 export * from './organization/put';
 export * from './organization/register/post';
+export * from './user/me/get';
