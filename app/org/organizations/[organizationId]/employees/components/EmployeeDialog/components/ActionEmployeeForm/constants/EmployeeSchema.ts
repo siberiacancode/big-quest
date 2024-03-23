@@ -17,16 +17,21 @@ export const employeeSchema = z.object({
     }),
   phone: z.string().min(1, { message: 'validation.required' }),
   image: z
-    .instanceof(File)
+    .any()
+    .optional()
     .refine(
       (file) => {
-        return file?.size <= MAX_FILE_SIZE;
+        return !file || (file instanceof File && file.size <= MAX_FILE_SIZE);
       },
-      { message: `Max image size is 5MB.` }
+      { message: 'validation.max.photoSize' }
     )
-    .refine((file) => ACCEPTED_IMAGE_TYPES.includes(file?.type), {
-      message: 'Only .jpg, .jpeg, .png, .svg and .webp formats are supported.'
-    })
+    .refine(
+      (file) => {
+        if (!file) return true;
+        return ACCEPTED_IMAGE_TYPES.includes(file?.type);
+      },
+      { message: 'validation.format.photo' }
+    )
 });
 
 export type EmployeeSchema = z.infer<typeof employeeSchema>;

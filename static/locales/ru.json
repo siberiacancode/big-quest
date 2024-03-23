@@ -215,7 +215,9 @@
   "validation.url.format": "Неверный формат ссылки",
   "validation.time.requiredBoth": "Необходимы оба значения времени",
   "validation.max": "Превышен лимит символов",
+  "validation.max.photoSize": "Максимальный размер фото 5MB",
   "validation.format": "Неверный формат",
+  "validation.format.photo": "Только .jpg, .jpeg, .png и .webp форматы поддерживаются",
 
   "dialog.registerOrganization.title": "Заполните заявку",
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",

@@ -36,6 +36,8 @@ export const useActionEmployeeForm = ({
     }
   });
 
+  console.log('@field', actionEmployeeForm.getValues('image'));
+  console.log('@form', actionEmployeeForm.formState);
   const postOrganizationActionEmployee = usePostOrganizationActionEmployeeMutation();
 
   const onSubmit = actionEmployeeForm.handleSubmit(async (values) => {
