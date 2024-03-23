@@ -17,7 +17,7 @@ export const useActivityMedia = () => {
     const newArray: ActivityMedia[] = activityMedia.map((item) => {
       if (item.url === file.url && item.type === 'image') {
         const newItem = { ...item, isAvatar: true };
-        setActiveMediaFile({ url: newItem.url, isAvatar: newItem.isAvatar });
+        setActiveMediaFile({ url: newItem.url, isAvatar: newItem.isAvatar, type: newItem.type });
         return newItem;
       }
       return { ...item, isAvatar: false };
@@ -27,7 +27,7 @@ export const useActivityMedia = () => {
     const uploadedArray: UploadedMediaArray[] = uploadedMediaArray.map((item) => {
       if (item.url === file.url) {
         const newItem = { ...item, isAvatar: true };
-        setActiveMediaFile({ url: newItem.url, isAvatar: newItem.isAvatar });
+        setActiveMediaFile({ url: newItem.url, isAvatar: newItem.isAvatar, type: newItem.type });
         return newItem;
       }
       return { ...item, isAvatar: false };
@@ -36,20 +36,28 @@ export const useActivityMedia = () => {
   };
 
   const onDeleteFileClick = (value: string) => {
-    console.log('delete value: ', value, activityMedia);
     const newArray = uploadedMediaArray.filter((item) => item.url !== value);
     const newActivityMedia = activityMedia.filter((item) => item.url !== value);
 
     setUploadedMediaArray(newArray);
+    // поправить сбор удаляемых файлов
     setDeletedMediaArray([...deletedMediaArray, { id: 0, isAvatar: false }]);
     setActivityMedia(newActivityMedia);
+    if (activeMediaFile.url === value) {
+      setActiveMediaFile({
+        url: newActivityMedia[0].url,
+        isAvatar: newActivityMedia[0].isAvatar,
+        type: newActivityMedia[0].type
+      });
+    }
   };
 
   const onDropAccepted = (file: File) => {
-    setUploadedMediaArray([
-      ...uploadedMediaArray,
-      { file, url: URL.createObjectURL(file), isAvatar: false }
-    ]);
+    const url = URL.createObjectURL(file);
+    const type = file.type.startsWith('image/') ? 'image' : 'video';
+
+    setUploadedMediaArray([...uploadedMediaArray, { file, url, isAvatar: false, type }]);
+    setActiveMediaFile({ url, isAvatar: false, type });
   };
 
   return {

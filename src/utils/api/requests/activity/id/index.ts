@@ -1,13 +1,13 @@
 import { api } from '@/utils/api/instance';
 
-interface GetActivityByIdParams {
+export interface GetActivityByIdParams {
   id: string;
 }
 
 export type GetActivityByIdConfig = RequestConfig<GetActivityByIdParams>;
 
 export const getActivityById = async ({ params, config }: GetActivityByIdConfig) =>
-  api.get<ActivityWithPaginationResponse>(`activity/${params.id}`, config);
+  api.get<ActivityResponse>(`activity/${params.id}`, config);
 
 interface PutActivityByIdParams {
   id: string;

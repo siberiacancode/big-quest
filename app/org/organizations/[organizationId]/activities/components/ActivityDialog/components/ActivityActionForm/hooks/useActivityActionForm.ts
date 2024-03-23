@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams, useRouter } from 'next/navigation';
 
+import { useGetActivityByIdQuery } from '@/utils/api/hooks/useGetActivityByIdQuery';
+import { useGetActivityMediaByIdQuery } from '@/utils/api/hooks/useGetActivityMediaByIdQuery';
 import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
 
 import type { ActivityActionType } from '../../../constants/types';
@@ -32,16 +34,24 @@ export const useActivityActionForm = ({
   const [isStatusOpen, setIsStatusOpen] = React.useState(false);
 
   const getCategoryQuery = useGetCategoryQuery();
+  // на submit добавить еще запрос отправки медиа
+  const getActivityByIdResponse = useGetActivityByIdQuery({
+    id: activity?.id ?? '1'
+  });
+
+  const getActivityMediaByIdResponse = useGetActivityMediaByIdQuery({ id: activity?.id ?? '1' });
+
+  const activityData = getActivityByIdResponse.data;
 
   const defaultValues = {
-    name: activity?.name ?? '',
-    description: activity?.description ?? '',
-    ageLimit: { min: activity?.ageLimit[0] ?? 7, max: activity?.ageLimit[1] ?? 14 },
+    name: activityData?.name ?? '',
+    description: activityData?.description ?? '',
+    ageLimit: { min: activityData?.ageLimit[0] ?? 7, max: activityData?.ageLimit[1] ?? 14 },
     duration: 120,
-    price: activity?.duration ?? 720,
-    replay: activity?.replay ?? false,
-    status: activity?.status ?? 'DRAFT',
-    category: activity?.category ?? ''
+    price: activityData?.duration ?? 720,
+    replay: activityData?.replay ?? false,
+    status: activityData?.status ?? 'DRAFT',
+    category: activityData?.category ?? ''
   };
 
   const activityForm = useForm<ActivityActionSchema>({
@@ -53,7 +63,6 @@ export const useActivityActionForm = ({
   const postActivityActionMutation = usePostActivityActionMutation();
 
   const onSubmit = activityForm.handleSubmit(async (values) => {
-    console.log('went to submit');
     const requestParams = {
       ...values,
       ageLimit: [values?.ageLimit?.min, values.ageLimit?.max],
@@ -95,7 +104,9 @@ export const useActivityActionForm = ({
       categoryValues: getCategoryQuery.data,
       isCategoryOpen,
       isStatusOpen,
-      isLoading: postActivityActionMutation.isPending
+      isLoading: postActivityActionMutation.isPending,
+      activityMediaData: getActivityMediaByIdResponse.data,
+      activityData: getActivityByIdResponse.data
     },
     form: activityForm,
     functions: { onSubmit, setIsCategoryOpen, setIsStatusOpen }

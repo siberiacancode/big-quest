@@ -19,7 +19,7 @@ export interface ActivityMediaProviderProps {
 export const ActivityMediaProvider = ({
   children,
   defaultActivityMedia = [],
-  defaultActiveMediaFile = { url: '', isAvatar: false }
+  defaultActiveMediaFile = { url: '', isAvatar: false, type: '' }
 }: ActivityMediaProviderProps) => {
   const [activityMedia, setActivityMedia] = React.useState<ActivityMedia[]>(defaultActivityMedia);
   const [activeMediaFile, setActiveMediaFile] =

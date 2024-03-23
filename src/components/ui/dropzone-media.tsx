@@ -4,9 +4,9 @@ import { UploadCloudIcon } from 'lucide-react';
 
 import { Input } from '@/components/ui';
 
-type DropzoneImageProps = React.InputHTMLAttributes<HTMLInputElement> & DropzoneInputProps;
+type DropzoneMediaProps = React.InputHTMLAttributes<HTMLInputElement> & DropzoneInputProps;
 
-const DropzoneImage = React.forwardRef<HTMLInputElement, DropzoneImageProps>((props, ref) => (
+const DropzoneMedia = React.forwardRef<HTMLInputElement, DropzoneMediaProps>((props, ref) => (
   <div className='relative flex h-full w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-dropzoneBorder hover:bg-secondary/20'>
     <div className='rounded-full bg-secondary p-2'>
       <div className='rounded-full bg-input p-2'>
@@ -16,4 +16,4 @@ const DropzoneImage = React.forwardRef<HTMLInputElement, DropzoneImageProps>((pr
     <Input {...props} id='dropzone-file' className='hidden' ref={ref} />
   </div>
 ));
-export { DropzoneImage };
+export { DropzoneMedia };

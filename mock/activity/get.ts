@@ -22,7 +22,16 @@ export const getActivities: RestRequestConfig = {
               {
                 id: 2,
                 url: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
-                position: 2,
+                position: 1,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: false
+              },
+              {
+                id: 3,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
+                position: 1,
                 type: 'image',
                 ext: '.png',
                 size: 23,
@@ -109,12 +118,30 @@ export const getActivities: RestRequestConfig = {
             media: [
               {
                 id: 1,
-                url: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
+                url: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
                 position: 1,
                 type: 'image',
                 ext: '.png',
                 size: 23,
                 isAvatar: true
+              },
+              {
+                id: 2,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
+                position: 1,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: false
+              },
+              {
+                id: 3,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
+                position: 1,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: false
               }
             ],
             name: 'Рисуем живопись',
@@ -156,12 +183,12 @@ export const getActivities: RestRequestConfig = {
                 type: 'image',
                 ext: '.png',
                 size: 23,
-                isAvatar: FinalizationRegistry
+                isAvatar: true
               },
               {
                 id: 2,
                 url: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
-                position: 2,
+                position: 1,
                 type: 'image',
                 ext: '.png',
                 size: 23,
@@ -170,11 +197,11 @@ export const getActivities: RestRequestConfig = {
               {
                 id: 3,
                 url: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
-                position: 3,
+                position: 1,
                 type: 'image',
                 ext: '.png',
                 size: 23,
-                isAvatar: true
+                isAvatar: false
               }
             ],
             name: 'Рисуем живопись',
@@ -200,16 +227,25 @@ export const getActivities: RestRequestConfig = {
                 type: 'image',
                 ext: '.png',
                 size: 23,
-                isAvatar: FinalizationRegistry
+                isAvatar: true
               },
               {
                 id: 2,
-                url: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
-                position: 2,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
+                position: 1,
                 type: 'image',
                 ext: '.png',
                 size: 23,
-                isAvatar: true
+                isAvatar: false
+              },
+              {
+                id: 3,
+                url: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
+                position: 1,
+                type: 'image',
+                ext: '.png',
+                size: 23,
+                isAvatar: false
               }
             ],
             name: 'Рисуем живопись',

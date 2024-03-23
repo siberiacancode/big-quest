@@ -15,6 +15,7 @@ export interface ActivityMedia {
 export interface ActiveMediaFile {
   url: string;
   isAvatar: boolean;
+  type: string;
 }
 
 export interface DeletedMediaArray {
@@ -26,6 +27,7 @@ export interface UploadedMediaArray {
   file: File;
   url: string;
   isAvatar: boolean;
+  type: string;
 }
 
 export interface ActivityMediaContextParams {
@@ -42,7 +44,7 @@ export interface ActivityMediaContextParams {
 export const ActivityMediaContext = React.createContext<ActivityMediaContextParams>({
   activityMedia: [],
   setActivityMedia: () => {},
-  activeMediaFile: { url: '', isAvatar: false },
+  activeMediaFile: { url: '', isAvatar: false, type: '' },
   setActiveMediaFile: () => {},
   deletedMediaArray: [],
   setDeletedMediaArray: () => {},
