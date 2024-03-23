@@ -18,11 +18,11 @@ export const ORGANIZER_LINKS: NavigationLinkInfo[] = [
     icon: <UsersRoundIcon />,
     subLinks: [
       { href: ROUTES.ORG.LIDS.PARTICIPANTS, text: 'navigation.link.org.participants' },
-      { href: ROUTES.ORG.LIDS.ORGANIZATIONS, text: 'navigation.link.org.organizations' }
+      { href: ROUTES.ORG.LIDS.ORGANIZATIONS, text: 'navigation.link.org.organization' }
     ]
   },
   {
-    text: 'navigation.link.org.organizations',
+    text: 'navigation.link.org.organization',
     href: ROUTES.ORG.ORGANIZATIONS.ROOT,
     icon: <Building2Icon />
   },
