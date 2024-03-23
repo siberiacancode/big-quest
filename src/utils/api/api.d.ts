@@ -244,6 +244,21 @@ interface LoginEmailDto {
   password: string;
 }
 
+interface OrganizationScheduleResponse {
+  id: string;
+  activityName: string;
+  locality: string;
+  date: string;
+  time: string;
+  registrationCount: number;
+  passed: boolean;
+}
+
+interface OrganizationScheduleListPaginationResponse {
+  rows: OrganizationScheduleResponse[];
+  pagination: PaginationResponse;
+}
+
 interface OrganizationListPaginationResponse {
   rows: OrganizationListResponse[];
   pagination: PaginationResponse;
