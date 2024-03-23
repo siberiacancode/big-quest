@@ -1,8 +1,8 @@
-import { OrgBreadcrumbs } from 'app/org/components/OrgBreadcrumbs/OrgBreadcrumbs';
+import { OrgBreadcrumbs } from 'app/org/(components)/OrgBreadcrumbs/OrgBreadcrumbs';
 
 import { getOrganizationById } from '@/utils/api/requests';
 
-import { OrganizationHeader } from './components/OrganizationHeader/OrganizationHeader';
+import { OrganizationHeader } from './(components)/OrganizationHeader/OrganizationHeader';
 
 interface OrganizationPageLayoutProps {
   params: { organizationId: string };

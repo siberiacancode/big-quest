@@ -1,7 +1,7 @@
 'use client';
 
-import type { SidebarProps } from 'app/components';
-import { Sidebar } from 'app/components';
+import type { SidebarProps } from 'app/(components)/Sidebar/Sidebar';
+import { Sidebar } from 'app/(components)/Sidebar/Sidebar';
 
 import { SidebarNavigation } from '../navigation/SidebarNavigation/SidebarNavigation';
 

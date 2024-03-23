@@ -4,21 +4,24 @@ import { useSelectedLayoutSegment } from 'next/navigation';
 
 import { I18nText } from '@/components/common';
 import { Tabs, TabsList } from '@/components/ui';
+import { ROUTES } from '@/utils/constants';
 
-import type { ProfileTab } from '../../../../constants/navigation';
+import type { ProfileTab } from '../../../../(constants)/navigation';
 import {
+  FRANCHISEE_PROFILE_TABS,
   ORGANIZATION_PROFILE_TAB_VALUES,
+  ORGANIZER_PROFILE_TABS,
   PARTNER_PROFILE_TABS,
   SPONSOR_PROFILE_TABS
-} from '../../../../constants/navigation';
+} from '../../../../(constants)/navigation';
 
 import { OrganizationHeaderTabsTrigger } from './components/OrganizationHeaderTabsTrigger/OrganizationHeaderTabsTrigger';
 
 const TABS: Record<LegalType, ProfileTab[]> = {
   PARTNER: PARTNER_PROFILE_TABS,
   SPONSOR: SPONSOR_PROFILE_TABS,
-  FRANCHISEE: [],
-  ORGANIZER: []
+  FRANCHISEE: FRANCHISEE_PROFILE_TABS,
+  ORGANIZER: ORGANIZER_PROFILE_TABS
 };
 
 interface OrganizationHeaderTabsProps {
@@ -35,7 +38,11 @@ export const OrganizationHeaderTabs = ({ organization }: OrganizationHeaderTabsP
           const Icon = tab.icon;
 
           return (
-            <OrganizationHeaderTabsTrigger key={index} value={tab.value} link={tab.link}>
+            <OrganizationHeaderTabsTrigger
+              key={index}
+              value={tab.value}
+              link={ROUTES.ORG.ORGANIZATIONS[tab.route](organization.id)}
+            >
               <Icon className='size-4' />
               <p className='hidden lgx:block mdx:hidden 2lg:block'>
                 <I18nText path={tab.title as LocaleMessageId} />

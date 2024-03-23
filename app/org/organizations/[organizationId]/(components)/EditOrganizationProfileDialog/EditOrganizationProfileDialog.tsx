@@ -10,6 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  ScrollArea,
   Typography
 } from '@/components/ui';
 
@@ -30,7 +31,7 @@ export const EditOrganizationProfileDialog = ({
   return (
     <Dialog open={state.open} onOpenChange={functions.setOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className='h-[90%] max-w-[600px] smx:h-screen smx:w-screen'>
+      <DialogContent className='h-screen w-screen lg:max-h-[700px] lg:max-w-[700px]'>
         <DialogClose>
           <XIcon className='h-6 w-6' />
         </DialogClose>
@@ -41,8 +42,9 @@ export const EditOrganizationProfileDialog = ({
             </Typography>
           </DialogTitle>
         </DialogHeader>
-
-        <EditOrganizationProfileForm organization={organization} onEdited={functions.onEdited} />
+        <ScrollArea className='max-h-[90vh] p-6'>
+          <EditOrganizationProfileForm organization={organization} onEdited={functions.onEdited} />
+        </ScrollArea>
       </DialogContent>
     </Dialog>
   );

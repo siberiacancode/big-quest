@@ -36,13 +36,13 @@ export const useLoginForm = () => {
     setUser(getUserMeMutationResponse);
     setSession({ isAuthenticated: true });
 
-    handleLogin(getUserMeMutationResponse);
+    await handleLogin(getUserMeMutationResponse);
     router.replace(ROUTES.ORG.ORGANIZATIONS.ROOT);
   });
 
   return {
     state: {
-      isLoading: postAuthLoginEmailMutation.isPending
+      isLoading: postAuthLoginEmailMutation.isPending || loginForm.formState.isSubmitting
     },
     form: loginForm,
     functions: { onSubmit }
