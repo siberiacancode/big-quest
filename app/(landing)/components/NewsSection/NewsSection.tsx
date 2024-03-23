@@ -15,7 +15,7 @@ import { news } from './constants/news';
 
 export const NewsSection = () => (
   <div
-    className='relative flex h-screen min-h-[500px] w-full flex-col items-center justify-center px-[268px]'
+    className='relative flex h-screen min-h-[500px] w-full flex-col items-center justify-center px-[268px] xlx:px-32 mdx:px-14 xsx:px-3'
     style={{
       backgroundImage: 'url(/newsBackground.webp)',
       backgroundPosition: 'center',
@@ -27,16 +27,14 @@ export const NewsSection = () => (
       <CarouselContent className='w-full'>
         {news.map((currentNews, index) => (
           <CarouselItem key={index} className='w-full'>
-            <div className='p-1'>
-              <NewsCard {...currentNews} />
-            </div>
+            <NewsCard {...currentNews} />
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className='-left-[156px] h-11 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100'>
+      <CarouselPrevious className='-left-[156px] h-11 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100 xlx:-left-20 lgx:size-10 mdx:left-1/2 mdx:top-[100%] mdx:-translate-x-[125%] mdx:translate-y-1/2'>
         {(disabled) => <ChevronLeftIcon color={disabled ? 'white' : 'black'} />}
       </CarouselPrevious>
-      <CarouselNext className='-right-[156px] h-11 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100'>
+      <CarouselNext className='-right-[156px] h-11 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100 xlx:-right-20 lgx:size-10 mdx:right-1/2 mdx:top-[100%] mdx:translate-x-[125%] mdx:translate-y-1/2'>
         {(disabled) => <ChevronRightIcon color={disabled ? 'white' : 'black'} />}
       </CarouselNext>
     </Carousel>

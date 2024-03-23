@@ -7,10 +7,16 @@ export interface NewsCardProps {
 
 export const NewsCard = ({ description, title }: NewsCardProps) => (
   <div className='flex w-full flex-col items-center text-center'>
-    <Typography tag='h3' className='text-[48px] font-bold leading-10 text-white'>
+    <Typography
+      tag='h3'
+      className='text-[48px] font-bold leading-10 text-white lgx:text-[36px] mdx:text-3xl'
+    >
       {title}
     </Typography>
-    <Typography tag='p' className='mt-6 text-[32px] leading-10 text-white'>
+    <Typography
+      tag='p'
+      className='mt-6 text-[32px] leading-10 text-white lgx:text-[28px] mdx:text-xl'
+    >
       {description}
     </Typography>
   </div>
