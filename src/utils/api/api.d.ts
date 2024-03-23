@@ -325,7 +325,7 @@ interface EmployeeDto {
   surname: string;
   email: string;
   phone: string;
-  // image?: any;
+  image?: any;
 }
 
 interface UpdateOrganizationDto {

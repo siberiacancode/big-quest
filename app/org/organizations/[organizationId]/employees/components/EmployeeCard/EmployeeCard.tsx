@@ -1,5 +1,7 @@
 import { Edit3Icon } from 'lucide-react';
+import Image from 'next/image';
 
+import UserPlaceholder from '@/assets/images/placeholders/user-placeholder.png';
 import { I18nText } from '@/components/common';
 import { Separator, Typography } from '@/components/ui';
 import { Card, CardContent } from '@/components/ui/card';
@@ -24,7 +26,14 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => (
 
       <div className='flex flex-1 flex-col items-center space-y-3 pt-4'>
         <div className='mb-2 flex flex-col items-center'>
-          <div className='h-16 w-16 rounded-full bg-slate-700' />
+          <div className='relative h-16 w-16'>
+            <Image
+              src={employee.image ?? UserPlaceholder}
+              fill
+              alt='user'
+              className='rounded-full'
+            />
+          </div>
           <div className='mt-2 flex flex-col items-center space-y-1'>
             <Typography variant='h7' tag='p' className='flex-1'>
               {employee.name} {employee.surname}

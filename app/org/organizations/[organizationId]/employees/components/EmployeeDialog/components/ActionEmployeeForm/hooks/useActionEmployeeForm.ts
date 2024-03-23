@@ -32,7 +32,7 @@ export const useActionEmployeeForm = ({
       surname: employee?.surname ?? '',
       email: employee?.email ?? '',
       phone: employee?.phone ?? '',
-      image: undefined
+      image: employee?.image ?? undefined
     }
   });
 
