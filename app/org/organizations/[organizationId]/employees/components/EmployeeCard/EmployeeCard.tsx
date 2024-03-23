@@ -1,7 +1,7 @@
 import { Edit3Icon } from 'lucide-react';
 import Image from 'next/image';
 
-import UserPlaceholder from '@/assets/images/placeholders/user-placeholder.png';
+import UserPlaceholder from '@/assets/images/placeholders/userPlaceholder.png';
 import { I18nText } from '@/components/common';
 import { Separator, Typography } from '@/components/ui';
 import { Card, CardContent } from '@/components/ui/card';
