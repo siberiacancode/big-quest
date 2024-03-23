@@ -248,6 +248,7 @@ interface OrganizationScheduleResponse {
   id: string;
   activityName: string;
   locality: string;
+  employee: string;
   date: string;
   time: string;
   registrationCount: number;

@@ -18,6 +18,7 @@
   "button.close": "Закрыть",
   "button.addActivities": "Добавить активность",
   "button.addEmployee": "Добавить сотрудника",
+  "button.addSchedule": "Добавить расписание",
 
   "button.login": "Войти",
 
@@ -181,6 +182,14 @@
   "table.column.organization.type": "Тип",
   "table.column.organization.tariff": "Тариф",
   "table.column.organization.countDays": "Кол-во дней",
+
+  "table.column.schedule.activityName": "Активность",
+  "table.column.schedule.locality": "Адрес",
+  "table.column.schedule.employee": "Сотрудник",
+  "table.column.schedule.date": "Дата",
+  "table.column.schedule.time": "Время",
+  "table.column.schedule.registrationCount": "Кол-во записей",
+  "table.column.schedule.passed": "Проведено",
 
   "dayOfWeek.1": "Пн",
   "dayOfWeek.2": "Вт",

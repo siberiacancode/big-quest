@@ -45,7 +45,7 @@ export const useOrganizationScheduleTable = () => {
           trigger={
             <Button disabled={isPending} variant='secondary' size='sm' className='mx-2 md:ml-auto'>
               <PlusCircledIcon className='mr-2 size-4' />
-              <I18nText path='button.add' />
+              <I18nText path='button.addSchedule' />
             </Button>
           }
         />

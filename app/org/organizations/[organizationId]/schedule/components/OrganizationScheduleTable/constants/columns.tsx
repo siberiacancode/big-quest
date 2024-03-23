@@ -1,5 +1,7 @@
 import type { ColumnDef } from '@tanstack/react-table';
+import { CheckIcon } from 'lucide-react';
 
+import { I18nText } from '@/components/common';
 import { Checkbox, generateDataTableColumn } from '@/components/ui';
 
 import type { ScheduleTableRow } from '../helpers/convertSchedulesToTableRows';
@@ -33,26 +35,32 @@ export const columns: ColumnDef<ScheduleTableRow>[] = [
   },
   generateDataTableColumn({
     accessorKey: 'activityName',
-    headerLabel: 'table.column.organization.name'
+    headerLabel: 'table.column.schedule.activityName'
   }),
   generateDataTableColumn({
     accessorKey: 'locality',
-    headerLabel: 'table.column.organization.locality'
+    headerLabel: 'table.column.schedule.locality'
+  }),
+  generateDataTableColumn({
+    accessorKey: 'employee',
+    headerLabel: 'table.column.schedule.employee'
   }),
   generateDataTableColumn({
     accessorKey: 'date',
-    headerLabel: 'table.column.organization.type'
+    headerLabel: 'table.column.schedule.date'
   }),
   generateDataTableColumn({
     accessorKey: 'time',
-    headerLabel: 'table.column.organization.tariff'
+    headerLabel: 'table.column.schedule.time'
   }),
   generateDataTableColumn({
     accessorKey: 'registrationCount',
-    headerLabel: 'table.column.organization.countDays'
+    headerLabel: 'table.column.schedule.registrationCount'
   }),
-  generateDataTableColumn({
-    accessorKey: 'passed',
-    headerLabel: 'table.column.organization.stage'
-  })
+  {
+    id: 'actions',
+    header: () => <I18nText path='table.column.schedule.passed' />,
+    enableHiding: false,
+    cell: ({ row }) => <div>{row.original.passed && <CheckIcon className='size-4' />}</div>
+  }
 ];
