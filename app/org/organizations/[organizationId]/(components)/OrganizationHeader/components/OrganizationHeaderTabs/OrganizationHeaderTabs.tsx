@@ -4,7 +4,6 @@ import { useSelectedLayoutSegment } from 'next/navigation';
 
 import { I18nText } from '@/components/common';
 import { Tabs, TabsList } from '@/components/ui';
-import { ROUTES } from '@/utils/constants';
 
 import type { ProfileTab } from '../../../../(constants)/navigation';
 import {
@@ -41,7 +40,7 @@ export const OrganizationHeaderTabs = ({ organization }: OrganizationHeaderTabsP
             <OrganizationHeaderTabsTrigger
               key={index}
               value={tab.value}
-              link={ROUTES.ORG.ORGANIZATIONS[tab.route](organization.id)}
+              link={tab.route(organization.id)}
             >
               <Icon className='size-4' />
               <p className='hidden lgx:block mdx:hidden 2lg:block'>

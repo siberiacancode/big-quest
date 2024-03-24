@@ -1,7 +1,7 @@
 import { InfoCardSkeleton } from '@/components/ui';
 import { Skeleton } from '@/components/ui/skeleton';
 
-const OrganizationLoading = () => (
+const OrganizationProfileLoading = () => (
   <div className='flex w-full flex-wrap gap-6'>
     <div className='flex h-fit min-h-72 min-w-[340px] flex-1 flex-col space-y-3 rounded bg-background p-7'>
       <div className='space-y-7'>
@@ -72,4 +72,4 @@ const OrganizationLoading = () => (
   </div>
 );
 
-export default OrganizationLoading;
+export default OrganizationProfileLoading;

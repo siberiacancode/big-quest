@@ -4,11 +4,12 @@ export const ROUTES = {
     ROOT: '/org/',
     ORGANIZATIONS: {
       ROOT: '/org/organizations',
-      PROFILE: (id: string) => `/org/organization/${id}`,
-      ADDRESSES: (id: string) => `/org/organization/${id}/addresses`,
-      EMPLOYEES: (id: string) => `/org/organization/${id}/employees`,
-      ACTIVITIES: (id: string) => `/org/organization/${id}/activities`,
-      SCHEDULE: (id: string) => `/org/organization/${id}/schedule`
+      DASHBOARD: '/org/organizations/dashboard',
+      PROFILE: (id: string) => `/org/organizations/${id}/profile`,
+      ADDRESSES: (id: string) => `/org/organizations/${id}/addresses`,
+      EMPLOYEES: (id: string) => `/org/organizations/${id}/employees`,
+      ACTIVITIES: (id: string) => `/org/organizations/${id}/activities`,
+      SCHEDULE: (id: string) => `/org/organizations/${id}/schedule`
     },
     ACTIVITIES: '/org/activities',
     LIDS: {

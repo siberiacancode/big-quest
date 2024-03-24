@@ -1,6 +1,6 @@
 import { getOrganization, getOrganizationDashboard } from '@/utils/api';
 
-import { OrgBreadcrumbs } from '../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
+import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
 
 import { OrganizationsDashboard } from './(components)/OrganizationsDashboard/OrganizationsDashboard';
 import { OrganizationsTable } from './(components)/OrganizationsTable/OrganizationsTable';
@@ -12,7 +12,7 @@ export interface OrganizationsPageProps {
 const DEFAULT_ORGANIZATIONS_LIMIT = '10';
 const DEFAULT_ORGANIZATIONS_PAGE = '1';
 
-const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
+const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPageProps) => {
   const [organizationsResponse, organizationsDashboard] = await Promise.all([
     getOrganization({
       config: {
@@ -31,7 +31,7 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
 
   return (
     <div className='bg-secondary px-4'>
-      <OrgBreadcrumbs />
+      <OrgBreadcrumbs ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }} />
       <OrganizationsDashboard dashboard={organizationsDashboard} />
       <OrganizationsTable
         organizations={organizationsResponse.rows}
@@ -41,4 +41,4 @@ const OrganizationsPage = async ({ searchParams }: OrganizationsPageProps) => {
   );
 };
 
-export default OrganizationsPage;
+export default OrganizationsDashboardPage;

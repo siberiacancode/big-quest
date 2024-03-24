@@ -4,11 +4,12 @@ import { ClosedNavigationNestedLink } from './ClosedNavigationNestedLink';
 import { ClosedNavigationSingleLink } from './ClosedNavigationSingleLink';
 
 interface ClosedNavigationProps {
+  root: string;
   pathname: string;
   links: NavigationLinkInfo[];
 }
 
-export const ClosedNavigation = ({ links, pathname }: ClosedNavigationProps) => (
+export const ClosedNavigation = ({ links, pathname, root }: ClosedNavigationProps) => (
   <nav className='mt-10 flex flex-col gap-2'>
     {links.map((link, index) => (
       <React.Fragment key={index}>
@@ -18,7 +19,7 @@ export const ClosedNavigation = ({ links, pathname }: ClosedNavigationProps) => 
         {!!link.subLinks && (
           <ClosedNavigationNestedLink
             link={link}
-            isActive={pathname.startsWith(link.href)}
+            isActive={link.href.includes(root)}
             pathname={pathname}
           />
         )}

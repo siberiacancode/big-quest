@@ -6,7 +6,7 @@ import { I18nText } from '@/components/common';
 import { BreadcrumbItem, Breadcrumbs } from '@/components/ui';
 
 interface OrgBreadcrumbsProps {
-  ids?: Record<string, string | undefined>;
+  ids?: Record<string, { value?: string; clickable?: boolean; href?: string; hidden?: boolean }>;
 }
 
 export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
@@ -14,29 +14,45 @@ export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
   const pathname = usePathname();
 
   const paramValues = Object.values(params);
-  const paramKeys = Object.keys(params);
   const pathnames = pathname.split('/').filter((path) => path);
+
+  const preparedPathnames = pathnames.map((path, index) => {
+    const href = `/${pathnames.slice(0, index + 1).join('/')}`;
+    const idParam = Object.entries(params).find((param) => param[1] === path);
+
+    const pathname = idParam ? idParam[0] : path;
+
+    if (ids[pathname]?.hidden) return null;
+    return { pathname, href };
+  });
+
+  const filteredPathnames = preparedPathnames.filter(Boolean) as {
+    pathname: string;
+    href: string;
+  }[];
 
   return (
     <Breadcrumbs className='flex-wrap'>
-      {pathnames.map((path, index) => {
-        const idKeyIndex = paramValues.findIndex((param) => param === path);
-        const isPathId = !!~idKeyIndex;
-
-        const href = `/${pathnames.slice(0, index + 1).join('/')}`;
+      {filteredPathnames.map(({ pathname, href }, index) => {
         const hrefWithoutIds = pathnames
           .slice(0, index + 1)
           .filter(
             (currentPath) => !~paramValues.findIndex((currentParam) => currentParam === currentPath)
           );
-
         const translateHref = `.${hrefWithoutIds.join('.')}`;
 
+        const id = ids[pathname];
+        const clickable = id?.clickable ?? true;
+
         return (
-          <BreadcrumbItem key={href} href={href}>
-            {isPathId &&
-              (ids[paramKeys[idKeyIndex]] ?? <I18nText path='navigation.link.default' />)}
-            {!isPathId && <I18nText path={`navigation.link${translateHref}` as LocaleMessageId} />}
+          <BreadcrumbItem
+            key={href}
+            {...(clickable && {
+              href: id?.href ?? href
+            })}
+          >
+            {id?.value && id.value}
+            {!id?.value && <I18nText path={`navigation.link${translateHref}` as LocaleMessageId} />}
           </BreadcrumbItem>
         );
       })}

@@ -8,7 +8,7 @@ interface OrganizationProfilePageProps {
   params: { organizationId: string };
 }
 
-const OrganizationPage = async ({ params }: OrganizationProfilePageProps) => {
+const OrganizationProfilePage = async ({ params }: OrganizationProfilePageProps) => {
   const organization = await getOrganizationById({
     params: { id: params.organizationId },
     config: { cache: 'no-cache' }
@@ -25,4 +25,4 @@ const OrganizationPage = async ({ params }: OrganizationProfilePageProps) => {
   );
 };
 
-export default OrganizationPage;
+export default OrganizationProfilePage;

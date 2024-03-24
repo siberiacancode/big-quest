@@ -8,11 +8,12 @@ import { NavigationSingleLink } from '../NavigationSingleLink/NavigationSingleLi
 import { OpenedNavigationNestedLink } from './OpenedNavigationNestedLink';
 
 interface OpenedSidebarNavigationProps {
+  root: string;
   pathname: string;
   links: NavigationLinkInfo[];
 }
 
-export const OpenedNavigation = ({ links, pathname }: OpenedSidebarNavigationProps) => (
+export const OpenedNavigation = ({ links, pathname, root }: OpenedSidebarNavigationProps) => (
   <Accordion asChild type='multiple'>
     <nav className='mt-10 flex w-full flex-col gap-2'>
       {links.map((link, index) => (
@@ -26,7 +27,7 @@ export const OpenedNavigation = ({ links, pathname }: OpenedSidebarNavigationPro
           )}
           {!link.subLinks && (
             <div className='flex'>
-              <NavigationSingleLink isActive={pathname === link.href} link={link}>
+              <NavigationSingleLink isActive={link.href.includes(root)} link={link}>
                 {link.icon}
                 <Typography variant='sub1' tag='p'>
                   <I18nText path={link.text} />

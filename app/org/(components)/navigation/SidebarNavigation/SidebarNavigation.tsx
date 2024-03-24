@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useSelectedLayoutSegments } from 'next/navigation';
 
 import { getNavigationLinksByUserRole } from '@/utils/helpers';
 
@@ -13,12 +13,13 @@ interface SidebarNavigationProps {
 }
 
 export const SidebarNavigation = ({ isOpen, userRole }: SidebarNavigationProps) => {
-  const links = getNavigationLinksByUserRole(userRole);
   const pathname = usePathname();
+  const links = getNavigationLinksByUserRole(userRole);
+  const [root] = useSelectedLayoutSegments();
 
   return isOpen ? (
-    <OpenedNavigation links={links} pathname={pathname} />
+    <OpenedNavigation links={links} pathname={pathname} root={root} />
   ) : (
-    <ClosedNavigation links={links} pathname={pathname} />
+    <ClosedNavigation links={links} pathname={pathname} root={root} />
   );
 };
