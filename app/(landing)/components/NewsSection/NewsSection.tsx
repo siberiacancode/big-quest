@@ -17,7 +17,7 @@ export const NewsSection = () => (
   <div
     className='relative flex h-screen min-h-[500px] w-full flex-col items-center justify-center px-[268px] xlx:px-32 mdx:px-14 xsx:px-3'
     style={{
-      backgroundImage: 'url(/newsBackground.webp)',
+      backgroundImage: 'url(/background/news.webp)',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover'
