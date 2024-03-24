@@ -1,4 +1,6 @@
-export const VkIcon = (props: React.ComponentPropsWithRef<'svg'>) => (
+import React from 'react';
+
+export const VkIcon = React.forwardRef<SVGSVGElement, React.ComponentProps<'svg'>>((props, ref) => (
   <svg
     width='16'
     height='16'
@@ -6,6 +8,7 @@ export const VkIcon = (props: React.ComponentPropsWithRef<'svg'>) => (
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
     {...props}
+    ref={ref}
   >
     <path
       fillRule='evenodd'
@@ -14,4 +17,4 @@ export const VkIcon = (props: React.ComponentPropsWithRef<'svg'>) => (
       fill='currentColor'
     />
   </svg>
-);
+));

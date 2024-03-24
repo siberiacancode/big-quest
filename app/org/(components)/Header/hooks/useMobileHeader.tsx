@@ -1,21 +1,9 @@
-import React from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { useHeader } from '@/utils/hooks';
 
 export const useMobileHeader = () => {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const [isOpen, onBurgerClick] = useHeader();
 
-  const [isOpen, setIsOpen] = React.useState(false);
   const userRole: UserRole = 'organizer';
-
-  const onBurgerClick = () => {
-    document.body.classList.toggle('overflow-hidden');
-    setIsOpen(!isOpen);
-  };
-
-  React.useEffect(() => {
-    if (isOpen) onBurgerClick();
-  }, [pathname, searchParams]);
 
   return {
     state: { isOpen, userRole },

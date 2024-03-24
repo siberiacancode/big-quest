@@ -1,6 +1,8 @@
 export const ROUTES = {
+  REGISTER: '/register',
   AUTH: '/auth',
   ORG: {
+    AUTH: '/org/auth',
     ROOT: '/org/',
     ORGANIZATIONS: {
       ROOT: '/org/organizations',
@@ -19,6 +21,6 @@ export const ROUTES = {
     }
   },
   LANDING: {
-    ROOT: '/landing'
+    ROOT: '/'
   }
 };
