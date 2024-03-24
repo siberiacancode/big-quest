@@ -1,18 +1,18 @@
 import { getActivities } from '@/utils/api';
 
-import { OrgBreadcrumbs } from '../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
+import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
 
-import { ActivitiesDashboard } from './components/ActivitiesDashboard/ActivitiesDashboard';
-import { ActivitiesTable } from './components/ActivitiesTable/ActivitiesTable';
+import { ActivitiesDashboard } from './(components)/ActivitiesDashboard/ActivitiesDashboard';
+import { ActivitiesTable } from './(components)/ActivitiesTable/ActivitiesTable';
 
-export interface ActivitiesPageProps {
+export interface ActivitiesDashboardPageProps {
   searchParams: SearchParams;
 }
 
 const DEFAULT_ORGANIZATIONS_LIMIT = '10';
 const DEFAULT_ORGANIZATIONS_PAGE = '1';
 
-const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
+const ActivitiesDashboardPage = async ({ searchParams }: ActivitiesDashboardPageProps) => {
   const activitiesTableResponse = await getActivities({
     config: {
       params: {
@@ -25,7 +25,7 @@ const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
 
   return (
     <div className='bg-secondary px-4'>
-      <OrgBreadcrumbs />
+      <OrgBreadcrumbs ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }} />
       <ActivitiesDashboard />
       <ActivitiesTable
         actvities={activitiesTableResponse.rows}
@@ -35,4 +35,4 @@ const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
   );
 };
 
-export default ActivitiesPage;
+export default ActivitiesDashboardPage;

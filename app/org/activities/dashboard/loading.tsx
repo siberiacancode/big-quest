@@ -1,6 +1,6 @@
 import { InfoCardSkeleton, Skeleton, TableSkeleton } from '@/components/ui';
 
-const ActivitiesPageLoading = () => (
+const ActivitiesDashboardPageLoading = () => (
   <div className='bg-secondary px-4'>
     <div className='w-[170px] rounded-lg py-6' />
     <div className='flex flex-wrap gap-2 2smx:flex-col'>
@@ -37,4 +37,4 @@ const ActivitiesPageLoading = () => (
   </div>
 );
 
-export default ActivitiesPageLoading;
+export default ActivitiesDashboardPageLoading;
