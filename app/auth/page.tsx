@@ -4,7 +4,7 @@ import AuthImage from '@/assets/images/auth.webp';
 import { I18nText, Logo } from '@/components/common';
 import { Typography } from '@/components/ui';
 
-import { LoginForm } from './components/LoginForm/LoginForm';
+import { LoginForm } from './(components)/LoginForm/LoginForm';
 
 const AuthPage = () => (
   <div className='flex min-h-screen flex-col items-center justify-between p-2'>

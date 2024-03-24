@@ -1,8 +1,18 @@
 export const ROUTES = {
+  REGISTER: '/register',
   AUTH: '/auth',
   ORG: {
+    AUTH: '/org/auth',
     ROOT: '/org/',
-    ORGANIZATIONS: { ROOT: '/org/organizations' },
+    ORGANIZATIONS: {
+      ROOT: '/org/organizations',
+      DASHBOARD: '/org/organizations/dashboard',
+      PROFILE: (id: string) => `/org/organizations/${id}/profile`,
+      ADDRESSES: (id: string) => `/org/organizations/${id}/addresses`,
+      EMPLOYEES: (id: string) => `/org/organizations/${id}/employees`,
+      ACTIVITIES: (id: string) => `/org/organizations/${id}/activities`,
+      SCHEDULE: (id: string) => `/org/organizations/${id}/schedule`
+    },
     ACTIVITIES: '/org/activities',
     LIDS: {
       ROOT: '/org/lids',
@@ -11,6 +21,6 @@ export const ROUTES = {
     }
   },
   LANDING: {
-    ROOT: '/landing'
+    ROOT: '/'
   }
 };

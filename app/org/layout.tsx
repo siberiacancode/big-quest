@@ -2,9 +2,9 @@ import React from 'react';
 
 import { getDefaultOpenSidebar } from '@/utils/helpers/getDefaultOpenSidebar';
 
-import { DesktopHeader } from './components/Header/DesktopHeader';
-import { MobileLayout } from './components/MobileLayout/MobileLayout';
-import { OrgSidebar } from './components/OrgSidebar/OrgSidebar';
+import { DesktopHeader } from './(components)/Header/DesktopHeader';
+import { MobileLayout } from './(components)/MobileLayout/MobileLayout';
+import { OrgSidebar } from './(components)/OrgSidebar/OrgSidebar';
 
 interface OrgLayoutProps {
   children: React.ReactNode;
