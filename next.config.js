@@ -3,6 +3,15 @@ const nextConfig = {};
 
 module.exports = {
   ...nextConfig,
+  images: {
+    domains: ['localhost'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*'
+      }
+    ]
+  },
   rewrites() {
     return [
       {
@@ -10,8 +19,5 @@ module.exports = {
         destination: `${process.env.API_URL}/api/:path*`
       }
     ];
-  },
-  images: {
-    domains: ['localhost']
   }
 };

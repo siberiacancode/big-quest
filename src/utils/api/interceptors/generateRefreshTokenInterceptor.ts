@@ -3,9 +3,7 @@ import { getRefreshTokens } from '../requests';
 
 export const generateRefreshTokenInterceptor = () =>
   api.interceptors.response.use(
-    (response) => {
-      return response.data;
-    },
+    (response) => response.data,
     async (error) => {
       const originalConfig = error.config;
 

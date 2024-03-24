@@ -1,8 +1,8 @@
 import { getOrganizationById } from '@/utils/api/requests';
 
-import { OrganizationProfileCard } from './components/OrganizationProfileCard/OrganizationProfileCard';
-import { OrganizationProfileJournal } from './components/OrganizationProfileJournal/OrganizationProfileJournal';
-import { OrganizationProfileStatistics } from './components/OrganizationProfileStatistics/OrganizationProfileStatistics';
+import { OrganizationProfileCard } from './(components)/OrganizationProfileCard/OrganizationProfileCard';
+import { OrganizationProfileJournal } from './(components)/OrganizationProfileJournal/OrganizationProfileJournal';
+import { OrganizationProfileStatistics } from './(components)/OrganizationProfileStatistics/OrganizationProfileStatistics';
 
 interface OrganizationProfilePageProps {
   params: { organizationId: string };
@@ -10,7 +10,8 @@ interface OrganizationProfilePageProps {
 
 const OrganizationProfilePage = async ({ params }: OrganizationProfilePageProps) => {
   const organization = await getOrganizationById({
-    params: { id: params.organizationId }
+    params: { id: params.organizationId },
+    config: { cache: 'no-cache' }
   });
 
   return (

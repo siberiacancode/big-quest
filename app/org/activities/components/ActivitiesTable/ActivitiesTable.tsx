@@ -8,6 +8,7 @@ import {
   DataTableBody,
   DataTableBottomContent,
   DataTableComponent,
+  DataTableCurrentPageLabel,
   DataTableHeader,
   DataTablePagination,
   DataTableSelectedLabel,
@@ -33,14 +34,20 @@ export const ActivitiesTable = ({ actvities, pagination }: ActivitiesTableProps)
   const { state, functions } = useActivitiesTable();
 
   return (
-    <DataTable table={table} columns={columns} rows={rows} loading={state.isLoading}>
+    <DataTable
+      table={table}
+      columns={columns}
+      rows={rows}
+      loading={state.isLoading}
+      pagination={pagination}
+    >
       <DataTableToolbar toolbar={state.toolbar} />
       <DataTableComponent>
         <DataTableHeader />
         <DataTableBody />
       </DataTableComponent>
       <DataTableBottomContent>
-        <DataTableSelectedLabel count={pagination.count}>
+        <DataTableSelectedLabel>
           {(count, selectedCount) => (
             <>
               {selectedCount} <I18nText path='pagination.from' /> {count}{' '}
@@ -49,11 +56,16 @@ export const ActivitiesTable = ({ actvities, pagination }: ActivitiesTableProps)
           )}
         </DataTableSelectedLabel>
         <div className='flex flex-col-reverse items-center gap-2 py-3 md:flex-row'>
-          <Typography variant='sub2' tag='p' className='text-nowrap'>
-            {getPageIndex(pagination.current)} <I18nText path='pagination.page' />{' '}
-            <I18nText path='pagination.from' /> {getPageCount(pagination.limit, pagination.count)}
-          </Typography>
-          <DataTablePagination pagination={pagination} onClick={functions.onPaginationClick} />
+          <DataTableCurrentPageLabel>
+            {(count, current, limit) => (
+              <Typography variant='sub2' tag='p' className='text-nowrap'>
+                {getPageIndex(current)} <I18nText path='pagination.page' />{' '}
+                <I18nText path='pagination.from' /> {getPageIndex(getPageCount(limit, count))}
+              </Typography>
+            )}
+          </DataTableCurrentPageLabel>
+
+          <DataTablePagination onClick={functions.onPaginationClick} />
         </div>
       </DataTableBottomContent>
     </DataTable>

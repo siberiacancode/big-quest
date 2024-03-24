@@ -18,26 +18,26 @@ export const QueryProvider: React.FC<QueryProviderProps> = ({ children }) => {
         defaultOptions: { queries: { refetchOnWindowFocus: false, retry: false } },
         queryCache: new QueryCache({
           onError: (error) => {
-            const responseError = error as ResponseError;
+            const responseError = error.cause as ResponseError;
 
             if (responseError?.response?.status === 401) {
               router.replace('/auth');
             }
 
-            toast.error(responseError.response.data.message, {
+            toast.error(responseError.response.statusText, {
               cancel: { label: 'Close' }
             });
           }
         }),
         mutationCache: new MutationCache({
           onError: (error) => {
-            const responseError = error as ResponseError;
+            const responseError = error.cause as ResponseError;
 
             if (responseError?.response?.status === 401) {
               router.replace('/auth');
             }
 
-            toast.error(responseError?.response?.data.message, {
+            toast.error(responseError.response.statusText, {
               cancel: { label: 'Close' }
             });
           }

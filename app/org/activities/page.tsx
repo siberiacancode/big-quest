@@ -1,6 +1,6 @@
 import { getActivities } from '@/utils/api';
 
-import { OrgBreadcrumbs } from '../components/OrgBreadcrumbs/OrgBreadcrumbs';
+import { OrgBreadcrumbs } from '../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
 
 import { ActivitiesDashboard } from './components/ActivitiesDashboard/ActivitiesDashboard';
 import { ActivitiesTable } from './components/ActivitiesTable/ActivitiesTable';

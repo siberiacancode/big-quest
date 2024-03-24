@@ -6,7 +6,7 @@ interface HttpClientParams {
 export class HttpClient {
   readonly baseURL: BaseUrl;
 
-  readonly headers: Record<string, string>;
+  public headers: Record<string, string>;
 
   readonly interceptorHandlers: Interceptors;
 
@@ -53,6 +53,10 @@ export class HttpClient {
     };
   }
 
+  setHeaders(headers: Record<string, string>) {
+    this.headers = { ...this.headers, ...headers };
+  }
+
   private createSearchParams(params: SearchParams) {
     const searchParams = new URLSearchParams();
 
@@ -75,17 +79,10 @@ export class HttpClient {
     initialResponse: Response,
     initialConfig: _RequestConfig
   ) {
-    if (!this.interceptorHandlers.response?.length && initialResponse.ok) {
-      const body = (await initialResponse.json()) as T;
-      return body;
-    }
-
-    if (!this.interceptorHandlers.response?.length && !initialResponse.ok) {
-      throw new Error(initialResponse.statusText);
-    }
-
-    let body = (await initialResponse.json()) as T;
+    let body = await this.parseJson<T>(initialResponse);
     const response = {
+      url: initialResponse.url,
+      headers: initialResponse.headers,
       status: initialResponse.status,
       statusText: initialResponse.statusText,
       success: initialResponse.ok,
@@ -94,7 +91,10 @@ export class HttpClient {
 
     this.interceptorHandlers.response?.forEach(({ onSuccess, onFailure }) => {
       try {
-        if (!initialResponse.ok) throw new Error(initialResponse.statusText);
+        if (!initialResponse.ok)
+          throw new Error(initialResponse.statusText, {
+            cause: { config: initialConfig, response }
+          });
         if (!onSuccess) return;
         body = onSuccess(response);
       } catch (error) {
@@ -130,7 +130,18 @@ export class HttpClient {
     return config;
   }
 
+  private async parseJson<T>(response: Response): Promise<T> {
+    try {
+      return (await response.json()) as T;
+    } catch (error) {
+      // @ts-ignore
+      return null;
+    }
+  }
+
   private async request<T>(endpoint: string, method: RequestMethod, options: RequestOptions = {}) {
+    console.info('REQUEST:', method, endpoint, new Date());
+
     const defaultConfig: _RequestConfig = {
       ...options,
       url: endpoint,
@@ -146,6 +157,27 @@ export class HttpClient {
     }
 
     const response: Response = await fetch(url, config);
+
+    if (response.status >= 400) {
+      const error = {} as ResponseError;
+      const body = await this.parseJson<T>(response);
+      error.config = config;
+      error.response = {
+        url: response.url,
+        headers: response.headers,
+        status: response.status,
+        statusText: response.statusText,
+        success: response.ok,
+        data: body
+      };
+      throw new Error(response.statusText, { cause: error });
+    }
+
+    if (!this.interceptorHandlers.response?.length && response.ok) {
+      const body = await this.parseJson<T>(response);
+      return body;
+    }
+
     return this.runResponseInterceptors<T>(response, config);
   }
 

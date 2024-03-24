@@ -1,5 +1,5 @@
 interface MutationSettings<Params = void, Func = unknown> {
-  config?: ApiRequestConfig;
+  config?: RequestConfig;
   options?: import('@tanstack/react-query').UseMutationOptions<
     Awaited<ReturnType<Func>>,
     any,
@@ -9,7 +9,7 @@ interface MutationSettings<Params = void, Func = unknown> {
 }
 
 interface QuerySettings<Func = unknown> {
-  config?: ApiRequestConfig;
+  config?: RequestOptions;
   options?: Omit<
     import('@tanstack/react-query').UseQueryOptions<
       Awaited<ReturnType<Func>>,
@@ -31,9 +31,11 @@ type _RequestConfig = RequestInit & {
   params?: SearchParams;
 };
 interface InterceptorResponseResult {
+  headers: Response['headers'];
   success: Response['ok'];
   status: Response['status'];
   statusText: Response['statusText'];
+  url: string;
   data: any;
 }
 type SuccessResponseFun = (res: InterceptorResponseResult) => InterceptorResponseResult['data'];
@@ -177,6 +179,8 @@ interface AddressResponse {
   geo_lat: number;
   geo_lon: number;
   unrestrictedValue: string;
+  value: string;
+  cityWithType: string;
 }
 
 interface OrganizationAddressesResponse {
@@ -247,8 +251,8 @@ interface LoginEmailDto {
   password: string;
 }
 
-interface OrganizationPaginationResponse {
-  rows: OrganizationResponse[];
+interface OrganizationListPaginationResponse {
+  rows: OrganizationListResponse[];
   pagination: PaginationResponse;
 }
 
@@ -348,6 +352,23 @@ interface ActivitiesDashBoardResponse {
   edit: number;
 }
 
+interface UserResponse {
+  id: string;
+  email: string;
+  createdAt: string;
+  updatedAt: string;
+  roles: ['SUPERADMIN'];
+  isBlocked: boolean;
+  isActive: boolean;
+  name: string;
+  surname: string;
+  middleName: string;
+  lastLogin: string;
+  passportId: string;
+  sex: 'MALE' | 'FEMALE';
+  avatar: string;
+}
+
 interface EmployeeDto {
   id: string;
   role: 'Administrator' | 'Leading' | 'Manager';
@@ -367,4 +388,14 @@ interface UpdateOrganizationDto {
   information?: OrganizationInformationDto;
   requisites?: RequisitesDto;
   stage?: string;
+}
+
+interface OrganizationListResponse {
+  id: string;
+  name: string;
+  locality: string;
+  tariff: string;
+  countDays: string;
+  stage: Stage;
+  type: LegalType;
 }
