@@ -4,40 +4,46 @@ import React from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Trash2, WallpaperIcon } from 'lucide-react';
 import Image from 'next/image';
+import { toast } from 'sonner';
 
 import { Button, DropzoneMedia } from '@/components/ui';
 import { cn } from '@/lib/utils';
+import { useI18n } from '@/utils/contexts';
 
 import { ACCEPT_FILE_TYPES } from './constants/acceptFileTypes';
 import type { FileType } from './constants/types';
-import { useDropzoneCard } from './hooks/useDropzoneCard';
 
 interface DropzoneCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value?: string;
   type?: FileType;
   isAvatar?: boolean;
   isActive?: boolean;
-  onDeleteFileClick?: (value: string) => void;
+  onDelete?: (value: string) => void;
   onDropAccepted: (props: File) => void;
 }
+
+const MAX_FILES_AMOUNT = 1;
 
 export const DropzoneCard = ({
   value,
   type = 'image',
   isAvatar = false,
   isActive = false,
-  onDeleteFileClick = () => {},
+  onDelete = () => {},
   onDropAccepted,
   ...props
 }: DropzoneCardProps) => {
-  console.log(value, isAvatar);
-  const { functions } = useDropzoneCard({
-    type
-  });
+  const i18n = useI18n();
+
+  const onDropRejected = () =>
+    toast.error(i18n.formatMessage({ id: `dropzone.${type}.error` }), {
+      cancel: { label: i18n.formatMessage({ id: 'button.close' }) }
+    });
+
   const { getRootProps, getInputProps } = useDropzone({
-    maxFiles: 1,
+    maxFiles: MAX_FILES_AMOUNT,
     accept: ACCEPT_FILE_TYPES[type === 'image' || type === 'video' ? 'media' : 'docs'],
-    onDropRejected: functions.onError,
+    onDropRejected,
     onDropAccepted: (files: File[]) => onDropAccepted(files[0])
   });
 
@@ -62,12 +68,6 @@ export const DropzoneCard = ({
               )}
             >
               <source src={value} type='video/mp4' />
-              <p>
-                Браузер не поддерживает ссылку, скачайте файл нажав:
-                <a href={value} download={value}>
-                  нажмите на ссылку
-                </a>
-              </p>
             </video>
           )}
           {!isAvatar && (
@@ -76,7 +76,7 @@ export const DropzoneCard = ({
               className='absolute right-0 top-0 m-2 h-fit rounded-full p-2 '
               onClick={(event) => {
                 event.stopPropagation();
-                onDeleteFileClick(value);
+                onDelete(value);
               }}
             >
               <Trash2 className='h-3 w-3 ' />

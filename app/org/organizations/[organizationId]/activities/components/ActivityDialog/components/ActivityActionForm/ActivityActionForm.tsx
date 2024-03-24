@@ -31,7 +31,7 @@ import { useActivityActionForm } from './hooks/useActivityActionForm';
 
 interface ActivityActionFormProps<ActionType extends Exclude<ActivityActionType, 'info'>> {
   onAction: () => void;
-  setActionType?: (props: ActivityActionType) => void;
+  onEdit?: (props: ActivityActionType) => void;
   actionType: ActionType;
   activity: ActionType extends 'edit' ? ActivityProps : undefined;
   externalActionType?: ActivityActionType;
@@ -39,7 +39,7 @@ interface ActivityActionFormProps<ActionType extends Exclude<ActivityActionType,
 
 export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType, 'info'>>({
   onAction,
-  setActionType = () => {},
+  onEdit = () => {},
   activity,
   actionType,
   externalActionType = 'edit'
@@ -47,7 +47,7 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
   const i18n = useI18n();
   const { state, form, functions } = useActivityActionForm({
     onAction,
-    setActionType,
+    onEdit,
     activity,
     actionType,
     externalActionType
@@ -286,9 +286,11 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
                           <DropdownMenuTrigger asChild>
                             <div className='flex h-10 max-w-40 cursor-pointer items-center justify-between gap-2 rounded-md border border-secondary bg-input-foreground px-3 py-2'>
                               <Typography variant='body2'>
-                                {i18n.formatMessage({
-                                  id: `organization.activities.status.${field.value.toLowerCase()}`
-                                })}
+                                <I18nText
+                                  path={
+                                    `organization.activities.status.${field.value.toLowerCase()}` as LocaleMessageId
+                                  }
+                                />
                               </Typography>
                               {state.isStatusOpen && <ChevronUpIcon className='h-4 w-4' />}
                               {!state.isStatusOpen && <ChevronDownIcon className='h-4 w-4' />}

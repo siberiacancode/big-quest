@@ -35,7 +35,7 @@ export const useActivityMedia = () => {
     setUploadedMediaArray(uploadedArray);
   };
 
-  const onDeleteFileClick = (value: string) => {
+  const onDelete = (value: string) => {
     const newArray = uploadedMediaArray.filter((item) => item.url !== value);
     const newActivityMedia = activityMedia.filter((item) => item.url !== value);
 
@@ -64,7 +64,7 @@ export const useActivityMedia = () => {
     state: { activeMediaFile, deletedMediaArray, uploadedMediaArray, activityMedia },
     functions: {
       setActiveMediaFile,
-      onDeleteFileClick,
+      onDelete,
       onDropAccepted,
       onChangeAvatarClick
     }

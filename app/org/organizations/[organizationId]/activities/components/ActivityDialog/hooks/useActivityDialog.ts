@@ -36,6 +36,6 @@ export const useActivityDialog = ({ actionType: externalActionType, activity }) 
 
   return {
     state: { open, actionType, activity: getActivityByIdResponse },
-    functions: { setOpen, onOpenChange, setActionType, onAction }
+    functions: { setOpen, onOpenChange, onEdit: setActionType, onAction }
   };
 };

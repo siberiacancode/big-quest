@@ -43,14 +43,14 @@ export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialog
         </DialogHeader>
 
         {state.actionType === 'info' && activity && (
-          <ActivityInfo activity={state.activity} setActionType={functions.setActionType} />
+          <ActivityInfo activity={state.activity} onEdit={functions.onEdit} />
         )}
         {state.actionType !== 'info' && (
           <ActivityActionForm
             actionType={state.actionType}
             activity={state.activity}
             externalActionType={actionType}
-            setActionType={functions.setActionType}
+            onEdit={functions.onEdit}
             onAction={functions.onAction}
           />
         )}

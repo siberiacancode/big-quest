@@ -21,6 +21,8 @@ export const ActivityMedia = ({ activity }: ActivityMediaProps) => {
   const i18n = useI18n();
   const { state, functions } = useActivityMedia();
 
+  const ACTIVITY_MEDIA_TOTAL_AMOUNT = state.activityMedia.length + state.uploadedMediaArray.length;
+
   return (
     <div className='grid h-screen max-h-[418px] w-full grid-cols-3 gap-3 xsx:max-h-[130px] xsx:gap-2'>
       <div className='relative col-span-2 h-full max-w-[418px]'>
@@ -35,12 +37,6 @@ export const ActivityMedia = ({ activity }: ActivityMediaProps) => {
         {state.activeMediaFile.url && state.activeMediaFile.type === 'video' && (
           <video className='h-full w-full rounded-lg border border-border' controls>
             <source src={state.activeMediaFile.url} type='video/mp4' />
-            <p>
-              Браузер не поддерживает ссылку, скачайте файл нажав:
-              <a href={state.activeMediaFile.url} download={state.activeMediaFile.url}>
-                нажмите на ссылку
-              </a>
-            </p>
           </video>
         )}
 
@@ -91,7 +87,7 @@ export const ActivityMedia = ({ activity }: ActivityMediaProps) => {
                 }
                 isAvatar={item.isAvatar}
                 isActive={item.url === state.activeMediaFile.url}
-                onDeleteFileClick={functions.onDeleteFileClick}
+                onDelete={functions.onDelete}
                 onDropAccepted={functions.onDropAccepted}
               />
             </div>
@@ -114,17 +110,16 @@ export const ActivityMedia = ({ activity }: ActivityMediaProps) => {
                   }
                   isAvatar={item.isAvatar}
                   isActive={item.url === state.activeMediaFile.url}
-                  onDeleteFileClick={functions.onDeleteFileClick}
+                  onDelete={functions.onDelete}
                   onDropAccepted={functions.onDropAccepted}
                 />
               </div>
             </div>
           ))}
-        {state.activityMedia.length + state.uploadedMediaArray.length < 8 && (
+        {ACTIVITY_MEDIA_TOTAL_AMOUNT < 8 && (
           <div className='relative'>
             <DropzoneCard
               className='relative h-[100px] w-[100px]'
-              value={undefined}
               onDropAccepted={functions.onDropAccepted}
             />
           </div>

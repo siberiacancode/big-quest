@@ -15,7 +15,7 @@ import { usePostActivityActionMutation } from './usePostActivityActionMutation';
 
 interface UseActivityActionFormParams {
   onAction: () => void;
-  setActionType: (props: ActivityActionType) => void;
+  onEdit: (props: ActivityActionType) => void;
   actionType: Exclude<ActivityActionType, 'info'>;
   activity?: ActivityResponse;
   externalActionType: ActivityActionType;
@@ -23,7 +23,7 @@ interface UseActivityActionFormParams {
 
 export const useActivityActionForm = ({
   onAction,
-  setActionType,
+  onEdit,
   actionType,
   activity,
   externalActionType
@@ -35,23 +35,25 @@ export const useActivityActionForm = ({
 
   const getCategoryQuery = useGetCategoryQuery();
   // на submit добавить еще запрос отправки медиа
-  const getActivityByIdResponse = useGetActivityByIdQuery({
+  const getActivityByIdQuery = useGetActivityByIdQuery({
     id: activity?.id ?? '1'
   });
 
-  const getActivityMediaByIdResponse = useGetActivityMediaByIdQuery({ id: activity?.id ?? '1' });
+  const getActivityMediaByIdQuery = useGetActivityMediaByIdQuery({ id: activity?.id ?? '1' });
 
-  const activityData = getActivityByIdResponse.data;
-
+  // activity ???????
   const defaultValues = {
-    name: activityData?.name ?? '',
-    description: activityData?.description ?? '',
-    ageLimit: { min: activityData?.ageLimit[0] ?? 7, max: activityData?.ageLimit[1] ?? 14 },
+    name: activity?.name ?? '',
+    description: activity?.description ?? '',
+    ageLimit: {
+      min: activity?.ageLimit[0] ?? 7,
+      max: activity?.ageLimit[1] ?? 14
+    },
     duration: 120,
-    price: activityData?.duration ?? 720,
-    replay: activityData?.replay ?? false,
-    status: activityData?.status ?? 'DRAFT',
-    category: activityData?.category ?? ''
+    price: activity?.duration ?? 720,
+    replay: activity?.replay ?? false,
+    status: activity?.status ?? 'DRAFT',
+    category: activity?.category ?? ''
   };
 
   const activityForm = useForm<ActivityActionSchema>({
@@ -93,7 +95,7 @@ export const useActivityActionForm = ({
     router.refresh();
 
     if (externalActionType === 'info') {
-      setActionType('info');
+      onEdit('info');
     }
 
     onAction();
@@ -105,8 +107,8 @@ export const useActivityActionForm = ({
       isCategoryOpen,
       isStatusOpen,
       isLoading: postActivityActionMutation.isPending,
-      activityMediaData: getActivityMediaByIdResponse.data,
-      activityData: getActivityByIdResponse.data
+      activityMediaData: getActivityMediaByIdQuery.data,
+      activityData: getActivityByIdQuery.data
     },
     form: activityForm,
     functions: { onSubmit, setIsCategoryOpen, setIsStatusOpen }

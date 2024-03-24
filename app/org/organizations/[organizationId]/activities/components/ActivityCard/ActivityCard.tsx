@@ -13,15 +13,15 @@ interface ActivityCardProps {
 }
 
 export const ActivityCard = ({ activity }: ActivityCardProps) => {
-  const activityCover = activity.media.filter((item) => item.isAvatar === true);
-  console.log(activityCover);
+  const activityCover = activity.media.find((item) => item.isAvatar === true)!;
+
   return (
     <div className='h-[397px] w-full rounded-lg bg-background p-4'>
       <div className='relative h-2/3'>
         <div className='mdx-h-1/2 relative h-full w-full'>
           <Image
             className='w-full rounded-lg'
-            src={activityCover[0].url ?? background}
+            src={activityCover.url ?? background}
             fill
             alt='activity-cover'
             sizes='4xlx:max-h-72'
