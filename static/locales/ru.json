@@ -77,6 +77,18 @@
   "organization.activities.status.editing": "Редактирование",
   "organization.activities.status.closed": "Закрыта",
   "organization.activities.status.published": "Опубликована",
+
+  "organization.activities.category.cooking": "Кулинария",
+  "organization.activities.category.culture": "Культура",
+  "organization.activities.category.media": "Медиа",
+  "organization.activities.category.sport": "Спорт",
+  "organization.activities.category.education": "Образование",
+  "organization.activities.category.entertainment": "Развлечение",
+  "organization.activities.category.challenge": "Челлендж",
+
+  "organization.activities.view.offline": "Оффлайн",
+  "organization.activities.view.online": "Онлайн",
+
   "organization.employee.email": "Email",
   "organization.employee.phoneNumber": "Телефон",
   "organization.employee.role.administrator": "Администратор",
@@ -265,5 +277,9 @@
   "landing.footer.navigation.news": "Новости",
   "landing.footer.navigation.activities": "Активности",
   "landing.footer.navigation.sponsors": "Спонсоры",
-  "landing.footer.navigation.feedback": "Отзывы"
+  "landing.footer.navigation.feedback": "Отзывы",
+  "landing.activities.title": "Активности",
+  "landing.activities.watchAll": "Смотреть все",
+  "landing.activities.card.duration": "{duration} мин",
+  "landing.activities.card.minimumAge": "{age}+ лет"
 }

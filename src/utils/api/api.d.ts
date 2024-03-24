@@ -78,7 +78,14 @@ type Stage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
 
 type UserRole = 'organizer' | 'partner';
 
-type ActivityCategory = 'EDUCATION';
+type ActivityCategory =
+  | 'COOKING'
+  | 'CULTURE'
+  | 'MEDIA'
+  | 'EDUCATION'
+  | 'ENTERTAINMENT'
+  | 'SPORT'
+  | 'CHALLENGE';
 
 type ActivityStatus = 'DRAFT' | 'MODERATION' | 'EDITING' | 'PUBLISHED' | 'CLOSED';
 

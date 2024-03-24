@@ -27,6 +27,7 @@
     --radius: 0.5rem;
 
     /* custom colors */
+    --gray-one: 0, 0%, 20%, 1;
     --gray-two: 0, 0%, 31%, 1;
     --placeholder: 0, 0%, 74%, 1;
     --gray-light: 0, 0%, 90%, 1;
