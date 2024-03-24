@@ -23,7 +23,7 @@ export const postAuthLoginEmailConfig: RestRequestConfig = {
       },
       interceptors: {
         response: (data, { setCookie }) => {
-          setCookie('refreshToken', 'refreshToken', {
+          setCookie('refreshtoken', 'refreshToken', {
             httpOnly: true,
             maxAge: 360000,
             path: '/'
