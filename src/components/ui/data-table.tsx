@@ -120,7 +120,16 @@ interface DataTableProps<TData> extends React.ComponentProps<'div'> {
 
 export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any>>(
   <TData,>(
-    { children, columns, rows, table, loading, pagination, ...props }: DataTableProps<TData>,
+    {
+      children,
+      columns,
+      rows,
+      table,
+      loading,
+      pagination,
+      className,
+      ...props
+    }: DataTableProps<TData>,
     ref
   ) => {
     const value = React.useMemo(
@@ -136,7 +145,11 @@ export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any>>(
 
     return (
       <div
-        className={cn('mt-10 w-full rounded-md bg-background p-4', loading && 'opacity-60')}
+        className={cn(
+          'mt-10 w-full rounded-md bg-background p-4',
+          loading && 'opacity-60',
+          className
+        )}
         ref={ref}
         {...props}
       >

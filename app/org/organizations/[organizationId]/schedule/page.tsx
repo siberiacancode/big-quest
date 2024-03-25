@@ -1,3 +1,7 @@
+import { PlusCircledIcon } from '@radix-ui/react-icons';
+
+import { I18nText } from '@/components/common';
+import { Button, Typography } from '@/components/ui';
 import { getOrganizationSchedule } from '@/utils/api/requests/organization/id/schedule';
 
 import { OrganizationScheduleTable } from './components/OrganizationScheduleTable/OrganizationScheduleTable';
@@ -24,7 +28,18 @@ const OrganizationSchedulePage = async ({ searchParams, params }: OrganizationsP
   });
 
   return (
-    <div className='bg-secondary px-4'>
+    <div>
+      <div className='flex justify-between'>
+        <Typography variant='h5' tag='h5'>
+          <I18nText path='partners.addresses.title' />
+        </Typography>
+        {/* <AddAddressDialog
+          trigger={ */}
+        <Button variant='light' className='mx-2 p-5' size='sm'>
+          <PlusCircledIcon className='mr-2 h-4 w-4' />
+          <I18nText path='button.addAddress' />
+        </Button>
+      </div>
       <OrganizationScheduleTable
         schedules={organizationScheduleResponse.rows}
         pagination={organizationScheduleResponse.pagination}

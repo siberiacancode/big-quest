@@ -43,6 +43,7 @@ export const OrganizationScheduleTable = ({
       rows={rows}
       loading={state.isLoading}
       pagination={pagination}
+      className='mt-4'
     >
       <DataTableToolbar toolbar={state.toolbar} />
       <DataTableComponent>

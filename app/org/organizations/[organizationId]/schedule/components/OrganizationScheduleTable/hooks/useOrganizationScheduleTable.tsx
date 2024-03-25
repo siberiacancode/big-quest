@@ -1,12 +1,12 @@
 import React from 'react';
-import { PlusCircledIcon } from '@radix-ui/react-icons';
+import type { DateRange } from 'react-day-picker';
 import { useDebounceCallback } from 'usehooks-ts';
 
-import { I18nText } from '@/components/common';
-import { RegisterOrganizationDialog } from '@/components/dialogs';
-import { Button, Input } from '@/components/ui';
+import { Input } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 import { useSearchParams } from '@/utils/hooks';
+
+import { DatePickerWithRange } from '../../DatePickerWithRange/DatePickerWithRange';
 
 const FILTER_INPUT_DELAY = 500;
 
@@ -31,6 +31,17 @@ export const useOrganizationScheduleTable = () => {
     FILTER_INPUT_DELAY
   );
 
+  const onDateRangeChange = useDebounceCallback((dateRange: DateRange | undefined) => {
+    if (dateRange) {
+      console.log('Selected date range:', dateRange);
+      setSearchParams([
+        { key: 'from', value: dateRange.from?.toISOString() ?? '' },
+        { key: 'to', value: dateRange.to?.toISOString() ?? '' },
+        { key: 'current', value: '1' }
+      ]);
+    }
+  }, FILTER_INPUT_DELAY);
+
   const toolbar = React.useCallback(
     () => [
       <Input
@@ -40,16 +51,7 @@ export const useOrganizationScheduleTable = () => {
         className='max-w-[180px]'
       />,
 
-      <div className='flex flex-1 justify-items-end'>
-        <RegisterOrganizationDialog
-          trigger={
-            <Button disabled={isPending} variant='secondary' size='sm' className='mx-2 md:ml-auto'>
-              <PlusCircledIcon className='mr-2 size-4' />
-              <I18nText path='button.addSchedule' />
-            </Button>
-          }
-        />
-      </div>
+      <DatePickerWithRange onDateRangeChange={onDateRangeChange} />
     ],
     [onActivityFilterChange, activityFilter]
   );
