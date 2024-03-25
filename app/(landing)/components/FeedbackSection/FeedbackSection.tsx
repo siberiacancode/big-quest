@@ -18,7 +18,7 @@ export const FeedbackSection = () => (
         <Typography tag='h3' variant='h1' className='mdx:text-3xl xsx:text-[21px] '>
           <I18nText path='landing.feedback.title' />
         </Typography>
-        <div className=''>
+        <div>
           <CarouselPrevious className='static right-0 top-0 translate-y-0 border-none bg-white' />
           <CarouselNext className='static right-0 top-0 translate-y-0 border-none bg-white' />
         </div>
