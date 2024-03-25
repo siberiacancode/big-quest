@@ -1,6 +1,6 @@
 export * from './address/get';
 export * from './auth/login/email/post';
-export * from './auth/refresh-tokens';
+export * from './auth/refresh-tokens/get';
 export * from './organization/dashboard/get';
 export * from './organization/get';
 export * from './organization/id/addresses/get';

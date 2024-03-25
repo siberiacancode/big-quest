@@ -1,5 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
+import { COOKIES } from '@/utils/constants/cookies';
+
 export const getAuthRefreshTokensConfig: RestRequestConfig = {
   path: '/auth/refresh-tokens',
   method: 'get',
@@ -8,13 +10,13 @@ export const getAuthRefreshTokensConfig: RestRequestConfig = {
       data: null,
       interceptors: {
         response: (data, { request, setCookie, setStatusCode }) => {
-          if (request.cookies.refreshToken && request.cookies.accessToken) {
-            setCookie('refreshToken', 'refreshToken', {
+          if (request.cookies[COOKIES.REFRESH_TOKEN] && request.cookies[COOKIES.ACCESS_TOKEN]) {
+            setCookie(COOKIES.REFRESH_TOKEN, COOKIES.REFRESH_TOKEN, {
               httpOnly: true,
               maxAge: 360000,
               path: '/'
             });
-            setCookie('accessToken', 'accessToken', {
+            setCookie(COOKIES.ACCESS_TOKEN, COOKIES.ACCESS_TOKEN, {
               httpOnly: true,
               maxAge: 360000,
               path: '/'
