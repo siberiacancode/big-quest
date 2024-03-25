@@ -1,3 +1,4 @@
+import { ActivitiesMapSection } from './components/ActivitiesMapSection/ActivitiesMapSection';
 import { ActivitiesSection } from './components/ActivitiesSection/ActivitiesSection';
 import { BannerSection } from './components/BannerSection/BannerSection';
 import { FeedbackSection } from './components/FeedbackSection/FeedbackSection';
@@ -12,6 +13,7 @@ const LandingPage = () => (
     <NewsSection />
     <StatisticsSection />
     <ActivitiesSection />
+    <ActivitiesMapSection />
     <SponsorsSection />
     <FeedbackSection />
     <LeaveRequestSection />
