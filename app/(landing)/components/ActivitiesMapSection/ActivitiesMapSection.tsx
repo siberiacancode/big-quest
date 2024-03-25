@@ -17,8 +17,8 @@ export const ActivitiesMapSection = () => (
     <Typography tag='h2' variant='h1' className='xsx:text-[25px]'>
       <I18nText path='landing.activitiesMap.title' />
     </Typography>
-    <div className='mt-[40px] w-full mdx:mt-5'>
-      <Map className='' defaultState={DEFAULT_MAP_STATE}>
+    <Map className='h-[400px] mdx:h-[300px]' state={DEFAULT_MAP_STATE}>
+      <div className='mt-[40px] w-full mdx:mt-5'>
         {activitiesCoordinates.map((coordinates, index) => (
           <GeoObject
             key={index}
@@ -28,12 +28,12 @@ export const ActivitiesMapSection = () => (
             }}
             options={{
               geodesic: true,
-              strokeColor: '#F008',
+              strokeColor: '#FF4433',
               strokeWidth: 15
             }}
           />
         ))}
-      </Map>
-    </div>
+      </div>
+    </Map>
   </div>
 );
