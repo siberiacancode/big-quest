@@ -281,5 +281,6 @@
   "landing.activities.title": "Активности",
   "landing.activities.watchAll": "Смотреть все",
   "landing.activities.card.duration": "{duration} мин",
-  "landing.activities.card.minimumAge": "{age}+ лет"
+  "landing.activities.card.minimumAge": "{age}+ лет",
+  "landing.activitiesMap.title": "Поиск активностей на карте"
 }

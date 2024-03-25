@@ -1,16 +1,24 @@
 'use client';
 
-import { GeoObject, Map, YMaps } from 'react-yandex-maps';
+import { GeoObject, Map } from '@pbe/react-yandex-maps';
+
+import { I18nText } from '@/components/common';
+import { Typography } from '@/components/ui';
 
 import { activitiesCoordinates } from './constants/activitiesCoordinates';
 
-const DEFAULT_MAP_ZOOM = 9;
-const MAP_CENTER = [55.75, 37.57];
+const DEFAULT_MAP_STATE = {
+  center: [54.98, 82.89],
+  zoom: 9
+};
 
 export const ActivitiesMapSection = () => (
-  <YMaps>
-    <div className='w-full'>
-      <Map defaultState={{ center: MAP_CENTER, zoom: DEFAULT_MAP_ZOOM }} width='100%'>
+  <div className='px-16 py-14 mdx:px-11 mdx:py-10 xsx:px-5'>
+    <Typography tag='h2' variant='h1' className='xsx:text-[25px]'>
+      <I18nText path='landing.activitiesMap.title' />
+    </Typography>
+    <div className='mt-[40px] w-full mdx:mt-5'>
+      <Map className='' defaultState={DEFAULT_MAP_STATE}>
         {activitiesCoordinates.map((coordinates, index) => (
           <GeoObject
             key={index}
@@ -21,11 +29,11 @@ export const ActivitiesMapSection = () => (
             options={{
               geodesic: true,
               strokeColor: '#F008',
-              strokeWidth: 5
+              strokeWidth: 15
             }}
           />
         ))}
       </Map>
     </div>
-  </YMaps>
+  </div>
 );
