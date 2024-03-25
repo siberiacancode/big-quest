@@ -54,7 +54,6 @@ const config = {
           foreground: 'hsl(var(--primary-foreground))'
         },
         gray: {
-          one: 'hsl(var(--gray-one))',
           two: 'hsl(var(--gray-two))',
           light: 'hsl(var(--gray-light))'
         },
