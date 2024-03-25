@@ -25,11 +25,11 @@ export async function middleware(request: NextRequest) {
 
   const authTokenCookie = request.cookies.get(COOKIES.ACCESS_TOKEN);
   const refreshTokenCookie = request.cookies.get(COOKIES.REFRESH_TOKEN);
+  const userSessionCookie = request.cookies.get(COOKIES.USER_SESSION);
 
-  const isAuthenticated = !!authTokenCookie && !!refreshTokenCookie;
+  const isAuthenticated = !!authTokenCookie && !!refreshTokenCookie && !!userSessionCookie;
 
   if (!isAuthenticated && request.url.includes(ROUTES.AUTH)) {
-    console.log('@.1 !isAuthenticated page is auth');
     return NextResponse.next();
   }
 

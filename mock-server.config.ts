@@ -1,6 +1,6 @@
 import type { MockServerConfig } from 'mock-config-server';
 
-import * as requests from './mock';
+import * as requests from './mock/requests';
 
 const mockServerConfig: MockServerConfig = {
   baseUrl: '/api/1.0',

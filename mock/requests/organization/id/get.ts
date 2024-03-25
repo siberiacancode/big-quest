@@ -33,16 +33,6 @@ export const getOrganizationByIdConfig: RestRequestConfig = {
         },
         stage: 'REQUEST',
         type: 'PARTNER'
-      },
-      interceptors: {
-        response: (data, { request, setStatusCode }) => {
-          if (request.cookies.refreshtoken && request.cookies.accessToken) {
-            return data;
-          }
-
-          setStatusCode(401);
-          return { message: 'Unauthorized' };
-        }
       }
     }
   ]

@@ -13,7 +13,7 @@ import {
   Typography
 } from '@/components/ui';
 
-import type { EmployeeData } from '../../constants/types';
+import type { EmployeeData } from '../../(constants)/types';
 
 import { ActionEmployeeForm } from './components/ActionEmployeeForm/ActionEmployeeForm';
 import type { EmployeeActionType } from './constants/types';

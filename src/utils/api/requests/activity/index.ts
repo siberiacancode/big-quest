@@ -2,7 +2,7 @@ import { api } from '@/utils/api/instance';
 
 export type GetActivitiesConfig = RequestConfig | void;
 
-export const getActivities = async (requestConfig?: GetActivitiesConfig) =>
+export const getActivity = async (requestConfig?: GetActivitiesConfig) =>
   api.get<ActivityWithPaginationResponse>('activity', requestConfig?.config);
 
 export type PostActivityParams = CreateActivityDto;

@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams, useRouter } from 'next/navigation';
 
-import type { EmployeeData } from '../../../../../constants/types';
+import type { EmployeeData } from '../../../../../(constants)/types';
 import type { EmployeeActionType } from '../../../constants/types';
 import type { EmployeeSchema } from '../constants/EmployeeSchema';
 import { employeeSchema } from '../constants/EmployeeSchema';
@@ -31,7 +31,7 @@ export const useActionEmployeeForm = ({
       name: employee?.name ?? '',
       surname: employee?.surname ?? '',
       email: employee?.email ?? '',
-      phone: employee?.phone ?? ''
+      phone: employee?.phone.replace('+7', '') ?? ''
     }
   });
 

@@ -13,7 +13,7 @@ const DEFAULT_ORGANIZATIONS_LIMIT = '10';
 const DEFAULT_ORGANIZATIONS_PAGE = '1';
 
 const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPageProps) => {
-  const [organizationsResponse, organizationsDashboard] = await Promise.all([
+  const [organizationResponse, organizationDashboardResponse] = await Promise.all([
     getOrganization({
       config: {
         params: {
@@ -32,10 +32,10 @@ const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPagePro
   return (
     <div className='bg-secondary px-4'>
       <OrgBreadcrumbs ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }} />
-      <OrganizationsDashboard dashboard={organizationsDashboard} />
+      <OrganizationsDashboard dashboard={organizationDashboardResponse} />
       <OrganizationsTable
-        organizations={organizationsResponse.rows}
-        pagination={organizationsResponse.pagination}
+        organizations={organizationResponse.rows}
+        pagination={organizationResponse.pagination}
       />
     </div>
   );

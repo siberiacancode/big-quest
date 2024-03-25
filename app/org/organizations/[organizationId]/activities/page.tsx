@@ -3,7 +3,7 @@ import { PlusCircledIcon } from '@radix-ui/react-icons';
 
 import { I18nText } from '@/components/common';
 import { Button, Typography } from '@/components/ui';
-import { getActivities } from '@/utils/api';
+import { getActivity } from '@/utils/api';
 
 import { ActivityCard } from './components/ActivityCard/ActivityCard';
 import { ActivityDialog } from './components/ActivityDialog/ActivityDialog';
@@ -16,7 +16,7 @@ const DEFAULT_ACTIVITIES_LIMIT = '10';
 const DEFAULT_ACTIVITIES_PAGE = '1';
 
 const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPageProps) => {
-  const organizationActivities = await getActivities({
+  const activityResponse = await getActivity({
     config: {
       params: {
         limit: DEFAULT_ACTIVITIES_LIMIT,
@@ -44,7 +44,7 @@ const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPage
         />
       </div>
       <div className='mb-6 grid w-full grid-cols-5 gap-7 3xlx:grid-cols-4 xlx:grid-cols-3 mdx:grid-cols-2 2xsx:grid-cols-1'>
-        {organizationActivities.rows.map((activity, index) => (
+        {activityResponse.rows.map((activity, index) => (
           <React.Fragment key={index}>
             <ActivityCard activity={activity} />
           </React.Fragment>
