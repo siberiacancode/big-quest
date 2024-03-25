@@ -1,17 +1,49 @@
-import type { ActivityMedia, UploadedMediaArray } from '../contexts';
-import { useActivityMediaContext } from '../contexts';
+import React from 'react';
 
-export const useActivityMedia = () => {
-  const {
-    activityMedia,
-    activeMediaFile,
-    uploadedMediaArray,
-    deletedMediaArray,
-    setActiveMediaFile,
-    setActivityMedia,
-    setUploadedMediaArray,
-    setDeletedMediaArray
-  } = useActivityMediaContext();
+export interface ActivityMedia {
+  id: number;
+  url: string;
+  position: number;
+  type: 'image' | 'video';
+  ext: string;
+  size: number;
+  isAvatar: boolean;
+}
+
+export interface ActiveMediaFile {
+  url: string;
+  isAvatar: boolean;
+  type: string;
+}
+
+export interface DeletedMediaArray {
+  id: number;
+  isAvatar: boolean;
+}
+
+export interface UploadedMediaArray {
+  file: File;
+  url: string;
+  isAvatar: boolean;
+  type: string;
+}
+interface UseActivityMediaProps {
+  media?: ActivityMedia[];
+}
+
+export const useActivityMedia = ({ media = [] }: UseActivityMediaProps) => {
+  const defaultActiveMediaFile = media?.find((item) => item.isAvatar === true);
+
+  const [activityMedia, setActivityMedia] = React.useState<ActivityMedia[]>(media);
+  const [activeMediaFile, setActiveMediaFile] = React.useState<ActiveMediaFile>(
+    defaultActiveMediaFile ?? {
+      url: '',
+      isAvatar: false,
+      type: ''
+    }
+  );
+  const [deletedMediaArray, setDeletedMediaArray] = React.useState<DeletedMediaArray[]>([]);
+  const [uploadedMediaArray, setUploadedMediaArray] = React.useState<UploadedMediaArray[]>([]);
 
   const onChangeAvatarClick = (file) => {
     const newArray: ActivityMedia[] = activityMedia.map((item) => {

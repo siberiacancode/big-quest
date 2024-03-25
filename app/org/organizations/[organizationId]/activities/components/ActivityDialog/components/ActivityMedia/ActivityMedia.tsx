@@ -14,12 +14,12 @@ import type { ActivityProps } from '../../constants/types';
 import { useActivityMedia } from './hooks/useActivityMedia';
 
 interface ActivityMediaProps {
-  activity?: ActivityProps;
+  media?: ActivityProps['media'];
 }
 
-export const ActivityMedia = ({ activity }: ActivityMediaProps) => {
+export const ActivityMedia = ({ media }: ActivityMediaProps) => {
   const i18n = useI18n();
-  const { state, functions } = useActivityMedia();
+  const { state, functions } = useActivityMedia({ media });
 
   const ACTIVITY_MEDIA_TOTAL_AMOUNT = state.activityMedia.length + state.uploadedMediaArray.length;
 
@@ -31,7 +31,7 @@ export const ActivityMedia = ({ activity }: ActivityMediaProps) => {
             className='w-full rounded-lg sm:max-h-[418px] sm:w-[300px]'
             src={state.activeMediaFile.url}
             fill
-            alt={i18n.formatMessage({ id: 'activity.image.alt' }, { name: activity?.name })}
+            alt={i18n.formatMessage({ id: 'activity.image.alt' })}
           />
         )}
         {state.activeMediaFile.url && state.activeMediaFile.type === 'video' && (
@@ -43,7 +43,9 @@ export const ActivityMedia = ({ activity }: ActivityMediaProps) => {
         {!state.activeMediaFile.url && (
           <div className='flex h-full w-full flex-col items-center  justify-center gap-4 rounded-lg border-2 border-dashed border-dropzoneBorder text-muted-foreground sm:max-h-[418px]'>
             <WallpaperIcon className='h-10 w-10 text-muted-foreground' />
-            <Typography variant='body1'>Место для показа медиа</Typography>
+            <Typography variant='body1'>
+              <I18nText path='activity.image.placeholder' />
+            </Typography>
           </div>
         )}
         {state.activeMediaFile.isAvatar && state.activeMediaFile.type === 'image' && (

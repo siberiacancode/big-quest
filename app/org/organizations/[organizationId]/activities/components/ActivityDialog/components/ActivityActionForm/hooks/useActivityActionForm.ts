@@ -107,8 +107,8 @@ export const useActivityActionForm = ({
       isCategoryOpen,
       isStatusOpen,
       isLoading: postActivityActionMutation.isPending,
-      activityMediaData: getActivityMediaByIdQuery.data,
-      activityData: getActivityByIdQuery.data
+      media: getActivityMediaByIdQuery.data,
+      activity: getActivityByIdQuery.data
     },
     form: activityForm,
     functions: { onSubmit, setIsCategoryOpen, setIsStatusOpen }

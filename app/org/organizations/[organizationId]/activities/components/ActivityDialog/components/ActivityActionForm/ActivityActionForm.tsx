@@ -24,7 +24,6 @@ import { useI18n } from '@/utils/contexts';
 
 import type { ActivityActionType, ActivityProps } from '../../constants/types';
 import { ActivityMedia } from '../ActivityMedia/ActivityMedia';
-import { ActivityMediaProvider } from '../ActivityMedia/contexts';
 
 import { ACTIVITY_ACTION_STATUS_DROPDOWN_VALUES } from './constants/activityActionStatusDropdownValues';
 import { useActivityActionForm } from './hooks/useActivityActionForm';
@@ -59,25 +58,12 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
         onSubmit={functions.onSubmit}
         className='flex h-full flex-col justify-between gap-4 overflow-y-auto px-5 smx:px-0'
       >
-        {state.activityMediaData && (
+        {state.media && (
           <div className='flex h-max gap-4'>
-            <ActivityMediaProvider
-              defaultActivityMedia={state.activityMediaData}
-              defaultActiveMediaFile={
-                state.activityMediaData && state.activityMediaData.length > 0
-                  ? {
-                      url: state.activityMediaData[0]?.url,
-                      isAvatar: state.activityMediaData[0]?.isAvatar,
-                      type: state.activityMediaData[0]?.type
-                    }
-                  : { url: '', isAvatar: false, type: '' }
-              }
-            >
-              <ActivityMedia activity={state.activityData} />
-            </ActivityMediaProvider>
+            <ActivityMedia media={state.media} />
           </div>
         )}
-        {state.activityData && (
+        {state.activity && (
           <div className='flex w-full flex-col rounded-lg border p-5'>
             <div className='flex justify-between gap-24 smx:flex-col smx:gap-2'>
               <div className='flex-1 space-y-3'>

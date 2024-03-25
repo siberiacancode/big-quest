@@ -202,7 +202,8 @@
 
   "activityCard.ageLimit.label": "от {ageMin}+ лет",
   "activityCard.duration.label": "{duration} ч",
-  "activity.image.alt": "Изображение активности {name}",
+  "activity.image.alt": "Изображение активности",
+  "activity.image.placeholder": "Место для показа медиа",
 
   "pagination.from": "из",
   "pagination.selected": "выбрано",
