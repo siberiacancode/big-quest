@@ -11,7 +11,7 @@ interface OrganizationAddressesPageProps {
   params: { organizationId: string };
 }
 
-const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
+const OrganizationAddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
   const organizationAddressesByIdResponse = await getOrganizationAddressesById({
     params: { id: params.organizationId }
   });
@@ -40,4 +40,4 @@ const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
   );
 };
 
-export default AddressesPage;
+export default OrganizationAddressesPage;

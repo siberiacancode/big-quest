@@ -1,7 +1,7 @@
 import { EmployeeCardSkeleton } from '@/components/ui';
 import { Skeleton } from '@/components/ui/skeleton';
 
-const EmployeeLoading = () => (
+const OrganizationEmployeeLoading = () => (
   <>
     <div className='flex justify-between'>
       <Skeleton className='h-8 w-28 bg-background' />
@@ -24,4 +24,4 @@ const EmployeeLoading = () => (
   </>
 );
 
-export default EmployeeLoading;
+export default OrganizationEmployeeLoading;
