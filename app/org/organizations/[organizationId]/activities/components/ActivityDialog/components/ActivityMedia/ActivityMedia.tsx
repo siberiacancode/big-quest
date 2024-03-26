@@ -24,11 +24,21 @@ export const ActivityMedia = ({ media }: ActivityMediaProps) => {
   const ACTIVITY_MEDIA_TOTAL_AMOUNT = state.activityMedia.length + state.uploadedMediaArray.length;
 
   return (
-    <div className='grid h-full w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-5 2smx:px-4 xsx:grid-rows-6 xsx:gap-2 xxsx:grid-rows-5'>
-      <div className='relative col-span-2 max-w-[418px] 2smx:row-span-3 2smx:max-w-full xsx:row-span-4 xxsx:row-span-3 2sm:size-[418px]'>
+    <div
+      className={cn(
+        'grid h-fit max-h-[600px] w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-4 2smx:px-4 xsx:grid-rows-3 xsx:gap-2 xxsx:grid-rows-4',
+        state.activityMedia.length > 4 && '2smx:grid-rows-5 xsx:grid-rows-5 xxsx:grid-rows-5'
+      )}
+    >
+      <div
+        className={cn(
+          'relative col-span-2 max-h-[418px] max-w-[418px] 2smx:row-span-3 2smx:max-w-full xsx:row-span-2 xxsx:row-span-3 2sm:h-[418px]',
+          state.activityMedia.length > 4 && '2smx:row-span-3 xsx:row-span-3 xxsx:row-span-3'
+        )}
+      >
         {state.activeMediaFile.url && state.activeMediaFile.type === 'image' && (
           <Image
-            className='w-full rounded-lg 2smx:h-[360px] sm:max-h-[418px]'
+            className='w-full rounded-lg 2smx:h-[360px]'
             src={state.activeMediaFile.url}
             fill
             alt={i18n.formatMessage({ id: 'activity.image.alt' })}
@@ -69,12 +79,15 @@ export const ActivityMedia = ({ media }: ActivityMediaProps) => {
           )}
       </div>
 
-      <div className='grid h-fit grid-cols-2 gap-2 2smx:row-span-2 2smx:grid-cols-4 2smx:grid-rows-2'>
+      <div
+        className={cn(
+          'grid h-max grid-cols-2 gap-2 2smx:row-span-1 2smx:grid-cols-4 2smx:grid-rows-1',
+          state.activityMedia.length > 4 && '2smx:row-span-2'
+        )}
+      >
         {state.activityMedia.map((item, index) => (
           <div className='relative' key={index}>
-            <div
-              className={cn('relative h-[100px] w-full xsx:h-[80px] xxsx:h-[75px] 2sm:w-[100px] ')}
-            >
+            <div className='3smx:h-[85px] relative h-[100px] w-full xsx:h-[80px] xxsx:h-[60px]'>
               <DropzoneCard
                 type={item.type}
                 className={cn(
@@ -100,7 +113,7 @@ export const ActivityMedia = ({ media }: ActivityMediaProps) => {
         {state.uploadedMediaArray &&
           state.uploadedMediaArray.map((item, index) => (
             <div className='relative' key={index}>
-              <div className='round-lg relative h-[100px] w-full xsx:h-[80px] xxsx:h-[75px] 2sm:w-[100px]'>
+              <div className='3smx:h-[85px] relative h-[100px] w-full xsx:h-[80px] xxsx:h-[60px]'>
                 <DropzoneCard
                   type={item.type as FileType}
                   className='h-full w-full'
@@ -123,7 +136,7 @@ export const ActivityMedia = ({ media }: ActivityMediaProps) => {
         {ACTIVITY_MEDIA_TOTAL_AMOUNT < 8 && (
           <div className='relative'>
             <DropzoneCard
-              className='relative h-[100px] w-full xsx:h-[80px] xxsx:h-[75px] 2sm:w-[100px]'
+              className='3smx:h-[85px] relative h-[100px] w-full xsx:h-[80px] xxsx:h-[60px]'
               onDropAccepted={functions.onDropAccepted}
             />
           </div>

@@ -22,13 +22,25 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
   const [activeMedia, setActiveMedia] =
     React.useState<ActivityProps['media'][0]>(defaultActiveMedia);
 
+  const ACTIVITY_MEDIA_AMOUNT = activity.media.length > 4;
+
   return (
     <div className='flex flex-col items-end gap-4 px-5 smx:px-0'>
-      <div className='grid h-screen max-h-[418px] w-full grid-cols-3 gap-3 xsx:max-h-[130px] xsx:gap-2'>
-        <div className='relative col-span-2 h-full max-w-[418px]'>
+      <div
+        className={cn(
+          'grid h-fit max-h-[600px] w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-4 2smx:px-4 xsx:grid-rows-3 xsx:gap-2 xxsx:grid-rows-4',
+          ACTIVITY_MEDIA_AMOUNT && '2smx:grid-rows-5 xsx:grid-rows-5 xxsx:grid-rows-5'
+        )}
+      >
+        <div
+          className={cn(
+            'relative col-span-2 max-h-[418px] max-w-[418px] 2smx:row-span-3 2smx:max-w-full xsx:row-span-2 xxsx:row-span-3 2sm:h-[418px]',
+            ACTIVITY_MEDIA_AMOUNT && '2smx:row-span-3 xsx:row-span-3 xxsx:row-span-3'
+          )}
+        >
           {activeMedia.type === 'image' && (
             <Image
-              className=' w-full rounded-lg sm:max-h-[418px] sm:w-[300px]'
+              className='w-full rounded-lg 2smx:h-[360px]'
               src={activeMedia.url ?? background}
               fill
               object-fit='cover'
@@ -42,10 +54,17 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
           )}
         </div>
 
-        <div className='grid h-fit grid-cols-2 gap-2'>
+        <div
+          className={cn(
+            'grid h-max grid-cols-2 gap-2 2smx:row-span-1 2smx:grid-cols-4 2smx:grid-rows-1',
+            ACTIVITY_MEDIA_AMOUNT && '2smx:row-span-2'
+          )}
+        >
           {activity.media.map((item, index) => (
             <div className='relative' key={index}>
-              <div className={cn('relative h-[100px] w-[100px]')}>
+              <div
+                className={cn('3smx:h-[85px] relative h-[100px] w-full xsx:h-[80px] xxsx:h-[60px]')}
+              >
                 {item.type === 'image' && (
                   <Image
                     className={cn(
