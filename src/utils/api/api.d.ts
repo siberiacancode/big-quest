@@ -369,3 +369,43 @@ interface OrganizationListResponse {
   stage: Stage;
   type: LegalType;
 }
+
+type TariffStatus = 'ACTIVE' | 'COORDINATION';
+
+interface TariffResponse {
+  id: string;
+  freeActivity: number;
+  paidActivity: number;
+  freeActivityPrice: number;
+  paidActivityPrice: number;
+  maxPricePaidActivity: number;
+  freeActivityNuts: number;
+  paidActivityNuts: number;
+  totalPrice: number;
+  discount: number;
+  createdAt: string;
+  updatedAt: string;
+  periodMonth: number;
+  dateStart: string;
+  dateEnd: string;
+  status: TariffStatus;
+}
+
+interface UpdateTariffDto {
+  id: string;
+  freeActivity?: number;
+  paidActivity?: number;
+  freeActivityPrice?: number;
+  paidActivityPrice?: number;
+  maxPricePaidActivity?: number;
+  freeActivityNuts?: number;
+  paidActivityNuts?: number;
+  totalPrice?: number;
+  discount?: number;
+  createdAt?: string;
+  updatedAt?: string;
+  periodMonth?: number;
+  dateStart?: string;
+  dateEnd?: string;
+  status?: TariffStatus;
+}

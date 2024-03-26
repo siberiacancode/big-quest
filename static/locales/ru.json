@@ -18,6 +18,7 @@
   "button.close": "Закрыть",
   "button.addActivities": "Добавить активность",
   "button.addEmployee": "Добавить сотрудника",
+  "button.updateTariff": "Сменить тариф",
 
   "button.login": "Войти",
   "button.registration": "Регистрация",
@@ -27,6 +28,9 @@
   "button.goToRegisterOrganization": "Оставить заявку",
   "button.organizationsEntrance": "Вход для организаций",
 
+  "button.plus": "-",
+  "button.minus": "+",
+
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
   "organization.stage.conclusion": "Завершен",
@@ -35,10 +39,10 @@
   "organization.legalType.partner": "Партнер",
   "organization.legalType.sponsor": "Спонсор",
   "organization.profile.tariff.title": "Тариф",
-  "organization.profile.tariff.button": "Сменить тариф",
   "organization.profile.tariff.activity": "Активностей",
   "organization.profile.tariff.paid": "Платных",
   "organization.profile.tariff.valid": "Действует",
+  "organization.profile.tariff.free": "Бесплатный",
   "organization.profile.members": "Участники",
 
   "organization.profile.entries": "Записи",
@@ -121,6 +125,10 @@
   "field.name.label": "Имя",
   "field.surname.label": "Фамилия",
   "field.role.label": "Роль",
+  "field.freeActivity.label": "Бесплатные активности",
+  "field.paidActivity.label": "Платные активности",
+  "field.periodMonth.label": "Период",
+  "field.totalPrice.label": "Итог ",
 
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
@@ -244,6 +252,10 @@
 
   "dialog.editOrganizationProfile.title": "Редактирование профиля",
   "dialog.editOrganizationProfile.success": "Профиль успешно изменен",
+
+  "dialog.editOrganizationTariff.title": "Выбор тарифа",
+  "dialog.editOrganizationTariff.success": "Тариф успешно изменен",
+  "dialog.editOrganizationTariff.freeActivities": "Бесплатные активности",
 
   "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
   "tooltip.kpp": "КПП - 9 цифр",

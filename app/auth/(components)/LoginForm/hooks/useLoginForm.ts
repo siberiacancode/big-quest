@@ -37,7 +37,7 @@ export const useLoginForm = () => {
     setSession({ isAuthenticated: true });
 
     await handleLogin(getUserMeMutationResponse);
-    router.replace(ROUTES.ORG.ORGANIZATIONS.ROOT);
+    router.replace(ROUTES.ORG.ORGANIZATIONS.DASHBOARD);
   });
 
   return {
