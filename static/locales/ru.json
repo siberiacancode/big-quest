@@ -6,6 +6,7 @@
   "partners.addresses.title": "Адреса",
   "partners.activities.title": "Активности",
   "partners.employees.title": "Сотрудники",
+  "partners.schedule.title": "Расписание",
 
   "org.auth.title": "Вход в личный кабинет",
   "org.auth.rememberMe": "Запомнить меня",
@@ -253,6 +254,8 @@
 
   "dialog.editOrganizationProfile.title": "Редактирование профиля",
   "dialog.editOrganizationProfile.success": "Профиль успешно изменен",
+
+  "dialog.addSchedule.title": "Задание расписания",
 
   "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
   "tooltip.kpp": "КПП - 9 цифр",

@@ -4,6 +4,7 @@ import { I18nText } from '@/components/common';
 import { Button, Typography } from '@/components/ui';
 import { getOrganizationSchedule } from '@/utils/api/requests/organization/id/schedule';
 
+import { AddScheduleDialog } from './components/AddScheduleDialog/AddScheduleDialog';
 import { OrganizationScheduleTable } from './components/OrganizationScheduleTable/OrganizationScheduleTable';
 
 export interface OrganizationsPageProps {
@@ -31,14 +32,16 @@ const OrganizationSchedulePage = async ({ searchParams, params }: OrganizationsP
     <div>
       <div className='flex justify-between'>
         <Typography variant='h5' tag='h5'>
-          <I18nText path='partners.addresses.title' />
+          <I18nText path='partners.schedule.title' />
         </Typography>
-        {/* <AddAddressDialog
-          trigger={ */}
-        <Button variant='light' className='mx-2 p-5' size='sm'>
-          <PlusCircledIcon className='mr-2 h-4 w-4' />
-          <I18nText path='button.addAddress' />
-        </Button>
+        <AddScheduleDialog
+          trigger={
+            <Button variant='light' className='mx-2 p-5' size='sm'>
+              <PlusCircledIcon className='mr-2 h-4 w-4' />
+              <I18nText path='button.addSchedule' />
+            </Button>
+          }
+        />
       </div>
       <OrganizationScheduleTable
         schedules={organizationScheduleResponse.rows}
