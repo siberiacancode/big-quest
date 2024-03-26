@@ -22,6 +22,7 @@ const config = {
       smx: { max: '639px' },
       '2xsx': { max: '560px' },
       xsx: { max: '475px' },
+      xxsx: { max: '420px' },
       '4xl': { min: '2560px' },
       '3xl': { min: '1750px' },
       '2xl': { min: '1400px' },
@@ -32,7 +33,8 @@ const config = {
       '2sm': { min: '600px' },
       sm: { min: '640px' },
       '2xs': { min: '560px' },
-      xs: { min: '475px' }
+      xs: { min: '475px' },
+      xxs: { min: '420px' }
     },
     container: {
       center: true,

@@ -59,7 +59,7 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
         className='flex h-full flex-col justify-between gap-4 overflow-y-auto px-5 smx:px-0'
       >
         {state.media && (
-          <div className='flex h-max gap-4'>
+          <div className='flex h-[418px] gap-4 2smx:h-[600px]'>
             <ActivityMedia media={state.media} />
           </div>
         )}
