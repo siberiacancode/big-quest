@@ -19,8 +19,8 @@ import { ActionEmployeeForm } from './components/ActionEmployeeForm/ActionEmploy
 import type { EmployeeActionType } from './constants/types';
 import { useActionEmployeeDialog } from './hooks/useActionEmployeeDialog/useActionEmployeeDialog';
 
-interface ActionEmployeeDialogProps {
-  trigger: JSX.Element;
+interface ActionEmployeeDialogProps extends React.ComponentProps<typeof Dialog> {
+  trigger?: JSX.Element;
   actionType: EmployeeActionType;
   employee?: EmployeeData;
 }
@@ -28,12 +28,13 @@ interface ActionEmployeeDialogProps {
 export const ActionEmployeeDialog = ({
   trigger,
   actionType,
-  employee
+  employee,
+  ...props
 }: ActionEmployeeDialogProps) => {
   const { functions } = useActionEmployeeDialog({ actionType });
   return (
-    <Dialog>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
+    <Dialog {...props}>
+      {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
       <DialogContent className='flex h-fit w-11/12 max-w-[500px] flex-col rounded-lg mdx:w-full'>
         <DialogClose>
           <XIcon className='h-6 w-6' />
