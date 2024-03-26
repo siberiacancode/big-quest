@@ -1,17 +1,17 @@
 import { useMutation } from '@tanstack/react-query';
 
 import type {
-  PostOrganizationAddEmployeeConfig,
-  PostOrganizationEditEmployeeConfig
+  PostOrganizationAddEmployeeRequestConfig,
+  PostOrganizationEditEmployeeRequestConfig
 } from '@/utils/api';
 import { postOrganizationAddEmployee, postOrganizationEditEmployee } from '@/utils/api';
 
 export const usePostOrganizationActionEmployeeMutation = (
   settings?: MutationSettings<
-    | (PostOrganizationAddEmployeeConfig & {
+    | (PostOrganizationAddEmployeeRequestConfig & {
         action: 'add';
       })
-    | (PostOrganizationEditEmployeeConfig & {
+    | (PostOrganizationEditEmployeeRequestConfig & {
         action: 'edit';
       }),
     typeof postOrganizationEditEmployee | typeof postOrganizationAddEmployee

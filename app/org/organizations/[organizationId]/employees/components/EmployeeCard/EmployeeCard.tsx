@@ -14,6 +14,14 @@ import {
   Separator,
   Typography
 } from '@/components/ui';
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle
+} from '@/components/ui/alert-dialog';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
@@ -29,15 +37,16 @@ interface EmployeeCardProps {
 
 export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
   const { state, functions } = useEmployeeCard(employee);
-  const status = 'requested' as const;
 
   return (
     <Card className='relative min-w-[330px] flex-1'>
       <CardContent className='flex items-center justify-center p-8 pb-12 pr-5 pt-4'>
         <div>
-          {status === 'requested' && (
+          {employee.status === 'inactive' && (
             <div className='right absolute left-4 top-4'>
-              <Badge>неактивен</Badge>
+              <Badge>
+                <I18nText path='employeeCard.status.inactive' />
+              </Badge>
             </div>
           )}
 
@@ -49,29 +58,67 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
               employee={employee}
             />
 
+            <AlertDialog open={state.deleteAlertOpen}>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>
+                    <I18nText path='employeeCard.deleteAlert.title' />
+                  </AlertDialogTitle>
+                  <AlertDialogDescription>
+                    <I18nText
+                      path='employeeCard.deleteAlert.description'
+                      values={{ name: employee.name }}
+                    />
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <Button
+                    variant='outline'
+                    disabled={state.isLoading}
+                    onClick={functions.onDeleteCloseClick}
+                  >
+                    <I18nText path='button.cancel' />
+                  </Button>
+
+                  <Button loading={state.isLoading} onClick={functions.onAlertDeleteClick}>
+                    <I18nText path='button.delete' />
+                  </Button>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant='ghost' size='icon'>
+                <Button variant='ghost' size='icon' loading={state.isLoading}>
                   <MoreHorizontalIcon />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                {status === 'requested' && (
-                  <DropdownMenuItem className='cursor-pointer'>
+                {employee.status === 'inactive' && (
+                  <DropdownMenuItem
+                    className='cursor-pointer'
+                    onClick={functions.onSendConfirmationClick}
+                  >
                     <MailIcon className='mr-2 h-4 w-4' />
-                    <p>Отрпавить подтверждение</p>
+                    <p>
+                      <I18nText path='button.sendConfirmation' />
+                    </p>
                   </DropdownMenuItem>
                 )}
                 <DropdownMenuItem className='cursor-pointer' onClick={functions.onEditClick}>
                   <Edit3Icon className='mr-2 h-4 w-4' />
-                  <p>Редактировать</p>
+                  <p>
+                    <I18nText path='button.edit' />
+                  </p>
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  onClick={functions.onDeleteClick}
                   className='cursor-pointer text-red-600 focus:text-red-600'
+                  onClick={functions.onDeleteClick}
                 >
                   <Trash2Icon className='mr-2 h-4 w-4' />
-                  <p>Удалить</p>
+                  <p>
+                    <I18nText path='button.delete' />
+                  </p>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -80,7 +127,7 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
 
         <div
           className={cn('flex flex-1 flex-col items-center space-y-3 pt-4', {
-            'opacity-70': status === 'requested'
+            'opacity-70': employee.status === 'inactive'
           })}
         >
           <div className='mb-2 flex flex-col items-center'>

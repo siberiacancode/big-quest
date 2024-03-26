@@ -13,14 +13,16 @@
   "org.auth.footer.privacyPolicy": "Политика конфиденциальности",
 
   "button.add": "Добавить",
+  "button.delete": "Удалить",
+  "button.edit": "Редактировать",
+  "button.cancel": "Закрыть",
+  "button.sendConfirmation": "Отправить подтверждение",
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
   "button.close": "Закрыть",
   "button.addActivities": "Добавить активность",
   "button.addEmployee": "Добавить сотрудника",
-
   "button.login": "Войти",
-
   "button.registerOrganization": "Отправить заявку",
   "button.goToRegisterOrganization": "Оставить заявку",
 
@@ -174,6 +176,12 @@
   "infoCard.description.negotiation": "Переговоры",
   "infoCard.description.tariffChange": "Смена тарифа",
   "infoCard.description.applications": "Заявок",
+
+  "employeeCard.status.inactive": "неактивный",
+  "employeeCard.deleteAlert.title": "Вы абсолютно уверены?",
+  "employeeCard.deleteAlert.description": "Это действие не может быть отменено. Это приведет к безвозвратному удалению данных о сотруднике {name} с наших серверов.",
+  "employeeCard.toast.sendConfirmation": "Подтверждение отправлено на почту {email}",
+  "employeeCard.toast.deleted": "Сотрудник {name} удален",
 
   "table.column.organization.stage": "Статус",
   "table.column.organization.name": "Организация",

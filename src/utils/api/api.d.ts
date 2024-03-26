@@ -142,6 +142,10 @@ interface AddEmployeeDto {
   // image?: any;
 }
 
+interface DeleteEmployeeDto {
+  id: string;
+}
+
 interface EditEmployeeDto {
   userId: string;
   legalEntityId?: string;
@@ -249,6 +253,11 @@ interface OrganizationListPaginationResponse {
   pagination: PaginationResponse;
 }
 
+interface GenerateNewCodeResponse {
+  success: boolean;
+  message?: string;
+}
+
 interface PaginationResponse {
   limit: number;
   current: number;
@@ -346,6 +355,7 @@ interface EmployeeDto {
   surname: string;
   email: string;
   phone: string;
+  status: string;
   // image?: any;
 }
 

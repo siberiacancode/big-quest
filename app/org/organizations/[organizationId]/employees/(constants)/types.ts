@@ -5,4 +5,5 @@ export interface EmployeeData {
   email: string;
   role: 'Administrator' | 'Leading' | 'Manager';
   phone: string;
+  status: string;
 }

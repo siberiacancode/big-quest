@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-import { getRefreshTokens } from '@/utils/api';
+import { getAuthRefreshTokens } from '@/utils/api';
 import { api } from '@/utils/api/instance';
 import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
 import { generateSetTokensInterceptor } from '@/utils/api/interceptors/generateSetTokensInterceptor';
@@ -44,10 +44,10 @@ export async function middleware(request: NextRequest) {
       console.log('@.3 update tokens and user data');
 
       try {
-        console.log('@.4 getRefreshTokens tokensTimerCookie done');
-        await getRefreshTokens();
+        console.log('@.4 getAuthRefreshTokens tokensTimerCookie done');
+        await getAuthRefreshTokens();
       } catch (error) {
-        console.log('@.5 getRefreshTokens first error', error);
+        console.log('@.5 getAuthRefreshTokens first error', error);
         const response = NextResponse.redirect(new URL(ROUTES.AUTH, request.url));
         clearCookies(response, [
           COOKIES.REFRESH_TOKEN,

@@ -35,7 +35,7 @@ const OrganizationEmployeesPage = async ({ params }: OrganizationEmployeesPagePr
           actionType='add'
         />
       </div>
-      <div className='gap-5 2xlx:grid-cols-2 xlx:flex xlx:flex-wrap 2xl:grid-cols-3 xl:grid'>
+      <div className='grid gap-3 4xlx:grid-cols-4 3xlx:grid-cols-3 2xlx:grid-cols-2 mdx:grid-cols-1'>
         {organizationEmployeesResponse.map((employee) => (
           <EmployeeCard key={employee.id} employee={employee} />
         ))}
