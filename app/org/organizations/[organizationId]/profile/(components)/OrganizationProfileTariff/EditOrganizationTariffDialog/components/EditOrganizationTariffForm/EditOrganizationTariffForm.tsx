@@ -169,6 +169,23 @@ export const EditOrganizationTariffForm = ({
               </FormItem>
             )}
           />
+          <FormField
+            control={form.control}
+            name='totalPrice'
+            render={({ field }) => (
+              <FormItem className='flex flex-col items-center px-2'>
+                <FormLabel className='font-bold'>
+                  <I18nText path='field.totalPrice.label' />
+                </FormLabel>
+                <NumberFormatInput {...field} />
+                <FormMessage>
+                  {form.formState?.errors?.totalPrice && (
+                    <I18nText path={form.formState.errors.totalPrice.message as LocaleMessageId} />
+                  )}
+                </FormMessage>
+              </FormItem>
+            )}
+          />
         </div>
 
         <Button type='submit' variant='secondary' className='font-bold' loading={state.isLoading}>

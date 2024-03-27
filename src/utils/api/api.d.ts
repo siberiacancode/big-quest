@@ -409,3 +409,25 @@ interface UpdateTariffDto {
   dateEnd?: string;
   status?: TariffStatus;
 }
+
+interface CreateChangesDto {
+  criteria: string;
+  old?: Record<string, string>;
+  new?: Record<string, string>;
+  action: string;
+}
+
+interface ChangesResponse {
+  id: string;
+  createdAt: string;
+  author: string;
+  criteria: string;
+  old: { description: string };
+  new: { description: string };
+  action: string;
+}
+
+interface ChangesResponseWithPagination {
+  rows: ChangesResponse[];
+  pagination: PaginationResponse;
+}

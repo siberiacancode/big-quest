@@ -1,9 +1,11 @@
+import { InfinityIcon } from 'lucide-react';
+
 export interface OrganizationsTableRow {
   id: string;
   name: string;
   locality: string;
   countDays: string;
-  tariff: string;
+  tariff: string | JSX.Element;
   stage: string;
   type: string;
 }
@@ -16,7 +18,7 @@ export const convertOrganizationsToTableRows = (
     name: organization.name ?? '-',
     locality: organization.locality ?? '-',
     countDays: organization.countDays ?? '-',
-    tariff: organization.tariff === 'infinite' ? '∞' : organization.tariff,
+    tariff: organization.tariff === 'infinity' ? <InfinityIcon /> : organization.tariff,
     stage: `organization.stage.${organization.stage.toLowerCase()}`,
     type: `organization.legalType.${organization.type.toLowerCase()}`
   }));
