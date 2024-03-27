@@ -1,3 +1,5 @@
+import { InfinityIcon } from 'lucide-react';
+
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -76,10 +78,11 @@ export const OrganizationProfileTariff = async ({
             </Typography>
           </InfoCardItemDescription>
         </InfoCardItem>
-        <InfoCardItem className='flex flex-col items-center border-none'>
+        <InfoCardItem className='flex flex-col items-center justify-between border-none'>
           <InfoCardItemTitle>
             <Typography variant='h3' tag='h3'>
-              {getDateFromDateTime(tariff.dateEnd).replaceAll('-', '.')}
+              {!!tariff.dateEnd && getDateFromDateTime(tariff.dateEnd).replaceAll('-', '.')}
+              {!tariff.dateEnd && <InfinityIcon className='my-1 size-6' />}
             </Typography>
           </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>

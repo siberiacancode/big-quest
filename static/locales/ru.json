@@ -43,6 +43,8 @@
   "organization.profile.tariff.paid": "Платных",
   "organization.profile.tariff.valid": "Действует",
   "organization.profile.tariff.free": "Бесплатный",
+  "organization.profile.tariff.periodMonth": "{monthsAmount, plural, =1 {# месяц} =3 {# месяца} other {# месяцев}}",
+  "organization.profile.tariff.discount": "{discount}%",
   "organization.profile.members": "Участники",
 
   "organization.profile.entries": "Записи",
@@ -128,6 +130,7 @@
   "field.freeActivity.label": "Бесплатные активности",
   "field.paidActivity.label": "Платные активности",
   "field.periodMonth.label": "Период",
+  "field.periodMonth.placeholder": "Выбрать период",
   "field.totalPrice.label": "Итог ",
 
   "field.imageDownload.title": "Нажмите, чтобы загрузить",

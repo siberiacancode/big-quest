@@ -56,7 +56,7 @@ export const getTariffByLegalEntityIdConfig: RestRequestConfig = {
         updatedAt: '2024-03-25T11:08:20.317Z',
         periodMonth: 0,
         dateStart: '2024-03-25T11:08:20.317Z',
-        dateEnd: '2024-03-25T11:08:20.317Z',
+        dateEnd: null,
         status: 'ACTIVE'
       },
       interceptors: {

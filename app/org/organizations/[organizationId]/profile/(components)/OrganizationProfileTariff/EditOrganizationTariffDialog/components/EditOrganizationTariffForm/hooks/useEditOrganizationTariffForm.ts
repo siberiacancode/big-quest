@@ -24,17 +24,25 @@ export const useEditOrganizationTariffForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(editOrganizationTariffSchema),
     defaultValues: {
-      freeActivity: tariff.freeActivity,
-      paidActivity: tariff.paidActivity,
-      periodMonth: tariff.periodMonth,
-      totalPrice: tariff.totalPrice
+      freeActivity: tariff.freeActivity.toString(),
+      paidActivity: tariff.paidActivity.toString(),
+      periodMonth: tariff.periodMonth.toString(),
+      totalPrice: tariff.totalPrice.toString()
     }
   });
 
   const putTariffMutation = usePutTariffMutation();
 
   const onSubmit = editOrganizationForm.handleSubmit(async (values) => {
-    await putTariffMutation.mutateAsync({ params: { ...tariff, ...values } });
+    await putTariffMutation.mutateAsync({
+      params: {
+        ...tariff,
+        freeActivity: +values.freeActivity,
+        paidActivity: +values.paidActivity,
+        periodMonth: +values.periodMonth,
+        totalPrice: +values.totalPrice
+      }
+    });
     router.refresh();
 
     onEdited();
