@@ -124,6 +124,11 @@
   "field.surname.label": "Фамилия",
   "field.role.label": "Роль",
 
+  "field.chooseLocation.label": "Выбор адреса",
+  "field.chooseActivity.label": "Выбор активности",
+  "field.chooseLead.label": "Выбор ведущего",
+  "field.preEntry.label": "Предварительная запись",
+
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
 

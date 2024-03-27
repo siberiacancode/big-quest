@@ -37,6 +37,28 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
+                    <I18nText path='field.chooseActivity.label' />
+                  </FormLabel>
+                  <AddressCombobox
+                    value={field.value}
+                    className='w-full'
+                    onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                    convertAddresses={convertLocalitiesToComboboxItems}
+                  />
+                  <FormMessage>
+                    {form.formState?.errors?.locality && (
+                      <I18nText path={form.formState.errors.locality.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='locality'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
                     <I18nText path='field.location.label' />
                   </FormLabel>
                   <AddressCombobox
@@ -55,73 +77,27 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
             />
             <FormField
               control={form.control}
-              name='street'
+              name='locality'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    <I18nText path='field.street.label' />
+                    <I18nText path='field.chooseLead.label' />
                   </FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder={i18n.formatMessage({
-                        id: 'field.street.placeholder'
-                      })}
-                    />
-                  </FormControl>
+                  <AddressCombobox
+                    value={field.value}
+                    className='w-full'
+                    onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                    convertAddresses={convertLocalitiesToComboboxItems}
+                  />
                   <FormMessage>
-                    {form.formState?.errors?.street && (
-                      <I18nText path={form.formState.errors.street.message as LocaleMessageId} />
+                    {form.formState?.errors?.locality && (
+                      <I18nText path={form.formState.errors.locality.message as LocaleMessageId} />
                     )}
                   </FormMessage>
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name='house'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>
-                    <I18nText path='field.house.label' />
-                  </FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage>
-                    {form.formState?.errors?.house && (
-                      <I18nText path={form.formState.errors.house.message as LocaleMessageId} />
-                    )}
-                  </FormMessage>
-                </FormItem>
-              )}
-            />
-          </div>
-          <div className='flex-1 space-y-3'>
-            <FormField
-              control={form.control}
-              name='details'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>
-                    <I18nText path='field.details.label' />
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder={i18n.formatMessage({
-                        id: 'field.details.placeholder'
-                      })}
-                    />
-                  </FormControl>
-                  <FormMessage>
-                    {form.formState?.errors?.details && (
-                      <I18nText path={form.formState.errors.details.message as LocaleMessageId} />
-                    )}
-                  </FormMessage>
-                </FormItem>
-              )}
-            />
+
             <Typography variant='sub1' tag='p'>
               <I18nText path='addressCard.description.workingTime' />
             </Typography>
@@ -193,6 +169,32 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                 </div>
               );
             })}
+          </div>
+          <div className='flex-1 space-y-3'>
+            <FormField
+              control={form.control}
+              name='details'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    <I18nText path='field.preEntry.label' />
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      placeholder={i18n.formatMessage({
+                        id: 'field.details.placeholder'
+                      })}
+                    />
+                  </FormControl>
+                  <FormMessage>
+                    {form.formState?.errors?.details && (
+                      <I18nText path={form.formState.errors.details.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
           </div>
         </div>
 
