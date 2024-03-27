@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const useAddAddressDialog = () => {
+export const useActionAddressDialog = () => {
   const [open, setOpen] = React.useState(false);
 
   const onAdded = () => setOpen(false);

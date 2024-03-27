@@ -4,15 +4,15 @@ import { I18nText } from '@/components/common';
 import { Button, Typography } from '@/components/ui';
 import { getOrganizationAddressesById } from '@/utils/api/requests';
 
-import { AddAddressDialog } from './components/AddAddressDialog/AddAddressDialog';
-import { AddressCard } from './components/AddressCard/AddressCard';
+import { ActionAddressDialog } from './(components)/ActionAddressDialog/ActionAddressDialog';
+import { AddressCard } from './(components)/AddressCard/AddressCard';
 
 interface OrganizationAddressesPageProps {
   params: { organizationId: string };
 }
 
 const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
-  const organizationAddresses = await getOrganizationAddressesById({
+  const getOrganizationAddressesByIdResponse = await getOrganizationAddressesById({
     params: { id: params.organizationId }
   });
 
@@ -22,7 +22,7 @@ const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
         <Typography variant='h5' tag='h5'>
           <I18nText path='partners.addresses.title' />
         </Typography>
-        <AddAddressDialog
+        <ActionAddressDialog
           trigger={
             <Button variant='light' className='mx-2 p-5' size='sm'>
               <PlusCircledIcon className='mr-2 h-4 w-4' />
@@ -32,7 +32,7 @@ const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
         />
       </div>
       <div className='gap-5 2xlx:grid-cols-2 xlx:flex xlx:flex-wrap 2xl:grid-cols-3 xl:grid'>
-        {organizationAddresses.addresses.map((address, index) => (
+        {getOrganizationAddressesByIdResponse.addresses.map((address, index) => (
           <AddressCard key={index} address={address} />
         ))}
       </div>

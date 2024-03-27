@@ -14,14 +14,14 @@ import {
 } from '@/components/ui';
 
 import { AddAddressForm } from './components/AddAddressForm/AddAddressForm';
-import { useAddAddressDialog } from './hooks/useAddAddressDialog';
+import { useActionAddressDialog } from './hooks/useActionAddressDialog';
 
 interface AddAddressDialogProps {
-  trigger: JSX.Element;
+  trigger?: JSX.Element;
 }
 
-export const AddAddressDialog = ({ trigger }: AddAddressDialogProps) => {
-  const { functions } = useAddAddressDialog();
+export const ActionAddressDialog = ({ trigger }: AddAddressDialogProps) => {
+  const { functions } = useActionAddressDialog();
 
   return (
     <Dialog>
