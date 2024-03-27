@@ -1,3 +1,4 @@
+import React from 'react';
 import { Controller } from 'react-hook-form';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 
@@ -44,11 +45,13 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
   externalActionType = 'edit'
 }: ActivityActionFormProps<ActionType>) => {
   const i18n = useI18n();
+  const [files, setFiles] = React.useState<File[] | FilesDto[]>([]);
   const { state, form, functions } = useActivityActionForm({
     onAction,
     onEdit,
     activity,
     actionType,
+    files,
     externalActionType
   });
 
@@ -60,7 +63,7 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
       >
         {state.media && (
           <div className='flex h-[418px] gap-4 2smx:h-[600px]'>
-            <ActivityMedia media={state.media} />
+            <ActivityMedia media={state.media} files={files} setFiles={setFiles} />
           </div>
         )}
         {state.activity && (

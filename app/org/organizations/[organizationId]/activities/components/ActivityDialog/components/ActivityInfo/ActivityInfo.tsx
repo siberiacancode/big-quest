@@ -2,7 +2,6 @@ import React from 'react';
 import { Edit3Icon, WallpaperIcon } from 'lucide-react';
 import Image from 'next/image';
 
-import background from '@/assets/images/background/activity.png';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
@@ -41,7 +40,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
           {activeMedia.type === 'image' && (
             <Image
               className='w-full rounded-lg 2smx:h-[360px]'
-              src={activeMedia.url ?? background}
+              src={activeMedia.url}
               fill
               object-fit='cover'
               alt={i18n.formatMessage({ id: 'activity.image.alt' }, { name: activity.name })}

@@ -15,11 +15,13 @@ import { useActivityMedia } from './hooks/useActivityMedia';
 
 interface ActivityMediaProps {
   media?: ActivityProps['media'];
+  files: File[] | FilesDto[];
+  setFiles: (props: File[] | FilesDto[]) => void;
 }
 
-export const ActivityMedia = ({ media }: ActivityMediaProps) => {
+export const ActivityMedia = ({ media, files, setFiles }: ActivityMediaProps) => {
   const i18n = useI18n();
-  const { state, functions } = useActivityMedia({ media });
+  const { state, functions } = useActivityMedia({ media, files, setFiles });
 
   const ACTIVITY_MEDIA_TOTAL_AMOUNT = state.activityMedia.length + state.uploadedMediaArray.length;
 

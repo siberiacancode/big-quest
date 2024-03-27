@@ -1,7 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const putActivityMediaById: RestRequestConfig = {
-  path: '/activity/media/:id',
+export const putFilesById: RestRequestConfig = {
+  path: '/files/:id',
   method: 'put',
   routes: [
     {

@@ -29,9 +29,11 @@ export interface UploadedMediaArray {
 }
 interface UseActivityMediaProps {
   media?: ActivityMedia[];
+  files: File[] | FilesDto[];
+  setFiles: (props: File[] | FilesDto[]) => void;
 }
 
-export const useActivityMedia = ({ media = [] }: UseActivityMediaProps) => {
+export const useActivityMedia = ({ media = [], files, setFiles }: UseActivityMediaProps) => {
   const defaultActiveMediaFile = media?.find((item) => item.isAvatar === true);
 
   const [activityMedia, setActivityMedia] = React.useState<ActivityMedia[]>(media);
@@ -42,6 +44,7 @@ export const useActivityMedia = ({ media = [] }: UseActivityMediaProps) => {
       type: ''
     }
   );
+  console.log(files, setFiles);
   const [deletedMediaArray, setDeletedMediaArray] = React.useState<DeletedMediaArray[]>([]);
   const [uploadedMediaArray, setUploadedMediaArray] = React.useState<UploadedMediaArray[]>([]);
 

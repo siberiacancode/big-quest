@@ -4,8 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams, useRouter } from 'next/navigation';
 
 import { useGetActivityByIdQuery } from '@/utils/api/hooks/useGetActivityByIdQuery';
-import { useGetActivityMediaByIdQuery } from '@/utils/api/hooks/useGetActivityMediaByIdQuery';
 import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
+import { usePutFilesByIdMutation } from '@/utils/api/hooks/usePutFilesByIdMutation';
 
 import type { ActivityActionType } from '../../../constants/types';
 import type { ActivityActionSchema } from '../constants/activityActionSchema';
@@ -18,6 +18,7 @@ interface UseActivityActionFormParams {
   onEdit: (props: ActivityActionType) => void;
   actionType: Exclude<ActivityActionType, 'info'>;
   activity?: ActivityResponse;
+  files: File[] | FilesDto[];
   externalActionType: ActivityActionType;
 }
 
@@ -26,6 +27,7 @@ export const useActivityActionForm = ({
   onEdit,
   actionType,
   activity,
+  files,
   externalActionType
 }: UseActivityActionFormParams) => {
   const router = useRouter();
@@ -38,8 +40,6 @@ export const useActivityActionForm = ({
   const getActivityByIdQuery = useGetActivityByIdQuery({
     id: activity?.id ?? '1'
   });
-
-  const getActivityMediaByIdQuery = useGetActivityMediaByIdQuery({ id: activity?.id ?? '1' });
 
   // activity ???????
   const defaultValues = {
@@ -63,6 +63,7 @@ export const useActivityActionForm = ({
   });
 
   const postActivityActionMutation = usePostActivityActionMutation();
+  const putFilesByIdMutation = usePutFilesByIdMutation();
 
   const onSubmit = activityForm.handleSubmit(async (values) => {
     const requestParams = {
@@ -73,7 +74,7 @@ export const useActivityActionForm = ({
 
     if (actionType === 'add') {
       const postActivityActionParams = {
-        params: requestParams,
+        params: { ...requestParams, files: files as File[] },
         action: actionType
       } as const;
 
@@ -90,6 +91,16 @@ export const useActivityActionForm = ({
       } as const;
 
       await postActivityActionMutation.mutateAsync(postActivityActionParams);
+      files.map(async (file) => {
+        const putFilesByIdParams = {
+          params: {
+            file,
+            id: file.id
+          }
+        } as const;
+
+        await putFilesByIdMutation.mutateAsync(putFilesByIdParams);
+      });
     }
 
     router.refresh();
@@ -107,7 +118,7 @@ export const useActivityActionForm = ({
       isCategoryOpen,
       isStatusOpen,
       isLoading: postActivityActionMutation.isPending,
-      media: getActivityMediaByIdQuery.data,
+      media: activity?.media,
       activity: getActivityByIdQuery.data
     },
     form: activityForm,

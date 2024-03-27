@@ -1,7 +1,6 @@
 import { Clock5Icon, Edit3Icon, HeartIcon, UserRoundIcon, UsersRoundIcon } from 'lucide-react';
 import Image from 'next/image';
 
-import background from '@/assets/images/background/activity.png';
 import { I18nText } from '@/components/common';
 import { Button, Separator, Typography } from '@/components/ui';
 
@@ -21,7 +20,7 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => {
         <div className='mdx-h-1/2 relative h-full w-full'>
           <Image
             className='w-full rounded-lg'
-            src={activityCover.url ?? background}
+            src={activityCover.url}
             fill
             alt='activity-cover'
             sizes='4xlx:max-h-72'
