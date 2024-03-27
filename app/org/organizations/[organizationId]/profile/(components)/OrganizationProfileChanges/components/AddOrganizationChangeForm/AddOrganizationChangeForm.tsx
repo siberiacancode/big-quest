@@ -41,7 +41,7 @@ export const AddOrganizationChangeForm = ({ organization }: AddOrganizationChang
           type='submit'
           variant='secondary'
           className='ml-3 mr-1 h-8 w-8 p-2'
-          loading={state.isLoading}
+          disabled={state.isLoading}
         >
           <SendHorizonalIcon />
         </Button>

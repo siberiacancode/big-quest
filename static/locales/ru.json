@@ -12,6 +12,8 @@
   "org.auth.footer.siteRules": "Правила пользования сайтом",
   "org.auth.footer.privacyPolicy": "Политика конфиденциальности",
 
+  "common.rubles": "{amount}руб.",
+
   "button.add": "Добавить",
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",

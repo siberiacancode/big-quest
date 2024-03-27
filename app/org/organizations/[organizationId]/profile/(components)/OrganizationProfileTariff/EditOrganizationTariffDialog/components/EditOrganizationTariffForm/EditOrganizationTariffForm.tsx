@@ -46,11 +46,11 @@ export const EditOrganizationTariffForm = ({
             control={form.control}
             name='freeActivity'
             render={({ field }) => (
-              <FormItem className='flex flex-col items-center px-2'>
+              <FormItem className='flex flex-col gap-3 px-2'>
                 <FormLabel className='font-bold'>
                   <I18nText path='field.freeActivity.label' />
                 </FormLabel>
-                <div className='flex items-center gap-3'>
+                <div className='flex items-center gap-3 self-center'>
                   <Button
                     className='size-7 px-0 py-0'
                     variant='outline'
@@ -85,11 +85,11 @@ export const EditOrganizationTariffForm = ({
             control={form.control}
             name='paidActivity'
             render={({ field }) => (
-              <FormItem className='flex flex-col items-center px-2'>
+              <FormItem className='flex flex-col gap-3 px-2'>
                 <FormLabel className='font-bold'>
                   <I18nText path='field.paidActivity.label' />
                 </FormLabel>
-                <div className='flex items-center gap-3'>
+                <div className='flex items-center gap-3 self-center'>
                   <Button
                     className='size-7 px-0 py-0'
                     variant='outline'
@@ -124,7 +124,7 @@ export const EditOrganizationTariffForm = ({
             control={form.control}
             name='periodMonth'
             render={({ field }) => (
-              <FormItem className='flex flex-col items-center px-2'>
+              <FormItem className='flex flex-col gap-3 px-2'>
                 <FormLabel className='font-bold'>
                   <I18nText path='field.periodMonth.label' />
                 </FormLabel>
@@ -173,11 +173,16 @@ export const EditOrganizationTariffForm = ({
             control={form.control}
             name='totalPrice'
             render={({ field }) => (
-              <FormItem className='flex flex-col items-center px-2'>
+              <FormItem className='flex flex-col gap-3 px-2'>
                 <FormLabel className='font-bold'>
                   <I18nText path='field.totalPrice.label' />
                 </FormLabel>
-                <NumberFormatInput {...field} />
+                <div>
+                  <NumberFormatInput {...field} />
+                  <Typography variant='body1' tag='p' className='line-through'>
+                    <I18nText path='common.rubles' values={{ amount: tariff.totalPrice }} />
+                  </Typography>
+                </div>
                 <FormMessage>
                   {form.formState?.errors?.totalPrice && (
                     <I18nText path={form.formState.errors.totalPrice.message as LocaleMessageId} />
@@ -188,7 +193,12 @@ export const EditOrganizationTariffForm = ({
           />
         </div>
 
-        <Button type='submit' variant='secondary' className='font-bold' loading={state.isLoading}>
+        <Button
+          type='submit'
+          variant='secondary'
+          className='mt-[77px] font-bold'
+          loading={state.isLoading}
+        >
           <I18nText path='button.updateTariff' />
         </Button>
       </form>
