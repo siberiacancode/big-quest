@@ -9,14 +9,14 @@ interface OrganizationProfilePageProps {
 }
 
 const OrganizationProfilePage = async ({ params }: OrganizationProfilePageProps) => {
-  const organizationByIdResponse = await getOrganizationById({
+  const getOrganizationByIdResponse = await getOrganizationById({
     params: { id: params.organizationId },
     config: { cache: 'no-cache' }
   });
 
   return (
     <div className='flex justify-center gap-[22px] smx:flex-col'>
-      <OrganizationProfileCard organization={organizationByIdResponse} />
+      <OrganizationProfileCard organization={getOrganizationByIdResponse} />
       <div className='flex w-1/2 flex-col gap-[22px] smx:w-full'>
         <OrganizationProfileStatistics />
         <OrganizationProfileJournal />

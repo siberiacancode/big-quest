@@ -4,15 +4,15 @@ import { I18nText } from '@/components/common';
 import { Button, Typography } from '@/components/ui';
 import { getOrganizationEmployees } from '@/utils/api/requests';
 
+import { ActionEmployeeDialog } from './(components)/ActionEmployeeDialog/ActionEmployeeDialog';
 import { EmployeeCard } from './(components)/EmployeeCard/EmployeeCard';
-import { ActionEmployeeDialog } from './(components)/EmployeeDialog/ActionEmployeeDialog';
 
 interface OrganizationEmployeesPageProps {
   params: { organizationId: string };
 }
 
 const OrganizationEmployeesPage = async ({ params }: OrganizationEmployeesPageProps) => {
-  const organizationEmployeesResponse = await getOrganizationEmployees({
+  const getOrganizationEmployeesResponse = await getOrganizationEmployees({
     params: { id: params.organizationId },
     config: {
       cache: 'no-store'
@@ -36,7 +36,7 @@ const OrganizationEmployeesPage = async ({ params }: OrganizationEmployeesPagePr
         />
       </div>
       <div className='grid gap-3 4xlx:grid-cols-4 3xlx:grid-cols-3 2xlx:grid-cols-2 mdx:grid-cols-1'>
-        {organizationEmployeesResponse.map((employee) => (
+        {getOrganizationEmployeesResponse.map((employee) => (
           <EmployeeCard key={employee.id} employee={employee} />
         ))}
       </div>

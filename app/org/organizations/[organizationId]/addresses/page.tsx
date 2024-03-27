@@ -12,7 +12,7 @@ interface OrganizationAddressesPageProps {
 }
 
 const OrganizationAddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
-  const organizationAddressesByIdResponse = await getOrganizationAddressesById({
+  const getOrganizationAddressesByIdResponse = await getOrganizationAddressesById({
     params: { id: params.organizationId }
   });
 
@@ -32,7 +32,7 @@ const OrganizationAddressesPage = async ({ params }: OrganizationAddressesPagePr
         />
       </div>
       <div className='gap-5 2xlx:grid-cols-2 xlx:flex xlx:flex-wrap 2xl:grid-cols-3 xl:grid'>
-        {organizationAddressesByIdResponse.addresses.map((address, index) => (
+        {getOrganizationAddressesByIdResponse.addresses.map((address, index) => (
           <AddressCard key={index} address={address} />
         ))}
       </div>

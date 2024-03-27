@@ -27,7 +27,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
 import type { EmployeeData } from '../../(constants)/types';
-import { ActionEmployeeDialog } from '../EmployeeDialog/ActionEmployeeDialog';
+import { ActionEmployeeDialog } from '../ActionEmployeeDialog/ActionEmployeeDialog';
 
 import { useEmployeeCard } from './hooks/useEmployeeCard';
 
