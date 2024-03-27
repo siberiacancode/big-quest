@@ -32,6 +32,7 @@ export const QueryProvider: React.FC<QueryProviderProps> = ({ children }) => {
         mutationCache: new MutationCache({
           onError: (error) => {
             const responseError = error.cause as ResponseError;
+
             if (responseError?.response?.status === 401) {
               router.replace('/auth');
             }

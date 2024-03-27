@@ -101,25 +101,25 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
                     onClick={functions.onSendConfirmationClick}
                   >
                     <MailIcon className='mr-2 h-4 w-4' />
-                    <p>
+                    <Typography tag='p' variant='body2'>
                       <I18nText path='button.sendConfirmation' />
-                    </p>
+                    </Typography>
                   </DropdownMenuItem>
                 )}
                 <DropdownMenuItem className='cursor-pointer' onClick={functions.onEditClick}>
                   <Edit3Icon className='mr-2 h-4 w-4' />
-                  <p>
+                  <Typography tag='p' variant='body2'>
                     <I18nText path='button.edit' />
-                  </p>
+                  </Typography>
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   className='cursor-pointer text-red-600 focus:text-red-600'
                   onClick={functions.onDeleteClick}
                 >
                   <Trash2Icon className='mr-2 h-4 w-4' />
-                  <p>
+                  <Typography tag='p' variant='body2'>
                     <I18nText path='button.delete' />
-                  </p>
+                  </Typography>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

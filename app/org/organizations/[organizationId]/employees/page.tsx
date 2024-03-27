@@ -4,8 +4,8 @@ import { I18nText } from '@/components/common';
 import { Button, Typography } from '@/components/ui';
 import { getOrganizationEmployees } from '@/utils/api/requests';
 
-import { EmployeeCard } from './components/EmployeeCard/EmployeeCard';
-import { ActionEmployeeDialog } from './components/EmployeeDialog/ActionEmployeeDialog';
+import { EmployeeCard } from './(components)/EmployeeCard/EmployeeCard';
+import { ActionEmployeeDialog } from './(components)/EmployeeDialog/ActionEmployeeDialog';
 
 interface OrganizationEmployeesPageProps {
   params: { organizationId: string };

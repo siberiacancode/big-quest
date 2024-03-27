@@ -1,12 +1,12 @@
 import { api } from '@/utils/api/instance';
 
-export type PostOrganizationEditEmployeeParams = EditEmployeeDto;
+export type PutOrganizationEditEmployeeParams = EditEmployeeDto;
 
-export type PostOrganizationEditEmployeeRequestConfig =
-  RequestConfig<PostOrganizationEditEmployeeParams>;
+export type PutOrganizationEditEmployeeRequestConfig =
+  RequestConfig<PutOrganizationEditEmployeeParams>;
 
-export const postOrganizationEditEmployee = async ({
+export const putOrganizationEditEmployee = async ({
   params,
   config
-}: PostOrganizationEditEmployeeRequestConfig) =>
+}: PutOrganizationEditEmployeeRequestConfig) =>
   api.put('organization/edit-employee', params, config);

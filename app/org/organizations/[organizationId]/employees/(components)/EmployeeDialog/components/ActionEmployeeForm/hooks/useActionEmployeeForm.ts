@@ -8,7 +8,7 @@ import type { EmployeeActionType } from '../../../constants/types';
 import type { EmployeeSchema } from '../constants/actionEmployeeSchema';
 import { actionEmployeeSchema } from '../constants/actionEmployeeSchema';
 
-import { usePostOrganizationActionEmployeeMutation } from './usePostOrganizationActionEmployeeMutation';
+import { useOrganizationActionEmployeeMutation } from './useOrganizationActionEmployeeMutation';
 
 interface UseActionEmployeeFormParams {
   onAction: () => void;
@@ -40,7 +40,7 @@ export const useActionEmployeeForm = ({
     }
   });
 
-  const postOrganizationActionEmployee = usePostOrganizationActionEmployeeMutation();
+  const organizationActionEmployee = useOrganizationActionEmployeeMutation();
 
   const onSubmit = actionEmployeeForm.handleSubmit(async (values) => {
     const requestParams = {
@@ -54,7 +54,7 @@ export const useActionEmployeeForm = ({
         action: actionType
       } as const;
 
-      await postOrganizationActionEmployee.mutateAsync(postOrganizationActionEmployeeParams);
+      await organizationActionEmployee.mutateAsync(postOrganizationActionEmployeeParams);
     }
 
     if (actionType === 'edit') {
@@ -69,7 +69,7 @@ export const useActionEmployeeForm = ({
         action: actionType
       } as const;
 
-      await postOrganizationActionEmployee.mutateAsync(postOrganizationActionEmployeeParams);
+      await organizationActionEmployee.mutateAsync(postOrganizationActionEmployeeParams);
     }
 
     onAction();
@@ -79,7 +79,7 @@ export const useActionEmployeeForm = ({
   return {
     state: {
       showPreview,
-      isLoading: postOrganizationActionEmployee.isPending
+      isLoading: organizationActionEmployee.isPending
     },
     form: actionEmployeeForm,
     functions: { onSubmit, onDeletePreviewClick }
