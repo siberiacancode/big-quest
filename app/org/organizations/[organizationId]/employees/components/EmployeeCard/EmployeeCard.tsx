@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Edit3Icon, MailIcon, MoreHorizontalIcon, Trash2Icon } from 'lucide-react';
+import Image from 'next/image';
 
 import { I18nText } from '@/components/common';
 import {
@@ -131,7 +132,9 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
           })}
         >
           <div className='mb-2 flex flex-col items-center'>
-            <div className='h-16 w-16 rounded-full bg-slate-700' />
+            <div className='relative h-16 w-16'>
+              <Image src={employee.image} fill alt='user' className='rounded-full' />
+            </div>
             <div className='mt-2 flex flex-col items-center space-y-1'>
               <Typography variant='h7' tag='p' className='flex-1'>
                 {employee.name} {employee.surname}

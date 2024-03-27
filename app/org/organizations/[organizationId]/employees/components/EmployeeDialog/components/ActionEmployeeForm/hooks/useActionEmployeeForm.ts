@@ -1,11 +1,12 @@
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams, useRouter } from 'next/navigation';
 
 import type { EmployeeData } from '../../../../../(constants)/types';
 import type { EmployeeActionType } from '../../../constants/types';
-import type { EmployeeSchema } from '../constants/EmployeeSchema';
-import { employeeSchema } from '../constants/EmployeeSchema';
+import type { EmployeeSchema } from '../constants/actionEmployeeSchema';
+import { actionEmployeeSchema } from '../constants/actionEmployeeSchema';
 
 import { usePostOrganizationActionEmployeeMutation } from './usePostOrganizationActionEmployeeMutation';
 
@@ -20,18 +21,22 @@ export const useActionEmployeeForm = ({
   employee,
   actionType
 }: UseActionEmployeeFormParams) => {
-  const params = useParams<{ organizationId: string }>();
   const router = useRouter();
+  const params = useParams<{ organizationId: string }>();
+
+  const [showPreview, setShowPreview] = React.useState(actionType === 'edit' && !!employee?.image);
+  const onDeletePreviewClick = () => setShowPreview(false);
 
   const actionEmployeeForm = useForm<EmployeeSchema>({
     mode: 'onSubmit',
-    resolver: zodResolver(employeeSchema),
+    resolver: zodResolver(actionEmployeeSchema),
     defaultValues: {
       role: employee?.role ?? 'Manager',
       name: employee?.name ?? '',
       surname: employee?.surname ?? '',
       email: employee?.email ?? '',
-      phone: employee?.phone.replace('+7', '') ?? ''
+      phone: employee?.phone.replace('+7', '') ?? '',
+      file: undefined
     }
   });
 
@@ -53,9 +58,12 @@ export const useActionEmployeeForm = ({
     }
 
     if (actionType === 'edit') {
+      const { file, ...restRequestParams } = requestParams;
+
       const postOrganizationActionEmployeeParams = {
         params: {
-          ...requestParams,
+          ...restRequestParams,
+          ...(file && { file }),
           userId: employee!.id
         },
         action: actionType
@@ -70,9 +78,10 @@ export const useActionEmployeeForm = ({
 
   return {
     state: {
+      showPreview,
       isLoading: postOrganizationActionEmployee.isPending
     },
     form: actionEmployeeForm,
-    functions: { onSubmit }
+    functions: { onSubmit, onDeletePreviewClick }
   };
 };

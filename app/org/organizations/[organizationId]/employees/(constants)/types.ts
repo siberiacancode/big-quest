@@ -6,4 +6,5 @@ export interface EmployeeData {
   role: 'Administrator' | 'Leading' | 'Manager';
   phone: string;
   status: string;
+  image: string;
 }

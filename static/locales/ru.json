@@ -224,6 +224,8 @@
   "validation.time.requiredBoth": "Необходимы оба значения времени",
   "validation.max": "Превышен лимит символов",
   "validation.format": "Неверный формат",
+  "validation.photo.max": "Максимальный размер фото 5MB",
+  "validation.photo.format": "Только .jpg, .jpeg, .png и .webp форматы поддерживаются",
 
   "dialog.registerOrganization.title": "Заполните заявку",
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
