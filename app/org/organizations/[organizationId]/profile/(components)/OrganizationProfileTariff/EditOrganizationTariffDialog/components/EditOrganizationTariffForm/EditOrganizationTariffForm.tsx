@@ -44,7 +44,10 @@ export const EditOrganizationTariffForm = ({
 
   return (
     <Form {...form}>
-      <form onSubmit={functions.onSubmit} className='grid grid-cols-2 gap-x-[100px] gap-y-[30px]'>
+      <form
+        onSubmit={functions.onSubmit}
+        className='grid grid-cols-2 gap-x-[100px] gap-y-[30px] lgx:gap-x-14 mdx:mx-auto mdx:w-[80%] mdx:grid-cols-1'
+      >
         <FormField
           control={form.control}
           name='freeActivity'
@@ -190,7 +193,7 @@ export const EditOrganizationTariffForm = ({
         <Button
           type='submit'
           variant='secondary'
-          className='col-end-3 mt-[47px] px-1 text-base font-bold'
+          className='col-end-3 mt-[47px] px-1 text-base font-bold mdx:col-end-auto mdx:mt-5'
           loading={state.isLoading}
         >
           <I18nText path='button.updateTariff' />
