@@ -1,3 +1,4 @@
+import * as fns from 'date-fns';
 import { InfinityIcon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
@@ -14,7 +15,6 @@ import {
   Typography
 } from '@/components/ui';
 import { getTariffByLegalEntityId } from '@/utils/api';
-import { getDateFromDateTime } from '@/utils/helpers';
 
 import { EditOrganizationTariffDialog } from './EditOrganizationTariffDialog/EditOrganizationTariffDialog';
 
@@ -81,7 +81,7 @@ export const OrganizationProfileTariff = async ({
         <InfoCardItem className='flex flex-col items-center justify-between border-none'>
           <InfoCardItemTitle>
             <Typography variant='h3' tag='h3'>
-              {!!tariff.dateEnd && getDateFromDateTime(tariff.dateEnd).replaceAll('-', '.')}
+              {!!tariff.dateEnd && fns.format(tariff.dateEnd, 'dd.MM.yy')}
               {!tariff.dateEnd && <InfinityIcon className='my-1 size-6' />}
             </Typography>
           </InfoCardItemTitle>

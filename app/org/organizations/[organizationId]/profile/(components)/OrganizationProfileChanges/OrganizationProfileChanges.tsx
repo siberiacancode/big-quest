@@ -1,3 +1,5 @@
+import * as fns from 'date-fns';
+
 import { I18nText } from '@/components/common';
 import {
   Card,
@@ -44,7 +46,9 @@ export const OrganizationProfileChanges = async ({
       <Timeline>
         {changes.rows.map((change, index) => (
           <TimelineItem key={index}>
-            <TimelineTitle>{change.createdAt.replace('T', ' ').replace('-', '.')}</TimelineTitle>
+            <TimelineTitle>
+              {fns.format(change.createdAt, 'dd.MM.yy')} {fns.format(change.createdAt, 'HH:mm')}
+            </TimelineTitle>
             <TimelineContent>{change.new.comment || change.action}</TimelineContent>
           </TimelineItem>
         ))}
