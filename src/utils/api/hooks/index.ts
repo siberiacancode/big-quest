@@ -1,4 +1,5 @@
 export * from './useGetAddressQuery';
+export * from './useGetChangesInfiniteQuery';
 export * from './useGetUserMeMutation';
 export * from './usePostAuthLoginEmailMutation';
 export * from './usePostChangesMutation';

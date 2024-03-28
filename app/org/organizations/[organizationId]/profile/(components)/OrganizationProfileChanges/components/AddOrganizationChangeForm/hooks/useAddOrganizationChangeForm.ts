@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'next/navigation';
+import { useQueryClient } from '@tanstack/react-query';
 
 import { usePostChangesMutation } from '@/utils/api';
 
@@ -16,7 +16,7 @@ export interface UseAddOrganizationChangeFormParams {
 export const useAddOrganizationChangeForm = ({
   organization
 }: UseAddOrganizationChangeFormParams) => {
-  const router = useRouter();
+  const queryClient = useQueryClient();
   const addOrganizationChangeForm = useForm<AddOrganizationChangeSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(addOrganizationChangeSchema),
@@ -30,7 +30,7 @@ export const useAddOrganizationChangeForm = ({
       params: { criteria: organization.id, new: { comment: values.comment }, action: 'comment' }
     });
     addOrganizationChangeForm.reset();
-    router.refresh();
+    queryClient.invalidateQueries({ queryKey: ['getChanges'] });
   });
 
   return {

@@ -21,14 +21,13 @@
   "button.addActivities": "Добавить активность",
   "button.addEmployee": "Добавить сотрудника",
   "button.updateTariff": "Сменить тариф",
-
   "button.login": "Войти",
   "button.registration": "Регистрация",
   "button.entrance": "Вход",
-
   "button.registerOrganization": "Отправить заявку",
   "button.goToRegisterOrganization": "Оставить заявку",
   "button.organizationsEntrance": "Вход для организаций",
+  "button.loadMore": "Загрузить еще",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",

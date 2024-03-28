@@ -21,6 +21,21 @@ interface QuerySettings<Func = unknown> {
   >;
 }
 
+interface InfiniteQuerySettings<Func = unknown> {
+  config?: RequestOptions;
+  options?: Omit<
+    import('@tanstack/react-query').UseInfiniteQueryOptions<
+      Awaited<ReturnTyp<Func>>,
+      any,
+      Awaited<ReturnTyp<Func>>,
+      any,
+      QueryKey,
+      string
+    >,
+    'queryKey'
+  >;
+}
+
 type BaseUrl = string;
 type RequestMethod = RequestInit['method'];
 

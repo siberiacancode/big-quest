@@ -1,7 +1,10 @@
+'use client';
+
 import * as fns from 'date-fns';
 
 import { I18nText } from '@/components/common';
 import {
+  Button,
   Card,
   CardTitle,
   Timeline,
@@ -10,26 +13,22 @@ import {
   TimelineTitle,
   Typography
 } from '@/components/ui';
-import { getChanges } from '@/utils/api';
+import { useGetChangesInfiniteQuery } from '@/utils/api';
 
 import { AddOrganizationChangeForm } from './components/AddOrganizationChangeForm/AddOrganizationChangeForm';
 
 const DEFAULT_CHANGES_LIMIT = '5';
-const DEFAULT_CHANGES_PAGE = '1';
 
 export interface OrganizationProfileChangesProps {
   organization: OrganizationResponse;
 }
 
-export const OrganizationProfileChanges = async ({
-  organization
-}: OrganizationProfileChangesProps) => {
-  const changes = await getChanges({
+export const OrganizationProfileChanges = ({ organization }: OrganizationProfileChangesProps) => {
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetChangesInfiniteQuery({
     config: {
       cache: 'no-cache',
       params: {
         limit: DEFAULT_CHANGES_LIMIT,
-        current: DEFAULT_CHANGES_PAGE,
         criteria: organization.id
       }
     }
@@ -44,15 +43,27 @@ export const OrganizationProfileChanges = async ({
         </Typography>
       </CardTitle>
       <Timeline>
-        {changes.rows.map((change, index) => (
-          <TimelineItem key={index}>
-            <TimelineTitle>
-              {fns.format(change.createdAt, 'dd.MM.yy')} {fns.format(change.createdAt, 'HH:mm')}
-            </TimelineTitle>
-            <TimelineContent>{change.new.comment || change.action}</TimelineContent>
-          </TimelineItem>
-        ))}
+        {data?.pages.map((page) =>
+          page.rows.map((change) => (
+            <TimelineItem key={change.id}>
+              <TimelineTitle>
+                {fns.format(change.createdAt, 'dd.MM.yy')} {fns.format(change.createdAt, 'HH:mm')}
+              </TimelineTitle>
+              <TimelineContent>{change.new.comment || change.action}</TimelineContent>
+            </TimelineItem>
+          ))
+        )}
       </Timeline>
+      {hasNextPage && (
+        <Button
+          className='w-full'
+          onClick={() => fetchNextPage()}
+          disabled={isFetchingNextPage}
+          loading={isFetchingNextPage}
+        >
+          <I18nText path='button.loadMore' />
+        </Button>
+      )}
     </Card>
   );
 };
