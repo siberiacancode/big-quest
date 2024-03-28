@@ -30,9 +30,6 @@
   "button.goToRegisterOrganization": "Оставить заявку",
   "button.organizationsEntrance": "Вход для организаций",
 
-  "button.plus": "-",
-  "button.minus": "+",
-
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
   "organization.stage.conclusion": "Завершен",

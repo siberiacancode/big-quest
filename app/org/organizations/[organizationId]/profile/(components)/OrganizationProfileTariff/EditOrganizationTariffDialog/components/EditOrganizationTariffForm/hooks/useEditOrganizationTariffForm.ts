@@ -36,7 +36,7 @@ export const useEditOrganizationTariffForm = ({
   const onSubmit = editOrganizationForm.handleSubmit(async (values) => {
     await putTariffMutation.mutateAsync({
       params: {
-        ...tariff,
+        id: tariff.id,
         freeActivity: +values.freeActivity,
         paidActivity: +values.paidActivity,
         periodMonth: +values.periodMonth,

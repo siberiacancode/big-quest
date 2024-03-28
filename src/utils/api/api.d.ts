@@ -401,12 +401,7 @@ interface UpdateTariffDto {
   freeActivityNuts?: number;
   paidActivityNuts?: number;
   totalPrice?: number;
-  discount?: number;
-  createdAt?: string;
-  updatedAt?: string;
   periodMonth?: number;
-  dateStart?: string;
-  dateEnd?: string;
   status?: TariffStatus;
 }
 

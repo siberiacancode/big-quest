@@ -10,7 +10,7 @@ export const useEditOrganizationTariffDialog = () => {
   const onEdited = () => {
     setOpen(false);
 
-    toast(i18n.formatMessage({ id: 'dialog.editOrganizationProfile.success' }), {
+    toast(i18n.formatMessage({ id: 'dialog.editOrganizationTariff.success' }), {
       cancel: { label: 'Close' }
     });
   };
