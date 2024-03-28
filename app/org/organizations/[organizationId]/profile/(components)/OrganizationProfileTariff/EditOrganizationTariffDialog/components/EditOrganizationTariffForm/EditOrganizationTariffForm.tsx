@@ -1,3 +1,5 @@
+'use client';
+
 import { I18nText } from '@/components/common';
 import {
   Button,

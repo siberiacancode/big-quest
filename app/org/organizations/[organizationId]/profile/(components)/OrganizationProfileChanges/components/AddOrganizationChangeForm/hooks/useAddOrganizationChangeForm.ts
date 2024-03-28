@@ -17,19 +17,19 @@ export const useAddOrganizationChangeForm = ({
   organization
 }: UseAddOrganizationChangeFormParams) => {
   const router = useRouter();
-
-  const addAddressForm = useForm<AddOrganizationChangeSchema>({
+  const addOrganizationChangeForm = useForm<AddOrganizationChangeSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(addOrganizationChangeSchema),
-    defaultValues: {}
+    defaultValues: { comment: '' }
   });
 
   const postChangesMutation = usePostChangesMutation();
 
-  const onSubmit = addAddressForm.handleSubmit(async (values) => {
+  const onSubmit = addOrganizationChangeForm.handleSubmit(async (values) => {
     await postChangesMutation.mutateAsync({
-      params: { ...values, criteria: organization.id }
+      params: { criteria: organization.id, new: { comment: values.comment }, action: 'comment' }
     });
+    addOrganizationChangeForm.reset();
     router.refresh();
   });
 
@@ -37,7 +37,7 @@ export const useAddOrganizationChangeForm = ({
     state: {
       isLoading: postChangesMutation.isPending
     },
-    form: addAddressForm,
+    form: addOrganizationChangeForm,
     functions: { onSubmit }
   };
 };

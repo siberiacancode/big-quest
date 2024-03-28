@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+
 import { SendHorizonalIcon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
@@ -17,20 +18,20 @@ export const AddOrganizationChangeForm = ({ organization }: AddOrganizationChang
 
   return (
     <Form {...form}>
-      <form onSubmit={functions.onSubmit}>
+      <form onSubmit={functions.onSubmit} className='flex'>
         <FormField
           control={form.control}
-          name='action'
+          name='comment'
           render={({ field }) => (
-            <FormItem>
+            <FormItem className='flex-grow'>
               <Textarea
                 {...field}
                 className='h-24 w-full border border-secondary px-3 py-4'
                 placeholder={i18n.formatMessage({ id: 'field.note.placeholder' })}
               />
               <FormMessage>
-                {form.formState?.errors?.action && (
-                  <I18nText path={form.formState.errors.action.message as LocaleMessageId} />
+                {form.formState?.errors?.comment && (
+                  <I18nText path={form.formState.errors.comment.message as LocaleMessageId} />
                 )}
               </FormMessage>
             </FormItem>
@@ -40,7 +41,7 @@ export const AddOrganizationChangeForm = ({ organization }: AddOrganizationChang
         <Button
           type='submit'
           variant='secondary'
-          className='ml-3 mr-1 h-8 w-8 p-2'
+          className='ml-3 mr-1 h-8 w-8 self-end p-2'
           disabled={state.isLoading}
         >
           <SendHorizonalIcon />

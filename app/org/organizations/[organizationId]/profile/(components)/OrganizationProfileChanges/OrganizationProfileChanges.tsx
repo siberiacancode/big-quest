@@ -45,7 +45,7 @@ export const OrganizationProfileChanges = async ({
         {changes.rows.map((change, index) => (
           <TimelineItem key={index}>
             <TimelineTitle>{change.createdAt.replace('T', ' ').replace('-', '.')}</TimelineTitle>
-            <TimelineContent>{change.action}</TimelineContent>
+            <TimelineContent>{change.new.comment || change.action}</TimelineContent>
           </TimelineItem>
         ))}
       </Timeline>

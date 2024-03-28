@@ -412,8 +412,8 @@ interface UpdateTariffDto {
 
 interface CreateChangesDto {
   criteria: string;
-  old?: Record<string, string>;
-  new?: Record<string, string>;
+  old?: Record<string, any>;
+  new: Record<string, any>;
   action: string;
 }
 
@@ -422,8 +422,8 @@ interface ChangesResponse {
   createdAt: string;
   author: string;
   criteria: string;
-  old: { description: string };
-  new: { description: string };
+  old: Record<string, any>;
+  new: Record<string, any>;
   action: string;
 }
 
