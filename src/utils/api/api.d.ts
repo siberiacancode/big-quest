@@ -29,8 +29,8 @@ interface InfiniteQuerySettings<Func = unknown> {
       any,
       Awaited<ReturnTyp<Func>>,
       any,
-      QueryKey,
-      string
+      import('@tanstack/react-query').QueryKey,
+      number
     >,
     'queryKey'
   >;
