@@ -31,7 +31,7 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
     <InfoCardHeader className='pb-0'>
       <InfoCardTitle>
         <Typography variant='h5' tag='h5'>
-          <I18nText path='organization.profile.information.title' />
+          <I18nText path='organization.profile.title' />
         </Typography>
       </InfoCardTitle>
       <InfoCardAction className='rounded-none bg-transparent'>
@@ -54,7 +54,7 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
         {organization.name && (
           <OrganizationProfileCardInfo>
             <OrganizationProfileCardInfoTitle>
-              <I18nText path='organization.profile.information.name' />
+              <I18nText path='organization.profile.name' />
             </OrganizationProfileCardInfoTitle>
             <OrganizationProfileCardInfoContent>
               {organization.name}
@@ -64,7 +64,7 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
         {organization.contactName && (
           <OrganizationProfileCardInfo>
             <OrganizationProfileCardInfoTitle>
-              <I18nText path='organization.profile.information.contactName' />
+              <I18nText path='organization.profile.contactName' />
             </OrganizationProfileCardInfoTitle>
             <OrganizationProfileCardInfoContent>
               {organization.contactName}
@@ -74,7 +74,7 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
         {organization.phone && (
           <OrganizationProfileCardInfo>
             <OrganizationProfileCardInfoTitle>
-              <I18nText path='organization.profile.information.phone' />
+              <I18nText path='organization.profile.phone' />
             </OrganizationProfileCardInfoTitle>
             <OrganizationProfileCardInfoContent>
               {organization.phone}
@@ -84,7 +84,7 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
         {organization.email && (
           <OrganizationProfileCardInfo>
             <OrganizationProfileCardInfoTitle>
-              <I18nText path='organization.profile.information.email' />
+              <I18nText path='organization.profile.email' />
             </OrganizationProfileCardInfoTitle>
             <OrganizationProfileCardInfoContent>
               {organization.email}
@@ -94,7 +94,7 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
         {organization.locality && (
           <OrganizationProfileCardInfo>
             <OrganizationProfileCardInfoTitle>
-              <I18nText path='organization.profile.information.locality' />
+              <I18nText path='organization.profile.locality' />
             </OrganizationProfileCardInfoTitle>
             <OrganizationProfileCardInfoContent>
               {organization.locality}
@@ -104,7 +104,7 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
         {organization.social && (
           <OrganizationProfileCardInfo>
             <OrganizationProfileCardInfoTitle>
-              <I18nText path='organization.profile.information.social' />
+              <I18nText path='organization.profile.social' />
             </OrganizationProfileCardInfoTitle>
             <OrganizationProfileCardInfoContent>
               <span className='flex gap-2'>
@@ -118,71 +118,71 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
       </div>
       <Separator className='mt-4' />
       <Accordion type='single' collapsible>
-        <AccordionItem value='organization.legalInfo' className='border-none'>
+        <AccordionItem value='organization.information' className='border-none'>
           <AccordionTrigger>
             <Typography variant='h7' tag='h6'>
-              <I18nText path='organization.profile.legalInfo.title' />
+              <I18nText path='organization.profile.information.title' />
             </Typography>
           </AccordionTrigger>
-          {organization.legalInfo && (
+          {organization.information && !!Object.keys(organization.information).length && (
             <AccordionContent className='flex flex-col gap-3'>
-              {organization.legalInfo.fullNameOfTheLegalEntity && (
+              {organization.information.fullNameOfTheLegalEntity && (
                 <OrganizationProfileCardInfo>
                   <OrganizationProfileCardInfoTitle>
-                    <I18nText path='organization.profile.legalInfo.fullName' />
+                    <I18nText path='organization.profile.information.fullName' />
                   </OrganizationProfileCardInfoTitle>
                   <OrganizationProfileCardInfoContent>
-                    {organization.legalInfo.fullNameOfTheLegalEntity}
+                    {organization.information.fullNameOfTheLegalEntity}
                   </OrganizationProfileCardInfoContent>
                 </OrganizationProfileCardInfo>
               )}
-              {organization.legalInfo.legalAddress && (
+              {organization.information.legalAddress && (
                 <OrganizationProfileCardInfo>
                   <OrganizationProfileCardInfoTitle>
-                    <I18nText path='organization.profile.legalInfo.legalAddress' />
+                    <I18nText path='organization.profile.information.legalAddress' />
                   </OrganizationProfileCardInfoTitle>
                   <OrganizationProfileCardInfoContent>
-                    {organization.legalInfo.legalAddress}
+                    {organization.information.legalAddress}
                   </OrganizationProfileCardInfoContent>
                 </OrganizationProfileCardInfo>
               )}
-              {organization.legalInfo.postAddress && (
+              {organization.information.postAddress && (
                 <OrganizationProfileCardInfo>
                   <OrganizationProfileCardInfoTitle>
-                    <I18nText path='organization.profile.legalInfo.postAddress' />
+                    <I18nText path='organization.profile.information.postAddress' />
                   </OrganizationProfileCardInfoTitle>
                   <OrganizationProfileCardInfoContent>
-                    {organization.legalInfo.postAddress}
+                    {organization.information.postAddress}
                   </OrganizationProfileCardInfoContent>
                 </OrganizationProfileCardInfo>
               )}
-              {organization.legalInfo.inn && (
+              {organization.information.inn && (
                 <OrganizationProfileCardInfo>
                   <OrganizationProfileCardInfoTitle>
-                    <I18nText path='organization.profile.legalInfo.inn' />
+                    <I18nText path='organization.profile.information.inn' />
                   </OrganizationProfileCardInfoTitle>
                   <OrganizationProfileCardInfoContent>
-                    {organization.legalInfo.inn}
+                    {organization.information.inn}
                   </OrganizationProfileCardInfoContent>
                 </OrganizationProfileCardInfo>
               )}
-              {organization.legalInfo.kpp && (
+              {organization.information.kpp && (
                 <OrganizationProfileCardInfo>
                   <OrganizationProfileCardInfoTitle>
-                    <I18nText path='organization.profile.legalInfo.kpp' />
+                    <I18nText path='organization.profile.information.kpp' />
                   </OrganizationProfileCardInfoTitle>
                   <OrganizationProfileCardInfoContent>
-                    {organization.legalInfo.kpp}
+                    {organization.information.kpp}
                   </OrganizationProfileCardInfoContent>
                 </OrganizationProfileCardInfo>
               )}
-              {organization.legalInfo.ogrn && (
+              {organization.information.ogrn && (
                 <OrganizationProfileCardInfo>
                   <OrganizationProfileCardInfoTitle>
-                    <I18nText path='organization.profile.legalInfo.ogrn' />
+                    <I18nText path='organization.profile.information.ogrn' />
                   </OrganizationProfileCardInfoTitle>
                   <OrganizationProfileCardInfoContent>
-                    {organization.legalInfo.ogrn}
+                    {organization.information.ogrn}
                   </OrganizationProfileCardInfoContent>
                 </OrganizationProfileCardInfo>
               )}
@@ -192,13 +192,13 @@ export const OrganizationProfileCard = ({ organization }: OrganizationProfileCar
       </Accordion>
       <Separator />
       <Accordion type='single' collapsible>
-        <AccordionItem value='item-1' className='border-none'>
+        <AccordionItem value='organization.requisites' className='border-none'>
           <AccordionTrigger>
             <Typography variant='h7' tag='h6'>
               <I18nText path='organization.profile.requisites.title' />
             </Typography>
           </AccordionTrigger>
-          {organization.requisites && (
+          {organization.requisites && !!Object.keys(organization.requisites).length && (
             <AccordionContent className='flex flex-col gap-3'>
               {organization.requisites.bank && (
                 <OrganizationProfileCardInfo>

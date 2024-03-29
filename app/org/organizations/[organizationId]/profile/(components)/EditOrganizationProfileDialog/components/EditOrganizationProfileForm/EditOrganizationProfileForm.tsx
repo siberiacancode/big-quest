@@ -47,7 +47,7 @@ export const EditOrganizationProfileForm = ({
     <Form {...form}>
       <form className='relative space-y-3 px-1' onSubmit={functions.onSubmit}>
         <Typography variant='h5' tag='h5'>
-          <I18nText path='organization.profile.information.title' />
+          <I18nText path='organization.profile.title' />
         </Typography>
 
         <FormField
@@ -283,7 +283,7 @@ export const EditOrganizationProfileForm = ({
         </Button>
 
         <Typography variant='h5' tag='h5' className='mt-5'>
-          <I18nText path='organization.profile.legalInfo.title' />
+          <I18nText path='organization.profile.information.title' />
         </Typography>
 
         <FormField

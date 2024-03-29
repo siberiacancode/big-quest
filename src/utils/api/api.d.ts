@@ -99,29 +99,29 @@ type ActivityStatus = 'DRAFT' | 'MODERATION' | 'EDITING' | 'PUBLISHED' | 'CLOSED
 
 type ActivityView = 'ONLINE' | 'OFFLINE';
 
-interface LegalInformationDto {
-  fullNameOfTheLegalEntity?: string;
-  legalAddress?: string;
-  postAddress?: string;
-  inn?: string;
-  kpp?: string;
-  ogrn?: string;
+interface LegalInformation {
+  fullNameOfTheLegalEntity?: string | null;
+  legalAddress?: string | null;
+  postAddress?: string | null;
+  inn?: string | null;
+  kpp?: string | null;
+  ogrn?: string | null;
 }
 
 interface OrganizationResponse {
   contactName: string;
   phone: number;
-  email?: string;
-  site?: string;
-  social?: string[];
-  background?: string;
-  avatar?: string;
-  locality?: string;
+  email?: string | null;
+  site?: string | null;
+  social?: string[] | null;
+  background?: string | null;
+  avatar?: string | null;
+  locality?: string | null;
   id: string;
-  name?: string;
-  description?: string;
-  legalInfo?: LegalInformationDto;
-  requisites?: RequisitesDto;
+  name?: string | null;
+  description?: string | null;
+  information?: LegalInformation | null;
+  requisites?: RequisitesDto | null;
   stage: Stage;
   type: LegalType;
 }
@@ -270,20 +270,6 @@ interface PaginationResponse {
   count: number;
 }
 
-interface OrganizationResponse {
-  id: string;
-  name: string;
-  description: string;
-  inn: string;
-  information: OrganizationInformationDto;
-  addresses: OrganizationAddressDto[];
-  requisites: RequisitesDto;
-  stage: StageType;
-  type: LegalType;
-  createdAt: string;
-  updatedAt: string;
-}
-
 interface OrganizationAddressDto {
   locality: string;
   street: string;
@@ -319,9 +305,9 @@ interface OrganizationInformationDto {
 }
 
 interface RequisitesDto {
-  bank?: string;
-  bik?: string;
-  checkingAccount?: string;
+  bank?: string | null;
+  bik?: string | null;
+  checkingAccount?: string | null;
 }
 
 interface DashBoardResponse {

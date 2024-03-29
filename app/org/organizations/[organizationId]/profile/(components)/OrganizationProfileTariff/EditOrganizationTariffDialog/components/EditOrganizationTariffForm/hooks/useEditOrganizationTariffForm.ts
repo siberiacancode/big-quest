@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
 import { usePutTariffMutation } from '@/utils/api';
@@ -20,6 +21,7 @@ export const useEditOrganizationTariffForm = ({
   tariff
 }: UseEditOrganizationTariffFormParams) => {
   const router = useRouter();
+  const queryClient = useQueryClient();
   const editOrganizationForm = useForm<EditOrganizationTariffSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(editOrganizationTariffSchema),
@@ -44,6 +46,7 @@ export const useEditOrganizationTariffForm = ({
       }
     });
     router.refresh();
+    queryClient.invalidateQueries({ queryKey: ['getChanges'] });
 
     onEdited();
   });
