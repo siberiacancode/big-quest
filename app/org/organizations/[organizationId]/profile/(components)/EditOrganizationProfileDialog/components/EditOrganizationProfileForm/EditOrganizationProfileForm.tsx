@@ -17,6 +17,11 @@ import {
   KppInput,
   OgrnInput,
   PhoneNumberInput,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
   Typography
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
@@ -35,12 +40,54 @@ export const EditOrganizationProfileForm = ({
   organization,
   onEdited
 }: EditOrganizationFormProps) => {
-  const intl = useI18n();
+  const i18n = useI18n();
   const { form, functions, state } = useEditOrganizationProfileForm({ organization, onEdited });
 
   return (
     <Form {...form}>
-      <form className='relative' onSubmit={functions.onSubmit}>
+      <form className='relative space-y-3 px-1' onSubmit={functions.onSubmit}>
+        <Typography variant='h5' tag='h5'>
+          <I18nText path='organization.profile.information.title' />
+        </Typography>
+
+        <FormField
+          control={form.control}
+          name='stage'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                <I18nText path='field.organization.stage.label' />
+              </FormLabel>
+              <FormControl>
+                <Select {...field} value={field.value} onValueChange={field.onChange}>
+                  <SelectTrigger className='h-8 w-48'>
+                    <SelectValue
+                      placeholder={i18n.formatMessage({
+                        id: 'field.organization.stage.placeholder'
+                      })}
+                    />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value='REQUEST'>
+                      <I18nText path='organization.stage.request' />
+                    </SelectItem>
+                    <SelectItem value='NEGOTIATION'>
+                      <I18nText path='organization.stage.negotiation' />
+                    </SelectItem>
+                    <SelectItem value='CONCLUSION'>
+                      <I18nText path='organization.stage.conclusion' />
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+              </FormControl>
+              <FormMessage>
+                {form.formState?.errors?.stage && (
+                  <I18nText path={form.formState.errors.stage.message as LocaleMessageId} />
+                )}
+              </FormMessage>
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name='name'
@@ -113,7 +160,7 @@ export const EditOrganizationProfileForm = ({
               <FormControl>
                 <Input
                   {...field}
-                  placeholder={intl.formatMessage({
+                  placeholder={i18n.formatMessage({
                     id: 'field.email.placeholder'
                   })}
                 />
@@ -139,7 +186,7 @@ export const EditOrganizationProfileForm = ({
               <FormControl>
                 <Input
                   {...field}
-                  placeholder={intl.formatMessage({
+                  placeholder={i18n.formatMessage({
                     id: 'field.organization.site.placeholder'
                   })}
                 />
@@ -193,7 +240,7 @@ export const EditOrganizationProfileForm = ({
                     <div className='flex'>
                       <Input
                         {...field}
-                        placeholder={intl.formatMessage({
+                        placeholder={i18n.formatMessage({
                           id: 'field.organization.social.placeholder'
                         })}
                       />
@@ -322,7 +369,7 @@ export const EditOrganizationProfileForm = ({
                 <I18nText path='field.organization.inn.label' />
               </FormLabel>
               <FormControl>
-                <InnInput tooltip={intl.formatMessage({ id: 'tooltip.inn' })} {...field} />
+                <InnInput tooltip={i18n.formatMessage({ id: 'tooltip.inn' })} {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.inn && (
@@ -341,7 +388,7 @@ export const EditOrganizationProfileForm = ({
                 <I18nText path='field.organization.kpp.label' />
               </FormLabel>
               <FormControl>
-                <KppInput tooltip={intl.formatMessage({ id: 'tooltip.kpp' })} {...field} />
+                <KppInput tooltip={i18n.formatMessage({ id: 'tooltip.kpp' })} {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.information?.kpp && (
@@ -362,7 +409,7 @@ export const EditOrganizationProfileForm = ({
                 <I18nText path='field.organization.ogrn.label' />
               </FormLabel>
               <FormControl>
-                <OgrnInput tooltip={intl.formatMessage({ id: 'tooltip.ogrn' })} {...field} />
+                <OgrnInput tooltip={i18n.formatMessage({ id: 'tooltip.ogrn' })} {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.information?.ogrn && (
@@ -388,7 +435,7 @@ export const EditOrganizationProfileForm = ({
               <FormControl>
                 <Input
                   {...field}
-                  placeholder={intl.formatMessage({
+                  placeholder={i18n.formatMessage({
                     id: 'field.organization.bank.placeholder'
                   })}
                 />
@@ -412,7 +459,7 @@ export const EditOrganizationProfileForm = ({
                 <I18nText path='field.organization.bik.label' />
               </FormLabel>
               <FormControl>
-                <BikInput tooltip={intl.formatMessage({ id: 'tooltip.bik' })} {...field} />
+                <BikInput tooltip={i18n.formatMessage({ id: 'tooltip.bik' })} {...field} />
               </FormControl>
               <FormMessage>
                 {form.formState?.errors?.requisites?.bik && (
@@ -448,7 +495,7 @@ export const EditOrganizationProfileForm = ({
           )}
         />
 
-        <Button className='mt-5 w-full' type='submit' loading={state.isLoading}>
+        <Button className='sticky bottom-0 mt-5 w-full' type='submit' loading={state.isLoading}>
           <I18nText path='button.save' />
         </Button>
       </form>

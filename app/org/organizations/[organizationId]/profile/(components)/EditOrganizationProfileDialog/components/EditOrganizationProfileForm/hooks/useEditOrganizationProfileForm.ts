@@ -23,6 +23,7 @@ export const useEditOrganizationProfileForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(editOrganizationProfileSchema),
     defaultValues: {
+      stage: organization.stage,
       locality: organization.locality ?? '',
       name: organization.name ?? '',
       description: organization.description,

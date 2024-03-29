@@ -10,6 +10,7 @@ import {
 } from '@/components/ui';
 
 export const editOrganizationProfileSchema = z.object({
+  stage: z.enum(['REQUEST', 'NEGOTIATION', 'CONCLUSION']),
   locality: z.string().min(1, { message: 'validation.required' }),
   name: z
     .string()
