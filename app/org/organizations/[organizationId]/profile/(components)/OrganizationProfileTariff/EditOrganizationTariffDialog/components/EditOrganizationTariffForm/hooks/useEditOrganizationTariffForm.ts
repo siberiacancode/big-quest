@@ -26,7 +26,7 @@ export const useEditOrganizationTariffForm = ({
     defaultValues: {
       freeActivity: tariff.freeActivity.toString(),
       paidActivity: tariff.paidActivity.toString(),
-      periodMonth: tariff.periodMonth.toString(),
+      periodMonth: tariff.periodMonth ? tariff.periodMonth.toString() : undefined,
       totalPrice: tariff.totalPrice.toString()
     }
   });
