@@ -26,6 +26,10 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
       lead: '',
       preEntry: false,
       isRepeat: false,
+      date: {
+        from: '',
+        to: ''
+      },
       workingHours: {
         '0': { time: { from: '09:00', to: '18:00' }, dayOff: false },
         '1': { time: { from: '09:00', to: '18:00' }, dayOff: false },

@@ -5,6 +5,11 @@ const timeSchema = z.object({
   to: z.string()
 });
 
+const dateSchema = z.object({
+  from: z.string(),
+  to: z.string()
+});
+
 const workingHourSchema = z.object({
   time: timeSchema,
   dayOff: z.boolean()
@@ -16,6 +21,7 @@ export const addScheduleSchema = z.object({
   lead: z.string().min(1, { message: 'validation.required' }),
   preEntry: z.boolean().default(false),
   isRepeat: z.boolean().default(false),
+  date: dateSchema,
   workingHours: z.object({
     '0': workingHourSchema,
     '1': workingHourSchema,

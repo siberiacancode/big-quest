@@ -15,6 +15,8 @@ import {
 import { cn } from '@/lib/utils';
 import { convertLocalitiesToComboboxItems } from '@/utils/helpers/convertLocalitiesToComboboxItems';
 
+import { DatePickerWithRange } from '../../../DatePickerWithRange/DatePickerWithRange';
+
 import { useAddScheduleForm } from './hooks/useAddScheduleForm';
 
 interface AddScheduleFormProps {
@@ -202,6 +204,29 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                   <FormMessage>
                     {form.formState?.errors?.isRepeat && (
                       <I18nText path={form.formState.errors.isRepeat.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='date'
+              render={({ field }) => (
+                <FormItem className='flex flex-col space-y-4'>
+                  <FormLabel>
+                    <I18nText path='field.activity.label' />
+                  </FormLabel>
+                  <FormControl>
+                    <DatePickerWithRange
+                      onChange={field.onChange}
+                      onDateRangeChange={() => console.log('@', field.value)}
+                    />
+                    {/* <Switch checked={field.value} onCheckedChange={field.onChange} /> */}
+                  </FormControl>
+                  <FormMessage>
+                    {form.formState?.errors?.date && (
+                      <I18nText path={form.formState.errors.date.message as LocaleMessageId} />
                     )}
                   </FormMessage>
                 </FormItem>
