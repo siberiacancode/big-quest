@@ -44,7 +44,7 @@ export const EditOrganizationTariffDialog = ({
             </Typography>
           </DialogTitle>
         </DialogHeader>
-        <ScrollArea className='h-full overflow-y-auto rounded-lg border px-[77px] pb-[47px] pt-[30px] lgx:px-12 mdx:justify-center mdx:px-10 xsx:px-4'>
+        <ScrollArea className='h-full overflow-y-auto rounded-lg border px-[77px] pb-[47px] pt-[30px] lgx:px-12 mdx:justify-center mdx:px-10 xsx:mb-[30px] xsx:px-3'>
           <EditOrganizationTariffForm
             organization={organization}
             tariff={tariff}

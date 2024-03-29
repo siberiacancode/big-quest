@@ -46,18 +46,18 @@ export const EditOrganizationTariffForm = ({
     <Form {...form}>
       <form
         onSubmit={functions.onSubmit}
-        className='grid grid-cols-2 gap-x-[100px] gap-y-[30px] lgx:gap-x-14 mdx:mx-auto mdx:w-[80%] mdx:grid-cols-1'
+        className='grid grid-cols-2 gap-x-[100px] gap-y-[30px] lgx:gap-x-14 mdx:mx-auto mdx:w-[80%] mdx:grid-cols-1 xsx:w-[100%]'
       >
         <FormField
           control={form.control}
           name='freeActivity'
           render={({ field }) => (
-            <FormItem>
+            <FormItem className='flex flex-col justify-center'>
               <div className='flex flex-col gap-3 px-1'>
-                <FormLabel className='text-base font-bold'>
+                <FormLabel className='text-base font-bold mdx:text-center'>
                   <I18nText path='field.freeActivity.label' />
                 </FormLabel>
-                <div className='flex items-center gap-3'>
+                <div className='flex items-center gap-3 mdx:justify-center'>
                   <Button
                     className='size-7 px-0 py-0'
                     variant='outline'
@@ -89,10 +89,10 @@ export const EditOrganizationTariffForm = ({
           render={({ field }) => (
             <FormItem>
               <div className='flex flex-col gap-3 px-1'>
-                <FormLabel className='text-base font-bold'>
+                <FormLabel className='text-base font-bold mdx:text-center'>
                   <I18nText path='field.paidActivity.label' />
                 </FormLabel>
-                <div className='flex items-center gap-3'>
+                <div className='flex items-center gap-3 mdx:justify-center'>
                   <Button
                     className='size-7 px-0 py-0'
                     variant='outline'
@@ -123,11 +123,11 @@ export const EditOrganizationTariffForm = ({
           name='periodMonth'
           render={({ field }) => (
             <FormItem className='flex flex-col gap-3 px-1'>
-              <FormLabel className='text-base font-bold'>
+              <FormLabel className='text-base font-bold mdx:text-center'>
                 <I18nText path='field.periodMonth.label' />
               </FormLabel>
               <Select {...field} onValueChange={field.onChange} value={field.value}>
-                <SelectTrigger className='w-full'>
+                <SelectTrigger className='mx-auto w-full max-w-[200px]'>
                   <SelectValue
                     className='block w-full'
                     placeholder={i18n.formatMessage({ id: 'field.periodMonth.placeholder' })}
@@ -172,10 +172,10 @@ export const EditOrganizationTariffForm = ({
           name='totalPrice'
           render={({ field }) => (
             <FormItem className='flex flex-col gap-3 px-1'>
-              <FormLabel className='text-base font-bold'>
+              <FormLabel className='text-base font-bold mdx:text-center'>
                 <I18nText path='field.totalPrice.label' />
               </FormLabel>
-              <div className='flex items-center gap-2'>
+              <div className='flex items-center gap-2 mdx:mx-auto mdx:max-w-[200px]'>
                 <NumberFormatInput {...field} />
                 <Typography variant='body1' tag='p' className='line-through'>
                   <I18nText path='common.rubles' values={{ amount: tariff.totalPrice }} />
@@ -193,7 +193,7 @@ export const EditOrganizationTariffForm = ({
         <Button
           type='submit'
           variant='secondary'
-          className='col-end-3 mt-[47px] px-1 text-base font-bold mdx:col-end-auto mdx:mt-5'
+          className='col-end-3 mt-[47px] px-1 text-base font-bold mdx:col-end-auto mdx:mx-auto mdx:mt-5 mdx:w-[200px]'
           loading={state.isLoading}
         >
           <I18nText path='button.updateTariff' />
