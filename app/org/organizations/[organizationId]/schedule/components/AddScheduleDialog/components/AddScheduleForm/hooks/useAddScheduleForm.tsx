@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
-import { usePostOrganizationAddAddressMutation } from '@/utils/api';
+import { usePostOrganizationAddScheduleMutation } from '@/utils/api';
 import { useI18n } from '@/utils/contexts';
 
 import type { AddScheduleSchema } from '../constants/addScheduleSchema';
@@ -21,10 +21,11 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
     mode: 'onSubmit',
     resolver: zodResolver(addScheduleSchema),
     defaultValues: {
+      activity: '',
       locality: '',
-      street: '',
-      house: '',
-      details: '',
+      lead: '',
+      preEntry: false,
+      isRepeat: false,
       workingHours: {
         '0': { time: { from: '09:00', to: '18:00' }, dayOff: false },
         '1': { time: { from: '09:00', to: '18:00' }, dayOff: false },
@@ -37,7 +38,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
     }
   });
 
-  const postOrganizationAddAddress = usePostOrganizationAddAddressMutation();
+  const postOrganizationAddSchedule = usePostOrganizationAddScheduleMutation();
 
   const onSubmit = addScheduleForm.handleSubmit(async (values) => {
     const formattedWorkingHours = Object.entries(values.workingHours).map(([day, element]) => {
@@ -59,8 +60,9 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
     });
 
     const formattedValues = { ...values, workingHours: formattedWorkingHours };
+    console.log('@formattedValues', formattedValues);
 
-    await postOrganizationAddAddress.mutateAsync({
+    await postOrganizationAddSchedule.mutateAsync({
       params: { ...formattedValues, organizationId: params.id }
     });
 
@@ -73,7 +75,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
 
   return {
     state: {
-      isLoading: postOrganizationAddAddress.isPending
+      isLoading: postOrganizationAddSchedule.isPending
     },
     form: addScheduleForm,
     functions: { onSubmit }

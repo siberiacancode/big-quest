@@ -9,11 +9,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  Input,
+  Switch,
   Typography
 } from '@/components/ui';
 import { cn } from '@/lib/utils';
-import { useI18n } from '@/utils/contexts';
 import { convertLocalitiesToComboboxItems } from '@/utils/helpers/convertLocalitiesToComboboxItems';
 
 import { useAddScheduleForm } from './hooks/useAddScheduleForm';
@@ -23,7 +22,6 @@ interface AddScheduleFormProps {
 }
 
 export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
-  const i18n = useI18n();
   const { state, form, functions } = useAddScheduleForm({ onAdded });
 
   return (
@@ -33,7 +31,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
           <div className='flex-1 space-y-3'>
             <FormField
               control={form.control}
-              name='locality'
+              name='activity'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
@@ -42,7 +40,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                   <AddressCombobox
                     value={field.value}
                     className='w-full'
-                    onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                    onSelect={(newValue) => form.setValue('activity', newValue ?? '')}
                     convertAddresses={convertLocalitiesToComboboxItems}
                   />
                   <FormMessage>
@@ -77,7 +75,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
             />
             <FormField
               control={form.control}
-              name='locality'
+              name='lead'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
@@ -86,7 +84,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                   <AddressCombobox
                     value={field.value}
                     className='w-full'
-                    onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                    onSelect={(newValue) => form.setValue('lead', newValue ?? '')}
                     convertAddresses={convertLocalitiesToComboboxItems}
                   />
                   <FormMessage>
@@ -170,26 +168,40 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
               );
             })}
           </div>
-          <div className='flex-1 space-y-3'>
+          <div className='mt-2 flex-1 space-y-8'>
             <FormField
               control={form.control}
-              name='details'
+              name='preEntry'
               render={({ field }) => (
-                <FormItem>
+                <FormItem className='flex flex-col space-y-4'>
                   <FormLabel>
                     <I18nText path='field.preEntry.label' />
                   </FormLabel>
                   <FormControl>
-                    <Input
-                      {...field}
-                      placeholder={i18n.formatMessage({
-                        id: 'field.details.placeholder'
-                      })}
-                    />
+                    <Switch checked={field.value} onCheckedChange={field.onChange} />
                   </FormControl>
                   <FormMessage>
-                    {form.formState?.errors?.details && (
-                      <I18nText path={form.formState.errors.details.message as LocaleMessageId} />
+                    {form.formState?.errors?.preEntry && (
+                      <I18nText path={form.formState.errors.preEntry.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='isRepeat'
+              render={({ field }) => (
+                <FormItem className='flex flex-col space-y-4'>
+                  <FormLabel>
+                    <I18nText path='field.activity.label' />
+                  </FormLabel>
+                  <FormControl>
+                    <Switch checked={field.value} onCheckedChange={field.onChange} />
+                  </FormControl>
+                  <FormMessage>
+                    {form.formState?.errors?.isRepeat && (
+                      <I18nText path={form.formState.errors.isRepeat.message as LocaleMessageId} />
                     )}
                   </FormMessage>
                 </FormItem>

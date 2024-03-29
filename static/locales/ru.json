@@ -128,6 +128,8 @@
   "field.chooseActivity.label": "Выбор активности",
   "field.chooseLead.label": "Выбор ведущего",
   "field.preEntry.label": "Предварительная запись",
+  "field.activity.label": "Активность",
+  "field.startAndEndDate.label": "Дата начала и окончания",
 
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",

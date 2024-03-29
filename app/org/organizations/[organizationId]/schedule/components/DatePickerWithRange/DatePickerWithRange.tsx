@@ -12,10 +12,7 @@ interface DatePickerWithRangeProps extends React.HTMLAttributes<HTMLDivElement> 
   onDateRangeChange: (dateRange: DateRange | undefined) => void;
 }
 
-export const DatePickerWithRange: React.FC<DatePickerWithRangeProps> = ({
-  className,
-  onDateRangeChange
-}) => {
+export const DatePickerWithRange = ({ className, onDateRangeChange }: DatePickerWithRangeProps) => {
   const [date, setDate] = React.useState<DateRange | undefined>({
     from: new Date(new Date().getFullYear(), 5, 20),
     to: addDays(new Date(new Date().getFullYear(), 5, 20), 20)

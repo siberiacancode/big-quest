@@ -8,6 +8,7 @@ export * from './organization/add-employee';
 export * from './organization/dashboard';
 export * from './organization/edit-employee';
 export * from './organization/id/add-address';
+export * from './organization/id/add-schedule';
 export * from './organization/id/addresses';
 export * from './organization/id/employees';
 export * from './organization/id/organization';

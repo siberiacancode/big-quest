@@ -11,10 +11,11 @@ const workingHourSchema = z.object({
 });
 
 export const addScheduleSchema = z.object({
+  activity: z.string().min(1, { message: 'validation.required' }),
   locality: z.string().min(1, { message: 'validation.required' }),
-  street: z.string().min(1, { message: 'validation.required' }),
-  house: z.string().min(1, { message: 'validation.required' }),
-  details: z.string(),
+  lead: z.string().min(1, { message: 'validation.required' }),
+  preEntry: z.boolean().default(false),
+  isRepeat: z.boolean().default(false),
   workingHours: z.object({
     '0': workingHourSchema,
     '1': workingHourSchema,

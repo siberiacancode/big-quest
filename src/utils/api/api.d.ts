@@ -132,6 +132,16 @@ interface OrganizationAddressDto {
   workingHours: WorkingHourDto[];
 }
 
+interface OrganizationScheduleDto {
+  organizationId: string;
+  activity: string;
+  locality: string;
+  lead: string;
+  preEntry: boolean;
+  isRepeat: boolean;
+  workingHours: WorkingHourDto[];
+}
+
 interface AddEmployeeDto {
   legalEntityId?: string;
   role: 'Administrator' | 'Leading' | 'Manager';
