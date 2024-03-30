@@ -97,78 +97,81 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                 </FormItem>
               )}
             />
+            {form.getValues('isRepeat') && (
+              <>
+                <Typography variant='sub1' tag='p'>
+                  <I18nText path='addressCard.description.workingTime' />
+                </Typography>
+                {Array.from({ length: 7 }, (_, index) => {
+                  const day = index as 0 | 1 | 2 | 3 | 4 | 5 | 6;
+                  const dayOff = form.watch(`workingHours.${day}.dayOff`);
 
-            <Typography variant='sub1' tag='p'>
-              <I18nText path='addressCard.description.workingTime' />
-            </Typography>
-            {Array.from({ length: 7 }, (_, index) => {
-              const day = index as 0 | 1 | 2 | 3 | 4 | 5 | 6;
-              const dayOff = form.watch(`workingHours.${day}.dayOff`);
-
-              return (
-                <div className='mt-3 flex' key={day}>
-                  <Button
-                    type='button'
-                    onClick={() => form.setValue(`workingHours.${day}.dayOff`, !dayOff)}
-                    variant={dayOff ? 'secondary' : 'default'}
-                    className={cn('max-h-6 w-6 rounded-md p-1 px-1.5 text-center text-[10px]')}
-                  >
-                    <I18nText path={`dayOfWeek.${day + 1}` as LocaleMessageId} />
-                  </Button>
-                  <div>
-                    <FormField
-                      control={form.control}
-                      name={`workingHours.${day}.time.from`}
-                      render={({ field }) => (
-                        <>
-                          <ClockInput
-                            className='mx-2 h-6 w-11 border-0 border-b p-1'
-                            disabled={dayOff}
-                            {...field}
-                          />
-                          <FormMessage className='text-xs'>
-                            {form.formState.errors?.workingHours?.[day]?.time?.from && (
-                              <I18nText
-                                path={
-                                  form.formState.errors?.workingHours[day]?.time?.from
-                                    ?.message as LocaleMessageId
-                                }
+                  return (
+                    <div className='mt-3 flex' key={day}>
+                      <Button
+                        type='button'
+                        onClick={() => form.setValue(`workingHours.${day}.dayOff`, !dayOff)}
+                        variant={dayOff ? 'secondary' : 'default'}
+                        className={cn('max-h-6 w-6 rounded-md p-1 px-1.5 text-center text-[10px]')}
+                      >
+                        <I18nText path={`dayOfWeek.${day + 1}` as LocaleMessageId} />
+                      </Button>
+                      <div>
+                        <FormField
+                          control={form.control}
+                          name={`workingHours.${day}.time.from`}
+                          render={({ field }) => (
+                            <>
+                              <ClockInput
+                                className='mx-2 h-6 w-11 border-0 border-b p-1'
+                                disabled={dayOff}
+                                {...field}
                               />
-                            )}
-                          </FormMessage>
-                        </>
-                      )}
-                    />
-                  </div>
-                  <I18nText path='dialog.addAddress.form.untill' />
-                  <div>
-                    <FormField
-                      control={form.control}
-                      name={`workingHours.${day}.time.to`}
-                      render={({ field }) => (
-                        <>
-                          <ClockInput
-                            className='mx-2 h-6 w-11 border-0 border-b p-1'
-                            disabled={dayOff}
-                            {...field}
-                          />
-                          <FormMessage className='text-xs'>
-                            {form.formState.errors?.workingHours?.[day]?.time?.to && (
-                              <I18nText
-                                path={
-                                  form.formState.errors?.workingHours[day]?.time?.to
-                                    ?.message as LocaleMessageId
-                                }
+                              <FormMessage className='text-xs'>
+                                {form.formState.errors?.workingHours?.[day]?.time?.from && (
+                                  <I18nText
+                                    path={
+                                      form.formState.errors?.workingHours[day]?.time?.from
+                                        ?.message as LocaleMessageId
+                                    }
+                                  />
+                                )}
+                              </FormMessage>
+                            </>
+                          )}
+                        />
+                      </div>
+                      <I18nText path='dialog.addAddress.form.untill' />
+                      <div>
+                        <FormField
+                          control={form.control}
+                          name={`workingHours.${day}.time.to`}
+                          render={({ field }) => (
+                            <>
+                              <ClockInput
+                                className='mx-2 h-6 w-11 border-0 border-b p-1'
+                                disabled={dayOff}
+                                {...field}
                               />
-                            )}
-                          </FormMessage>
-                        </>
-                      )}
-                    />
-                  </div>
-                </div>
-              );
-            })}
+                              <FormMessage className='text-xs'>
+                                {form.formState.errors?.workingHours?.[day]?.time?.to && (
+                                  <I18nText
+                                    path={
+                                      form.formState.errors?.workingHours[day]?.time?.to
+                                        ?.message as LocaleMessageId
+                                    }
+                                  />
+                                )}
+                              </FormMessage>
+                            </>
+                          )}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </>
+            )}
           </div>
           <div className='mt-2 flex-1 space-y-8'>
             <FormField
@@ -219,16 +222,11 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                   </FormLabel>
                   <FormControl>
                     <DatePickerWithRange
-                      onChange={field.onChange}
-                      onDateRangeChange={() => console.log('@', field.value)}
+                      value={field.value}
+                      // @ts-ignore
+                      onSelect={(newValue) => form.setValue('date', newValue)}
                     />
-                    {/* <Switch checked={field.value} onCheckedChange={field.onChange} /> */}
                   </FormControl>
-                  <FormMessage>
-                    {form.formState?.errors?.date && (
-                      <I18nText path={form.formState.errors.date.message as LocaleMessageId} />
-                    )}
-                  </FormMessage>
                 </FormItem>
               )}
             />

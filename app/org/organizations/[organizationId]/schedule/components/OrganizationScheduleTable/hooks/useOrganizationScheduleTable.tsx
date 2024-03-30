@@ -51,7 +51,7 @@ export const useOrganizationScheduleTable = () => {
         className='max-w-[180px]'
       />,
 
-      <DatePickerWithRange onDateRangeChange={onDateRangeChange} />
+      <DatePickerWithRange onSelect={onDateRangeChange} />
     ],
     [onActivityFilterChange, activityFilter]
   );

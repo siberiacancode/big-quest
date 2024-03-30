@@ -1,29 +1,31 @@
 import * as React from 'react';
 import type { DateRange } from 'react-day-picker';
 import { CalendarIcon } from '@radix-ui/react-icons';
-import { addDays, format } from 'date-fns';
+import { format } from 'date-fns';
 
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 
-interface DatePickerWithRangeProps extends React.HTMLAttributes<HTMLDivElement> {
-  onDateRangeChange: (dateRange: DateRange | undefined) => void;
+interface DatePickerWithRangeProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
+  value?: DateRange | undefined;
+  onSelect: (value: DateRange | undefined) => void;
 }
 
-export const DatePickerWithRange = ({ className, onDateRangeChange }: DatePickerWithRangeProps) => {
-  const [date, setDate] = React.useState<DateRange | undefined>({
-    from: new Date(new Date().getFullYear(), 5, 20),
-    to: addDays(new Date(new Date().getFullYear(), 5, 20), 20)
-  });
+export const DatePickerWithRange = ({ className, value, onSelect }: DatePickerWithRangeProps) => {
+  const [date, setDate] = React.useState<DateRange | undefined>(value);
+
+  React.useEffect(() => {
+    setDate(value);
+  }, [value]);
 
   const handleDateChange = React.useCallback(
     (newDate: DateRange | undefined) => {
       setDate(newDate);
-      onDateRangeChange(newDate);
+      onSelect(newDate);
     },
-    [onDateRangeChange]
+    [onSelect]
   );
 
   return (

@@ -27,8 +27,8 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
       preEntry: false,
       isRepeat: false,
       date: {
-        from: '',
-        to: ''
+        from: undefined,
+        to: undefined
       },
       workingHours: {
         '0': { time: { from: '09:00', to: '18:00' }, dayOff: false },
@@ -63,7 +63,12 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
       };
     });
 
-    const formattedValues = { ...values, workingHours: formattedWorkingHours };
+    const formattedDate = {
+      from: values.date!.from?.toISOString() ?? '',
+      to: values.date!.to?.toISOString() ?? ''
+    };
+
+    const formattedValues = { ...values, workingHours: formattedWorkingHours, date: formattedDate };
     console.log('@formattedValues', formattedValues);
 
     await postOrganizationAddSchedule.mutateAsync({
