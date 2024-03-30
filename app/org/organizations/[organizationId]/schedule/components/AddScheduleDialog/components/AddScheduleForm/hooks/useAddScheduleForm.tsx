@@ -26,7 +26,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
       lead: '',
       preEntry: false,
       isRepeat: false,
-      placesCount: 8,
+      placesCount: '8',
       date: undefined,
       dateRange: {
         from: undefined,
