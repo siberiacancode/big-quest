@@ -16,11 +16,6 @@ export interface ActiveMediaFile {
   type: string;
 }
 
-export interface DeletedMediaArray {
-  id: number;
-  isAvatar: boolean;
-}
-
 export interface UploadedMediaArray {
   file: File;
   url: string;
@@ -29,11 +24,19 @@ export interface UploadedMediaArray {
 }
 interface UseActivityMediaProps {
   media?: ActivityMedia[];
-  files: File[] | FilesDto[];
-  setFiles: (props: File[] | FilesDto[]) => void;
+  postMediaFiles: File[];
+  deleteFileIds: number[];
+  setPostMediaFiles: (props: File[]) => void;
+  setDeleteFileIds: (props: number[]) => void;
 }
 
-export const useActivityMedia = ({ media = [], files, setFiles }: UseActivityMediaProps) => {
+export const useActivityMedia = ({
+  media = [],
+  postMediaFiles,
+  deleteFileIds,
+  setPostMediaFiles,
+  setDeleteFileIds
+}: UseActivityMediaProps) => {
   const defaultActiveMediaFile = media?.find((item) => item.isAvatar === true);
 
   const [activityMedia, setActivityMedia] = React.useState<ActivityMedia[]>(media);
@@ -44,8 +47,7 @@ export const useActivityMedia = ({ media = [], files, setFiles }: UseActivityMed
       type: ''
     }
   );
-  console.log(files, setFiles);
-  const [deletedMediaArray, setDeletedMediaArray] = React.useState<DeletedMediaArray[]>([]);
+
   const [uploadedMediaArray, setUploadedMediaArray] = React.useState<UploadedMediaArray[]>([]);
 
   const onChangeAvatarClick = (file) => {
@@ -71,19 +73,26 @@ export const useActivityMedia = ({ media = [], files, setFiles }: UseActivityMed
   };
 
   const onDelete = (value: string) => {
-    const newArray = uploadedMediaArray.filter((item) => item.url !== value);
-    const newActivityMedia = activityMedia.filter((item) => item.url !== value);
+    const deleteFile = activityMedia.find((media) => media.url === value && media.id)!;
 
-    setUploadedMediaArray(newArray);
-    // поправить сбор удаляемых файлов
-    setDeletedMediaArray([...deletedMediaArray, { id: 0, isAvatar: false }]);
-    setActivityMedia(newActivityMedia);
-    if (activeMediaFile.url === value) {
-      setActiveMediaFile({
-        url: newActivityMedia[0].url,
-        isAvatar: newActivityMedia[0].isAvatar,
-        type: newActivityMedia[0].type
-      });
+    if (deleteFile) {
+      setDeleteFileIds([...deleteFileIds, deleteFile?.id]);
+      const newActivityMedia = activityMedia.filter((item) => item.url !== value);
+      setActivityMedia(newActivityMedia);
+      if (activeMediaFile.url === value) {
+        setActiveMediaFile({
+          url: newActivityMedia[0].url,
+          isAvatar: newActivityMedia[0].isAvatar,
+          type: newActivityMedia[0].type
+        });
+      }
+    }
+    if (!deleteFile) {
+      const uploadedFile = uploadedMediaArray.find((file) => file.url === value)!;
+      const filteredPostFiles = postMediaFiles.filter((file) => file !== uploadedFile.file);
+      const filteredUploadedMedia = uploadedMediaArray.filter((item) => item.url !== value);
+      setPostMediaFiles(filteredPostFiles);
+      setUploadedMediaArray(filteredUploadedMedia);
     }
   };
 
@@ -92,11 +101,12 @@ export const useActivityMedia = ({ media = [], files, setFiles }: UseActivityMed
     const type = file.type.startsWith('image/') ? 'image' : 'video';
 
     setUploadedMediaArray([...uploadedMediaArray, { file, url, isAvatar: false, type }]);
+    setPostMediaFiles([...postMediaFiles, file]);
     setActiveMediaFile({ url, isAvatar: false, type });
   };
 
   return {
-    state: { activeMediaFile, deletedMediaArray, uploadedMediaArray, activityMedia },
+    state: { activeMediaFile, uploadedMediaArray, activityMedia },
     functions: {
       setActiveMediaFile,
       onDelete,

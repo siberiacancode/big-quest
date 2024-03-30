@@ -34,6 +34,15 @@ export const getActivityById: RestRequestConfig = {
             ext: '.png',
             size: 23,
             isAvatar: false
+          },
+          {
+            id: 4,
+            url: 'http://localhost:31299/api/1.0/static/activity/video-1.mp4',
+            position: 1,
+            type: 'video',
+            ext: '.mp4',
+            size: 23,
+            isAvatar: false
           }
         ],
         name: 'Рисуем живопись',

@@ -15,13 +15,27 @@ import { useActivityMedia } from './hooks/useActivityMedia';
 
 interface ActivityMediaProps {
   media?: ActivityProps['media'];
-  files: File[] | FilesDto[];
-  setFiles: (props: File[] | FilesDto[]) => void;
+  postMediaFiles: File[];
+  deleteFileIds: number[];
+  setPostMediaFiles: (props: File[]) => void;
+  setDeleteFileIds: (props: number[]) => void;
 }
 
-export const ActivityMedia = ({ media, files, setFiles }: ActivityMediaProps) => {
+export const ActivityMedia = ({
+  media,
+  postMediaFiles,
+  deleteFileIds,
+  setPostMediaFiles,
+  setDeleteFileIds
+}: ActivityMediaProps) => {
   const i18n = useI18n();
-  const { state, functions } = useActivityMedia({ media, files, setFiles });
+  const { state, functions } = useActivityMedia({
+    media,
+    postMediaFiles,
+    deleteFileIds,
+    setPostMediaFiles,
+    setDeleteFileIds
+  });
 
   const ACTIVITY_MEDIA_TOTAL_AMOUNT = state.activityMedia.length + state.uploadedMediaArray.length;
 
@@ -29,13 +43,13 @@ export const ActivityMedia = ({ media, files, setFiles }: ActivityMediaProps) =>
     <div
       className={cn(
         'grid h-fit max-h-[600px] w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-4 2smx:px-4 xsx:grid-rows-3 xsx:gap-2 xxsx:grid-rows-4',
-        state.activityMedia.length > 4 && '2smx:grid-rows-5 xsx:grid-rows-5 xxsx:grid-rows-5'
+        state.activityMedia.length > 3 && '2smx:grid-rows-5 xsx:grid-rows-5 xxsx:grid-rows-5'
       )}
     >
       <div
         className={cn(
           'relative col-span-2 max-h-[418px] max-w-[418px] 2smx:row-span-3 2smx:max-w-full xsx:row-span-2 xxsx:row-span-3 2sm:h-[418px]',
-          state.activityMedia.length > 4 && '2smx:row-span-3 xsx:row-span-3 xxsx:row-span-3'
+          state.activityMedia.length > 3 && '2smx:row-span-3 xsx:row-span-3 xxsx:row-span-3'
         )}
       >
         {state.activeMediaFile.url && state.activeMediaFile.type === 'image' && (
@@ -84,7 +98,7 @@ export const ActivityMedia = ({ media, files, setFiles }: ActivityMediaProps) =>
       <div
         className={cn(
           'grid h-max grid-cols-2 gap-2 2smx:row-span-1 2smx:grid-cols-4 2smx:grid-rows-1',
-          state.activityMedia.length > 4 && '2smx:row-span-2'
+          state.activityMedia.length > 3 && '2smx:row-span-2'
         )}
       >
         {state.activityMedia.map((item, index) => (

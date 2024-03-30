@@ -3,9 +3,10 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams, useRouter } from 'next/navigation';
 
+import { useDeleteFileByIdMutation } from '@/utils/api/hooks/useDeleteFileByIdMutation copy';
 import { useGetActivityByIdQuery } from '@/utils/api/hooks/useGetActivityByIdQuery';
 import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
-import { usePutFilesByIdMutation } from '@/utils/api/hooks/usePutFilesByIdMutation';
+import { usePostActivityMediaByIdMutation } from '@/utils/api/hooks/usePostActivityMediaByIdMutation';
 
 import type { ActivityActionType } from '../../../constants/types';
 import type { ActivityActionSchema } from '../constants/activityActionSchema';
@@ -18,7 +19,6 @@ interface UseActivityActionFormParams {
   onEdit: (props: ActivityActionType) => void;
   actionType: Exclude<ActivityActionType, 'info'>;
   activity?: ActivityResponse;
-  files: File[] | FilesDto[];
   externalActionType: ActivityActionType;
 }
 
@@ -27,13 +27,14 @@ export const useActivityActionForm = ({
   onEdit,
   actionType,
   activity,
-  files,
   externalActionType
 }: UseActivityActionFormParams) => {
   const router = useRouter();
   const params = useParams<{ organizationId: string }>();
   const [isCategoryOpen, setIsCategoryOpen] = React.useState(false);
   const [isStatusOpen, setIsStatusOpen] = React.useState(false);
+  const [postMediaFiles, setPostMediaFiles] = React.useState<File[]>([]);
+  const [deleteFileIds, setDeleteFileIds] = React.useState<number[]>([]);
 
   const getCategoryQuery = useGetCategoryQuery();
   // на submit добавить еще запрос отправки медиа
@@ -41,7 +42,6 @@ export const useActivityActionForm = ({
     id: activity?.id ?? '1'
   });
 
-  // activity ???????
   const defaultValues = {
     name: activity?.name ?? '',
     description: activity?.description ?? '',
@@ -63,7 +63,8 @@ export const useActivityActionForm = ({
   });
 
   const postActivityActionMutation = usePostActivityActionMutation();
-  const putFilesByIdMutation = usePutFilesByIdMutation();
+  const deleteFileByIdMutation = useDeleteFileByIdMutation();
+  const postActivityMediaByIdMutation = usePostActivityMediaByIdMutation();
 
   const onSubmit = activityForm.handleSubmit(async (values) => {
     const requestParams = {
@@ -74,7 +75,7 @@ export const useActivityActionForm = ({
 
     if (actionType === 'add') {
       const postActivityActionParams = {
-        params: { ...requestParams, files: files as File[] },
+        params: { ...requestParams, files: postMediaFiles },
         action: actionType
       } as const;
 
@@ -82,25 +83,23 @@ export const useActivityActionForm = ({
     }
 
     if (actionType === 'edit') {
-      const postActivityActionParams = {
-        params: {
-          ...requestParams,
-          id: activity!.id
-        },
-        action: 'edit'
-      } as const;
-
-      await postActivityActionMutation.mutateAsync(postActivityActionParams);
-      files.map(async (file) => {
-        const putFilesByIdParams = {
-          params: {
-            file,
-            id: file.id
-          }
+      if (postMediaFiles) {
+        // id все таки string или number
+        const postActivityMediaByIdParams = {
+          params: { id: activity!.id.toString(), files: postMediaFiles }
         } as const;
 
-        await putFilesByIdMutation.mutateAsync(putFilesByIdParams);
-      });
+        await postActivityMediaByIdMutation.mutateAsync(postActivityMediaByIdParams);
+      }
+      if (deleteFileIds) {
+        deleteFileIds.forEach(async (deleteId) => {
+          const deleteFileByIdParams = {
+            params: { id: deleteId.toString() }
+          } as const;
+
+          await deleteFileByIdMutation.mutateAsync(deleteFileByIdParams);
+        });
+      }
     }
 
     router.refresh();
@@ -118,10 +117,12 @@ export const useActivityActionForm = ({
       isCategoryOpen,
       isStatusOpen,
       isLoading: postActivityActionMutation.isPending,
-      media: activity?.media,
-      activity: getActivityByIdQuery.data
+      media: getActivityByIdQuery.data?.media,
+      activity: getActivityByIdQuery.data,
+      postMediaFiles,
+      deleteFileIds
     },
     form: activityForm,
-    functions: { onSubmit, setIsCategoryOpen, setIsStatusOpen }
+    functions: { onSubmit, setIsCategoryOpen, setIsStatusOpen, setPostMediaFiles, setDeleteFileIds }
   };
 };

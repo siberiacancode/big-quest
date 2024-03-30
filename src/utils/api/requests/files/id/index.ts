@@ -1,10 +1,19 @@
 import { api } from '@/utils/api/instance';
 
-interface PutFilesByIdParams {
+interface PutFileByIdParams {
   id: string;
 }
 
-export type PutFilesByIdRequestConfig = RequestConfig<PutFilesByIdParams>;
+export type PutFileByIdRequestConfig = RequestConfig<PutFileByIdParams>;
 
-export const putFilesById = async ({ params, config }: PutFilesByIdRequestConfig) =>
-  api.put<FilesDto>(`files/${params.id}`, params, config);
+export const putFileById = async ({ params, config }: PutFileByIdRequestConfig) =>
+  api.put<FilesDto>(`file/${params.id}`, params, config);
+
+interface DeleteFileByIdParams {
+  id: string;
+}
+
+export type DeleteFileByIdRequestConfig = RequestConfig<DeleteFileByIdParams>;
+
+export const deleteFileById = async ({ params, config }: DeleteFileByIdRequestConfig) =>
+  api.delete<FilesDto>(`file/${params.id}`, config);
