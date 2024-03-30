@@ -18,13 +18,11 @@ import { EditOrganizationTariffForm } from './components/EditOrganizationTariffF
 import { useEditOrganizationTariffDialog } from './hooks/useEditOrganizationTariffDialog';
 
 interface EditOrganizationTariffDialogProps {
-  organization: OrganizationResponse;
   tariff: TariffResponse;
   trigger: JSX.Element;
 }
 
 export const EditOrganizationTariffDialog = ({
-  organization,
   tariff,
   trigger
 }: EditOrganizationTariffDialogProps) => {
@@ -45,11 +43,7 @@ export const EditOrganizationTariffDialog = ({
           </DialogTitle>
         </DialogHeader>
         <ScrollArea className='h-full overflow-y-auto rounded-lg border px-[77px] pb-[47px] pt-[30px] lgx:px-12 mdx:justify-center mdx:px-10 xsx:mb-[30px] xsx:px-3'>
-          <EditOrganizationTariffForm
-            organization={organization}
-            tariff={tariff}
-            onEdited={functions.onEdited}
-          />
+          <EditOrganizationTariffForm tariff={tariff} onEdited={functions.onEdited} />
         </ScrollArea>
       </DialogContent>
     </Dialog>

@@ -15,8 +15,6 @@ const OrganizationProfilePage = async ({ params }: OrganizationProfilePageProps)
     config: { cache: 'no-cache' }
   });
 
-  console.log('#organization', organization);
-
   return (
     <div className='flex justify-center gap-[22px] smx:flex-col'>
       <OrganizationProfileCard organization={organization} />

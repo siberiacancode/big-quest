@@ -25,20 +25,17 @@ import { periodMonthOptions } from './constants/tariffOptions';
 import { useEditOrganizationTariffForm } from './hooks/useEditOrganizationTariffForm';
 
 export interface EditOrganizationTariffFormProps {
-  organization: OrganizationResponse;
   tariff: TariffResponse;
   onEdited: () => void;
 }
 
 export const EditOrganizationTariffForm = ({
   onEdited,
-  tariff,
-  organization
+  tariff
 }: EditOrganizationTariffFormProps) => {
   const i18n = useI18n();
   const { form, functions, state } = useEditOrganizationTariffForm({
     onEdited,
-    organization,
     tariff
   });
 
@@ -59,6 +56,7 @@ export const EditOrganizationTariffForm = ({
                 </FormLabel>
                 <div className='flex items-center gap-3 mdx:justify-center'>
                   <Button
+                    type='button'
                     className='size-7 px-0 py-0'
                     variant='outline'
                     onClick={() => form.setValue('freeActivity', `${+field.value - 1}`)}
@@ -67,6 +65,7 @@ export const EditOrganizationTariffForm = ({
                   </Button>
                   <NumberFormatInput {...field} className='w-14 text-center text-lg font-medium' />
                   <Button
+                    type='button'
                     className='size-7 px-0 py-0'
                     variant='outline'
                     onClick={() => form.setValue('freeActivity', `${+field.value + 1}`)}
@@ -75,7 +74,7 @@ export const EditOrganizationTariffForm = ({
                   </Button>
                 </div>
               </div>
-              <FormMessage>
+              <FormMessage className='mdx:text-center'>
                 {form.formState?.errors?.freeActivity && (
                   <I18nText path={form.formState.errors.freeActivity.message as LocaleMessageId} />
                 )}
@@ -94,6 +93,7 @@ export const EditOrganizationTariffForm = ({
                 </FormLabel>
                 <div className='flex items-center gap-3 mdx:justify-center'>
                   <Button
+                    type='button'
                     className='size-7 px-0 py-0'
                     variant='outline'
                     onClick={() => form.setValue('paidActivity', `${+field.value - 1}`)}
@@ -102,6 +102,7 @@ export const EditOrganizationTariffForm = ({
                   </Button>
                   <NumberFormatInput {...field} className='w-14 text-center text-lg font-medium' />
                   <Button
+                    type='button'
                     className='size-7 px-0 py-0'
                     variant='outline'
                     onClick={() => form.setValue('paidActivity', `${+field.value + 1}`)}
@@ -110,7 +111,7 @@ export const EditOrganizationTariffForm = ({
                   </Button>
                 </div>
               </div>
-              <FormMessage>
+              <FormMessage className='mdx:text-center'>
                 {form.formState?.errors?.paidActivity && (
                   <I18nText path={form.formState.errors.paidActivity.message as LocaleMessageId} />
                 )}
@@ -159,7 +160,7 @@ export const EditOrganizationTariffForm = ({
                   </SelectGroup>
                 </SelectContent>
               </Select>
-              <FormMessage>
+              <FormMessage className='mdx:text-center'>
                 {form.formState?.errors?.periodMonth && (
                   <I18nText path={form.formState.errors.periodMonth.message as LocaleMessageId} />
                 )}
@@ -181,7 +182,7 @@ export const EditOrganizationTariffForm = ({
                   <I18nText path='common.rubles' values={{ amount: tariff.totalPrice }} />
                 </Typography>
               </div>
-              <FormMessage>
+              <FormMessage className='mdx:text-center'>
                 {form.formState?.errors?.totalPrice && (
                   <I18nText path={form.formState.errors.totalPrice.message as LocaleMessageId} />
                 )}

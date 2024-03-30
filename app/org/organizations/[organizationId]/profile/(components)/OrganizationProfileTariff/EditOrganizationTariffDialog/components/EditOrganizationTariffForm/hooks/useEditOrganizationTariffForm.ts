@@ -11,7 +11,6 @@ import {
 } from '../constants/EditOrganizationTariffSchema';
 
 interface UseEditOrganizationTariffFormParams {
-  organization: OrganizationResponse;
   tariff: TariffResponse;
   onEdited: () => void;
 }
@@ -28,7 +27,7 @@ export const useEditOrganizationTariffForm = ({
     defaultValues: {
       freeActivity: tariff.freeActivity.toString(),
       paidActivity: tariff.paidActivity.toString(),
-      periodMonth: tariff.periodMonth ? tariff.periodMonth.toString() : undefined,
+      periodMonth: tariff.periodMonth ? tariff.periodMonth.toString() : '',
       totalPrice: tariff.totalPrice.toString()
     }
   });

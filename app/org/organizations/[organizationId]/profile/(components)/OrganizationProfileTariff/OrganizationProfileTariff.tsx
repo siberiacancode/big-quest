@@ -43,7 +43,6 @@ export const OrganizationProfileTariff = async ({
         </InfoCardTitle>
         <InfoCardAction className='bg-transparent '>
           <EditOrganizationTariffDialog
-            organization={organization}
             tariff={tariff}
             trigger={
               <Button variant='ghost' className='p-2'>
