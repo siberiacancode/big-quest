@@ -36,7 +36,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={functions.onSubmit} className='flex w-full flex-col items-end'>
+      <form onSubmit={functions.onSubmit} className='flex w-full flex-col items-end gap-2'>
         <div className='flex w-full gap-5 smx:flex-col'>
           <div className='flex-1 space-y-3'>
             <FormField
@@ -191,7 +191,11 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                     <I18nText path='field.preEntry.label' />
                   </FormLabel>
                   <FormControl>
-                    <Switch checked={field.value} onCheckedChange={field.onChange} />
+                    <div className='flex items-center gap-4 text-sm'>
+                      <Switch checked={field.value} onCheckedChange={field.onChange} />
+                      {form.getValues('preEntry') && <I18nText path='field.preEntry.true' />}
+                      {!form.getValues('preEntry') && <I18nText path='field.preEntry.false' />}
+                    </div>
                   </FormControl>
                   <FormMessage>
                     {form.formState?.errors?.preEntry && (
@@ -210,7 +214,11 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                     <I18nText path='field.activity.label' />
                   </FormLabel>
                   <FormControl>
-                    <Switch checked={field.value} onCheckedChange={field.onChange} />
+                    <div className='flex items-center gap-4 text-sm'>
+                      <Switch checked={field.value} onCheckedChange={field.onChange} />
+                      {form.getValues('isRepeat') && <I18nText path='field.isRepeat.true' />}
+                      {!form.getValues('isRepeat') && <I18nText path='field.isRepeat.false' />}
+                    </div>
                   </FormControl>
                   <FormMessage>
                     {form.formState?.errors?.isRepeat && (
@@ -220,24 +228,26 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name='dateRange'
-              render={({ field }) => (
-                <FormItem className='flex flex-col space-y-4'>
-                  <FormLabel>
-                    <I18nText path='field.activity.label' />
-                  </FormLabel>
-                  <FormControl>
-                    <DatePickerWithRange
-                      value={field.value}
-                      // @ts-ignore
-                      onSelect={(newValue) => form.setValue('dateRange', newValue)}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
+            {form.getValues('isRepeat') && (
+              <FormField
+                control={form.control}
+                name='dateRange'
+                render={({ field }) => (
+                  <FormItem className='flex flex-col space-y-4'>
+                    <FormLabel>
+                      <I18nText path='field.startAndEndDate.label' />
+                    </FormLabel>
+                    <FormControl>
+                      <DatePickerWithRange
+                        value={field.value}
+                        // @ts-ignore
+                        onSelect={(newValue) => form.setValue('dateRange', newValue)}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            )}
             {form.getValues('preEntry') && (
               <FormField
                 control={form.control}
@@ -245,7 +255,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                 render={({ field }) => (
                   <FormItem className='flex flex-col space-y-4'>
                     <FormLabel>
-                      <I18nText path='field.activity.label' />
+                      <I18nText path='field.placesCount.label' />
                     </FormLabel>
                     <FormControl>
                       <Input {...field} type='number' min={1} />
@@ -261,46 +271,48 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                 )}
               />
             )}
-            <FormField
-              control={form.control}
-              name='date'
-              render={({ field }) => (
-                <FormItem className='flex flex-col'>
-                  <FormLabel>Дата</FormLabel>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <FormControl>
-                        <Button
-                          variant='outline'
-                          className={cn(
-                            'w-[240px] pl-3 text-left font-normal',
-                            !field.value && 'text-muted-foreground'
-                          )}
-                        >
-                          {field.value ? format(field.value, 'PPP') : <span>Pick a date</span>}
-                          <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
-                        </Button>
-                      </FormControl>
-                    </PopoverTrigger>
-                    <PopoverContent className='w-auto p-0' align='start'>
-                      <Calendar
-                        mode='single'
-                        selected={field.value}
-                        onSelect={field.onChange}
-                        disabled={(date) => date > new Date() || date < new Date('1900-01-01')}
-                        initialFocus
-                      />
-                    </PopoverContent>
-                  </Popover>
+            {!form.getValues('isRepeat') && (
+              <FormField
+                control={form.control}
+                name='date'
+                render={({ field }) => (
+                  <FormItem className='flex flex-col'>
+                    <FormLabel>Дата</FormLabel>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant='outline'
+                            className={cn(
+                              'w-[240px] pl-3 text-left font-normal',
+                              !field.value && 'text-muted-foreground'
+                            )}
+                          >
+                            {field.value ? format(field.value, 'PPP') : <span>Pick a date</span>}
+                            <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className='w-auto p-0' align='start'>
+                        <Calendar
+                          mode='single'
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          disabled={(date) => date > new Date() || date < new Date('1900-01-01')}
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
 
-                  <FormMessage>
-                    {form.formState?.errors?.date && (
-                      <I18nText path={form.formState.errors.date.message as LocaleMessageId} />
-                    )}
-                  </FormMessage>
-                </FormItem>
-              )}
-            />
+                    <FormMessage>
+                      {form.formState?.errors?.date && (
+                        <I18nText path={form.formState.errors.date.message as LocaleMessageId} />
+                      )}
+                    </FormMessage>
+                  </FormItem>
+                )}
+              />
+            )}
           </div>
         </div>
 
