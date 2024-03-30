@@ -91,6 +91,8 @@ type ActivityStatus = 'DRAFT' | 'MODERATION' | 'EDITING' | 'PUBLISHED' | 'CLOSED
 
 type ActivityView = 'ONLINE' | 'OFFLINE';
 
+type Gender = 'MALE' | 'FEMALE';
+
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
   legalAddress?: string;
@@ -365,7 +367,7 @@ interface UserResponse {
   middleName: string;
   lastLogin: string;
   passportId: string;
-  sex: 'MALE' | 'FEMALE';
+  sex: Gender;
   avatar: string;
 }
 
