@@ -3,6 +3,7 @@ import type { DateRange } from 'react-day-picker';
 import { CalendarIcon } from '@radix-ui/react-icons';
 import { format } from 'date-fns';
 
+import { I18nText } from '@/components/common';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
@@ -49,7 +50,7 @@ export const DatePickerWithRange = ({ className, value, onSelect }: DatePickerWi
               ) : (
                 format(date.from, 'LLL dd, y')
               ))}
-            {!date?.from && <span>Pick a date</span>}
+            {!date?.from && <I18nText path='datePicker.label' />}
           </Button>
         </PopoverTrigger>
         <PopoverContent className='w-auto p-0' align='start'>

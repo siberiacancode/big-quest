@@ -277,7 +277,9 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                 name='date'
                 render={({ field }) => (
                   <FormItem className='flex flex-col'>
-                    <FormLabel>Дата</FormLabel>
+                    <FormLabel>
+                      <I18nText path='field.date.label' />
+                    </FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
@@ -288,7 +290,11 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                               !field.value && 'text-muted-foreground'
                             )}
                           >
-                            {field.value ? format(field.value, 'PPP') : <span>Pick a date</span>}
+                            {field.value ? (
+                              format(field.value, 'PPP')
+                            ) : (
+                              <I18nText path='datePicker.label' />
+                            )}
                             <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
                           </Button>
                         </FormControl>
@@ -298,7 +304,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                           mode='single'
                           selected={field.value}
                           onSelect={field.onChange}
-                          disabled={(date) => date > new Date() || date < new Date('1900-01-01')}
+                          disabled={(date) => date < new Date('1900-01-01')}
                           initialFocus
                         />
                       </PopoverContent>

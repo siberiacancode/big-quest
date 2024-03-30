@@ -130,6 +130,7 @@
   "field.preEntry.label": "Предварительная запись",
   "field.activity.label": "Активность",
   "field.startAndEndDate.label": "Дата начала и окончания",
+  "field.date.label": "Дата",
   "field.placesCount.label": "Кол-во мест",
 
   "field.preEntry.true": "По записи",
@@ -235,6 +236,8 @@
   "pagination.page": "страница",
 
   "combobox.selected": "Выбрано",
+
+  "datePicker.label": "Выберите дату",
 
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты",
