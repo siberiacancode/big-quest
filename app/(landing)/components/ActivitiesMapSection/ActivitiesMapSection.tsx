@@ -18,7 +18,7 @@ export const ActivitiesMapSection = () => (
       <I18nText path='landing.activitiesMap.title' />
     </Typography>
     <Map className='h-[400px] mdx:h-[300px]' state={DEFAULT_MAP_STATE}>
-      <div className='mt-[40px] w-full mdx:mt-5'>
+      <div className='mt-10 w-full mdx:mt-5'>
         {activitiesCoordinates.map((coordinates, index) => (
           <GeoObject
             key={index}

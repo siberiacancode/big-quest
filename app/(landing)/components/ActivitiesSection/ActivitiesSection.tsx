@@ -13,13 +13,13 @@ export const ActivitiesSection = () => (
         <I18nText path='landing.activities.title' />
       </Typography>
       <div className='flex items-center gap-3 hover:cursor-pointer hover:underline'>
-        <Typography tag='p' variant='h6' className=''>
+        <Typography tag='p' variant='h6'>
           <I18nText path='landing.activities.watchAll' />
         </Typography>
         <ChevronRightIcon />
       </div>
     </div>
-    <div className='mt-[72px] grid grid-cols-4 gap-x-12 gap-y-12 xlx:grid-cols-3 lgx:grid-cols-2 mdx:mt-11 smx:mt-8 smx:flex smx:flex-col smx:items-center smx:gap-y-8'>
+    <div className='mt-[72px] grid grid-cols-4 gap-x-5 gap-y-12 xlx:grid-cols-3 lgx:grid-cols-2 mdx:mt-11 smx:mt-8 smx:flex smx:flex-col smx:items-center smx:gap-y-8'>
       {activities.map((activity, index) => (
         <ActivityCard key={index} {...activity} />
       ))}
