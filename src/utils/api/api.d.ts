@@ -132,6 +132,11 @@ interface OrganizationAddressDto {
   workingHours: WorkingHourDto[];
 }
 
+type DateRange = {
+  from: string;
+  to: string;
+};
+
 interface OrganizationScheduleDto {
   organizationId: string;
   activity: string;
@@ -139,6 +144,8 @@ interface OrganizationScheduleDto {
   lead: string;
   preEntry: boolean;
   isRepeat: boolean;
+  dateRange: DateRange;
+  date: string;
   workingHours: WorkingHourDto[];
 }
 

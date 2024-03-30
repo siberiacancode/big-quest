@@ -1,7 +1,11 @@
+import { format } from 'date-fns';
+import { CalendarIcon } from 'lucide-react';
+
 import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {
   Button,
+  Calendar,
   ClockInput,
   Form,
   FormControl,
@@ -9,6 +13,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  Input,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
   Switch,
   Typography
 } from '@/components/ui';
@@ -214,7 +222,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
             />
             <FormField
               control={form.control}
-              name='date'
+              name='dateRange'
               render={({ field }) => (
                 <FormItem className='flex flex-col space-y-4'>
                   <FormLabel>
@@ -224,9 +232,72 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                     <DatePickerWithRange
                       value={field.value}
                       // @ts-ignore
-                      onSelect={(newValue) => form.setValue('date', newValue)}
+                      onSelect={(newValue) => form.setValue('dateRange', newValue)}
                     />
                   </FormControl>
+                </FormItem>
+              )}
+            />
+            {form.getValues('preEntry') && (
+              <FormField
+                control={form.control}
+                name='placesCount'
+                render={({ field }) => (
+                  <FormItem className='flex flex-col space-y-4'>
+                    <FormLabel>
+                      <I18nText path='field.activity.label' />
+                    </FormLabel>
+                    <FormControl>
+                      <Input {...field} type='number' min={1} />
+                    </FormControl>
+                    <FormMessage>
+                      {form.formState?.errors?.isRepeat && (
+                        <I18nText
+                          path={form.formState.errors.isRepeat.message as LocaleMessageId}
+                        />
+                      )}
+                    </FormMessage>
+                  </FormItem>
+                )}
+              />
+            )}
+            <FormField
+              control={form.control}
+              name='date'
+              render={({ field }) => (
+                <FormItem className='flex flex-col'>
+                  <FormLabel>Дата</FormLabel>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant='outline'
+                          className={cn(
+                            'w-[240px] pl-3 text-left font-normal',
+                            !field.value && 'text-muted-foreground'
+                          )}
+                        >
+                          {field.value ? format(field.value, 'PPP') : <span>Pick a date</span>}
+                          <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className='w-auto p-0' align='start'>
+                      <Calendar
+                        mode='single'
+                        selected={field.value}
+                        onSelect={field.onChange}
+                        disabled={(date) => date > new Date() || date < new Date('1900-01-01')}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+
+                  <FormMessage>
+                    {form.formState?.errors?.date && (
+                      <I18nText path={form.formState.errors.date.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
                 </FormItem>
               )}
             />

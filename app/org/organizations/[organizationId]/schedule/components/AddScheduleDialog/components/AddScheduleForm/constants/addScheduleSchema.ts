@@ -21,7 +21,9 @@ export const addScheduleSchema = z.object({
   lead: z.string().min(1, { message: 'validation.required' }),
   preEntry: z.boolean().default(false),
   isRepeat: z.boolean().default(false),
-  date: dateSchema.optional(),
+  dateRange: dateSchema.optional(),
+  date: z.date(),
+  placesCount: z.number(),
   workingHours: z.object({
     '0': workingHourSchema,
     '1': workingHourSchema,
