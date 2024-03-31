@@ -102,5 +102,8 @@
     "storybook": "^7.6.16",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
+  },
+  "resolutions": {
+    "strip-ansi": "6.0.1"
   }
 }
