@@ -4,9 +4,7 @@ import { CalendarIcon } from '@radix-ui/react-icons';
 import { format } from 'date-fns';
 
 import { I18nText } from '@/components/common';
-import { Button } from '@/components/ui/button';
-import { Calendar } from '@/components/ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Button, Calendar, Popover, PopoverContent, PopoverTrigger } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 interface DatePickerWithRangeProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {

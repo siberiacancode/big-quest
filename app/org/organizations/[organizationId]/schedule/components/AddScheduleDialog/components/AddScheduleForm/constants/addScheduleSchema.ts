@@ -6,8 +6,8 @@ const timeSchema = z.object({
 });
 
 const dateSchema = z.object({
-  from: z.date(),
-  to: z.date()
+  from: z.date().optional(),
+  to: z.date().optional()
 });
 
 const workingHourSchema = z.object({

@@ -3,6 +3,8 @@ import { I18nText } from '@/components/common';
 import {
   Button,
   ClockInput,
+  DatePicker,
+  DatePickerWithRange,
   Form,
   FormControl,
   FormField,
@@ -15,9 +17,6 @@ import {
 } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { convertLocalitiesToComboboxItems } from '@/utils/helpers/convertLocalitiesToComboboxItems';
-
-import { DatePickerWithRange } from '../../../DatePickerWithRange/DatePickerWithRange';
-import { DatePicker } from '../../DatePicker';
 
 import { useAddScheduleForm } from './hooks/useAddScheduleForm';
 
@@ -233,8 +232,8 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                     </FormLabel>
                     <FormControl>
                       <DatePickerWithRange
-                        value={field.value}
                         // @ts-ignore
+                        value={field.value}
                         onSelect={(newValue) => form.setValue('dateRange', newValue)}
                       />
                     </FormControl>
@@ -255,9 +254,9 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                       <Input {...field} type='number' min={1} />
                     </FormControl>
                     <FormMessage>
-                      {form.formState?.errors?.isRepeat && (
+                      {form.formState?.errors?.placesCount && (
                         <I18nText
-                          path={form.formState.errors.isRepeat.message as LocaleMessageId}
+                          path={form.formState.errors.placesCount.message as LocaleMessageId}
                         />
                       )}
                     </FormMessage>
