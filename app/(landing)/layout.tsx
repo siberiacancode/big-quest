@@ -1,3 +1,5 @@
+import { YMaps } from '@pbe/react-yandex-maps';
+
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
 
@@ -8,7 +10,7 @@ interface LandingLayoutProps {
 const LandingLayout = ({ children }: LandingLayoutProps) => (
   <>
     <Header />
-    {children}
+    <YMaps>{children}</YMaps>
     <Footer />
   </>
 );

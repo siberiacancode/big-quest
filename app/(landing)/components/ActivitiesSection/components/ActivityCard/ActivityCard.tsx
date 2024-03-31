@@ -20,7 +20,7 @@ export const ActivityCard = ({
   title
 }: ActivityCardProps) => (
   <div className='flex max-w-[370px] flex-col'>
-    <Image src={image} alt='' />
+    <Image src={image} alt={title} />
     <div className='mt-4 flex-grow'>
       <Typography tag='p' variant='body1'>
         <I18nText

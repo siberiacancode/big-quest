@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { YMaps } from '@pbe/react-yandex-maps';
 
 import type {
   I18nProviderProps,
@@ -30,9 +29,7 @@ const Providers: React.FC<ProvidersProps> = ({ children, session, i18n, theme, u
     <I18nProvider {...i18n}>
       <ThemeProvider {...theme}>
         <SessionProvider {...session}>
-          <UserProvider {...user}>
-            <YMaps>{children}</YMaps>
-          </UserProvider>
+          <UserProvider {...user}>{children}</UserProvider>
         </SessionProvider>
       </ThemeProvider>
     </I18nProvider>

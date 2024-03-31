@@ -1,5 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
+import { COOKIES } from '@/utils/constants';
+
 export const postAuthLoginEmailConfig: RestRequestConfig = {
   path: '/auth/login/email',
   method: 'post',
@@ -23,12 +25,12 @@ export const postAuthLoginEmailConfig: RestRequestConfig = {
       },
       interceptors: {
         response: (data, { setCookie }) => {
-          setCookie('refreshtoken', 'refreshToken', {
+          setCookie(COOKIES.REFRESH_TOKEN, 'refreshToken', {
             httpOnly: true,
             maxAge: 360000,
             path: '/'
           });
-          setCookie('accessToken', 'accessToken', {
+          setCookie(COOKIES.ACCESS_TOKEN, 'accessToken', {
             httpOnly: true,
             maxAge: 360000,
             path: '/'
