@@ -25,8 +25,8 @@ export interface OrganizationProfileTariffProps {
 export const OrganizationProfileTariff = async ({
   organization
 }: OrganizationProfileTariffProps) => {
-  const tariff = await getTariffByLegalEntityId({
-    params: { id: organization.id },
+  const getTariffByLegalEntityIdResponse = await getTariffByLegalEntityId({
+    params: { legalEntityId: organization.id },
     config: {
       cache: 'no-cache'
     }
@@ -38,12 +38,14 @@ export const OrganizationProfileTariff = async ({
         <InfoCardTitle>
           <Typography variant='h5' tag='p'>
             <I18nText path='organization.profile.tariff.title' />{' '}
-            {tariff.totalPrice || <I18nText path='organization.profile.tariff.free' />}
+            {getTariffByLegalEntityIdResponse.totalPrice || (
+              <I18nText path='organization.profile.tariff.free' />
+            )}
           </Typography>
         </InfoCardTitle>
         <InfoCardAction className='bg-transparent '>
           <EditOrganizationTariffDialog
-            tariff={tariff}
+            tariff={getTariffByLegalEntityIdResponse}
             trigger={
               <Button variant='ghost' className='p-2'>
                 <I18nText path='button.updateTariff' />
@@ -56,7 +58,8 @@ export const OrganizationProfileTariff = async ({
         <InfoCardItem className='flex flex-col items-center border-none'>
           <InfoCardItemTitle>
             <Typography variant='h3' tag='h3'>
-              {tariff.freeActivity + tariff.paidActivity}
+              {getTariffByLegalEntityIdResponse.freeActivity +
+                getTariffByLegalEntityIdResponse.paidActivity}
             </Typography>
           </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>
@@ -68,7 +71,7 @@ export const OrganizationProfileTariff = async ({
         <InfoCardItem className='flex flex-col items-center border-none'>
           <InfoCardItemTitle>
             <Typography variant='h3' tag='h3'>
-              {tariff.paidActivity}
+              {getTariffByLegalEntityIdResponse.paidActivity}
             </Typography>
           </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>
@@ -80,8 +83,11 @@ export const OrganizationProfileTariff = async ({
         <InfoCardItem className='flex flex-col items-center justify-between border-none'>
           <InfoCardItemTitle>
             <Typography variant='h3' tag='h3'>
-              {!!tariff.dateEnd && fns.format(tariff.dateEnd, 'dd.MM.yy')}
-              {!tariff.dateEnd && <InfinityIcon className='my-1 size-6' />}
+              {!!getTariffByLegalEntityIdResponse.dateEnd &&
+                fns.format(getTariffByLegalEntityIdResponse.dateEnd, 'dd.MM.yy')}
+              {!getTariffByLegalEntityIdResponse.dateEnd && (
+                <InfinityIcon className='my-1 size-6' />
+              )}
             </Typography>
           </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>

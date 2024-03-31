@@ -26,6 +26,7 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
+import { ORGANIZATION_STAGES } from './constants/editOrganizationProfileSchema';
 import { convertLocalitiesToComboboxItems } from './helpers/convertLocalitiesToComboboxItems';
 import { useEditOrganizationProfileForm } from './hooks/useEditOrganizationProfileForm';
 
@@ -68,15 +69,13 @@ export const EditOrganizationProfileForm = ({
                     />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='REQUEST'>
-                      <I18nText path='organization.stage.request' />
-                    </SelectItem>
-                    <SelectItem value='NEGOTIATION'>
-                      <I18nText path='organization.stage.negotiation' />
-                    </SelectItem>
-                    <SelectItem value='CONCLUSION'>
-                      <I18nText path='organization.stage.conclusion' />
-                    </SelectItem>
+                    {ORGANIZATION_STAGES.map((stage) => (
+                      <SelectItem value={stage}>
+                        <I18nText
+                          path={`organization.stage.${stage.toLowerCase()}` as LocaleMessageId}
+                        />
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </FormControl>

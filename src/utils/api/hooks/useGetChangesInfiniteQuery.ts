@@ -3,11 +3,13 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 
 import { getPageCount } from '@/components/ui';
 
+import type { GetChangesParams } from '../requests';
 import { getChanges } from '../requests';
 
-export const DEFAULT_CHANGES_PAGE = 1;
-
-export const useGetChangesInfiniteQuery = (settings?: InfiniteQuerySettings<typeof getChanges>) =>
+export const useGetChangesInfiniteQuery = (
+  params: GetChangesParams,
+  settings?: InfiniteQuerySettings<typeof getChanges>
+) =>
   useInfiniteQuery<
     ChangesResponseWithPagination,
     any,
@@ -15,13 +17,13 @@ export const useGetChangesInfiniteQuery = (settings?: InfiniteQuerySettings<type
     QueryKey,
     number
   >({
-    queryKey: ['getChanges', settings?.config?.params?.current],
-    initialPageParam: DEFAULT_CHANGES_PAGE,
-    queryFn: ({ pageParam = DEFAULT_CHANGES_PAGE }) =>
+    queryKey: ['getChanges', params.current],
+    initialPageParam: +params.current,
+    queryFn: ({ pageParam }) =>
       getChanges({
+        params: { ...params, current: String(pageParam) },
         config: {
-          ...settings?.config,
-          params: { ...settings?.config?.params, current: String(pageParam) }
+          ...settings?.config
         }
       }),
     getNextPageParam: (lastPage, pages) =>

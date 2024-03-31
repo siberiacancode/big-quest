@@ -9,8 +9,10 @@ import {
   phoneNumberSchema
 } from '@/components/ui';
 
+export const ORGANIZATION_STAGES = ['REQUEST', 'NEGOTIATION', 'CONCLUSION'] as const;
+
 export const editOrganizationProfileSchema = z.object({
-  stage: z.enum(['REQUEST', 'NEGOTIATION', 'CONCLUSION']),
+  stage: z.enum(ORGANIZATION_STAGES),
   locality: z.string().min(1, { message: 'validation.required' }),
   name: z
     .string()

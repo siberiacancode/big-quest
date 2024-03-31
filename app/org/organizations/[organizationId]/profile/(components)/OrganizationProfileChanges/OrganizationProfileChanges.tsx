@@ -17,21 +17,18 @@ import { useGetChangesInfiniteQuery } from '@/utils/api';
 
 import { AddOrganizationChangeForm } from './components/AddOrganizationChangeForm/AddOrganizationChangeForm';
 
-const DEFAULT_CHANGES_LIMIT = '5';
+const DEFAULT_CHANGES_PAGE = '1';
+const CHANGES_LIMIT = '5';
 
 export interface OrganizationProfileChangesProps {
   organization: OrganizationResponse;
 }
 
 export const OrganizationProfileChanges = ({ organization }: OrganizationProfileChangesProps) => {
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetChangesInfiniteQuery({
-    config: {
-      cache: 'no-cache',
-      params: {
-        limit: DEFAULT_CHANGES_LIMIT,
-        criteria: organization.id
-      }
-    }
+  const getChangesInfiniteQuery = useGetChangesInfiniteQuery({
+    current: DEFAULT_CHANGES_PAGE,
+    limit: CHANGES_LIMIT,
+    criteria: organization.id
   });
 
   return (
@@ -43,7 +40,7 @@ export const OrganizationProfileChanges = ({ organization }: OrganizationProfile
         </Typography>
       </CardTitle>
       <Timeline>
-        {data?.pages.map((page) =>
+        {getChangesInfiniteQuery.data?.pages.map((page) =>
           page.rows.map((change) => (
             <TimelineItem key={change.id}>
               <TimelineTitle>
@@ -54,12 +51,12 @@ export const OrganizationProfileChanges = ({ organization }: OrganizationProfile
           ))
         )}
       </Timeline>
-      {hasNextPage && (
+      {getChangesInfiniteQuery.hasNextPage && (
         <Button
           className='w-full'
-          onClick={() => fetchNextPage()}
-          disabled={isFetchingNextPage}
-          loading={isFetchingNextPage}
+          onClick={() => getChangesInfiniteQuery.fetchNextPage()}
+          disabled={getChangesInfiniteQuery.isFetchingNextPage}
+          loading={getChangesInfiniteQuery.isFetchingNextPage}
         >
           <I18nText path='button.loadMore' />
         </Button>

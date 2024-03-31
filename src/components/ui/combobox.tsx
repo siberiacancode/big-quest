@@ -14,7 +14,6 @@ import {
 } from '@/components/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
-import { useTheme } from '@/utils/contexts';
 
 import { Input } from './input';
 import { ScrollArea } from './scroll-area';
@@ -56,7 +55,6 @@ export const Combobox = ({
   loading = false
 }: ComboboxProps) => {
   const [open, setOpen] = React.useState(false);
-  const { theme } = useTheme();
 
   return (
     <Popover open={open} onOpenChange={setOpen} modal>
@@ -97,7 +95,7 @@ export const Combobox = ({
           <ScrollArea
             className={cn('max-h-[220px] overflow-auto', !items.length && !unselect && 'hidden')}
           >
-            <CommandGroup className={cn({ 'bg-background': theme === 'dark' })}>
+            <CommandGroup className='dark:bg-background'>
               {unselect && (
                 <CommandItem
                   key='unselect'

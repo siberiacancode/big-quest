@@ -1,7 +1,7 @@
 import { api } from '../../../instance';
 
 interface GetTariffByLegalEntityIdParams {
-  id: string;
+  legalEntityId: string;
 }
 
 export type GetTariffByLegalEntityIdRequestConfig = RequestConfig<GetTariffByLegalEntityIdParams>;
@@ -9,4 +9,5 @@ export type GetTariffByLegalEntityIdRequestConfig = RequestConfig<GetTariffByLeg
 export const getTariffByLegalEntityId = ({
   params,
   config
-}: GetTariffByLegalEntityIdRequestConfig) => api.get<TariffResponse>(`tariff/${params.id}`, config);
+}: GetTariffByLegalEntityIdRequestConfig) =>
+  api.get<TariffResponse>(`tariff/${params.legalEntityId}`, config);

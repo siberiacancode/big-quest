@@ -118,7 +118,7 @@ interface OrganizationResponse {
   avatar?: string | null;
   locality?: string | null;
   id: string;
-  name?: string | null;
+  name: string;
   description?: string | null;
   information?: LegalInformation | null;
   requisites?: RequisitesDto | null;

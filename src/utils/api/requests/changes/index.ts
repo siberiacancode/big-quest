@@ -1,9 +1,18 @@
 import { api } from '../../instance';
 
-export type GetChangesRequestConfig = RequestConfig;
+export interface GetChangesParams {
+  current: string;
+  limit: string;
+  criteria: string;
+}
 
-export const getChanges = async ({ config }: GetChangesRequestConfig) =>
-  api.get<ChangesResponseWithPagination>('changes', config);
+export type GetChangesRequestConfig = RequestConfig<GetChangesParams>;
+
+export const getChanges = async ({ params, config }: GetChangesRequestConfig) =>
+  api.get<ChangesResponseWithPagination>('changes', {
+    ...config,
+    params: { ...config?.params, ...params }
+  });
 
 export type PostChangesParams = CreateChangesDto;
 export type PostChangesRequestConfig = RequestConfig<PostChangesParams>;
