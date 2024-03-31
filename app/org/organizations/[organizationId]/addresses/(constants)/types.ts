@@ -1,5 +1,5 @@
 export interface AddressData {
-  organizationId: string;
+  id: string;
   locality: string;
   street: string;
   house: string;

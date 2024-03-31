@@ -13,18 +13,28 @@ import {
   Typography
 } from '@/components/ui';
 
-import { AddAddressForm } from './components/AddAddressForm/AddAddressForm';
+import type { AddressData } from '../../(constants)/types';
+
+import { ActionAddressForm } from './components/ActionAddressForm/ActionAddressForm';
+import type { AddressActionType } from './contants/types';
 import { useActionAddressDialog } from './hooks/useActionAddressDialog';
 
-interface AddAddressDialogProps {
+interface ActionAddressDialogProps extends React.ComponentProps<typeof Dialog> {
   trigger?: JSX.Element;
+  actionType: AddressActionType;
+  address?: AddressData;
 }
 
-export const ActionAddressDialog = ({ trigger }: AddAddressDialogProps) => {
-  const { functions } = useActionAddressDialog();
+export const ActionAddressDialog = ({
+  trigger,
+  actionType,
+  address,
+  ...props
+}: ActionAddressDialogProps) => {
+  const { functions } = useActionAddressDialog({ actionType });
 
   return (
-    <Dialog>
+    <Dialog {...props}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className='flex h-fit w-11/12 max-w-[713px] flex-col rounded-lg smx:max-h-[90%]'>
         <DialogClose>
@@ -38,7 +48,11 @@ export const ActionAddressDialog = ({ trigger }: AddAddressDialogProps) => {
           </DialogTitle>
         </DialogHeader>
         <div className='flex h-full flex-col items-end justify-between overflow-y-auto rounded-lg border p-5'>
-          <AddAddressForm onAdded={functions.onAdded} />
+          <ActionAddressForm
+            onAction={functions.onAction}
+            actionType={actionType}
+            address={address}
+          />
         </div>
       </DialogContent>
     </Dialog>

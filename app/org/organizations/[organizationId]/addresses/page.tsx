@@ -2,7 +2,7 @@ import { PlusCircledIcon } from '@radix-ui/react-icons';
 
 import { I18nText } from '@/components/common';
 import { Button, Typography } from '@/components/ui';
-import { getOrganizationAddressesById } from '@/utils/api/requests';
+import { getLegalAddressesByLegalId } from '@/utils/api/requests';
 
 import { ActionAddressDialog } from './(components)/ActionAddressDialog/ActionAddressDialog';
 import { AddressCard } from './(components)/AddressCard/AddressCard';
@@ -12,8 +12,8 @@ interface OrganizationAddressesPageProps {
 }
 
 const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
-  const getOrganizationAddressesByIdResponse = await getOrganizationAddressesById({
-    params: { id: params.organizationId }
+  const getLegalAddressesByLegalIdResponse = await getLegalAddressesByLegalId({
+    params: { legalId: params.organizationId }
   });
 
   return (
@@ -23,6 +23,7 @@ const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
           <I18nText path='partners.addresses.title' />
         </Typography>
         <ActionAddressDialog
+          actionType='add'
           trigger={
             <Button variant='light' className='mx-2 p-5' size='sm'>
               <PlusCircledIcon className='mr-2 h-4 w-4' />
@@ -32,8 +33,8 @@ const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
         />
       </div>
       <div className='gap-5 2xlx:grid-cols-2 xlx:flex xlx:flex-wrap 2xl:grid-cols-3 xl:grid'>
-        {getOrganizationAddressesByIdResponse.addresses.map((address, index) => (
-          <AddressCard key={index} address={address} />
+        {getLegalAddressesByLegalIdResponse.map((address) => (
+          <AddressCard key={address.id} address={address} />
         ))}
       </div>
     </>

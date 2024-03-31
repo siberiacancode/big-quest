@@ -1,3 +1,5 @@
+'use client';
+
 import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {
@@ -15,16 +17,25 @@ import {
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 
-import { convertLocalitiesToComboboxItems } from './helpers/convertLocalitiesToComboboxItems';
-import { useAddAddressForm } from './hooks/useAddAddressForm';
+import type { AddressData } from '../../../../(constants)/types';
+import type { AddressActionType } from '../../contants/types';
 
-interface AddAddressFormProps {
-  onAdded: () => void;
+import { convertLocalitiesToComboboxItems } from './helpers/convertLocalitiesToComboboxItems';
+import { useActionAddressForm } from './hooks/useActionAddressForm';
+
+interface ActionAddressProps<ActionType extends AddressActionType> {
+  onAction: () => void;
+  actionType: ActionType;
+  address: ActionType extends 'edit' ? AddressData : undefined;
 }
 
-export const AddAddressForm = ({ onAdded }: AddAddressFormProps) => {
+export const ActionAddressForm = <ActionType extends AddressActionType>({
+  onAction,
+  actionType,
+  address
+}: ActionAddressProps<ActionType>) => {
   const i18n = useI18n();
-  const { state, form, functions } = useAddAddressForm({ onAdded });
+  const { state, form, functions } = useActionAddressForm({ onAction, actionType, address });
 
   return (
     <Form {...form}>

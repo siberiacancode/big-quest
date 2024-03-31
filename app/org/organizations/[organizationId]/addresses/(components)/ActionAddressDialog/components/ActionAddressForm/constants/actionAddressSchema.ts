@@ -10,7 +10,7 @@ const workingHourSchema = z.object({
   dayOff: z.boolean()
 });
 
-export const addAddressSchema = z.object({
+export const actionAddressSchema = z.object({
   locality: z.string().min(1, { message: 'validation.required' }),
   street: z.string().min(1, { message: 'validation.required' }),
   house: z.string().min(1, { message: 'validation.required' }),
@@ -26,4 +26,4 @@ export const addAddressSchema = z.object({
   })
 });
 
-export type AddAddressSchema = z.infer<typeof addAddressSchema>;
+export type ActionAddressSchema = z.infer<typeof actionAddressSchema>;

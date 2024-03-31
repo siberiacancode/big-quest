@@ -16,13 +16,17 @@ interface AddressCardProps {
 
 export const AddressCard = ({ address }: AddressCardProps) => {
   const { state, functions } = useAddressCard(address);
-  console.log('@', state, functions);
 
   return (
     <Card className='min-w-[340px] flex-1'>
       <CardContent className='flex flex-row-reverse justify-between p-8 pb-12 pr-5 pt-4'>
         <div className='right absolute right-2 top-2 z-10 flex gap-1'>
-          <ActionAddressDialog />
+          <ActionAddressDialog
+            open={state.editDialogOpen}
+            onOpenChange={functions.onEditCloseClick}
+            actionType='edit'
+            address={address}
+          />
         </div>
         <div className='mt-6 flex flex-1 flex-col space-y-3'>
           <div className='flex justify-between'>

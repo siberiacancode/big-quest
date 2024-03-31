@@ -161,32 +161,6 @@ interface RegisterOrganizationDto {
   phone: string;
 }
 
-interface AddressResponse {
-  country: string;
-  region: string;
-  city: string;
-  postal_code: string;
-  street: string;
-  house: string;
-  flat: number;
-  geo_lat: number;
-  geo_lon: number;
-  unrestrictedValue: string;
-  value: string;
-  cityWithType: string;
-}
-
-interface OrganizationAddressesResponse {
-  addresses: {
-    organizationId: string;
-    locality: string;
-    street: string;
-    house: string;
-    details?: string;
-    workingHours: WorkingHourDto[];
-  }[];
-}
-
 interface CreateActivityDto {
   name: string;
   category: string;
@@ -368,4 +342,46 @@ interface OrganizationListResponse {
   countDays: string;
   stage: Stage;
   type: LegalType;
+}
+
+interface AddressResponse {
+  details: string;
+  house: string;
+  locality: string;
+  street: string;
+  workingHours: WorkingHourDto[];
+  id: string;
+}
+
+interface UpdateAddressDto {
+  details?: string;
+  house?: string;
+  locality?: string;
+  street?: string;
+  workingHours?: WorkingHourDto[];
+  id: string;
+}
+
+interface CreateAddressDto {
+  details: string;
+  house: string;
+  locality: string;
+  street: string;
+  workingHours: WorkingHourDto[];
+  legalId: string;
+}
+
+interface AddressResponseFixMe {
+  country: string;
+  region: string;
+  city: string;
+  postal_code: string;
+  street: string;
+  house: string;
+  flat: number;
+  geo_lat: number;
+  geo_lon: number;
+  unrestrictedValue: string;
+  value: string;
+  cityWithType: string;
 }
