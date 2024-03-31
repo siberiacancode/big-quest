@@ -22,18 +22,14 @@ export const useEmployeeCard = (employee: EmployeeData) => {
 
   const onAlertDeleteClick = async () => {
     await deleteOrganizationDeleteEmployeeMutation.mutateAsync({ params: { id: employee.id } });
-    toast.success(
-      i18n.formatMessage({ id: 'employeeCard.toast.deleted' }, { name: employee.name })
-    );
+    toast.success(i18n.formatMessage({ id: 'toast.deleted' }, { name: employee.name }));
     setDeleteAlertOpen(false);
     router.refresh();
   };
 
   const onSendConfirmationClick = async () => {
     await getAuthNewCodeMutation.mutateAsync({ params: { email: employee.email } });
-    toast.success(
-      i18n.formatMessage({ id: 'employeeCard.toast.sendConfirmation' }, { email: employee.email })
-    );
+    toast.success(i18n.formatMessage({ id: 'toast.sendConfirmation' }, { email: employee.email }));
   };
 
   const onEditClick = () => setEditDialogOpen(true);

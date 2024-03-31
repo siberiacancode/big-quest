@@ -180,8 +180,6 @@
   "employeeCard.status.inactive": "неактивный",
   "employeeCard.deleteAlert.title": "Вы абсолютно уверены?",
   "employeeCard.deleteAlert.description": "Это действие не может быть отменено. Это приведет к безвозвратному удалению данных о сотруднике {name} с наших серверов.",
-  "employeeCard.toast.sendConfirmation": "Подтверждение отправлено на почту {email}",
-  "employeeCard.toast.deleted": "Сотрудник {name} удален",
 
   "table.column.organization.stage": "Статус",
   "table.column.organization.name": "Организация",
@@ -255,5 +253,8 @@
   "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
   "tooltip.kpp": "КПП - 9 цифр",
   "tooltip.ogrn": "ОГРН - 13 цифр, ОГРНИП - 15 цифр",
-  "tooltip.bik": "БИК - 9 цифр"
+  "tooltip.bik": "БИК - 9 цифр",
+
+  "toast.sendConfirmation": "Подтверждение отправлено на почту {email}",
+  "toast.deleted": "Сотрудник {name} удален"
 }
