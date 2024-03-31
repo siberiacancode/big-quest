@@ -1,7 +1,7 @@
 import { AddressCardSkeleton } from '@/components/ui';
 import { Skeleton } from '@/components/ui/skeleton';
 
-const AddressesLoading = () => (
+const OrganizationAddressesPageLoading = () => (
   <>
     <div className='flex justify-between'>
       <Skeleton className='h-8 w-28 bg-background' />
@@ -26,4 +26,4 @@ const AddressesLoading = () => (
   </>
 );
 
-export default AddressesLoading;
+export default OrganizationAddressesPageLoading;

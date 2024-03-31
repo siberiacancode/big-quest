@@ -4,10 +4,13 @@ const nextConfig = {};
 module.exports = {
   ...nextConfig,
   images: {
-    domains: ['localhost'],
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: '*'
+      },
+      {
+        protocol: 'http',
         hostname: '*'
       }
     ]

@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-import { getRefreshTokens } from '@/utils/api';
+import { getAuthRefreshTokens } from '@/utils/api';
 import { api } from '@/utils/api/instance';
 import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
 import { generateSetTokensInterceptor } from '@/utils/api/interceptors/generateSetTokensInterceptor';
@@ -25,11 +25,11 @@ export async function middleware(request: NextRequest) {
 
   const authTokenCookie = request.cookies.get(COOKIES.ACCESS_TOKEN);
   const refreshTokenCookie = request.cookies.get(COOKIES.REFRESH_TOKEN);
+  const userSessionCookie = request.cookies.get(COOKIES.USER_SESSION);
 
-  const isAuthenticated = !!authTokenCookie && !!refreshTokenCookie;
+  const isAuthenticated = !!authTokenCookie && !!refreshTokenCookie && !!userSessionCookie;
 
   if (!isAuthenticated && request.url.includes(ROUTES.AUTH)) {
-    console.log('@.1 !isAuthenticated page is auth');
     return NextResponse.next();
   }
 
@@ -44,10 +44,10 @@ export async function middleware(request: NextRequest) {
       console.log('@.3 update tokens and user data');
 
       try {
-        console.log('@.4 getRefreshTokens tokensTimerCookie done');
-        await getRefreshTokens();
+        console.log('@.4 getAuthRefreshTokens tokensTimerCookie done');
+        await getAuthRefreshTokens();
       } catch (error) {
-        console.log('@.5 getRefreshTokens first error', error);
+        console.log('@.5 getAuthRefreshTokens first error', error);
         const response = NextResponse.redirect(new URL(ROUTES.AUTH, request.url));
         clearCookies(response, [
           COOKIES.REFRESH_TOKEN,
