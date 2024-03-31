@@ -3,7 +3,13 @@ import { toast } from 'sonner';
 
 import { useI18n } from '@/utils/contexts';
 
-export const useActionEmployeeDialog = ({ actionType }) => {
+import type { EmployeeActionType } from '../../constants/types';
+
+interface UseActionEmployeeDialogParams {
+  actionType: EmployeeActionType;
+}
+
+export const useActionEmployeeDialog = ({ actionType }: UseActionEmployeeDialogParams) => {
   const i18n = useI18n();
   const [open, setOpen] = React.useState(false);
 

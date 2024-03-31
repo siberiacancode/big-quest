@@ -40,7 +40,7 @@ export const useActionEmployeeForm = ({
     }
   });
 
-  const organizationActionEmployee = useOrganizationActionEmployeeMutation();
+  const organizationActionEmployeeMutation = useOrganizationActionEmployeeMutation();
 
   const onSubmit = actionEmployeeForm.handleSubmit(async (values) => {
     const requestParams = {
@@ -54,7 +54,7 @@ export const useActionEmployeeForm = ({
         action: actionType
       } as const;
 
-      await organizationActionEmployee.mutateAsync(postOrganizationActionEmployeeParams);
+      await organizationActionEmployeeMutation.mutateAsync(postOrganizationActionEmployeeParams);
     }
 
     if (actionType === 'edit') {
@@ -69,7 +69,7 @@ export const useActionEmployeeForm = ({
         action: actionType
       } as const;
 
-      await organizationActionEmployee.mutateAsync(postOrganizationActionEmployeeParams);
+      await organizationActionEmployeeMutation.mutateAsync(postOrganizationActionEmployeeParams);
     }
 
     onAction();
@@ -79,7 +79,7 @@ export const useActionEmployeeForm = ({
   return {
     state: {
       showPreview,
-      isLoading: organizationActionEmployee.isPending
+      isLoading: organizationActionEmployeeMutation.isPending
     },
     form: actionEmployeeForm,
     functions: { onSubmit, onDeletePreviewClick }
