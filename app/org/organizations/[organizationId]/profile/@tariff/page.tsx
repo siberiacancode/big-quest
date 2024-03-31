@@ -16,17 +16,17 @@ import {
 } from '@/components/ui';
 import { getTariffByLegalEntityId } from '@/utils/api';
 
-import { EditOrganizationTariffDialog } from './EditOrganizationTariffDialog/EditOrganizationTariffDialog';
+import { EditOrganizationTariffDialog } from './components/EditOrganizationTariffDialog/EditOrganizationTariffDialog';
 
 export interface OrganizationProfileTariffProps {
-  organization: OrganizationResponse;
+  params: { organizationId: string };
 }
 
-export const OrganizationProfileTariff = async ({
-  organization
+const OrganizationProfileTariffSlot = async ({
+  params: { organizationId }
 }: OrganizationProfileTariffProps) => {
   const getTariffByLegalEntityIdResponse = await getTariffByLegalEntityId({
-    params: { legalEntityId: organization.id },
+    params: { legalEntityId: organizationId },
     config: {
       cache: 'no-cache'
     }
@@ -100,3 +100,5 @@ export const OrganizationProfileTariff = async ({
     </InfoCard>
   );
 };
+
+export default OrganizationProfileTariffSlot;

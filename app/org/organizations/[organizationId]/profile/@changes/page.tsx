@@ -21,19 +21,21 @@ const DEFAULT_CHANGES_PAGE = '1';
 const CHANGES_LIMIT = '5';
 
 export interface OrganizationProfileChangesProps {
-  organization: OrganizationResponse;
+  params: { organizationId: string };
 }
 
-export const OrganizationProfileChanges = ({ organization }: OrganizationProfileChangesProps) => {
+const OrganizationProfileChangesSlot = ({
+  params: { organizationId }
+}: OrganizationProfileChangesProps) => {
   const getChangesInfiniteQuery = useGetChangesInfiniteQuery({
     current: DEFAULT_CHANGES_PAGE,
     limit: CHANGES_LIMIT,
-    criteria: organization.id
+    criteria: organizationId
   });
 
   return (
     <Card className='flex w-full flex-col p-4'>
-      <AddOrganizationChangeForm organization={organization} />
+      <AddOrganizationChangeForm organizationId={organizationId} />
       <CardTitle className='mt-5'>
         <Typography variant='h5' tag='p'>
           <I18nText path='organization.profile.changes.title' />
@@ -64,3 +66,5 @@ export const OrganizationProfileChanges = ({ organization }: OrganizationProfile
     </Card>
   );
 };
+
+export default OrganizationProfileChangesSlot;

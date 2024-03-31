@@ -9,12 +9,12 @@ import { useI18n } from '@/utils/contexts';
 import { useAddOrganizationChangeForm } from './hooks/useAddOrganizationChangeForm';
 
 export interface AddOrganizationChangeFormProps {
-  organization: OrganizationResponse;
+  organizationId: string;
 }
 
-export const AddOrganizationChangeForm = ({ organization }: AddOrganizationChangeFormProps) => {
+export const AddOrganizationChangeForm = ({ organizationId }: AddOrganizationChangeFormProps) => {
   const i18n = useI18n();
-  const { form, functions, state } = useAddOrganizationChangeForm({ organization });
+  const { form, functions, state } = useAddOrganizationChangeForm({ organizationId });
 
   return (
     <Form {...form}>

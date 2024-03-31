@@ -10,11 +10,11 @@ import {
 } from '../constants/addOrganizationChangeSchema';
 
 export interface UseAddOrganizationChangeFormParams {
-  organization: OrganizationResponse;
+  organizationId: string;
 }
 
 export const useAddOrganizationChangeForm = ({
-  organization
+  organizationId
 }: UseAddOrganizationChangeFormParams) => {
   const queryClient = useQueryClient();
   const addOrganizationChangeForm = useForm<AddOrganizationChangeSchema>({
@@ -27,7 +27,7 @@ export const useAddOrganizationChangeForm = ({
 
   const onSubmit = addOrganizationChangeForm.handleSubmit(async (values) => {
     await postChangesMutation.mutateAsync({
-      params: { criteria: organization.id, new: { comment: values.comment }, action: 'comment' }
+      params: { criteria: organizationId, new: { comment: values.comment }, action: 'comment' }
     });
     addOrganizationChangeForm.reset();
     queryClient.invalidateQueries({ queryKey: ['getChanges'] });
