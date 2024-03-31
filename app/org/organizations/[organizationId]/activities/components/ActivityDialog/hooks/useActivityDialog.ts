@@ -24,6 +24,8 @@ export const useActivityDialog = ({ actionType: externalActionType, activity }) 
       toast(i18n.formatMessage({ id: 'dialog.addActivity.success' }), {
         cancel: { label: 'Close' }
       });
+
+      setOpen(false);
     }
 
     if (actionType === 'edit') {
@@ -31,7 +33,6 @@ export const useActivityDialog = ({ actionType: externalActionType, activity }) 
         cancel: { label: 'Close' }
       });
     }
-    setOpen(false);
   };
 
   return {

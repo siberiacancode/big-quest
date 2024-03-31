@@ -9,7 +9,7 @@ export const getActivityById: RestRequestConfig = {
         id: '1',
         media: [
           {
-            id: 1,
+            id: '1',
             url: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
             position: 1,
             type: 'image',
@@ -18,7 +18,7 @@ export const getActivityById: RestRequestConfig = {
             isAvatar: true
           },
           {
-            id: 2,
+            id: '2',
             url: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
             position: 1,
             type: 'image',
@@ -27,7 +27,7 @@ export const getActivityById: RestRequestConfig = {
             isAvatar: false
           },
           {
-            id: 3,
+            id: '3',
             url: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
             position: 1,
             type: 'image',
@@ -36,7 +36,7 @@ export const getActivityById: RestRequestConfig = {
             isAvatar: false
           },
           {
-            id: 4,
+            id: '4',
             url: 'http://localhost:31299/api/1.0/static/activity/video-1.mp4',
             position: 1,
             type: 'video',

@@ -16,9 +16,9 @@ import { useActivityMedia } from './hooks/useActivityMedia';
 interface ActivityMediaProps {
   media?: ActivityProps['media'];
   postMediaFiles: File[];
-  deleteFileIds: number[];
+  deleteFileIds: string[];
   setPostMediaFiles: (props: File[]) => void;
-  setDeleteFileIds: (props: number[]) => void;
+  setDeleteFileIds: (props: string[]) => void;
 }
 
 export const ActivityMedia = ({

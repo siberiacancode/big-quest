@@ -212,7 +212,7 @@ interface Schedule {
 }
 
 interface MediaResponse {
-  id: number;
+  id: string;
   url: string;
   position: number;
   type: 'image' | 'video';

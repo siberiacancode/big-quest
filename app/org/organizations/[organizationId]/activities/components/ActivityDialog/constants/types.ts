@@ -1,7 +1,7 @@
 export type ActivityActionType = 'add' | 'edit' | 'info';
 
 export interface ActivityMediaProps {
-  id: number;
+  id: string;
   url: string;
   position: number;
   type: 'image' | 'video';

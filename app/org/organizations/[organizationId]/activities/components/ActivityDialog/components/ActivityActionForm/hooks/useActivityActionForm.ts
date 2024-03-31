@@ -34,12 +34,12 @@ export const useActivityActionForm = ({
   const [isCategoryOpen, setIsCategoryOpen] = React.useState(false);
   const [isStatusOpen, setIsStatusOpen] = React.useState(false);
   const [postMediaFiles, setPostMediaFiles] = React.useState<File[]>([]);
-  const [deleteFileIds, setDeleteFileIds] = React.useState<number[]>([]);
+  const [deleteFileIds, setDeleteFileIds] = React.useState<string[]>([]);
 
   const getCategoryQuery = useGetCategoryQuery();
-  // на submit добавить еще запрос отправки медиа
+
   const getActivityByIdQuery = useGetActivityByIdQuery({
-    id: activity?.id ?? '1'
+    id: activity?.id
   });
 
   const defaultValues = {
@@ -84,9 +84,8 @@ export const useActivityActionForm = ({
 
     if (actionType === 'edit') {
       if (postMediaFiles) {
-        // id все таки string или number
         const postActivityMediaByIdParams = {
-          params: { id: activity!.id.toString(), files: postMediaFiles }
+          params: { id: activity!.id, files: postMediaFiles }
         } as const;
 
         await postActivityMediaByIdMutation.mutateAsync(postActivityMediaByIdParams);
@@ -94,7 +93,7 @@ export const useActivityActionForm = ({
       if (deleteFileIds) {
         deleteFileIds.forEach(async (deleteId) => {
           const deleteFileByIdParams = {
-            params: { id: deleteId.toString() }
+            params: { id: deleteId }
           } as const;
 
           await deleteFileByIdMutation.mutateAsync(deleteFileByIdParams);
@@ -116,9 +115,10 @@ export const useActivityActionForm = ({
       categoryValues: getCategoryQuery.data,
       isCategoryOpen,
       isStatusOpen,
-      isLoading: postActivityActionMutation.isPending,
-      media: getActivityByIdQuery.data?.media,
-      activity: getActivityByIdQuery.data,
+      isPostActivityLoading: postActivityActionMutation.isPending,
+      isGetActivityLoading: getActivityByIdQuery.isPending,
+      media: getActivityByIdQuery.data?.media ?? [],
+      activity: getActivityByIdQuery.data ?? {},
       postMediaFiles,
       deleteFileIds
     },

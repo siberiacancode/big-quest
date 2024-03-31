@@ -1,14 +1,6 @@
 import React from 'react';
 
-export interface ActivityMedia {
-  id: number;
-  url: string;
-  position: number;
-  type: 'image' | 'video';
-  ext: string;
-  size: number;
-  isAvatar: boolean;
-}
+import type { ActivityProps } from '../../../constants/types';
 
 export interface ActiveMediaFile {
   url: string;
@@ -23,11 +15,11 @@ export interface UploadedMediaArray {
   type: string;
 }
 interface UseActivityMediaProps {
-  media?: ActivityMedia[];
+  media?: ActivityProps['media'];
   postMediaFiles: File[];
-  deleteFileIds: number[];
+  deleteFileIds: string[];
   setPostMediaFiles: (props: File[]) => void;
-  setDeleteFileIds: (props: number[]) => void;
+  setDeleteFileIds: (props: string[]) => void;
 }
 
 export const useActivityMedia = ({
@@ -39,7 +31,7 @@ export const useActivityMedia = ({
 }: UseActivityMediaProps) => {
   const defaultActiveMediaFile = media?.find((item) => item.isAvatar === true);
 
-  const [activityMedia, setActivityMedia] = React.useState<ActivityMedia[]>(media);
+  const [activityMedia, setActivityMedia] = React.useState<ActivityProps['media']>(media);
   const [activeMediaFile, setActiveMediaFile] = React.useState<ActiveMediaFile>(
     defaultActiveMediaFile ?? {
       url: '',
@@ -51,7 +43,7 @@ export const useActivityMedia = ({
   const [uploadedMediaArray, setUploadedMediaArray] = React.useState<UploadedMediaArray[]>([]);
 
   const onChangeAvatarClick = (file) => {
-    const newArray: ActivityMedia[] = activityMedia.map((item) => {
+    const newArray: ActivityProps['media'] = activityMedia.map((item) => {
       if (item.url === file.url && item.type === 'image') {
         const newItem = { ...item, isAvatar: true };
         setActiveMediaFile({ url: newItem.url, isAvatar: newItem.isAvatar, type: newItem.type });
