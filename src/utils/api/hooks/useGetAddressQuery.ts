@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
-import type { GetAddressParams } from '../requests/address';
-import { getAddress } from '../requests/address';
+import type { GetAddressParams } from '../requests';
+import { getAddress } from '../requests';
 
 export const useGetAddressQuery = (
   params: GetAddressParams,

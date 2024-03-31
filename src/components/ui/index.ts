@@ -1,6 +1,7 @@
 export * from './accordion';
 export * from './activity-card-skeleton';
 export * from './address-card-skeleton';
+export * from './alert-dialog';
 export * from './badge';
 export * from './bik-input';
 export * from './breadcrumbs';

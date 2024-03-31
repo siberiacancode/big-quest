@@ -1,18 +1,16 @@
-import { PlusCircledIcon } from '@radix-ui/react-icons';
-
 import { I18nText } from '@/components/common';
-import { Button, Typography } from '@/components/ui';
+import { Typography } from '@/components/ui';
 import { getOrganizationEmployees } from '@/utils/api/requests';
 
-import { EmployeeCard } from './components/EmployeeCard/EmployeeCard';
-import { ActionEmployeeDialog } from './components/EmployeeDialog/ActionEmployeeDialog';
+import { AddEmployeeDialog } from './(components)/AddEmployeeDialog/AddEmployeeDialog';
+import { EmployeeCard } from './(components)/EmployeeCard/EmployeeCard';
 
 interface OrganizationEmployeesPageProps {
   params: { organizationId: string };
 }
 
 const OrganizationEmployeesPage = async ({ params }: OrganizationEmployeesPageProps) => {
-  const organizationEmployees = await getOrganizationEmployees({
+  const getOrganizationEmployeesResponse = await getOrganizationEmployees({
     params: { id: params.organizationId },
     config: {
       cache: 'no-store'
@@ -25,19 +23,11 @@ const OrganizationEmployeesPage = async ({ params }: OrganizationEmployeesPagePr
         <Typography variant='h5' tag='h5'>
           <I18nText path='partners.employees.title' />
         </Typography>
-        <ActionEmployeeDialog
-          trigger={
-            <Button variant='light' className='mx-2 p-5' size='sm'>
-              <PlusCircledIcon className='mr-2 h-4 w-4' />
-              <I18nText path='button.addEmployee' />
-            </Button>
-          }
-          actionType='add'
-        />
+        <AddEmployeeDialog />
       </div>
-      <div className='gap-5 2xlx:grid-cols-2 xlx:flex xlx:flex-wrap 2xl:grid-cols-3 xl:grid'>
-        {organizationEmployees.map((employee, index) => (
-          <EmployeeCard key={index} employee={employee} />
+      <div className='grid gap-3 4xlx:grid-cols-4 3xlx:grid-cols-3 2xlx:grid-cols-2 mdx:grid-cols-1'>
+        {getOrganizationEmployeesResponse.map((employee) => (
+          <EmployeeCard key={employee.id} employee={employee} />
         ))}
       </div>
     </div>

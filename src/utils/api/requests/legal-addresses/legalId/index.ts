@@ -11,4 +11,4 @@ export const getLegalAddressesByLegalId = async ({
   params,
   config
 }: GetLegalAddressesByLegalIdRequestConfig) =>
-  api.get<AddressResponse[]>(`legal-address/${params.legalId}`, config);
+  api.get<AddressResponse[]>(`legal-addresses/${params.legalId}`, config);

@@ -2,8 +2,9 @@ import React from 'react';
 import { Link2Icon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 
-import { VkIcon } from '@/assets/icons/organization';
 import { cn } from '@/lib/utils';
+
+import { TelegramIcon, VkIcon, WhatsappIcon } from '../icons';
 
 const OrganizationProfileCardInfo = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
   ({ className, ...props }, ref) => (
@@ -44,6 +45,8 @@ const UnknownSocialIcon = () => (
 
 const SOCIAL_LINKS = {
   vk: VkIcon,
+  telegram: TelegramIcon,
+  whatsapp: WhatsappIcon,
   unknown: UnknownSocialIcon
 };
 

@@ -2,8 +2,10 @@ import React from 'react';
 
 import { I18nText } from '@/components/common';
 
+import type { WorkingHour } from '../../../../(constants)/types';
+
 interface WorkingHoursListProps {
-  workingHours: WorkingHourDto[];
+  workingHours: WorkingHour[];
 }
 
 const formatTime = (time: number) => {

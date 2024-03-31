@@ -38,6 +38,7 @@ export const DropzoneCard = ({ value, onChange, type = 'image', ...props }: Drop
             alt='activity-image'
           />
           <Button
+            type='button'
             variant='secondary'
             className='absolute right-0 top-0 m-2 rounded-full px-3'
             onClick={(event) => {
