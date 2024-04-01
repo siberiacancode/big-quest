@@ -9,7 +9,7 @@ export const getAuthRefreshTokensConfig: RestRequestConfig = {
       interceptors: {
         response: (data, { request, setCookie, setStatusCode }) => {
           if (request.cookies.refreshToken && request.cookies.accessToken) {
-            setCookie('refreshtoken', 'refreshToken', {
+            setCookie('refreshToken', 'refreshToken', {
               httpOnly: true,
               maxAge: 360000,
               path: '/'

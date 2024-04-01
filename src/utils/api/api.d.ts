@@ -199,6 +199,11 @@ interface AddressResponse {
   cityWithType: string;
 }
 
+interface ActivityListItemResponse {
+  id: string;
+  name: string;
+}
+
 interface OrganizationAddressesResponse {
   addresses: {
     organizationId: string;

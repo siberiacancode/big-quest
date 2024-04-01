@@ -1,3 +1,4 @@
+export * from './activity-list/get';
 export * from './address/get';
 export * from './auth/login/email/post';
 export * from './auth/refresh-tokens';
