@@ -28,7 +28,7 @@ export const useEditOrganizationTariffForm = ({
       freeActivity: tariff.freeActivity.toString(),
       paidActivity: tariff.paidActivity.toString(),
       periodMonth: tariff.periodMonth ? tariff.periodMonth.toString() : '',
-      totalPrice: tariff.totalPrice.toString()
+      totalPrice: tariff.totalPrice
     }
   });
 
@@ -41,7 +41,7 @@ export const useEditOrganizationTariffForm = ({
         freeActivity: +values.freeActivity,
         paidActivity: +values.paidActivity,
         periodMonth: +values.periodMonth,
-        totalPrice: +values.totalPrice
+        totalPrice: values.totalPrice
       }
     });
     router.refresh();

@@ -38,7 +38,9 @@ const OrganizationProfileTariffPage = async ({
         <InfoCardTitle>
           <Typography variant='h5' tag='p'>
             <I18nText path='organization.profile.tariff.title' />{' '}
-            {getTariffByLegalEntityIdResponse.totalPrice || (
+            {getTariffByLegalEntityIdResponse.totalPrice !== '0' &&
+              getTariffByLegalEntityIdResponse.totalPrice}
+            {getTariffByLegalEntityIdResponse.totalPrice === '0' && (
               <I18nText path='organization.profile.tariff.free' />
             )}
           </Typography>
@@ -47,7 +49,7 @@ const OrganizationProfileTariffPage = async ({
           <EditOrganizationTariffDialog
             tariff={getTariffByLegalEntityIdResponse}
             trigger={
-              <Button variant='ghost' className='p-2'>
+              <Button variant='ghost' className='p-2 text-muted-foreground'>
                 <I18nText path='button.updateTariff' />
               </Button>
             }

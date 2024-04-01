@@ -377,12 +377,12 @@ interface TariffResponse {
   id: string;
   freeActivity: number;
   paidActivity: number;
-  freeActivityPrice: number;
-  paidActivityPrice: number;
-  maxPricePaidActivity: number;
+  freeActivityPrice: string;
+  paidActivityPrice: string;
+  maxPricePaidActivity: string;
   freeActivityNuts: number;
   paidActivityNuts: number;
-  totalPrice: number;
+  totalPrice: string;
   discount: number;
   createdAt: string;
   updatedAt: string;
@@ -396,12 +396,12 @@ interface UpdateTariffDto {
   id: string;
   freeActivity?: number;
   paidActivity?: number;
-  freeActivityPrice?: number;
-  paidActivityPrice?: number;
-  maxPricePaidActivity?: number;
+  freeActivityPrice?: string;
+  paidActivityPrice?: string;
+  maxPricePaidActivity?: string;
   freeActivityNuts?: number;
   paidActivityNuts?: number;
-  totalPrice?: number;
+  totalPrice?: string;
   periodMonth?: number;
   status?: TariffStatus;
 }
