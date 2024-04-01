@@ -6,6 +6,7 @@ export * from './bik-input';
 export * from './breadcrumbs';
 export * from './button';
 export * from './card';
+export * from './carousel';
 export * from './checkbox';
 export * from './checking-account-input';
 export * from './clock-input';

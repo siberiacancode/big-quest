@@ -13,16 +13,19 @@
   "org.auth.footer.privacyPolicy": "Политика конфиденциальности",
 
   "button.add": "Добавить",
+  "button.delete": "Удалить",
+  "button.edit": "Редактировать",
+  "button.cancel": "Закрыть",
+  "button.sendConfirmation": "Отправить подтверждение",
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
   "button.close": "Закрыть",
   "button.addActivities": "Добавить активность",
   "button.addEmployee": "Добавить сотрудника",
-
+  "button.learnDetails": "Узнать подробности",
   "button.login": "Войти",
   "button.registration": "Регистрация",
   "button.entrance": "Вход",
-
   "button.registerOrganization": "Отправить заявку",
   "button.goToRegisterOrganization": "Оставить заявку",
   "button.organizationsEntrance": "Вход для организаций",
@@ -196,6 +199,10 @@
   "infoCard.description.draft": "Черновик",
   "infoCard.description.edit": "Редактирование",
 
+  "employeeCard.status.inactive": "неактивный",
+  "employeeCard.deleteAlert.title": "Вы абсолютно уверены?",
+  "employeeCard.deleteAlert.description": "Это действие не может быть отменено. Это приведет к безвозвратному удалению данных о сотруднике {name} с наших серверов.",
+
   "table.column.organization.stage": "Статус",
   "table.column.organization.name": "Организация",
   "table.column.organization.locality": "Населенный пункт",
@@ -244,6 +251,8 @@
   "validation.time.requiredBoth": "Необходимы оба значения времени",
   "validation.max": "Превышен лимит символов",
   "validation.format": "Неверный формат",
+  "validation.photo.max": "Максимальный размер фото 5MB",
+  "validation.photo.format": "Только .jpg, .jpeg, .png и .webp форматы поддерживаются",
 
   "dialog.registerOrganization.title": "Заполните заявку",
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
@@ -281,6 +290,7 @@
   "landing.statistics.participants": "Количество участников",
   "landing.statistics.activities": "Активностей{br}на нашей площадке",
   "landing.statistics.awards": "Выдано вознаграждений",
+  "landing.feedback.title": "Что о нас говорят",
   "landing.sponsors.title": "Спонсоры проекта",
   "landing.leaveRequest.title": "Хотите стать частью нашего проекта?",
   "landing.leaveRequest.subtitle": "Оставьте заявку!",
@@ -290,5 +300,8 @@
   "landing.footer.navigation.news": "Новости",
   "landing.footer.navigation.activities": "Активности",
   "landing.footer.navigation.sponsors": "Спонсоры",
-  "landing.footer.navigation.feedback": "Отзывы"
+  "landing.footer.navigation.feedback": "Отзывы",
+
+  "toast.sendConfirmation": "Подтверждение отправлено на почту {email}",
+  "toast.deleted": "Сотрудник {name} удален"
 }

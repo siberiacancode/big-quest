@@ -14,7 +14,10 @@ import {
 import { getOrganizationDashboard } from '@/utils/api';
 
 export const OrganizationsDashboard = async () => {
-  const dashboard = await getOrganizationDashboard();
+  const dashboard = await getOrganizationDashboard({
+    config: { cache: 'no-store' }
+  });
+
   return (
     <div className='flex flex-wrap gap-2'>
       <InfoCard>

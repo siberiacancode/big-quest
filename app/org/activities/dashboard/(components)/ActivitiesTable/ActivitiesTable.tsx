@@ -24,12 +24,12 @@ import { convertActivitiesToTableRows } from './helpers/convertActivitiesToTable
 import { useActivitiesTable } from './hooks/useActivitiesTable';
 
 interface ActivitiesTableProps {
-  actvities: ActivitiesResponse[];
+  activities: ActivitiesResponse[];
   pagination: PaginationResponse;
 }
 
-export const ActivitiesTable = ({ actvities, pagination }: ActivitiesTableProps) => {
-  const rows = React.useMemo(() => convertActivitiesToTableRows(actvities), [actvities]);
+export const ActivitiesTable = ({ activities, pagination }: ActivitiesTableProps) => {
+  const rows = React.useMemo(() => convertActivitiesToTableRows(activities), [activities]);
   const table = useDataTable(rows, columns);
   const { state, functions } = useActivitiesTable();
 

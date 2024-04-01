@@ -148,7 +148,11 @@ interface AddEmployeeDto {
   surname: string;
   email: string;
   phone: string;
-  // image?: any;
+  file?: File;
+}
+
+interface DeleteEmployeeDto {
+  id: string;
 }
 
 interface EditEmployeeDto {
@@ -159,7 +163,7 @@ interface EditEmployeeDto {
   surname: string;
   email: string;
   phone: string;
-  // image?: any;
+  image?: File;
 }
 
 interface RegisterOrganizationDto {
@@ -273,6 +277,11 @@ interface ActivitiesPaginationResponse {
   pagination: PaginationResponse;
 }
 
+interface GenerateNewCodeResponse {
+  success: boolean;
+  message?: string;
+}
+
 interface PaginationResponse {
   limit: number;
   current: number;
@@ -378,7 +387,8 @@ interface EmployeeDto {
   surname: string;
   email: string;
   phone: string;
-  // image?: any;
+  status: string;
+  image: string;
 }
 
 interface UpdateOrganizationDto {

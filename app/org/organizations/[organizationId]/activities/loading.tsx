@@ -1,6 +1,6 @@
 import { ActivityCardSkeleton, Skeleton } from '@/components/ui';
 
-const ActivitiesLoading = () => (
+const OrganizationActivitiesLoading = () => (
   <>
     <div className='flex flex-wrap justify-between gap-3'>
       <Skeleton className='h-8 w-32 bg-background' />
@@ -17,4 +17,4 @@ const ActivitiesLoading = () => (
   </>
 );
 
-export default ActivitiesLoading;
+export default OrganizationActivitiesLoading;

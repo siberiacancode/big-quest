@@ -13,7 +13,7 @@ const DEFAULT_ORGANIZATIONS_LIMIT = '10';
 const DEFAULT_ORGANIZATIONS_PAGE = '1';
 
 const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPageProps) => {
-  const organizationsResponse = await getOrganization({
+  const getOrganizationResponse = await getOrganization({
     config: {
       params: {
         limit: DEFAULT_ORGANIZATIONS_LIMIT,
@@ -29,8 +29,8 @@ const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPagePro
       <OrgBreadcrumbs ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }} />
       <OrganizationsDashboard />
       <OrganizationsTable
-        organizations={organizationsResponse.rows}
-        pagination={organizationsResponse.pagination}
+        organizations={getOrganizationResponse.rows}
+        pagination={getOrganizationResponse.pagination}
       />
     </div>
   );
