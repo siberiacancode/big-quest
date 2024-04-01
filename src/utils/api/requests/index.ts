@@ -4,6 +4,7 @@ export * from './activity-list';
 export * from './address';
 export * from './auth/login/email';
 export * from './auth/refreshTokens';
+export * from './leads/index';
 export * from './organization';
 export * from './organization/add-employee';
 export * from './organization/dashboard';

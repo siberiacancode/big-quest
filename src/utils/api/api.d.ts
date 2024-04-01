@@ -204,6 +204,11 @@ interface ActivityListItemResponse {
   name: string;
 }
 
+interface LeadResponse {
+  id: string;
+  fullname: string;
+}
+
 interface OrganizationAddressesResponse {
   addresses: {
     organizationId: string;

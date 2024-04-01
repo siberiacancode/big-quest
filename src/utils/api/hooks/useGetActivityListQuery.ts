@@ -8,7 +8,7 @@ export const useGetActivityListQuery = (
   settings?: QuerySettings<typeof getActivityList>
 ) =>
   useQuery({
-    queryKey: ['getAddress', params.activity],
+    queryKey: ['getActivityList', params.activity],
     queryFn: () => getActivityList({ params, config: settings?.config }),
     ...settings?.options
   });

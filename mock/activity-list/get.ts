@@ -34,7 +34,7 @@ export const getActivityListConfig: RestRequestConfig = {
     },
     {
       entities: {
-        query: { address: 'НеРисовашки' }
+        query: { activity: 'НеРисовашки' }
       },
       data: [
         {
