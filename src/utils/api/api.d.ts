@@ -137,6 +137,11 @@ type DateRange = {
   to: string;
 };
 
+type TimeRange = {
+  from: string;
+  to: string;
+};
+
 interface OrganizationScheduleDto {
   organizationId: string;
   activity: string;
@@ -146,6 +151,7 @@ interface OrganizationScheduleDto {
   isRepeat: boolean;
   dateRange: DateRange;
   date: string;
+  time: TimeRange;
   workingHours: WorkingHourDto[];
 }
 

@@ -28,6 +28,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
       isRepeat: false,
       placesCount: '',
       date: undefined,
+      time: { from: '09:00', to: '18:00' },
       dateRange: {
         from: undefined,
         to: undefined
@@ -45,9 +46,9 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
   });
 
   const postOrganizationAddSchedule = usePostOrganizationAddScheduleMutation();
-  console.log(addScheduleForm.formState.errors);
 
   const onSubmit = addScheduleForm.handleSubmit(async (values) => {
+    console.log(values);
     const formattedWorkingHours = Object.entries(values.workingHours).map(([day, element]) => {
       const [from1, from2] = element.time.from.split(':');
       const [to1, to2] = element.time.to.split(':');

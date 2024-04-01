@@ -8,15 +8,20 @@ import { cn } from '@/lib/utils';
 export type DatePickerProps = {
   value?: Date;
   onChange: (value: Date | undefined) => void;
+  classname?: string;
 };
 
-export const DatePicker = ({ onChange, value }: DatePickerProps) => {
+export const DatePicker = ({ onChange, value, classname }: DatePickerProps) => {
   return (
     <Popover>
       <PopoverTrigger asChild>
         <Button
           variant='outline'
-          className={cn('w-[240px] pl-3 text-left font-normal', !value && 'text-muted-foreground')}
+          className={cn(
+            'w-[240px] pl-3 text-left font-normal',
+            !value && 'text-muted-foreground',
+            classname
+          )}
         >
           {value ? format(value, 'PPP') : <I18nText path='datePicker.label' />}
           <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />

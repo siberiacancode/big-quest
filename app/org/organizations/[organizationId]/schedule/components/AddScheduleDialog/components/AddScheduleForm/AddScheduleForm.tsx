@@ -179,7 +179,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
               control={form.control}
               name='preEntry'
               render={({ field }) => (
-                <FormItem className='flex flex-col space-y-4'>
+                <FormItem className='flex flex-col space-y-3'>
                   <FormLabel>
                     <I18nText path='field.preEntry.label' />
                   </FormLabel>
@@ -202,7 +202,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
               control={form.control}
               name='isRepeat'
               render={({ field }) => (
-                <FormItem className='flex flex-col space-y-4'>
+                <FormItem className='flex flex-col space-y-3'>
                   <FormLabel>
                     <I18nText path='field.activity.label' />
                   </FormLabel>
@@ -226,7 +226,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                 control={form.control}
                 name='dateRange'
                 render={({ field }) => (
-                  <FormItem className='flex flex-col space-y-4'>
+                  <FormItem className='flex flex-col space-y-3'>
                     <FormLabel>
                       <I18nText path='field.startAndEndDate.label' />
                     </FormLabel>
@@ -246,7 +246,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                 control={form.control}
                 name='placesCount'
                 render={({ field }) => (
-                  <FormItem className='flex flex-col space-y-4'>
+                  <FormItem className='flex flex-col space-y-3'>
                     <FormLabel>
                       <I18nText path='field.placesCount.label' />
                     </FormLabel>
@@ -265,25 +265,76 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
               />
             )}
             {!form.getValues('isRepeat') && (
-              <FormField
-                control={form.control}
-                name='date'
-                render={({ field }) => (
-                  <FormItem className='flex flex-col'>
-                    <FormLabel>
-                      <I18nText path='field.date.label' />
-                    </FormLabel>
-                    <FormControl>
-                      <DatePicker onChange={field.onChange} value={field.value} />
-                    </FormControl>
-                    <FormMessage>
-                      {form.formState?.errors?.date && (
-                        <I18nText path={form.formState.errors.date.message as LocaleMessageId} />
-                      )}
-                    </FormMessage>
-                  </FormItem>
-                )}
-              />
+              <div className='flex flex-col gap-2'>
+                <Typography tag='p' variant='sub3'>
+                  <I18nText path='field.date.label' />
+                </Typography>
+                <div className='flex items-center'>
+                  <FormField
+                    control={form.control}
+                    name='date'
+                    render={({ field }) => (
+                      <FormItem className='flex flex-col'>
+                        <FormControl>
+                          <DatePicker
+                            onChange={field.onChange}
+                            value={field.value}
+                            classname='w-40'
+                          />
+                        </FormControl>
+                        <FormMessage>
+                          {form.formState?.errors?.date && (
+                            <I18nText
+                              path={form.formState.errors.date.message as LocaleMessageId}
+                            />
+                          )}
+                        </FormMessage>
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name='time.from'
+                    render={({ field }) => (
+                      <>
+                        <ClockInput
+                          className='mx-2 h-6 w-11 border-0 border-b p-1'
+                          disabled={false}
+                          {...field}
+                        />
+                        <FormMessage className='text-xs'>
+                          {form.formState.errors?.time?.from?.message && (
+                            <I18nText
+                              path={form.formState.errors?.time?.from?.message as LocaleMessageId}
+                            />
+                          )}
+                        </FormMessage>
+                      </>
+                    )}
+                  />
+                  <I18nText path='dialog.addAddress.form.untill' />
+                  <FormField
+                    control={form.control}
+                    name='time.to'
+                    render={({ field }) => (
+                      <>
+                        <ClockInput
+                          className='mx-2 h-6 w-11 border-0 border-b p-1'
+                          disabled={false}
+                          {...field}
+                        />
+                        <FormMessage className='text-xs'>
+                          {form.formState.errors?.time?.to && (
+                            <I18nText
+                              path={form.formState.errors?.time?.to?.message as LocaleMessageId}
+                            />
+                          )}
+                        </FormMessage>
+                      </>
+                    )}
+                  />
+                </div>
+              </div>
             )}
           </div>
         </div>

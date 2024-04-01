@@ -23,6 +23,7 @@ export const addScheduleSchema = z.object({
   isRepeat: z.boolean().default(false),
   dateRange: dateSchema.optional(),
   date: z.date(),
+  time: timeSchema,
   placesCount: z.string(),
   workingHours: z.object({
     '0': workingHourSchema,
