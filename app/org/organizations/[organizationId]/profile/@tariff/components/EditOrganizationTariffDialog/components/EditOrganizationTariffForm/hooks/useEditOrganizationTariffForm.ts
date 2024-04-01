@@ -8,7 +8,7 @@ import { usePutTariffMutation } from '@/utils/api';
 import {
   type EditOrganizationTariffSchema,
   editOrganizationTariffSchema
-} from '../constants/EditOrganizationTariffSchema';
+} from '../constants/editOrganizationTariffSchema';
 
 interface UseEditOrganizationTariffFormParams {
   tariff: TariffResponse;

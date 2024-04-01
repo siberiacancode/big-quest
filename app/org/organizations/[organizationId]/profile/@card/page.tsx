@@ -27,7 +27,7 @@ interface OrganizationProfileCardSlotProps {
   params: { organizationId: string };
 }
 
-const OrganizationProfileCardSlot = async ({ params }: OrganizationProfileCardSlotProps) => {
+const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSlotProps) => {
   const getOrganizationByIdResponse = await getOrganizationById({
     params: { id: params.organizationId },
     config: { cache: 'no-cache' }
@@ -247,4 +247,4 @@ const OrganizationProfileCardSlot = async ({ params }: OrganizationProfileCardSl
     </InfoCard>
   );
 };
-export default OrganizationProfileCardSlot;
+export default OrganizationProfileCardPage;

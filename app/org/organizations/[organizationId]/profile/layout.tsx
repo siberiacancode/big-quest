@@ -8,7 +8,7 @@ interface OrganizationProfilePageLayoutProps {
   tariff: React.ReactNode;
 }
 
-const OrganizationProfilePageLayout = ({
+const OrganizationProfileLayout = ({
   card,
   changes,
   statistics,
@@ -24,4 +24,4 @@ const OrganizationProfilePageLayout = ({
   </div>
 );
 
-export default OrganizationProfilePageLayout;
+export default OrganizationProfileLayout;

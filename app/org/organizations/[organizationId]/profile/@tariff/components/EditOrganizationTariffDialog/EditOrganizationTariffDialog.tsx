@@ -26,10 +26,10 @@ export const EditOrganizationTariffDialog = ({
   tariff,
   trigger
 }: EditOrganizationTariffDialogProps) => {
-  const { functions, state } = useEditOrganizationTariffDialog();
+  const { functions } = useEditOrganizationTariffDialog();
 
   return (
-    <Dialog open={state.open} onOpenChange={functions.setOpen}>
+    <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className='flex h-fit w-11/12 max-w-[713px] flex-col rounded-lg smx:max-h-[90%]'>
         <DialogClose>

@@ -13,7 +13,7 @@ import {
   Typography
 } from '@/components/ui';
 
-const OrganizationProfileStatisticsSlot = () => (
+const OrganizationProfileStatisticsPage = () => (
   <div className='flex gap-4'>
     <InfoCard>
       <InfoCardHeader className='p-5'>
@@ -58,4 +58,4 @@ const OrganizationProfileStatisticsSlot = () => (
   </div>
 );
 
-export default OrganizationProfileStatisticsSlot;
+export default OrganizationProfileStatisticsPage;

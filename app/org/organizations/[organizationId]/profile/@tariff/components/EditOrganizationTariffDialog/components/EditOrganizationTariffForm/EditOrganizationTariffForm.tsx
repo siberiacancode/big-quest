@@ -21,7 +21,7 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import { periodMonthOptions } from './constants/tariffOptions';
+import { PERIOD_MONTH_OPTIONS } from './constants/periodMonthOptions';
 import { useEditOrganizationTariffForm } from './hooks/useEditOrganizationTariffForm';
 
 export interface EditOrganizationTariffFormProps {
@@ -136,7 +136,7 @@ export const EditOrganizationTariffForm = ({
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    {periodMonthOptions.map((periodMonthOption) => (
+                    {PERIOD_MONTH_OPTIONS.map((periodMonthOption) => (
                       <SelectItem
                         value={periodMonthOption.monthsAmount.toString()}
                         className='block w-full'

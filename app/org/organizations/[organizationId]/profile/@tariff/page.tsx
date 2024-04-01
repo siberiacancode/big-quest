@@ -22,7 +22,7 @@ export interface OrganizationProfileTariffProps {
   params: { organizationId: string };
 }
 
-const OrganizationProfileTariffSlot = async ({
+const OrganizationProfileTariffPage = async ({
   params: { organizationId }
 }: OrganizationProfileTariffProps) => {
   const getTariffByLegalEntityIdResponse = await getTariffByLegalEntityId({
@@ -101,4 +101,4 @@ const OrganizationProfileTariffSlot = async ({
   );
 };
 
-export default OrganizationProfileTariffSlot;
+export default OrganizationProfileTariffPage;

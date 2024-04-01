@@ -1,48 +1,75 @@
 'use client';
 
 import * as fns from 'date-fns';
+import { SendHorizonalIcon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
 import {
   Button,
   Card,
   CardTitle,
+  Form,
+  FormField,
+  FormItem,
+  FormMessage,
+  Textarea,
   Timeline,
   TimelineContent,
   TimelineItem,
   TimelineTitle,
   Typography
 } from '@/components/ui';
-import { useGetChangesInfiniteQuery } from '@/utils/api';
+import { useI18n } from '@/utils/contexts';
 
-import { AddOrganizationChangeForm } from './components/AddOrganizationChangeForm/AddOrganizationChangeForm';
+import { useOrganizationProfileChangesPage } from './hooks/useOrganizationProfileChangesPage';
+import OrganizationProfileChangesLoading from './loading';
 
-const DEFAULT_CHANGES_PAGE = '1';
-const CHANGES_LIMIT = '5';
+const OrganizationProfileChangesPage = () => {
+  const i18n = useI18n();
+  const { form, functions, state } = useOrganizationProfileChangesPage();
 
-export interface OrganizationProfileChangesProps {
-  params: { organizationId: string };
-}
-
-const OrganizationProfileChangesSlot = ({
-  params: { organizationId }
-}: OrganizationProfileChangesProps) => {
-  const getChangesInfiniteQuery = useGetChangesInfiniteQuery({
-    current: DEFAULT_CHANGES_PAGE,
-    limit: CHANGES_LIMIT,
-    criteria: organizationId
-  });
+  if (state.query.isLoading) return <OrganizationProfileChangesLoading />;
 
   return (
     <Card className='flex w-full flex-col p-4'>
-      <AddOrganizationChangeForm organizationId={organizationId} />
+      <Form {...form}>
+        <form onSubmit={functions.onSubmit} className='flex'>
+          <FormField
+            control={form.control}
+            name='comment'
+            render={({ field }) => (
+              <FormItem className='flex-grow'>
+                <Textarea
+                  {...field}
+                  className='h-24 w-full border border-secondary px-3 py-4'
+                  placeholder={i18n.formatMessage({ id: 'field.note.placeholder' })}
+                />
+                <FormMessage>
+                  {form.formState?.errors?.comment && (
+                    <I18nText path={form.formState.errors.comment.message as LocaleMessageId} />
+                  )}
+                </FormMessage>
+              </FormItem>
+            )}
+          />
+
+          <Button
+            type='submit'
+            variant='secondary'
+            className='ml-3 mr-1 h-8 w-8 self-end p-2'
+            disabled={state.isLoading}
+          >
+            <SendHorizonalIcon />
+          </Button>
+        </form>
+      </Form>
       <CardTitle className='mt-5'>
         <Typography variant='h5' tag='p'>
           <I18nText path='organization.profile.changes.title' />
         </Typography>
       </CardTitle>
       <Timeline>
-        {getChangesInfiniteQuery.data?.pages.map((page) =>
+        {state.query.data?.pages.map((page) =>
           page.rows.map((change) => (
             <TimelineItem key={change.id}>
               <TimelineTitle>
@@ -53,12 +80,12 @@ const OrganizationProfileChangesSlot = ({
           ))
         )}
       </Timeline>
-      {getChangesInfiniteQuery.hasNextPage && (
+      {state.query.hasNextPage && (
         <Button
           className='w-full'
-          onClick={() => getChangesInfiniteQuery.fetchNextPage()}
-          disabled={getChangesInfiniteQuery.isFetchingNextPage}
-          loading={getChangesInfiniteQuery.isFetchingNextPage}
+          onClick={() => state.query.fetchNextPage()}
+          disabled={state.query.isFetchingNextPage}
+          loading={state.query.isFetchingNextPage}
         >
           <I18nText path='button.loadMore' />
         </Button>
@@ -67,4 +94,4 @@ const OrganizationProfileChangesSlot = ({
   );
 };
 
-export default OrganizationProfileChangesSlot;
+export default OrganizationProfileChangesPage;
