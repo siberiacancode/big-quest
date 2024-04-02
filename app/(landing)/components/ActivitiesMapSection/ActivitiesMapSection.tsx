@@ -14,7 +14,9 @@ const DEFAULT_MAP_CENTER: Record<CITY, number[]> = {
   TOMSK: [56.49, 84.94],
   KRASNOYARSK: [56, 92.9],
   OMSK: [55, 73.24],
-  KEMEROVO: [55.14, 86.07]
+  KEMEROVO: [55.14, 86.07],
+  NOVOKUZNETSK: [53.75, 87.12],
+  MEZHDURECHENSK: [53.41, 88]
 };
 
 export const ActivitiesMapSection = () => (
