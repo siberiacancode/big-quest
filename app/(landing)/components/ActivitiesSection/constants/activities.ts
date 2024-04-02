@@ -3,6 +3,7 @@ import type { StaticImageData } from 'next/image';
 import activity1 from '@/assets/images/landing/activities/activity1.png';
 
 export const activities: {
+  id: string;
   image: StaticImageData;
   category: ActivityCategory;
   title: string;
@@ -10,6 +11,7 @@ export const activities: {
   minimumAge: number;
 }[] = [
   {
+    id: '1',
     image: activity1,
     category: 'COOKING',
     title: 'Первая короткометражка kfkfkfkfkfkfkkfkf',
@@ -17,6 +19,7 @@ export const activities: {
     minimumAge: 10
   },
   {
+    id: '2',
     image: activity1,
     category: 'COOKING',
     title: 'Первая короткометражка',
@@ -24,6 +27,7 @@ export const activities: {
     minimumAge: 10
   },
   {
+    id: '3',
     image: activity1,
     category: 'COOKING',
     title: 'Первая короткометражка',
@@ -31,6 +35,7 @@ export const activities: {
     minimumAge: 10
   },
   {
+    id: '4',
     image: activity1,
     category: 'COOKING',
     title: 'Первая короткометражка',
@@ -38,6 +43,7 @@ export const activities: {
     minimumAge: 10
   },
   {
+    id: '5',
     image: activity1,
     category: 'COOKING',
     title: 'Первая короткометражка',
@@ -45,6 +51,7 @@ export const activities: {
     minimumAge: 10
   },
   {
+    id: '5',
     image: activity1,
     category: 'COOKING',
     title: 'Первая короткометражка',

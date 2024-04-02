@@ -20,8 +20,8 @@ export const ActivitiesSection = () => (
       </div>
     </div>
     <div className='mt-[72px] grid grid-cols-4 gap-x-5 gap-y-12 xlx:grid-cols-3 lgx:grid-cols-2 mdx:mt-11 smx:mt-8 smx:flex smx:flex-col smx:items-center smx:gap-y-8'>
-      {activities.map((activity, index) => (
-        <ActivityCard key={index} {...activity} />
+      {activities.map((activity) => (
+        <ActivityCard key={activity.id} {...activity} />
       ))}
     </div>
   </section>

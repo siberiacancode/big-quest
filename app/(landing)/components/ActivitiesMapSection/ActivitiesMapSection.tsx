@@ -7,9 +7,14 @@ import { Typography } from '@/components/ui';
 
 import { activitiesCoordinates } from './constants/activitiesCoordinates';
 
-const DEFAULT_MAP_STATE = {
-  center: [54.98, 82.89],
-  zoom: 9
+const DEFAULT_MAP_ZOOM = 9;
+
+const DEFAULT_MAP_CENTER: Record<CITY, number[]> = {
+  NOVOSIBIRSK: [55, 83],
+  TOMSK: [56.49, 84.94],
+  KRASNOYARSK: [56, 92.9],
+  OMSK: [55, 73.24],
+  KEMEROVO: [55.14, 86.07]
 };
 
 export const ActivitiesMapSection = () => (
@@ -17,7 +22,10 @@ export const ActivitiesMapSection = () => (
     <Typography tag='h2' variant='h1' className='xsx:text-[25px]'>
       <I18nText path='landing.activitiesMap.title' />
     </Typography>
-    <Map className='h-[400px] mdx:h-[300px]' state={DEFAULT_MAP_STATE}>
+    <Map
+      className='h-[400px] mdx:h-[300px]'
+      state={{ zoom: DEFAULT_MAP_ZOOM, center: DEFAULT_MAP_CENTER.NOVOSIBIRSK }}
+    >
       <div className='mt-10 w-full mdx:mt-5'>
         {activitiesCoordinates.map((coordinates, index) => (
           <GeoObject
