@@ -7,19 +7,24 @@ import { Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 
-import type { ActivityActionType, ActivityProps } from '../../constants/types';
+import type {
+  ActivityActionType,
+  ActivityProps,
+  ExtendedActivityProps
+} from '../../../../constants/types';
 
 interface ActivityInfoProps {
-  activity: ActivityProps;
+  activity: ExtendedActivityProps;
   onEdit: (props: ActivityActionType) => void;
 }
 
 export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
   const i18n = useI18n();
-  const defaultActiveMedia = activity.media.find((media) => media.isAvatar === true)!;
+  const defaultActiveMedia = activity.media.find((media) => media.flag === 'AVATAR')!;
   const [lowerAgeLimit, upperAgeLimit] = activity.ageLimit;
-  const [activeMedia, setActiveMedia] =
-    React.useState<ActivityProps['media'][0]>(defaultActiveMedia);
+  const [activeMedia, setActiveMedia] = React.useState<ActivityProps['media'][0] & { url: string }>(
+    defaultActiveMedia
+  );
 
   const ACTIVITY_MEDIA_AMOUNT = activity.media.length > 4;
 
@@ -32,7 +37,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
         )}
       >
         <div className='relative col-span-2 max-h-[418px] max-w-[418px] 2smx:row-span-3 2smx:max-w-full xsx:row-span-3 xxsx:row-span-3 2sm:h-[418px]'>
-          {activeMedia.type === 'image' && (
+          {activeMedia.type === 'IMAGE' && (
             <Image
               className='w-full rounded-lg 2smx:h-[360px]'
               src={activeMedia.url}
@@ -41,7 +46,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
               alt={i18n.formatMessage({ id: 'activity.image.alt' }, { name: activity.name })}
             />
           )}
-          {activeMedia.type === 'video' && (
+          {activeMedia.type === 'VIDEO' && (
             <video className='h-full w-full rounded-lg border border-border' controls>
               <source src={activeMedia.url} type='video/mp4' />
             </video>
@@ -57,7 +62,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
           {activity.media.map((item, index) => (
             <div className='relative' key={index}>
               <div className='3smx:h-[85px] relative h-[100px] w-full xsx:h-[80px] xxsx:h-[60px]'>
-                {item.type === 'image' && (
+                {item.type === 'IMAGE' && (
                   <Image
                     className={cn(
                       'rounded-lg',
@@ -69,7 +74,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
                     alt={i18n.formatMessage({ id: 'activity.image.alt' }, { name: activity.name })}
                   />
                 )}
-                {item.type === 'video' && (
+                {item.type === 'VIDEO' && (
                   <video
                     className={cn(
                       activeMedia.url === item.url && 'border-2 border-emerald-700',
@@ -81,7 +86,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
                   </video>
                 )}
               </div>
-              {item.isAvatar && (
+              {item.flag === 'AVATAR' && (
                 <div className='absolute right-0 top-0 m-2 rounded-full bg-emerald-700 p-2'>
                   <WallpaperIcon className='h-3 w-3 text-white' />
                 </div>

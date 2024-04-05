@@ -6,7 +6,18 @@ export const putActivityById: RestRequestConfig = {
   routes: [
     {
       data: { message: 'success' },
-      entities: { body: { organizationId: '1' } }
+      entities: {
+        params: {
+          id: {
+            checkMode: 'exists'
+          }
+        },
+        body: {
+          organizationId: {
+            checkMode: 'exists'
+          }
+        }
+      }
     }
   ]
 };

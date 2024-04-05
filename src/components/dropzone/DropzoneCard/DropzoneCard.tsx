@@ -26,7 +26,7 @@ const MAX_FILES_AMOUNT = 1;
 
 export const DropzoneCard = ({
   value,
-  type = 'image',
+  type = 'IMAGE',
   isAvatar = false,
   isActive = false,
   onDelete = () => {},
@@ -42,7 +42,7 @@ export const DropzoneCard = ({
 
   const { getRootProps, getInputProps } = useDropzone({
     maxFiles: MAX_FILES_AMOUNT,
-    accept: ACCEPT_FILE_TYPES[type === 'image' || type === 'video' ? 'media' : 'docs'],
+    accept: ACCEPT_FILE_TYPES[type === 'IMAGE' || type === 'VIDEO' ? 'media' : 'docs'],
     onDropRejected,
     onDropAccepted: (files: File[]) => onDropAccepted(files[0])
   });
@@ -51,7 +51,7 @@ export const DropzoneCard = ({
     <div {...getRootProps()} {...props}>
       {value ? (
         <div className='relative h-full w-full'>
-          {type === 'image' && (
+          {type === 'IMAGE' && (
             <Image
               className={cn(isActive && 'border-2 border-emerald-700', 'h-full w-full rounded-md')}
               fill
@@ -60,7 +60,7 @@ export const DropzoneCard = ({
             />
           )}
 
-          {type === 'video' && (
+          {type === 'VIDEO' && (
             <video
               className={cn(
                 isActive && 'border-2 border-emerald-700',
@@ -82,7 +82,7 @@ export const DropzoneCard = ({
               <Trash2 className='h-3 w-3 ' />
             </Button>
           )}
-          {isAvatar && type === 'image' && (
+          {isAvatar && type === 'IMAGE' && (
             <div className='absolute right-0 top-0 m-2 rounded-full bg-emerald-700 p-2'>
               <WallpaperIcon className='h-3 w-3 text-white' />
             </div>

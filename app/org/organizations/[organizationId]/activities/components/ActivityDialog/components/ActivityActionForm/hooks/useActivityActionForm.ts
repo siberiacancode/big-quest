@@ -8,7 +8,7 @@ import { useGetActivityByIdQuery } from '@/utils/api/hooks/useGetActivityByIdQue
 import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
 import { usePostActivityMediaByIdMutation } from '@/utils/api/hooks/usePostActivityMediaByIdMutation';
 
-import type { ActivityActionType } from '../../../constants/types';
+import type { ActivityActionType, ExtendedActivityProps } from '../../../../../constants/types';
 import type { ActivityActionSchema } from '../constants/activityActionSchema';
 import { activityActionSchema } from '../constants/activityActionSchema';
 
@@ -18,7 +18,7 @@ interface UseActivityActionFormParams {
   onAction: () => void;
   onEdit: (props: ActivityActionType) => void;
   actionType: Exclude<ActivityActionType, 'info'>;
-  activity?: ActivityResponse;
+  activity?: ExtendedActivityProps;
   externalActionType: ActivityActionType;
 }
 
@@ -117,8 +117,9 @@ export const useActivityActionForm = ({
       isStatusOpen,
       isPostActivityLoading: postActivityActionMutation.isPending,
       isGetActivityLoading: getActivityByIdQuery.isPending,
-      media: getActivityByIdQuery.data?.media ?? [],
-      activity: getActivityByIdQuery.data ?? {},
+      // временно меняем
+      media: activity?.media ?? [],
+      activity: activity ?? {},
       postMediaFiles,
       deleteFileIds
     },

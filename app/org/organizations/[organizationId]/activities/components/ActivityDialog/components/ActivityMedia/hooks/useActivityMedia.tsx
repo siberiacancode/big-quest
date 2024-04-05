@@ -1,21 +1,21 @@
 import React from 'react';
 
-import type { ActivityProps } from '../../../constants/types';
+import type { ExtendedActivityProps } from '../../../../../constants/types';
 
 export interface ActiveMediaFile {
   url: string;
-  isAvatar: boolean;
-  type: string;
+  flag: MediaFlag;
+  type: MediaType;
 }
 
 export interface UploadedMediaArray {
   file: File;
   url: string;
-  isAvatar: boolean;
-  type: string;
+  flag: MediaFlag;
+  type: MediaType;
 }
 interface UseActivityMediaProps {
-  media?: ActivityProps['media'];
+  media?: ExtendedActivityProps['media'];
   postMediaFiles: File[];
   deleteFileIds: string[];
   setPostMediaFiles: (props: File[]) => void;
@@ -29,37 +29,45 @@ export const useActivityMedia = ({
   setPostMediaFiles,
   setDeleteFileIds
 }: UseActivityMediaProps) => {
-  const defaultActiveMediaFile = media?.find((item) => item.isAvatar === true);
+  const defaultActiveMediaFile = media?.find((item) => item.flag === 'AVATAR');
 
-  const [activityMedia, setActivityMedia] = React.useState<ActivityProps['media']>(media);
+  const [activityMedia, setActivityMedia] = React.useState<ExtendedActivityProps['media']>(media);
   const [activeMediaFile, setActiveMediaFile] = React.useState<ActiveMediaFile>(
     defaultActiveMediaFile ?? {
       url: '',
-      isAvatar: false,
-      type: ''
+      flag: null,
+      type: 'IMAGE'
     }
   );
 
   const [uploadedMediaArray, setUploadedMediaArray] = React.useState<UploadedMediaArray[]>([]);
 
   const onChangeAvatarClick = (file) => {
-    const newArray: ActivityProps['media'] = activityMedia.map((item) => {
-      if (item.url === file.url && item.type === 'image') {
-        const newItem = { ...item, isAvatar: true };
-        setActiveMediaFile({ url: newItem.url, isAvatar: newItem.isAvatar, type: newItem.type });
+    const newArray: ExtendedActivityProps['media'] = activityMedia.map((item) => {
+      if (item.url === file.url && item.type === 'IMAGE') {
+        const newItem = { ...item, flag: 'AVATAR' as MediaFlag };
+        setActiveMediaFile({
+          url: newItem.url,
+          flag: newItem.flag,
+          type: newItem.type
+        });
         return newItem;
       }
-      return { ...item, isAvatar: false };
+      return { ...item, flag: null };
     });
     setActivityMedia(newArray);
 
     const uploadedArray: UploadedMediaArray[] = uploadedMediaArray.map((item) => {
       if (item.url === file.url) {
-        const newItem = { ...item, isAvatar: true };
-        setActiveMediaFile({ url: newItem.url, isAvatar: newItem.isAvatar, type: newItem.type });
+        const newItem = { ...item, flag: 'AVATAR' as MediaFlag };
+        setActiveMediaFile({
+          url: newItem.url,
+          flag: newItem.flag,
+          type: newItem.type
+        });
         return newItem;
       }
-      return { ...item, isAvatar: false };
+      return { ...item, flag: null };
     });
     setUploadedMediaArray(uploadedArray);
   };
@@ -74,7 +82,7 @@ export const useActivityMedia = ({
       if (activeMediaFile.url === value) {
         setActiveMediaFile({
           url: newActivityMedia[0].url,
-          isAvatar: newActivityMedia[0].isAvatar,
+          flag: newActivityMedia[0].flag,
           type: newActivityMedia[0].type
         });
       }
@@ -90,11 +98,11 @@ export const useActivityMedia = ({
 
   const onDropAccepted = (file: File) => {
     const url = URL.createObjectURL(file);
-    const type = file.type.startsWith('image/') ? 'image' : 'video';
+    const type = file.type.startsWith('image/') ? 'IMAGE' : 'VIDEO';
 
-    setUploadedMediaArray([...uploadedMediaArray, { file, url, isAvatar: false, type }]);
+    setUploadedMediaArray([...uploadedMediaArray, { file, url, flag: null, type }]);
     setPostMediaFiles([...postMediaFiles, file]);
-    setActiveMediaFile({ url, isAvatar: false, type });
+    setActiveMediaFile({ url, flag: null, type });
   };
 
   return {

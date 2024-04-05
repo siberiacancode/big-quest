@@ -2,12 +2,8 @@ export type ActivityActionType = 'add' | 'edit' | 'info';
 
 export interface ActivityMediaProps {
   id: string;
-  url: string;
-  position: number;
-  type: 'image' | 'video';
-  ext: string;
-  size: number;
-  isAvatar: boolean;
+  type: MediaType;
+  flag: MediaFlag;
 }
 
 export interface ActivityProps {
@@ -26,4 +22,12 @@ export interface ActivityProps {
   participants: number;
   likes: number;
   schedule?: Schedule[];
+}
+
+interface ExtendedActivityMediaProps extends ActivityMediaProps {
+  url: string;
+}
+
+export interface ExtendedActivityProps extends ActivityProps {
+  media: ExtendedActivityMediaProps[];
 }

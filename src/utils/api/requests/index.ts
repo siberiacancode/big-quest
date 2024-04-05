@@ -4,7 +4,7 @@ export * from './activity/media';
 export * from './auth/login/email';
 export * from './auth/refreshTokens';
 export * from './dadata';
-export * from './files/id';
+export * from './file/id';
 export * from './organization';
 export * from './organization/add-employee';
 export * from './organization/dashboard';

@@ -1,9 +1,9 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-import { ACTIVITIES_DATABASE } from '../constants/data';
+import { FILES_DATABASE } from './constants/data';
 
-export const getActivityById: RestRequestConfig = {
-  path: '/activity/:id',
+export const getFileById: RestRequestConfig = {
+  path: '/file/:id',
   method: 'get',
   routes: [
     {
@@ -19,7 +19,8 @@ export const getActivityById: RestRequestConfig = {
         response: (_, { request, setStatusCode }) => {
           if (request.cookies.refreshToken && request.cookies.accessToken) {
             const { id } = request.params;
-            return ACTIVITIES_DATABASE.find((activity) => activity.id === id);
+            const index = parseInt(id, 10) - 1; // Преобразуем id в индекс массива
+            return FILES_DATABASE[index];
           }
 
           setStatusCode(401);

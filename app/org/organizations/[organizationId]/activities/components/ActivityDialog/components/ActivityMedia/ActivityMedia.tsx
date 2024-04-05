@@ -9,12 +9,12 @@ import { Button, Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 
-import type { ActivityProps } from '../../constants/types';
+import type { ExtendedActivityProps } from '../../../../constants/types';
 
 import { useActivityMedia } from './hooks/useActivityMedia';
 
 interface ActivityMediaProps {
-  media?: ActivityProps['media'];
+  media?: ExtendedActivityProps['media'];
   postMediaFiles: File[];
   deleteFileIds: string[];
   setPostMediaFiles: (props: File[]) => void;
@@ -37,6 +37,8 @@ export const ActivityMedia = ({
     setDeleteFileIds
   });
 
+  console.log(media);
+
   const ACTIVITY_MEDIA_TOTAL_AMOUNT = state.activityMedia.length + state.uploadedMediaArray.length;
 
   return (
@@ -52,7 +54,7 @@ export const ActivityMedia = ({
           state.activityMedia.length > 3 && '2smx:row-span-3 xsx:row-span-3 xxsx:row-span-3'
         )}
       >
-        {state.activeMediaFile.url && state.activeMediaFile.type === 'image' && (
+        {state.activeMediaFile.url && state.activeMediaFile.type === 'IMAGE' && (
           <Image
             className='w-full rounded-lg 2smx:h-[360px]'
             src={state.activeMediaFile.url}
@@ -60,7 +62,7 @@ export const ActivityMedia = ({
             alt={i18n.formatMessage({ id: 'activity.image.alt' })}
           />
         )}
-        {state.activeMediaFile.url && state.activeMediaFile.type === 'video' && (
+        {state.activeMediaFile.url && state.activeMediaFile.type === 'VIDEO' && (
           <video className='h-full w-full rounded-lg border border-border' controls>
             <source src={state.activeMediaFile.url} type='video/mp4' />
           </video>
@@ -74,14 +76,14 @@ export const ActivityMedia = ({
             </Typography>
           </div>
         )}
-        {state.activeMediaFile.isAvatar && state.activeMediaFile.type === 'image' && (
+        {state.activeMediaFile.flag === 'AVATAR' && state.activeMediaFile.type === 'IMAGE' && (
           <div className='absolute right-0 top-0 m-2 rounded-full bg-emerald-700 p-2'>
             <WallpaperIcon className='h-5 w-5 text-white' />
           </div>
         )}
-        {!state.activeMediaFile.isAvatar &&
+        {state.activeMediaFile.flag !== 'AVATAR' &&
           state.activeMediaFile.url &&
-          state.activeMediaFile.type === 'image' && (
+          state.activeMediaFile.type === 'IMAGE' && (
             <Button
               variant='ghost'
               className='absolute right-0 top-0 m-2 flex items-center gap-3 rounded-full bg-secondary px-4 py-2'
@@ -114,11 +116,11 @@ export const ActivityMedia = ({
                 onClick={() =>
                   functions.setActiveMediaFile({
                     url: item.url,
-                    isAvatar: item.isAvatar,
+                    flag: item.flag,
                     type: item.type
                   })
                 }
-                isAvatar={item.isAvatar}
+                isAvatar={item.flag === 'AVATAR'}
                 isActive={item.url === state.activeMediaFile.url}
                 onDelete={functions.onDelete}
                 onDropAccepted={functions.onDropAccepted}
@@ -137,11 +139,11 @@ export const ActivityMedia = ({
                   onClick={() =>
                     functions.setActiveMediaFile({
                       url: item.url,
-                      isAvatar: item.isAvatar,
+                      flag: item.flag,
                       type: item.type
                     })
                   }
-                  isAvatar={item.isAvatar}
+                  isAvatar={item.flag === 'AVATAR'}
                   isActive={item.url === state.activeMediaFile.url}
                   onDelete={functions.onDelete}
                   onDropAccepted={functions.onDropAccepted}

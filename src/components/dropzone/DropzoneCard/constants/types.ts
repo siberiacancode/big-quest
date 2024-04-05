@@ -1,1 +1,1 @@
-export type FileType = 'image' | 'video' | 'docs';
+export type FileType = 'IMAGE' | 'VIDEO' | 'DOCS';

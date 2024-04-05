@@ -3,16 +3,27 @@ import Image from 'next/image';
 
 import { I18nText } from '@/components/common';
 import { Button, Separator, Typography } from '@/components/ui';
+import { getFileById } from '@/utils/api/requests';
 
+import type { ActivityProps } from '../../constants/types';
 import { ActivityDialog } from '../ActivityDialog/ActivityDialog';
-import type { ActivityProps } from '../ActivityDialog/constants/types';
 
 interface ActivityCardProps {
   activity: ActivityProps;
 }
 
-export const ActivityCard = ({ activity }: ActivityCardProps) => {
-  const activityCover = activity.media.find((item) => item.isAvatar === true)!;
+export const ActivityCard = async ({ activity }: ActivityCardProps) => {
+  const mediaWithUrl = await Promise.all(
+    activity.media.map(async (item) => {
+      const fileById = await getFileById({
+        params: { id: item.id }
+      });
+      return { ...item, url: fileById.url };
+    })
+  );
+
+  const extendedActivity = { ...activity, media: mediaWithUrl };
+  const activityCover = extendedActivity.media.find((item) => item.flag === 'AVATAR')!;
 
   return (
     <div className='h-[397px] w-full rounded-lg bg-background p-4'>
@@ -45,7 +56,7 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => {
               </Button>
             }
             actionType='edit'
-            activity={activity}
+            activity={extendedActivity}
           />
         </div>
       </div>
@@ -98,7 +109,7 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => {
           </div>
         }
         actionType='info'
-        activity={activity}
+        activity={extendedActivity}
       />
     </div>
   );

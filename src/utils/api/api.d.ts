@@ -211,14 +211,14 @@ interface Schedule {
   period: number[];
 }
 
+type MediaFlag = 'AVATAR' | 'COVER' | null;
+
+type MediaType = 'IMAGE' | 'VIDEO';
+
 interface MediaResponse {
   id: string;
-  url: string;
-  position: number;
-  type: 'image' | 'video';
-  ext: string;
-  size: number;
-  isAvatar: boolean;
+  type: MediaType;
+  flag: MediaFlag;
 }
 
 interface ActivityResponse {
@@ -348,7 +348,6 @@ interface UpdateOrganizationDto {
   stage?: string;
 }
 
-interface FilesDto {
-  id?: string;
-  file?: File;
+interface FileDto {
+  url: string;
 }

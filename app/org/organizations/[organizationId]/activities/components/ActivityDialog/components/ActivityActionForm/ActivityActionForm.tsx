@@ -23,7 +23,7 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import type { ActivityActionType, ActivityProps } from '../../constants/types';
+import type { ActivityActionType, ExtendedActivityProps } from '../../../../constants/types';
 import { ActivityMedia } from '../ActivityMedia/ActivityMedia';
 
 import ActivityActionFormSkeleton from './components/ActivityActionFormSkeleton/ActivityActionFormSkeleton';
@@ -34,7 +34,7 @@ interface ActivityActionFormProps<ActionType extends Exclude<ActivityActionType,
   onAction: () => void;
   onEdit?: (props: ActivityActionType) => void;
   actionType: ActionType;
-  activity: ActionType extends 'edit' ? ActivityProps : undefined;
+  activity: ActionType extends 'edit' ? ExtendedActivityProps : undefined;
   externalActionType?: ActivityActionType;
 }
 
