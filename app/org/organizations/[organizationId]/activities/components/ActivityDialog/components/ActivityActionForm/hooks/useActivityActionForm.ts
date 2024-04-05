@@ -42,6 +42,8 @@ export const useActivityActionForm = ({
     id: activity?.id
   });
 
+  console.log(getActivityByIdQuery.data);
+
   const defaultValues = {
     name: activity?.name ?? '',
     description: activity?.description ?? '',
@@ -117,9 +119,8 @@ export const useActivityActionForm = ({
       isStatusOpen,
       isPostActivityLoading: postActivityActionMutation.isPending,
       isGetActivityLoading: getActivityByIdQuery.isPending,
-      // временно меняем
-      media: activity?.media ?? [],
-      activity: activity ?? {},
+      media: getActivityByIdQuery.data?.media || [],
+      activity: getActivityByIdQuery.data || {},
       postMediaFiles,
       deleteFileIds
     },

@@ -24,9 +24,9 @@ import {
 import { useI18n } from '@/utils/contexts';
 
 import type { ActivityActionType, ExtendedActivityProps } from '../../../../constants/types';
-import { ActivityMedia } from '../ActivityMedia/ActivityMedia';
 
-import ActivityActionFormSkeleton from './components/ActivityActionFormSkeleton/ActivityActionFormSkeleton';
+import { ActivityActionFormMedia } from './components/ActivityActionFormMedia/ActivityActionFormMedia';
+import { ActivityActionFormSkeleton } from './components/ActivityActionFormSkeleton/ActivityActionFormSkeleton';
 import { ACTIVITY_ACTION_STATUS_DROPDOWN_VALUES } from './constants/activityActionStatusDropdownValues';
 import { useActivityActionForm } from './hooks/useActivityActionForm';
 
@@ -66,7 +66,7 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
         {!state.isGetActivityLoading && !state.isPostActivityLoading && (
           <>
             <div className='flex h-[418px] gap-4 2smx:h-[600px]'>
-              <ActivityMedia
+              <ActivityActionFormMedia
                 media={state.media}
                 postMediaFiles={state.postMediaFiles}
                 deleteFileIds={state.deleteFileIds}

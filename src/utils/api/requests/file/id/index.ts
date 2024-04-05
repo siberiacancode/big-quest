@@ -1,6 +1,6 @@
 import { api } from '@/utils/api/instance';
 
-interface GetFileByIdParams {
+export interface GetFileByIdParams {
   id: string;
 }
 

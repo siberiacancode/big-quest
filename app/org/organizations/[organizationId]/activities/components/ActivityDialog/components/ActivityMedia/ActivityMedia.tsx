@@ -37,8 +37,6 @@ export const ActivityMedia = ({
     setDeleteFileIds
   });
 
-  console.log(media);
-
   const ACTIVITY_MEDIA_TOTAL_AMOUNT = state.activityMedia.length + state.uploadedMediaArray.length;
 
   return (
