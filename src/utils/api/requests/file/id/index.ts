@@ -7,7 +7,7 @@ export interface GetFileByIdParams {
 export type GetFileByIdRequestConfig = RequestConfig<GetFileByIdParams>;
 
 export const getFileById = async ({ params, config }: GetFileByIdRequestConfig) =>
-  api.get<FileDto>(`file/${params.id}`, config);
+  api.get<File>(`file/${params.id}`, config);
 
 interface PutFileByIdParams {
   id: string;
@@ -16,7 +16,7 @@ interface PutFileByIdParams {
 export type PutFileByIdRequestConfig = RequestConfig<PutFileByIdParams>;
 
 export const putFileById = async ({ params, config }: PutFileByIdRequestConfig) =>
-  api.put<FileDto>(`file/${params.id}`, params, config);
+  api.put<File>(`file/${params.id}`, params, config);
 
 export type PostFileRequestConfig = RequestConfig;
 
@@ -30,4 +30,4 @@ interface DeleteFileByIdParams {
 export type DeleteFileByIdRequestConfig = RequestConfig<DeleteFileByIdParams>;
 
 export const deleteFileById = async ({ params, config }: DeleteFileByIdRequestConfig) =>
-  api.delete<FileDto>(`file/${params.id}`, config);
+  api.delete<boolean>(`file/${params.id}`, config);

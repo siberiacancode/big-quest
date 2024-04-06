@@ -347,7 +347,3 @@ interface UpdateOrganizationDto {
   requisites?: RequisitesDto;
   stage?: string;
 }
-
-interface FileDto {
-  url: string;
-}

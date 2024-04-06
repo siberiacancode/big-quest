@@ -22,21 +22,21 @@ export const ActivityActionFormMedia = async ({
   setActivityMedia,
   setDeleteFileIds
 }: ActivityActionFormMediaProps) => {
-  let mediaWithUrl: ExtendedActivityMediaProps[] = [];
+  let mediaWithFile: ExtendedActivityMediaProps[] = [];
 
   if (media.length) {
     // почему-то много запросов файлов
-    mediaWithUrl = await Promise.all(
+    mediaWithFile = await Promise.all(
       media.map(async (item) => {
         const fileById = await getFileById({
           params: { id: item.id }
         });
-        return { ...item, url: fileById.url };
+        return { ...item, file: fileById };
       })
     );
 
-    console.log('loop created here');
-    setActivityMedia(mediaWithUrl);
+    console.log('с попыткой засетить зацикливается');
+    setActivityMedia(mediaWithFile);
   }
 
   return (

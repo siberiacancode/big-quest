@@ -25,7 +25,7 @@ export interface ActivityProps {
 }
 
 export interface ExtendedActivityMediaProps extends ActivityMediaProps {
-  url: string;
+  file: File;
 }
 
 export interface ExtendedActivityProps extends ActivityProps {

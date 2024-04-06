@@ -39,7 +39,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
           {activeMedia.type === 'IMAGE' && (
             <Image
               className='w-full rounded-lg 2smx:h-[360px]'
-              src={activeMedia.url}
+              src={URL.createObjectURL(activeMedia.file)}
               fill
               object-fit='cover'
               alt={i18n.formatMessage({ id: 'activity.image.alt' }, { name: activity.name })}
@@ -47,7 +47,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
           )}
           {activeMedia.type === 'VIDEO' && (
             <video className='h-full w-full rounded-lg border border-border' controls>
-              <source src={activeMedia.url} type='video/mp4' />
+              <source src={URL.createObjectURL(activeMedia.file)} type='video/mp4' />
             </video>
           )}
         </div>
@@ -65,9 +65,9 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
                   <Image
                     className={cn(
                       'rounded-lg',
-                      activeMedia.url === item.url && 'border-2 border-emerald-700'
+                      activeMedia.file === item.file && 'border-2 border-emerald-700'
                     )}
-                    src={item.url}
+                    src={URL.createObjectURL(item.file)}
                     fill
                     onClick={() => setActiveMedia(item)}
                     alt={i18n.formatMessage({ id: 'activity.image.alt' }, { name: activity.name })}
@@ -76,12 +76,12 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
                 {item.type === 'VIDEO' && (
                   <video
                     className={cn(
-                      activeMedia.url === item.url && 'border-2 border-emerald-700',
+                      activeMedia.file === item.file && 'border-2 border-emerald-700',
                       'h-full w-full flex-1 rounded-md border border-border'
                     )}
                     onClick={() => setActiveMedia(item)}
                   >
-                    <source src={item.url} type='video/mp4' />
+                    <source src={URL.createObjectURL(item.file)} type='video/mp4' />
                   </video>
                 )}
               </div>

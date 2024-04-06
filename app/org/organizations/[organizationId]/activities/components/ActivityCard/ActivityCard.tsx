@@ -18,7 +18,7 @@ export const ActivityCard = async ({ activity }: ActivityCardProps) => {
       const fileById = await getFileById({
         params: { id: item.id }
       });
-      return { ...item, url: fileById.url };
+      return { ...item, file: fileById };
     })
   );
 
@@ -31,7 +31,7 @@ export const ActivityCard = async ({ activity }: ActivityCardProps) => {
         <div className='mdx-h-1/2 relative h-full w-full'>
           <Image
             className='w-full rounded-lg'
-            src={activityCover.url}
+            src={URL.createObjectURL(activityCover.file)}
             fill
             alt='activity-cover'
             sizes='4xlx:max-h-72'
