@@ -3,7 +3,7 @@ export * from './activity-card-skeleton';
 export * from './address-card-skeleton';
 export * from './badge';
 export * from './bik-input';
-export * from './breadcrumbs';
+export * from './breadcrumb';
 export * from './button';
 export * from './card';
 export * from './carousel';
