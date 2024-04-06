@@ -68,9 +68,9 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
             <div className='flex h-[418px] gap-4 2smx:h-[600px]'>
               <ActivityActionFormMedia
                 media={state.media}
-                postMediaFiles={state.postMediaFiles}
+                activityMedia={state.activityMedia}
                 deleteFileIds={state.deleteFileIds}
-                setPostMediaFiles={functions.setPostMediaFiles}
+                setActivityMedia={functions.setActivityMedia}
                 setDeleteFileIds={functions.setDeleteFileIds}
               />
             </div>

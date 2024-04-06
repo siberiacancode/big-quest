@@ -24,7 +24,7 @@ export interface ActivityProps {
   schedule?: Schedule[];
 }
 
-interface ExtendedActivityMediaProps extends ActivityMediaProps {
+export interface ExtendedActivityMediaProps extends ActivityMediaProps {
   url: string;
 }
 

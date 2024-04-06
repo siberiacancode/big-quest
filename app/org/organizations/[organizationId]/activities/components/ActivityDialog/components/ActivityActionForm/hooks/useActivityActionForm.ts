@@ -6,9 +6,13 @@ import { useParams, useRouter } from 'next/navigation';
 import { useDeleteFileByIdMutation } from '@/utils/api/hooks/useDeleteFileByIdMutation copy';
 import { useGetActivityByIdQuery } from '@/utils/api/hooks/useGetActivityByIdQuery';
 import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
-import { usePostActivityMediaByIdMutation } from '@/utils/api/hooks/usePostActivityMediaByIdMutation';
+import { usePutActivityByIdMutation } from '@/utils/api/hooks/usePutActivityByIdMutation';
 
-import type { ActivityActionType, ExtendedActivityProps } from '../../../../../constants/types';
+import type {
+  ActivityActionType,
+  ExtendedActivityMediaProps,
+  ExtendedActivityProps
+} from '../../../../../constants/types';
 import type { ActivityActionSchema } from '../constants/activityActionSchema';
 import { activityActionSchema } from '../constants/activityActionSchema';
 
@@ -33,7 +37,9 @@ export const useActivityActionForm = ({
   const params = useParams<{ organizationId: string }>();
   const [isCategoryOpen, setIsCategoryOpen] = React.useState(false);
   const [isStatusOpen, setIsStatusOpen] = React.useState(false);
-  const [postMediaFiles, setPostMediaFiles] = React.useState<File[]>([]);
+  const [activityMedia, setActivityMedia] = React.useState<ExtendedActivityMediaProps[]>(
+    activity?.media ?? []
+  );
   const [deleteFileIds, setDeleteFileIds] = React.useState<string[]>([]);
 
   const getCategoryQuery = useGetCategoryQuery();
@@ -41,8 +47,6 @@ export const useActivityActionForm = ({
   const getActivityByIdQuery = useGetActivityByIdQuery({
     id: activity?.id
   });
-
-  console.log(getActivityByIdQuery.data);
 
   const defaultValues = {
     name: activity?.name ?? '',
@@ -66,7 +70,7 @@ export const useActivityActionForm = ({
 
   const postActivityActionMutation = usePostActivityActionMutation();
   const deleteFileByIdMutation = useDeleteFileByIdMutation();
-  const postActivityMediaByIdMutation = usePostActivityMediaByIdMutation();
+  const putActivityActionMutation = usePutActivityByIdMutation();
 
   const onSubmit = activityForm.handleSubmit(async (values) => {
     const requestParams = {
@@ -77,7 +81,7 @@ export const useActivityActionForm = ({
 
     if (actionType === 'add') {
       const postActivityActionParams = {
-        params: { ...requestParams, files: postMediaFiles },
+        params: { ...requestParams, media: activityMedia },
         action: actionType
       } as const;
 
@@ -85,17 +89,18 @@ export const useActivityActionForm = ({
     }
 
     if (actionType === 'edit') {
-      if (postMediaFiles) {
-        const postActivityMediaByIdParams = {
-          params: { id: activity!.id, files: postMediaFiles }
+      if (activityMedia) {
+        const putActivityActionParams = {
+          params: { ...requestParams, media: activityMedia, id: activity!.id },
+          action: actionType
         } as const;
 
-        await postActivityMediaByIdMutation.mutateAsync(postActivityMediaByIdParams);
+        await putActivityActionMutation.mutateAsync(putActivityActionParams);
       }
       if (deleteFileIds) {
-        deleteFileIds.forEach(async (deleteId) => {
+        deleteFileIds.forEach(async (id) => {
           const deleteFileByIdParams = {
-            params: { id: deleteId }
+            params: { id }
           } as const;
 
           await deleteFileByIdMutation.mutateAsync(deleteFileByIdParams);
@@ -119,12 +124,12 @@ export const useActivityActionForm = ({
       isStatusOpen,
       isPostActivityLoading: postActivityActionMutation.isPending,
       isGetActivityLoading: getActivityByIdQuery.isPending,
-      media: getActivityByIdQuery.data?.media || [],
-      activity: getActivityByIdQuery.data || {},
-      postMediaFiles,
+      media: getActivityByIdQuery.data?.media ?? [],
+      activity: getActivityByIdQuery.data ?? {},
+      activityMedia,
       deleteFileIds
     },
     form: activityForm,
-    functions: { onSubmit, setIsCategoryOpen, setIsStatusOpen, setPostMediaFiles, setDeleteFileIds }
+    functions: { onSubmit, setIsCategoryOpen, setIsStatusOpen, setActivityMedia, setDeleteFileIds }
   };
 };

@@ -1,112 +1,72 @@
 import React from 'react';
 
-import type { ExtendedActivityProps } from '../../../../../constants/types';
+import { usePostFileMutation } from '@/utils/api/hooks/usePostFileMutation';
 
-export interface ActiveMediaFile {
-  url: string;
-  flag: MediaFlag;
-  type: MediaType;
-}
+import type { ExtendedActivityMediaProps } from '../../../../../constants/types';
 
-export interface UploadedMediaArray {
-  file: File;
-  url: string;
-  flag: MediaFlag;
-  type: MediaType;
-}
 interface UseActivityMediaProps {
-  media?: ExtendedActivityProps['media'];
-  postMediaFiles: File[];
+  activityMedia: ExtendedActivityMediaProps[];
   deleteFileIds: string[];
-  setPostMediaFiles: (props: File[]) => void;
+  setActivityMedia: (props: ExtendedActivityMediaProps[]) => void;
   setDeleteFileIds: (props: string[]) => void;
 }
 
 export const useActivityMedia = ({
-  media = [],
-  postMediaFiles,
+  activityMedia,
   deleteFileIds,
-  setPostMediaFiles,
+  setActivityMedia,
   setDeleteFileIds
 }: UseActivityMediaProps) => {
-  const defaultActiveMediaFile = media?.find((item) => item.flag === 'AVATAR');
+  const defaultActiveMediaFile = activityMedia?.find((item) => item.flag === 'AVATAR');
 
-  const [activityMedia, setActivityMedia] = React.useState<ExtendedActivityProps['media']>(media);
-  const [activeMediaFile, setActiveMediaFile] = React.useState<ActiveMediaFile>(
+  const [activeMediaFile, setActiveMediaFile] = React.useState<ExtendedActivityMediaProps>(
     defaultActiveMediaFile ?? {
+      id: '',
       url: '',
       flag: null,
       type: 'IMAGE'
     }
   );
 
-  const [uploadedMediaArray, setUploadedMediaArray] = React.useState<UploadedMediaArray[]>([]);
+  const postFileMutation = usePostFileMutation();
 
   const onChangeAvatarClick = (file) => {
-    const newArray: ExtendedActivityProps['media'] = activityMedia.map((item) => {
+    const newArray: ExtendedActivityMediaProps[] = activityMedia.map((item) => {
       if (item.url === file.url && item.type === 'IMAGE') {
         const newItem = { ...item, flag: 'AVATAR' as MediaFlag };
-        setActiveMediaFile({
-          url: newItem.url,
-          flag: newItem.flag,
-          type: newItem.type
-        });
+        setActiveMediaFile(newItem);
         return newItem;
       }
       return { ...item, flag: null };
     });
     setActivityMedia(newArray);
-
-    const uploadedArray: UploadedMediaArray[] = uploadedMediaArray.map((item) => {
-      if (item.url === file.url) {
-        const newItem = { ...item, flag: 'AVATAR' as MediaFlag };
-        setActiveMediaFile({
-          url: newItem.url,
-          flag: newItem.flag,
-          type: newItem.type
-        });
-        return newItem;
-      }
-      return { ...item, flag: null };
-    });
-    setUploadedMediaArray(uploadedArray);
   };
 
   const onDelete = (value: string) => {
-    const deleteFile = activityMedia.find((media) => media.url === value && media.id)!;
+    const deleteFile = activityMedia.find((media) => media.url === value)!;
 
-    if (deleteFile) {
-      setDeleteFileIds([...deleteFileIds, deleteFile?.id]);
-      const newActivityMedia = activityMedia.filter((item) => item.url !== value);
-      setActivityMedia(newActivityMedia);
-      if (activeMediaFile.url === value) {
-        setActiveMediaFile({
-          url: newActivityMedia[0].url,
-          flag: newActivityMedia[0].flag,
-          type: newActivityMedia[0].type
-        });
-      }
-    }
-    if (!deleteFile) {
-      const uploadedFile = uploadedMediaArray.find((file) => file.url === value)!;
-      const filteredPostFiles = postMediaFiles.filter((file) => file !== uploadedFile.file);
-      const filteredUploadedMedia = uploadedMediaArray.filter((item) => item.url !== value);
-      setPostMediaFiles(filteredPostFiles);
-      setUploadedMediaArray(filteredUploadedMedia);
+    setDeleteFileIds([...deleteFileIds, deleteFile.id]);
+    const newActivityMedia = activityMedia.filter((item) => item.url !== value);
+    setActivityMedia(newActivityMedia);
+    if (activeMediaFile.url === value) {
+      setActiveMediaFile(newActivityMedia[0]);
     }
   };
 
-  const onDropAccepted = (file: File) => {
+  const onDropAccepted = async (file: File) => {
     const url = URL.createObjectURL(file);
     const type = file.type.startsWith('image/') ? 'IMAGE' : 'VIDEO';
 
-    setUploadedMediaArray([...uploadedMediaArray, { file, url, flag: null, type }]);
-    setPostMediaFiles([...postMediaFiles, file]);
-    setActiveMediaFile({ url, flag: null, type });
+    const fileId = await postFileMutation.mutateAsync({});
+
+    if (fileId) {
+      setActivityMedia([...activityMedia, { id: fileId, url, flag: null, type }]);
+      setActiveMediaFile({ id: fileId, url, flag: null, type });
+    }
   };
 
   return {
-    state: { activeMediaFile, uploadedMediaArray, activityMedia },
+    state: { activeMediaFile },
     functions: {
       setActiveMediaFile,
       onDelete,

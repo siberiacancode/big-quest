@@ -26,7 +26,7 @@ interface ActivityDialogProps {
 }
 
 export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialogProps) => {
-  const { state, functions } = useActivityDialog({ actionType, activity });
+  const { state, functions } = useActivityDialog({ actionType });
   return (
     <Dialog open={state.open} onOpenChange={functions.onOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
@@ -42,13 +42,13 @@ export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialog
           </DialogTitle>
         </DialogHeader>
 
-        {state.actionType === 'info' && state.activity && (
-          <ActivityInfo activity={state.activity} onEdit={functions.onEdit} />
+        {state.actionType === 'info' && activity && (
+          <ActivityInfo activity={activity} onEdit={functions.onEdit} />
         )}
         {state.actionType !== 'info' && (
           <ActivityActionForm
             actionType={state.actionType}
-            activity={state.activity}
+            activity={activity}
             externalActionType={actionType}
             onEdit={functions.onEdit}
             onAction={functions.onAction}

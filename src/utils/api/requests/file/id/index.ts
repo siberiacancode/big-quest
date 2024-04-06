@@ -18,6 +18,11 @@ export type PutFileByIdRequestConfig = RequestConfig<PutFileByIdParams>;
 export const putFileById = async ({ params, config }: PutFileByIdRequestConfig) =>
   api.put<FileDto>(`file/${params.id}`, params, config);
 
+export type PostFileRequestConfig = RequestConfig;
+
+export const postFile = async ({ config }: PostFileRequestConfig) =>
+  api.post<string>('file', {}, config);
+
 interface DeleteFileByIdParams {
   id: string;
 }

@@ -3,17 +3,13 @@ import { toast } from 'sonner';
 
 import { useI18n } from '@/utils/contexts';
 
-import type { ActivityActionType, ExtendedActivityProps } from '../../../constants/types';
+import type { ActivityActionType } from '../../../constants/types';
 
 interface UseActivityDialogProps {
   actionType: ActivityActionType;
-  activity?: ExtendedActivityProps;
 }
 
-export const useActivityDialog = ({
-  actionType: externalActionType,
-  activity
-}: UseActivityDialogProps) => {
+export const useActivityDialog = ({ actionType: externalActionType }: UseActivityDialogProps) => {
   const i18n = useI18n();
   const [open, setOpen] = React.useState(false);
   const [actionType, setActionType] = React.useState<ActivityActionType>(externalActionType);
@@ -42,7 +38,7 @@ export const useActivityDialog = ({
   };
 
   return {
-    state: { open, actionType, activity },
+    state: { open, actionType },
     functions: { setOpen, onOpenChange, onEdit: setActionType, onAction }
   };
 };

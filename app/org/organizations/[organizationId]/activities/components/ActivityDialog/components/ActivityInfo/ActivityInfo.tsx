@@ -9,7 +9,7 @@ import { useI18n } from '@/utils/contexts';
 
 import type {
   ActivityActionType,
-  ActivityProps,
+  ExtendedActivityMediaProps,
   ExtendedActivityProps
 } from '../../../../constants/types';
 
@@ -22,9 +22,8 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
   const i18n = useI18n();
   const defaultActiveMedia = activity.media.find((media) => media.flag === 'AVATAR')!;
   const [lowerAgeLimit, upperAgeLimit] = activity.ageLimit;
-  const [activeMedia, setActiveMedia] = React.useState<ActivityProps['media'][0] & { url: string }>(
-    defaultActiveMedia
-  );
+  const [activeMedia, setActiveMedia] =
+    React.useState<ExtendedActivityMediaProps>(defaultActiveMedia);
 
   const ACTIVITY_MEDIA_AMOUNT = activity.media.length > 4;
 

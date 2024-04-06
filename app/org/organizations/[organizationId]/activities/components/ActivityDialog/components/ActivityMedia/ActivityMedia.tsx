@@ -4,52 +4,48 @@ import Image from 'next/image';
 
 import { I18nText } from '@/components/common';
 import { DropzoneCard } from '@/components/dropzone';
-import type { FileType } from '@/components/dropzone/DropzoneCard/constants/types';
 import { Button, Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 
-import type { ExtendedActivityProps } from '../../../../constants/types';
+import type { ExtendedActivityMediaProps } from '../../../../constants/types';
 
 import { useActivityMedia } from './hooks/useActivityMedia';
 
 interface ActivityMediaProps {
-  media?: ExtendedActivityProps['media'];
-  postMediaFiles: File[];
+  activityMedia: ExtendedActivityMediaProps[];
   deleteFileIds: string[];
-  setPostMediaFiles: (props: File[]) => void;
+  setActivityMedia: (props: ExtendedActivityMediaProps[]) => void;
   setDeleteFileIds: (props: string[]) => void;
 }
 
 export const ActivityMedia = ({
-  media,
-  postMediaFiles,
+  activityMedia,
   deleteFileIds,
-  setPostMediaFiles,
+  setActivityMedia,
   setDeleteFileIds
 }: ActivityMediaProps) => {
   const i18n = useI18n();
   const { state, functions } = useActivityMedia({
-    media,
-    postMediaFiles,
+    activityMedia,
     deleteFileIds,
-    setPostMediaFiles,
+    setActivityMedia,
     setDeleteFileIds
   });
 
-  const ACTIVITY_MEDIA_TOTAL_AMOUNT = state.activityMedia.length + state.uploadedMediaArray.length;
+  const ACTIVITY_MEDIA_TOTAL_AMOUNT = activityMedia.length;
 
   return (
     <div
       className={cn(
         'grid h-fit max-h-[600px] w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-4 2smx:px-4 xsx:grid-rows-3 xsx:gap-2 xxsx:grid-rows-4',
-        state.activityMedia.length > 3 && '2smx:grid-rows-5 xsx:grid-rows-5 xxsx:grid-rows-5'
+        activityMedia.length > 3 && '2smx:grid-rows-5 xsx:grid-rows-5 xxsx:grid-rows-5'
       )}
     >
       <div
         className={cn(
           'relative col-span-2 max-h-[418px] max-w-[418px] 2smx:row-span-3 2smx:max-w-full xsx:row-span-2 xxsx:row-span-3 2sm:h-[418px]',
-          state.activityMedia.length > 3 && '2smx:row-span-3 xsx:row-span-3 xxsx:row-span-3'
+          activityMedia.length > 3 && '2smx:row-span-3 xsx:row-span-3 xxsx:row-span-3'
         )}
       >
         {state.activeMediaFile.url && state.activeMediaFile.type === 'IMAGE' && (
@@ -98,10 +94,10 @@ export const ActivityMedia = ({
       <div
         className={cn(
           'grid h-max grid-cols-2 gap-2 2smx:row-span-1 2smx:grid-cols-4 2smx:grid-rows-1',
-          state.activityMedia.length > 3 && '2smx:row-span-2'
+          activityMedia.length > 3 && '2smx:row-span-2'
         )}
       >
-        {state.activityMedia.map((item, index) => (
+        {activityMedia.map((item, index) => (
           <div className='relative' key={index}>
             <div className='3smx:h-[85px] relative h-[100px] w-full xsx:h-[80px] xxsx:h-[60px]'>
               <DropzoneCard
@@ -111,13 +107,7 @@ export const ActivityMedia = ({
                   item.url === state.activeMediaFile.url && 'border-2 border-emerald-700'
                 )}
                 value={item.url}
-                onClick={() =>
-                  functions.setActiveMediaFile({
-                    url: item.url,
-                    flag: item.flag,
-                    type: item.type
-                  })
-                }
+                onClick={() => functions.setActiveMediaFile(item)}
                 isAvatar={item.flag === 'AVATAR'}
                 isActive={item.url === state.activeMediaFile.url}
                 onDelete={functions.onDelete}
@@ -126,29 +116,6 @@ export const ActivityMedia = ({
             </div>
           </div>
         ))}
-        {state.uploadedMediaArray &&
-          state.uploadedMediaArray.map((item, index) => (
-            <div className='relative' key={index}>
-              <div className='3smx:h-[85px] relative h-[100px] w-full xsx:h-[80px] xxsx:h-[60px]'>
-                <DropzoneCard
-                  type={item.type as FileType}
-                  className='h-full w-full'
-                  value={item.url}
-                  onClick={() =>
-                    functions.setActiveMediaFile({
-                      url: item.url,
-                      flag: item.flag,
-                      type: item.type
-                    })
-                  }
-                  isAvatar={item.flag === 'AVATAR'}
-                  isActive={item.url === state.activeMediaFile.url}
-                  onDelete={functions.onDelete}
-                  onDropAccepted={functions.onDropAccepted}
-                />
-              </div>
-            </div>
-          ))}
         {ACTIVITY_MEDIA_TOTAL_AMOUNT < 8 && (
           <div className='relative'>
             <DropzoneCard

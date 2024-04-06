@@ -1,6 +1,5 @@
 export * from './activity';
 export * from './activity/id';
-export * from './activity/media';
 export * from './auth/login/email';
 export * from './auth/refreshTokens';
 export * from './dadata';

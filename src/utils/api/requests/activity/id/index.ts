@@ -4,9 +4,9 @@ export interface GetActivityByIdParams {
   id: string | undefined;
 }
 
-export type GetActivityByIdConfig = RequestConfig<GetActivityByIdParams>;
+export type GetActivityByIdRequestConfig = RequestConfig<GetActivityByIdParams>;
 
-export const getActivityById = async ({ params, config }: GetActivityByIdConfig) => {
+export const getActivityById = async ({ params, config }: GetActivityByIdRequestConfig) => {
   if (params.id) {
     return api.get<ActivityResponse>(`activity/${params.id}`, config);
   }
@@ -17,7 +17,7 @@ interface PutActivityByIdParams {
   id: string;
 }
 
-export type PutActivityByIdConfig = RequestConfig<PutActivityByIdParams>;
+export type PutActivityByIdRequestConfig = RequestConfig<PutActivityByIdParams>;
 
-export const putActivityById = async ({ params, config }: PutActivityByIdConfig) =>
+export const putActivityById = async ({ params, config }: PutActivityByIdRequestConfig) =>
   api.put(`activity/${params.id}`, params, config);

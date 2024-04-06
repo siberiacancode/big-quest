@@ -1,14 +1,14 @@
 import { useMutation } from '@tanstack/react-query';
 
-import type { PostActivityConfig, PutActivityByIdConfig } from '@/utils/api';
+import type { PostActivityRequestConfig, PutActivityByIdRequestConfig } from '@/utils/api';
 import { postActivity, putActivityById } from '@/utils/api';
 
 export const usePostActivityActionMutation = (
   settings?: MutationSettings<
-    | (PostActivityConfig & {
+    | (PostActivityRequestConfig & {
         action: 'add';
       })
-    | (PutActivityByIdConfig & {
+    | (PutActivityByIdRequestConfig & {
         action: 'edit';
       }),
     typeof postActivity | typeof putActivityById
@@ -19,7 +19,7 @@ export const usePostActivityActionMutation = (
     mutationFn: ({ params, action, config }) => {
       if (action === 'edit') {
         return putActivityById({
-          params: { ...params },
+          params,
           config: { ...settings?.config, ...config }
         });
       }
