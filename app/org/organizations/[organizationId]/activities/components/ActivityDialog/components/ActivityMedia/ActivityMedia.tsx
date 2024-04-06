@@ -34,7 +34,7 @@ export const ActivityMedia = ({
   });
 
   const ACTIVITY_MEDIA_TOTAL_AMOUNT = activityMedia.length;
-
+  console.log(state.activeMediaFile.file);
   return (
     <div
       className={cn(
@@ -48,7 +48,7 @@ export const ActivityMedia = ({
           activityMedia.length > 3 && '2smx:row-span-3 xsx:row-span-3 xxsx:row-span-3'
         )}
       >
-        {state.activeMediaFile.file && state.activeMediaFile.type === 'IMAGE' && (
+        {state.activeMediaFile.file.name !== 'temp' && state.activeMediaFile.type === 'IMAGE' && (
           <Image
             className='w-full rounded-lg 2smx:h-[360px]'
             src={URL.createObjectURL(state.activeMediaFile.file)}
@@ -56,13 +56,13 @@ export const ActivityMedia = ({
             alt={i18n.formatMessage({ id: 'activity.image.alt' })}
           />
         )}
-        {state.activeMediaFile.file && state.activeMediaFile.type === 'VIDEO' && (
+        {state.activeMediaFile.file.name !== 'temp' && state.activeMediaFile.type === 'VIDEO' && (
           <video className='h-full w-full rounded-lg border border-border' controls>
             <source src={URL.createObjectURL(state.activeMediaFile.file)} type='video/mp4' />
           </video>
         )}
 
-        {!state.activeMediaFile.file && (
+        {state.activeMediaFile.file.name === 'temp' && (
           <div className='flex h-full w-full flex-col items-center  justify-center gap-4 rounded-lg border-2 border-dashed border-dropzoneBorder text-muted-foreground sm:max-h-[418px]'>
             <WallpaperIcon className='h-10 w-10 text-muted-foreground' />
             <Typography variant='body1'>
@@ -76,7 +76,7 @@ export const ActivityMedia = ({
           </div>
         )}
         {state.activeMediaFile.flag !== 'AVATAR' &&
-          state.activeMediaFile.file &&
+          state.activeMediaFile.file.name !== 'temp' &&
           state.activeMediaFile.type === 'IMAGE' && (
             <Button
               variant='ghost'
