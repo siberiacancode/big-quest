@@ -43,7 +43,7 @@ type _RequestConfig = RequestInit & {
   url: string;
   _retry?: boolean;
   headers?: Record<string, string>;
-  params?: SearchParams;
+  params?: HttpClientSearchParams;
 };
 interface InterceptorResponseResult {
   headers: Response['headers'];
@@ -76,7 +76,7 @@ interface Interceptors {
 
 interface RequestOptions extends Omit<RequestInit, 'method'> {
   headers?: Record<string, string>;
-  params?: SearchParams;
+  params?: HttpClientSearchParams;
 }
 
 type RequestConfig<Params = undefined> = Params extends undefined

@@ -3,6 +3,16 @@ import type { RestRequestConfig } from 'mock-config-server';
 export const getOrganizationByIdConfig: RestRequestConfig = {
   path: '/organization/:id',
   method: 'get',
+  interceptors: {
+    response: (data, { request, setStatusCode }) => {
+      if (request.cookies.refreshtoken && request.cookies.accessToken) {
+        return data;
+      }
+
+      setStatusCode(401);
+      return { message: 'Unauthorized' };
+    }
+  },
   routes: [
     {
       entities: { params: { id: 1 } },
@@ -35,16 +45,6 @@ export const getOrganizationByIdConfig: RestRequestConfig = {
         },
         stage: 'REQUEST',
         type: 'PARTNER'
-      },
-      interceptors: {
-        response: (data, { request, setStatusCode }) => {
-          if (request.cookies.refreshtoken && request.cookies.accessToken) {
-            return data;
-          }
-
-          setStatusCode(401);
-          return { message: 'Unauthorized' };
-        }
       }
     },
     {
@@ -77,16 +77,6 @@ export const getOrganizationByIdConfig: RestRequestConfig = {
         },
         stage: 'REQUEST',
         type: 'PARTNER'
-      },
-      interceptors: {
-        response: (data, { request, setStatusCode }) => {
-          if (request.cookies.refreshtoken && request.cookies.accessToken) {
-            return data;
-          }
-
-          setStatusCode(401);
-          return { message: 'Unauthorized' };
-        }
       }
     }
   ]

@@ -33,34 +33,36 @@ const OrganizationProfileChangesPage = () => {
   return (
     <Card className='flex w-full flex-col p-4'>
       <Form {...form}>
-        <form onSubmit={functions.onSubmit} className='flex'>
-          <FormField
-            control={form.control}
-            name='comment'
-            render={({ field }) => (
-              <FormItem className='flex-grow'>
-                <Textarea
-                  {...field}
-                  className='h-24 w-full border border-secondary px-3 py-4'
-                  placeholder={i18n.formatMessage({ id: 'field.note.placeholder' })}
-                />
-                <FormMessage>
-                  {form.formState?.errors?.comment && (
-                    <I18nText path={form.formState.errors.comment.message as LocaleMessageId} />
-                  )}
-                </FormMessage>
-              </FormItem>
-            )}
-          />
+        <form onSubmit={functions.onSubmit}>
+          <fieldset disabled={state.isLoading} className='flex'>
+            <FormField
+              control={form.control}
+              name='comment'
+              render={({ field }) => (
+                <FormItem className='flex-grow'>
+                  <Textarea
+                    {...field}
+                    className='h-24 w-full border border-secondary px-3 py-4'
+                    placeholder={i18n.formatMessage({ id: 'field.note.placeholder' })}
+                  />
+                  <FormMessage>
+                    {form.formState?.errors?.comment && (
+                      <I18nText path={form.formState.errors.comment.message as LocaleMessageId} />
+                    )}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
 
-          <Button
-            type='submit'
-            variant='secondary'
-            className='ml-3 mr-1 h-8 w-8 self-end p-2'
-            disabled={state.isLoading}
-          >
-            <SendHorizonalIcon />
-          </Button>
+            <Button
+              type='submit'
+              variant='secondary'
+              className='ml-3 mr-1 h-8 w-8 self-end p-2'
+              disabled={state.isLoading}
+            >
+              <SendHorizonalIcon />
+            </Button>
+          </fieldset>
         </form>
       </Form>
       <CardTitle className='mt-5'>

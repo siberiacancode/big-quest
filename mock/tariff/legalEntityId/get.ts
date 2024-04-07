@@ -3,6 +3,16 @@ import type { RestRequestConfig } from 'mock-config-server';
 export const getTariffByLegalEntityIdConfig: RestRequestConfig = {
   path: '/tariff/:legalEntityId',
   method: 'get',
+  interceptors: {
+    response: (data, { request, setStatusCode }) => {
+      if (request.cookies.refreshtoken && request.cookies.accessToken) {
+        return data;
+      }
+
+      setStatusCode(401);
+      return { message: 'Unauthorized' };
+    }
+  },
   routes: [
     {
       entities: {
@@ -25,16 +35,6 @@ export const getTariffByLegalEntityIdConfig: RestRequestConfig = {
         dateStart: '2024-03-25T11:08:20.317Z',
         dateEnd: '2024-03-25T11:08:20.317Z',
         status: 'ACTIVE'
-      },
-      interceptors: {
-        response: (data, { request, setStatusCode }) => {
-          if (request.cookies.refreshtoken && request.cookies.accessToken) {
-            return data;
-          }
-
-          setStatusCode(401);
-          return { message: 'Unauthorized' };
-        }
       }
     },
     {
@@ -58,16 +58,6 @@ export const getTariffByLegalEntityIdConfig: RestRequestConfig = {
         dateStart: '2024-03-25T11:08:20.317Z',
         dateEnd: null,
         status: 'ACTIVE'
-      },
-      interceptors: {
-        response: (data, { request, setStatusCode }) => {
-          if (request.cookies.refreshtoken && request.cookies.accessToken) {
-            return data;
-          }
-
-          setStatusCode(401);
-          return { message: 'Unauthorized' };
-        }
       }
     }
   ]

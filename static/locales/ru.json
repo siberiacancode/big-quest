@@ -257,7 +257,6 @@
   "dialog.editOrganizationProfile.success": "Профиль успешно изменен",
 
   "dialog.editOrganizationTariff.title": "Выбор тарифа",
-  "dialog.editOrganizationTariff.success": "Тариф успешно изменен",
   "dialog.editOrganizationTariff.freeActivities": "Бесплатные активности",
 
   "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
@@ -280,5 +279,7 @@
   "landing.footer.navigation.news": "Новости",
   "landing.footer.navigation.activities": "Активности",
   "landing.footer.navigation.sponsors": "Спонсоры",
-  "landing.footer.navigation.feedback": "Отзывы"
+  "landing.footer.navigation.feedback": "Отзывы",
+
+  "toast.tariffChanged": "Тариф успешно изменен"
 }

@@ -9,8 +9,8 @@ export interface OrganizationsPageProps {
   searchParams: SearchParams;
 }
 
-const DEFAULT_ORGANIZATIONS_LIMIT = '10';
-const DEFAULT_ORGANIZATIONS_PAGE = '1';
+const DEFAULT_ORGANIZATIONS_LIMIT = 10;
+const DEFAULT_ORGANIZATIONS_PAGE = 1;
 
 const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPageProps) => {
   const [organizationsResponse, organizationsDashboard] = await Promise.all([

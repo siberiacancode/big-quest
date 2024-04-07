@@ -1,8 +1,8 @@
 import { api } from '../../instance';
 
 export interface GetChangesParams {
-  current: string;
-  limit: string;
+  current: number;
+  limit: number;
   criteria: string;
 }
 

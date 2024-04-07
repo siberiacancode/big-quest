@@ -16,10 +16,10 @@ export const useGetChangesInfiniteQuery = (
     number
   >({
     queryKey: ['getChanges', params.current],
-    initialPageParam: +params.current,
+    initialPageParam: params.current,
     queryFn: ({ pageParam }) =>
       getChanges({
-        params: { ...params, current: String(pageParam) },
+        params: { ...params, current: pageParam },
         config: settings?.config
       }),
     getNextPageParam: (lastPage, pages) =>

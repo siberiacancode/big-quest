@@ -57,7 +57,7 @@ export class HttpClient {
     this.headers = { ...this.headers, ...headers };
   }
 
-  private createSearchParams(params: SearchParams) {
+  private createSearchParams(params: HttpClientSearchParams) {
     const searchParams = new URLSearchParams();
 
     for (const key in params) {
@@ -66,8 +66,8 @@ export class HttpClient {
 
         if (Array.isArray(value)) {
           value.forEach((currentValue) => searchParams.append(key, currentValue));
-        } else if (value) {
-          searchParams.set(key, value);
+        } else if (value !== undefined) {
+          searchParams.set(key, value.toString());
         }
       }
     }
@@ -88,6 +88,8 @@ export class HttpClient {
       success: initialResponse.ok,
       data: body
     };
+
+    console.log(response.data);
 
     this.interceptorHandlers.response?.forEach(({ onSuccess, onFailure }) => {
       try {
@@ -170,6 +172,7 @@ export class HttpClient {
         success: response.ok,
         data: body
       };
+      console.log(error.response.data);
       throw new Error(response.statusText, { cause: error });
     }
 

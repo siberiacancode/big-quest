@@ -7,8 +7,8 @@ import { useGetChangesInfiniteQuery, usePostChangesMutation } from '@/utils/api'
 import type { AddOrganizationChangeSchema } from '../constants/addOrganizationChangeSchema';
 import { addOrganizationChangeSchema } from '../constants/addOrganizationChangeSchema';
 
-const DEFAULT_CHANGES_PAGE = '1';
-const CHANGES_LIMIT = '5';
+const DEFAULT_CHANGES_PAGE = 1;
+const CHANGES_LIMIT = 5;
 
 export const useOrganizationProfileChangesPage = () => {
   const params = useParams<{ organizationId: string }>();

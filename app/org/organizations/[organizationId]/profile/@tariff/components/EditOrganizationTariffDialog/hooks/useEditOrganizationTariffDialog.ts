@@ -6,7 +6,7 @@ export const useEditOrganizationTariffDialog = () => {
   const i18n = useI18n();
 
   const onEdited = () =>
-    toast(i18n.formatMessage({ id: 'dialog.editOrganizationTariff.success' }), {
+    toast(i18n.formatMessage({ id: 'toast.tariffChanged' }), {
       cancel: { label: 'Close' }
     });
 
