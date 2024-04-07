@@ -5,7 +5,6 @@ export * from './activity/post';
 export * from './address/get';
 export * from './auth/login/email/post';
 export * from './auth/new-code/get';
-export * from './auth/refresh-tokens/get';
 export * from './category';
 export * from './organization/dashboard/get';
 export * from './organization/get';

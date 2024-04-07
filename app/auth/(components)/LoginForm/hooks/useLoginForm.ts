@@ -6,10 +6,10 @@ import { usePostAuthLoginEmailMutation } from '@/utils/api';
 import { useGetUserMeMutation } from '@/utils/api/hooks';
 import { ROUTES } from '@/utils/constants';
 import { useSession, useUser } from '@/utils/contexts';
-import { handleLogin } from '@/utils/jwt/helpers/handleLogin';
 
 import type { LoginSchema } from '../constants/loginSchema';
 import { loginSchema } from '../constants/loginSchema';
+import { handleLogin } from '../helpers';
 
 export const useLoginForm = () => {
   const router = useRouter();

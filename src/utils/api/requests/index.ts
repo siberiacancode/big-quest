@@ -5,7 +5,6 @@ export * from './activity/id';
 export * from './address';
 export * from './auth/login/email';
 export * from './auth/new-code';
-export * from './auth/refresh-tokens';
 export * from './category';
 export * from './organization';
 export * from './organization/add-employee';

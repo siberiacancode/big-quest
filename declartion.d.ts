@@ -1,6 +1,6 @@
 declare namespace NodeJS {
   interface ProcessEnv {
     API_URL: string;
-    JWT_EXPIRATION: string;
+    CRYPTO_SECRET: string;
   }
 }
