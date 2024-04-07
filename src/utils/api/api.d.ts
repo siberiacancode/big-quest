@@ -38,6 +38,7 @@ interface InfiniteQuerySettings<Func = unknown> {
 
 type BaseUrl = string;
 type RequestMethod = RequestInit['method'];
+type HttpClientSearchParams = { [key: string]: string | number | boolean | string[] };
 
 type _RequestConfig = RequestInit & {
   url: string;

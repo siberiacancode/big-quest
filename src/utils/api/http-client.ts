@@ -1,3 +1,5 @@
+type HttpClientSearchParams = { [key: string]: string | number | boolean | string[] };
+
 interface HttpClientParams {
   baseURL: BaseUrl;
   headers?: Record<string, string>;
@@ -66,7 +68,7 @@ export class HttpClient {
 
         if (Array.isArray(value)) {
           value.forEach((currentValue) => searchParams.append(key, currentValue));
-        } else if (value !== undefined) {
+        } else {
           searchParams.set(key, value.toString());
         }
       }
