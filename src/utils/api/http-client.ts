@@ -89,8 +89,6 @@ export class HttpClient {
       data: body
     };
 
-    console.log(response.data);
-
     this.interceptorHandlers.response?.forEach(({ onSuccess, onFailure }) => {
       try {
         if (!initialResponse.ok)
@@ -172,7 +170,6 @@ export class HttpClient {
         success: response.ok,
         data: body
       };
-      console.log(error.response.data);
       throw new Error(response.statusText, { cause: error });
     }
 

@@ -15,7 +15,7 @@ export const useOrganizationsTable = () => {
   const { searchParams, setSearchParams, setSearchParam } = useSearchParams();
   const [isPending, startTransition] = React.useTransition();
 
-  const organizationFilter = searchParams.get('organization');
+  const nameFilter = searchParams.get('name');
   const [selectedLocations, seSelectedLocations] = React.useState<string[]>(() =>
     searchParams.getAll('locality')
   );
@@ -26,11 +26,11 @@ export const useOrganizationsTable = () => {
   const onPaginationClick = (page: number) =>
     startTransition(() => setSearchParam('current', String(page)));
 
-  const onOrganizationFilterChange = useDebounceCallback(
+  const onNameFilterChange = useDebounceCallback(
     (value: string) =>
       startTransition(() =>
         setSearchParams([
-          { key: 'organization', value },
+          { key: 'name', value },
           { key: 'current', value: '1' }
         ])
       ),
@@ -63,8 +63,8 @@ export const useOrganizationsTable = () => {
     () => [
       <Input
         placeholder={i18n.formatMessage({ id: 'field.filter.placeholder' })}
-        defaultValue={organizationFilter ?? ''}
-        onChange={(event) => onOrganizationFilterChange(event.target.value)}
+        defaultValue={nameFilter ?? ''}
+        onChange={(event) => onNameFilterChange(event.target.value)}
         className='max-w-[180px]'
       />,
       <DataTableFacetedFilter
@@ -107,8 +107,8 @@ export const useOrganizationsTable = () => {
       </div>
     ],
     [
-      onOrganizationFilterChange,
-      organizationFilter,
+      onNameFilterChange,
+      nameFilter,
       selectedLocations,
       selectedStages,
       onLocationsSelect,

@@ -1,7 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const putOrganizationConfig: RestRequestConfig = {
-  path: '/organization',
+export const putOrganizationByIdConfig: RestRequestConfig = {
+  path: '/organization/:id',
   method: 'put',
   routes: [
     {

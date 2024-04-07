@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
-import { usePutOrganizationMutation } from '@/utils/api';
+import { usePutOrganizationByIdMutation } from '@/utils/api';
 
 import type { EditOrganizationProfileSchema } from '../constants/editOrganizationProfileSchema';
 import { editOrganizationProfileSchema } from '../constants/editOrganizationProfileSchema';
@@ -55,10 +55,10 @@ export const useEditOrganizationProfileForm = ({
     control: editOrganizationForm.control
   });
 
-  const putOrganizationMutation = usePutOrganizationMutation();
+  const putOrganizationByIdMutation = usePutOrganizationByIdMutation();
 
   const onSubmit = editOrganizationForm.handleSubmit(async (values) => {
-    const putOrganizationParams = {
+    const putOrganizationByIdParams = {
       ...values,
       id: organization.id,
       information: {
@@ -68,7 +68,7 @@ export const useEditOrganizationProfileForm = ({
       }
     };
 
-    await putOrganizationMutation.mutateAsync({ params: putOrganizationParams });
+    await putOrganizationByIdMutation.mutateAsync({ params: putOrganizationByIdParams });
     router.refresh();
     queryClient.invalidateQueries({ queryKey: ['getChanges'] });
 
@@ -76,7 +76,7 @@ export const useEditOrganizationProfileForm = ({
   });
 
   return {
-    state: { isLoading: putOrganizationMutation.isPending },
+    state: { isLoading: putOrganizationByIdMutation.isPending },
     form: { ...editOrganizationForm, socialField },
     functions: { onSubmit }
   };
