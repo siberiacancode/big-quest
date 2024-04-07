@@ -22,11 +22,9 @@ export interface OrganizationProfileTariffProps {
   params: { organizationId: string };
 }
 
-const OrganizationProfileTariffPage = async ({
-  params: { organizationId }
-}: OrganizationProfileTariffProps) => {
+const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTariffProps) => {
   const getTariffByLegalEntityIdResponse = await getTariffByLegalEntityId({
-    params: { legalEntityId: organizationId },
+    params: { legalEntityId: params.organizationId },
     config: {
       cache: 'no-cache'
     }

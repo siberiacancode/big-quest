@@ -11,15 +11,14 @@ const DEFAULT_CHANGES_PAGE = '1';
 const CHANGES_LIMIT = '5';
 
 export const useOrganizationProfileChangesPage = () => {
-  const params = useParams();
-  const organizationId = String(params.organizationId);
+  const params = useParams<{ organizationId: string }>();
 
   const postChangesMutation = usePostChangesMutation();
 
   const getChangesInfiniteQuery = useGetChangesInfiniteQuery({
     current: DEFAULT_CHANGES_PAGE,
     limit: CHANGES_LIMIT,
-    criteria: organizationId
+    criteria: params.organizationId
   });
 
   const addOrganizationChangeForm = useForm<AddOrganizationChangeSchema>({
@@ -30,7 +29,11 @@ export const useOrganizationProfileChangesPage = () => {
 
   const onSubmit = addOrganizationChangeForm.handleSubmit(async (values) => {
     await postChangesMutation.mutateAsync({
-      params: { criteria: organizationId, new: { comment: values.comment }, action: 'comment' }
+      params: {
+        criteria: params.organizationId,
+        new: { comment: values.comment },
+        action: 'comment'
+      }
     });
     addOrganizationChangeForm.reset();
     getChangesInfiniteQuery.refetch();
