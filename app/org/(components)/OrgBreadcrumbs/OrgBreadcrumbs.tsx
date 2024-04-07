@@ -4,12 +4,13 @@ import { useParams, usePathname } from 'next/navigation';
 
 import { I18nText } from '@/components/common';
 import { BreadcrumbItem, Breadcrumbs } from '@/components/ui';
+import { cn } from '@/lib/utils';
 
-interface OrgBreadcrumbsProps {
+interface OrgBreadcrumbsProps extends React.ComponentProps<typeof Breadcrumbs> {
   ids?: Record<string, { value?: string; clickable?: boolean; href?: string; hidden?: boolean }>;
 }
 
-export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
+export const OrgBreadcrumbs = ({ ids = {}, className }: OrgBreadcrumbsProps) => {
   const params = useParams();
   const pathname = usePathname();
 
@@ -32,7 +33,7 @@ export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
   }[];
 
   return (
-    <Breadcrumbs className='flex-wrap'>
+    <Breadcrumbs className={cn('flex-wrap', className)}>
       {filteredPathnames.map(({ pathname, href }, index) => {
         const hrefWithoutIds = pathnames
           .slice(0, index + 1)

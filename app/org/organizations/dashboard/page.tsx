@@ -31,7 +31,10 @@ const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPagePro
 
   return (
     <div className='bg-secondary px-4'>
-      <OrgBreadcrumbs ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }} />
+      <OrgBreadcrumbs
+        className='mb-5'
+        ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }}
+      />
       <OrganizationsDashboard dashboard={getOrganizationDashboardResponse} />
       <OrganizationsTable
         organizations={getOrganizationResponse.rows}
