@@ -1,7 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const putTariffConfig: RestRequestConfig = {
-  path: '/tariff',
+export const putTariffByIdConfig: RestRequestConfig = {
+  path: '/tariff/:id',
   method: 'put',
   routes: [
     {

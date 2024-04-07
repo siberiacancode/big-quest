@@ -14,6 +14,6 @@ export * from './organization/id/addresses';
 export * from './organization/id/employees';
 export * from './organization/id/organization';
 export * from './organization/register';
-export * from './tariff';
+export * from './tariff/id';
 export * from './tariff/legalEntityId';
 export * from './user/me';

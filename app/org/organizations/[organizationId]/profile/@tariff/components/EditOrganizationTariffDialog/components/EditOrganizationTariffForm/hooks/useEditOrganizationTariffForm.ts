@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
-import { usePutTariffMutation } from '@/utils/api';
+import { usePutTariffByIdMutation } from '@/utils/api';
 
 import {
   type EditOrganizationTariffSchema,
@@ -32,10 +32,10 @@ export const useEditOrganizationTariffForm = ({
     }
   });
 
-  const putTariffMutation = usePutTariffMutation();
+  const putTariffByIdMutation = usePutTariffByIdMutation();
 
   const onSubmit = editOrganizationForm.handleSubmit(async (values) => {
-    await putTariffMutation.mutateAsync({
+    await putTariffByIdMutation.mutateAsync({
       params: {
         id: tariff.id,
         freeActivity: +values.freeActivity,
@@ -51,7 +51,7 @@ export const useEditOrganizationTariffForm = ({
   });
 
   return {
-    state: { isLoading: putTariffMutation.isPending },
+    state: { isLoading: putTariffByIdMutation.isPending },
     form: editOrganizationForm,
     functions: { onSubmit }
   };

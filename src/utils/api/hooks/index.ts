@@ -6,4 +6,4 @@ export * from './usePostChangesMutation';
 export * from './usePostOrganizationAddAddressMutation';
 export * from './usePostOrganizationRegisterMutation';
 export * from './usePutOrganizationByIdMutation';
-export * from './usePutTariffMutation';
+export * from './usePutTariffByIdMutation';
