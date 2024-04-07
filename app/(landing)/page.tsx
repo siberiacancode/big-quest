@@ -19,4 +19,5 @@ const LandingPage = () => (
     <LeaveRequestSection />
   </>
 );
+
 export default LandingPage;
