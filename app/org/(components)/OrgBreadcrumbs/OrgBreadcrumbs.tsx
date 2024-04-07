@@ -33,7 +33,6 @@ export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
     return { pathname, href, ...ids[pathname] };
   });
 
-  console.log('@', preparedPathnames);
   const filteredPathnames = preparedPathnames.filter(Boolean) as {
     pathname: string;
     href: string;
@@ -64,11 +63,13 @@ export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
           );
 
           return (
-            <BreadcrumbItem key={href} className='list-none'>
-              {clickable && <BreadcrumbLink href={href}>{item}</BreadcrumbLink>}
-              {!clickable && <BreadcrumbPage>{item}</BreadcrumbPage>}
+            <>
+              <BreadcrumbItem key={href} className='list-none'>
+                {clickable && <BreadcrumbLink href={href}>{item}</BreadcrumbLink>}
+                {!clickable && <BreadcrumbPage>{item}</BreadcrumbPage>}
+              </BreadcrumbItem>
               {index !== filteredPathnames.length - 1 && <BreadcrumbSeparator />}
-            </BreadcrumbItem>
+            </>
           );
         })}
       </BreadcrumbList>
