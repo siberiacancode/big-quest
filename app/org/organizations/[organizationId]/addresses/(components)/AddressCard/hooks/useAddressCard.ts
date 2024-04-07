@@ -7,7 +7,11 @@ import { useI18n } from '@/utils/contexts';
 
 import type { AddressData } from '../../../(constants)/types';
 
-export const useAddressCard = (address: AddressData) => {
+interface UseAddressCardParams {
+  address: AddressData;
+}
+
+export const useAddressCard = ({ address }: UseAddressCardParams) => {
   const i18n = useI18n();
   const router = useRouter();
 

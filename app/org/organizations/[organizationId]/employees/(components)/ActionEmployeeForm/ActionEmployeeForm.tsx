@@ -27,7 +27,7 @@ import type { EmployeeActionType } from './constants';
 interface ActionEmployeeProps<ActionType extends EmployeeActionType> {
   onAction: () => void;
   actionType: ActionType;
-  employee: ActionType extends 'edit' ? EmployeeData : undefined;
+  employee?: EmployeeData;
 }
 
 export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({

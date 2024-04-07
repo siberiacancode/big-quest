@@ -43,7 +43,7 @@ export const AddAddressDialog = () => {
           </DialogTitle>
         </DialogHeader>
         <div className='flex h-full flex-col items-end justify-between overflow-y-auto rounded-lg border p-5'>
-          <ActionAddressForm onAction={functions.onAction} actionType='add' address={undefined} />
+          <ActionAddressForm onAction={functions.onAction} actionType='add' />
         </div>
       </DialogContent>
     </Dialog>

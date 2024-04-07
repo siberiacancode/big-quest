@@ -26,7 +26,7 @@ import { convertLocalitiesToComboboxItems } from './helpers';
 interface ActionAddressProps<ActionType extends AddressActionType> {
   onAction: () => void;
   actionType: ActionType;
-  address: ActionType extends 'edit' ? AddressData : undefined;
+  address?: AddressData;
 }
 
 export const ActionAddressForm = <ActionType extends AddressActionType>({

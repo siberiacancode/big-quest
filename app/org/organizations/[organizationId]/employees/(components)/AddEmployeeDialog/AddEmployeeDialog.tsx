@@ -43,7 +43,7 @@ export const AddEmployeeDialog = () => {
           </DialogTitle>
         </DialogHeader>
         <div className='flex h-full flex-col items-end justify-between overflow-y-auto rounded-lg border p-5'>
-          <ActionEmployeeForm onAction={functions.onAction} actionType='add' employee={undefined} />
+          <ActionEmployeeForm onAction={functions.onAction} actionType='add' />
         </div>
       </DialogContent>
     </Dialog>

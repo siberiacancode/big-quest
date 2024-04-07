@@ -31,7 +31,7 @@ interface AddressCardProps {
 }
 
 export const AddressCard = ({ address }: AddressCardProps) => {
-  const { state, functions } = useAddressCard(address);
+  const { state, functions } = useAddressCard({ address });
 
   return (
     <Card className='relative min-w-[340px] flex-1'>
