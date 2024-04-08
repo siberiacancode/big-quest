@@ -10,7 +10,7 @@ export const getUserMeConfig: RestRequestConfig = {
         email: 'superadmin@mail.ru',
         isActive: true,
         isBlocked: false,
-        roles: ['SUPERADMIN'],
+        roles: ['ADMIN'],
         name: 'Admin',
         surname: 'Super',
         middleName: null,

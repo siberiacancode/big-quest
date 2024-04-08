@@ -38,7 +38,7 @@ export const useLoginForm = () => {
 
     await handleLogin(getUserMeMutationResponse);
 
-    if (getUserMeMutationResponse.roles.includes('SUPERADMIN')) {
+    if (getUserMeMutationResponse.roles.includes('ADMIN')) {
       router.replace(ROUTES.ORG.ORGANIZATIONS.DASHBOARD);
     }
   });

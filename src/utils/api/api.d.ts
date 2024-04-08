@@ -21,14 +21,30 @@ interface QuerySettings<Func = unknown> {
   >;
 }
 
+interface InfiniteQuerySettings<Func = unknown> {
+  config?: RequestOptions;
+  options?: Omit<
+    import('@tanstack/react-query').UseInfiniteQueryOptions<
+      Awaited<ReturnTyp<Func>>,
+      any,
+      Awaited<ReturnTyp<Func>>,
+      any,
+      import('@tanstack/react-query').QueryKey,
+      number
+    >,
+    'queryKey'
+  >;
+}
+
 type BaseUrl = string;
 type RequestMethod = RequestInit['method'];
+type HttpClientSearchParams = { [key: string]: string | number | boolean | string[] };
 
 type _RequestConfig = RequestInit & {
   url: string;
   _retry?: boolean;
   headers?: Record<string, string>;
-  params?: SearchParams;
+  params?: HttpClientSearchParams;
 };
 interface InterceptorResponseResult {
   headers: Response['headers'];
@@ -61,7 +77,7 @@ interface Interceptors {
 
 interface RequestOptions extends Omit<RequestInit, 'method'> {
   headers?: Record<string, string>;
-  params?: SearchParams;
+  params?: HttpClientSearchParams;
 }
 
 type RequestConfig<Params = undefined> = Params extends undefined
@@ -93,29 +109,29 @@ type ActivityView = 'ONLINE' | 'OFFLINE';
 
 type Gender = 'MALE' | 'FEMALE';
 
-interface LegalInformationDto {
-  fullNameOfTheLegalEntity?: string;
-  legalAddress?: string;
-  postAddress?: string;
-  inn?: string;
-  kpp?: string;
-  ogrn?: string;
+interface LegalInformation {
+  fullNameOfTheLegalEntity?: string | null;
+  legalAddress?: string | null;
+  postAddress?: string | null;
+  inn?: string | null;
+  kpp?: string | null;
+  ogrn?: string | null;
 }
 
 interface OrganizationResponse {
   contactName: string;
   phone: number;
-  email?: string;
-  site?: string;
-  social?: string[];
-  background?: string;
-  avatar?: string;
-  locality?: string;
+  email?: string | null;
+  site?: string | null;
+  social?: string[] | null;
+  background?: string | null;
+  avatar?: string | null;
+  locality?: string | null;
   id: string;
-  name?: string;
-  description?: string;
-  legalInfo?: LegalInformationDto;
-  requisites?: RequisitesDto;
+  name: string;
+  description?: string | null;
+  information?: LegalInformation | null;
+  requisites?: RequisitesDto | null;
   stage: Stage;
   type: LegalType;
 }
@@ -288,20 +304,6 @@ interface PaginationResponse {
   count: number;
 }
 
-interface OrganizationResponse {
-  id: string;
-  name: string;
-  description: string;
-  inn: string;
-  information: OrganizationInformationDto;
-  addresses: OrganizationAddressDto[];
-  requisites: RequisitesDto;
-  stage: StageType;
-  type: LegalType;
-  createdAt: string;
-  updatedAt: string;
-}
-
 interface OrganizationAddressDto {
   locality: string;
   street: string;
@@ -337,9 +339,9 @@ interface OrganizationInformationDto {
 }
 
 interface RequisitesDto {
-  bank?: string;
-  bik?: string;
-  checkingAccount?: string;
+  bank?: string | null;
+  bik?: string | null;
+  checkingAccount?: string | null;
 }
 
 interface DashBoardResponse {
@@ -368,7 +370,7 @@ interface UserResponse {
   email: string;
   createdAt: string;
   updatedAt: string;
-  roles: ['SUPERADMIN'];
+  roles: ['ADMIN'];
   isBlocked: boolean;
   isActive: boolean;
   name: string;
@@ -410,4 +412,61 @@ interface OrganizationListResponse {
   countDays: string;
   stage: Stage;
   type: LegalType;
+}
+
+type TariffStatus = 'ACTIVE' | 'COORDINATION';
+
+interface TariffResponse {
+  id: string;
+  freeActivity: number;
+  paidActivity: number;
+  freeActivityPrice: string;
+  paidActivityPrice: string;
+  maxPricePaidActivity: string;
+  freeActivityNuts: number;
+  paidActivityNuts: number;
+  totalPrice: string;
+  discount: number;
+  createdAt: string;
+  updatedAt: string;
+  periodMonth: number;
+  dateStart: string;
+  dateEnd: string;
+  status: TariffStatus;
+}
+
+interface UpdateTariffDto {
+  id: string;
+  freeActivity?: number;
+  paidActivity?: number;
+  freeActivityPrice?: string;
+  paidActivityPrice?: string;
+  maxPricePaidActivity?: string;
+  freeActivityNuts?: number;
+  paidActivityNuts?: number;
+  totalPrice?: string;
+  periodMonth?: number;
+  status?: TariffStatus;
+}
+
+interface CreateChangesDto {
+  criteria: string;
+  old?: Record<string, any>;
+  new: Record<string, any>;
+  action: string;
+}
+
+interface ChangesResponse {
+  id: string;
+  createdAt: string;
+  author: string;
+  criteria: string;
+  old: Record<string, any>;
+  new: Record<string, any>;
+  action: string;
+}
+
+interface ChangesResponseWithPagination {
+  rows: ChangesResponse[];
+  pagination: PaginationResponse;
 }

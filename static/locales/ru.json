@@ -12,6 +12,8 @@
   "org.auth.footer.siteRules": "Правила пользования сайтом",
   "org.auth.footer.privacyPolicy": "Политика конфиденциальности",
 
+  "common.rubles": "{amount}руб.",
+
   "button.add": "Добавить",
   "button.delete": "Удалить",
   "button.edit": "Редактировать",
@@ -22,6 +24,7 @@
   "button.close": "Закрыть",
   "button.addActivities": "Добавить активность",
   "button.addEmployee": "Добавить сотрудника",
+  "button.updateTariff": "Сменить тариф",
   "button.learnDetails": "Узнать подробности",
   "button.login": "Войти",
   "button.registration": "Регистрация",
@@ -29,6 +32,7 @@
   "button.registerOrganization": "Отправить заявку",
   "button.goToRegisterOrganization": "Оставить заявку",
   "button.organizationsEntrance": "Вход для организаций",
+  "button.loadMore": "Загрузить еще",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
@@ -38,31 +42,33 @@
   "organization.legalType.partner": "Партнер",
   "organization.legalType.sponsor": "Спонсор",
   "organization.profile.tariff.title": "Тариф",
-  "organization.profile.tariff.button": "Сменить тариф",
   "organization.profile.tariff.activity": "Активностей",
   "organization.profile.tariff.paid": "Платных",
   "organization.profile.tariff.valid": "Действует",
+  "organization.profile.tariff.free": "Бесплатный",
+  "organization.profile.tariff.periodMonth": "{monthsAmount, plural, =1 {# месяц} =3 {# месяца} other {# месяцев}}",
+  "organization.profile.tariff.discount": "{discount}%",
   "organization.profile.members": "Участники",
 
   "organization.profile.entries": "Записи",
-  "organization.profile.journal.title": "Журнал",
+  "organization.profile.changes.title": "Журнал",
 
-  "organization.profile.information.title": "Информация о профиле",
-  "organization.profile.information.name": "Название",
-  "organization.profile.information.contactName": "Контактное имя",
-  "organization.profile.information.phone": "Телефон",
-  "organization.profile.information.email": "Почта",
-  "organization.profile.information.site": "Сайт",
-  "organization.profile.information.locality": "Населенный пункт",
-  "organization.profile.information.social": "Соц. сети",
+  "organization.profile.title": "Информация о профиле",
+  "organization.profile.name": "Название",
+  "organization.profile.contactName": "Контактное имя",
+  "organization.profile.phone": "Телефон",
+  "organization.profile.email": "Почта",
+  "organization.profile.site": "Сайт",
+  "organization.profile.locality": "Населенный пункт",
+  "organization.profile.social": "Соц. сети",
 
-  "organization.profile.legalInfo.title": "Юр. информация",
-  "organization.profile.legalInfo.fullName": "Полное наименование юр. лица",
-  "organization.profile.legalInfo.legalAddress": "Юридический адрес",
-  "organization.profile.legalInfo.postAddress": "Почтовый адрес",
-  "organization.profile.legalInfo.inn": "ИНН",
-  "organization.profile.legalInfo.kpp": "КПП",
-  "organization.profile.legalInfo.ogrn": "ОГРН",
+  "organization.profile.information.title": "Юр. информация",
+  "organization.profile.information.fullName": "Полное наименование юр. лица",
+  "organization.profile.information.legalAddress": "Юридический адрес",
+  "organization.profile.information.postAddress": "Почтовый адрес",
+  "organization.profile.information.inn": "ИНН",
+  "organization.profile.information.kpp": "КПП",
+  "organization.profile.information.ogrn": "ОГРН",
 
   "organization.profile.requisites.title": "Реквизиты",
   "organization.profile.requisites.bank": "Банк",
@@ -136,12 +142,19 @@
   "field.name.label": "Имя",
   "field.surname.label": "Фамилия",
   "field.role.label": "Роль",
+  "field.freeActivity.label": "Бесплатные активности",
+  "field.paidActivity.label": "Платные активности",
+  "field.periodMonth.label": "Период",
+  "field.periodMonth.placeholder": "Выбрать период",
+  "field.totalPrice.label": "Итог ",
 
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
 
   "field.default.placeholder": "Заполните",
 
+  "field.organization.stage.label": "Статус",
+  "field.organization.stage.placeholder": "Выберите статус",
   "field.organization.name.label": "Название",
   "field.organization.contactName.label": "Контактное имя",
   "field.organization.phone.label": "Телефон",
@@ -277,7 +290,9 @@
   "dialog.editEmployee.success": "Информация о сотруднике успешно отредактирована",
 
   "dialog.editOrganizationProfile.title": "Редактирование профиля",
-  "dialog.editOrganizationProfile.success": "Профиль успешно изменен",
+
+  "dialog.editOrganizationTariff.title": "Выбор тарифа",
+  "dialog.editOrganizationTariff.freeActivities": "Бесплатные активности",
 
   "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
   "tooltip.kpp": "КПП - 9 цифр",
@@ -307,6 +322,8 @@
   "landing.footer.navigation.sponsors": "Спонсоры",
   "landing.footer.navigation.feedback": "Отзывы",
 
+  "toast.organizationTariffChanged": "Тариф успешно изменен",
+  "toast.organizationProfileChanged": "Профиль успешно изменен",
   "toast.sendConfirmation": "Подтверждение отправлено на почту {email}",
   "toast.deleted": "Сотрудник {name} удален"
 }

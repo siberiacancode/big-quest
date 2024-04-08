@@ -39,7 +39,7 @@ export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
   }[];
 
   return (
-    <Breadcrumb>
+    <Breadcrumb className='mb-[30px]'>
       <BreadcrumbList>
         {filteredPathnames.map(({ pathname, href }, index) => {
           const hrefWithoutIds = pathnames
@@ -64,7 +64,7 @@ export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
 
           return (
             <>
-              <BreadcrumbItem key={href} className='list-none'>
+              <BreadcrumbItem key={href} className='list-none text-base'>
                 {clickable && <BreadcrumbLink href={href}>{item}</BreadcrumbLink>}
                 {!clickable && <BreadcrumbPage>{item}</BreadcrumbPage>}
               </BreadcrumbItem>

@@ -40,7 +40,7 @@ export const middleware = (request: NextRequest) => {
       const userSession: UserResponse = JSON.parse(userSessionCookie.value);
 
       if (
-        userSession.roles.includes('SUPERADMIN') &&
+        userSession.roles.includes('ADMIN') &&
         UNAUTH_ROUTES.some((route) => request.url.includes(route))
       ) {
         return NextResponse.redirect(new URL(ROUTES.ORG.ORGANIZATIONS.ROOT, request.url));
