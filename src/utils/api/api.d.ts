@@ -94,11 +94,20 @@ type Stage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
 
 type UserRole = 'organizer' | 'partner';
 
-type ActivityCategory = 'EDUCATION';
+type ActivityCategory =
+  | 'COOKING'
+  | 'CULTURE'
+  | 'MEDIA'
+  | 'EDUCATION'
+  | 'ENTERTAINMENT'
+  | 'SPORT'
+  | 'CHALLENGE';
 
 type ActivityStatus = 'DRAFT' | 'MODERATION' | 'EDITING' | 'PUBLISHED' | 'CLOSED';
 
 type ActivityView = 'ONLINE' | 'OFFLINE';
+
+type Gender = 'MALE' | 'FEMALE';
 
 interface LegalInformation {
   fullNameOfTheLegalEntity?: string | null;
@@ -155,7 +164,11 @@ interface AddEmployeeDto {
   surname: string;
   email: string;
   phone: string;
-  // image?: any;
+  file?: File;
+}
+
+interface DeleteEmployeeDto {
+  id: string;
 }
 
 interface EditEmployeeDto {
@@ -166,7 +179,7 @@ interface EditEmployeeDto {
   surname: string;
   email: string;
   phone: string;
-  // image?: any;
+  image?: File;
 }
 
 interface RegisterOrganizationDto {
@@ -265,6 +278,26 @@ interface OrganizationListPaginationResponse {
   pagination: PaginationResponse;
 }
 
+interface ActivitiesResponse {
+  id: string;
+  organization: string;
+  activity: string;
+  location: string;
+  status: ActivityStatus;
+  category: ActivityCategory;
+  view: ActivityView;
+}
+
+interface ActivitiesPaginationResponse {
+  rows: ActivitiesResponse[];
+  pagination: PaginationResponse;
+}
+
+interface GenerateNewCodeResponse {
+  success: boolean;
+  message?: string;
+}
+
 interface PaginationResponse {
   limit: number;
   current: number;
@@ -324,12 +357,20 @@ interface Legals {
   growthPerMonth: number;
 }
 
+interface ActivitiesDashBoardResponse {
+  total: Legals;
+  active: Legals;
+  moderation: number;
+  draft: number;
+  edit: number;
+}
+
 interface UserResponse {
   id: string;
   email: string;
   createdAt: string;
   updatedAt: string;
-  roles: ['SUPERADMIN'];
+  roles: ['ADMIN'];
   isBlocked: boolean;
   isActive: boolean;
   name: string;
@@ -337,7 +378,7 @@ interface UserResponse {
   middleName: string;
   lastLogin: string;
   passportId: string;
-  sex: 'MALE' | 'FEMALE';
+  sex: Gender;
   avatar: string;
 }
 
@@ -348,7 +389,8 @@ interface EmployeeDto {
   surname: string;
   email: string;
   phone: string;
-  // image?: any;
+  status: string;
+  image: string;
 }
 
 interface UpdateOrganizationDto {

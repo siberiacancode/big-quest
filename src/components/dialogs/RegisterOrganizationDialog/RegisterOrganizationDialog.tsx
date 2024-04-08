@@ -4,7 +4,7 @@ import React from 'react';
 import { XIcon } from 'lucide-react';
 import Image from 'next/image';
 
-import treeBackground from '@/assets/images/treeBackground.png';
+import treeBackground from '@/assets/images/background/trees.png';
 import { I18nText } from '@/components/common';
 import { Dialog, DialogClose, DialogContent, DialogTrigger, Typography } from '@/components/ui';
 

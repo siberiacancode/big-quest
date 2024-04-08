@@ -1,4 +1,4 @@
-import { getOrganization, getOrganizationDashboard } from '@/utils/api';
+import { getOrganization } from '@/utils/api';
 
 import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
 
@@ -13,29 +13,24 @@ const DEFAULT_ORGANIZATIONS_LIMIT = 10;
 const DEFAULT_ORGANIZATIONS_PAGE = 1;
 
 const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPageProps) => {
-  const [organizationsResponse, organizationsDashboard] = await Promise.all([
-    getOrganization({
-      config: {
-        params: {
-          limit: DEFAULT_ORGANIZATIONS_LIMIT,
-          current: DEFAULT_ORGANIZATIONS_PAGE,
-          ...searchParams
-        },
-        cache: 'no-store'
-      }
-    }),
-    getOrganizationDashboard({
-      config: { cache: 'no-store' }
-    })
-  ]);
+  const getOrganizationResponse = await getOrganization({
+    config: {
+      params: {
+        limit: DEFAULT_ORGANIZATIONS_LIMIT,
+        current: DEFAULT_ORGANIZATIONS_PAGE,
+        ...searchParams
+      },
+      cache: 'no-store'
+    }
+  });
 
   return (
     <div className='bg-secondary px-4'>
       <OrgBreadcrumbs ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }} />
-      <OrganizationsDashboard dashboard={organizationsDashboard} />
+      <OrganizationsDashboard />
       <OrganizationsTable
-        organizations={organizationsResponse.rows}
-        pagination={organizationsResponse.pagination}
+        organizations={getOrganizationResponse.rows}
+        pagination={getOrganizationResponse.pagination}
       />
     </div>
   );

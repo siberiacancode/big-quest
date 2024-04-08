@@ -11,8 +11,8 @@ interface OrganizationAddressesPageProps {
   params: { organizationId: string };
 }
 
-const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
-  const organizationAddresses = await getOrganizationAddressesById({
+const OrganizationAddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
+  const getOrganizationAddressesByIdResponse = await getOrganizationAddressesById({
     params: { id: params.organizationId }
   });
 
@@ -32,7 +32,7 @@ const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
         />
       </div>
       <div className='gap-5 2xlx:grid-cols-2 xlx:flex xlx:flex-wrap 2xl:grid-cols-3 xl:grid'>
-        {organizationAddresses.addresses.map((address, index) => (
+        {getOrganizationAddressesByIdResponse.addresses.map((address, index) => (
           <AddressCard key={index} address={address} />
         ))}
       </div>
@@ -40,4 +40,4 @@ const AddressesPage = async ({ params }: OrganizationAddressesPageProps) => {
   );
 };
 
-export default AddressesPage;
+export default OrganizationAddressesPage;

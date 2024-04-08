@@ -4,8 +4,8 @@ export interface OrganizationsTableRow {
   id: string;
   name: string;
   locality: string;
-  countDays: string;
-  tariff: string | JSX.Element;
+  countDays: string | JSX.Element;
+  tariff: string;
   stage: string;
   type: string;
 }
@@ -17,8 +17,13 @@ export const convertOrganizationsToTableRows = (
     id: organization.id,
     name: organization.name ?? '-',
     locality: organization.locality ?? '-',
-    countDays: organization.countDays ?? '-',
-    tariff: organization.tariff === 'infinity' ? <InfinityIcon /> : organization.tariff,
+    countDays:
+      organization.countDays === 'INFINITY' ? (
+        <InfinityIcon className='size-5' />
+      ) : (
+        organization.countDays
+      ),
+    tariff: organization.tariff ?? '-',
     stage: `organization.stage.${organization.stage.toLowerCase()}`,
     type: `organization.legalType.${organization.type.toLowerCase()}`
   }));

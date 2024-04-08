@@ -10,7 +10,7 @@ export const useEditOrganizationProfileDialog = () => {
   const onEdited = () => {
     setOpen(false);
 
-    toast(intl.formatMessage({ id: 'dialog.editOrganizationProfile.success' }), {
+    toast.success(intl.formatMessage({ id: 'toast.organizationProfileChanged' }), {
       cancel: { label: 'Close' }
     });
   };

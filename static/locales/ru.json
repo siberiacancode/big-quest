@@ -15,12 +15,17 @@
   "common.rubles": "{amount}руб.",
 
   "button.add": "Добавить",
+  "button.delete": "Удалить",
+  "button.edit": "Редактировать",
+  "button.cancel": "Закрыть",
+  "button.sendConfirmation": "Отправить подтверждение",
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
   "button.close": "Закрыть",
   "button.addActivities": "Добавить активность",
   "button.addEmployee": "Добавить сотрудника",
   "button.updateTariff": "Сменить тариф",
+  "button.learnDetails": "Узнать подробности",
   "button.login": "Войти",
   "button.registration": "Регистрация",
   "button.entrance": "Вход",
@@ -81,6 +86,18 @@
   "organization.activities.status.editing": "Редактирование",
   "organization.activities.status.closed": "Закрыта",
   "organization.activities.status.published": "Опубликована",
+
+  "organization.activities.category.cooking": "Кулинария",
+  "organization.activities.category.culture": "Культура",
+  "organization.activities.category.media": "Медиа",
+  "organization.activities.category.sport": "Спорт",
+  "organization.activities.category.education": "Образование",
+  "organization.activities.category.entertainment": "Развлечение",
+  "organization.activities.category.challenge": "Челлендж",
+
+  "organization.activities.view.offline": "Оффлайн",
+  "organization.activities.view.online": "Онлайн",
+
   "organization.employee.email": "Email",
   "organization.employee.phoneNumber": "Телефон",
   "organization.employee.role.administrator": "Администратор",
@@ -188,6 +205,16 @@
   "infoCard.description.negotiation": "Переговоры",
   "infoCard.description.tariffChange": "Смена тарифа",
   "infoCard.description.applications": "Заявок",
+  "infoCard.description.total": "Всего",
+  "infoCard.description.closed": "закрытых",
+  "infoCard.description.active": "Активные",
+  "infoCard.description.moderation": "Модерация",
+  "infoCard.description.draft": "Черновик",
+  "infoCard.description.edit": "Редактирование",
+
+  "employeeCard.status.inactive": "неактивный",
+  "employeeCard.deleteAlert.title": "Вы абсолютно уверены?",
+  "employeeCard.deleteAlert.description": "Это действие не может быть отменено. Это приведет к безвозвратному удалению данных о сотруднике {name} с наших серверов.",
 
   "table.column.organization.stage": "Статус",
   "table.column.organization.name": "Организация",
@@ -195,6 +222,13 @@
   "table.column.organization.type": "Тип",
   "table.column.organization.tariff": "Тариф",
   "table.column.organization.countDays": "Кол-во дней",
+
+  "table.column.activities.organization": "Организация",
+  "table.column.activities.activity": "Активность",
+  "table.column.activities.location": "Населенный пункт",
+  "table.column.activities.status": "Статус",
+  "table.column.activities.category": "Категория",
+  "table.column.activities.view": "Вид",
 
   "dayOfWeek.1": "Пн",
   "dayOfWeek.2": "Вт",
@@ -230,6 +264,8 @@
   "validation.time.requiredBoth": "Необходимы оба значения времени",
   "validation.max": "Превышен лимит символов",
   "validation.format": "Неверный формат",
+  "validation.photo.max": "Максимальный размер фото 5MB",
+  "validation.photo.format": "Только .jpg, .jpeg, .png и .webp форматы поддерживаются",
 
   "dialog.registerOrganization.title": "Заполните заявку",
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
@@ -254,7 +290,6 @@
   "dialog.editEmployee.success": "Информация о сотруднике успешно отредактирована",
 
   "dialog.editOrganizationProfile.title": "Редактирование профиля",
-  "dialog.editOrganizationProfile.success": "Профиль успешно изменен",
 
   "dialog.editOrganizationTariff.title": "Выбор тарифа",
   "dialog.editOrganizationTariff.freeActivities": "Бесплатные активности",
@@ -267,9 +302,15 @@
   "landing.info.title.highlight": "Единственный в мире ",
   "landing.info.title": " маркетплейс активностей для {br} детей с игровыми элементами",
   "landing.info.subtitle": "Более <green>4000+ пользователей</green> уже с нами, присоединяйся!",
+  "landing.activities.title": "Активности",
+  "landing.activities.watchAll": "Смотреть все",
+  "landing.activities.card.duration": "{duration} мин",
+  "landing.activities.card.minimumAge": "{age}+ лет",
+  "landing.activitiesMap.title": "Поиск активностей на карте",
   "landing.statistics.participants": "Количество участников",
   "landing.statistics.activities": "Активностей{br}на нашей площадке",
   "landing.statistics.awards": "Выдано вознаграждений",
+  "landing.feedback.title": "Что о нас говорят",
   "landing.sponsors.title": "Спонсоры проекта",
   "landing.leaveRequest.title": "Хотите стать частью нашего проекта?",
   "landing.leaveRequest.subtitle": "Оставьте заявку!",
@@ -281,5 +322,8 @@
   "landing.footer.navigation.sponsors": "Спонсоры",
   "landing.footer.navigation.feedback": "Отзывы",
 
-  "toast.tariffChanged": "Тариф успешно изменен"
+  "toast.organizationTariffChanged": "Тариф успешно изменен",
+  "toast.organizationProfileChanged": "Профиль успешно изменен",
+  "toast.sendConfirmation": "Подтверждение отправлено на почту {email}",
+  "toast.deleted": "Сотрудник {name} удален"
 }
