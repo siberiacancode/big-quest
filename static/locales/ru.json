@@ -13,6 +13,8 @@
   "org.auth.footer.privacyPolicy": "Политика конфиденциальности",
 
   "button.add": "Добавить",
+  "button.watchAll": "Смотреть все",
+  "button.findOutDetails": "Узнать подробности",
   "button.delete": "Удалить",
   "button.edit": "Редактировать",
   "button.cancel": "Закрыть",
@@ -288,7 +290,6 @@
   "landing.info.title": " маркетплейс активностей для {br} детей с игровыми элементами",
   "landing.info.subtitle": "Более <green>4000+ пользователей</green> уже с нами, присоединяйся!",
   "landing.activities.title": "Активности",
-  "landing.activities.watchAll": "Смотреть все",
   "landing.activities.card.duration": "{duration} мин",
   "landing.activities.card.minimumAge": "{age}+ лет",
   "landing.activitiesMap.title": "Поиск активностей на карте",

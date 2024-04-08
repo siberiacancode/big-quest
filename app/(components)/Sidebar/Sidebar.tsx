@@ -6,6 +6,7 @@ import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 import { useSidebar } from './hooks/useSidebar';
+import { ROUTES } from '@/utils/constants';
 
 export interface SidebarProps {
   children: (isOpen: boolean) => React.ReactNode;
@@ -28,7 +29,7 @@ export const Sidebar = ({ children, defaultOpen }: SidebarProps) => {
           !state.isOpen && 'justify-center'
         )}
       >
-        <Logo full={state.isOpen} className='fill-foreground' />
+        <Logo href={ROUTES.ORG.ROOT} full={state.isOpen} className='fill-foreground' />
         <Button
           className={cn(
             'absolute bottom-0 translate-x-1/2 translate-y-1/2',
