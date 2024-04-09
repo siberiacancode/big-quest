@@ -6,7 +6,7 @@ import { COOKIES, ROUTES } from '@/utils/constants';
 
 generateServerHeadersInterceptor();
 
-const UNAUTH_ROUTES = [ROUTES.AUTH];
+const UNAUTH_ROUTES = [ROUTES.LANDING.ROOT, ROUTES.AUTH, ROUTES.ORG.AUTH];
 
 export const middleware = (request: NextRequest) => {
   console.info('\nMIDDLEWARE REQUEST:', request.method, request.url, new Date());
@@ -23,12 +23,12 @@ export const middleware = (request: NextRequest) => {
     ROUTES.LANDING.ROOT === request.url &&
     UNAUTH_ROUTES.some((route) => request.url.includes(route))
   ) {
-    console.log('@.1 !isAuthenticated unauth page');
+    console.log('@.1 !isAuthenticated, unauth page');
     return NextResponse.next();
   }
 
-  if (!isAuthenticated && !request.url.includes(ROUTES.AUTH)) {
-    console.log('@.2 !isAuthenticated page is not auth');
+  if (!isAuthenticated && !UNAUTH_ROUTES.some((route) => request.url.includes(route))) {
+    console.log('@.2 !isAuthenticated, page requires auth');
     return NextResponse.redirect(new URL(ROUTES.AUTH, request.url));
   }
 
@@ -40,7 +40,7 @@ export const middleware = (request: NextRequest) => {
       const userSession: UserResponse = JSON.parse(userSessionCookie.value);
 
       if (
-        userSession.roles.includes('SUPERADMIN') &&
+        (userSession.roles.includes('SUPERADMIN') || userSession.roles.includes('ADMIN')) &&
         UNAUTH_ROUTES.some((route) => request.url.includes(route))
       ) {
         return NextResponse.redirect(new URL(ROUTES.ORG.ORGANIZATIONS.DASHBOARD, request.url));

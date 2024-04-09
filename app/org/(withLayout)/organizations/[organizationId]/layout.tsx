@@ -1,7 +1,7 @@
-import { OrgBreadcrumbs } from 'app/org/(components)/OrgBreadcrumbs/OrgBreadcrumbs';
-
 import { getOrganizationById } from '@/utils/api/requests';
 import { ROUTES } from '@/utils/constants';
+
+import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
 
 import { OrganizationHeader } from './(components)/OrganizationHeader/OrganizationHeader';
 
