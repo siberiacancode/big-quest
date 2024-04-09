@@ -7,7 +7,7 @@ export const usePutUserMutation = (
   settings?: MutationSettings<PutUserRequestConfig, typeof putUser>
 ) =>
   useMutation({
-    mutationKey: ['organizationActionPartnerMutation'],
+    mutationKey: ['putUserMutation'],
     mutationFn: ({ params, config }) => {
       putUser({ params, config: { ...settings?.config, ...config } });
 

@@ -95,6 +95,7 @@
   "partner.scanner.scanner": "Сканер",
   "partner.scanner.pointCamera": "Наведите камеру на QR-код",
   "partner.scanner.camera": "Камера для сканирования",
+
   "field.email.label": "Email",
   "field.password.label": "Пароль",
   "field.email.placeholder": "examples@mail.com",

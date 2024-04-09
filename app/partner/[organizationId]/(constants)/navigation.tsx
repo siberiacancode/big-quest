@@ -1,3 +1,5 @@
+// вместо дублирования нужно файл вынести глобальней
+
 import type { LucideIcon } from 'lucide-react';
 import { ActivityIcon, MapPinIcon, UserIcon, UsersRoundIcon } from 'lucide-react';
 
