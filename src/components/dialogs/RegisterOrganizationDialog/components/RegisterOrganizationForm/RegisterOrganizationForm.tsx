@@ -28,7 +28,7 @@ export const RegisterOrganizationForm = ({ onRegistered }: RegisterOrganizationF
 
   return (
     <Form {...form}>
-      <form onSubmit={functions.onSubmit} className='w-full min-w-[400px] space-y-5'>
+      <form onSubmit={functions.onSubmit} className='w-full space-y-5'>
         <FormField
           control={form.control}
           name='type'

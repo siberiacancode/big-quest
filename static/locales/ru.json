@@ -286,9 +286,10 @@
   "tooltip.ogrn": "ОГРН - 13 цифр, ОГРНИП - 15 цифр",
   "tooltip.bik": "БИК - 9 цифр",
 
-  "landing.info.title.highlight": "Единственный в мире ",
-  "landing.info.title": " маркетплейс активностей для {br} детей с игровыми элементами",
-  "landing.info.subtitle": "Более <green>4000+ пользователей</green> уже с нами, присоединяйся!",
+  "landing.info.title.desktop": "<titleBackground>Единственный в мире</titleBackground>{br} маркетплейс активностей для{br} детей с игровыми элементами",
+  "landing.info.title.mobile": "Единственный в мире маркетплейс активностей для детей с игровыми элементами",
+
+  "landing.info.subtitle": "Более <green>4000+ пользователей</green> уже с нами,{br} присоединяйся!",
   "landing.activities.title": "Активности",
   "landing.activities.card.duration": "{duration} мин",
   "landing.activities.card.minimumAge": "{age}+ лет",

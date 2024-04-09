@@ -9,7 +9,7 @@ import { ActivityCard } from './components/ActivityCard/ActivityCard';
 import { activities } from './constants/activities';
 
 export const ActivitiesSection = () => (
-  <section id='activities' className='container px-16 py-14 mdx:px-11 mdx:py-10 xsx:px-5'>
+  <section id='activities' className='container py-10'>
     <div className='flex items-center justify-between'>
       <Typography tag='h2' variant='h1' className='xsx:text-[25px]'>
         <I18nText path='landing.activities.title' />

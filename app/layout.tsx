@@ -4,8 +4,7 @@ import { Fira_Sans as FontSans } from 'next/font/google';
 import { Toaster } from '@/components/ui/sonner';
 import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
 import { getMessagesByLocale } from '@/utils/helpers';
-import { getDefaultTheme } from '@/utils/helpers/getDefaultTheme';
-import { getUserSession } from '@/utils/helpers/getUserSession';
+import { getDefaultTheme, getUserSession } from '@/utils/helpers/server';
 
 import Providers from './providers';
 

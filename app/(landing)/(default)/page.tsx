@@ -1,23 +1,31 @@
+import { getDevice } from '@/utils/helpers/server';
+
 import { ActivitiesMapSection } from '../(components)/ActivitiesMapSection/ActivitiesMapSection';
 import { ActivitiesSection } from '../(components)/ActivitiesSection/ActivitiesSection';
-import { BannerSection } from '../(components)/BannerSection/BannerSection';
+import { DesktopBannerSection } from '../(components)/DesktopBannerSection/DesktopBannerSection';
 import { FeedbackSection } from '../(components)/FeedbackSection/FeedbackSection';
 import { LeaveRequestSection } from '../(components)/LeaveRequestSection/LeaveRequestSection';
+import { MobileBannerSection } from '../(components)/MobileBannerSection/MobileBannerSection';
 import { NewsSection } from '../(components)/NewsSection/NewsSection';
 import { SponsorsSection } from '../(components)/SponsorsSection/SponsorsSection';
 import { StatisticsSection } from '../(components)/StatisticsSection/StatisticsSection';
 
-const LandingPage = () => (
-  <>
-    <BannerSection />
-    <NewsSection />
-    <StatisticsSection />
-    <ActivitiesSection />
-    <ActivitiesMapSection cityId='novosibirsk' />
-    <SponsorsSection />
-    <FeedbackSection />
-    <LeaveRequestSection />
-  </>
-);
+const LandingPage = () => {
+  const device = getDevice();
+  const isMobile = device.type === 'mobile';
+
+  return (
+    <>
+      {isMobile ? <MobileBannerSection /> : <DesktopBannerSection />}
+      <NewsSection />
+      <StatisticsSection />
+      <ActivitiesSection />
+      <ActivitiesMapSection cityId='novosibirsk' />
+      <SponsorsSection />
+      <FeedbackSection />
+      <LeaveRequestSection />
+    </>
+  );
+};
 
 export default LandingPage;

@@ -12,7 +12,7 @@ import { CommentCard } from './components/CommentCard/CommentCard';
 import { comments } from './constants/comments';
 
 export const FeedbackSection = () => (
-  <section className='container w-full px-16 py-14 mdx:px-11 mdx:py-10 xsx:px-5'>
+  <section className='container w-full py-10'>
     <Carousel className='mx-auto max-w-full'>
       <div className='flex items-center justify-between'>
         <Typography tag='h3' variant='h1' className='mdx:text-3xl xsx:text-[21px] '>

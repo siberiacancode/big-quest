@@ -13,11 +13,11 @@ interface FooterProps {
 }
 
 export const Footer = ({ cityId }: FooterProps) => (
-  <footer className='bg-taiga-foreground px-16 pt-[90px] text-white mdx:px-11 mdx:pt-16 xsx:px-5 xsx:pt-10'>
+  <footer className='bg-taiga-foreground pt-12 text-white '>
     <div className='container flex flex-wrap gap-7 lgx:justify-around'>
       <div className='flex flex-shrink-0 flex-col lg:basis-1/4'>
         <Logo href={ROUTES.LANDING.CITY(cityId)} fill='white' />
-        <div className='mt-[57px] flex gap-3'>
+        <div className='mt-14 flex gap-3'>
           {Object.entries(SOCIAL_LINKS[cityId.toUpperCase()]).map(
             ([socialLinkKey, socialLinkValue]) => {
               const Icon = SOCIAL_ICONS[socialLinkKey];
