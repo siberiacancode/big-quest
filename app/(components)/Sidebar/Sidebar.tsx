@@ -4,9 +4,9 @@ import { ArrowLeftFromLineIcon, ArrowRightFromLineIcon } from 'lucide-react';
 import { Logo } from '@/components/common';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
+import { ROUTES } from '@/utils/constants';
 
 import { useSidebar } from './hooks/useSidebar';
-import { ROUTES } from '@/utils/constants';
 
 export interface SidebarProps {
   children: (isOpen: boolean) => React.ReactNode;
