@@ -305,12 +305,14 @@ interface Legals {
   growthPerMonth: number;
 }
 
+type Role = 'SUPERADMIN' | 'ADMIN' | 'USER' | 'MANAGER' | 'MODERATOR' | 'SUPPORT';
+
 interface UserResponse {
   id: string;
   email: string;
   createdAt: string;
   updatedAt: string;
-  roles: ['SUPERADMIN'];
+  roles: Role[];
   isBlocked: boolean;
   isActive: boolean;
   name: string;

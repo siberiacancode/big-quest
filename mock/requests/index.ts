@@ -1,4 +1,8 @@
 // export * from './address/get';
+export * from './activity/get';
+export * from './activity/id/get';
+export * from './activity/id/put';
+export * from './activity/post';
 export * from './auth/login/email/post';
 export * from './auth/new-code/get';
 export * from './auth/refresh-tokens/get';
@@ -13,4 +17,5 @@ export * from './organization/id/employees/get';
 export * from './organization/id/get';
 export * from './organization/put';
 export * from './organization/register/post';
-export * from './user/me/get';
+export * from './user/get';
+export * from './user/put';

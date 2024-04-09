@@ -23,21 +23,7 @@ export const getActivityById: RestRequestConfig = {
           participants: 600,
           likes: 210,
           nutsCount: 0,
-          schedule: [
-            {
-              address: 'адрес',
-              leadingEmployeeId: 'id',
-              entry: true,
-              regular: true,
-              date: '2024-02-28T20:14:53.795Z',
-              time: {
-                hour: 12,
-                minutes: 33
-              },
-              maxNumberOfParticipants: 0,
-              period: [0]
-            }
-          ]
+          schedule: []
         }
       ]
     }

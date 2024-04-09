@@ -20,6 +20,13 @@ export const ROUTES = {
       ORGANIZATIONS: '/org/lids/organizations'
     }
   },
+  PARTNER: {
+    PROFILE: (id: string) => `/partner/${id}/profile`,
+    ADDRESSES: (id: string) => `/partner/${id}/addresses`,
+    EMPLOYEES: (id: string) => `/partner/${id}/employees`,
+    ACTIVITIES: (id: string) => `/partner/${id}/activities`,
+    SCHEDULE: (id: string) => `/partner/${id}/schedule`
+  },
   LANDING: {
     ROOT: '/'
   }

@@ -17,4 +17,4 @@ export * from './organization/id';
 export * from './organization/id/add-address';
 export * from './organization/id/employees';
 export * from './organization/register';
-export * from './user/me';
+export * from './user';

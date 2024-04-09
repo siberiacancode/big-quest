@@ -9,6 +9,7 @@ export * from './button';
 export * from './card';
 export * from './checkbox';
 export * from './checking-account-input';
+export * from './circular-button';
 export * from './clock-input';
 export * from './collapsible';
 export * from './combobox';
