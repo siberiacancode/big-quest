@@ -2,14 +2,15 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
-import { COOKIES, ROUTES } from '@/utils/constants';
+import { CITIES, COOKIES, ROUTES } from '@/utils/constants';
 
 generateServerHeadersInterceptor();
 
 const UNAUTH_ROUTES = [ROUTES.AUTH];
 
 export const middleware = (request: NextRequest) => {
-  console.info('\nMIDDLEWARE REQUEST:', request.method, request.url, new Date());
+  const { pathname } = new URL(request.url);
+  console.info('\nMIDDLEWARE REQUEST:', request.method, request.url, pathname, new Date());
 
   if (request.method !== 'GET') return NextResponse.next();
 
@@ -18,10 +19,13 @@ export const middleware = (request: NextRequest) => {
 
   const isAuthenticated = !!sessionIdCookie && !!userSessionCookie;
 
+  const isLanding =
+    pathname === ROUTES.LANDING.ROOT ||
+    Object.values(CITIES).some((city) => request.url.includes(city.id));
+
   if (
     !isAuthenticated &&
-    ROUTES.LANDING.ROOT === request.url &&
-    UNAUTH_ROUTES.some((route) => request.url.includes(route))
+    (isLanding || UNAUTH_ROUTES.some((route) => request.url.includes(route)))
   ) {
     console.log('@.1 !isAuthenticated unauth page');
     return NextResponse.next();
