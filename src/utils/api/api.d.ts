@@ -92,7 +92,7 @@ type LegalType = 'PARTNER' | 'FRANCHISEE' | 'SPONSOR' | 'ORGANIZER';
 
 type Stage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
 
-type UserRole = 'SUPERADMIN' | 'ADMIN';
+type UserRole = 'organizer' | 'partner';
 
 type ActivityCategory =
   | 'COOKING'
@@ -370,7 +370,7 @@ interface UserResponse {
   email: string;
   createdAt: string;
   updatedAt: string;
-  roles: UserRole[];
+  roles: ['SUPERADMIN', 'ADMIN'];
   isBlocked: boolean;
   isActive: boolean;
   name: string;
