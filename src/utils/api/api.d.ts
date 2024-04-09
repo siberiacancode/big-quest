@@ -370,7 +370,7 @@ interface UserResponse {
   email: string;
   createdAt: string;
   updatedAt: string;
-  roles: ['ADMIN'];
+  roles: ['SUPERADMIN', 'ADMIN'];
   isBlocked: boolean;
   isActive: boolean;
   name: string;
