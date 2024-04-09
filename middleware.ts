@@ -6,7 +6,7 @@ import { COOKIES, ROUTES } from '@/utils/constants';
 
 generateServerHeadersInterceptor();
 
-const UNAUTH_ROUTES = [ROUTES.AUTH];
+const UNAUTH_ROUTES = [ROUTES.AUTH, '/participants'];
 
 export const middleware = (request: NextRequest) => {
   console.info('\nMIDDLEWARE REQUEST:', request.method, request.url, new Date());
