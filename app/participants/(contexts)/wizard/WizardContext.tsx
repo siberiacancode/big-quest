@@ -33,8 +33,10 @@ export const defaultWizardMap: WizardMap = {
   }
 };
 
-export const WizardContext = React.createContext<WizardContextParams>({
+export const defaultWizardContextParams: WizardContextParams = {
   map: defaultWizardMap,
   activeStepId: 'excursion',
   setStepId: () => {}
-});
+};
+
+export const WizardContext = React.createContext<WizardContextParams>(defaultWizardContextParams);

@@ -4,11 +4,11 @@ import { WizardProvider } from './(contexts)/wizard/WizardProvider';
 import { WizardStep } from './(contexts)/wizard/WizardStep';
 
 interface AuthPageProps {
-  params: SearchParams;
+  searchParams: SearchParams;
 }
 
-const AuthPage = ({ params }: AuthPageProps) => {
-  const initialStepId = params.stepId ? (params.stepId as WizardStepId) : 'excursion';
+const AuthPage = ({ searchParams }: AuthPageProps) => {
+  const initialStepId = searchParams.step ? (searchParams.step as WizardStepId) : 'excursion';
 
   return (
     <WizardProvider map={defaultWizardMap} initialStepId={initialStepId}>
