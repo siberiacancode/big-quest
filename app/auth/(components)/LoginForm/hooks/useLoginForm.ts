@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 
 import { usePostAuthLoginEmailMutation } from '@/utils/api';
-import { useGetUserMeMutation } from '@/utils/api/hooks';
+import { useGetUserMutation } from '@/utils/api/hooks';
 import { ROUTES } from '@/utils/constants';
 import { useSession, useUser } from '@/utils/contexts';
 import { handleLogin } from '@/utils/jwt/helpers/handleLogin';
@@ -26,12 +26,12 @@ export const useLoginForm = () => {
   });
 
   const postAuthLoginEmailMutation = usePostAuthLoginEmailMutation();
-  const getUserMeMutation = useGetUserMeMutation();
+  const getUserMutation = useGetUserMutation();
 
   const onSubmit = loginForm.handleSubmit(async (values) => {
     await postAuthLoginEmailMutation.mutateAsync({ params: values });
 
-    const getUserMeMutationResponse = await getUserMeMutation.mutateAsync();
+    const getUserMeMutationResponse = await getUserMutation.mutateAsync();
 
     setUser(getUserMeMutationResponse);
     setSession({ isAuthenticated: true });
@@ -40,6 +40,10 @@ export const useLoginForm = () => {
 
     if (getUserMeMutationResponse.roles.includes('SUPERADMIN')) {
       router.replace(ROUTES.ORG.ORGANIZATIONS.DASHBOARD);
+    }
+
+    if (getUserMeMutationResponse.roles.includes('MANAGER')) {
+      router.replace(ROUTES.PARTNER.PROFILE);
     }
   });
 

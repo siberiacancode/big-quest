@@ -21,11 +21,11 @@ export const ROUTES = {
     }
   },
   PARTNER: {
-    PROFILE: (id: string) => `/partner/${id}/profile`,
-    ADDRESSES: (id: string) => `/partner/${id}/addresses`,
-    EMPLOYEES: (id: string) => `/partner/${id}/employees`,
-    ACTIVITIES: (id: string) => `/partner/${id}/activities`,
-    SCHEDULE: (id: string) => `/partner/${id}/schedule`
+    PROFILE: '/partner/profile',
+    ADDRESSES: '/partner/addresses',
+    EMPLOYEES: '/partner/employees',
+    ACTIVITIES: '/partner/activities',
+    SCHEDULE: '/partner/schedule'
   },
   LANDING: {
     ROOT: '/'

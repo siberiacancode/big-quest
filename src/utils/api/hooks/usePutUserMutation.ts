@@ -7,11 +7,8 @@ export const usePutUserMutation = (
   settings?: MutationSettings<PutUserRequestConfig, typeof putUser>
 ) =>
   useMutation({
-    mutationKey: ['putUserMutation'],
-    mutationFn: ({ params, config }) => {
-      putUser({ params, config: { ...settings?.config, ...config } });
-
-      throw new Error('Invalid action');
-    },
+    mutationKey: ['putUser'],
+    mutationFn: ({ params, config }) =>
+      putUser({ params, config: { ...settings?.config, ...config } }),
     ...settings?.options
   });

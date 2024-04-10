@@ -2,7 +2,7 @@ import { api } from '../../instance';
 
 export type GetUserRequestConfig = RequestConfig | void;
 
-export const getUserMe = async (requestConfig?: GetUserRequestConfig) =>
+export const getUser = async (requestConfig?: GetUserRequestConfig) =>
   api.get<UserResponse>('user', requestConfig?.config);
 
 export type PutUserParams = UserResponse & { file?: File };
