@@ -95,7 +95,7 @@ export const Combobox = ({
           <ScrollArea
             className={cn('max-h-[220px] overflow-auto', !items.length && !unselect && 'hidden')}
           >
-            <CommandGroup>
+            <CommandGroup className='dark:bg-background'>
               {unselect && (
                 <CommandItem
                   key='unselect'
