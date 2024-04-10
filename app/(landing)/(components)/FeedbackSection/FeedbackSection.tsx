@@ -12,10 +12,10 @@ import { CommentCard } from './components/CommentCard/CommentCard';
 import { comments } from './constants/comments';
 
 export const FeedbackSection = () => (
-  <section className='container w-full py-10'>
+  <section className='container mt-28 w-full'>
     <Carousel className='mx-auto max-w-full'>
       <div className='flex items-center justify-between'>
-        <Typography tag='h3' variant='h1' className='mdx:text-3xl xsx:text-[21px] '>
+        <Typography tag='h3' variant='h1' className='mdx:text-3xl xsx:text-[21px]'>
           <I18nText path='landing.feedback.title' />
         </Typography>
         <div>

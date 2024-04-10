@@ -10,7 +10,7 @@ export const LeaveRequestSection = () => (
   <section className='relative flex py-32'>
     <div className='container'>
       <div className='w-1/2 2lgx:mx-auto 2lgx:w-[90%] xsx:flex xsx:w-full xsx:flex-col xsx:items-center'>
-        <Typography tag='h2' variant='h1' className='mdx:text-2xl xsx:text-center xsx:text-xl'>
+        <Typography tag='h2' variant='h1' className='mdx:text-3xl xsx:text-[21px]'>
           <I18nText path='landing.leaveRequest.title' />
         </Typography>
         <div className='relative inline-block'>

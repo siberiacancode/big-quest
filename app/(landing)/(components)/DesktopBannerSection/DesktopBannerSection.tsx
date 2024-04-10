@@ -28,15 +28,15 @@ const TitleBackground = (children: React.ReactNode) => (
 );
 
 export const DesktopBannerSection = () => (
-  <section className='container relative flex overflow-x-hidden px-5 pb-10'>
-    <div className='absolute -left-3 top-2/3 -translate-x-full xsx:left-3'>
-      <RhombIcon />
-    </div>
+  <section className='container  flex overflow-x-hidden px-5 pb-10'>
+    <div className='relative flex w-full flex-col-reverse items-center justify-center md:flex-row'>
+      <div className='absolute left-12 top-1/2 hidden xl:block'>
+        <RhombIcon />
+      </div>
 
-    <div className='flex w-full items-center justify-center gap-4'>
       <div className='flex flex-col gap-2 p-2'>
         <div className='relative block p-2'>
-          <Typography tag='h1' variant='h1' className='text-xl lg:text-4xl'>
+          <Typography tag='h1' variant='h1' className='text-3xl md:text-xl lg:text-3xl'>
             <I18nText
               path='landing.info.title.desktop'
               values={{ br: <br />, titleBackground: TitleBackground }}
@@ -44,27 +44,33 @@ export const DesktopBannerSection = () => (
           </Typography>
 
           <div className='mt-6 flex items-center gap-4'>
-            <div className='flex -space-x-4 lgx:-space-x-2'>
+            <div className='flex -space-x-2'>
               {[face1, face2, face3].map((face) => (
                 <Image
                   src={face}
                   alt='face'
-                  className='inline-block size-12 rounded-full ring-1 ring-white lgx:size-8'
+                  className='inline-block size-12 rounded-full ring-1 ring-white md:size-8 lg:size-12'
                 />
               ))}
             </div>
-            <Typography tag='p' variant='body1' className='text-wrap text-base lgx:text-xs'>
-              <I18nText
-                path='landing.info.subtitle'
-                values={{
-                  br: <br />,
-                  green: getGreenSubtitle
-                }}
-              />
-            </Typography>
+            <div>
+              <Typography
+                tag='p'
+                variant='body1'
+                className='text-wrap text-base md:text-xs lg:text-base'
+              >
+                <I18nText
+                  path='landing.info.subtitle'
+                  values={{
+                    br: <br />,
+                    green: getGreenSubtitle
+                  }}
+                />
+              </Typography>
+            </div>
           </div>
         </div>
-        <div className='mt-8 flex w-full flex-row gap-4'>
+        <div className='mt-8 flex w-full flex-col gap-4 md:flex-row lg:mt-14'>
           <div className='w-full basis-2/3'>
             <Link
               href={ROUTES.REGISTER}
@@ -87,7 +93,7 @@ export const DesktopBannerSection = () => (
         </div>
       </div>
 
-      <Image src={bannerImage} alt='info image' className='w-[50%]' />
+      <Image src={bannerImage} alt='info image' className='w-[46rem] md:w-[50%]' />
     </div>
   </section>
 );

@@ -9,9 +9,9 @@ import { ActivityCard } from './components/ActivityCard/ActivityCard';
 import { activities } from './constants/activities';
 
 export const ActivitiesSection = () => (
-  <section id='activities' className='container py-10'>
+  <section id='activities' className='container mt-28'>
     <div className='flex items-center justify-between'>
-      <Typography tag='h2' variant='h1' className='xsx:text-[25px]'>
+      <Typography tag='h2' variant='h1' className='text-2xl md:text-[32px]'>
         <I18nText path='landing.activities.title' />
       </Typography>
 

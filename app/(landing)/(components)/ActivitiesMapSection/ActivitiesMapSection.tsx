@@ -15,9 +15,9 @@ interface ActivitiesMapSectionProps {
 }
 
 export const ActivitiesMapSection = ({ cityId }: ActivitiesMapSectionProps) => (
-  <section className='container py-10'>
+  <section className='container mt-28 min-h-[500px]'>
     <YMaps>
-      <Typography tag='h2' variant='h1' className='xsx:text-[25px]'>
+      <Typography tag='h2' variant='h1' className='text-2xl md:text-[32px]'>
         <I18nText path='landing.activitiesMap.title' />
       </Typography>
       <Map
