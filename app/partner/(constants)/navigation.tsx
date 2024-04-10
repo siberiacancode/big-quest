@@ -3,7 +3,7 @@ import { ActivityIcon, MapPinIcon, UserIcon, UsersRoundIcon } from 'lucide-react
 
 import { ROUTES } from '@/utils/constants';
 
-export const ORGANIZATION_PROFILE_TAB_VALUES = {
+export const PARTNER_TAB_VALUES = {
   PROFILE: 'profile',
   ADDRESSES: 'addresses',
   EMPLOYEES: 'employees',
@@ -23,7 +23,7 @@ export const FRANCHISEE_PROFILE_TABS: ProfileTab[] = [
   {
     icon: UserIcon,
     title: 'organization.profile.header.profile',
-    value: ORGANIZATION_PROFILE_TAB_VALUES.PROFILE,
+    value: PARTNER_TAB_VALUES.PROFILE,
     route: ROUTES.PARTNER.PROFILE
   }
 ];
@@ -32,7 +32,7 @@ export const SPONSOR_PROFILE_TABS: ProfileTab[] = [
   {
     icon: UserIcon,
     title: 'organization.profile.header.profile',
-    value: ORGANIZATION_PROFILE_TAB_VALUES.PROFILE,
+    value: PARTNER_TAB_VALUES.PROFILE,
     route: ROUTES.PARTNER.PROFILE
   }
 ];
@@ -41,31 +41,31 @@ export const PARTNER_PROFILE_TABS: ProfileTab[] = [
   {
     icon: UserIcon,
     title: 'organization.profile.header.profile',
-    value: ORGANIZATION_PROFILE_TAB_VALUES.PROFILE,
+    value: PARTNER_TAB_VALUES.PROFILE,
     route: ROUTES.PARTNER.PROFILE
   },
   {
     icon: MapPinIcon,
     title: 'organization.profile.header.addresses',
-    value: ORGANIZATION_PROFILE_TAB_VALUES.ADDRESSES,
+    value: PARTNER_TAB_VALUES.ADDRESSES,
     route: ROUTES.PARTNER.ADDRESSES
   },
   {
     icon: UsersRoundIcon,
     title: 'organization.profile.header.employees',
-    value: ORGANIZATION_PROFILE_TAB_VALUES.EMPLOYEES,
+    value: PARTNER_TAB_VALUES.EMPLOYEES,
     route: ROUTES.PARTNER.EMPLOYEES
   },
   {
     icon: ActivityIcon,
     title: 'organization.profile.header.activities',
-    value: ORGANIZATION_PROFILE_TAB_VALUES.ACTIVITIES,
+    value: PARTNER_TAB_VALUES.ACTIVITIES,
     route: ROUTES.PARTNER.ACTIVITIES
   },
   {
     icon: ActivityIcon,
     title: 'organization.profile.header.schedule',
-    value: ORGANIZATION_PROFILE_TAB_VALUES.SCHEDULE,
+    value: PARTNER_TAB_VALUES.SCHEDULE,
     route: ROUTES.PARTNER.SCHEDULE
   }
 ];

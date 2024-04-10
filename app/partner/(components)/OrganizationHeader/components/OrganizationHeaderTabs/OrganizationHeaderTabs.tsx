@@ -8,9 +8,9 @@ import { Tabs, TabsList } from '@/components/ui';
 import type { ProfileTab } from '../../../../(constants)/navigation';
 import {
   FRANCHISEE_PROFILE_TABS,
-  ORGANIZATION_PROFILE_TAB_VALUES,
   ORGANIZER_PROFILE_TABS,
   PARTNER_PROFILE_TABS,
+  PARTNER_TAB_VALUES,
   SPONSOR_PROFILE_TABS
 } from '../../../../(constants)/navigation';
 
@@ -31,7 +31,7 @@ export const OrganizationHeaderTabs = ({ organization }: OrganizationHeaderTabsP
   const segment = useSelectedLayoutSegment();
 
   return (
-    <Tabs defaultValue={ORGANIZATION_PROFILE_TAB_VALUES[segment?.toUpperCase() ?? 'PROFILE']}>
+    <Tabs defaultValue={PARTNER_TAB_VALUES[segment?.toUpperCase() ?? 'PROFILE']}>
       <TabsList className='items-top text-organization-tabs flex w-full justify-end gap-1 bg-transparent'>
         {TABS[organization.type].map((tab, index) => {
           const Icon = tab.icon;

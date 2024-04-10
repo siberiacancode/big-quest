@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { I18nText, NotificationsDropdownMenu, ThemeSwitcher } from '@/components/common';
 import { Button, CircularButton, Typography } from '@/components/ui';
 
-import type { PartnerData } from '../../(constants)/types';
+import type { PartnerData } from '../../constants/types';
 
 interface DesktopProfileMenuProps {
   partner: PartnerData;

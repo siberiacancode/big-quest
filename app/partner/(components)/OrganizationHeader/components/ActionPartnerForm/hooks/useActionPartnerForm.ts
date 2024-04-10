@@ -6,7 +6,7 @@ import { toast } from 'sonner';
 import { usePutUserMutation } from '@/utils/api/hooks/usePutUserMutation';
 import { useI18n } from '@/utils/contexts';
 
-import type { PartnerData } from '../../../(constants)/types';
+import type { PartnerData } from '../../../constants/types';
 import type { PartnerSchema } from '../constants/actionPartnerSchema';
 import { actionPartnerSchema } from '../constants/actionPartnerSchema';
 

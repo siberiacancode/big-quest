@@ -20,7 +20,7 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import type { PartnerData } from '../../(constants)/types';
+import type { PartnerData } from '../../constants/types';
 
 import { useActionPartnerForm } from './hooks/useActionPartnerForm';
 

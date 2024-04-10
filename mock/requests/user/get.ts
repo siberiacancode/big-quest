@@ -1,10 +1,17 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
+import { COOKIES } from '@/utils/constants/cookies';
+
 export const getUserMeConfig: RestRequestConfig = {
   path: '/user',
   method: 'get',
   routes: [
     {
+      entities: {
+        cookies: {
+          [COOKIES.SESSION_ID]: 'superadmin'
+        }
+      },
       data: {
         id: '77672e1e-f8cc-4e56-9f4b-9840a94dbbca',
         email: 'superadmin@mail.ru',
@@ -24,8 +31,8 @@ export const getUserMeConfig: RestRequestConfig = {
     },
     {
       entities: {
-        query: {
-          email: 'partner@mail.ru'
+        cookies: {
+          [COOKIES.SESSION_ID]: 'partner'
         }
       },
       data: {

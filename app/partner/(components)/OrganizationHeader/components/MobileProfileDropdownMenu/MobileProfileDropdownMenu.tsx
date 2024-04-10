@@ -13,7 +13,7 @@ import {
   Typography
 } from '@/components/ui';
 
-import type { PartnerData } from '../../(constants)/types';
+import type { PartnerData } from '../../constants/types';
 
 import { useMobileProfileDropdownMenu } from './hooks/useMobileProfileDropdownMenu';
 

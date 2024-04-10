@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import background from '@/assets/images/background/organization.png';
+import organizationBackgroundImage from '@/assets/images/background/organization.png';
 import logo from '@/assets/images/logo/organization.png';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
@@ -17,7 +17,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
       <Image
         priority={false}
         className='h-[168px] w-full rounded-lg'
-        src={organization.background || background}
+        src={organization.background || organizationBackgroundImage}
         alt='org-background'
       />
       <div className='absolute bottom-0 mx-4 mt-auto h-36 w-[96%] rounded-lg border-none bg-background/70 pb-4 pl-4 pr-4 pt-3 shadow-sm backdrop-blur-lg'>

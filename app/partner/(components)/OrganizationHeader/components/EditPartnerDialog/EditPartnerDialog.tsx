@@ -11,7 +11,7 @@ import {
   Typography
 } from '@/components/ui';
 
-import type { PartnerData } from '../../(constants)/types';
+import type { PartnerData } from '../../constants/types';
 import { ActionPartnerForm } from '../ActionPartnerForm/ActionPartnerForm';
 
 interface EditPartnerDialogProps extends React.ComponentProps<typeof Dialog> {

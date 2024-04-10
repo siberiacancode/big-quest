@@ -28,8 +28,10 @@ export const middleware = (request: NextRequest) => {
   }
 
   const isOrg = request.url.includes(ROUTES.ORG.ORGANIZATIONS.ROOT);
-  if (!isAuthenticated && isOrg) {
-    console.log('@.2 !isAuthenticated && isOrg, org page requires auth');
+  const isPartner = request.url.includes(ROUTES.PARTNER.ROOT);
+
+  if (!isAuthenticated && (isOrg || isPartner)) {
+    console.log('@.2 !isAuthenticated && isOrg, org or partner page requires auth');
     return NextResponse.redirect(new URL(ROUTES.ORG.AUTH, request.url));
   }
 
