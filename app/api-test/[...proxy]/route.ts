@@ -1,9 +1,6 @@
 import type { NextRequest } from 'next/server';
 
 import { api } from '@/utils/api/instance';
-// import { generateRefreshTokenInterceptor } from '@/utils/api/interceptors';
-
-// generateRefreshTokenInterceptor();
 
 async function proxy(req: NextRequest, ctx: { params: { proxy: string[] } }) {
   let url = `${ctx.params.proxy.join('/')}`;

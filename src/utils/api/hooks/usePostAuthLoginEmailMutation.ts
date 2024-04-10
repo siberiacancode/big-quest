@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 
-import type { PostAuthLoginEmailRequestConfig } from '../requests/auth/login/email';
-import { postAuthLoginEmail } from '../requests/auth/login/email';
+import type { PostAuthLoginEmailRequestConfig } from '../requests';
+import { postAuthLoginEmail } from '../requests';
 
 export const usePostAuthLoginEmailMutation = (
   settings?: MutationSettings<PostAuthLoginEmailRequestConfig, typeof postAuthLoginEmail>
