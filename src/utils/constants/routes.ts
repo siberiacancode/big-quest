@@ -13,7 +13,7 @@ export const ROUTES = {
       ACTIVITIES: (id: string) => `/org/organizations/${id}/activities`,
       SCHEDULE: (id: string) => `/org/organizations/${id}/schedule`
     },
-    ACTIVITIES: '/org/activities',
+    ACTIVITIES: { DASHBOARD: '/org/activities/dashboard' },
     LIDS: {
       ROOT: '/org/lids',
       PARTICIPANTS: '/org/lids/participants',

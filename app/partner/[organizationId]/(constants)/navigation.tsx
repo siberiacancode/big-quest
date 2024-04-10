@@ -1,5 +1,3 @@
-// вместо дублирования нужно файл вынести глобальней
-
 import type { LucideIcon } from 'lucide-react';
 import { ActivityIcon, MapPinIcon, UserIcon, UsersRoundIcon } from 'lucide-react';
 
@@ -17,10 +15,7 @@ export interface ProfileTab {
   icon: LucideIcon;
   title: string;
   value: string;
-  route: (typeof ROUTES.ORG.ORGANIZATIONS)[Exclude<
-    keyof typeof ROUTES.ORG.ORGANIZATIONS,
-    'ROOT' | 'DASHBOARD'
-  >];
+  route: (typeof ROUTES.PARTNER)[keyof typeof ROUTES.PARTNER];
 }
 
 export const ORGANIZER_PROFILE_TABS: ProfileTab[] = [];
@@ -29,7 +24,7 @@ export const FRANCHISEE_PROFILE_TABS: ProfileTab[] = [
     icon: UserIcon,
     title: 'organization.profile.header.profile',
     value: ORGANIZATION_PROFILE_TAB_VALUES.PROFILE,
-    route: ROUTES.ORG.ORGANIZATIONS.PROFILE
+    route: ROUTES.PARTNER.PROFILE
   }
 ];
 
@@ -38,7 +33,7 @@ export const SPONSOR_PROFILE_TABS: ProfileTab[] = [
     icon: UserIcon,
     title: 'organization.profile.header.profile',
     value: ORGANIZATION_PROFILE_TAB_VALUES.PROFILE,
-    route: ROUTES.ORG.ORGANIZATIONS.PROFILE
+    route: ROUTES.PARTNER.PROFILE
   }
 ];
 

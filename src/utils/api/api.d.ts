@@ -78,11 +78,20 @@ type Stage = 'REQUEST' | 'NEGOTIATION' | 'CONCLUSION';
 
 type UserRole = 'organizer' | 'partner';
 
-type ActivityCategory = 'EDUCATION';
+type ActivityCategory =
+  | 'COOKING'
+  | 'CULTURE'
+  | 'MEDIA'
+  | 'EDUCATION'
+  | 'ENTERTAINMENT'
+  | 'SPORT'
+  | 'CHALLENGE';
 
 type ActivityStatus = 'DRAFT' | 'MODERATION' | 'EDITING' | 'PUBLISHED' | 'CLOSED';
 
 type ActivityView = 'ONLINE' | 'OFFLINE';
+
+type Gender = 'MALE' | 'FEMALE';
 
 interface LegalInformationDto {
   fullNameOfTheLegalEntity?: string;
@@ -227,6 +236,21 @@ interface OrganizationListPaginationResponse {
   pagination: PaginationResponse;
 }
 
+interface ActivitiesResponse {
+  id: string;
+  organization: string;
+  activity: string;
+  location: string;
+  status: ActivityStatus;
+  category: ActivityCategory;
+  view: ActivityView;
+}
+
+interface ActivitiesPaginationResponse {
+  rows: ActivitiesResponse[];
+  pagination: PaginationResponse;
+}
+
 interface GenerateNewCodeResponse {
   success: boolean;
   message?: string;
@@ -305,6 +329,14 @@ interface Legals {
   growthPerMonth: number;
 }
 
+interface ActivitiesDashBoardResponse {
+  total: Legals;
+  active: Legals;
+  moderation: number;
+  draft: number;
+  edit: number;
+}
+
 type Role = 'SUPERADMIN' | 'ADMIN' | 'USER' | 'MANAGER' | 'MODERATOR' | 'SUPPORT';
 
 interface UserResponse {
@@ -320,7 +352,7 @@ interface UserResponse {
   middleName: string;
   lastLogin: string;
   passportId: string;
-  sex: 'MALE' | 'FEMALE';
+  sex: Gender;
   avatar: string;
 }
 

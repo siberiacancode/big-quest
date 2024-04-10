@@ -25,12 +25,7 @@ export const postAuthLoginEmailConfig: RestRequestConfig = {
       },
       interceptors: {
         response: (data, { setCookie }) => {
-          setCookie(COOKIES.REFRESH_TOKEN, COOKIES.REFRESH_TOKEN, {
-            httpOnly: true,
-            maxAge: 360000,
-            path: '/'
-          });
-          setCookie(COOKIES.ACCESS_TOKEN, COOKIES.ACCESS_TOKEN, {
+          setCookie(COOKIES.SESSION_ID, COOKIES.SESSION_ID, {
             httpOnly: true,
             maxAge: 360000,
             path: '/'

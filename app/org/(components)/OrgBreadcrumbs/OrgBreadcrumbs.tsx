@@ -3,14 +3,20 @@
 import { useParams, usePathname } from 'next/navigation';
 
 import { I18nText } from '@/components/common';
-import { BreadcrumbItem, Breadcrumbs } from '@/components/ui';
-import { cn } from '@/lib/utils';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator
+} from '@/components/ui';
 
-interface OrgBreadcrumbsProps extends React.ComponentProps<typeof Breadcrumbs> {
+interface OrgBreadcrumbsProps extends React.ComponentProps<typeof Breadcrumb> {
   ids?: Record<string, { value?: string; clickable?: boolean; href?: string; hidden?: boolean }>;
 }
 
-export const OrgBreadcrumbs = ({ ids = {}, className }: OrgBreadcrumbsProps) => {
+export const OrgBreadcrumbs = ({ ids = {}, ...props }: OrgBreadcrumbsProps) => {
   const params = useParams();
   const pathname = usePathname();
 
@@ -24,7 +30,7 @@ export const OrgBreadcrumbs = ({ ids = {}, className }: OrgBreadcrumbsProps) => 
     const pathname = idParam ? idParam[0] : path;
 
     if (ids[pathname]?.hidden) return null;
-    return { pathname, href };
+    return { pathname, href, ...ids[pathname] };
   });
 
   const filteredPathnames = preparedPathnames.filter(Boolean) as {
@@ -33,30 +39,40 @@ export const OrgBreadcrumbs = ({ ids = {}, className }: OrgBreadcrumbsProps) => 
   }[];
 
   return (
-    <Breadcrumbs className={cn('flex-wrap', className)}>
-      {filteredPathnames.map(({ pathname, href }, index) => {
-        const hrefWithoutIds = pathnames
-          .slice(0, index + 1)
-          .filter(
-            (currentPath) => !~paramValues.findIndex((currentParam) => currentParam === currentPath)
+    <Breadcrumb {...props}>
+      <BreadcrumbList>
+        {filteredPathnames.map(({ pathname, href }, index) => {
+          const hrefWithoutIds = pathnames
+            .slice(0, index + 1)
+            .filter(
+              (currentPath) =>
+                !~paramValues.findIndex((currentParam) => currentParam === currentPath)
+            );
+          const translateHref = `.${hrefWithoutIds.join('.')}`;
+
+          const id = ids[pathname];
+          const clickable = (id?.clickable && id?.href) ?? true;
+
+          const item = (
+            <>
+              {id?.value && id.value}
+              {!id?.value && (
+                <I18nText path={`navigation.link${translateHref}` as LocaleMessageId} />
+              )}
+            </>
           );
-        const translateHref = `.${hrefWithoutIds.join('.')}`;
 
-        const id = ids[pathname];
-        const clickable = id?.clickable ?? true;
-
-        return (
-          <BreadcrumbItem
-            key={href}
-            {...(clickable && {
-              href: id?.href ?? href
-            })}
-          >
-            {id?.value && id.value}
-            {!id?.value && <I18nText path={`navigation.link${translateHref}` as LocaleMessageId} />}
-          </BreadcrumbItem>
-        );
-      })}
-    </Breadcrumbs>
+          return (
+            <>
+              <BreadcrumbItem key={href} className='list-none'>
+                {clickable && <BreadcrumbLink href={href}>{item}</BreadcrumbLink>}
+                {!clickable && <BreadcrumbPage>{item}</BreadcrumbPage>}
+              </BreadcrumbItem>
+              {index !== filteredPathnames.length - 1 && <BreadcrumbSeparator />}
+            </>
+          );
+        })}
+      </BreadcrumbList>
+    </Breadcrumb>
   );
 };

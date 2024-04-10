@@ -25,7 +25,8 @@ export const getActivityById: RestRequestConfig = {
           nutsCount: 0,
           schedule: []
         }
-      ]
+      ],
+      entities: { params: { id: 1 } }
     }
   ]
 };

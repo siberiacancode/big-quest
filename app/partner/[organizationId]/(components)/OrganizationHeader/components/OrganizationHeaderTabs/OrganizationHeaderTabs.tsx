@@ -37,11 +37,7 @@ export const OrganizationHeaderTabs = ({ organization }: OrganizationHeaderTabsP
           const Icon = tab.icon;
 
           return (
-            <OrganizationHeaderTabsTrigger
-              key={index}
-              value={tab.value}
-              link={tab.route(organization.id)}
-            >
+            <OrganizationHeaderTabsTrigger key={index} value={tab.value} link={tab.route}>
               <Icon className='size-4' />
               <p className='block 2mdx:hidden'>
                 <I18nText path={tab.title as LocaleMessageId} />

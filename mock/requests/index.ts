@@ -1,11 +1,11 @@
-// export * from './address/get';
 export * from './activity/get';
 export * from './activity/id/get';
 export * from './activity/id/put';
 export * from './activity/post';
+export * from './address/get';
 export * from './auth/login/email/post';
 export * from './auth/new-code/get';
-export * from './auth/refresh-tokens/get';
+export * from './category';
 export * from './legal-address/id/delete';
 export * from './legal-address/id/get';
 export * from './legal-address/id/put';

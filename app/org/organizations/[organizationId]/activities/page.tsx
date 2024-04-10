@@ -44,8 +44,8 @@ const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPage
         />
       </div>
       <div className='mb-6 grid w-full grid-cols-5 gap-7 3xlx:grid-cols-4 xlx:grid-cols-3 mdx:grid-cols-2 2xsx:grid-cols-1'>
-        {getActivityResponse.rows.map((activity, index) => (
-          <React.Fragment key={index}>
+        {getActivityResponse.rows.map((activity) => (
+          <React.Fragment key={activity.id}>
             <ActivityCard activity={activity} />
           </React.Fragment>
         ))}
