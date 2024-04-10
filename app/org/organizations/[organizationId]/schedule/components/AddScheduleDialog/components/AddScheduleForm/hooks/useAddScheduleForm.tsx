@@ -27,12 +27,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
       preEntry: false,
       isRepeat: false,
       placesCount: '',
-      date: undefined,
       time: { from: '09:00', to: '18:00' },
-      dateRange: {
-        from: undefined,
-        to: undefined
-      },
       workingHours: {
         '0': { time: { from: '09:00', to: '18:00' }, dayOff: false },
         '1': { time: { from: '09:00', to: '18:00' }, dayOff: false },
@@ -45,7 +40,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
     }
   });
 
-  const postOrganizationAddSchedule = usePostOrganizationAddScheduleMutation();
+  const postOrganizationAddScheduleMutation = usePostOrganizationAddScheduleMutation();
 
   const onSubmit = addScheduleForm.handleSubmit(async (values) => {
     console.log(values);
@@ -80,7 +75,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
     };
     console.log('@formattedValues', formattedValues);
 
-    await postOrganizationAddSchedule.mutateAsync({
+    await postOrganizationAddScheduleMutation.mutateAsync({
       params: { ...formattedValues, organizationId: params.id }
     });
 
@@ -93,7 +88,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
 
   return {
     state: {
-      isLoading: postOrganizationAddSchedule.isPending
+      isLoading: postOrganizationAddScheduleMutation.isPending
     },
     form: addScheduleForm,
     functions: { onSubmit }

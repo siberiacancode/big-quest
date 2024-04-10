@@ -132,15 +132,15 @@ interface OrganizationAddressDto {
   workingHours: WorkingHourDto[];
 }
 
-type DateRange = {
+interface DateRange {
   from: string;
   to: string;
-};
+}
 
-type TimeRange = {
+interface TimeRange {
   from: string;
   to: string;
-};
+}
 
 interface OrganizationScheduleDto {
   organizationId: string;

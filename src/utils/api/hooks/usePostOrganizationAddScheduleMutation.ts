@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 
-import type { PostOrganizationAddScheduleRequestConfig } from '../requests/organization/id/add-schedule';
-import { postOrganizationAddSchedule } from '../requests/organization/id/add-schedule';
+import type { PostOrganizationAddScheduleRequestConfig } from '../requests';
+import { postOrganizationAddSchedule } from '../requests';
 
 export const usePostOrganizationAddScheduleMutation = (
   settings?: MutationSettings<

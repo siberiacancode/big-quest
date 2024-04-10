@@ -48,7 +48,7 @@ export const DatePickerWithRange = ({ className, value, onSelect }: DatePickerWi
               ) : (
                 format(date.from, 'LLL dd, y')
               ))}
-            {!date?.from && <I18nText path='datePicker.label' />}
+            {!date?.from && <I18nText path='field.datePicker.label' />}
           </Button>
         </PopoverTrigger>
         <PopoverContent className='w-auto p-0' align='start'>

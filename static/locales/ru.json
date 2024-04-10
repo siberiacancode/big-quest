@@ -123,6 +123,7 @@
   "field.name.label": "Имя",
   "field.surname.label": "Фамилия",
   "field.role.label": "Роль",
+  "field.datePicker.label": "Выберите дату",
 
   "field.chooseLocation.label": "Выбор адреса",
   "field.chooseActivity.label": "Выбор активности",
@@ -236,8 +237,6 @@
   "pagination.page": "страница",
 
   "combobox.selected": "Выбрано",
-
-  "datePicker.label": "Выберите дату",
 
   "validation.required": "Данное поле не может быть пустым",
   "validation.email.format": "Неверный формат электронной почты",

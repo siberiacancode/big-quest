@@ -23,7 +23,7 @@ export const DatePicker = ({ onChange, value, classname }: DatePickerProps) => {
             classname
           )}
         >
-          {value ? format(value, 'PPP') : <I18nText path='datePicker.label' />}
+          {value ? format(value, 'PPP') : <I18nText path='field.datePicker.label' />}
           <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
         </Button>
       </PopoverTrigger>
