@@ -27,13 +27,19 @@ export const middleware = (request: NextRequest) => {
     return NextResponse.next();
   }
 
+  const isOrg = request.url.includes(ROUTES.ORG.ORGANIZATIONS.ROOT);
+  if (!isAuthenticated && isOrg) {
+    console.log('@.2 !isAuthenticated && isOrg, org page requires auth');
+    return NextResponse.redirect(new URL(ROUTES.ORG.AUTH, request.url));
+  }
+
   if (!isAuthenticated && !UNAUTH_ROUTES.some((route) => request.url.includes(route))) {
-    console.log('@.2 !isAuthenticated, page requires auth');
+    console.log('@.3 !isAuthenticated, page requires auth');
     return NextResponse.redirect(new URL(ROUTES.AUTH, request.url));
   }
 
   if (isAuthenticated && !UNAUTH_ROUTES.some((route) => request.url.includes(route))) {
-    console.log('@.3 isAuthenticated');
+    console.log('@.4 isAuthenticated');
     const userSessionCookie = request.cookies.get(COOKIES.USER_SESSION);
 
     if (userSessionCookie?.value) {

@@ -1,11 +1,13 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
+import { COOKIES } from '@/utils/constants/cookies';
+
 export const getOrganizationByIdConfig: RestRequestConfig = {
   path: '/organization/:id',
   method: 'get',
   interceptors: {
     response: (data, { request, setStatusCode }) => {
-      if (request.cookies.refreshtoken && request.cookies.accessToken) {
+      if (request.cookies[COOKIES.SESSION_ID]) {
         return data;
       }
 

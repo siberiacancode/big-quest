@@ -11,7 +11,7 @@ import { DesktopProfileMenu } from './components/DesktopProfileMenu/DesktopProfi
 import { EditPartnerDialog } from './components/EditPartnerDialog/EditPartnerDialog';
 import { MobileProfileDropdownMenu } from './components/MobileProfileDropdownMenu/MobileProfileDropdownMenu';
 import { OrganizationHeaderTabs } from './components/OrganizationHeaderTabs/OrganizationHeaderTabs';
-import { QrCodeScanner } from './components/QrCodeScanner/QrCodeScannerDialog';
+// import { QrCodeScanner } from './components/QrCodeScanner/QrCodeScannerDialog';
 import { useOrganizationHeader } from './hooks/useOrganizationHeader';
 
 interface OrganizationHeaderProps {
@@ -74,12 +74,12 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
               partner={state.partner}
               onEdit={functions.onEditPartner}
             />
-            <QrCodeScanner
+            {/* <QrCodeScanner
               avatar={organization.avatar}
               open={state.editQrScannerDialogOpen}
               onOpenChange={functions.onEditQrScannerCloseClick}
               onEdit={functions.onEditQrScannerClick}
-            />
+            /> */}
           </div>
           <OrganizationHeaderTabs organization={organization} />
         </div>

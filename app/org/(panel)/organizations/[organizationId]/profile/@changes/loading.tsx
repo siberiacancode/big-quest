@@ -3,7 +3,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 const OrganizationProfileChangesLoading = () => (
   <Card className='w-full p-4'>
-    <div className='flex h-fit min-h-72 flex-1 flex-col space-y-3 rounded bg-background p-6'>
+    <div className='flex h-fit min-h-72 flex-1 flex-col space-y-3 rounded bg-background'>
       <div className='space-y-7'>
         <div className='flex items-end gap-3'>
           <Skeleton className='h-20 w-full rounded-xl'>

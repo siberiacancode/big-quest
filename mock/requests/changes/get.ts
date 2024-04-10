@@ -43,16 +43,6 @@ export const getChangesConfig: RestRequestConfig = {
           current: 1,
           count: 2
         }
-      },
-      interceptors: {
-        response: (data, { request, setStatusCode }) => {
-          if (request.cookies.refreshtoken && request.cookies.accessToken) {
-            return data;
-          }
-
-          setStatusCode(401);
-          return { message: 'Unauthorized' };
-        }
       }
     },
     {
@@ -84,16 +74,6 @@ export const getChangesConfig: RestRequestConfig = {
           limit: 5,
           current: 1,
           count: 2
-        }
-      },
-      interceptors: {
-        response: (data, { request, setStatusCode }) => {
-          if (request.cookies.refreshtoken && request.cookies.accessToken) {
-            return data;
-          }
-
-          setStatusCode(401);
-          return { message: 'Unauthorized' };
         }
       }
     }
