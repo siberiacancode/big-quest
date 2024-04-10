@@ -31,7 +31,7 @@ export const RegisterOrganizationDialog = ({ trigger }: RegisterOrganizationModa
             <Typography variant='h2' tag='h2'>
               <I18nText path='dialog.registerOrganization.title' />
             </Typography>
-            <div className='round relative z-10 mt-16 border bg-background p-5 xsx:mt-7 xsx:w-full lg:mt-16 lg:p-10 sm:w-[450px]'>
+            <div className='round relative z-10 mt-16 border bg-background p-5 xsx:mt-7 xsx:w-full sm:w-[450px] lg:mt-16 lg:p-10'>
               <RegisterOrganizationForm onRegistered={functions.onRegistered} />
             </div>
           </div>
