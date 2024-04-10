@@ -95,6 +95,9 @@
   "partner.scanner.scanner": "Сканер",
   "partner.scanner.pointCamera": "Наведите камеру на QR-код",
   "partner.scanner.camera": "Камера для сканирования",
+  "partner.menu.scanQrCode": "Сканирование QR",
+  "partner.menu.notification": "Уведомление",
+  "partner.menu.exit": "Выход",
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",

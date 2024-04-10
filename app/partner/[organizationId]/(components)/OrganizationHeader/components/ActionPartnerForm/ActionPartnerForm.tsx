@@ -116,9 +116,6 @@ export const ActionPartnerForm = ({ onAction, partner }: ActionPartnerProps) => 
                           <SelectItem value='Leading'>
                             <I18nText path='partner.role.leading' />
                           </SelectItem>
-                          <SelectItem value='Manager'>
-                            <I18nText path='partner.role.manager' />
-                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </FormControl>
@@ -194,13 +191,17 @@ export const ActionPartnerForm = ({ onAction, partner }: ActionPartnerProps) => 
               <FormField
                 control={form.control}
                 name='phone'
-                render={({ field }) => (
+                render={({ field: { onChange, ref, ...field } }) => (
                   <FormItem>
                     <FormLabel>
                       <I18nText path='field.phone.label' />
                     </FormLabel>
                     <FormControl>
-                      <PhoneNumberInput disabled={state.isLoading} {...field} />
+                      <PhoneNumberInput
+                        disabled={state.isLoading}
+                        onValueChange={({ value }) => onChange(value)}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage>
                       {form.formState?.errors?.phone && (

@@ -62,14 +62,18 @@ export const MobileProfileDropdownMenu = ({
           onClick={onEditQrScannerClick}
         >
           <QrCodeIcon />
-          <Typography variant='body2'>Сканирование QR</Typography>
+          <Typography variant='body2'>
+            <I18nText path='partner.menu.scanQrCode' />
+          </Typography>
         </Button>
         <Button
           variant='ghost'
           className='flex items-center justify-start gap-5 rounded-md border-none px-2 py-1 hover:cursor-pointer hover:bg-accent'
         >
           <BellIcon />
-          <Typography variant='body2'>Уведомление</Typography>
+          <Typography variant='body2'>
+            <I18nText path='partner.menu.notification' />
+          </Typography>
         </Button>
         <Button
           variant='ghost'
@@ -87,7 +91,7 @@ export const MobileProfileDropdownMenu = ({
         >
           <LogOutIcon className='text-red-600' />
           <Typography variant='body2' className='hover:text-bold'>
-            Выход
+            <I18nText path='partner.menu.exit' />
           </Typography>
         </Button>
       </DropdownMenuContent>
