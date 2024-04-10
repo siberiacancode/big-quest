@@ -159,7 +159,6 @@ export class HttpClient {
     }
 
     const response: Response = await fetch(url, config);
-    console.log(response);
 
     if (response.status >= 400) {
       const error = {} as ResponseError;

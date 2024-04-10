@@ -6,7 +6,7 @@ import { Typography } from '@/components/ui';
 
 import { LoginForm } from './(components)/LoginForm/LoginForm';
 
-const AuthPage = () => (
+const OrgAuthPage = () => (
   <div className='flex min-h-screen flex-col items-center justify-between p-2'>
     <div className='flex flex-1 items-center justify-around gap-28 xlx:gap-12 xlx:p-5'>
       <div className='flex flex-col space-y-6'>
@@ -36,4 +36,4 @@ const AuthPage = () => (
   </div>
 );
 
-export default AuthPage;
+export default OrgAuthPage;
