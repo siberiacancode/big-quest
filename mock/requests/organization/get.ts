@@ -623,7 +623,7 @@ export const getOrganizationConfig: RestRequestConfig = {
       }
     },
     {
-      entities: { query: { current: '1', limit: '10', organization: 'Мега' } },
+      entities: { query: { current: '1', limit: '10', name: 'Мега' } },
       data: {
         rows: [
           {
@@ -640,7 +640,7 @@ export const getOrganizationConfig: RestRequestConfig = {
       }
     },
     {
-      entities: { query: { current: '1', limit: '10', organization: 'what' } },
+      entities: { query: { current: '1', limit: '10', name: 'what' } },
       data: { rows: [], pagination: { current: 1, count: 0, limit: 10 } }
     },
     {

@@ -6,22 +6,22 @@ import { cn } from '@/lib/utils';
 const typographyVariants = cva('text-foreground', {
   variants: {
     variant: {
-      h1: 'leading-10 font-medium text-[32px]',
-      h2: 'leading-10 font-bold text-3xl',
-      h3: 'leading-[31px] font-medium text-2xl',
-      h4: 'leading-6 font-bold text-xl',
-      h5: 'leading-6 font-bold text-lg',
-      h6: 'leading-6 font-medium text-lg',
-      h7: 'leading-5 font-bold text-base',
-      sub1: 'leading-5 font-medium text-base',
-      sub2: 'leading-5 font-bold text-sm',
-      sub3: 'leading-5 font-medium text-sm',
-      sub4: 'leading-5 font-medium text-xs',
-      sub5: 'leading-[14px] font-medium text-[10px]',
-      body1: 'leading-5 font-normal text-base text-muted-foreground',
-      body2: 'leading-5 font-normal text-sm',
-      body3: 'leading-4 font-normal text-xs text-muted-foreground',
-      body4: 'leading-[14px] font-normal text-[10px]'
+      h1: 'leading-10 font-medium text-[36px]',
+      h2: 'leading-10 font-bold text-4xl',
+      h3: 'leading-[31px] font-medium text-3xl',
+      h4: 'leading-6 font-bold text-2xl',
+      h5: 'leading-6 font-bold text-xl',
+      h6: 'leading-6 font-medium text-xl',
+      h7: 'leading-5 font-bold text-lg',
+      sub1: 'leading-5 font-medium text-lg',
+      sub2: 'leading-5 font-bold text-base',
+      sub3: 'leading-5 font-medium text-base',
+      sub4: 'leading-5 font-medium text-sm',
+      sub5: 'leading-[14px] font-medium text-sm',
+      body1: 'leading-5 font-normal text-lg text-muted-foreground',
+      body2: 'leading-5 font-normal text-base',
+      body3: 'leading-4 font-normal text-sm text-muted-foreground',
+      body4: 'leading-[14px] font-normal text-[12px]'
     }
   },
   defaultVariants: {
