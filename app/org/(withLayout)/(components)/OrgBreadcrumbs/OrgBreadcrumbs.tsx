@@ -12,11 +12,11 @@ import {
   BreadcrumbSeparator
 } from '@/components/ui';
 
-interface OrgBreadcrumbsProps {
+interface OrgBreadcrumbsProps extends React.ComponentProps<typeof Breadcrumb> {
   ids?: Record<string, { value?: string; clickable?: boolean; href?: string; hidden?: boolean }>;
 }
 
-export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
+export const OrgBreadcrumbs = ({ ids = {}, ...props }: OrgBreadcrumbsProps) => {
   const params = useParams();
   const pathname = usePathname();
 
@@ -39,7 +39,7 @@ export const OrgBreadcrumbs = ({ ids = {} }: OrgBreadcrumbsProps) => {
   }[];
 
   return (
-    <Breadcrumb className='mb-[30px]'>
+    <Breadcrumb {...props}>
       <BreadcrumbList>
         {filteredPathnames.map(({ pathname, href }, index) => {
           const hrefWithoutIds = pathnames

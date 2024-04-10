@@ -1,4 +1,7 @@
 {
+  "theme.light": "Светлая",
+  "theme.dark": "Темная",
+
   "app.title": "Большой квест",
   "app.error": "Что-то пошло не так",
   "app.loading": "Пожалуйста подождите...",
@@ -103,6 +106,17 @@
   "organization.employee.role.administrator": "Администратор",
   "organization.employee.role.leading": "Ведущий",
   "organization.employee.role.manager": "Менеджер",
+
+  "partner.role.administrator": "Администратор",
+  "partner.role.leading": "Ведущий",
+  "partner.role.manager": "Менеджер",
+  "partner.scanner.qrCode": "Qr-код",
+  "partner.scanner.scanner": "Сканер",
+  "partner.scanner.pointCamera": "Наведите камеру на QR-код",
+  "partner.scanner.camera": "Камера для сканирования",
+  "partner.menu.scanQrCode": "Сканирование QR",
+  "partner.menu.notification": "Уведомление",
+  "partner.menu.exit": "Выход",
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",
@@ -214,7 +228,10 @@
 
   "employeeCard.status.inactive": "неактивный",
   "employeeCard.deleteAlert.title": "Вы абсолютно уверены?",
-  "employeeCard.deleteAlert.description": "Это действие не может быть отменено. Это приведет к безвозвратному удалению данных о сотруднике {name} с наших серверов.",
+  "employeeCard.deleteAlert.description": "Это действие не может быть отменено. Это приведет к безвозвратному удалению данных о сотруднике <bold>{name}</bold> с наших серверов.",
+
+  "addressCard.deleteAlert.title": "Вы абсолютно уверены?",
+  "addressCard.deleteAlert.description": "Это действие не может быть отменено. Это приведет к безвозвратному удалению данных о адресе <bold>{name}</bold> с наших серверов.",
 
   "table.column.organization.stage": "Статус",
   "table.column.organization.name": "Организация",
@@ -272,7 +289,6 @@
 
   "dialog.addAddress.title": "Добавление адреса",
   "dialog.addAddress.form.untill": "до",
-  "dialog.addAddress.success": "Адрес успешно добавлен",
 
   "dropzone.image.error": "Разрешена загрузка 1 файла-изображения",
   "dropzone.docs.error": "Разрешена загрузка 1 файла-документа",
@@ -293,6 +309,8 @@
 
   "dialog.editOrganizationTariff.title": "Выбор тарифа",
   "dialog.editOrganizationTariff.freeActivities": "Бесплатные активности",
+
+  "dialog.scanQrCode.title": "QR-код партнера",
 
   "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
   "tooltip.kpp": "КПП - 9 цифр",
@@ -322,8 +340,13 @@
   "landing.footer.navigation.sponsors": "Спонсоры",
   "landing.footer.navigation.feedback": "Отзывы",
 
+  "toast.deleted": "Успешно удалено",
   "toast.organizationTariffChanged": "Тариф успешно изменен",
   "toast.organizationProfileChanged": "Профиль успешно изменен",
   "toast.sendConfirmation": "Подтверждение отправлено на почту {email}",
-  "toast.deleted": "Сотрудник {name} удален"
+  "toast.employeeDeleted": "Сотрудник {name} удален",
+  "toast.addAddress": "Адрес добавлен",
+  "toast.editAddress": "Адрес отредактирован",
+  "toast.addEmployee": "Сотрудник добавлен",
+  "toast.editEmployee": "Сотрудник отредактирован"
 }

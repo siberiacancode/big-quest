@@ -1,3 +1,4 @@
+export * from './useDeleteLegalAddressByIdMutation';
 export * from './useDeleteOrganizationDeleteEmployeeMutation';
 export * from './useGetAddressQuery';
 export * from './useGetAuthNewCodeMutation';
@@ -9,3 +10,4 @@ export * from './usePostOrganizationAddAddressMutation';
 export * from './usePostOrganizationRegisterMutation';
 export * from './usePutOrganizationByIdMutation';
 export * from './usePutTariffByIdMutation';
+export * from './usePutUserMutation';

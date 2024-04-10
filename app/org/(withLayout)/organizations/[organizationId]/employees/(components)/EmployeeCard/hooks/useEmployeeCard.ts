@@ -16,20 +16,31 @@ export const useEmployeeCard = (employee: EmployeeData) => {
 
   const [editDialogOpen, setEditDialogOpen] = React.useState(false);
   const [deleteAlertOpen, setDeleteAlertOpen] = React.useState(false);
+  const [isDeletePending, startDeleteTransition] = React.useTransition();
+  const [isEditPending, startEditTransition] = React.useTransition();
 
   const getAuthNewCodeMutation = useGetAuthNewCodeMutation();
   const deleteOrganizationDeleteEmployeeMutation = useDeleteOrganizationDeleteEmployeeMutation();
 
   const onAlertDeleteClick = async () => {
     await deleteOrganizationDeleteEmployeeMutation.mutateAsync({ params: { id: employee.id } });
-    toast.success(i18n.formatMessage({ id: 'toast.deleted' }, { name: employee.name }));
+    toast.success(i18n.formatMessage({ id: 'toast.employeeDeleted' }, { name: employee.name }));
     setDeleteAlertOpen(false);
-    router.refresh();
+    startDeleteTransition(() => router.refresh());
   };
 
   const onSendConfirmationClick = async () => {
     await getAuthNewCodeMutation.mutateAsync({ params: { email: employee.email } });
     toast.success(i18n.formatMessage({ id: 'toast.sendConfirmation' }, { email: employee.email }));
+  };
+
+  const onEdit = () => {
+    toast.success(i18n.formatMessage({ id: 'toast.editEmployee' }), {
+      cancel: { label: i18n.formatMessage({ id: 'button.close' }) }
+    });
+
+    setEditDialogOpen(false);
+    startEditTransition(() => router.refresh());
   };
 
   const onEditClick = () => setEditDialogOpen(true);
@@ -43,9 +54,13 @@ export const useEmployeeCard = (employee: EmployeeData) => {
       editDialogOpen,
       deleteAlertOpen,
       isLoading:
-        getAuthNewCodeMutation.isPending || deleteOrganizationDeleteEmployeeMutation.isPending
+        getAuthNewCodeMutation.isPending ||
+        deleteOrganizationDeleteEmployeeMutation.isPending ||
+        isDeletePending ||
+        isEditPending
     },
     functions: {
+      onEdit,
       onSendConfirmationClick,
       onDeleteClick,
       onEditClick,

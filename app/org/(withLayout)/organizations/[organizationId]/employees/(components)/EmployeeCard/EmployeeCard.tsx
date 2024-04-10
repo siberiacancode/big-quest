@@ -4,10 +4,18 @@ import React from 'react';
 import { Edit3Icon, MailIcon, MoreHorizontalIcon, Trash2Icon } from 'lucide-react';
 import Image from 'next/image';
 
-import { I18nText } from '@/components/common';
+import { BoldText, I18nText } from '@/components/common';
 import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
   Badge,
   Button,
+  Card,
+  CardContent,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -15,19 +23,10 @@ import {
   Separator,
   Typography
 } from '@/components/ui';
-import {
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle
-} from '@/components/ui/alert-dialog';
-import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
 import type { EmployeeData } from '../../(constants)/types';
-import { ActionEmployeeDialog } from '../ActionEmployeeDialog/ActionEmployeeDialog';
+import { EditEmployeeDialog } from '../EditEmployeeDialog/EditEmployeeDialog';
 
 import { useEmployeeCard } from './hooks/useEmployeeCard';
 
@@ -52,11 +51,11 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
           )}
 
           <div className='right absolute right-2 top-2 z-10 flex gap-1'>
-            <ActionEmployeeDialog
+            <EditEmployeeDialog
               open={state.editDialogOpen}
               onOpenChange={functions.onEditCloseClick}
-              actionType='edit'
               employee={employee}
+              onEdit={functions.onEdit}
             />
 
             <AlertDialog open={state.deleteAlertOpen}>
@@ -68,7 +67,7 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
                   <AlertDialogDescription>
                     <I18nText
                       path='employeeCard.deleteAlert.description'
-                      values={{ name: employee.name }}
+                      values={{ bold: BoldText, name: employee.name }}
                     />
                   </AlertDialogDescription>
                 </AlertDialogHeader>

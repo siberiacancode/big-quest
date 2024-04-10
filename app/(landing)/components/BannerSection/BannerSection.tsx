@@ -14,7 +14,7 @@ import { buttonVariants, Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { ROUTES } from '@/utils/constants';
 
-const getGreenSubtitle = (children: React.ReactNode) => (
+const GreenSubtitle = (children: React.ReactNode) => (
   <span className='font-medium text-taiga'>{children}</span>
 );
 
@@ -54,7 +54,7 @@ export const BannerSection = () => (
             <I18nText
               path='landing.info.subtitle'
               values={{
-                green: getGreenSubtitle,
+                green: GreenSubtitle,
                 br: <br />
               }}
             />

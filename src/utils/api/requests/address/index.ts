@@ -7,4 +7,7 @@ export interface GetAddressParams {
 export type GetAddressRequestConfig = RequestConfig<GetAddressParams>;
 
 export const getAddress = async ({ params, config }: GetAddressRequestConfig) =>
-  api.get<AddressResponse[]>('address', { ...config, params: { ...config?.params, ...params } });
+  api.get<AddressResponseFixMe[]>('address', {
+    ...config,
+    params: { ...config?.params, ...params }
+  });

@@ -1,7 +1,7 @@
+import { NotificationsDropdownMenu, ThemeSwitcher } from '@/components/common';
+
 import { HeaderSearch } from './components/HeaderSearch/HeaderSearch';
-import { NotificationsDropdownMenu } from './components/NotificationsDropdownMenu/NotificationsDropdownMenu';
 import { ProfileDropdownMenu } from './components/ProfileDropdownMenu/ProfileDropdownMenu';
-import { ThemeSwitcher } from './components/ThemeSwitcher/ThemeSwitcher';
 
 export const DesktopHeader = () => (
   <header className='flex h-24 w-full items-center justify-between bg-background pl-8 pr-14 2xlx:pr-8'>

@@ -8,7 +8,7 @@ import { useGetAddressQuery } from '@/utils/api';
 import { defaultConvertAddresses } from './helpers/defaultConvertAddresses';
 
 interface AddressComboboxProps extends Omit<ComboboxProps, 'items' | 'onSearchChange' | 'loading'> {
-  convertAddresses?: (addresses: AddressResponse[]) => ComboBoxItemType[];
+  convertAddresses?: (addresses: AddressResponseFixMe[]) => ComboBoxItemType[];
 }
 
 const LOCATION_SEARCH_DELAY = 600;

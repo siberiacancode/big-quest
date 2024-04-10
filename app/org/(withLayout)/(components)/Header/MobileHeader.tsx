@@ -3,16 +3,14 @@
 import React from 'react';
 import { MenuIcon, XIcon } from 'lucide-react';
 
-import { Logo } from '@/components/common';
+import { Logo, NotificationsDropdownMenu, ThemeSwitcher } from '@/components/common';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 import { SidebarNavigation } from '../navigation/SidebarNavigation/SidebarNavigation';
 
 import { HeaderSearch } from './components/HeaderSearch/HeaderSearch';
-import { NotificationsDropdownMenu } from './components/NotificationsDropdownMenu/NotificationsDropdownMenu';
 import { ProfileDropdownMenu } from './components/ProfileDropdownMenu/ProfileDropdownMenu';
-import { ThemeSwitcher } from './components/ThemeSwitcher/ThemeSwitcher';
 import { useMobileHeader } from './hooks/useMobileHeader';
 
 export const MobileHeader = () => {
