@@ -26,21 +26,24 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
       <div className='relative mt-2.5 flex h-64 w-full flex-col items-center'>
         <Image
           priority={false}
-          className='h-[168px] w-full rounded-lg'
+          className='h-[168px] w-full rounded-lg object-cover'
           src={organization.background || organizationBackgroundImage}
           alt='org-background'
         />
         <div className='absolute bottom-0 mx-4 mt-auto flex h-36 w-[96%] flex-col gap-5 rounded-lg border-none bg-background/70 pb-4 pl-4 pr-4 pt-3 shadow-sm backdrop-blur-lg'>
           <div className='flex justify-between'>
             <div className='flex gap-5'>
-              <Image
-                priority={false}
-                className='h-15 w-15 rounded border-none'
-                width={60}
-                height={60}
-                src={organization.avatar || logo}
-                alt='org-background'
-              />
+              <div>
+                <Image
+                  priority={false}
+                  className='h-15 w-15 rounded border-none'
+                  width={60}
+                  height={60}
+                  src={organization.avatar || logo}
+                  alt='org-background'
+                />
+              </div>
+
               <div className='flex flex-col justify-center'>
                 <Typography variant='h5' tag='h5'>
                   {organization.name}

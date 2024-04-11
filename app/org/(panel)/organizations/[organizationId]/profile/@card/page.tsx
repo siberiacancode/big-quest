@@ -30,7 +30,7 @@ interface OrganizationProfileCardSlotProps {
 const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSlotProps) => {
   const getOrganizationByIdResponse = await getOrganizationById({
     params: { id: params.organizationId },
-    config: { cache: 'no-cache' }
+    config: { cache: 'no-store' }
   });
 
   return (

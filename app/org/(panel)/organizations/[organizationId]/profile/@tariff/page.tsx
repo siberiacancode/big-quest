@@ -26,7 +26,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
   const getTariffByLegalEntityIdResponse = await getTariffByLegalEntityId({
     params: { legalEntityId: params.organizationId },
     config: {
-      cache: 'no-cache'
+      cache: 'no-store'
     }
   });
 

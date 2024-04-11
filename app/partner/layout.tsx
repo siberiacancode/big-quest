@@ -1,4 +1,4 @@
-import { getOrganizationById } from '@/utils/api/requests';
+import { getOrganizationById, getOrganizationCurrent } from '@/utils/api/requests';
 
 import { OrganizationHeader } from './(components)/OrganizationHeader/OrganizationHeader';
 
@@ -6,21 +6,26 @@ interface OrganizationPageLayoutProps {
   children: React.ReactNode;
 }
 
-const PartnerOrganizationLayout = async ({ children }: OrganizationPageLayoutProps) => {
-  const organizationId = '1';
+const PartnerLayout = async ({ children }: OrganizationPageLayoutProps) => {
+  const getOrganizationCurrentResponse = await getOrganizationCurrent({
+    config: { cache: 'no-store' }
+  });
 
-  const organization = await getOrganizationById({
-    params: { id: organizationId }
+  const getOrganizationByIdResponse = await getOrganizationById({
+    params: { id: getOrganizationCurrentResponse.id },
+    config: { cache: 'no-store' }
   });
 
   return (
-    <div className='bg-secondary'>
-      <div className='flex flex-col gap-4 px-[181px] py-10 2lgx:px-[64px] 2mdx:px-[32px]'>
-        <OrganizationHeader organization={organization} />
-        {children}
+    <main className='h-screen bg-secondary'>
+      <div className='container px-20 py-10'>
+        <div className='flex flex-col gap-4'>
+          <OrganizationHeader organization={getOrganizationByIdResponse} />
+          {children}
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 
-export default PartnerOrganizationLayout;
+export default PartnerLayout;

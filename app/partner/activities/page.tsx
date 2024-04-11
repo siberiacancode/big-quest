@@ -1,13 +1,13 @@
 import React from 'react';
 
-interface OrganizationActivitiesPageProps {
+interface PartnerActivitiesPageProps {
   params: { organizationId: string };
 }
 
-const OrganizationActivitiesPage = ({ params }: OrganizationActivitiesPageProps) => {
+const PartnerActivitiesPage = ({ params }: PartnerActivitiesPageProps) => {
   console.log(params);
 
   return <>заглушка чтобы посмотреть хэдер организации</>;
 };
 
-export default OrganizationActivitiesPage;
+export default PartnerActivitiesPage;

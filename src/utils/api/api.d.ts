@@ -414,7 +414,7 @@ interface CreateAddressDto {
   locality: string;
   street: string;
   workingHours: WorkingHourDto[];
-  legalId: string;
+  legalEntityId: string;
 }
 
 interface AddressResponseFixMe {

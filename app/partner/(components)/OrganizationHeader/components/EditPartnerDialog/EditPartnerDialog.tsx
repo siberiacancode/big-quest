@@ -28,7 +28,7 @@ export const EditPartnerDialog = ({ onEdit, partner, ...props }: EditPartnerDial
       <DialogHeader>
         <DialogTitle>
           <Typography variant='h4' tag='h4'>
-            <I18nText path='dialog.addEmployee.title' />
+            <I18nText path='dialog.editEmployee.title' />
           </Typography>
         </DialogTitle>
       </DialogHeader>
