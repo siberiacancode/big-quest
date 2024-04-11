@@ -18,9 +18,7 @@ export const WizardProvider = ({ initialStepId, children, map }: WizardProviderP
     () => ({
       map,
       activeStepId,
-      setStepId: (newStepId: WizardStepId) => {
-        setActiveStepId(newStepId);
-      }
+      setStepId: (newStepId: WizardStepId) => setActiveStepId(newStepId)
     }),
     [activeStepId, map]
   );
