@@ -10,7 +10,6 @@ export const useOrganizationHeader = () => {
   const { user } = useUser();
   const [editEmployeeDialogOpen, setEditEmployeeDialogOpen] = React.useState(false);
   const [editQrScannerDialogOpen, setEditQrScannerDialogOpen] = React.useState(false);
-  console.log(user);
   const [isEditPending, startEditTransition] = React.useTransition();
 
   const onEditPartner = () => {

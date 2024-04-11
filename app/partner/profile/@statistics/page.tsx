@@ -13,7 +13,7 @@ import {
   Typography
 } from '@/components/ui';
 
-const OrganizationProfileStatisticsPage = () => (
+const PartnerProfileStatisticsPage = () => (
   <div className='flex flex-col gap-4 sm:flex-row'>
     <InfoCard>
       <InfoCardHeader className='p-5'>
@@ -58,4 +58,4 @@ const OrganizationProfileStatisticsPage = () => (
   </div>
 );
 
-export default OrganizationProfileStatisticsPage;
+export default PartnerProfileStatisticsPage;

@@ -11,7 +11,8 @@ const mockServerConfig: MockServerConfig = {
     credentials: true
   },
   interceptors: {
-    request: async ({ setDelay }) => {
+    request: async ({ setDelay, request }) => {
+      console.log('REQUEST:', request.method, request.originalUrl);
       await setDelay(1000);
     }
   },

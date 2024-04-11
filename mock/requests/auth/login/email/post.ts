@@ -27,7 +27,7 @@ export const postAuthLoginEmailConfig: RestRequestConfig = {
         response: (data, { setCookie }) => {
           setCookie(COOKIES.SESSION_ID, 'superadmin', {
             httpOnly: true,
-            maxAge: 360000,
+            maxAge: 36000000,
             path: '/'
           });
 
@@ -47,7 +47,7 @@ export const postAuthLoginEmailConfig: RestRequestConfig = {
         response: (data, { setCookie }) => {
           setCookie(COOKIES.SESSION_ID, 'partner', {
             httpOnly: true,
-            maxAge: 360000,
+            maxAge: 36000000,
             path: '/'
           });
 

@@ -17,7 +17,7 @@ const PartnerLayout = async ({ children }: OrganizationPageLayoutProps) => {
   });
 
   return (
-    <main className='h-screen bg-secondary'>
+    <main className='min-h-screen bg-secondary'>
       <div className='container px-20 py-10'>
         <div className='flex flex-col gap-4'>
           <OrganizationHeader organization={getOrganizationByIdResponse} />

@@ -14,17 +14,17 @@ import {
   InfoCardTitle,
   Typography
 } from '@/components/ui';
-import { getTariffByLegalEntityId } from '@/utils/api';
+import { getOrganizationCurrent, getTariffByLegalEntityId } from '@/utils/api';
 
 import { EditOrganizationTariffDialog } from './components/EditOrganizationTariffDialog/EditOrganizationTariffDialog';
 
-export interface OrganizationProfileTariffProps {
-  params: { organizationId: string };
-}
+const PartnerProfileTariffPage = async () => {
+  const getOrganizationCurrentResponse = await getOrganizationCurrent({
+    config: { cache: 'no-store' }
+  });
 
-const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTariffProps) => {
   const getTariffByLegalEntityIdResponse = await getTariffByLegalEntityId({
-    params: { legalEntityId: params.organizationId },
+    params: { legalEntityId: getOrganizationCurrentResponse.id },
     config: {
       cache: 'no-store'
     }
@@ -101,4 +101,4 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
   );
 };
 
-export default OrganizationProfileTariffPage;
+export default PartnerProfileTariffPage;

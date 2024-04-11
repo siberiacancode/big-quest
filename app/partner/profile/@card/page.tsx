@@ -19,22 +19,22 @@ import {
   Separator,
   Typography
 } from '@/components/ui';
-import { getOrganizationById } from '@/utils/api/requests';
+import { getOrganizationById, getOrganizationCurrent } from '@/utils/api/requests';
 
 import { EditOrganizationProfileDialog } from './components/EditOrganizationProfileDialog/EditOrganizationProfileDialog';
 
-interface OrganizationProfileCardSlotProps {
-  params: { organizationId: string };
-}
+const PartnerProfileCardPage = async () => {
+  const getOrganizationCurrentResponse = await getOrganizationCurrent({
+    config: { cache: 'no-store' }
+  });
 
-const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSlotProps) => {
   const getOrganizationByIdResponse = await getOrganizationById({
-    params: { id: params.organizationId },
+    params: { id: getOrganizationCurrentResponse.id },
     config: { cache: 'no-store' }
   });
 
   return (
-    <InfoCard className='h-fit w-1/2 smx:w-full'>
+    <InfoCard className='relative'>
       <InfoCardHeader className='pb-0'>
         <InfoCardTitle>
           <Typography variant='h5' tag='h5'>
@@ -249,4 +249,4 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
     </InfoCard>
   );
 };
-export default OrganizationProfileCardPage;
+export default PartnerProfileCardPage;
