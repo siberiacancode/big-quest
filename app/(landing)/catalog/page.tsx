@@ -6,7 +6,7 @@ import { ScrollArea, ScrollBar, Tabs, TabsContent, Typography } from '@/componen
 import { ActivitiesList } from './components/ActivitiesList/ActivitiesList';
 import ActivityCategoryTabsList from './components/ActivityCategoryTabsList/ActivityCategoryTabsList';
 import ActivitySearchInput from './components/ActivitySearchInput/ActivitySearchInput';
-import { getCategories } from './constants/actions';
+import { getActivities, getCategories } from './constants/actions';
 
 interface ActivityCatalogPageProps {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -27,11 +27,20 @@ export const generateMetadata = async ({
   };
 };
 
-const ActivityCatalogPage = async ({ searchParams }: ActivityCatalogPageProps) => {
-  const categories = await getCategories();
+const DEFAULT_ACTIVITIES_LIMIT = 2;
+const DEFAULT_ACTIVITIES_PAGE = 1;
 
+const ActivityCatalogPage = async ({ searchParams }: ActivityCatalogPageProps) => {
   const searchParam = typeof searchParams.search === 'string' ? searchParams.search : '';
   const categoryParam = typeof searchParams.category === 'string' ? searchParams.category : '';
+
+  const categories = await getCategories();
+  const { activities, count } = await getActivities({
+    search: searchParam,
+    category: categoryParam,
+    page: DEFAULT_ACTIVITIES_PAGE,
+    limit: DEFAULT_ACTIVITIES_LIMIT
+  });
 
   return (
     <section className='container py-[108px]'>
@@ -58,8 +67,13 @@ const ActivityCatalogPage = async ({ searchParams }: ActivityCatalogPageProps) =
 
           <div className='mt-8 mdx:mt-11 smx:mt-8'>
             {categories.map((category) => (
-              <TabsContent key={category.value} value={category.value}>
-                <ActivitiesList category={category.value} search={searchParam} />
+              <TabsContent key={Math.random()} value={category.value}>
+                <ActivitiesList
+                  category={category.value}
+                  search={searchParam}
+                  initialActivities={activities}
+                  count={count}
+                />
               </TabsContent>
             ))}
           </div>

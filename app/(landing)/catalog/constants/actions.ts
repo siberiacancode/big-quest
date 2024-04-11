@@ -3,11 +3,11 @@
 import { activities } from './activities';
 import { categories } from './categories';
 
-export const getCategories = async () => {
+export const getCategories = () => {
   return categories;
 };
 
-export const getActivities = async ({ search, category }) => {
+export const getActivities = async ({ search, category, page, limit }) => {
   try {
     await new Promise((resolve) => setTimeout(resolve, 0));
     //console.log(Date(), 'API getActivities');
@@ -17,10 +17,16 @@ export const getActivities = async ({ search, category }) => {
         category && category !== 'ALL' ? activity.category === category : true;
       return isMatch && isCategoryMatch;
     });
-    return filteredActivities;
+
+    const totalCount = filteredActivities.length;
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+    const paginatedActivities = filteredActivities.slice(startIndex, endIndex);
+
+    return { activities: paginatedActivities, count: totalCount };
   } catch (error) {
     console.error('Произошла ошибка при получении списка активностей:', error);
-    return [];
+    return { activities: [], count: 0 };
   }
 };
 

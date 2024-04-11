@@ -16,6 +16,7 @@ const ActivityCategoryTabsList = () => {
     <TabsList className='flex w-full justify-start gap-1 bg-transparent p-0'>
       {categories.map((category) => (
         <TabsTrigger
+          key={category.value}
           value={category.value}
           className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
           onClick={() => onActivityCategory(category.value)}

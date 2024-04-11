@@ -22,6 +22,6 @@ export const ROUTES = {
   },
   LANDING: {
     ROOT: '/',
-    ACTIVITIES: (id: string) => `/activities/${id}`
+    CATALOG: (id: string) => `/catalog/${id}`
   }
 };
