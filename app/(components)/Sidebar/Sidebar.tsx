@@ -29,7 +29,11 @@ export const Sidebar = ({ children, defaultOpen }: SidebarProps) => {
           !state.isOpen && 'justify-center'
         )}
       >
-        <Logo href={ROUTES.ORG.ROOT} full={state.isOpen} className='fill-foreground' />
+        <Logo
+          href={ROUTES.ORG.ORGANIZATIONS.DASHBOARD}
+          full={state.isOpen}
+          className='fill-foreground'
+        />
         <Button
           className={cn(
             'absolute bottom-0 translate-x-1/2 translate-y-1/2',

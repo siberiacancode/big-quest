@@ -11,10 +11,7 @@ import { NewsSection } from '../(components)/NewsSection/NewsSection';
 import { SponsorsSection } from '../(components)/SponsorsSection/SponsorsSection';
 import { StatisticsSection } from '../(components)/StatisticsSection/StatisticsSection';
 
-export const generateStaticParams = () =>
-  Object.keys(CITIES).map((cityKey) => ({
-    slug: cityKey.toLowerCase()
-  }));
+export const generateStaticParams = () => Object.values(CITIES).map((city) => ({ slug: city.id }));
 
 interface LandingCityPageProps {
   params: {

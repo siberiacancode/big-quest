@@ -14,7 +14,7 @@ import { buttonVariants, Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { ROUTES } from '@/utils/constants';
 
-const getGreenSubtitle = (children: React.ReactNode) => (
+const GreenSubtitle = (children: React.ReactNode) => (
   <span className='font-medium text-taiga'>{children}</span>
 );
 
@@ -29,14 +29,18 @@ const TitleBackground = (children: React.ReactNode) => (
 
 export const DesktopBannerSection = () => (
   <section className='container  flex overflow-x-hidden px-5 pb-10'>
-    <div className='relative flex w-full flex-col-reverse items-center justify-center md:flex-row'>
-      <div className='absolute left-12 top-1/2 hidden xl:block'>
+    <div className='relative flex w-full flex-col-reverse items-center justify-center justify-between px-2 md:flex-row'>
+      <div className='absolute -left-4 top-1/2 hidden xl:block'>
         <RhombIcon />
       </div>
 
       <div className='flex flex-col gap-2 p-2'>
         <div className='relative block p-2'>
-          <Typography tag='h1' variant='h1' className='text-3xl md:text-xl lg:text-3xl'>
+          <Typography
+            tag='h1'
+            variant='h1'
+            className='text-3xl md:text-xl lg:text-2xl 2lg:text-3xl'
+          >
             <I18nText
               path='landing.info.title.desktop'
               values={{ br: <br />, titleBackground: TitleBackground }}
@@ -57,13 +61,13 @@ export const DesktopBannerSection = () => (
               <Typography
                 tag='p'
                 variant='body1'
-                className='text-wrap text-base md:text-xs lg:text-base'
+                className='text-wrap text-base md:text-xs lg:text-sm 2lg:text-base'
               >
                 <I18nText
                   path='landing.info.subtitle'
                   values={{
                     br: <br />,
-                    green: getGreenSubtitle
+                    green: GreenSubtitle
                   }}
                 />
               </Typography>
