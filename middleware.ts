@@ -18,11 +18,7 @@ export const middleware = (request: NextRequest) => {
 
   const isAuthenticated = !!sessionIdCookie && !!userSessionCookie;
 
-  if (
-    !isAuthenticated &&
-    ROUTES.LANDING.ROOT === request.url &&
-    UNAUTH_ROUTES.some((route) => request.url.includes(route))
-  ) {
+  if (!isAuthenticated && UNAUTH_ROUTES.some((route) => request.url.includes(route))) {
     console.log('@.1 !isAuthenticated, unauth page');
     return NextResponse.next();
   }
