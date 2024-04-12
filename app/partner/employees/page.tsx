@@ -1,17 +1,17 @@
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
-import { getOrganizationEmployees } from '@/utils/api/requests';
+import { getOrganizationCurrent, getOrganizationEmployees } from '@/utils/api/requests';
 
 import { AddEmployeeDialog } from './(components)/AddEmployeeDialog/AddEmployeeDialog';
 import { EmployeeCard } from './(components)/EmployeeCard/EmployeeCard';
 
-interface OrganizationEmployeesPageProps {
-  params: { organizationId: string };
-}
+const PartnerEmployeesPage = async () => {
+  const getOrganizationCurrentResponse = await getOrganizationCurrent({
+    config: { cache: 'no-store' }
+  });
 
-const OrganizationEmployeesPage = async ({ params }: OrganizationEmployeesPageProps) => {
   const getOrganizationEmployeesResponse = await getOrganizationEmployees({
-    params: { id: params.organizationId },
+    params: { id: getOrganizationCurrentResponse.id },
     config: {
       cache: 'no-store'
     }
@@ -25,7 +25,7 @@ const OrganizationEmployeesPage = async ({ params }: OrganizationEmployeesPagePr
         </Typography>
         <AddEmployeeDialog />
       </div>
-      <div className='grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3'>
+      <div className='grid grid-cols-1 gap-3 lg:grid-cols-2 2lg:grid-cols-3'>
         {getOrganizationEmployeesResponse.map((employee) => (
           <EmployeeCard key={employee.id} employee={employee} />
         ))}
@@ -34,4 +34,4 @@ const OrganizationEmployeesPage = async ({ params }: OrganizationEmployeesPagePr
   );
 };
 
-export default OrganizationEmployeesPage;
+export default PartnerEmployeesPage;

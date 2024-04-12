@@ -1,36 +1,39 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useParams } from 'next/navigation';
 
 import { useGetChangesInfiniteQuery, usePostChangesMutation } from '@/utils/api';
 
-import type { AddOrganizationChangeSchema } from '../constants/addOrganizationChangeSchema';
-import { addOrganizationChangeSchema } from '../constants/addOrganizationChangeSchema';
+import type { AddPartnerProfileChangesSchema } from '../constants/addPartnerProfileChangesSchema';
+import { addPartnerProfileChangesSchema } from '../constants/addPartnerProfileChangesSchema';
 
 const DEFAULT_CHANGES_PAGE = 1;
 const CHANGES_LIMIT = 5;
 
-export const useOrganizationProfileChangesPage = () => {
-  const params = useParams<{ organizationId: string }>();
+interface UsePartnerProfileChangesFormParams {
+  organizationId: string;
+}
 
+export const usePartnerProfileChangesForm = ({
+  organizationId
+}: UsePartnerProfileChangesFormParams) => {
   const postChangesMutation = usePostChangesMutation();
 
   const getChangesInfiniteQuery = useGetChangesInfiniteQuery({
     current: DEFAULT_CHANGES_PAGE,
     limit: CHANGES_LIMIT,
-    criteria: params.organizationId
+    criteria: organizationId
   });
 
-  const addOrganizationChangeForm = useForm<AddOrganizationChangeSchema>({
+  const addOrganizationChangeForm = useForm<AddPartnerProfileChangesSchema>({
     mode: 'onSubmit',
-    resolver: zodResolver(addOrganizationChangeSchema),
+    resolver: zodResolver(addPartnerProfileChangesSchema),
     defaultValues: { comment: '' }
   });
 
   const onSubmit = addOrganizationChangeForm.handleSubmit(async (values) => {
     await postChangesMutation.mutateAsync({
       params: {
-        criteria: params.organizationId,
+        criteria: organizationId,
         new: { comment: values.comment },
         action: 'comment'
       }

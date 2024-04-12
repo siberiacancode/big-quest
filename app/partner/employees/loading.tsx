@@ -1,14 +1,14 @@
 import { EmployeeCardSkeleton } from '@/components/ui';
 import { Skeleton } from '@/components/ui/skeleton';
 
-const OrganizationEmployeesLoading = () => (
+const PartnerEmployeesLoading = () => (
   <>
     <div className='flex justify-between'>
       <Skeleton className='h-8 w-28 bg-background' />
       <Skeleton className='h-10 w-36 bg-background' />
     </div>
 
-    <div className='grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3'>
+    <div className='grid grid-cols-1 gap-3 lg:grid-cols-2 2lg:grid-cols-3'>
       {Array(5)
         .fill({})
         .map((_, index) => (
@@ -24,4 +24,4 @@ const OrganizationEmployeesLoading = () => (
   </>
 );
 
-export default OrganizationEmployeesLoading;
+export default PartnerEmployeesLoading;
