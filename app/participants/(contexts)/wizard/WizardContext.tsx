@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-import { ExcursionStep } from '../../(steps)/excursion/ExcursionStep';
-
 export type WizardStepId = 'excursion' | 'register';
 
 export interface WizardStep {
@@ -20,21 +18,8 @@ export interface WizardContextParams {
   setStepId: (newStepId: WizardStepId) => void;
 }
 
-export const defaultWizardMap: WizardMap = {
-  excursion: {
-    id: 'excursion',
-    nodes: ['register'],
-    component: <ExcursionStep />
-  },
-  register: {
-    id: 'register',
-    nodes: [],
-    component: null
-  }
-};
-
 export const defaultWizardContextParams: WizardContextParams = {
-  map: defaultWizardMap,
+  map: {} as WizardMap,
   activeStepId: 'excursion',
   setStepId: () => {}
 };
