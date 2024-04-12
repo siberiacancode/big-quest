@@ -7,17 +7,17 @@ import { WavyLineIcon } from '@/components/icons';
 import { Button, Typography } from '@/components/ui';
 
 export const LeaveRequestSection = () => (
-  <section className='relative flex py-32'>
-    <div className='container'>
-      <div className='w-1/2 2lgx:mx-auto 2lgx:w-[90%] xsx:flex xsx:w-full xsx:flex-col xsx:items-center'>
-        <Typography tag='h2' variant='h1' className='mdx:text-3xl xsx:text-[21px]'>
+  <section className='relative mb-6 mt-28'>
+    <div className='container flex justify-between gap-3'>
+      <div className='flex flex-col gap-3 py-20'>
+        <Typography tag='h2' variant='h1' className='text-3xl lg:text-3xl'>
           <I18nText path='landing.leaveRequest.title' />
         </Typography>
         <div className='relative inline-block'>
-          <Typography tag='h2' variant='h1' className='text-taiga mdx:text-2xl xsx:text-xl'>
+          <Typography tag='h2' variant='h1' className='text-3xl text-taiga'>
             <I18nText path='landing.leaveRequest.subtitle' />
           </Typography>
-          <div className='absolute bottom-0 left-0 translate-y-1/2'>
+          <div className='absolute -bottom-2 left-0 translate-y-1/2'>
             <WavyLineIcon width='100%' />
           </div>
         </div>
@@ -32,8 +32,8 @@ export const LeaveRequestSection = () => (
           }
         />
       </div>
-      <div className='absolute bottom-0 right-0 2lgx:hidden'>
-        <Image src={leaveRequestImage} alt='leaveRequest' />
+      <div className='hidden lg:flex lg:items-center lg:justify-center'>
+        <Image src={leaveRequestImage} alt='leaveRequest' className='w-[500px]' />
       </div>
     </div>
   </section>
