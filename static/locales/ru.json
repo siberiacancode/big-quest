@@ -15,6 +15,15 @@
   "org.auth.footer.siteRules": "Правила пользования сайтом",
   "org.auth.footer.privacyPolicy": "Политика конфиденциальности",
 
+  "auth.excursion.first.title": "Добро пожаловать в Большой Квест",
+  "auth.excursion.first.description": "Мы те, кто подарит море интересных возможностей, путем отбора качественных активностей именно для Вас",
+  "auth.excursion.second.title": "Проходя активности, получай шишки опыта и награды",
+  "auth.excursion.second.description": "За прохождение активностей, ты получаешь шишки опыта и не только",
+  "auth.excursion.third.title": "Меняй орешки на мерч от нас!",
+  "auth.excursion.third.description": "Возможность менять шишки на настоящие подарки!",
+  "auth.excursion.fourth.title": "Достигай целей и соревнуйся с другими!",
+  "auth.excursion.fourth.description": "Пройди несколько активностей и занимай место в рейтинге лучших!",
+
   "common.rubles": "{amount}руб.",
 
   "button.add": "Добавить",
@@ -36,6 +45,9 @@
   "button.goToRegisterOrganization": "Оставить заявку",
   "button.organizationsEntrance": "Вход для организаций",
   "button.loadMore": "Загрузить еще",
+  "button.next": "Далее",
+  "button.continue": "Продолжить",
+  "button.skip": "Пропустить",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
