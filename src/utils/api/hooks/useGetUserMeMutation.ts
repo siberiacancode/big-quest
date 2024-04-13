@@ -1,14 +1,14 @@
 import { useMutation } from '@tanstack/react-query';
 
-import type { GetUserRequestConfig } from '../requests/user/me';
-import { getUserMe } from '../requests/user/me';
+import type { GetUserRequestConfig } from '../requests';
+import { getUser } from '../requests';
 
-export const useGetUserMeMutation = (
-  settings?: MutationSettings<GetUserRequestConfig, typeof getUserMe>
+export const useGetUserMutation = (
+  settings?: MutationSettings<GetUserRequestConfig, typeof getUser>
 ) =>
   useMutation({
-    mutationKey: ['getUserMe'],
+    mutationKey: ['getUser'],
     mutationFn: (requestConfig) =>
-      getUserMe({ config: { ...settings?.config, ...requestConfig?.config } }),
+      getUser({ config: { ...settings?.config, ...requestConfig?.config } }),
     ...settings?.options
   });

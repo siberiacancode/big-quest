@@ -10,7 +10,4 @@ export const getOrganizationSchedule = async ({
   params,
   config
 }: GetOrganizationScheduleRequestConfig) =>
-  api.get<OrganizationScheduleListPaginationResponse>(
-    `/organization/${params.id}/schedule`,
-    config
-  );
+  api.get<OrganizationScheduleListPaginationResponse>(`organization/${params.id}/schedule`, config);

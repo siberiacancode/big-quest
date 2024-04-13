@@ -271,6 +271,7 @@ export interface DataTableFacetedFilterProps {
   searchPlaceholder?: string;
   noResultsMsg?: string;
   title: string;
+  icon?: React.ReactNode;
   isMulti?: boolean;
 }
 
@@ -278,6 +279,7 @@ const MAX_SHOWN_FILTER_ITEMS = 2;
 
 export const DataTableFacetedFilter = ({
   title,
+  icon,
   items,
   onSelect,
   values,
@@ -291,7 +293,7 @@ export const DataTableFacetedFilter = ({
     <Popover open={open} onOpenChange={setOpen} modal>
       <PopoverTrigger asChild>
         <Button variant='outline' size='sm' className=''>
-          <PlusCircledIcon className='mr-2 h-4 w-4' />
+          {icon || <PlusCircledIcon className='mr-2 h-4 w-4' />}
           {title}
           {!!values.length && (
             <>

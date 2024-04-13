@@ -1,6 +1,6 @@
 import { api } from '@/utils/api/instance';
 
-export type GetCategoryConfig = RequestConfig | void;
+export type GetCategoryRequestConfig = RequestConfig | void;
 
-export const getCategory = async (requestConfig?: GetCategoryConfig) =>
+export const getCategory = async (requestConfig?: GetCategoryRequestConfig) =>
   api.get<string[]>('category', requestConfig?.config);
