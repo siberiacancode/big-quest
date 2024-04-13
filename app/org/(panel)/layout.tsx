@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getDefaultOpenSidebar } from '@/utils/helpers/getDefaultOpenSidebar';
+import { getDefaultOpenSidebar } from '@/utils/helpers/server/getDefaultOpenSidebar';
 
 import { DesktopHeader } from './(components)/Header/DesktopHeader';
 import { MobileLayout } from './(components)/MobileLayout/MobileLayout';

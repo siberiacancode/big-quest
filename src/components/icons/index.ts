@@ -4,6 +4,7 @@ export * from './FullLogoIcon';
 export * from './LogoIcon';
 export * from './RhombIcon';
 export * from './TelegramIcon';
+export * from './TitleLogoIcon';
 export * from './VkIcon';
 export * from './WavyLineIcon';
 export * from './WhatsappIcon';

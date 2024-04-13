@@ -15,7 +15,7 @@ export const ExcursionStep = () => {
   return (
     <div className='flex h-screen flex-col overflow-y-auto overflow-x-hidden pb-16'>
       <Image
-        className='w-full xxs:mx-auto xxs:w-[400px]'
+        className='xxs:mx-auto xxs:w-[400px] w-full'
         src={EXCURSION_IMAGES[state.screen]}
         alt=''
       />

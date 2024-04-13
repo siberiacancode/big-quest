@@ -41,7 +41,7 @@ export const getActivity: RestRequestConfig = {
             ]
           },
           {
-            id: '1',
+            id: '2',
             cover: null,
             content: [],
             name: 'Рисуем живопись',
@@ -60,7 +60,7 @@ export const getActivity: RestRequestConfig = {
             schedule: []
           },
           {
-            id: '1',
+            id: '3',
             cover: 'http://localhost:31299/api/1.0/static/activity/image-4.png',
             content: [],
             name: 'Рисуем живопись',
@@ -93,7 +93,7 @@ export const getActivity: RestRequestConfig = {
             ]
           },
           {
-            id: '1',
+            id: '4',
             cover: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
             content: ['http://localhost:31299/api/1.0/static/activity/image-2.png'],
             name: 'Рисуем живопись',
@@ -110,7 +110,7 @@ export const getActivity: RestRequestConfig = {
             schedule: []
           },
           {
-            id: '1',
+            id: '5',
             cover: null,
             content: [],
             name: 'Рисуем живопись',

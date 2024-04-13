@@ -1,17 +1,21 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Rubik as FontSans } from 'next/font/google';
 
 import { Toaster } from '@/components/ui/sonner';
 import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
 import { getMessagesByLocale } from '@/utils/helpers';
-import { getDefaultTheme } from '@/utils/helpers/getDefaultTheme';
-import { getUserSession } from '@/utils/helpers/getUserSession';
+import { getDefaultTheme, getUserSession } from '@/utils/helpers/server';
 
 import Providers from './providers';
 
 import '@/assets/styles/globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const fontSans = FontSans({
+  weight: ['300', '400', '500', '600', '700', '900'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  variable: '--font-sans'
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -35,7 +39,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
 
   return (
     <html className={defaultTheme} lang='en'>
-      <body className={`min-h-screen bg-background font-sans antialiased ${inter.className}`}>
+      <body className={`min-h-screen bg-background font-sans antialiased ${fontSans.variable}`}>
         <Providers
           user={{
             defaultUser: userSession

@@ -208,7 +208,22 @@ interface Time {
 }
 
 interface Schedule {
-  address: string;
+  address: {
+    country?: string;
+    region?: string;
+    city?: string;
+    postalCode?: string;
+    street?: string;
+    house?: string;
+    flat?: number;
+    geoLat?: number;
+    geoLon?: number;
+    unrestrictedValue?: string;
+    value?: string;
+    cityWithType?: string;
+    settlement?: string;
+    settlementWithType?: string;
+  };
   leadingEmployeeId: string;
   entry: boolean;
   regular: boolean;
@@ -220,7 +235,7 @@ interface Schedule {
 
 interface ActivityResponse {
   id: string;
-  cover?: string;
+  cover: string;
   content?: string[];
   name: string;
   description?: string;
@@ -235,6 +250,11 @@ interface ActivityResponse {
   participants: number;
   likes: number;
   schedule?: Schedule[];
+}
+
+interface ActivityWithPaginationResponse {
+  rows: ActivityResponse[];
+  pagination: PaginationResponse;
 }
 
 interface ActivityWithPaginationResponse {
