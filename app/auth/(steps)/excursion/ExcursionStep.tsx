@@ -45,7 +45,7 @@ export const ExcursionStep = () => {
               size='lg'
               variant='ghost'
               onClick={functions.goToRegister}
-              className='mt-12 w-full bg-taiga text-white hover:bg-taiga-foreground'
+              className='mt-12 w-full bg-taiga text-white hover:bg-taiga-foreground hover:text-white'
             >
               <I18nText path='button.continue' />
             </Button>
@@ -64,7 +64,7 @@ export const ExcursionStep = () => {
                 size='lg'
                 variant='ghost'
                 onClick={functions.onNext}
-                className='basis-1/2 bg-taiga text-white hover:bg-taiga-foreground'
+                className='basis-1/2 bg-taiga text-white hover:bg-taiga-foreground hover:text-white'
               >
                 <I18nText path='button.next' />
               </Button>
