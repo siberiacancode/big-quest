@@ -1,7 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const getActivity: RestRequestConfig = {
-  path: '/activity',
+export const getActivityPublicConfig: RestRequestConfig = {
+  path: '/activity/public',
   method: 'get',
   routes: [
     {
@@ -20,13 +20,16 @@ export const getActivity: RestRequestConfig = {
             replay: false,
             view: 'ONLINE',
             status: 'PUBLISHED',
-            category: 'Образование',
+            category: 'COOKING',
             participants: 600,
             likes: 210,
             nutsCount: 0,
             schedule: [
               {
-                address: 'адрес',
+                address: {
+                  geoLat: 54.98,
+                  geoLon: 82.83
+                },
                 leadingEmployeeId: 'id',
                 entry: true,
                 regular: true,
@@ -42,7 +45,7 @@ export const getActivity: RestRequestConfig = {
           },
           {
             id: '2',
-            cover: null,
+            cover: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
             content: [],
             name: 'Рисуем живопись',
             description:
@@ -53,7 +56,7 @@ export const getActivity: RestRequestConfig = {
             replay: false,
             view: 'ONLINE',
             status: 'CLOSED',
-            category: 'Образование',
+            category: 'COOKING',
             participants: 600,
             likes: 210,
             nutsCount: 0,
@@ -72,13 +75,16 @@ export const getActivity: RestRequestConfig = {
             replay: false,
             view: 'ONLINE',
             status: 'DRAFT',
-            category: 'Образование',
+            category: 'COOKING',
             participants: 600,
             likes: 210,
             nutsCount: 0,
             schedule: [
               {
-                address: 'адрес',
+                address: {
+                  geoLat: 54.98,
+                  geoLon: 82.89
+                },
                 leadingEmployeeId: 'id',
                 entry: true,
                 regular: true,
@@ -103,7 +109,7 @@ export const getActivity: RestRequestConfig = {
             replay: false,
             view: 'ONLINE',
             status: 'EDITING',
-            category: 'Образование',
+            category: 'COOKING',
             participants: 200,
             likes: 210,
             nutsCount: 0,
@@ -120,7 +126,7 @@ export const getActivity: RestRequestConfig = {
             replay: false,
             view: 'ONLINE',
             status: 'MODERATION',
-            category: 'Образование',
+            category: 'COOKING',
             participants: 200,
             likes: 210,
             nutsCount: 0,

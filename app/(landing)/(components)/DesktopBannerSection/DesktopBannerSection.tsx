@@ -86,10 +86,7 @@ export const DesktopBannerSection = () => (
           <div className='w-full basis-1/3'>
             <Link
               href={ROUTES.AUTH}
-              className={cn(
-                buttonVariants({ size: 'lg', variant: 'ghost' }),
-                'w-full border border-none text-taiga hover:bg-taiga hover:text-white'
-              )}
+              className={cn(buttonVariants({ size: 'lg', variant: 'white' }), 'w-full')}
             >
               <I18nText path='button.entrance' />
             </Link>

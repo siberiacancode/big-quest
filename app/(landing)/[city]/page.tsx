@@ -28,7 +28,7 @@ const LandingCityPage = ({ params }: LandingCityPageProps) => {
       {isMobile ? <MobileBannerSection /> : <DesktopBannerSection />}
       <NewsSection />
       <StatisticsSection />
-      <ActivitiesSection />
+      <ActivitiesSection cityId={params.city} />
       <ActivitiesMapSection cityId={params.city} />
       <SponsorsSection />
       <FeedbackSection />

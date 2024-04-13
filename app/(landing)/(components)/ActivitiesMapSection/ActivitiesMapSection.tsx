@@ -1,51 +1,33 @@
-'use client';
+import { getActivityPublic } from '@/utils/api';
+import type { CITIES } from '@/utils/constants';
 
-import { GeoObject, Map, YMaps, ZoomControl } from '@pbe/react-yandex-maps';
+import {
+  ACTIVITIES_REVALIDATION_TIME,
+  DEFAULT_ACTIVITIES_LIMIT,
+  DEFAULT_ACTIVITIES_PAGE
+} from '../../(constants)';
 
-import { I18nText } from '@/components/common';
-import { Typography } from '@/components/ui';
-import { CITIES } from '@/utils/constants';
-
-import { activitiesCoordinates } from './constants/activitiesCoordinates';
-
-const DEFAULT_MAP_ZOOM = 11;
+import { ActivitiesMap } from './components/ActivitiesMap/ActivitiesMap';
 
 interface ActivitiesMapSectionProps {
   cityId: (typeof CITIES)[keyof typeof CITIES]['id'];
 }
 
-export const ActivitiesMapSection = ({ cityId }: ActivitiesMapSectionProps) => (
-  <section className='container mt-28 min-h-[500px]'>
-    <YMaps>
-      <Typography tag='h2' variant='h1' className='text-2xl md:text-[32px]'>
-        <I18nText path='landing.activitiesMap.title' />
-      </Typography>
-      <Map
-        instanceRef={(ref) => ref && ref.behaviors.disable('scrollZoom')}
-        className='h-[500px] w-full'
-        state={{
-          zoom: DEFAULT_MAP_ZOOM,
-          center: CITIES[cityId.toUpperCase()].map.center as [number, number]
-        }}
-      >
-        <div className='mt-10 w-full mdx:mt-5'>
-          {activitiesCoordinates.map((coordinates, index) => (
-            <GeoObject
-              key={index}
-              geometry={{
-                type: 'Circle',
-                coordinates
-              }}
-              options={{
-                geodesic: true,
-                strokeColor: '#FF4433',
-                strokeWidth: 15
-              }}
-            />
-          ))}
-        </div>
-        <ZoomControl />
-      </Map>
-    </YMaps>
-  </section>
-);
+export const ActivitiesMapSection = async ({ cityId }: ActivitiesMapSectionProps) => {
+  const getActivityPublicResponse = await getActivityPublic({
+    params: {
+      city: cityId,
+      limit: DEFAULT_ACTIVITIES_LIMIT,
+      current: DEFAULT_ACTIVITIES_PAGE
+    },
+    config: {
+      next: { revalidate: ACTIVITIES_REVALIDATION_TIME }
+    }
+  });
+
+  return (
+    <section className='container mt-28 min-h-[500px]'>
+      <ActivitiesMap cityId={cityId} activities={getActivityPublicResponse.rows} />
+    </section>
+  );
+};

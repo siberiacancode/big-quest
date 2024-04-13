@@ -19,7 +19,7 @@ const LandingPage = () => {
       {isMobile ? <MobileBannerSection /> : <DesktopBannerSection />}
       <NewsSection />
       <StatisticsSection />
-      <ActivitiesSection />
+      <ActivitiesSection cityId='novosibirsk' />
       <ActivitiesMapSection cityId='novosibirsk' />
       <SponsorsSection />
       <FeedbackSection />

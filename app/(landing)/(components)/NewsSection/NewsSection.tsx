@@ -13,7 +13,6 @@ import {
   CarouselNext,
   CarouselPrevious
 } from '@/components/ui';
-import { cn } from '@/lib/utils';
 
 import { NewsCard } from './components/NewsCard/NewsCard';
 import { news } from './constants/news';
@@ -46,12 +45,7 @@ export const NewsSection = () => (
         ))}
       </CarouselContent>
       <div className='absolute bottom-[15%] m-auto flex w-full justify-center'>
-        <Button
-          className={cn(
-            buttonVariants({ size: 'lg' }),
-            'bg-background text-taiga hover:bg-taiga-foreground'
-          )}
-        >
+        <Button className={buttonVariants({ size: 'lg', variant: 'white' })}>
           <I18nText path='button.findOutDetails' />
         </Button>
       </div>
