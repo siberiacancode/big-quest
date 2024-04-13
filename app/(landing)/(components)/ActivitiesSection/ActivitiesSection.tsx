@@ -31,6 +31,8 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
     }
   });
 
+  if (getActivityPublicResponse.rows.length) return null;
+
   return (
     <section id='activities' className='container mt-28'>
       <div className='flex items-center justify-between'>
@@ -46,11 +48,9 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
         </Link>
       </div>
       <div className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
-        {getActivityPublicResponse.rows
-          .filter((activity) => activity.cover)
-          .map((activity) => (
-            <ActivityCard key={activity.id} {...activity} cover={activity.cover!} />
-          ))}
+        {getActivityPublicResponse.rows.map((activity) => (
+          <ActivityCard key={activity.id} {...activity} />
+        ))}
       </div>
     </section>
   );

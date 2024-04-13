@@ -245,7 +245,7 @@ interface Schedule {
 
 interface ActivityResponse {
   id: string;
-  cover?: string;
+  cover: string;
   content?: string[];
   name: string;
   description?: string;
