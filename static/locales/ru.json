@@ -15,14 +15,14 @@
   "org.auth.footer.siteRules": "Правила пользования сайтом",
   "org.auth.footer.privacyPolicy": "Политика конфиденциальности",
 
-  "auth.excursion.first.title": "Добро пожаловать в Большой Квест",
-  "auth.excursion.first.description": "Мы те, кто подарит море интересных возможностей, путем отбора качественных активностей именно для Вас",
-  "auth.excursion.second.title": "Проходя активности, получай шишки опыта и награды",
-  "auth.excursion.second.description": "За прохождение активностей, ты получаешь шишки опыта и не только",
-  "auth.excursion.third.title": "Меняй орешки на мерч от нас!",
-  "auth.excursion.third.description": "Возможность менять шишки на настоящие подарки!",
-  "auth.excursion.fourth.title": "Достигай целей и соревнуйся с другими!",
-  "auth.excursion.fourth.description": "Пройди несколько активностей и занимай место в рейтинге лучших!",
+  "auth.excursion.0.title": "Добро пожаловать в Большой Квест",
+  "auth.excursion.0.description": "Мы те, кто подарит море интересных возможностей, путем отбора качественных активностей именно для Вас",
+  "auth.excursion.1.title": "Проходя активности, получай шишки опыта и награды",
+  "auth.excursion.1.description": "За прохождение активностей, ты получаешь шишки опыта и не только",
+  "auth.excursion.2.title": "Меняй орешки на мерч от нас!",
+  "auth.excursion.2.description": "Возможность менять шишки на настоящие подарки!",
+  "auth.excursion.3.title": "Достигай целей и соревнуйся с другими!",
+  "auth.excursion.3.description": "Пройди несколько активностей и занимай место в рейтинге лучших!",
 
   "common.rubles": "{amount}руб.",
 
