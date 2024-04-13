@@ -14,7 +14,7 @@ interface ActivityActionFormMediaProps {
   setActivityMedia: (props: ExtendedActivityMediaProps[]) => void;
   setDeleteFileIds: (props: string[]) => void;
 }
-// вынесла в отдельный файл из-за промиса, но теперь беды с рендером, когда даже меняю данные активности ререндерит
+
 export const ActivityActionFormMedia = async ({
   media,
   activityMedia,

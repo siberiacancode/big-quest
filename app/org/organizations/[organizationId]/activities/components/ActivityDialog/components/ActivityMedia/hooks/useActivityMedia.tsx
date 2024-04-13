@@ -58,7 +58,7 @@ export const useActivityMedia = ({
   const onDropAccepted = async (file: File) => {
     const type = file.type.startsWith('image/') ? 'IMAGE' : 'VIDEO';
 
-    const fileId = await postFileMutation.mutateAsync({ params: file });
+    const fileId = await postFileMutation.mutateAsync({});
 
     if (fileId) {
       setActivityMedia([...activityMedia, { id: fileId, file, flag: null, type }]);
