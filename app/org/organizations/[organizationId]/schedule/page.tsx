@@ -4,24 +4,24 @@ import { I18nText } from '@/components/common';
 import { Button, Typography } from '@/components/ui';
 import { getOrganizationSchedule } from '@/utils/api/requests/organization/id/schedule';
 
-import { AddScheduleDialog } from './components/AddScheduleDialog/AddScheduleDialog';
-import { OrganizationScheduleTable } from './components/OrganizationScheduleTable/OrganizationScheduleTable';
+import { AddScheduleDialog } from './(components)/AddScheduleDialog/AddScheduleDialog';
+import { OrganizationScheduleTable } from './(components)/OrganizationScheduleTable/OrganizationScheduleTable';
 
 export interface OrganizationsPageProps {
   searchParams: SearchParams;
   params: { organizationId: string };
 }
 
-const DEFAULT_ORGANIZATIONS_LIMIT = '10';
-const DEFAULT_ORGANIZATIONS_PAGE = '1';
+const DEFAULT_SCHEDULES_LIMIT = '10';
+const DEFAULT_SCHEDULES_PAGE = '1';
 
 const OrganizationSchedulePage = async ({ searchParams, params }: OrganizationsPageProps) => {
   const organizationScheduleResponse = await getOrganizationSchedule({
     params: { id: params.organizationId },
     config: {
       params: {
-        limit: DEFAULT_ORGANIZATIONS_LIMIT,
-        current: DEFAULT_ORGANIZATIONS_PAGE,
+        limit: DEFAULT_SCHEDULES_LIMIT,
+        current: DEFAULT_SCHEDULES_PAGE,
         ...searchParams
       },
       cache: 'no-store'
