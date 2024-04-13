@@ -9,7 +9,7 @@ export const useExcursionStep = () => {
   const [screen, setScreen] = React.useState<ExcursionStepScreen>(0);
 
   const goToRegister = () => wizard.setStepId('register');
-  const onNext = () => setScreen((prev) => (prev + 1) as ExcursionStepScreen);
+  const onNext = () => setScreen((screen + 1) as ExcursionStepScreen);
 
   return { state: { screen }, functions: { onNext, goToRegister } };
 };
