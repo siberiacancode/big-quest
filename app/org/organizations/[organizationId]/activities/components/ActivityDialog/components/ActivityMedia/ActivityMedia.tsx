@@ -48,21 +48,21 @@ export const ActivityMedia = ({
           activityMedia.length > 3 && '2smx:row-span-3 xsx:row-span-3 xxsx:row-span-3'
         )}
       >
-        {state.activeMediaFile.file && state.activeMediaFile.type === 'IMAGE' && (
+        {state.activeMediaFile.url && state.activeMediaFile.type === 'IMAGE' && (
           <Image
             className='w-full rounded-lg 2smx:h-[360px]'
-            src={URL.createObjectURL(state.activeMediaFile.file)}
+            src={state.activeMediaFile.url}
             fill
             alt={i18n.formatMessage({ id: 'activity.image.alt' })}
           />
         )}
-        {state.activeMediaFile.file && state.activeMediaFile.type === 'VIDEO' && (
+        {state.activeMediaFile.url && state.activeMediaFile.type === 'VIDEO' && (
           <video className='h-full w-full rounded-lg border border-border' controls>
-            <source src={URL.createObjectURL(state.activeMediaFile.file)} type='video/mp4' />
+            <source src={state.activeMediaFile.url} type='video/mp4' />
           </video>
         )}
 
-        {!state.activeMediaFile.file && (
+        {!state.activeMediaFile.url && (
           <div className='flex h-full w-full flex-col items-center  justify-center gap-4 rounded-lg border-2 border-dashed border-dropzoneBorder text-muted-foreground sm:max-h-[418px]'>
             <WallpaperIcon className='h-10 w-10 text-muted-foreground' />
             <Typography variant='body1'>
@@ -76,7 +76,7 @@ export const ActivityMedia = ({
           </div>
         )}
         {state.activeMediaFile.flag !== 'AVATAR' &&
-          state.activeMediaFile.file &&
+          state.activeMediaFile.url &&
           state.activeMediaFile.type === 'IMAGE' && (
             <Button
               variant='ghost'
@@ -104,12 +104,12 @@ export const ActivityMedia = ({
                 type={item.type}
                 className={cn(
                   'h-full w-full rounded-lg',
-                  item.file === state.activeMediaFile.file && 'border-2 border-emerald-700'
+                  item.url === state.activeMediaFile.url && 'border-2 border-emerald-700'
                 )}
-                value={URL.createObjectURL(item.file)}
+                value={item.url}
                 onClick={() => functions.setActiveMediaFile(item)}
                 isAvatar={item.flag === 'AVATAR'}
-                isActive={item.file === state.activeMediaFile.file}
+                isActive={item.url === state.activeMediaFile.url}
                 onDelete={functions.onDelete}
                 onDropAccepted={functions.onDropAccepted}
               />

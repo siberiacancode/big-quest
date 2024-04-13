@@ -1,12 +1,12 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
+import { FILES_DATABASE } from './constants/data';
+
 export const getFileById: RestRequestConfig = {
   path: '/file/:id',
   method: 'get',
   routes: [
     {
-      // почему-то не отрабатывает параметр file: '../',
-      // надо сделать полуечние файла по id
       data: {},
       entities: {
         params: {
@@ -15,11 +15,12 @@ export const getFileById: RestRequestConfig = {
           }
         }
       },
-
       interceptors: {
         response: (_, { request, setStatusCode }) => {
           if (request.cookies.refreshToken && request.cookies.accessToken) {
-            return 'здесь должен быть файл';
+            const { id } = request.params;
+            const index = parseInt(id, 10) - 1; // Преобразуем id в индекс массива
+            return FILES_DATABASE[index];
           }
 
           setStatusCode(401);
