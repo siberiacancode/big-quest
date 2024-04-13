@@ -1,26 +1,26 @@
 import Image from 'next/image';
 
-import AuthImage from '@/assets/images/auth.webp';
+import authImage from '@/assets/images/auth.webp';
 import { I18nText, Logo } from '@/components/common';
 import { Typography } from '@/components/ui';
 
 import { LoginForm } from './(components)/LoginForm/LoginForm';
 
 const OrgAuthPage = () => (
-  <div className='flex min-h-screen flex-col items-center justify-between p-2'>
-    <div className='flex flex-1 items-center justify-around gap-28 xlx:gap-12 xlx:p-5'>
-      <div className='flex flex-col space-y-6'>
-        <div className='mb-10'>
+  <div className='flex min-h-screen flex-col items-center justify-between p-10'>
+    <div className='flex flex-1 items-center justify-around gap-12 p-5 md:gap-28'>
+      <div className='flex max-w-[450px] flex-col space-y-6'>
+        <div className='mb-20 flex justify-start'>
           <Logo className='fill-taiga' />
         </div>
         <div>
-          <Typography variant='h2' tag='h2' className='my-[30px] text-center text-4xl xlx:text-2xl'>
+          <Typography variant='h2' tag='h1' className='my-[30px] text-start text-4xl'>
             <I18nText path='org.auth.title' />
           </Typography>
           <LoginForm />
         </div>
       </div>
-      <Image src={AuthImage} alt='auth image' className='w-[36rem] xlx:block xlx:w-96 mdx:hidden' />
+      <Image src={authImage} alt='auth image' className='mt-20 hidden xl:block' />
     </div>
     <footer className='m-3 flex flex-wrap justify-center divide-x divide-solid divide-gray-700 *:px-1 mdx:divide-x-0'>
       <Typography variant='body3' className='text-foreground'>

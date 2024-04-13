@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface OrganizationProfilePageLayoutProps {
+interface OrganizationProfileLayoutProps {
   children: React.ReactNode;
   card: React.ReactNode;
   changes: React.ReactNode;
@@ -13,10 +13,10 @@ const OrganizationProfileLayout = ({
   changes,
   statistics,
   tariff
-}: OrganizationProfilePageLayoutProps) => (
-  <div className='flex justify-center gap-[22px] smx:flex-col'>
-    {card}
-    <div className='flex w-1/2 flex-col gap-[22px] smx:w-full'>
+}: OrganizationProfileLayoutProps) => (
+  <div className='flex flex-1 flex-col justify-center gap-4 lg:flex-row'>
+    <div className='flex-1'>{card}</div>
+    <div className='flex flex-1 flex-col gap-4'>
       {tariff}
       {statistics}
       {changes}

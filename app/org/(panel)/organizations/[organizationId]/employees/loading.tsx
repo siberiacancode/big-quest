@@ -8,7 +8,7 @@ const OrganizationEmployeesLoading = () => (
       <Skeleton className='h-10 w-36 bg-background' />
     </div>
 
-    <div className='grid gap-3 4xlx:grid-cols-4 3xlx:grid-cols-3 2xlx:grid-cols-2 mdx:grid-cols-1'>
+    <div className='grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3'>
       {Array(5)
         .fill({})
         .map((_, index) => (

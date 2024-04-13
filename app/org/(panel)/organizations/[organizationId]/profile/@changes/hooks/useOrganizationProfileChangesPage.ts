@@ -4,8 +4,8 @@ import { useParams } from 'next/navigation';
 
 import { useGetChangesInfiniteQuery, usePostChangesMutation } from '@/utils/api';
 
-import type { AddOrganizationChangeSchema } from '../constants/addOrganizationChangeSchema';
-import { addOrganizationChangeSchema } from '../constants/addOrganizationChangeSchema';
+import type { AddOrganizationChangesSchema } from '../constants/addOrganizationChangeSchema';
+import { addOrganizationChangesSchema } from '../constants/addOrganizationChangeSchema';
 
 const DEFAULT_CHANGES_PAGE = 1;
 const CHANGES_LIMIT = 5;
@@ -21,9 +21,9 @@ export const useOrganizationProfileChangesPage = () => {
     criteria: params.organizationId
   });
 
-  const addOrganizationChangeForm = useForm<AddOrganizationChangeSchema>({
+  const addOrganizationChangeForm = useForm<AddOrganizationChangesSchema>({
     mode: 'onSubmit',
-    resolver: zodResolver(addOrganizationChangeSchema),
+    resolver: zodResolver(addOrganizationChangesSchema),
     defaultValues: { comment: '' }
   });
 

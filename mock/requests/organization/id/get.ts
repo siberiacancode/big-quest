@@ -18,7 +18,6 @@ export const getOrganizationByIdConfig: RestRequestConfig = {
   routes: [
     {
       entities: { params: { id: 1 } },
-
       data: {
         contactName: 'Ольга',
         phone: 79998887766,

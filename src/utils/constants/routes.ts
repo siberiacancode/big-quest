@@ -21,6 +21,7 @@ export const ROUTES = {
     }
   },
   PARTNER: {
+    ROOT: '/partner',
     PROFILE: '/partner/profile',
     ADDRESSES: '/partner/addresses',
     EMPLOYEES: '/partner/employees',

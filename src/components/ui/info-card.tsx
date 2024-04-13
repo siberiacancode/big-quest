@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 const InfoCard = ({ className, ...props }: React.ComponentProps<typeof Card>) => (
-  <Card className={cn('flex-auto', className)} {...props} />
+  <Card className={cn('w-full', className)} {...props} />
 );
 InfoCard.displayName = 'InfoCard';
 
@@ -32,7 +32,7 @@ const InfoCardAction = React.forwardRef<HTMLDivElement, React.ComponentProps<'di
 InfoCardAction.displayName = 'InfoCardAction';
 
 const InfoCardContent = ({ className, ...props }: React.ComponentProps<typeof CardContent>) => (
-  <CardContent className={cn('mdx: flex flex-row justify-between px-2', className)} {...props} />
+  <CardContent className={cn('flex-row justify-between mdx:flex', className)} {...props} />
 );
 InfoCardContent.displayName = 'InfoCardHeader';
 
@@ -40,10 +40,7 @@ const InfoCardItem = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn(
-        'flex-1 border-x border-l-0 border-secondary pl-5 last:border-r-0 mdx:pr-2',
-        className
-      )}
+      className={cn('flex-1 border-x border-l-0 border-secondary last:border-r-0', className)}
       {...props}
     />
   )

@@ -14,7 +14,7 @@ import {
 } from '@/components/ui';
 
 const OrganizationProfileStatisticsPage = () => (
-  <div className='flex gap-4'>
+  <div className='flex flex-col gap-4 sm:flex-row'>
     <InfoCard>
       <InfoCardHeader className='p-5'>
         <InfoCardTitle>

@@ -30,7 +30,7 @@ interface OrganizationProfileCardSlotProps {
 const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSlotProps) => {
   const getOrganizationByIdResponse = await getOrganizationById({
     params: { id: params.organizationId },
-    config: { cache: 'no-cache' }
+    config: { cache: 'no-store' }
   });
 
   return (
@@ -42,14 +42,16 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
           </Typography>
         </InfoCardTitle>
         <InfoCardAction className='rounded-none bg-transparent'>
-          <EditOrganizationProfileDialog
-            organization={getOrganizationByIdResponse}
-            trigger={
-              <Button variant='ghost' className='ml-3 mr-1 h-8 w-8 p-2'>
-                <Edit3Icon size={20} strokeWidth={1.5} />
-              </Button>
-            }
-          />
+          <div className='right absolute right-2 top-2 z-10'>
+            <EditOrganizationProfileDialog
+              organization={getOrganizationByIdResponse}
+              trigger={
+                <Button variant='ghost' size='icon'>
+                  <Edit3Icon size={20} strokeWidth={1.5} />
+                </Button>
+              }
+            />
+          </div>
         </InfoCardAction>
       </InfoCardHeader>
       <InfoCardContent className='flex w-full flex-col px-7'>

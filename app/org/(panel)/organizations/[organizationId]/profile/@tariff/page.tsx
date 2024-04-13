@@ -26,7 +26,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
   const getTariffByLegalEntityIdResponse = await getTariffByLegalEntityId({
     params: { legalEntityId: params.organizationId },
     config: {
-      cache: 'no-cache'
+      cache: 'no-store'
     }
   });
 
@@ -54,7 +54,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
           />
         </InfoCardAction>
       </InfoCardHeader>
-      <InfoCardContent className='mt-3 flex w-full justify-center'>
+      <InfoCardContent className='mt-1 flex w-full justify-center'>
         <InfoCardItem className='flex flex-col items-center border-none'>
           <InfoCardItemTitle>
             <Typography variant='h3' tag='h3'>

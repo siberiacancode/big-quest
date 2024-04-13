@@ -25,9 +25,9 @@ export const postAuthLoginEmailConfig: RestRequestConfig = {
       },
       interceptors: {
         response: (data, { setCookie }) => {
-          setCookie(COOKIES.SESSION_ID, COOKIES.SESSION_ID, {
+          setCookie(COOKIES.SESSION_ID, 'superadmin', {
             httpOnly: true,
-            maxAge: 360000,
+            maxAge: 36000000,
             path: '/'
           });
 
@@ -36,18 +36,20 @@ export const postAuthLoginEmailConfig: RestRequestConfig = {
       }
     },
     {
-      data: { message: 'Неверный пароль' },
+      data: {},
       entities: {
         body: {
-          email: 'superadmin@mail.ru',
-          password: {
-            checkMode: 'exists'
-          }
+          email: 'partner@mail.ru',
+          password: '123456'
         }
       },
       interceptors: {
-        response: (data, params) => {
-          params.setStatusCode(400);
+        response: (data, { setCookie }) => {
+          setCookie(COOKIES.SESSION_ID, 'partner', {
+            httpOnly: true,
+            maxAge: 36000000,
+            path: '/'
+          });
 
           return data;
         }

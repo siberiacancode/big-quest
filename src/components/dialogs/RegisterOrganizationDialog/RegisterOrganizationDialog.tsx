@@ -4,7 +4,7 @@ import React from 'react';
 import { XIcon } from 'lucide-react';
 import Image from 'next/image';
 
-import treeBackground from '@/assets/images/background/trees.png';
+import treeBackgroundImage from '@/assets/images/background/trees.png';
 import { I18nText } from '@/components/common';
 import { Dialog, DialogClose, DialogContent, DialogTrigger, Typography } from '@/components/ui';
 
@@ -26,12 +26,12 @@ export const RegisterOrganizationDialog = ({ trigger }: RegisterOrganizationModa
           <XIcon className='h-6 w-6' />
         </DialogClose>
         <div className='flex items-center justify-center overflow-y-auto'>
-          <Image className='absolute' src={treeBackground} alt='' />
+          <Image className='absolute' src={treeBackgroundImage} alt='' />
           <div className='flex flex-col items-center'>
             <Typography variant='h2' tag='h2'>
               <I18nText path='dialog.registerOrganization.title' />
             </Typography>
-            <div className='round relative z-10 mt-16 border bg-background p-5 xsx:mt-7 xsx:w-full lg:mt-16 lg:p-10 sm:w-[450px]'>
+            <div className='round relative z-10 mt-16 border bg-background p-5 xsx:mt-7 xsx:w-full sm:w-[450px] lg:mt-16 lg:p-10'>
               <RegisterOrganizationForm onRegistered={functions.onRegistered} />
             </div>
           </div>
