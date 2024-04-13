@@ -9,6 +9,12 @@ export const useExcursionStep = () => {
   const [screen, setScreen] = React.useState<ExcursionStepScreen>('first');
 
   const goToRegister = () => setStepId('register');
+  const setNextScreen = () =>
+    setScreen((prev) => {
+      if (prev === 'first') return 'second';
+      if (prev === 'second') return 'third';
+      return 'fourth';
+    });
 
-  return { state: { screen }, functions: { setScreen, goToRegister } };
+  return { state: { screen }, functions: { setNextScreen, goToRegister } };
 };
