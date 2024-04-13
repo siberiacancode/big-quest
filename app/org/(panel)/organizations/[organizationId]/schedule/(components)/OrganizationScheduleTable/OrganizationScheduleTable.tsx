@@ -24,7 +24,7 @@ import { convertSchedulesToTableRows } from './helpers/convertSchedulesToTableRo
 import { useOrganizationScheduleTable } from './hooks/useOrganizationScheduleTable';
 
 interface OrganizationScheduleTableProps {
-  schedules: OrganizationScheduleResponse[];
+  schedules: SchedulesResponse[];
   pagination: PaginationResponse;
 }
 

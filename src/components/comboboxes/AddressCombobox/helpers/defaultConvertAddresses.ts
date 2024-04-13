@@ -1,4 +1,4 @@
-export const defaultConvertAddresses = (addresses: AddressResponseFixMe[]) =>
+export const defaultConvertAddresses = (addresses: AddressResponseDto[]) =>
   addresses.map((address) => ({
     label: address.unrestrictedValue,
     value: address.unrestrictedValue

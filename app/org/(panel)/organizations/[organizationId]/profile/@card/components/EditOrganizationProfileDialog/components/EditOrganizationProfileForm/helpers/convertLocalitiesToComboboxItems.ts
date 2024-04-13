@@ -1,4 +1,4 @@
-export const convertLocalitiesToComboboxItems = (addresses: AddressResponseFixMe[]) =>
+export const convertLocalitiesToComboboxItems = (addresses: AddressResponseDto[]) =>
   addresses
     .filter(
       (address) =>

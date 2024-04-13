@@ -22,6 +22,7 @@ export * from './organization/id/add-address';
 export * from './organization/id/add-schedule';
 export * from './organization/id/employees';
 export * from './organization/register';
+export * from './schedule/organization/id';
 export * from './tariff/id';
 export * from './tariff/legalEntityId';
 export * from './user';

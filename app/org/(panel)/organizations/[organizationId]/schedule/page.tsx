@@ -2,7 +2,7 @@ import { PlusCircledIcon } from '@radix-ui/react-icons';
 
 import { I18nText } from '@/components/common';
 import { Button, Typography } from '@/components/ui';
-import { getOrganizationSchedule } from '@/utils/api/requests/organization/id/schedule';
+import { getScheduleOrganizationById } from '@/utils/api/requests';
 
 import { AddScheduleDialog } from './(components)/AddScheduleDialog/AddScheduleDialog';
 import { OrganizationScheduleTable } from './(components)/OrganizationScheduleTable/OrganizationScheduleTable';
@@ -16,7 +16,7 @@ const DEFAULT_ORGANIZATIONS_LIMIT = '10';
 const DEFAULT_ORGANIZATIONS_PAGE = '1';
 
 const OrganizationSchedulePage = async ({ searchParams, params }: OrganizationsPageProps) => {
-  const organizationScheduleResponse = await getOrganizationSchedule({
+  const getScheduleOrganizationByIdResponse = await getScheduleOrganizationById({
     params: { id: params.organizationId },
     config: {
       params: {
@@ -44,8 +44,8 @@ const OrganizationSchedulePage = async ({ searchParams, params }: OrganizationsP
         />
       </div>
       <OrganizationScheduleTable
-        schedules={organizationScheduleResponse.rows}
-        pagination={organizationScheduleResponse.pagination}
+        schedules={getScheduleOrganizationByIdResponse.rows}
+        pagination={getScheduleOrganizationByIdResponse.pagination}
       />
     </div>
   );

@@ -5,20 +5,18 @@ export interface ScheduleTableRow {
   employee: string;
   date: string;
   time: string;
-  registrationCount: number;
+  maxNumberOfParticipants: number;
   passed: boolean;
 }
 
-export const convertSchedulesToTableRows = (
-  schedules: OrganizationScheduleResponse[]
-): ScheduleTableRow[] =>
+export const convertSchedulesToTableRows = (schedules: ScheduleResponse[]): ScheduleTableRow[] =>
   schedules.map((schedule) => ({
     id: schedule.id,
-    activityName: schedule.activityName ?? '-',
-    locality: schedule.locality ?? '-',
-    employee: schedule.employee ?? '-',
-    date: schedule.date ?? '-',
+    activityName: schedule.activityId ?? '-',
+    locality: schedule.address.street ?? '-',
+    employee: schedule.leadingEmployeeId ?? '-',
+    date: schedule.dateAndTime.date ?? '-',
     time: schedule.time ?? '-',
-    registrationCount: schedule.registrationCount,
-    passed: schedule.passed ?? '-'
+    maxNumberOfParticipants: schedule.maxNumberOfParticipants ?? '-',
+    passed: schedule.regular ?? '-'
   }));

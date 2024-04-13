@@ -306,18 +306,54 @@ interface LoginEmailDto {
   password: string;
 }
 
-interface OrganizationScheduleResponse {
+interface ScheduleResponse {
   id: string;
-  activityName: string;
-  locality: string;
-  employee: string;
-  date: string;
-  time: string;
-  registrationCount: number;
-  passed: boolean;
+  activityId: string;
+  leadingEmployeeId: string;
+  address: {
+    country?: string;
+    region?: string;
+    city?: string;
+    postalCode?: string;
+    street?: string;
+    house?: string;
+    flat?: number;
+    geoLat?: number;
+    geoLon?: number;
+    unrestrictedValue?: string;
+    value?: string;
+    cityWithType?: string;
+    settlement?: string;
+    settlementWithType?: string;
+  };
+  entry: boolean;
+  regular: boolean;
+  maxNumberOfParticipants: number;
+  points: {
+    latitude: number;
+    longitude: number;
+  };
+  dateAndTime: {
+    date: string;
+    timeFrom: {
+      hour: number;
+      minutes: number;
+    };
+    timeTo: {
+      hour: number;
+      minutes: number;
+    };
+  };
+  datePeriodWithTimes: {
+    periodDates: {
+      hour: number;
+      minutes: number;
+    };
+    weekDaysWithTime: string[];
+  };
 }
 
-interface OrganizationScheduleListPaginationResponse {
+interface SchedulesResponse {
   rows: OrganizationScheduleResponse[];
   pagination: PaginationResponse;
 }
@@ -492,7 +528,7 @@ interface CreateAddressDto {
   legalId: string;
 }
 
-interface AddressResponseFixMe {
+interface AddressResponseDto {
   country: string;
   region: string;
   city: string;
@@ -505,6 +541,8 @@ interface AddressResponseFixMe {
   unrestrictedValue: string;
   value: string;
   cityWithType: string;
+  settlement: string;
+  settlementWithType: string;
 }
 
 type TariffStatus = 'ACTIVE' | 'COORDINATION';
