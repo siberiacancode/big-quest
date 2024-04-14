@@ -18,18 +18,6 @@ const DEFAULT_ACTIVITIES_PAGE = 1;
 
 const ActivityCatalogPage = async ({ searchParams }: ActivityCatalogPageProps) => {
   const categoryParam = typeof searchParams.category === 'string' ? searchParams.category : '';
-  // const { searchParams, setSearchParams, setSearchParam } = useSearchParams();
-
-  // const getActivityPublicResponse = await getActivityPublic({
-  //   params: {
-  //     limit: DEFAULT_ACTIVITIES_LIMIT,
-  //     current: DEFAULT_ACTIVITIES_PAGE,
-  //     ...searchParams
-  //   },
-  //   config: {
-  //     cache: 'no-store'
-  //   }
-  // });
 
   const getActivityPublicResponse = await getActivityPublic({
     params: {
@@ -38,10 +26,6 @@ const ActivityCatalogPage = async ({ searchParams }: ActivityCatalogPageProps) =
       ...searchParams
     }
   });
-
-  console.log('@searchParams', searchParams);
-
-  console.log('@getActivityPublicResponse', getActivityPublicResponse.rows);
 
   return (
     <section className='container py-[108px]'>

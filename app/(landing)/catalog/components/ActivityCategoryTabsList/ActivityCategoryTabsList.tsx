@@ -7,17 +7,8 @@ import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
 import { useSearchParams } from '@/utils/hooks';
 
 const ActivityCategoryTabsList = () => {
-  // const { searchParams, setSearchParam } = useSearchParams();\
   const { setSearchParam } = useSearchParams();
   const getCategoryQuery = useGetCategoryQuery();
-
-  console.log('@getCategoryQuery', getCategoryQuery.data);
-
-  // const [selectedCategory, setSelectedCategory] = React.useState<string>(() =>
-  //   searchParams.get('stage')
-  // );
-
-  // const categoryFilter = searchParams.get('category');
 
   const onActivityCategorySelect = (category: string) => {
     setSearchParam('category', category);
