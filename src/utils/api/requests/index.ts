@@ -2,6 +2,7 @@ export * from './activities';
 export * from './activities/dashboard';
 export * from './activity';
 export * from './activity/id';
+export * from './activity/public/index';
 export * from './address';
 export * from './auth/login/email';
 export * from './auth/new-code';

@@ -36,11 +36,11 @@ interface Shedule {
 
 export interface Activity {
   id: string;
-  image: StaticImageData; //cover?
+  image: StaticImageData; // cover?
   category: ActivityCategory;
-  title: string; //name
+  title: string; // name
   duration: number;
-  minimumAge: number; //ageLimit: [7, 13];
+  minimumAge: number; // ageLimit: [7, 13];
   media: {
     id: StaticImageData;
     type: 'IMAGE' | 'VIDEO';

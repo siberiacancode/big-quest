@@ -9,8 +9,10 @@ export const getCategories = () => {
 
 export const getActivities = async ({ search, category, page, limit }) => {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 0));
-    //console.log(Date(), 'API getActivities');
+    await new Promise((resolve) => {
+      setTimeout(resolve, 0);
+    });
+    // console.log(Date(), 'API getActivities');
     const filteredActivities = activities.filter((activity) => {
       const isMatch = search ? activity.title.toLowerCase().includes(search.toLowerCase()) : true;
       const isCategoryMatch =
@@ -32,10 +34,12 @@ export const getActivities = async ({ search, category, page, limit }) => {
 
 export const getActivityById = async (id) => {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 0));
-    //console.log(Date(), 'API getActivityById');
+    await new Promise((resolve) => {
+      setTimeout(resolve, 0);
+    });
+    // console.log(Date(), 'API getActivityById');
     const activity = activities.find((item) => item.id === id);
-    return activity ? activity : undefined;
+    return activity || undefined;
   } catch (error) {
     console.error('Произошла ошибка при получении активности по ID:', error);
     return undefined;
