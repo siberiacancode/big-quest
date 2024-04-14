@@ -1,5 +1,6 @@
 export * from './useDeleteLegalAddressByIdMutation';
 export * from './useDeleteOrganizationDeleteEmployeeMutation';
+export * from './useGetActivityPublicInfiniteQuery';
 export * from './useGetAddressQuery';
 export * from './useGetAuthNewCodeMutation';
 export * from './useGetChangesInfiniteQuery';
