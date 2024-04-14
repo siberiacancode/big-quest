@@ -31,7 +31,9 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
     }
   });
 
-  if (getActivityPublicResponse.rows.length) return null;
+  console.log('@getActivityPublicResponse', getActivityPublicResponse);
+
+  // if (getActivityPublicResponse.rows.length) return null;
 
   return (
     <section id='activities' className='container mt-28'>

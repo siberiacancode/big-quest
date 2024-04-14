@@ -1,6 +1,7 @@
 import { Clock4Icon, UserRoundIcon } from 'lucide-react';
 import Image from 'next/image';
 
+import ActivityPlaceholder from '@/assets/images/landing/activities/activity1.png';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 
@@ -17,14 +18,21 @@ export interface ActivityCardProps {
 export const ActivityCard = ({ cover, category, ageLimit, duration, name }: ActivityCardProps) => (
   <div className='flex w-full flex-col'>
     <div className='relative h-[370px]'>
-      <Image src={cover} alt={name} sizes='370px' className='rounded-md object-cover' fill />
+      <Image
+        src={cover ?? ActivityPlaceholder}
+        alt={name}
+        sizes='370px'
+        className='rounded-md object-cover'
+        fill
+      />
     </div>
 
     <div className='mt-4 flex-grow'>
       <Typography tag='p' variant='body1'>
-        <I18nText
+        {/* <I18nText
           path={`organization.activities.category.${category.toLowerCase()}` as LocaleMessageId}
-        />
+        /> */}
+        {category}
       </Typography>
       <Typography className='mt-2 text-xl font-bold'>{name}</Typography>
     </div>
