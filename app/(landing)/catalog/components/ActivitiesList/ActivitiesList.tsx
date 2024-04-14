@@ -18,7 +18,10 @@ interface ActivitiesListProps {
   count: number;
 }
 
-const DEFAULT_ACTIVITIES_LIMIT = 2;
+// const DEFAULT_ACTIVITIES_LIMIT = '4';
+// const DEFAULT_ACTIVITIES_PAGE = '1';
+
+const DEFAULT_ACTIVITIES_LIMIT = 4;
 const DEFAULT_ACTIVITIES_PAGE = 1;
 
 export const ActivitiesList = ({

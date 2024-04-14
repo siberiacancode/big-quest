@@ -11,13 +11,13 @@ const SEARCH_INPUT_DELAY = 500;
 
 const ActivitySearchInput = () => {
   const { searchParams, setSearchParam } = useSearchParams();
-  const activitySearchQueryText = searchParams.get('search');
+  const activitySearchQueryText = searchParams.get('name');
 
   const [isInputEmpty, setIsInputEmpty] = useState(!activitySearchQueryText);
   const [isInputText, setIsIputText] = useState(activitySearchQueryText ?? '');
 
   const debounceSearch = useDebounceCallback((text) => {
-    setSearchParam('search', text);
+    setSearchParam('name', text);
   }, SEARCH_INPUT_DELAY);
 
   const onActivitySearch = (text) => {
@@ -29,7 +29,7 @@ const ActivitySearchInput = () => {
   const onClear = () => {
     setIsIputText('');
     setIsInputEmpty(true);
-    setSearchParam('search', '');
+    setSearchParam('name', '');
   };
 
   return (

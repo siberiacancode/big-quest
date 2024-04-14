@@ -37,7 +37,7 @@ interface Shedule {
 export interface Activity {
   id: string;
   image: StaticImageData; // cover?
-  category: ActivityCategory;
+  category: string;
   title: string; // name
   duration: number;
   minimumAge: number; // ageLimit: [7, 13];

@@ -2,39 +2,50 @@ import { Clock4Icon, UserRoundIcon } from 'lucide-react';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 
+import activityPlaceholder from '@/assets/images/landing/activities/activity1.png';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 
 export interface ActivityCardProps {
-  image: StaticImageData;
-  title: string;
-  minimumAge: number;
+  image?: StaticImageData;
+  minimumAge?: number;
+  ageLimit?: number[];
   duration: number;
-  category: ActivityCategory;
+  category: string;
+  name?: string;
 }
 export const ActivityCard = ({
   image,
   category,
+  ageLimit,
   minimumAge,
   duration,
-  title
+  name
 }: ActivityCardProps) => (
   <div className='flex max-w-[370px] flex-col'>
-    <Image src={image} alt={title} />
+    <Image src={image ?? activityPlaceholder} alt={name ?? 'placeholder_title'} />
     <div className='mt-4 flex-grow'>
       <Typography tag='p' variant='body1'>
-        <I18nText
-          path={`organization.activities.category.${category.toLowerCase()}` as LocaleMessageId}
-        />
+        {/* {category && (
+          <I18nText
+            path={`organization.activities.category.${category.toLowerCase()}` as LocaleMessageId}
+          />
+        )} */}
+        {category}
       </Typography>
-      <Typography className='mt-3 text-xl font-bold'>{title}</Typography>
+      <Typography className='mt-3 text-xl font-bold'>{name}</Typography>
     </div>
     <div className='my-[15px] h-[1px] w-full bg-muted' />
     <div className='flex flex-shrink flex-grow-0 justify-between'>
       <div className='flex items-center gap-3'>
         <UserRoundIcon className='size-6 stroke-muted-foreground' />
         <Typography>
-          <I18nText path='landing.activities.card.minimumAge' values={{ age: minimumAge }} />
+          {!ageLimit && (
+            <I18nText path='landing.activities.card.minimumAge' values={{ age: minimumAge }} />
+          )}
+          {ageLimit && (
+            <I18nText path='landing.activities.card.minimumAge' values={{ age: ageLimit[0] }} />
+          )}
         </Typography>
       </div>
       <div className='flex items-center gap-3'>

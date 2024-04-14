@@ -1,46 +1,56 @@
-import type { Metadata } from 'next';
+import React from 'react';
 
 import { I18nText } from '@/components/common';
-import { ScrollArea, ScrollBar, Tabs, TabsContent, Typography } from '@/components/ui';
+import { ScrollArea, ScrollBar, Tabs, Typography } from '@/components/ui';
+import { getActivityPublic } from '@/utils/api';
 
-import { ActivitiesList } from './components/ActivitiesList/ActivitiesList';
+import { ActivityCard } from '../components/ActivitiesSection/components/ActivityCard/ActivityCard';
+
 import ActivityCategoryTabsList from './components/ActivityCategoryTabsList/ActivityCategoryTabsList';
 import ActivitySearchInput from './components/ActivitySearchInput/ActivitySearchInput';
-import { getActivities, getCategories } from './constants/actions';
 
 interface ActivityCatalogPageProps {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: SearchParams;
 }
 
-export const generateMetadata = async ({
-  searchParams
-}: ActivityCatalogPageProps): Promise<Metadata> => {
-  const categories = await getCategories();
+// export const generateMetadata = async ({
+//   searchParams
+// }: ActivityCatalogPageProps): Promise<Metadata> => {
+//   const categories = await getCategories();
 
-  const searchParam = typeof searchParams.search === 'string' ? searchParams.search : '';
-  const categoryParam = typeof searchParams.category === 'string' ? searchParams.category : '';
+//   const searchParam = typeof searchParams.search === 'string' ? searchParams.search : '';
+//   const categoryParam = typeof searchParams.category === 'string' ? searchParams.category : '';
 
-  const сategoryName = categories.find((category) => category.value === categoryParam)?.name;
+//   const сategoryName = categories.find((category) => category.value === categoryParam)?.name;
 
-  return {
-    title: `Каталог активностей: ${сategoryName} ${searchParam ? `| ${searchParam}` : ''}`
-  };
-};
+//   return {
+//     title: `Каталог активностей: ${сategoryName} ${searchParam ? `| ${searchParam}` : ''}`
+//   };
+// };
 
-const DEFAULT_ACTIVITIES_LIMIT = 2;
-const DEFAULT_ACTIVITIES_PAGE = 1;
+// const DEFAULT_ACTIVITIES_LIMIT = 2;
+// const DEFAULT_ACTIVITIES_PAGE = 1;
+
+const DEFAULT_ACTIVITIES_LIMIT = '10';
+const DEFAULT_ACTIVITIES_PAGE = '1';
 
 const ActivityCatalogPage = async ({ searchParams }: ActivityCatalogPageProps) => {
-  const searchParam = typeof searchParams.search === 'string' ? searchParams.search : '';
+  // const searchParam = typeof searchParams.search === 'string' ? searchParams.search : '';
   const categoryParam = typeof searchParams.category === 'string' ? searchParams.category : '';
+  // const { searchParams, setSearchParams, setSearchParam } = useSearchParams();
 
-  const categories = await getCategories();
-  const { activities, count } = await getActivities({
-    search: searchParam,
-    category: categoryParam,
-    page: DEFAULT_ACTIVITIES_PAGE,
-    limit: DEFAULT_ACTIVITIES_LIMIT
+  const getActivityPublicResponse = await getActivityPublic({
+    config: {
+      params: {
+        limit: DEFAULT_ACTIVITIES_LIMIT,
+        current: DEFAULT_ACTIVITIES_PAGE,
+        ...searchParams
+      },
+      cache: 'no-store'
+    }
   });
+
+  console.log('@getActivityPublicResponse', getActivityPublicResponse);
 
   return (
     <section className='container py-[108px]'>
@@ -59,22 +69,17 @@ const ActivityCatalogPage = async ({ searchParams }: ActivityCatalogPageProps) =
       </div>
 
       <div className='mt-5'>
-        <Tabs defaultValue='ALL' value={categoryParam}>
+        <Tabs defaultValue='Образование' value={categoryParam}>
           <ScrollArea className='w-full whitespace-nowrap'>
             <ActivityCategoryTabsList />
             <ScrollBar orientation='horizontal' className='hidden' />
           </ScrollArea>
 
-          <div className='mt-8 mdx:mt-11 smx:mt-8'>
-            {categories.map((category) => (
-              <TabsContent key={Math.random()} value={category.value}>
-                <ActivitiesList
-                  category={category.value}
-                  search={searchParam}
-                  initialActivities={activities}
-                  count={count}
-                />
-              </TabsContent>
+          <div className='mt-8 grid grid-cols-4 gap-x-5 gap-y-12 xlx:grid-cols-3 lgx:grid-cols-2 mdx:mt-11 smx:mt-8 smx:flex smx:flex-col smx:items-center smx:gap-y-8'>
+            {getActivityPublicResponse.rows.map((activity) => (
+              <React.Fragment key={activity.id}>
+                <ActivityCard {...activity} />
+              </React.Fragment>
             ))}
           </div>
         </Tabs>
@@ -82,5 +87,4 @@ const ActivityCatalogPage = async ({ searchParams }: ActivityCatalogPageProps) =
     </section>
   );
 };
-
 export default ActivityCatalogPage;
