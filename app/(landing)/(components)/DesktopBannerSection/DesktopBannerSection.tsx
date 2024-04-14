@@ -80,7 +80,7 @@ export const DesktopBannerSection = () => (
               href={ROUTES.REGISTER}
               className={cn(buttonVariants({ size: 'lg', variant: 'primary' }), 'w-full')}
             >
-              <I18nText path='button.registration' />
+              <I18nText path='button.getQR' />
             </Link>
           </div>
           <div className='w-full basis-1/3'>
@@ -88,7 +88,7 @@ export const DesktopBannerSection = () => (
               href={ROUTES.AUTH}
               className={cn(buttonVariants({ size: 'lg', variant: 'white' }), 'w-full')}
             >
-              <I18nText path='button.entrance' />
+              <I18nText path='button.alreadyHaveQR' />
             </Link>
           </div>
         </div>

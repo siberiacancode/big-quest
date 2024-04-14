@@ -29,7 +29,7 @@ export const ExcursionStep = () => {
             <I18nText path={`auth.excursion.${state.screen}.description`} />
           </Typography>
         </div>
-        <div className='flex-shrink'>
+        <div className='mt-6 flex-shrink'>
           <div className='flex justify-center gap-2'>
             {Array.from({ length: 4 }, (_, index) => (
               <div
