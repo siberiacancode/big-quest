@@ -1,45 +1,19 @@
 'use client';
 
 import React from 'react';
-import { useIntersectionObserver } from 'usehooks-ts';
 
 import { I18nText } from '@/components/common';
 import { ScrollArea, ScrollBar, Tabs, TabsList, TabsTrigger, Typography } from '@/components/ui';
 import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
-import { useSearchParams } from '@/utils/hooks';
 
 import { ActivityCard } from '../(components)/ActivitiesSection/components/ActivityCard/ActivityCard';
 
-// import ActivityCategoryTabsList from './components/ActivityCategoryTabsList/ActivityCategoryTabsList';
 import ActivitySearchInput from './components/ActivitySearchInput/ActivitySearchInput';
 import { useActivtyCatalogPage } from './hooks/useActivtyCatalogPage';
 
-interface ActivityCatalogPageProps {
-  searchParams: SearchParams;
-}
-
-const ActivityCatalogPage = ({ searchParams }: ActivityCatalogPageProps) => {
-  const { setSearchParam } = useSearchParams();
-  const { state } = useActivtyCatalogPage({ searchParams });
+const ActivityCatalogPage = () => {
+  const { state, functions } = useActivtyCatalogPage();
   const getCategoryQuery = useGetCategoryQuery();
-
-  const categoryParam = typeof searchParams.category === 'string' ? searchParams.category : '';
-
-  const onActivityCategorySelect = (category: string) => {
-    setSearchParam('category', category);
-    state.query.refetch();
-    // Тут пока несвоевременно запрашиваются параметры
-  };
-
-  const { isIntersecting, ref } = useIntersectionObserver({
-    threshold: 0.5
-  });
-
-  React.useEffect(() => {
-    if (isIntersecting && state.query.hasNextPage && !state.query.isFetchingNextPage) {
-      state.query.fetchNextPage();
-    }
-  }, [isIntersecting, state.query]);
 
   return (
     <section className='container py-[108px]'>
@@ -58,14 +32,14 @@ const ActivityCatalogPage = ({ searchParams }: ActivityCatalogPageProps) => {
       </div>
 
       <div className='mt-5'>
-        <Tabs defaultValue='' value={categoryParam}>
+        <Tabs defaultValue='' value={state.category?.toString()}>
           <ScrollArea className='w-full whitespace-nowrap'>
             {/* <ActivityCategoryTabsList /> */}
             <TabsList className='flex w-full justify-start gap-1 bg-transparent p-0'>
               <TabsTrigger
                 value=''
                 className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
-                onClick={() => onActivityCategorySelect('')}
+                onClick={() => functions.onActivityCategorySelect('')}
               >
                 Все
               </TabsTrigger>
@@ -75,7 +49,7 @@ const ActivityCatalogPage = ({ searchParams }: ActivityCatalogPageProps) => {
                     key={idx}
                     value={category.name}
                     className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
-                    onClick={() => onActivityCategorySelect(category.name)}
+                    onClick={() => functions.onActivityCategorySelect(category.name)}
                   >
                     {category.name}
                   </TabsTrigger>
@@ -93,19 +67,11 @@ const ActivityCatalogPage = ({ searchParams }: ActivityCatalogPageProps) => {
               ))
             )}
           </div>
-          {/* {state.query.hasNextPage && (
-            <Button
-              className='w-full'
-              onClick={() => state.query.fetchNextPage()}
-              disabled={state.query.isFetchingNextPage}
-              loading={state.query.isFetchingNextPage}
-            >
-              <I18nText path='button.loadMore' />
-            </Button>
-          )} */}
         </Tabs>
       </div>
-      {getCategoryQuery.data && <div ref={ref} className='h-8 w-full bg-slate-900' />}
+      {getCategoryQuery.data && (
+        <div ref={state.intresectionRef} className='h-8 w-full bg-slate-900' />
+      )}
     </section>
   );
 };

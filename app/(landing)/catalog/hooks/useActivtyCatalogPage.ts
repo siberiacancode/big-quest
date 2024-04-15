@@ -1,25 +1,51 @@
+import React from 'react';
+import { useIntersectionObserver } from 'usehooks-ts';
+
 import { useGetActivityPublicInfiniteQuery } from '@/utils/api/hooks';
+import { useSearchParams } from '@/utils/hooks';
 
 const DEFAULT_ACTIVITIES_LIMIT = 6;
 const DEFAULT_ACTIVITIES_PAGE = 1;
 
-interface UseActivtyCatalogPageParams {
-  searchParams: SearchParams;
-}
-export const useActivtyCatalogPage = ({ searchParams }: UseActivtyCatalogPageParams) => {
-  //   const { searchParams } = useSearchParams();
+export const useActivtyCatalogPage = () => {
+  const { searchParams, setSearchParam } = useSearchParams();
 
-  //   console.log(searchParams);
+  const onActivityCategorySelect = (category: string) => {
+    setSearchParam('category', category);
+  };
+
+  const category = searchParams.get('category') ?? '';
+  const name = searchParams.get('name') ?? '';
 
   const getChangesInfiniteQuery = useGetActivityPublicInfiniteQuery({
     current: DEFAULT_ACTIVITIES_PAGE,
     limit: DEFAULT_ACTIVITIES_LIMIT,
-    ...searchParams
+    category,
+    name
   });
+
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5
+  });
+
+  React.useEffect(() => {
+    if (
+      isIntersecting &&
+      getChangesInfiniteQuery.hasNextPage &&
+      !getChangesInfiniteQuery.isFetchingNextPage
+    ) {
+      getChangesInfiniteQuery.fetchNextPage();
+    }
+  }, [isIntersecting, getChangesInfiniteQuery]);
 
   return {
     state: {
-      query: getChangesInfiniteQuery
+      query: getChangesInfiniteQuery,
+      category,
+      intresectionRef: ref
+    },
+    functions: {
+      onActivityCategorySelect
     }
   };
 };

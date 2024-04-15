@@ -1,34 +1,29 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Search, X } from 'lucide-react';
 import { useDebounceCallback } from 'usehooks-ts';
 
 import { Button, Input } from '@/components/ui';
 import { useSearchParams } from '@/utils/hooks';
 
-const SEARCH_INPUT_DELAY = 500;
+const SEARCH_INPUT_DELAY = 900;
 
 const ActivitySearchInput = () => {
   const { searchParams, setSearchParam } = useSearchParams();
-  const activitySearchQueryText = searchParams.get('name');
-
-  const [isInputEmpty, setIsInputEmpty] = useState(!activitySearchQueryText);
-  const [isInputText, setIsIputText] = useState(activitySearchQueryText ?? '');
+  const [search, setSearch] = useState(searchParams.get('name') ?? '');
 
   const debounceSearch = useDebounceCallback((text) => {
     setSearchParam('name', text);
   }, SEARCH_INPUT_DELAY);
 
   const onActivitySearch = (text) => {
-    setIsInputEmpty(text === '');
-    setIsIputText(text);
+    setSearch(text);
     debounceSearch(text);
   };
 
   const onClear = () => {
-    setIsIputText('');
-    setIsInputEmpty(true);
+    setSearch('');
     setSearchParam('name', '');
   };
 
@@ -39,11 +34,11 @@ const ActivitySearchInput = () => {
       </div>
       <Input
         placeholder='Поиск актвности'
-        value={isInputText}
+        value={search}
         onChange={(event) => onActivitySearch(event.target.value)}
         className='block h-10 rounded-lg border px-3 py-2 pl-10 text-sm leading-6 outline-none focus-visible:ring-0'
       />
-      {!isInputEmpty && (
+      {search && (
         <Button
           variant='outline'
           size='icon'
