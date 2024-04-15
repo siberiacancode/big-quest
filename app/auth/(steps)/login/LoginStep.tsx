@@ -13,7 +13,7 @@ import {
   FormLabel,
   FormMessage,
   Input,
-  PasswordInput,
+  NumberFormatInput,
   Typography
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
@@ -75,8 +75,11 @@ export const LoginStep = () => {
                       <I18nText path='field.code.label' />
                     </FormLabel>
                     <FormControl>
-                      <PasswordInput
+                      <NumberFormatInput
                         placeholder={i18n.formatMessage({ id: 'field.code.placeholder' })}
+                        minLength={4}
+                        maxLength={4}
+                        type='tel'
                         {...field}
                       />
                     </FormControl>

@@ -1,6 +1,6 @@
 import { NumberFormatInput } from './number-format-input';
 
-const ClockFormat = (value) => {
+const clockFormat = (value: string) => {
   if (!value) return '00:00';
   const [h1 = 0, h2 = 0] = value.substring(0, 2);
   const [m1 = 0, m2 = 0] = value.substring(2, 4);
@@ -8,7 +8,7 @@ const ClockFormat = (value) => {
   let hours = `${h1}${h2}`;
   let minutes = `${m1}${m2}`;
 
-  if (!h2 && h1 > 2) {
+  if (!h2 && Number(h1) > 2) {
     hours = `0${h1}`;
   } else if (h1 && h2) {
     if (Number(hours) === 0) {
@@ -18,7 +18,7 @@ const ClockFormat = (value) => {
     }
   }
 
-  if (!m2 && m1 > 5) {
+  if (!m2 && Number(m1) > 5) {
     minutes = `0${m1}`;
   } else if (minutes.length === 2) {
     if (Number(minutes) === 0) {
@@ -32,5 +32,5 @@ const ClockFormat = (value) => {
 };
 
 export const ClockInput = (props) => {
-  return <NumberFormatInput {...props} format={ClockFormat} />;
+  return <NumberFormatInput {...props} format={clockFormat} />;
 };
