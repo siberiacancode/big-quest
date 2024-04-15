@@ -34,7 +34,7 @@ const ActivityCatalogPage = ({ searchParams }: ActivityCatalogPageProps) => {
 
   const onActivityCategorySelect = (category: string) => {
     setSearchParam('category', category);
-    // state.query.refetch(); // Тут пока несвоевременно запрашиваются параметры
+    state.query.refetch(); // Тут пока несвоевременно запрашиваются параметры
   };
 
   return (
@@ -54,10 +54,17 @@ const ActivityCatalogPage = ({ searchParams }: ActivityCatalogPageProps) => {
       </div>
 
       <div className='mt-5'>
-        <Tabs defaultValue='Образование' value={categoryParam}>
+        <Tabs defaultValue='' value={categoryParam}>
           <ScrollArea className='w-full whitespace-nowrap'>
             {/* <ActivityCategoryTabsList /> */}
             <TabsList className='flex w-full justify-start gap-1 bg-transparent p-0'>
+              <TabsTrigger
+                value=''
+                className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
+                onClick={() => onActivityCategorySelect('')}
+              >
+                Все
+              </TabsTrigger>
               {getCategoryQuery.data &&
                 getCategoryQuery.data.map((category, idx: number) => (
                   <TabsTrigger
@@ -87,44 +94,20 @@ const ActivityCatalogPage = ({ searchParams }: ActivityCatalogPageProps) => {
                 </React.Fragment>
               ))
             )}
-
-            {state.query.hasNextPage && (
-              <Button
-                className='w-full'
-                onClick={() => state.query.fetchNextPage()}
-                disabled={state.query.isFetchingNextPage}
-                loading={state.query.isFetchingNextPage}
-              >
-                <I18nText path='button.loadMore' />
-              </Button>
-            )}
           </div>
+          {state.query.hasNextPage && (
+            <Button
+              className='w-full'
+              onClick={() => state.query.fetchNextPage()}
+              disabled={state.query.isFetchingNextPage}
+              loading={state.query.isFetchingNextPage}
+            >
+              <I18nText path='button.loadMore' />
+            </Button>
+          )}
         </Tabs>
       </div>
     </section>
   );
 };
 export default ActivityCatalogPage;
-
-// const { setSearchParam } = useSearchParams();
-// const getCategoryQuery = useGetCategoryQuery();
-
-// const onActivityCategorySelect = (category: string) => {
-//   setSearchParam('category', category);
-// };
-
-// return (
-//   <TabsList className='flex w-full justify-start gap-1 bg-transparent p-0'>
-//     {getCategoryQuery.data &&
-//       getCategoryQuery.data.map((category, idx: number) => (
-//         <TabsTrigger
-//           key={idx}
-//           value={category.name}
-//           className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
-//           onClick={() => onActivityCategorySelect(category.name)}
-//         >
-//           {category.name}
-//         </TabsTrigger>
-//       ))}
-//   </TabsList>
-// );
