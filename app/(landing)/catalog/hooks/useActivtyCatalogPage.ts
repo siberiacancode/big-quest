@@ -1,6 +1,6 @@
 import { useGetActivityPublicInfiniteQuery } from '@/utils/api/hooks';
 
-const DEFAULT_ACTIVITIES_LIMIT = 2;
+const DEFAULT_ACTIVITIES_LIMIT = 6;
 const DEFAULT_ACTIVITIES_PAGE = 1;
 
 interface UseActivtyCatalogPageParams {

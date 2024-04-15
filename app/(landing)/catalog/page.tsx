@@ -1,17 +1,10 @@
 'use client';
 
 import React from 'react';
+import { useIntersectionObserver } from 'usehooks-ts';
 
 import { I18nText } from '@/components/common';
-import {
-  Button,
-  ScrollArea,
-  ScrollBar,
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  Typography
-} from '@/components/ui';
+import { ScrollArea, ScrollBar, Tabs, TabsList, TabsTrigger, Typography } from '@/components/ui';
 import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
 import { useSearchParams } from '@/utils/hooks';
 
@@ -34,8 +27,19 @@ const ActivityCatalogPage = ({ searchParams }: ActivityCatalogPageProps) => {
 
   const onActivityCategorySelect = (category: string) => {
     setSearchParam('category', category);
-    state.query.refetch(); // Тут пока несвоевременно запрашиваются параметры
+    state.query.refetch();
+    // Тут пока несвоевременно запрашиваются параметры
   };
+
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5
+  });
+
+  React.useEffect(() => {
+    if (isIntersecting && state.query.hasNextPage && !state.query.isFetchingNextPage) {
+      state.query.fetchNextPage();
+    }
+  }, [isIntersecting, state.query]);
 
   return (
     <section className='container py-[108px]'>
@@ -81,12 +85,6 @@ const ActivityCatalogPage = ({ searchParams }: ActivityCatalogPageProps) => {
           </ScrollArea>
 
           <div className='mt-8 grid grid-cols-4 gap-x-5 gap-y-12 xlx:grid-cols-3 lgx:grid-cols-2 mdx:mt-11 smx:mt-8 smx:flex smx:flex-col smx:items-center smx:gap-y-8'>
-            {/* {getActivityPublicResponse.rows.map((activity) => (
-              <React.Fragment key={activity.id}>
-                <ActivityCard {...activity} />
-              </React.Fragment>
-            ))} */}
-
             {state.query.data?.pages.map((page) =>
               page.rows.map((activity) => (
                 <React.Fragment key={activity.id}>
@@ -95,7 +93,7 @@ const ActivityCatalogPage = ({ searchParams }: ActivityCatalogPageProps) => {
               ))
             )}
           </div>
-          {state.query.hasNextPage && (
+          {/* {state.query.hasNextPage && (
             <Button
               className='w-full'
               onClick={() => state.query.fetchNextPage()}
@@ -104,9 +102,10 @@ const ActivityCatalogPage = ({ searchParams }: ActivityCatalogPageProps) => {
             >
               <I18nText path='button.loadMore' />
             </Button>
-          )}
+          )} */}
         </Tabs>
       </div>
+      {getCategoryQuery.data && <div ref={ref} className='h-8 w-full bg-slate-900' />}
     </section>
   );
 };
