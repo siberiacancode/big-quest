@@ -1,3 +1,4 @@
+import type { NumberFormatInputProps } from './number-format-input';
 import { NumberFormatInput } from './number-format-input';
 
 const clockFormat = (value: string) => {
@@ -31,6 +32,8 @@ const clockFormat = (value: string) => {
   return `${hours}:${minutes}`;
 };
 
-export const ClockInput = (props) => {
-  return <NumberFormatInput {...props} format={clockFormat} />;
-};
+export type ClockInputProps = Omit<NumberFormatInputProps, 'format'>;
+
+export const ClockInput = (props: ClockInputProps) => (
+  <NumberFormatInput {...props} format={clockFormat} />
+);
