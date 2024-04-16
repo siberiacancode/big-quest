@@ -3,15 +3,18 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams, useRouter } from 'next/navigation';
 
-import { useDeleteFileByIdMutation } from '@/utils/api/hooks/useDeleteFileByIdMutation copy';
-import { useGetActivityByIdQuery } from '@/utils/api/hooks/useGetActivityByIdQuery';
-import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
-import { usePutActivityByIdMutation } from '@/utils/api/hooks/usePutActivityByIdMutation';
+import {
+  useDeleteFileByIdMutation,
+  useGetActivityByIdQuery,
+  useGetCategoryQuery,
+  usePostFileMutation,
+  usePutActivityByIdMutation
+} from '@/utils/api/hooks';
 
 import type {
   ActivityActionType,
-  ExtendedActivityMediaProps,
-  ExtendedActivityProps
+  ActivityMediaProps,
+  ActivityProps
 } from '../../../../../constants/types';
 import type { ActivityActionSchema } from '../constants/activityActionSchema';
 import { activityActionSchema } from '../constants/activityActionSchema';
@@ -22,7 +25,7 @@ interface UseActivityActionFormParams {
   onAction: () => void;
   onEdit: (props: ActivityActionType) => void;
   actionType: Exclude<ActivityActionType, 'info'>;
-  activity?: ExtendedActivityProps;
+  activity?: ActivityProps;
   externalActionType: ActivityActionType;
 }
 
@@ -37,7 +40,7 @@ export const useActivityActionForm = ({
   const params = useParams<{ organizationId: string }>();
   const [isCategoryOpen, setIsCategoryOpen] = React.useState(false);
   const [isStatusOpen, setIsStatusOpen] = React.useState(false);
-  const [activityMedia, setActivityMedia] = React.useState<ExtendedActivityMediaProps[]>(
+  const [activityMedia, setActivityMedia] = React.useState<ActivityMediaProps[]>(
     activity?.media ?? []
   );
   const [deleteFileIds, setDeleteFileIds] = React.useState<string[]>([]);
@@ -71,8 +74,23 @@ export const useActivityActionForm = ({
   const postActivityActionMutation = usePostActivityActionMutation();
   const deleteFileByIdMutation = useDeleteFileByIdMutation();
   const putActivityActionMutation = usePutActivityByIdMutation();
+  const postFileMutation = usePostFileMutation();
 
   const onSubmit = activityForm.handleSubmit(async (values) => {
+    const transformedMedia: Omit<ActivityMediaProps, 'url'>[] = [];
+    await Promise.all(
+      activityMedia.map(async (item) => {
+        const { file, url, ...props } = item;
+
+        if (file) {
+          const id = await postFileMutation.mutateAsync({ params: { file } });
+          transformedMedia.push({ ...props, id });
+        } else {
+          transformedMedia.push(item);
+        }
+      })
+    );
+
     const requestParams = {
       ...values,
       ageLimit: [values?.ageLimit?.min, values.ageLimit?.max],
@@ -81,7 +99,7 @@ export const useActivityActionForm = ({
 
     if (actionType === 'add') {
       const postActivityActionParams = {
-        params: { ...requestParams, media: activityMedia },
+        params: { ...requestParams, media: transformedMedia },
         action: actionType
       } as const;
 
@@ -89,23 +107,23 @@ export const useActivityActionForm = ({
     }
 
     if (actionType === 'edit') {
-      if (activityMedia) {
-        const putActivityActionParams = {
-          params: { ...requestParams, media: activityMedia, id: activity!.id },
-          action: actionType
-        } as const;
-
-        await putActivityActionMutation.mutateAsync(putActivityActionParams);
-      }
       if (deleteFileIds) {
-        deleteFileIds.forEach(async (id) => {
-          const deleteFileByIdParams = {
-            params: { id }
-          } as const;
+        await Promise.all(
+          deleteFileIds.map(async (id) => {
+            const deleteFileByIdParams = {
+              params: { id }
+            } as const;
 
-          await deleteFileByIdMutation.mutateAsync(deleteFileByIdParams);
-        });
+            await deleteFileByIdMutation.mutateAsync(deleteFileByIdParams);
+          })
+        );
       }
+      const putActivityActionParams = {
+        params: { ...requestParams, media: transformedMedia, id: activity!.id },
+        action: actionType
+      } as const;
+
+      await putActivityActionMutation.mutateAsync(putActivityActionParams);
     }
 
     router.refresh();

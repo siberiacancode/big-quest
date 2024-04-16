@@ -5,22 +5,26 @@ export const ACTIVITIES_DATABASE: ActivityResponse[] = [
       {
         id: '1',
         type: 'IMAGE',
-        flag: 'AVATAR'
+        flag: 'AVATAR',
+        url: `http://localhost:31299/api/1.0/static/activity/image-1.png`
       },
       {
         id: '2',
         type: 'IMAGE',
-        flag: null
+        flag: null,
+        url: `http://localhost:31299/api/1.0/static/activity/image-2.png`
       },
       {
         id: '3',
         type: 'IMAGE',
-        flag: null
+        flag: null,
+        url: `http://localhost:31299/api/1.0/static/activity/image-3.png`
       },
       {
         id: '4',
         type: 'VIDEO',
-        flag: null
+        flag: null,
+        url: `http://localhost:31299/api/1.0/static/activity/video-1.mp4`
       }
     ],
     name: 'Рисуем живопись',
@@ -44,22 +48,26 @@ export const ACTIVITIES_DATABASE: ActivityResponse[] = [
       {
         id: '1',
         type: 'IMAGE',
-        flag: null
+        flag: null,
+        url: `http://localhost:31299/api/1.0/static/activity/image-1.png`
       },
       {
         id: '2',
         type: 'IMAGE',
-        flag: null
+        flag: null,
+        url: `http://localhost:31299/api/1.0/static/activity/image-2.png`
       },
       {
         id: '3',
         type: 'IMAGE',
-        flag: 'AVATAR'
+        flag: 'AVATAR',
+        url: `http://localhost:31299/api/1.0/static/activity/image-3.png`
       },
       {
         id: '4',
         type: 'VIDEO',
-        flag: null
+        flag: null,
+        url: `http://localhost:31299/api/1.0/static/activity/video-1.mp4`
       }
     ],
     name: 'Рисуем живопись',
@@ -83,22 +91,26 @@ export const ACTIVITIES_DATABASE: ActivityResponse[] = [
       {
         id: '1',
         type: 'IMAGE',
-        flag: null
+        flag: null,
+        url: `http://localhost:31299/api/1.0/static/activity/image-1.png`
       },
       {
         id: '2',
         type: 'IMAGE',
-        flag: 'AVATAR'
+        flag: 'AVATAR',
+        url: `http://localhost:31299/api/1.0/static/activity/image-2.png`
       },
       {
         id: '3',
         type: 'IMAGE',
-        flag: null
+        flag: null,
+        url: `http://localhost:31299/api/1.0/static/activity/image-3.png`
       },
       {
         id: '4',
         type: 'VIDEO',
-        flag: null
+        flag: null,
+        url: `http://localhost:31299/api/1.0/static/activity/video-1.mp4`
       }
     ],
     name: 'Рисуем живопись',
@@ -122,12 +134,14 @@ export const ACTIVITIES_DATABASE: ActivityResponse[] = [
       {
         id: '1',
         type: 'IMAGE',
-        flag: 'AVATAR'
+        flag: 'AVATAR',
+        url: `http://localhost:31299/api/1.0/static/activity/image-1.png`
       },
       {
         id: '4',
         type: 'VIDEO',
-        flag: null
+        flag: null,
+        url: `http://localhost:31299/api/1.0/static/activity/video-1.mp4`
       }
     ],
     name: 'Рисуем живопись',
@@ -149,17 +163,20 @@ export const ACTIVITIES_DATABASE: ActivityResponse[] = [
       {
         id: '2',
         type: 'IMAGE',
-        flag: null
+        flag: null,
+        url: `http://localhost:31299/api/1.0/static/activity/image-2.png`
       },
       {
         id: '3',
         type: 'IMAGE',
-        flag: 'AVATAR'
+        flag: 'AVATAR',
+        url: `http://localhost:31299/api/1.0/static/activity/image-3.png`
       },
       {
         id: '4',
         type: 'VIDEO',
-        flag: null
+        flag: null,
+        url: `http://localhost:31299/api/1.0/static/activity/video-1.mp4`
       }
     ],
     name: 'Рисуем живопись',

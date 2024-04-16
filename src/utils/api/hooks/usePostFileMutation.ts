@@ -8,6 +8,7 @@ export const usePostFileMutation = (
 ) =>
   useMutation({
     mutationKey: ['postFile'],
-    mutationFn: ({ config }) => postFile({ config: { ...settings?.config, ...config } }),
+    mutationFn: ({ params, config }) =>
+      postFile({ params, config: { ...settings?.config, ...config } }),
     ...settings?.options
   });

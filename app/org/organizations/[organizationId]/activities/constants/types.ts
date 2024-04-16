@@ -4,6 +4,8 @@ export interface ActivityMediaProps {
   id: string;
   type: MediaType;
   flag: MediaFlag;
+  url: string;
+  file?: File;
 }
 
 export interface ActivityProps {
@@ -22,12 +24,4 @@ export interface ActivityProps {
   participants: number;
   likes: number;
   schedule?: Schedule[];
-}
-
-export interface ExtendedActivityMediaProps extends ActivityMediaProps {
-  url: string;
-}
-
-export interface ExtendedActivityProps extends ActivityProps {
-  media: ExtendedActivityMediaProps[];
 }

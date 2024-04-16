@@ -219,6 +219,7 @@ interface MediaResponse {
   id: string;
   type: MediaType;
   flag: MediaFlag;
+  url: string;
 }
 
 interface ActivityResponse {

@@ -1,13 +1,11 @@
 import React from 'react';
 
-import { usePostFileMutation } from '@/utils/api/hooks/usePostFileMutation';
-
-import type { ExtendedActivityMediaProps } from '../../../../../constants/types';
+import type { ActivityMediaProps } from '../../../../../constants/types';
 
 interface UseActivityMediaProps {
-  activityMedia: ExtendedActivityMediaProps[];
+  activityMedia: ActivityMediaProps[];
   deleteFileIds: string[];
-  setActivityMedia: (props: ExtendedActivityMediaProps[]) => void;
+  setActivityMedia: (props: ActivityMediaProps[]) => void;
   setDeleteFileIds: (props: string[]) => void;
 }
 
@@ -19,7 +17,7 @@ export const useActivityMedia = ({
 }: UseActivityMediaProps) => {
   const defaultActiveMediaFile = activityMedia?.find((item) => item.flag === 'AVATAR');
 
-  const [activeMediaFile, setActiveMediaFile] = React.useState<ExtendedActivityMediaProps>(
+  const [activeMediaFile, setActiveMediaFile] = React.useState<ActivityMediaProps>(
     defaultActiveMediaFile ?? {
       id: '',
       url: '',
@@ -28,11 +26,9 @@ export const useActivityMedia = ({
     }
   );
 
-  const postFileMutation = usePostFileMutation();
-
   const onChangeAvatarClick = (file) => {
-    const newArray: ExtendedActivityMediaProps[] = activityMedia.map((item) => {
-      if (item.url === file.url && item.type === 'IMAGE') {
+    const newArray: ActivityMediaProps[] = activityMedia.map((item) => {
+      if (item.id === file.id && item.type === 'IMAGE') {
         const newItem = { ...item, flag: 'AVATAR' as MediaFlag };
         setActiveMediaFile(newItem);
         return newItem;
@@ -45,24 +41,24 @@ export const useActivityMedia = ({
   const onDelete = (value: string) => {
     const deleteFile = activityMedia.find((media) => media.url === value)!;
 
-    setDeleteFileIds([...deleteFileIds, deleteFile.id]);
+    if (!value.startsWith('blob')) setDeleteFileIds([...deleteFileIds, deleteFile.id]);
+
     const newActivityMedia = activityMedia.filter((item) => item.url !== value);
     setActivityMedia(newActivityMedia);
+
     if (activeMediaFile.url === value) {
       setActiveMediaFile(newActivityMedia[0]);
     }
   };
 
-  const onDropAccepted = async (file: File) => {
+  const onDropAccepted = (file: File) => {
     const url = URL.createObjectURL(file);
     const type = file.type.startsWith('image/') ? 'IMAGE' : 'VIDEO';
 
-    const fileId = await postFileMutation.mutateAsync({});
+    const id = Math.random().toString();
 
-    if (fileId) {
-      setActivityMedia([...activityMedia, { id: fileId, url, flag: null, type }]);
-      setActiveMediaFile({ id: fileId, url, flag: null, type });
-    }
+    setActivityMedia([...activityMedia, { id, url, flag: null, type, file }]);
+    setActiveMediaFile({ id, url, flag: null, type });
   };
 
   return {

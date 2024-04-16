@@ -23,9 +23,9 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import type { ActivityActionType, ExtendedActivityProps } from '../../../../constants/types';
+import type { ActivityActionType, ActivityProps } from '../../../../constants/types';
+import { ActivityMedia } from '../ActivityMedia/ActivityMedia';
 
-import { ActivityActionFormMedia } from './components/ActivityActionFormMedia/ActivityActionFormMedia';
 import { ActivityActionFormSkeleton } from './components/ActivityActionFormSkeleton/ActivityActionFormSkeleton';
 import { ACTIVITY_ACTION_STATUS_DROPDOWN_VALUES } from './constants/activityActionStatusDropdownValues';
 import { useActivityActionForm } from './hooks/useActivityActionForm';
@@ -34,7 +34,7 @@ interface ActivityActionFormProps<ActionType extends Exclude<ActivityActionType,
   onAction: () => void;
   onEdit?: (props: ActivityActionType) => void;
   actionType: ActionType;
-  activity: ActionType extends 'edit' ? ExtendedActivityProps : undefined;
+  activity: ActionType extends 'edit' ? ActivityProps : undefined;
   externalActionType?: ActivityActionType;
 }
 
@@ -60,14 +60,14 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
         onSubmit={functions.onSubmit}
         className='flex h-full flex-col justify-between gap-4 overflow-y-auto px-5 smx:px-0'
       >
+        {state.isGetActivityLoading} {state.isPostActivityLoading}
         {(state.isGetActivityLoading || state.isPostActivityLoading) && (
           <ActivityActionFormSkeleton />
         )}
         {!state.isGetActivityLoading && !state.isPostActivityLoading && (
           <>
             <div className='flex h-[418px] gap-4 2smx:h-[600px]'>
-              <ActivityActionFormMedia
-                media={state.media}
+              <ActivityMedia
                 activityMedia={state.activityMedia}
                 deleteFileIds={state.deleteFileIds}
                 setActivityMedia={functions.setActivityMedia}

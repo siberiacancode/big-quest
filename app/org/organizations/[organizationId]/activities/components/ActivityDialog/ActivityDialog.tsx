@@ -13,7 +13,7 @@ import {
   Typography
 } from '@/components/ui';
 
-import type { ActivityActionType, ExtendedActivityProps } from '../../constants/types';
+import type { ActivityActionType, ActivityProps } from '../../constants/types';
 
 import { ActivityActionForm } from './components/ActivityActionForm/ActivityActionForm';
 import { ActivityInfo } from './components/ActivityInfo/ActivityInfo';
@@ -22,7 +22,7 @@ import { useActivityDialog } from './hooks/useActivityDialog';
 interface ActivityDialogProps {
   trigger: JSX.Element;
   actionType: ActivityActionType;
-  activity?: ExtendedActivityProps;
+  activity?: ActivityProps;
 }
 
 export const ActivityDialog = ({ trigger, actionType, activity }: ActivityDialogProps) => {

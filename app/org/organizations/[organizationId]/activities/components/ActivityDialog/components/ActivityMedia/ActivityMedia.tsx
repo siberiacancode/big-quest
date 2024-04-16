@@ -8,14 +8,14 @@ import { Button, Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 
-import type { ExtendedActivityMediaProps } from '../../../../constants/types';
+import type { ActivityMediaProps as MediaProps } from '../../../../constants/types';
 
 import { useActivityMedia } from './hooks/useActivityMedia';
 
 interface ActivityMediaProps {
-  activityMedia: ExtendedActivityMediaProps[];
+  activityMedia: MediaProps[];
   deleteFileIds: string[];
-  setActivityMedia: (props: ExtendedActivityMediaProps[]) => void;
+  setActivityMedia: (props: MediaProps[]) => void;
   setDeleteFileIds: (props: string[]) => void;
 }
 
@@ -109,7 +109,7 @@ export const ActivityMedia = ({
                 value={item.url}
                 onClick={() => functions.setActiveMediaFile(item)}
                 isAvatar={item.flag === 'AVATAR'}
-                isActive={item.url === state.activeMediaFile.url}
+                isActive={item.id === state.activeMediaFile.id}
                 onDelete={functions.onDelete}
                 onDropAccepted={functions.onDropAccepted}
               />

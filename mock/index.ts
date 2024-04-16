@@ -3,7 +3,5 @@ export * from './auth';
 export * from './category';
 export * from './dadata/get';
 export * from './file/delete';
-export * from './file/get';
 export * from './file/post';
-export * from './file/put';
 export * from './organization';
