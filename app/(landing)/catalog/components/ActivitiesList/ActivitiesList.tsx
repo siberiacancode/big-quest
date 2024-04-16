@@ -6,30 +6,20 @@ import Link from 'next/link';
 import { useIntersectionObserver } from 'usehooks-ts';
 
 import { ActivityCardSkeleton } from '@/components/ui';
+import { getActivityPublic } from '@/utils/api';
 import { ROUTES } from '@/utils/constants';
-
-import { getActivities } from '../../constants/actions';
-import type { Activity } from '../../constants/activities';
+import { useSearchParams } from '@/utils/hooks';
 
 interface ActivitiesListProps {
-  category: string;
-  search: string;
-  initialActivities: Activity[];
+  initialActivities: ActivityResponse[];
   count: number;
 }
 
-// const DEFAULT_ACTIVITIES_LIMIT = '4';
-// const DEFAULT_ACTIVITIES_PAGE = '1';
-
-const DEFAULT_ACTIVITIES_LIMIT = 4;
+const DEFAULT_ACTIVITIES_LIMIT = '2';
 const DEFAULT_ACTIVITIES_PAGE = 1;
 
-export const ActivitiesList = ({
-  category,
-  search,
-  initialActivities,
-  count
-}: ActivitiesListProps) => {
+export const ActivitiesList = ({ initialActivities, count }: ActivitiesListProps) => {
+  const { searchParams } = useSearchParams();
   const [activities, setActivities] = useState(initialActivities);
   const [page, setPage] = useState(DEFAULT_ACTIVITIES_PAGE);
   const [countParam, setCountParam] = useState(count);
@@ -38,26 +28,32 @@ export const ActivitiesList = ({
     threshold: 0.5
   });
 
-  const loadMoreMovies = useCallback(async () => {
+  const loadMoreActivities = useCallback(async () => {
     const next = page + 1;
-    const { activities, count } = await getActivities({
-      search,
-      category,
-      page: next,
-      limit: DEFAULT_ACTIVITIES_LIMIT
+    const paramsObj = Object.fromEntries(searchParams);
+    const { rows, pagination } = await getActivityPublic({
+      config: {
+        params: {
+          limit: DEFAULT_ACTIVITIES_LIMIT,
+          current: next.toString(),
+          ...paramsObj
+        },
+        cache: 'force-cache'
+      }
     });
-    if (activities?.length) {
-      setCountParam(count);
+    if (rows?.length) {
+      setCountParam(pagination.count);
       setPage(next);
-      setActivities((prev) => [...prev, ...activities]);
+      setActivities((prev) => [...prev, ...rows]);
     }
-  }, [category, page, setActivities, search]);
+    console.log('@loadMoreActivities next', next);
+  }, [page, setActivities, searchParams]);
 
   useEffect(() => {
     if (isIntersecting) {
-      loadMoreMovies();
+      loadMoreActivities();
     }
-  }, [isIntersecting, loadMoreMovies, count, activities, search]);
+  }, [isIntersecting, loadMoreActivities]);
 
   return (
     <div className='grid grid-cols-4 gap-x-5 gap-y-12 xlx:grid-cols-3 lgx:grid-cols-2 smx:flex smx:flex-col smx:items-center smx:gap-y-8'>
