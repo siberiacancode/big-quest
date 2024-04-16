@@ -27,21 +27,27 @@ export const MobileBannerSection = () => (
       <div className='mt-20 flex w-full flex-col gap-4'>
         <div className='w-full'>
           <Link
-            href={ROUTES.REGISTER}
+            href={{
+              pathname: ROUTES.AUTH,
+              query: { step: 'excursion' }
+            }}
             className={cn(buttonVariants({ size: 'lg', variant: 'primary' }), 'w-full')}
           >
-            <I18nText path='button.registration' />
+            <I18nText path='button.getQR' />
           </Link>
         </div>
         <div className='w-full'>
           <Link
-            href={ROUTES.AUTH}
+            href={{
+              pathname: ROUTES.AUTH,
+              query: { step: 'login' }
+            }}
             className={cn(
               buttonVariants({ size: 'lg', variant: 'ghost' }),
               'w-full border border-taiga text-taiga hover:bg-taiga hover:text-white md:border-none'
             )}
           >
-            <I18nText path='button.entrance' />
+            <I18nText path='button.alreadyHaveQR' />
           </Link>
         </div>
       </div>

@@ -29,7 +29,7 @@ const config = {
       '2xs': { min: '560px' },
       xsx: { max: '475px' },
       xxsx: { max: '375px' },
-
+      xxs: { min: '375px' },
       xs: { min: '475px' },
       sm: { min: '640px' },
       '2sm': { min: '600px' },

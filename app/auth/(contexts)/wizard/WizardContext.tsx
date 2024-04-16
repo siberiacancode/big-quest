@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export type WizardStepId = 'excursion' | 'register';
+export type WizardStepId = 'excursion' | 'register' | 'login';
 
 export interface WizardStep {
   id: WizardStepId;

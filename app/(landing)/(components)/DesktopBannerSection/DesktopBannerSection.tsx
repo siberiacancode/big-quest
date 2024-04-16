@@ -77,18 +77,24 @@ export const DesktopBannerSection = () => (
         <div className='mt-8 flex w-full flex-col gap-4 md:flex-row lg:mt-14'>
           <div className='w-full basis-2/3'>
             <Link
-              href={ROUTES.REGISTER}
+              href={{
+                pathname: ROUTES.AUTH,
+                query: { step: 'excursion' }
+              }}
               className={cn(buttonVariants({ size: 'lg', variant: 'primary' }), 'w-full')}
             >
-              <I18nText path='button.registration' />
+              <I18nText path='button.getQR' />
             </Link>
           </div>
           <div className='w-full basis-1/3'>
             <Link
-              href={ROUTES.AUTH}
+              href={{
+                pathname: ROUTES.AUTH,
+                query: { step: 'login' }
+              }}
               className={cn(buttonVariants({ size: 'lg', variant: 'white' }), 'w-full')}
             >
-              <I18nText path='button.entrance' />
+              <I18nText path='button.alreadyHaveQR' />
             </Link>
           </div>
         </div>

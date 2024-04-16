@@ -24,6 +24,8 @@
   "auth.excursion.3.title": "Достигай целей и соревнуйся с другими!",
   "auth.excursion.3.description": "Пройди несколько активностей и занимай место в рейтинге лучших!",
 
+  "auth.login.title": "Добро пожаловать в Большой Квест!",
+
   "common.rubles": "{amount}руб.",
 
   "button.add": "Добавить",
@@ -41,8 +43,6 @@
   "button.updateTariff": "Сменить тариф",
   "button.learnDetails": "Узнать подробности",
   "button.login": "Войти",
-  "button.registration": "Регистрация",
-  "button.entrance": "Вход",
   "button.registerOrganization": "Отправить заявку",
   "button.goToRegisterOrganization": "Оставить заявку",
   "button.organizationsEntrance": "Вход для организаций",
@@ -50,6 +50,8 @@
   "button.next": "Далее",
   "button.continue": "Продолжить",
   "button.skip": "Пропустить",
+  "button.getQR": "Получить новый QR",
+  "button.alreadyHaveQR": "У меня уже есть QR",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
@@ -175,6 +177,10 @@
   "field.periodMonth.label": "Период",
   "field.periodMonth.placeholder": "Выбрать период",
   "field.totalPrice.label": "Итог ",
+  "field.userId.label": "User ID",
+  "field.userId.placeholder": "@user ID",
+  "field.code.label": "Код",
+  "field.code.placeholder": "****",
 
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
