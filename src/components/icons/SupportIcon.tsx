@@ -6,6 +6,7 @@ export const SupportIcon = React.forwardRef<SVGSVGElement, React.ComponentProps<
       xmlns='http://www.w3.org/2000/svg'
       width='24'
       height='19'
+      viewBox='0 0 24 19'
       fill='current'
       {...props}
       ref={ref}
