@@ -25,7 +25,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/assets/*": ["./assets/*"],
-      "@/static/*": ["./static/*"]
+      "@/static/*": ["./static/*"],
+      "@/api-types": ["./generated/api"]
     },
     "plugins": [
       {

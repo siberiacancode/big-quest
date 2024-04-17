@@ -14,7 +14,8 @@
     "pretty": "yarn format && yarn lint --fix && yarn stylelint --fix",
     "build-storybook": "storybook build",
     "storybook": "storybook dev -p 6010",
-    "build-mock": "tsc mock-server.ts --outDir dist-mock"
+    "build-mock": "tsc mock-server.ts --outDir dist-mock",
+    "generate-types": "npx openapi-typescript-codegen --input http://95.174.93.7/api-doc-json --exportCore false --useUnionTypes --exportServices false --output ./generated/api"
   },
   "lint-staged": {
     "*.css": [
