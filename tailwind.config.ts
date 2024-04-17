@@ -50,9 +50,6 @@ const config = {
       }
     },
     extend: {
-      boxShadow: {
-        grey: '0px -2px 32px 0px #3333331F'
-      },
       colors: {
         border: 'hsl(var(--border))',
         input: { DEFAULT: 'hsl(var(--input))', foreground: 'hsl(var(--input-bg))' },
@@ -125,6 +122,9 @@ const config = {
       padding: {
         '1/2': '50%',
         full: '100%'
+      },
+      boxShadow: {
+        gray: '0px -2px 32px 0px #3333331F'
       }
     }
   },
