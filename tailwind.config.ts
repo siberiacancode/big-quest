@@ -14,6 +14,7 @@ const config = {
     fontFamily: {
       sans: ['var(--font-sans)', ...fontFamily.sans]
     },
+
     screens: {
       '4xlx': { max: '2560px' },
       '3xlx': { max: '1750px' },
@@ -49,6 +50,9 @@ const config = {
       }
     },
     extend: {
+      boxShadow: {
+        grey: '0px -2px 32px 0px #3333331F'
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: { DEFAULT: 'hsl(var(--input))', foreground: 'hsl(var(--input-bg))' },

@@ -25,7 +25,7 @@ const OrgAuthPage = () => (
     </div>
     <footer className='m-3 flex flex-wrap justify-center divide-x divide-solid divide-gray-700 *:px-1 mdx:divide-x-0'>
       <Typography variant='body3' className='text-foreground'>
-        Copyright © {new Date().getFullYear()} <I18nText path='app.title' />
+        Copyright © {new Date().getFullYear()} <I18nText path='site.title' />
       </Typography>
       <Typography variant='body3' className='underline'>
         <I18nText path='org.auth.footer.siteRules' />

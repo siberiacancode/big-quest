@@ -2,9 +2,9 @@
   "theme.light": "Светлая",
   "theme.dark": "Темная",
 
-  "app.title": "Большой квест",
-  "app.error": "Что-то пошло не так",
-  "app.loading": "Пожалуйста подождите...",
+  "site.title": "Большой квест",
+  "site.error": "Что-то пошло не так",
+  "site.loading": "Пожалуйста подождите...",
 
   "partners.addresses.title": "Адреса",
   "partners.activities.title": "Активности",
@@ -226,6 +226,11 @@
   "navigation.link.org.mailing": "Рассылка",
   "navigation.link.org.news": "Новости",
   "navigation.link.org.profile": "Кабинет",
+
+  "navigation.link.app.activities": "Активности",
+  "navigation.link.app.rating": "Рейтинг",
+  "navigation.link.app.support": "Поддержка",
+  "navigation.link.app.profile": "Профиль",
 
   "radio.legalType.label": "Выберите форму сотрудничества",
   "radio.legalType.partner.label": "Партнер",

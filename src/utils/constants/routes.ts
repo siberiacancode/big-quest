@@ -33,6 +33,9 @@ export const ROUTES = {
   },
   APP: {
     ROOT: '/app',
-    PROFILE: '/app/profile'
+    PROFILE: '/app/profile',
+    ACTIVITIES: '/app/activities',
+    RATING: '/app/rating',
+    SUPPORT: '/app/support'
   }
 };
