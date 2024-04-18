@@ -6,7 +6,7 @@ import { Typography } from '@/components/ui';
 
 export const SponsorsSection = () => (
   <section id='sponsors' className='container mt-28 flex flex-col items-center'>
-    <Typography variant='h1' tag='h2' className='mdx:text-3xl xsx:text-[21px]'>
+    <Typography tag='h2' variant='h1' className='text-3xl lg:text-3xl'>
       <I18nText path='landing.sponsors.title' />
     </Typography>
 

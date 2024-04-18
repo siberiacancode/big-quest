@@ -7,7 +7,7 @@ import { WavyLineIcon } from '@/components/icons';
 import { Button, Typography } from '@/components/ui';
 
 export const LeaveRequestSection = () => (
-  <section className='relative mb-6 mt-28'>
+  <section className='relative mb-6 mt-4 md:mt-28'>
     <div className='container flex justify-between gap-3'>
       <div className='flex flex-col gap-3 py-20'>
         <Typography tag='h2' variant='h1' className='text-3xl lg:text-3xl'>
