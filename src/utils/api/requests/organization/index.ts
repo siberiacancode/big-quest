@@ -1,4 +1,5 @@
-import { api } from '../../instance';
+import type { OrganisationListPaginationResponse, OrganizationServerError } from '@/api-types';
+import { api } from '@/utils/api/instance';
 
 export interface GetOrganizationParams {
   limit?: number;
@@ -14,4 +15,7 @@ export interface GetOrganizationParams {
 export type GetOrganizationRequestConfig = RequestConfig<GetOrganizationParams>;
 
 export const getOrganization = async (requestConfig?: GetOrganizationRequestConfig) =>
-  api.get<OrganizationListPaginationResponse>('organization', requestConfig?.config);
+  api.get<OrganizationServerError | OrganisationListPaginationResponse>(
+    'organization',
+    requestConfig?.config
+  );

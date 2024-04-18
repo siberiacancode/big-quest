@@ -434,22 +434,7 @@ interface CreateAddressDto {
   locality: string;
   street: string;
   workingHours: WorkingHourDto[];
-  legalId: string;
-}
-
-interface AddressResponseFixMe {
-  country: string;
-  region: string;
-  city: string;
-  postal_code: string;
-  street: string;
-  house: string;
-  flat: number;
-  geo_lat: number;
-  geo_lon: number;
-  unrestrictedValue: string;
-  value: string;
-  cityWithType: string;
+  legalEntityId: string;
 }
 
 type TariffStatus = 'ACTIVE' | 'COORDINATION';

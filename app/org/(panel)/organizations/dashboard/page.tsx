@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import { getOrganization } from '@/utils/api';
 
 import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
@@ -23,6 +25,8 @@ const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPagePro
       cache: 'no-store'
     }
   });
+
+  if ('message' in getOrganizationResponse) return notFound();
 
   return (
     <div className='bg-secondary px-4'>

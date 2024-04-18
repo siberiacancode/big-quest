@@ -10,11 +10,11 @@ export type WorkingHourDto = {
   /**
    * Время С
    */
-  from: WorkingHourDto;
+  from: any;
   /**
    * Время По
    */
-  to: WorkingHourDto;
+  to: any;
   /**
    * Выходной
    */

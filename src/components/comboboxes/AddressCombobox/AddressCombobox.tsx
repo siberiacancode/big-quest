@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDebounceCallback } from 'usehooks-ts';
 
+import type { AddressResponseDto } from '@/api-types';
 import type { ComboBoxItemType, ComboboxProps } from '@/components/ui';
 import { Combobox } from '@/components/ui';
 import { useGetAddressQuery } from '@/utils/api';
@@ -8,7 +9,7 @@ import { useGetAddressQuery } from '@/utils/api';
 import { defaultConvertAddresses } from './helpers/defaultConvertAddresses';
 
 interface AddressComboboxProps extends Omit<ComboboxProps, 'items' | 'onSearchChange' | 'loading'> {
-  convertAddresses?: (addresses: AddressResponseFixMe[]) => ComboBoxItemType[];
+  convertAddresses?: (addresses: AddressResponseDto[]) => ComboBoxItemType[];
 }
 
 const LOCATION_SEARCH_DELAY = 600;

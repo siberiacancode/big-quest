@@ -5,7 +5,7 @@ export const getCategories: RestRequestConfig = {
   method: 'get',
   routes: [
     {
-      data: ['Образование', 'Кулинария']
+      data: [{ category: 'Образование' }, { category: 'Кулинария' }]
     }
   ]
 };
