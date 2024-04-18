@@ -27,6 +27,10 @@
   "auth.login.title": "Добро пожаловать в Большой Квест!",
 
   "app.profile.title": "Профиль",
+  "app.profile.passportId": "Паспорт ID",
+  "app.profile.userId": "user ID",
+  "app.profile.bumps": "Шишек опыта",
+  "app.profile.nuts": "Орешек",
 
   "common.rubles": "{amount}руб.",
 

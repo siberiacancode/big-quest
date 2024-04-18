@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 
+import avatar from '@/assets/images/avatar/organization.png';
 import background from '@/assets/images/background/organization.png';
-import logo from '@/assets/images/logo/organization.png';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 
@@ -38,7 +38,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
                 className='h-15 w-15 rounded border-none'
                 width={60}
                 height={60}
-                src={organization.avatar || logo}
+                src={organization.avatar || avatar}
                 alt='org-background'
               />
               <div className='flex flex-col justify-center'>
