@@ -56,8 +56,8 @@
   "button.next": "Далее",
   "button.continue": "Продолжить",
   "button.skip": "Пропустить",
-  "button.getQR": "Получить новый QR",
-  "button.alreadyHaveQR": "У меня уже есть QR",
+  "button.getQr": "Получить новый QR",
+  "button.alreadyHaveQr": "У меня уже есть QR",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",

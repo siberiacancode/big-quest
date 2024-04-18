@@ -21,7 +21,7 @@ interface QrCodeScannerProps extends React.ComponentProps<typeof Dialog> {
   avatar?: string;
 }
 
-export const QrCodeScanner = ({ onEdit, avatar, ...props }: QrCodeScannerProps) => (
+export const QrCodeScannerDialog = ({ onEdit, avatar, ...props }: QrCodeScannerProps) => (
   <Dialog {...props}>
     <DialogContent className='flex h-fit w-full max-w-[375px] flex-col rounded-lg xxsx:h-full'>
       <DialogClose>

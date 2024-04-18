@@ -83,7 +83,7 @@ export const DesktopBannerSection = () => (
               }}
               className={cn(buttonVariants({ size: 'lg', variant: 'primary' }), 'w-full')}
             >
-              <I18nText path='button.getQR' />
+              <I18nText path='button.getQr' />
             </Link>
           </div>
           <div className='w-full basis-1/3'>
@@ -94,7 +94,7 @@ export const DesktopBannerSection = () => (
               }}
               className={cn(buttonVariants({ size: 'lg', variant: 'white' }), 'w-full')}
             >
-              <I18nText path='button.alreadyHaveQR' />
+              <I18nText path='button.alreadyHaveQr' />
             </Link>
           </div>
         </div>

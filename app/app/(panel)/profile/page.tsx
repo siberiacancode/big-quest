@@ -58,7 +58,7 @@ const AppProfilePage = () => (
       </Card>
     </div>
     <Card className='mt-14'>
-      <CardContent className='p-4'>{/* QR */}</CardContent>
+      <CardContent className='p-4'>{/* Qr */}</CardContent>
     </Card>
   </div>
 );

@@ -33,7 +33,7 @@ export const MobileBannerSection = () => (
             }}
             className={cn(buttonVariants({ size: 'lg', variant: 'primary' }), 'w-full')}
           >
-            <I18nText path='button.getQR' />
+            <I18nText path='button.getQr' />
           </Link>
         </div>
         <div className='w-full'>
@@ -47,7 +47,7 @@ export const MobileBannerSection = () => (
               'w-full border border-taiga text-taiga hover:bg-taiga hover:text-white md:border-none'
             )}
           >
-            <I18nText path='button.alreadyHaveQR' />
+            <I18nText path='button.alreadyHaveQr' />
           </Link>
         </div>
       </div>
