@@ -42,5 +42,5 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "next.config.js"
-  ]
+, "openapi-ts.config.cjs"  ]
 }
