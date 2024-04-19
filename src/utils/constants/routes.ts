@@ -30,5 +30,6 @@ export const ROUTES = {
   LANDING: {
     ROOT: '/',
     CITY: (cityId: string) => `/${cityId}`
-  }
+  },
+  CATALOG: '/catalog'
 };

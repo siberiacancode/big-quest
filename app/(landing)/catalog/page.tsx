@@ -3,17 +3,16 @@
 import React from 'react';
 
 import { I18nText } from '@/components/common';
-import { ScrollArea, ScrollBar, Tabs, TabsList, TabsTrigger, Typography } from '@/components/ui';
-import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
+import { ScrollArea, ScrollBar, Tabs, Typography } from '@/components/ui';
 
 import { ActivityCard } from '../(components)/ActivitiesSection/components/ActivityCard/ActivityCard';
 
+import ActivityCategoryTabsList from './components/ActivityCategoryTabsList/ActivityCategoryTabsList';
 import ActivitySearchInput from './components/ActivitySearchInput/ActivitySearchInput';
 import { useActivtyCatalogPage } from './hooks/useActivtyCatalogPage';
 
 const ActivityCatalogPage = () => {
-  const { state, functions } = useActivtyCatalogPage();
-  const getCategoryQuery = useGetCategoryQuery();
+  const { state } = useActivtyCatalogPage();
 
   return (
     <section className='container py-[108px]'>
@@ -34,30 +33,9 @@ const ActivityCatalogPage = () => {
       <div className='mt-5'>
         <Tabs defaultValue='' value={state.category?.toString()}>
           <ScrollArea className='w-full whitespace-nowrap'>
-            {/* <ActivityCategoryTabsList /> */}
-            <TabsList className='flex w-full justify-start gap-1 bg-transparent p-0'>
-              <TabsTrigger
-                value=''
-                className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
-                onClick={() => functions.onActivityCategorySelect('')}
-              >
-                Все
-              </TabsTrigger>
-              {getCategoryQuery.data &&
-                getCategoryQuery.data.map((category, idx: number) => (
-                  <TabsTrigger
-                    key={idx}
-                    value={category.name}
-                    className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
-                    onClick={() => functions.onActivityCategorySelect(category.name)}
-                  >
-                    {category.name}
-                  </TabsTrigger>
-                ))}
-            </TabsList>
+            <ActivityCategoryTabsList />
             <ScrollBar orientation='horizontal' className='hidden' />
           </ScrollArea>
-
           <div className='mt-8 grid grid-cols-4 gap-x-5 gap-y-12 xlx:grid-cols-3 lgx:grid-cols-2 mdx:mt-11 smx:mt-8 smx:flex smx:flex-col smx:items-center smx:gap-y-8'>
             {state.query.data?.pages.map((page) =>
               page.rows.map((activity) => (
@@ -69,9 +47,7 @@ const ActivityCatalogPage = () => {
           </div>
         </Tabs>
       </div>
-      {getCategoryQuery.data && (
-        <div ref={state.intresectionRef} className='h-8 w-full bg-slate-900' />
-      )}
+      {state.query.data?.pages && <div ref={state.intresectionRef} />}
     </section>
   );
 };

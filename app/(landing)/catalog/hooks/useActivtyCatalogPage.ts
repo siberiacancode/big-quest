@@ -8,11 +8,7 @@ const DEFAULT_ACTIVITIES_LIMIT = 6;
 const DEFAULT_ACTIVITIES_PAGE = 1;
 
 export const useActivtyCatalogPage = () => {
-  const { searchParams, setSearchParam } = useSearchParams();
-
-  const onActivityCategorySelect = (category: string) => {
-    setSearchParam('category', category);
-  };
+  const { searchParams } = useSearchParams();
 
   const category = searchParams.get('category') ?? '';
   const name = searchParams.get('name') ?? '';
@@ -43,9 +39,6 @@ export const useActivtyCatalogPage = () => {
       query: getChangesInfiniteQuery,
       category,
       intresectionRef: ref
-    },
-    functions: {
-      onActivityCategorySelect
     }
   };
 };

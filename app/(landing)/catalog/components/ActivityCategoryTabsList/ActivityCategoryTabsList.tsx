@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import { I18nText } from '@/components/common';
 import { TabsList, TabsTrigger } from '@/components/ui';
 import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
 import { useSearchParams } from '@/utils/hooks';
@@ -16,10 +17,17 @@ const ActivityCategoryTabsList = () => {
 
   return (
     <TabsList className='flex w-full justify-start gap-1 bg-transparent p-0'>
+      <TabsTrigger
+        value=''
+        className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
+        onClick={() => onActivityCategorySelect('')}
+      >
+        <I18nText path='organization.activities.category.all' />
+      </TabsTrigger>
       {getCategoryQuery.data &&
-        getCategoryQuery.data.map((category, idx: number) => (
+        getCategoryQuery.data.map((category, index: number) => (
           <TabsTrigger
-            key={idx}
+            key={index}
             value={category.name}
             className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
             onClick={() => onActivityCategorySelect(category.name)}
