@@ -80,7 +80,7 @@ export const ActivityMedia = ({
           state.activeMediaFile.type === 'IMAGE' && (
             <Button
               variant='ghost'
-              className='absolute right-0 top-0 m-2 flex items-center gap-3 rounded-full bg-secondary px-4 py-2'
+              className='absolute right-0 top-0 m-4 flex items-center gap-3 rounded-full bg-secondary px-4 py-2'
               onClick={() => functions.onChangeAvatarClick(state.activeMediaFile)}
             >
               <WallpaperIcon className='h-5 w-5' />

@@ -27,7 +27,7 @@ export const useActivityMedia = ({
   );
 
   const onChangeAvatarClick = (file) => {
-    const newArray: ActivityMediaProps[] = activityMedia.map((item) => {
+    const newArray = activityMedia.map((item) => {
       if (item.id === file.id && item.type === 'IMAGE') {
         const newItem = { ...item, flag: 'AVATAR' as MediaFlag };
         setActiveMediaFile(newItem);
