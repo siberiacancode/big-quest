@@ -29,9 +29,6 @@ export const ActivityCard = ({ cover, category, ageLimit, duration, name }: Acti
 
     <div className='mt-4 flex-grow'>
       <Typography tag='p' variant='body1'>
-        {/* <I18nText
-          path={`organization.activities.category.${category.toLowerCase()}` as LocaleMessageId}
-        /> */}
         {category}
       </Typography>
       <Typography className='mt-2 text-xl font-bold'>{name}</Typography>

@@ -223,9 +223,9 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
                             onValueChange={field.onChange}
                           >
                             {state.categoryValues &&
-                              state.categoryValues.map((category, idx: number) => (
+                              state.categoryValues.map((category, index: number) => (
                                 <DropdownMenuRadioItem
-                                  key={idx}
+                                  key={index}
                                   className='cursor-pointer bg-background text-start'
                                   value={category.name}
                                 >
