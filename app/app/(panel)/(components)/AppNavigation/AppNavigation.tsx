@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -15,9 +14,9 @@ export const AppNavigation = () => {
   const pathname = usePathname();
 
   return (
-    <nav className='relative flex h-full w-full items-center justify-around shadow-gray'>
-      <div className='absolute bottom-0 left-1/2 top-0 flex size-[50px] -translate-x-1/2 -translate-y-1/4 items-center justify-center rounded-full border-4 border-white bg-[linear-gradient(to_right_bottom,rgba(0,89,52,1),rgba(0,52,22,1))] shadow-gray xxs:size-[68px]'>
-        <LogoIcon className='w-[13px] fill-white xxs:w-[19px]' />
+    <nav className='relative flex h-full w-full items-center justify-around bg-white shadow-[rgba(51,51,51,0.12)_0px_-2px_32px_0px]'>
+      <div className='absolute bottom-0 left-1/2 top-0 flex size-[50px] -translate-x-1/2 -translate-y-1/4 items-center justify-center rounded-full border-4 border-white bg-[linear-gradient(to_right_bottom,rgba(0,89,52,1),rgba(0,52,22,1))] shadow-[rgba(51,51,51,0.12)_0px_-2px_32px_0px] xxs:size-[68px]'>
+        <LogoIcon className='w-[11px] fill-white xxs:w-[17px]' />
       </div>
       {APP_NAVIGATION_LINKS.map((link, index) => {
         const isActive = pathname.includes(link.href);

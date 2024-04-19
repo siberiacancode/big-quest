@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import avatar from '@/assets/images/avatar/participant.png';
-import { I18nText } from '@/components/common';
+import { I18nText, QrCode } from '@/components/common';
 import { BumpIcon, NutIcon } from '@/components/icons';
 import { Card, CardContent, Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
@@ -18,47 +18,51 @@ const AppProfilePage = () => (
         <SettingsIcon />
       </Link>
     </div>
-    <div className='mt-[30px] flex gap-4'>
-      <Image src={avatar} alt='' width={80} height={80} />
-      <div className=''>
-        <Typography variant='sub3'>ФИО</Typography>
-        <Typography variant='body4' className='mt-[10px] text-muted-foreground'>
-          <I18nText path='app.profile.passportId' /> -
-        </Typography>
-        <Typography variant='body4' className='mt-[5px] text-muted-foreground'>
-          <I18nText path='app.profile.userId' />{' '}
-          <Typography variant='body4' tag='span' className='font-medium text-muted-foreground'>
-            @7654Qwerty
-          </Typography>
-        </Typography>
-      </div>
-    </div>
-    <div className='mt-6 flex gap-[15px]'>
-      <Card className='basis-1/2'>
-        <CardContent className='flex items-center gap-2 px-3 py-4'>
-          <BumpIcon />
-          <div className='flex flex-col'>
-            <Typography variant='h7'>-</Typography>
-            <Typography variant='body4' className='text-muted-foreground'>
-              <I18nText path='app.profile.bumps' />
+    <Card className='mx-auto mt-6 max-w-[343px] shadow-lg'>
+      <CardContent className='px-5 py-8'>
+        <div className='flex gap-4'>
+          <Image src={avatar} alt='' width={80} height={80} />
+          <div className=''>
+            <Typography variant='sub3'>ФИО</Typography>
+            <Typography variant='body4' className='mt-[10px] text-muted-foreground'>
+              <I18nText path='app.profile.passportId' /> -
+            </Typography>
+            <Typography variant='body4' className='mt-[5px] text-muted-foreground'>
+              <I18nText path='app.profile.userId' />{' '}
+              <Typography variant='body4' tag='span' className='font-medium text-muted-foreground'>
+                @7654Qwerty
+              </Typography>
             </Typography>
           </div>
-        </CardContent>
-      </Card>
-      <Card className='basis-1/2'>
-        <CardContent className='flex items-center gap-2 px-3 py-4'>
-          <NutIcon />
-          <div className='flex flex-col'>
-            <Typography variant='h7'>-</Typography>
-            <Typography variant='body4' className='text-muted-foreground'>
-              <I18nText path='app.profile.nuts' />
-            </Typography>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-    <Card className='mt-14'>
-      <CardContent className='p-4'>{/* Qr */}</CardContent>
+        </div>
+
+        <div className='mx-auto mt-8 size-[230px] overflow-hidden rounded-lg xxs:size-[300px]'>
+          <QrCode
+            text='https://www.google.com/'
+            options={{
+              margin: 5,
+              color: {
+                light: '#219653',
+                dark: '#FFFFFF'
+              }
+            }}
+          />
+        </div>
+        <div className='mt-6 flex gap-4'>
+          <Card className='basis-1/2'>
+            <CardContent className='flex items-center justify-center gap-3 px-3 py-[18px]'>
+              <BumpIcon />
+              <Typography variant='h7'>-</Typography>
+            </CardContent>
+          </Card>
+          <Card className='basis-1/2'>
+            <CardContent className='flex items-center justify-center gap-3 px-3 py-[18px]'>
+              <NutIcon />
+              <Typography variant='h7'>-</Typography>
+            </CardContent>
+          </Card>
+        </div>
+      </CardContent>
     </Card>
   </div>
 );
