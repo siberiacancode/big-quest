@@ -2,12 +2,12 @@ import { Skeleton } from '@/components/ui';
 
 export const ActivityActionFormSkeleton = () => (
   <div className='flex h-full flex-col gap-4 overflow-y-auto'>
-    <div className='grid h-fit max-h-[600px] w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-5 2smx:px-4 xsx:grid-rows-5 xsx:gap-2 xxsx:grid-rows-5'>
-      <div className='relative col-span-2 max-h-[418px] max-w-[418px] 2smx:row-span-3 2smx:max-w-full xsx:row-span-3 xxsx:row-span-3 2sm:h-[418px]'>
-        <Skeleton className='h-[418px] rounded-lg 2smx:h-[360px]' />
+    <div className='grid h-fit max-h-[600px] w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-5 2smx:px-4 xsx:grid-rows-2 xsx:gap-2'>
+      <div className='relative col-span-2 max-h-[418px] max-w-[418px] 2smx:row-span-3 2smx:max-w-full xsx:row-span-1 2sm:h-[418px]'>
+        <Skeleton className='h-full max-h-[418px] rounded-lg 2smx:max-h-[360px]' />
       </div>
 
-      <div className='grid h-fit grid-cols-2 gap-2 2smx:row-span-2 2smx:grid-cols-4 2smx:grid-rows-1'>
+      <div className='grid h-fit grid-cols-2 gap-2 2smx:row-span-1 2smx:grid-cols-4 2smx:grid-rows-1'>
         {Array(8)
           .fill({})
           .map((_, index) => (

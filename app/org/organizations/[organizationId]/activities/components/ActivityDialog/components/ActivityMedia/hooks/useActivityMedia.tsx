@@ -16,14 +16,15 @@ export const useActivityMedia = ({
   setDeleteFileIds
 }: UseActivityMediaProps) => {
   const defaultActiveMediaFile = activityMedia?.find((item) => item.flag === 'AVATAR');
+  const emptyActiveMediaFile: ActivityMediaProps = {
+    id: '',
+    url: '',
+    flag: null,
+    type: 'IMAGE'
+  };
 
   const [activeMediaFile, setActiveMediaFile] = React.useState<ActivityMediaProps>(
-    defaultActiveMediaFile ?? {
-      id: '',
-      url: '',
-      flag: null,
-      type: 'IMAGE'
-    }
+    defaultActiveMediaFile ?? emptyActiveMediaFile
   );
 
   const onChangeAvatarClick = (file) => {
@@ -44,10 +45,12 @@ export const useActivityMedia = ({
     if (!value.startsWith('blob')) setDeleteFileIds([...deleteFileIds, deleteFile.id]);
 
     const newActivityMedia = activityMedia.filter((item) => item.url !== value);
+    console.log(activityMedia, deleteFile, newActivityMedia);
+
     setActivityMedia(newActivityMedia);
 
     if (activeMediaFile.url === value) {
-      setActiveMediaFile(newActivityMedia[0]);
+      setActiveMediaFile(!newActivityMedia.length ? emptyActiveMediaFile : newActivityMedia[0]);
     }
   };
 

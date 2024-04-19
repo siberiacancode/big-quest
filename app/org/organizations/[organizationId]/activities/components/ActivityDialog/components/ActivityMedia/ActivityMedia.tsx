@@ -38,7 +38,7 @@ export const ActivityMedia = ({
   return (
     <div
       className={cn(
-        'grid h-fit max-h-[600px] w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-4 2smx:px-4 xsx:grid-rows-3 xsx:gap-2 xxsx:grid-rows-4',
+        'grid h-fit max-h-[600px] w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-4 2smx:px-4 xsx:grid-rows-3 xsx:gap-2',
         activityMedia.length > 3 && '2smx:grid-rows-5 xsx:grid-rows-5 xxsx:grid-rows-5'
       )}
     >
@@ -63,7 +63,7 @@ export const ActivityMedia = ({
         )}
 
         {!state.activeMediaFile.url && (
-          <div className='flex h-full w-full flex-col items-center  justify-center gap-4 rounded-lg border-2 border-dashed border-dropzoneBorder text-muted-foreground sm:max-h-[418px]'>
+          <div className='flex h-full w-full flex-col items-center  justify-center gap-4 rounded-lg border-2 border-dashed border-dropzoneBorder p-8 text-muted-foreground sm:max-h-[418px]'>
             <WallpaperIcon className='h-10 w-10 text-muted-foreground' />
             <Typography variant='body1'>
               <I18nText path='activity.image.placeholder' />
@@ -104,7 +104,7 @@ export const ActivityMedia = ({
                 type={item.type}
                 className={cn(
                   'h-full w-full rounded-lg',
-                  item.url === state.activeMediaFile.url && 'border-2 border-emerald-700'
+                  item.id === state.activeMediaFile.id && 'border-2 border-emerald-700'
                 )}
                 value={item.url}
                 onClick={() => functions.setActiveMediaFile(item)}

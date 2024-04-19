@@ -396,7 +396,7 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
               </div>
             </div>
           </>
-        )}{' '}
+        )}
         <div className='flex w-full justify-center'>
           <Button
             type='submit'
