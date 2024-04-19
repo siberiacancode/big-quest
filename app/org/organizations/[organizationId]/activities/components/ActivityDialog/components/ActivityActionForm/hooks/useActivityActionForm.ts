@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams, useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 import {
   useDeleteFileByIdMutation,
@@ -10,6 +11,7 @@ import {
   usePostFileMutation,
   usePutActivityByIdMutation
 } from '@/utils/api/hooks';
+import { useI18n } from '@/utils/contexts';
 
 import type {
   ActivityActionType,
@@ -36,6 +38,7 @@ export const useActivityActionForm = ({
   activity,
   externalActionType
 }: UseActivityActionFormParams) => {
+  const i18n = useI18n();
   const router = useRouter();
   const params = useParams<{ organizationId: string }>();
   const [isCategoryOpen, setIsCategoryOpen] = React.useState(false);
@@ -78,6 +81,21 @@ export const useActivityActionForm = ({
 
   const onSubmit = activityForm.handleSubmit(async (values) => {
     const transformedMedia: Omit<ActivityMediaProps, 'url'>[] = [];
+
+    if (!activityMedia.length) {
+      return toast.error(i18n.formatMessage({ id: 'activity.image.add' }), {
+        cancel: { label: i18n.formatMessage({ id: 'button.close' }) }
+      });
+    }
+
+    const isAvatarExist = activityMedia.find((media) => media.flag === 'AVATAR');
+
+    if (!isAvatarExist) {
+      return toast.error(i18n.formatMessage({ id: 'activity.cover.add' }), {
+        cancel: { label: i18n.formatMessage({ id: 'button.close' }) }
+      });
+    }
+
     await Promise.all(
       activityMedia.map(async (item) => {
         const { file, url, ...props } = item;
