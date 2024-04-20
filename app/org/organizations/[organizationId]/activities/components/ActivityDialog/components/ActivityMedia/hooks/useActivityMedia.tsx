@@ -45,7 +45,6 @@ export const useActivityMedia = ({
     if (!value.startsWith('blob')) setDeleteFileIds([...deleteFileIds, deleteFile.id]);
 
     const newActivityMedia = activityMedia.filter((item) => item.url !== value);
-    console.log(activityMedia, deleteFile, newActivityMedia);
 
     setActivityMedia(newActivityMedia);
 

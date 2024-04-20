@@ -55,26 +55,24 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
   });
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={functions.onSubmit}
-        className='flex h-full flex-col justify-between gap-4 overflow-y-auto px-5 smx:px-0'
-      >
-        {state.isGetActivityLoading} {state.isPostActivityLoading}
-        {(state.isGetActivityLoading || state.isPostActivityLoading) && (
-          <ActivityActionFormSkeleton />
-        )}
-        {!state.isGetActivityLoading && !state.isPostActivityLoading && (
-          <>
-            <div className='flex h-[418px] gap-4 2smx:h-[600px]'>
-              <ActivityMedia
-                activityMedia={state.activityMedia}
-                deleteFileIds={state.deleteFileIds}
-                setActivityMedia={functions.setActivityMedia}
-                setDeleteFileIds={functions.setDeleteFileIds}
-              />
-            </div>
-
+    <div className='flex h-full flex-col justify-between gap-4 overflow-y-auto px-5 smx:px-0'>
+      {!state.isGetActivityLoading && !state.isPostActivityLoading && (
+        <div className='flex h-[418px] gap-4 2smx:h-[600px]'>
+          <ActivityMedia
+            activityMedia={state.activityMedia}
+            deleteFileIds={state.deleteFileIds}
+            setActivityMedia={functions.setActivityMedia}
+            setDeleteFileIds={functions.setDeleteFileIds}
+          />
+        </div>
+      )}
+      <Form {...form}>
+        <form onSubmit={functions.onSubmit} className='flex h-full flex-col justify-between gap-4'>
+          {state.isGetActivityLoading} {state.isPostActivityLoading}
+          {(state.isGetActivityLoading || state.isPostActivityLoading) && (
+            <ActivityActionFormSkeleton />
+          )}
+          {!state.isGetActivityLoading && !state.isPostActivityLoading && (
             <div className='flex w-full flex-col rounded-lg border p-5'>
               <div className='flex justify-between gap-24 smx:flex-col smx:gap-2'>
                 <div className='flex-1 space-y-3'>
@@ -395,22 +393,22 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
                 </div>
               </div>
             </div>
-          </>
-        )}
-        <div className='flex w-full justify-center'>
-          <Button
-            type='submit'
-            className='h-8 w-28'
-            size='sm'
-            loading={state.isPostActivityLoading}
-            variant='secondary'
-          >
-            <Typography variant='sub4'>
-              <I18nText path='button.save' />
-            </Typography>
-          </Button>
-        </div>
-      </form>
-    </Form>
+          )}
+          <div className='flex w-full justify-center'>
+            <Button
+              type='submit'
+              className='h-8 w-28'
+              size='sm'
+              loading={state.isPostActivityLoading}
+              variant='secondary'
+            >
+              <Typography variant='sub4'>
+                <I18nText path='button.save' />
+              </Typography>
+            </Button>
+          </div>
+        </form>
+      </Form>
+    </div>
   );
 };

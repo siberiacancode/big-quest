@@ -38,14 +38,14 @@ export const ActivityMedia = ({
   return (
     <div
       className={cn(
-        'grid h-fit max-h-[600px] w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-4 2smx:px-4 xsx:grid-rows-3 xsx:gap-2',
-        activityMedia.length > 3 && '2smx:grid-rows-5 xsx:grid-rows-5 xxsx:grid-rows-5'
+        'grid h-fit max-h-[600px] w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-4 xsx:gap-2',
+        activityMedia.length > 3 && '2smx:grid-rows-5 xsx:grid-rows-5'
       )}
     >
       <div
         className={cn(
-          'relative col-span-2 max-h-[418px] max-w-[418px] 2smx:row-span-3 2smx:max-w-full xsx:row-span-2 xxsx:row-span-3 2sm:h-[418px]',
-          activityMedia.length > 3 && '2smx:row-span-3 xsx:row-span-3 xxsx:row-span-3'
+          'relative col-span-2 max-h-[418px] max-w-[418px] 2smx:row-span-3 2smx:max-w-full 2sm:h-[418px]',
+          activityMedia.length > 3 && '2smx:row-span-3'
         )}
       >
         {state.activeMediaFile.url && state.activeMediaFile.type === 'IMAGE' && (
