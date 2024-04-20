@@ -39,15 +39,10 @@ export const ActivityMedia = ({
     <div
       className={cn(
         'grid h-fit max-h-[600px] w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-4 xsx:gap-2',
-        activityMedia.length > 3 && '2smx:grid-rows-5 xsx:grid-rows-5'
+        activityMedia.length > 3 && '2smx:grid-rows-5'
       )}
     >
-      <div
-        className={cn(
-          'relative col-span-2 max-h-[418px] max-w-[418px] 2smx:row-span-3 2smx:max-w-full 2sm:h-[418px]',
-          activityMedia.length > 3 && '2smx:row-span-3'
-        )}
-      >
+      <div className='relative col-span-2 max-h-[418px] max-w-[418px] 2smx:row-span-3 2smx:max-w-full 2sm:h-[418px]'>
         {state.activeMediaFile.url && state.activeMediaFile.type === 'IMAGE' && (
           <Image
             className='w-full rounded-lg 2smx:h-[360px]'
@@ -63,7 +58,7 @@ export const ActivityMedia = ({
         )}
 
         {!state.activeMediaFile.url && (
-          <div className='flex h-full w-full flex-col items-center  justify-center gap-4 rounded-lg border-2 border-dashed border-dropzoneBorder p-8 text-muted-foreground sm:max-h-[418px]'>
+          <div className='flex h-full w-full flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed border-dropzoneBorder p-8 text-muted-foreground sm:max-h-[418px]'>
             <WallpaperIcon className='h-10 w-10 text-muted-foreground' />
             <Typography variant='body1'>
               <I18nText path='activity.image.placeholder' />

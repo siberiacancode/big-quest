@@ -27,6 +27,7 @@ import type { ActivityActionType, ActivityProps } from '../../../../constants/ty
 import { ActivityMedia } from '../ActivityMedia/ActivityMedia';
 
 import { ActivityActionFormSkeleton } from './components/ActivityActionFormSkeleton/ActivityActionFormSkeleton';
+import { ActivityMediaSkeleton } from './components/ActivityMediaSkeleton/ActivityMediaSkeleton';
 import { ACTIVITY_ACTION_STATUS_DROPDOWN_VALUES } from './constants/activityActionStatusDropdownValues';
 import { useActivityActionForm } from './hooks/useActivityActionForm';
 
@@ -56,19 +57,19 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
 
   return (
     <div className='flex h-full flex-col justify-between gap-4 overflow-y-auto px-5 smx:px-0'>
-      {!state.isGetActivityLoading && !state.isPostActivityLoading && (
-        <div className='flex h-[418px] gap-4 2smx:h-[600px]'>
+      <div className='flex h-[418px] gap-4 2smx:h-[600px]'>
+        {(state.isGetActivityLoading || state.isPostActivityLoading) && <ActivityMediaSkeleton />}
+        {!state.isGetActivityLoading && !state.isPostActivityLoading && (
           <ActivityMedia
             activityMedia={state.activityMedia}
             deleteFileIds={state.deleteFileIds}
             setActivityMedia={functions.setActivityMedia}
             setDeleteFileIds={functions.setDeleteFileIds}
           />
-        </div>
-      )}
+        )}
+      </div>
       <Form {...form}>
         <form onSubmit={functions.onSubmit} className='flex h-full flex-col justify-between gap-4'>
-          {state.isGetActivityLoading} {state.isPostActivityLoading}
           {(state.isGetActivityLoading || state.isPostActivityLoading) && (
             <ActivityActionFormSkeleton />
           )}
@@ -401,6 +402,7 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
               size='sm'
               loading={state.isPostActivityLoading}
               variant='secondary'
+              disabled={state.isGetActivityLoading || state.isPostActivityLoading}
             >
               <Typography variant='sub4'>
                 <I18nText path='button.save' />
