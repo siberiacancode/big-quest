@@ -56,8 +56,8 @@
   "button.next": "Далее",
   "button.continue": "Продолжить",
   "button.skip": "Пропустить",
-  "button.getQr": "Получить новый QR",
-  "button.alreadyHaveQr": "У меня уже есть QR",
+  "button.getQR": "Получить новый QR",
+  "button.alreadyHaveQR": "У меня уже есть QR",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
@@ -132,11 +132,11 @@
   "partner.role.administrator": "Администратор",
   "partner.role.leading": "Ведущий",
   "partner.role.manager": "Менеджер",
-  "partner.scanner.qrCode": "Qr-код",
+  "partner.scanner.qrCode": "QR-код",
   "partner.scanner.scanner": "Сканер",
   "partner.scanner.pointCamera": "Наведите камеру на QR-код",
   "partner.scanner.camera": "Камера для сканирования",
-  "partner.menu.scanQrCode": "Сканирование QR",
+  "partner.menu.scanQRCode": "Сканирование QR",
   "partner.menu.notification": "Уведомление",
   "partner.menu.exit": "Выход",
 
@@ -341,7 +341,7 @@
   "dialog.editOrganizationTariff.title": "Выбор тарифа",
   "dialog.editOrganizationTariff.freeActivities": "Бесплатные активности",
 
-  "dialog.scanQrCode.title": "QR-код партнера",
+  "dialog.scanQRCode.title": "QR-код партнера",
 
   "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
   "tooltip.kpp": "КПП - 9 цифр",

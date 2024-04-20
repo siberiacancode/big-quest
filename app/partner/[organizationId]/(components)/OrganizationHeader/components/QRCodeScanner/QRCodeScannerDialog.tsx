@@ -16,12 +16,12 @@ import {
   Typography
 } from '@/components/ui';
 
-interface QrCodeScannerProps extends React.ComponentProps<typeof Dialog> {
+interface QRCodeScannerProps extends React.ComponentProps<typeof Dialog> {
   onEdit: () => void;
   avatar?: string;
 }
 
-export const QrCodeScannerDialog = ({ onEdit, avatar, ...props }: QrCodeScannerProps) => (
+export const QRCodeScannerDialog = ({ onEdit, avatar, ...props }: QRCodeScannerProps) => (
   <Dialog {...props}>
     <DialogContent className='flex h-fit w-full max-w-[375px] flex-col rounded-lg xxsx:h-full'>
       <DialogClose>
@@ -30,7 +30,7 @@ export const QrCodeScannerDialog = ({ onEdit, avatar, ...props }: QrCodeScannerP
       <DialogHeader>
         <DialogTitle className='flex justify-center'>
           <Typography variant='h4' tag='h4'>
-            <I18nText path='dialog.scanQrCode.title' />
+            <I18nText path='dialog.scanQRCode.title' />
           </Typography>
         </DialogTitle>
       </DialogHeader>

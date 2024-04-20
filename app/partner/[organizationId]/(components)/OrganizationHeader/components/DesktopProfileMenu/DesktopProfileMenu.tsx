@@ -9,13 +9,13 @@ import type { PartnerData } from '../../(constants)/types';
 interface DesktopProfileMenuProps {
   partner: PartnerData;
   onEditPartnerClick: () => void;
-  onEditQrScannerClick: () => void;
+  onEditQRScannerClick: () => void;
 }
 
 export const DesktopProfileMenu = ({
   partner,
   onEditPartnerClick,
-  onEditQrScannerClick
+  onEditQRScannerClick
 }: DesktopProfileMenuProps) => {
   return (
     <div className='flex h-fit items-center gap-4'>
@@ -36,7 +36,7 @@ export const DesktopProfileMenu = ({
           </Typography>
         </div>
       </Button>
-      <CircularButton onClick={onEditQrScannerClick}>
+      <CircularButton onClick={onEditQRScannerClick}>
         <QrCodeIcon />
       </CircularButton>
       <NotificationsDropdownMenu />

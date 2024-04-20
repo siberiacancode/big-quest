@@ -3,9 +3,9 @@
 import { useQRCode } from 'next-qrcode';
 import type { IQRCode } from 'next-qrcode/dist/useQRCode';
 
-interface QrCodeProps extends IQRCode {}
+type QRCodeProps = IQRCode;
 
-export const QrCode = (props: QrCodeProps) => {
+export const QRCode = (props: QRCodeProps) => {
   const QRCode = useQRCode();
 
   return <QRCode.SVG {...props} />;

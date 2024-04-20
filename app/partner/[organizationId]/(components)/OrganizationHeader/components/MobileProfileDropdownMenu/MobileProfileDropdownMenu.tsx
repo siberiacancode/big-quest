@@ -20,13 +20,13 @@ import { useMobileProfileDropdownMenu } from './hooks/useMobileProfileDropdownMe
 interface MobileProfileDropdownMenuProps {
   partner: PartnerData;
   onEditPartnerClick: () => void;
-  onEditQrScannerClick: () => void;
+  onEditQRScannerClick: () => void;
 }
 
 export const MobileProfileDropdownMenu = ({
   partner,
   onEditPartnerClick,
-  onEditQrScannerClick
+  onEditQRScannerClick
 }: MobileProfileDropdownMenuProps) => {
   const { state, functions } = useMobileProfileDropdownMenu();
 
@@ -59,11 +59,11 @@ export const MobileProfileDropdownMenu = ({
         <Button
           variant='ghost'
           className='flex items-center justify-start gap-5 rounded-md border-none px-2 py-1 hover:cursor-pointer hover:bg-accent'
-          onClick={onEditQrScannerClick}
+          onClick={onEditQRScannerClick}
         >
           <QrCodeIcon />
           <Typography variant='body2'>
-            <I18nText path='partner.menu.scanQrCode' />
+            <I18nText path='partner.menu.scanQRCode' />
           </Typography>
         </Button>
         <Button

@@ -14,7 +14,6 @@ const config = {
     fontFamily: {
       sans: ['var(--font-sans)', ...fontFamily.sans]
     },
-
     screens: {
       '4xlx': { max: '2560px' },
       '3xlx': { max: '1750px' },

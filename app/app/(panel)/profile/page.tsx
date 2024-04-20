@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import avatar from '@/assets/images/avatar/participant.png';
-import { I18nText, QrCode } from '@/components/common';
+import { I18nText, QRCode } from '@/components/common';
 import { BumpIcon, NutIcon } from '@/components/icons';
 import { Card, CardContent, Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
@@ -37,7 +37,7 @@ const AppProfilePage = () => (
         </div>
 
         <div className='mx-auto mt-8 size-[230px] overflow-hidden rounded-lg xxs:size-[300px]'>
-          <QrCode
+          <QRCode
             text='https://www.google.com/'
             options={{
               margin: 5,

@@ -1,7 +1,7 @@
 import { ActivitiesIcon, ProfileIcon, RatingIcon, SupportIcon } from '@/components/icons';
 import { ROUTES } from '@/utils/constants';
 
-export const APP_NAVIGATION_LINKS = [
+export const PARTICIPANT_LINKS = [
   {
     icon: <ActivitiesIcon />,
     text: 'navigation.link.app.activities',
