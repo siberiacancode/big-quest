@@ -31,5 +31,7 @@ export const ROUTES = {
     ROOT: '/',
     CITY: (cityId: string) => `/${cityId}`
   },
-  ACTIVITIES: '/activities'
+  APP: {
+    ACTIVITIES: '/activities'
+  }
 };

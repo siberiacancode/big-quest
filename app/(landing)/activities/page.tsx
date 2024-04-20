@@ -1,44 +1,64 @@
-'use client';
-
 import React from 'react';
-import { Search, X } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
-import {
-  Button,
-  Input,
-  ScrollArea,
-  ScrollBar,
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  Typography
-} from '@/components/ui';
-import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
-import { useI18n } from '@/utils/contexts';
+import { Typography } from '@/components/ui';
+import { getActivityPublic, getCategory } from '@/utils/api';
 
-import { ActivityCard } from '../(components)/ActivitiesSection/components/ActivityCard/ActivityCard';
+import { ActivitiesCategories, ActivityList, ActivitySearchInput } from './(components)';
+import { DEFAULT_ACTIVITIES_LIMIT, DEFAULT_ACTIVITIES_PAGE } from './(constants)';
+import { Providers } from './providers';
 
-import { useActivityCatalogPage } from './hooks/useActivityCatalogPage';
+interface ActivitiesPageProps {
+  searchParams: SearchParams;
+}
 
-const ActivityCatalogPage = () => {
-  const i18n = useI18n();
-  const { functions, state } = useActivityCatalogPage();
-  const getCategoryQuery = useGetCategoryQuery();
+const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
+  const [getCategoryResponse, getActivityPublicResponse] = await Promise.all([
+    getCategory({ config: { cache: 'no-store' } }),
+    getActivityPublic({
+      params: {
+        limit: DEFAULT_ACTIVITIES_LIMIT,
+        current: DEFAULT_ACTIVITIES_PAGE,
+        ...searchParams
+      },
+      config: { cache: 'no-store' }
+    })
+  ]);
 
   return (
     <section className='container py-[108px]'>
-      <div className='flex flex-col justify-between sm:flex-row'>
-        <div className='order-2 flex gap-2 sm:order-1'>
-          <Typography tag='h3' variant='h3' className='xsx:text-[25px]'>
-            <I18nText path='landing.activities.title' />
-          </Typography>
-          <Typography tag='h3' variant='h3' className='text-muted-foreground'>
-            781
-          </Typography>
+      <Providers
+        activitiesPage={{
+          defaultActivitiesPage: {
+            categories: getCategoryResponse,
+            activities: getActivityPublicResponse.rows,
+            pagination: getActivityPublicResponse.pagination
+          }
+        }}
+      >
+        <div className='flex-start flex'>
+          <ActivitySearchInput />
         </div>
+        <div className='flex flex-col gap-5'>
+          <div className='flex gap-2'>
+            <Typography tag='h3' variant='h3' className='xsx:text-[25px]'>
+              <I18nText path='landing.activities.title' />
+            </Typography>
+            {!!getActivityPublicResponse.rows.length && (
+              <Typography tag='h3' variant='h3' className='text-muted-foreground'>
+                {getActivityPublicResponse.pagination.count}
+              </Typography>
+            )}
+          </div>
+
+          <ActivitiesCategories />
+          <ActivityList />
+        </div>
+      </Providers>
+      {/* <div className='flex flex-col justify-between sm:flex-row'>
+
         <div className='order-1 sm:order-2'>
-          {/* <ActivitySearchInput /> */}
+          <ActivitySearchInput />
           <div className='relative h-10 w-[293px] smx:mb-6'>
             <div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
               <Search className='h-5 w-5 text-gray-400' aria-hidden='true' />
@@ -61,12 +81,12 @@ const ActivityCatalogPage = () => {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className='mt-5'>
+      {/* <div className='mt-5'>
         <Tabs defaultValue='' value={state.category ?? ''}>
           <ScrollArea className='w-full whitespace-nowrap'>
-            {/* <ActivityCategoryTabsList /> */}
+            <ActivityCategoryTabsList />
             <TabsList className='flex w-full justify-start gap-1 bg-transparent p-0'>
               <TabsTrigger
                 value=''
@@ -98,8 +118,9 @@ const ActivityCatalogPage = () => {
             <div ref={state.intresectionRef} />
           </div>
         </Tabs>
-      </div>
+      </div> */}
     </section>
   );
 };
-export default ActivityCatalogPage;
+
+export default ActivitiesPage;

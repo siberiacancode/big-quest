@@ -24,7 +24,7 @@ interface ProvidersProps {
   theme: Omit<ThemeProviderProps, 'children'>;
 }
 
-const Providers: React.FC<ProvidersProps> = ({ children, session, i18n, theme, user }) => (
+export const Providers: React.FC<ProvidersProps> = ({ children, session, i18n, theme, user }) => (
   <QueryProvider>
     <I18nProvider {...i18n}>
       <ThemeProvider {...theme}>
@@ -35,5 +35,3 @@ const Providers: React.FC<ProvidersProps> = ({ children, session, i18n, theme, u
     </I18nProvider>
   </QueryProvider>
 );
-
-export default Providers;

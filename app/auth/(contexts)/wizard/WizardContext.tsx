@@ -18,10 +18,12 @@ export interface WizardContextParams {
   setStepId: (newStepId: WizardStepId) => void;
 }
 
-export const defaultWizardContextParams: WizardContextParams = {
+export const DEFAULT_WIZARD_CONTEXT_PARAMS: WizardContextParams = {
   map: {} as WizardMap,
   activeStepId: 'excursion',
   setStepId: () => {}
 };
 
-export const WizardContext = React.createContext<WizardContextParams>(defaultWizardContextParams);
+export const WizardContext = React.createContext<WizardContextParams>(
+  DEFAULT_WIZARD_CONTEXT_PARAMS
+);
