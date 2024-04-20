@@ -18,13 +18,15 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => {
     <div className='h-[397px] w-full rounded-lg bg-background p-4'>
       <div className='relative h-2/3'>
         <div className='mdx-h-1/2 relative h-full w-full'>
-          <Image
-            className='w-full rounded-lg'
-            src={activityCover.url}
-            fill
-            alt='activity-cover'
-            sizes='4xlx:max-h-72'
-          />
+          {activityCover?.url && (
+            <Image
+              className='w-full rounded-lg'
+              src={activityCover.url}
+              fill
+              alt='activity-cover'
+              sizes='4xlx:max-h-72'
+            />
+          )}
         </div>
         <div className='absolute top-0 flex w-full items-center justify-between p-3'>
           {activity.status && (
