@@ -6,7 +6,7 @@ import { CITIES, COOKIES, ROUTES } from '@/utils/constants';
 
 generateServerHeadersInterceptor();
 
-const UNAUTH_ROUTES = [ROUTES.LANDING.ROOT, ROUTES.AUTH, ROUTES.ORG.AUTH, ROUTES.CATALOG];
+const UNAUTH_ROUTES = [ROUTES.LANDING.ROOT, ROUTES.AUTH, ROUTES.ORG.AUTH, ROUTES.ACTIVITIES];
 
 export const middleware = (request: NextRequest) => {
   const { pathname } = new URL(request.url);

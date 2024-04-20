@@ -16,7 +16,7 @@ export const useGetActivityPublicInfiniteQuery = (
     number
   >({
     queryKey: ['getActivityPublic', params.current, params.category, params.name],
-    initialPageParam: params.current,
+    initialPageParam: params.current ?? 1,
     queryFn: ({ pageParam }) =>
       getActivityPublic({
         params: { ...params, current: pageParam },

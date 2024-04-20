@@ -2,7 +2,7 @@ import { api } from '@/utils/api/instance';
 
 export interface GetActivityPublicParams {
   limit?: number;
-  current: number;
+  current?: number;
   organizationId?: string;
   city?: string;
   category?: string;
