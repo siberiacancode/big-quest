@@ -97,6 +97,16 @@ export const DesktopBannerSection = () => (
               <I18nText path='button.alreadyHaveQR' />
             </Link>
           </div>
+          <div className='hidden text-center 2xsx:block'>
+            <Link href={ROUTES.ORG.AUTH}>
+              <Typography
+                variant='body2'
+                className='text-muted-foreground hover:font-semibold hover:text-taiga'
+              >
+                <I18nText path='button.organizationsEntrance' />
+              </Typography>
+            </Link>
+          </div>
         </div>
       </div>
 
