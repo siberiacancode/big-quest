@@ -1,10 +1,16 @@
 'use client';
 
 import React from 'react';
+import { Clock4Icon, UserRoundIcon } from 'lucide-react';
 import { useIntersectionObserver } from 'usehooks-ts';
 
+import { I18nText } from '@/components/common';
 import {
   ActivityCard,
+  ActivityCardCategory,
+  ActivityCardContent,
+  ActivityCardDescriptionItem,
+  ActivityCardDivider,
   ActivityCardHeader,
   ActivityCardImage,
   ActivityCardName
@@ -25,18 +31,34 @@ export const ActivityList = () => {
 
   return (
     <>
-      <ul className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
+      <div className='mt-6 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
         {activities.map((activity) => (
-          <li key={activity.id}>
-            <ActivityCard>
-              <ActivityCardImage src={activity.cover} alt={activity.name} />
-              <ActivityCardHeader>
-                <ActivityCardName>{activity.name}</ActivityCardName>
-              </ActivityCardHeader>
-            </ActivityCard>
-          </li>
+          <ActivityCard key={activity.id}>
+            <ActivityCardImage src={activity.cover} alt={activity.name} />
+            <ActivityCardHeader>
+              <ActivityCardCategory>{activity.category}</ActivityCardCategory>
+              <ActivityCardName>{activity.name}</ActivityCardName>
+            </ActivityCardHeader>
+            <ActivityCardDivider />
+            <ActivityCardContent>
+              <ActivityCardDescriptionItem>
+                <UserRoundIcon className='size-6 stroke-muted-foreground' />
+                <I18nText
+                  path='landing.activities.card.minimumAge'
+                  values={{ age: activity.ageLimit[0] }}
+                />
+              </ActivityCardDescriptionItem>
+              <ActivityCardDescriptionItem>
+                <Clock4Icon className='size-6 stroke-muted-foreground' />
+                <I18nText
+                  path='landing.activities.card.duration'
+                  values={{ duration: activity.duration }}
+                />
+              </ActivityCardDescriptionItem>
+            </ActivityCardContent>
+          </ActivityCard>
         ))}
-      </ul>
+      </div>
       <div ref={ref} />
     </>
   );

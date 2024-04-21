@@ -36,9 +36,6 @@ const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
           }
         }}
       >
-        <div className='flex-start flex'>
-          <ActivitySearchInput />
-        </div>
         <div className='mt-10 flex flex-col gap-5'>
           <div className='flex gap-2'>
             <Typography tag='h3' variant='h3' className='xsx:text-[25px]'>
@@ -50,8 +47,10 @@ const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
               </Typography>
             )}
           </div>
-
-          <ActivitiesCategories />
+          <div className='flex items-baseline justify-between space-y-3 lgx:flex-col'>
+            <ActivitiesCategories />
+            <ActivitySearchInput />
+          </div>
           <ActivityList />
         </div>
       </Providers>

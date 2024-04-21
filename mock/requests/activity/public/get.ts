@@ -28,7 +28,6 @@ export const getActivityPublicConfig: RestRequestConfig = {
         );
       }
 
-      console.log('@', rows.length);
       return {
         pagination: { current: 1, limit: 10, count: rows.length },
         rows

@@ -31,6 +31,58 @@ const ActivityCardName = React.forwardRef<HTMLDivElement, React.ComponentProps<'
     <div ref={ref} {...props} className={cn('mt-2 text-xl font-bold', className)} />
   )
 );
-ActivityCardHeader.displayName = 'ActivityCardHeader';
 
-export { ActivityCard, ActivityCardHeader, ActivityCardImage, ActivityCardName };
+ActivityCardName.displayName = 'ActivityCardName';
+
+const ActivityCardCategory = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      {...props}
+      className={cn('text-lg font-normal text-muted-foreground', className)}
+    />
+  )
+);
+
+ActivityCardCategory.displayName = 'ActivityCardCategory';
+
+const ActivityCardDivider = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} {...props} className={cn('my-2 h-[1px] w-full bg-muted', className)} />
+  )
+);
+
+ActivityCardDivider.displayName = 'ActivityCardDivider';
+
+const ActivityCardContent = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      {...props}
+      className={cn('flex flex-shrink flex-grow-0 justify-between', className)}
+    />
+  )
+);
+ActivityCardContent.displayName = 'ActivityCardContent';
+
+const ActivityCardDescriptionItem = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      {...props}
+      className={cn('flex items-center gap-2 text-lg font-normal text-muted-foreground', className)}
+    />
+  )
+);
+ActivityCardDescriptionItem.displayName = 'ActivityCardDescriptionItem';
+
+export {
+  ActivityCard,
+  ActivityCardCategory,
+  ActivityCardContent,
+  ActivityCardDescriptionItem,
+  ActivityCardDivider,
+  ActivityCardHeader,
+  ActivityCardImage,
+  ActivityCardName
+};

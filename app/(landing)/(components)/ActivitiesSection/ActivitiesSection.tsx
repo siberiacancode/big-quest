@@ -1,9 +1,13 @@
-import { ChevronRightIcon } from 'lucide-react';
+import { ChevronRightIcon, Clock4Icon, UserRoundIcon } from 'lucide-react';
 import Link from 'next/link';
 
 import { I18nText } from '@/components/common';
 import {
   ActivityCard,
+  ActivityCardCategory,
+  ActivityCardContent,
+  ActivityCardDescriptionItem,
+  ActivityCardDivider,
   ActivityCardHeader,
   ActivityCardImage,
   ActivityCardName,
@@ -19,8 +23,6 @@ import {
   DEFAULT_ACTIVITIES_LIMIT,
   DEFAULT_ACTIVITIES_PAGE
 } from '../../(constants)';
-
-// import { ActivityCard } from './components/ActivityCard/ActivityCard';
 
 interface ActivitiesSectionProps {
   cityId: (typeof CITIES)[keyof typeof CITIES]['id'];
@@ -38,7 +40,6 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
     }
   });
 
-  console.log('@', !getActivityPublicResponse.rows.length);
   if (!getActivityPublicResponse.rows.length) return null;
 
   return (
@@ -57,11 +58,29 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
       </div>
       <div className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
         {getActivityPublicResponse.rows.map((activity) => (
-          <ActivityCard key={activity.id}>
+          <ActivityCard>
             <ActivityCardImage src={activity.cover} alt={activity.name} />
             <ActivityCardHeader>
+              <ActivityCardCategory>{activity.category}</ActivityCardCategory>
               <ActivityCardName>{activity.name}</ActivityCardName>
             </ActivityCardHeader>
+            <ActivityCardDivider />
+            <ActivityCardContent>
+              <ActivityCardDescriptionItem>
+                <UserRoundIcon className='size-6 stroke-muted-foreground' />
+                <I18nText
+                  path='landing.activities.card.minimumAge'
+                  values={{ age: activity.ageLimit[0] }}
+                />
+              </ActivityCardDescriptionItem>
+              <ActivityCardDescriptionItem>
+                <Clock4Icon className='size-6 stroke-muted-foreground' />
+                <I18nText
+                  path='landing.activities.card.duration'
+                  values={{ duration: activity.duration }}
+                />
+              </ActivityCardDescriptionItem>
+            </ActivityCardContent>
           </ActivityCard>
         ))}
       </div>
