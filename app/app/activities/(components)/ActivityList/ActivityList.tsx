@@ -24,18 +24,20 @@ export const ActivityList = () => {
   }, [isIntersecting]);
 
   return (
-    <ul className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
-      {activities.map((activity) => (
-        <li key={activity.id}>
-          <ActivityCard>
-            <ActivityCardImage src={activity.cover} alt={activity.name} />
-            <ActivityCardHeader>
-              <ActivityCardName>{activity.name}</ActivityCardName>
-            </ActivityCardHeader>
-          </ActivityCard>
-        </li>
-      ))}
+    <>
+      <ul className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
+        {activities.map((activity) => (
+          <li key={activity.id}>
+            <ActivityCard>
+              <ActivityCardImage src={activity.cover} alt={activity.name} />
+              <ActivityCardHeader>
+                <ActivityCardName>{activity.name}</ActivityCardName>
+              </ActivityCardHeader>
+            </ActivityCard>
+          </li>
+        ))}
+      </ul>
       <div ref={ref} />
-    </ul>
+    </>
   );
 };
