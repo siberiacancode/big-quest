@@ -7,7 +7,6 @@ interface AppLayoutProps {
 const AppLayout = ({ children }: AppLayoutProps) => (
   <div className='h-screen'>
     <div className='h-full overflow-y-auto pb-[100px] xxs:pb-[110px]'>{children}</div>
-
     <AppBottomNavigation />
   </div>
 );

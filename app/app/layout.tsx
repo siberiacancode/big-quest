@@ -8,7 +8,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
   const device = getDevice();
   const isMobile = device.type === 'mobile';
 
-  // TODO add blocker screen for desktop
+  // TODO move mobile check to middleware
   return isMobile ? children : null;
 };
 
