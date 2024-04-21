@@ -57,7 +57,7 @@
   "button.continue": "Продолжить",
   "button.skip": "Пропустить",
   "button.getQR": "Получить новый QR",
-  "button.alreadyHaveQR": "У меня уже есть QR",
+  "button.auth": "Вход",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
@@ -348,10 +348,10 @@
   "tooltip.ogrn": "ОГРН - 13 цифр, ОГРНИП - 15 цифр",
   "tooltip.bik": "БИК - 9 цифр",
 
-  "landing.info.title.desktop": "<titleBackground>Единственный в мире</titleBackground>{br} маркетплейс активностей для{br} детей с игровыми элементами",
+  "landing.info.title.desktop": "Собирай шишки опыта всё лето!",
   "landing.info.title.mobile": "Единственный в мире маркетплейс активностей для детей с игровыми элементами",
 
-  "landing.info.subtitle": "Более <green>4000+ пользователей</green> уже с нами,{br} присоединяйся!",
+  "landing.info.subtitle": "Получай QR-код и паспорт. Теперь ты житель Таёжной Цивилизации. Тебя ждут сотни заданий от организаций города - проходи их и прокачивай себя.",
   "landing.activities.title": "Активности",
   "landing.activities.card.duration": "{duration} мин",
   "landing.activities.card.minimumAge": "{age}+ лет",

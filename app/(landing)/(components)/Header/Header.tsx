@@ -17,7 +17,7 @@ interface HeaderProps {
 }
 
 export const Header = ({ cityId }: HeaderProps) => (
-  <header className='container flex justify-between py-[52px] 2xlx:gap-8 2xsx:py-6 2xl:gap-[80px]'>
+  <header className='container flex justify-between py-[52px] 2xlx:gap-8 2xlx:py-10 2xsx:py-6 2xl:gap-[80px]'>
     <div>
       <Logo href={ROUTES.LANDING.CITY(cityId)} className='fill-taiga' />
     </div>

@@ -5,87 +5,45 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import bannerImage from '@/assets/images/landing/banner.webp';
-import face1 from '@/assets/images/landing/faces/face1.png';
-import face2 from '@/assets/images/landing/faces/face2.png';
-import face3 from '@/assets/images/landing/faces/face3.png';
 import { I18nText } from '@/components/common';
-import { BigQuestLogoIcon, RhombIcon } from '@/components/icons';
 import { buttonVariants, Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { ROUTES } from '@/utils/constants';
 
-const GreenSubtitle = (children: React.ReactNode) => (
-  <span className='font-medium text-taiga'>{children}</span>
-);
-
-const TitleBackground = (children: React.ReactNode) => (
-  <span className='relative rounded-l-lg border-r-[3px] border-r-taiga bg-taiga/25 p-1 font-medium text-taiga-foreground'>
-    <div className='absolute right-[3px] top-0 inline-block -translate-y-full translate-x-full rounded-md rounded-bl-none bg-taiga p-1'>
-      <BigQuestLogoIcon className='fill-white' />
-    </div>
-    {children}
-  </span>
-);
-
 export const DesktopBannerSection = () => (
-  <section id='banner' className='container flex overflow-x-hidden px-5 pb-10'>
-    <div className='relative flex w-full flex-col-reverse items-center justify-center justify-between px-2 md:flex-row'>
-      <div className='absolute -left-4 top-1/2 hidden xl:block'>
-        <RhombIcon />
-      </div>
-
-      <div className='flex flex-col gap-2 p-2'>
-        <div className='relative block p-2'>
+  <section id='banner' className='container relative flex'>
+    <div className='flex w-full flex-col-reverse items-center px-2 md:flex-row'>
+      <div className='mb-[365px] mt-[200px] flex w-1/2 max-w-[664px] flex-col gap-2 2xlx:mb-[240px] 2xlx:mt-[100px] xlx:max-w-[500px]'>
+        <div className='flex flex-col gap-6'>
           <Typography
             tag='h1'
             variant='h1'
-            className='text-3xl md:text-xl lg:text-2xl 2lg:text-3xl'
+            className='text-5xl 2lgx:text-4xl 2xl:text-[56px] 2xl:leading-[70px]'
           >
-            <I18nText
-              path='landing.info.title.desktop'
-              values={{ br: <br />, titleBackground: TitleBackground }}
-            />
+            <I18nText path='landing.info.title.desktop' />
           </Typography>
 
-          <div className='mt-6 flex items-center gap-4'>
-            <div className='flex -space-x-2'>
-              {[face1, face2, face3].map((face) => (
-                <Image
-                  src={face}
-                  alt='face'
-                  className='inline-block size-12 rounded-full ring-1 ring-white md:size-8 lg:size-12'
-                />
-              ))}
-            </div>
-            <div>
-              <Typography
-                tag='p'
-                variant='body1'
-                className='text-wrap text-base md:text-xs lg:text-sm 2lg:text-base'
-              >
-                <I18nText
-                  path='landing.info.subtitle'
-                  values={{
-                    br: <br />,
-                    green: GreenSubtitle
-                  }}
-                />
-              </Typography>
-            </div>
-          </div>
+          <Typography
+            tag='p'
+            variant='body1'
+            className='text-wrap text-2xl	2lgx:text-xl xsx:text-lg'
+          >
+            <I18nText path='landing.info.subtitle' />
+          </Typography>
         </div>
-        <div className='mt-8 flex w-full flex-col gap-4 md:flex-row lg:mt-14'>
-          <div className='w-full basis-2/3'>
-            <Link
-              href={{
-                pathname: ROUTES.AUTH,
-                query: { step: 'excursion' }
-              }}
-              className={cn(buttonVariants({ size: 'lg', variant: 'primary' }), 'w-full')}
-            >
-              <I18nText path='button.getQR' />
-            </Link>
-          </div>
+        <div className='mt-10 flex w-full flex-col gap-4 md:flex-row lg:mt-10'>
+          <Link
+            href={{
+              pathname: ROUTES.AUTH,
+              query: { step: 'excursion' }
+            }}
+            className={cn(
+              buttonVariants({ size: 'lg', variant: 'primary' }),
+              'w-[300px] mdx:w-full'
+            )}
+          >
+            <I18nText path='button.auth' />
+          </Link>
           <div className='w-full basis-1/3'>
             <Link
               href={{
@@ -94,7 +52,7 @@ export const DesktopBannerSection = () => (
               }}
               className={cn(buttonVariants({ size: 'lg', variant: 'white' }), 'w-full')}
             >
-              <I18nText path='button.alreadyHaveQR' />
+              <I18nText path='button.getQR' />
             </Link>
           </div>
           <div className='hidden text-center 2xsx:block'>
@@ -109,8 +67,11 @@ export const DesktopBannerSection = () => (
           </div>
         </div>
       </div>
-
-      <Image src={bannerImage} alt='info image' className='w-[46rem] md:w-[50%]' />
     </div>
+    <Image
+      src={bannerImage}
+      alt='info image'
+      className='absolute -right-[15%] top-[10%] max-h-[658px] w-[60%] max-w-[780px] 3xlx:-right-[3%] 3xlx:w-[50%] 2xlx:right-0 2xlx:w-[43%] xlx:top-[10%] lgx:top-[10%]'
+    />
   </section>
 );

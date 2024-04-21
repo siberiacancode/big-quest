@@ -47,7 +47,7 @@ export const MobileBannerSection = () => (
               'w-full border border-taiga text-taiga hover:bg-taiga hover:text-white md:border-none'
             )}
           >
-            <I18nText path='button.alreadyHaveQR' />
+            button.alreadyHaveQR
           </Link>
         </div>
       </div>
