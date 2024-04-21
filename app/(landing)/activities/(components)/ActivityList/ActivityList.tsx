@@ -17,14 +17,18 @@ export const ActivityList = () => {
     if (isIntersecting) loadActivitiesMore();
   }, [isIntersecting]);
 
+  console.log('activities on ActivityList', activities);
+
   return (
-    <ul>
-      {activities.map((activity) => (
-        <li key={activity.id}>
-          <ActivityCard {...activity} />
-        </li>
-      ))}
+    <>
+      <div className='mt-4 flex flex-col items-center justify-center gap-8 lgx:mt-1 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
+        {activities.map((activity) => (
+          <React.Fragment key={activity.id}>
+            <ActivityCard {...activity} />
+          </React.Fragment>
+        ))}
+      </div>
       <div ref={ref} />
-    </ul>
+    </>
   );
 };
