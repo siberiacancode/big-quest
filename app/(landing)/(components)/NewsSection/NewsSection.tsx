@@ -20,7 +20,7 @@ import { news } from './constants/news';
 const CAROUSEL_AUTO_PLAY_DELAY = 8000;
 
 export const NewsSection = () => (
-  <section className='relative w-full'>
+  <section id='news' className='relative w-full'>
     <Carousel
       className='w-full'
       opts={{

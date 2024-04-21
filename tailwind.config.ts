@@ -43,9 +43,20 @@ const config = {
     },
     container: {
       center: true,
-      padding: '2rem',
+      padding: {
+        DEFAULT: '1rem',
+        xxs: '2rem',
+        sm: '2rem',
+        lg: '1rem',
+        '2xl': '0.5rem'
+      },
       screens: {
-        '2xl': '1400px'
+        xxs: '800px',
+        xs: '920px',
+        sm: '1024px',
+        lg: '1124px',
+        '2lg': '1124px',
+        '2xl': '1320px'
       }
     },
     extend: {

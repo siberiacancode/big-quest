@@ -28,7 +28,7 @@ const TitleBackground = (children: React.ReactNode) => (
 );
 
 export const DesktopBannerSection = () => (
-  <section className='container  flex overflow-x-hidden px-5 pb-10'>
+  <section id='banner' className='container flex overflow-x-hidden px-5 pb-10'>
     <div className='relative flex w-full flex-col-reverse items-center justify-center justify-between px-2 md:flex-row'>
       <div className='absolute -left-4 top-1/2 hidden xl:block'>
         <RhombIcon />

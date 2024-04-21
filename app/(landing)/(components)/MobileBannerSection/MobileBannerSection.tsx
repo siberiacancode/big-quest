@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 import { ROUTES } from '@/utils/constants';
 
 export const MobileBannerSection = () => (
-  <section className='container flex h-screen overflow-x-hidden px-5 pb-10'>
+  <section id='banner' className='container flex h-screen overflow-x-hidden px-5 pb-10'>
     <div className='flex w-full flex-col items-center justify-center'>
       <Image src={bannerImage} alt='info image' className='w-[46rem]' />
 
