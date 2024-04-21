@@ -51,7 +51,7 @@ export const ActivitiesPageProvider = ({
     });
 
   const loadActivitiesMore = () => {
-    if (isPending || defaultActivitiesPage.pagination.count < activities.length) return;
+    if (isPending || defaultActivitiesPage.pagination.count <= activities.length) return;
 
     startTransition(async () => {
       const newPage = page + 1;
@@ -66,6 +66,10 @@ export const ActivitiesPageProvider = ({
       setActivities([...activities, ...newActivities.rows]);
     });
   };
+
+  React.useEffect(() => {
+    setActivities(defaultActivitiesPage.activities);
+  }, [defaultActivitiesPage.activities]);
 
   const value = React.useMemo(
     () => ({

@@ -6,7 +6,7 @@ export const getLegalAddressesByLegalIdConfig: RestRequestConfig = {
   method: 'get',
   routes: [
     {
-      data: () => DATABASE.ORGANIZATIONS.LEGAL_ADDRESSES
+      data: () => DATABASE.ORGANIZATIONS.ADDRESSES
     }
   ]
 };

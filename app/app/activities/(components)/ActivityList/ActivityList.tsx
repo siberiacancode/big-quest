@@ -1,8 +1,14 @@
 'use client';
 
 import React from 'react';
-import { ActivityCard } from 'app/(landing)/(components)/ActivitiesSection/components/ActivityCard/ActivityCard';
 import { useIntersectionObserver } from 'usehooks-ts';
+
+import {
+  ActivityCard,
+  ActivityCardHeader,
+  ActivityCardImage,
+  ActivityCardName
+} from '@/components/ui';
 
 import { useActivitiesPage } from '../../(contexts)/activitiesPage';
 
@@ -18,10 +24,15 @@ export const ActivityList = () => {
   }, [isIntersecting]);
 
   return (
-    <ul>
+    <ul className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
       {activities.map((activity) => (
         <li key={activity.id}>
-          <ActivityCard {...activity} />
+          <ActivityCard>
+            <ActivityCardImage src={activity.cover} alt={activity.name} />
+            <ActivityCardHeader>
+              <ActivityCardName>{activity.name}</ActivityCardName>
+            </ActivityCardHeader>
+          </ActivityCard>
         </li>
       ))}
       <div ref={ref} />

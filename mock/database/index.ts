@@ -1,9 +1,13 @@
+import { ACTIVITIES } from './activities';
+import { ADDRESSES } from './addresses';
+import { CATEGORIES } from './categories';
 import { EMPLOYEES } from './employees';
-import { LEGAL_ADDRESSES } from './legalAddresses';
 
 export const DATABASE = {
+  CATEGORIES,
+  ACTIVITIES,
   ORGANIZATIONS: {
     EMPLOYEES,
-    LEGAL_ADDRESSES
+    ADDRESSES
   }
 };

@@ -2,7 +2,14 @@ import { ChevronRightIcon } from 'lucide-react';
 import Link from 'next/link';
 
 import { I18nText } from '@/components/common';
-import { buttonVariants, Typography } from '@/components/ui';
+import {
+  ActivityCard,
+  ActivityCardHeader,
+  ActivityCardImage,
+  ActivityCardName,
+  buttonVariants,
+  Typography
+} from '@/components/ui';
 import { getActivityPublic } from '@/utils/api';
 import type { CITIES } from '@/utils/constants';
 import { ROUTES } from '@/utils/constants';
@@ -13,7 +20,7 @@ import {
   DEFAULT_ACTIVITIES_PAGE
 } from '../../(constants)';
 
-import { ActivityCard } from './components/ActivityCard/ActivityCard';
+// import { ActivityCard } from './components/ActivityCard/ActivityCard';
 
 interface ActivitiesSectionProps {
   cityId: (typeof CITIES)[keyof typeof CITIES]['id'];
@@ -31,6 +38,7 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
     }
   });
 
+  console.log('@', !getActivityPublicResponse.rows.length);
   if (!getActivityPublicResponse.rows.length) return null;
 
   return (
@@ -40,7 +48,7 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
           <I18nText path='landing.activities.title' />
         </Typography>
 
-        <Link href={ROUTES.LANDING.ROOT} className={buttonVariants({ variant: 'link' })}>
+        <Link href={ROUTES.APP.ACTIVITIES} className={buttonVariants({ variant: 'link' })}>
           <Typography tag='p' variant='h6'>
             <I18nText path='button.watchAll' />
           </Typography>
@@ -49,7 +57,12 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
       </div>
       <div className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
         {getActivityPublicResponse.rows.map((activity) => (
-          <ActivityCard key={activity.id} {...activity} />
+          <ActivityCard key={activity.id}>
+            <ActivityCardImage src={activity.cover} alt={activity.name} />
+            <ActivityCardHeader>
+              <ActivityCardName>{activity.name}</ActivityCardName>
+            </ActivityCardHeader>
+          </ActivityCard>
         ))}
       </div>
     </section>
