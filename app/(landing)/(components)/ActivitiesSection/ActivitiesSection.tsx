@@ -6,7 +6,7 @@ import {
   ActivityCard,
   ActivityCardCategory,
   ActivityCardContent,
-  ActivityCardDescriptionItem,
+  ActivityCardContentItem,
   ActivityCardDivider,
   ActivityCardHeader,
   ActivityCardImage,
@@ -66,20 +66,20 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
             </ActivityCardHeader>
             <ActivityCardDivider />
             <ActivityCardContent>
-              <ActivityCardDescriptionItem>
+              <ActivityCardContentItem>
                 <UserRoundIcon className='size-6 stroke-muted-foreground' />
                 <I18nText
                   path='landing.activities.card.minimumAge'
                   values={{ age: activity.ageLimit[0] }}
                 />
-              </ActivityCardDescriptionItem>
-              <ActivityCardDescriptionItem>
+              </ActivityCardContentItem>
+              <ActivityCardContentItem>
                 <Clock4Icon className='size-6 stroke-muted-foreground' />
                 <I18nText
                   path='landing.activities.card.duration'
                   values={{ duration: activity.duration }}
                 />
-              </ActivityCardDescriptionItem>
+              </ActivityCardContentItem>
             </ActivityCardContent>
           </ActivityCard>
         ))}

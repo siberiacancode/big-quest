@@ -65,7 +65,7 @@ const ActivityCardContent = React.forwardRef<HTMLDivElement, React.ComponentProp
 );
 ActivityCardContent.displayName = 'ActivityCardContent';
 
-const ActivityCardDescriptionItem = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
+const ActivityCardContentItem = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
@@ -74,13 +74,13 @@ const ActivityCardDescriptionItem = React.forwardRef<HTMLDivElement, React.Compo
     />
   )
 );
-ActivityCardDescriptionItem.displayName = 'ActivityCardDescriptionItem';
+ActivityCardContentItem.displayName = 'ActivityCardContentItem';
 
 export {
   ActivityCard,
   ActivityCardCategory,
   ActivityCardContent,
-  ActivityCardDescriptionItem,
+  ActivityCardContentItem,
   ActivityCardDivider,
   ActivityCardHeader,
   ActivityCardImage,
