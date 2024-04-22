@@ -19,7 +19,6 @@ const config = {
       '3xlx': { max: '1750px' },
       '2xlx': { max: '1400px' },
       xlx: { max: '1280px' },
-
       '2lgx': { max: '1124px' },
       lgx: { max: '1023px' },
       '3mdx': { max: '925px' },

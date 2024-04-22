@@ -16,9 +16,11 @@ export interface ActivityCardProps {
 
 export const ActivityCard = ({ cover, category, ageLimit, duration, name }: ActivityCardProps) => (
   <div className='flex w-full flex-col'>
-    <div className='relative h-[370px]'>
-      <Image src={cover} alt={name} sizes='370px' className='rounded-md object-cover' fill />
-    </div>
+    {cover && (
+      <div className='relative h-[370px]'>
+        <Image src={cover} alt={name} sizes='370px' className='rounded-md object-cover' fill />
+      </div>
+    )}
 
     <div className='mt-4 flex-grow'>
       <Typography tag='p' variant='body1'>

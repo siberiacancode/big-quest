@@ -2,8 +2,7 @@ import Link from 'next/link';
 
 import { I18nText, Logo } from '@/components/common';
 import { Typography } from '@/components/ui';
-import type { CITIES } from '@/utils/constants';
-import { ROUTES } from '@/utils/constants';
+import { CITIES, ROUTES } from '@/utils/constants';
 
 import { FooterCopyrightText } from './components/FooterCopyrightText/FooterCopyrightText';
 import { SOCIAL_ICONS, SOCIAL_LINKS } from './constants';
@@ -23,7 +22,7 @@ export const Footer = ({ cityId }: FooterProps) => (
               const Icon = SOCIAL_ICONS[socialLinkKey];
 
               return (
-                <Link href={socialLinkValue}>
+                <Link href={socialLinkValue as URL}>
                   <Icon className='fill-black' width='32' height='32' />
                 </Link>
               );
@@ -85,8 +84,8 @@ export const Footer = ({ cityId }: FooterProps) => (
           <I18nText path='landing.footer.addresses' />
         </Typography>
         <nav className='mt-4'>
-          <ul className='flex flex-col gap-3'>
-            адреса уточнить г. Междуреченск, ул. Пушкина, д. 28 (СК Звёздный)
+          <ul className='flex flex-col gap-3 text-center'>
+            {CITIES[cityId.toUpperCase()].headquarters}
           </ul>
         </nav>
       </div>

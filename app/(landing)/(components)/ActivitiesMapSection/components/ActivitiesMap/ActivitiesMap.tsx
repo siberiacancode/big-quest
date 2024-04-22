@@ -22,18 +22,18 @@ export const ActivitiesMap = ({ cityId, activities }: MapProps) => {
 
   return (
     <YMaps>
-      <Typography tag='h2' variant='h1' className='text-2xl md:text-[32px]'>
+      <Typography tag='h2' variant='h1' className='text-center text-2xl md:text-[32px]'>
         <I18nText path='landing.activitiesMap.title' />
       </Typography>
       <Map
         instanceRef={(ref) => ref && ref.behaviors.disable('scrollZoom')}
-        className='h-[500px] w-full'
+        className='h-[650px] w-full'
         state={{
           zoom: DEFAULT_MAP_ZOOM,
           center: CITIES[cityId.toUpperCase()].map.center as [number, number]
         }}
       >
-        <div className='mt-10 w-full mdx:mt-5'>
+        <div className='mx-auto mt-[72px] mdx:mt-10'>
           {coordinates.map((coordinate, index) => (
             <GeoObject
               key={index}
