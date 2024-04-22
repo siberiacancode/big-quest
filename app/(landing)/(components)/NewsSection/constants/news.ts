@@ -1,17 +1,17 @@
 export const news = [
   {
-    title: 'Приведи друга и получи орешки',
+    title: 'Игра размером с город Игра длиною в лето',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor semper at ac tempus enim.'
+      'Делай сальто, стреляй из лука, собирай роботов, слушай картины, решай головоломки, проходи экскурсии и выполняй челленджи'
   },
   {
-    title: 'Приведи друга и получи орешки',
+    title: 'Игра размером с город Игра длиною в лето',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor semper at ac tempus enim.'
+      'Делай сальто, стреляй из лука, собирай роботов, слушай картины, решай головоломки, проходи экскурсии и выполняй челленджи'
   },
   {
-    title: 'Приведи друга и получи орешки',
+    title: 'Игра размером с город Игра длиною в лето',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor semper at ac tempus enim.'
+      'Делай сальто, стреляй из лука, собирай роботов, слушай картины, решай головоломки, проходи экскурсии и выполняй челленджи'
   }
 ];
