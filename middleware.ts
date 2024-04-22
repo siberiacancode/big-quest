@@ -32,7 +32,7 @@ export const middleware = (request: NextRequest) => {
     request.url.includes(ROUTES.AUTH) &&
     request.url.includes('excursion')
   ) {
-    return NextResponse.redirect(new URL(ROUTES.REDIRECT.REGISTER, request.url));
+    return NextResponse.redirect(new URL(ROUTES.REDIRECT.EXCURSION, request.url));
   }
 
   if (!isMobile && isMobileOnlyRoute) {

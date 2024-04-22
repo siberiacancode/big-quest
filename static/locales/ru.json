@@ -10,6 +10,9 @@
   "partners.activities.title": "Активности",
   "partners.employees.title": "Сотрудники",
 
+  "redirect.title": "Перейдите на мобильную версию",
+  "redirect.description": "Для дальнейшего пользования приложением, откройте страницу в телефоне",
+
   "org.auth.title": "Вход в личный кабинет",
   "org.auth.rememberMe": "Запомнить меня",
   "org.auth.footer.siteRules": "Правила пользования сайтом",
