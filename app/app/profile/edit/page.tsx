@@ -1,10 +1,14 @@
+'use client';
+
 import { ChevronLeftIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { I18nText } from '@/components/common';
-import { Input, Typography } from '@/components/ui';
+import { Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
+
+import { ProfileEditForm } from './(components)/ProfileEditForm/ProfileEditForm';
 
 const ProfileEditPage = () => (
   <div className='px-5 py-9'>
@@ -31,29 +35,7 @@ const ProfileEditPage = () => (
         </Typography>
       </div>
       <div className='mt-2 flex-col items-center space-y-4'>
-        <div>
-          <I18nText path='field.surname.label' />
-          <Input />
-        </div>
-        <div>
-          <I18nText path='field.name.label' />
-          <Input />
-        </div>
-        <div>
-          <I18nText path='field.surname.label' />
-          <Input />
-        </div>
-        <div>
-          <I18nText path='app.profile.edit.birthdate.title' />
-          <Input />
-        </div>
-        <div>
-          <I18nText path='app.profile.edit.userID.title' />
-          <Input />
-          <Typography variant='body3' tag='p' className='flex-1'>
-            <I18nText path='app.profile.edit.userID.description' />
-          </Typography>
-        </div>
+        <ProfileEditForm />
       </div>
     </div>
   </div>

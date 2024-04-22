@@ -34,8 +34,6 @@
 
   "app.profile.edit.title": "Настройки профиля",
   "app.profile.edit.avatar.title": "Изменить аватар",
-  "app.profile.edit.birthdate.title": "Дата рождения",
-  "app.profile.edit.userID.title": "User ID",
   "app.profile.edit.userID.description": "Вы можете указать другой user ID, чтобы вас было проще найти",
 
   "common.rubles": "{amount}руб.",
@@ -184,6 +182,7 @@
   "field.name.label": "Имя",
   "field.surname.label": "Фамилия",
   "field.role.label": "Роль",
+  "field.birthdate.label": "Дата рождения",
   "field.freeActivity.label": "Бесплатные активности",
   "field.paidActivity.label": "Платные активности",
   "field.periodMonth.label": "Период",
