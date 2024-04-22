@@ -15,7 +15,7 @@
     "build-storybook": "storybook build",
     "storybook": "storybook dev -p 6010",
     "build-mock": "tsc mock-server.ts --outDir dist-mock",
-    "generate-types": "openapi-ts"
+    "generate-types": "orval --config ./orval.config.ts"
   },
   "lint-staged": {
     "*.css": [
@@ -80,7 +80,6 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@hey-api/openapi-ts": "^0.40.2",
     "@next/eslint-plugin-next": "^14.1.0",
     "@siberiacancode/eslint": "^1.1.0",
     "@siberiacancode/prettier": "^1.1.0",
@@ -102,6 +101,7 @@
     "eslint-config-next": "14.1.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
+    "orval": "^6.27.1",
     "mock-config-server": "^3.3.4",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5",
