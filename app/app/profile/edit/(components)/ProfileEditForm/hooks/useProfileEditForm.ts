@@ -29,36 +29,6 @@ export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
 
   const onSubmit = actionEmployeeForm.handleSubmit(async (values) => {
     await console.log(values);
-    // const requestParams = {
-    //   ...values,
-    //   legalEntityId: params.organizationId
-    // };
-    // if (actionType === 'add') {
-    //   const postOrganizationActionEmployeeParams = {
-    //     params: requestParams,
-    //     action: actionType
-    //   } as const;
-    //   await organizationActionEmployeeMutation.mutateAsync(postOrganizationActionEmployeeParams);
-    //   toast.success(i18n.formatMessage({ id: 'toast.addEmployee' }), {
-    //     cancel: { label: i18n.formatMessage({ id: 'button.close' }) }
-    //   });
-    // }
-    // if (actionType === 'edit') {
-    //   const { file, ...restRequestParams } = requestParams;
-    //   const postOrganizationActionEmployeeParams = {
-    //     params: {
-    //       ...restRequestParams,
-    //       ...(file && { file }),
-    //       userId: employee!.id
-    //     },
-    //     action: actionType
-    //   } as const;
-    //   await organizationActionEmployeeMutation.mutateAsync(postOrganizationActionEmployeeParams);
-    //   toast.success(i18n.formatMessage({ id: 'toast.editEmployee' }), {
-    //     cancel: { label: i18n.formatMessage({ id: 'button.close' }) }
-    //   });
-    // }
-    // onAction();
   });
 
   return {

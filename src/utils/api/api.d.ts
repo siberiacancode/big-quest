@@ -378,6 +378,16 @@ interface UserResponse {
   avatar: string;
 }
 
+interface UserProfileResponse {
+  id: string;
+  birthdate: string;
+  userID: string;
+  name: string;
+  surname: string;
+  code: string;
+  avatar: string;
+}
+
 interface EmployeeDto {
   id: string;
   role: 'Administrator' | 'Leading' | 'Manager';
