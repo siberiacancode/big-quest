@@ -32,6 +32,12 @@
   "app.profile.bumps": "Шишек опыта",
   "app.profile.nuts": "Орешек",
 
+  "app.profile.edit.title": "Настройки профиля",
+  "app.profile.edit.avatar.title": "Изменить аватар",
+  "app.profile.edit.birthdate.title": "Дата рождения",
+  "app.profile.edit.userID.title": "User ID",
+  "app.profile.edit.userID.description": "Вы можете указать другой user ID, чтобы вас было проще найти",
+
   "common.rubles": "{amount}руб.",
 
   "button.add": "Добавить",
