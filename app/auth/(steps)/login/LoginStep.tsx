@@ -104,6 +104,12 @@ export const LoginStep = () => {
             </fieldset>
           </form>
         </Form>
+
+        <Button variant='link' onClick={functions.goToRegister} className='mx-auto mt-3 block'>
+          <Typography tag='p' variant='body3' className='underline'>
+            <I18nText path='button.goToRegister' />
+          </Typography>
+        </Button>
       </div>
     </div>
   );
