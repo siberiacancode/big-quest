@@ -20,7 +20,7 @@ export const DesktopBannerSection = () => (
             variant='h1'
             className='text-5xl 2lgx:text-4xl 2xl:text-[56px] 2xl:leading-[70px]'
           >
-            <I18nText path='landing.info.title.desktop' />
+            <I18nText path='landing.info.title' />
           </Typography>
 
           <Typography
@@ -59,7 +59,7 @@ export const DesktopBannerSection = () => (
             <Link href={ROUTES.ORG.AUTH}>
               <Typography
                 variant='body2'
-                className='text-muted-foreground hover:font-semibold hover:text-taiga'
+                className='text-gray-two hover:font-semibold hover:text-taiga'
               >
                 <I18nText path='button.organizationsEntrance' />
               </Typography>

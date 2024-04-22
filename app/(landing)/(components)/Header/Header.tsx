@@ -82,7 +82,7 @@ export const Header = ({ cityId }: HeaderProps) => (
           <div className='flex items-center gap-2'>
             <Typography
               variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga'
+              className='text-muted-foreground hover:font-semibold hover:text-taiga mdx:text-gray-two'
             >
               {CITIES[cityId.toUpperCase()].name}
             </Typography>
