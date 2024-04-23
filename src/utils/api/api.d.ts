@@ -109,6 +109,10 @@ type ActivityView = 'ONLINE' | 'OFFLINE';
 
 type Gender = 'MALE' | 'FEMALE';
 
+interface CategoryResponse {
+  name: string;
+}
+
 interface LegalInformation {
   fullNameOfTheLegalEntity?: string | null;
   legalAddress?: string | null;

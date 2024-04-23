@@ -119,6 +119,7 @@
   "organization.activities.category.education": "Образование",
   "organization.activities.category.entertainment": "Развлечение",
   "organization.activities.category.challenge": "Челлендж",
+  "organization.activities.category.all": "Все",
 
   "organization.activities.view.offline": "Оффлайн",
   "organization.activities.view.online": "Онлайн",
@@ -183,6 +184,7 @@
   "field.periodMonth.label": "Период",
   "field.periodMonth.placeholder": "Выбрать период",
   "field.totalPrice.label": "Итог ",
+  "field.activitySearch.placeholder": "Поиск активности...",
   "field.userId.label": "User ID",
   "field.userId.placeholder": "@user ID",
   "field.code.label": "Код",

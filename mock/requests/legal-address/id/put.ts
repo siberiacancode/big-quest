@@ -6,12 +6,10 @@ export const putLegalAddressByIdConfig: RestRequestConfig = {
   method: 'put',
   interceptors: {
     response: (_, { request }) => {
-      DATABASE.ORGANIZATIONS.LEGAL_ADDRESSES = DATABASE.ORGANIZATIONS.LEGAL_ADDRESSES.map(
-        (legalAddress) => {
-          if (legalAddress.id === request.params.id) return request.body;
-          return legalAddress;
-        }
-      );
+      DATABASE.ORGANIZATIONS.ADDRESSES = DATABASE.ORGANIZATIONS.ADDRESSES.map((legalAddress) => {
+        if (legalAddress.id === request.params.id) return request.body;
+        return legalAddress;
+      });
 
       return request.body;
     }

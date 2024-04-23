@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams, useRouter } from 'next/navigation';
 
-import { useGetCategoryQuery } from '@/utils/api/hooks/useGetCategoryQuery';
+import { useGetCategoryQuery } from '@/utils/api/hooks';
 
 import type { ActivityActionType } from '../../../constants/types';
 import type { ActivityActionSchema } from '../constants/activityActionSchema';

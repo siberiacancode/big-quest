@@ -1,4 +1,4 @@
-export const LEGAL_ADDRESSES = [
+export const ADDRESSES: AddressResponse[] = [
   {
     id: '1',
     locality: 'Martinez',
