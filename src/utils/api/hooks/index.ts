@@ -6,7 +6,6 @@ export * from './useGetChangesInfiniteQuery';
 export * from './useGetUserMeMutation';
 export * from './usePostAuthLoginEmailMutation';
 export * from './usePostChangesMutation';
-export * from './usePostOrganizationAddAddressMutation';
 export * from './usePostOrganizationRegisterMutation';
 export * from './usePutOrganizationByIdMutation';
 export * from './usePutTariffByIdMutation';

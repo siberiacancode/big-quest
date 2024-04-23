@@ -14,7 +14,8 @@
     "pretty": "yarn format && yarn lint --fix && yarn stylelint --fix",
     "build-storybook": "storybook build",
     "storybook": "storybook dev -p 6010",
-    "build-mock": "tsc mock-server.ts --outDir dist-mock"
+    "build-mock": "tsc mock-server.ts --outDir dist-mock",
+    "generate-types": "orval --config ./orval.config.ts"
   },
   "lint-staged": {
     "*.css": [
@@ -101,6 +102,7 @@
     "eslint-config-next": "14.1.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
+    "orval": "^6.27.1",
     "mock-config-server": "^3.3.4",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5",
