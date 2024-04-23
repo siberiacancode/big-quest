@@ -19,7 +19,7 @@ export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
     defaultValues: {
       name: user?.name ?? '',
       surname: user?.surname ?? '',
-      birthdate: user?.birthdate ?? '',
+      birthdate: new Date(user!.birthdate),
       userID: user?.userID ?? '',
       file: undefined
     }

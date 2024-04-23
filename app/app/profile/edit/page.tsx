@@ -18,7 +18,7 @@ const ProfileEditPage = () => {
     <div className='px-5 py-9'>
       <div className='grid grid-cols-4 text-nowrap'>
         <Link href={ROUTES.APP.PROFILE}>
-          <ChevronLeftIcon size={32} className='rounded-md border' />
+          <ChevronLeftIcon size={30} className='rounded-md border' />
         </Link>
         <Typography>
           <I18nText path='app.profile.edit.title' />

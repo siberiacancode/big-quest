@@ -6,7 +6,7 @@ const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/web
 export const profileEditSchema = z.object({
   name: z.string().min(1, { message: 'validation.required' }),
   surname: z.string().min(1, { message: 'validation.required' }),
-  birthdate: z.string().min(1, { message: 'validation.required' }),
+  birthdate: z.date(),
   userID: z.string().min(1, { message: 'validation.required' }),
   file: z
     .custom<File>((file) => file instanceof File)

@@ -192,6 +192,7 @@
   "field.userId.placeholder": "@user ID",
   "field.code.label": "Код",
   "field.code.placeholder": "****",
+  "field.datePicker.label": "Выберите дату",
 
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",

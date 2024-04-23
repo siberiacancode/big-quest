@@ -1,6 +1,10 @@
+import React from 'react';
+
 import { I18nText } from '@/components/common';
 import {
   Button,
+  CopyToClipboardButton,
+  DatePicker,
   Form,
   FormControl,
   FormField,
@@ -72,12 +76,12 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                 control={form.control}
                 name='birthdate'
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className='flex flex-col'>
                     <FormLabel>
                       <I18nText path='field.birthdate.label' />
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <DatePicker {...field} classname='w-full' />
                     </FormControl>
                     <FormMessage>
                       {form.formState?.errors?.birthdate && (
@@ -97,15 +101,19 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                     <FormLabel>
                       <I18nText path='field.userId.label' />
                     </FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        placeholder={i18n.formatMessage({ id: 'field.userId.placeholder' })}
-                      />
-                    </FormControl>
+                    <div className='relative'>
+                      <FormControl>
+                        <Input
+                          {...field}
+                          placeholder={i18n.formatMessage({ id: 'field.userId.placeholder' })}
+                        />
+                      </FormControl>
+                      <CopyToClipboardButton value={form.getValues('userID')} />
+                    </div>
                     <Typography variant='body4' tag='p' className='text-muted-foreground'>
                       <I18nText path='app.profile.edit.userID.description' />
                     </Typography>
+
                     <FormMessage>
                       {form.formState?.errors?.userID && (
                         <I18nText path={form.formState.errors.userID.message as LocaleMessageId} />
