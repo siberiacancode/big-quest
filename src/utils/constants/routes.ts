@@ -1,8 +1,5 @@
 export const ROUTES = {
-  REDIRECT: {
-    LOGIN: '/redirect?to=login',
-    EXCURSION: '/redirect?to=excursion'
-  },
+  REDIRECT: '/redirect',
   AUTH: '/auth',
   ORG: {
     AUTH: '/org/auth',

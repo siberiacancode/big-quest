@@ -61,7 +61,7 @@
   "button.skip": "Пропустить",
   "button.getQR": "Получить новый QR",
   "button.alreadyHaveQR": "У меня уже есть QR",
-  "button.goToRegister": "У меня нет User ID",
+  "button.haveNotUserId": "У меня нет User ID",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",

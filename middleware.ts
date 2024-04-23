@@ -26,17 +26,13 @@ export const middleware = (request: NextRequest) => {
   const isAuthRoute = !UNAUTH_ROUTES.some((route) => request.url.includes(route));
   const isMobileOnlyRoute = MOBILE_ONLY_ROUTES.some((route) => request.url.includes(route));
 
-  if (
-    !isMobile &&
-    isMobileOnlyRoute &&
-    request.url.includes(ROUTES.AUTH) &&
-    request.url.includes('excursion')
-  ) {
-    return NextResponse.redirect(new URL(ROUTES.REDIRECT.EXCURSION, request.url));
-  }
-
   if (!isMobile && isMobileOnlyRoute) {
-    return NextResponse.redirect(new URL(ROUTES.REDIRECT.LOGIN, request.url));
+    return NextResponse.redirect(
+      new URL(
+        `${ROUTES.REDIRECT}?to=${request.url.includes('excursion') ? 'excursion' : 'login'}`,
+        request.url
+      )
+    );
   }
 
   const isLanding =

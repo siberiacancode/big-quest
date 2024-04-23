@@ -25,13 +25,13 @@ export const useLoginStep = () => {
     router.replace(ROUTES.APP.PROFILE);
   });
 
-  const goToRegister = () => setStepId('excursion');
+  const onRegisterClick = () => setStepId('excursion');
 
   return {
     state: {
       isLoading: loginForm.formState.isSubmitting
     },
     form: loginForm,
-    functions: { goToRegister, onSubmit }
+    functions: { onRegisterClick, onSubmit }
   };
 };

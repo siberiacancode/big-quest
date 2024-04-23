@@ -1,3 +1,5 @@
+import { headers } from 'next/headers';
+
 import { I18nText, Logo, QRCode } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
@@ -9,6 +11,8 @@ interface RedirectPageProps {
 type RedirectTo = 'excursion' | 'login';
 
 const RedirectPage = ({ searchParams }: RedirectPageProps) => {
+  const headersList = headers();
+  const host = headersList.get('host');
   const redirectTo = searchParams.to ?? 'login';
 
   return (
@@ -28,7 +32,7 @@ const RedirectPage = ({ searchParams }: RedirectPageProps) => {
         </div>
         <div className='max-h-[300px] w-full max-w-[300px] overflow-hidden rounded-xl'>
           <QRCode
-            text={`http://localhost:3000${ROUTES.AUTH}?step=${redirectTo}`}
+            text={`${host}${ROUTES.AUTH}?step=${redirectTo}`}
             options={{
               margin: 5,
               color: {
