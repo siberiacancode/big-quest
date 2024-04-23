@@ -27,7 +27,7 @@ export const ActivitiesMap = ({ cityId, activities }: MapProps) => {
       </Typography>
       <Map
         instanceRef={(ref) => ref && ref.behaviors.disable('scrollZoom')}
-        className='h-[650px] w-full'
+        className='h-[650px] w-full xsx:h-[500px]'
         state={{
           zoom: DEFAULT_MAP_ZOOM,
           center: CITIES[cityId.toUpperCase()].map.center as [number, number]

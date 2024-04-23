@@ -34,7 +34,7 @@ export const MobileBannerSection = () => (
         >
           <I18nText path='button.auth' />
         </Link>
-        <div className='w-full basis-1/3 rounded-md border border-taiga'>
+        <div className='w-full rounded-md border border-taiga'>
           <Link
             href={{
               pathname: ROUTES.AUTH,
