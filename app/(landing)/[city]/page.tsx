@@ -4,6 +4,7 @@ import { getDevice } from '@/utils/helpers/server';
 import { ActivitiesMapSection } from '../(components)/ActivitiesMapSection/ActivitiesMapSection';
 import { ActivitiesSection } from '../(components)/ActivitiesSection/ActivitiesSection';
 import { DesktopBannerSection } from '../(components)/DesktopBannerSection/DesktopBannerSection';
+import { FAQSection } from '../(components)/FAQSection/FAQSection';
 import { FeedbackSection } from '../(components)/FeedbackSection/FeedbackSection';
 import { LeaveRequestSection } from '../(components)/LeaveRequestSection/LeaveRequestSection';
 import { MobileBannerSection } from '../(components)/MobileBannerSection/MobileBannerSection';
@@ -32,6 +33,7 @@ const LandingCityPage = ({ params }: LandingCityPageProps) => {
       <ActivitiesMapSection cityId={params.city} />
       <SponsorsSection />
       <FeedbackSection />
+      <FAQSection cityId={params.city} />
       <LeaveRequestSection />
     </>
   );
