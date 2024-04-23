@@ -1,8 +1,9 @@
-import { api } from '../../../instance';
+import type { TariffResponse, UpdateTariffDto } from '@/api-types';
+import { api } from '@/utils/api/instance';
 
-type PutTariffByIdParams = UpdateTariffDto;
+type PutTariffByIdParams = UpdateTariffDto & { id: string };
 
 export type PutTariffByIdRequestConfig = RequestConfig<PutTariffByIdParams>;
 
 export const putTariffById = ({ params, config }: PutTariffByIdRequestConfig) =>
-  api.put(`tariff/${params.id}`, params, config);
+  api.put<TariffResponse>(`tariff/${params.id}`, params, config);

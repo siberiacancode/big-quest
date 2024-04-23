@@ -1,3 +1,4 @@
+import type { GenerateNewCodeResponse } from '@/api-types';
 import { api } from '@/utils/api/instance';
 
 interface GetAuthNewCodeParams {

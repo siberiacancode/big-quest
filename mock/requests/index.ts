@@ -8,7 +8,7 @@ export * from './activity/public/get';
 export * from './address/get';
 export * from './auth/login/email/post';
 export * from './auth/new-code/get';
-export * from './category';
+export * from './category/get';
 export * from './changes/get';
 export * from './changes/post';
 export * from './legal-address/id/delete';

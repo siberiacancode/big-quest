@@ -2,9 +2,9 @@
   "theme.light": "Светлая",
   "theme.dark": "Темная",
 
-  "app.title": "Большой квест",
-  "app.error": "Что-то пошло не так",
-  "app.loading": "Пожалуйста подождите...",
+  "site.title": "Большой квест",
+  "site.error": "Что-то пошло не так",
+  "site.loading": "Пожалуйста подождите...",
 
   "partners.addresses.title": "Адреса",
   "partners.activities.title": "Активности",
@@ -24,6 +24,14 @@
   "auth.excursion.3.title": "Достигай целей и соревнуйся с другими!",
   "auth.excursion.3.description": "Пройди несколько активностей и занимай место в рейтинге лучших!",
 
+  "auth.login.title": "Добро пожаловать в Большой Квест!",
+
+  "app.profile.title": "Профиль",
+  "app.profile.passportId": "Паспорт ID",
+  "app.profile.userId": "user ID",
+  "app.profile.bumps": "Шишек опыта",
+  "app.profile.nuts": "Орешек",
+
   "common.rubles": "{amount}руб.",
 
   "button.add": "Добавить",
@@ -41,8 +49,6 @@
   "button.updateTariff": "Сменить тариф",
   "button.learnDetails": "Узнать подробности",
   "button.login": "Войти",
-  "button.registration": "Регистрация",
-  "button.entrance": "Вход",
   "button.registerOrganization": "Отправить заявку",
   "button.goToRegisterOrganization": "Оставить заявку",
   "button.organizationsEntrance": "Вход для организаций",
@@ -50,6 +56,8 @@
   "button.next": "Далее",
   "button.continue": "Продолжить",
   "button.skip": "Пропустить",
+  "button.getQR": "Получить новый QR",
+  "button.alreadyHaveQR": "У меня уже есть QR",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
@@ -125,11 +133,11 @@
   "partner.role.administrator": "Администратор",
   "partner.role.leading": "Ведущий",
   "partner.role.manager": "Менеджер",
-  "partner.scanner.qrCode": "Qr-код",
+  "partner.scanner.qrCode": "QR-код",
   "partner.scanner.scanner": "Сканер",
   "partner.scanner.pointCamera": "Наведите камеру на QR-код",
   "partner.scanner.camera": "Камера для сканирования",
-  "partner.menu.scanQrCode": "Сканирование QR",
+  "partner.menu.scanQRCode": "Сканирование QR",
   "partner.menu.notification": "Уведомление",
   "partner.menu.exit": "Выход",
 
@@ -177,6 +185,10 @@
   "field.periodMonth.placeholder": "Выбрать период",
   "field.totalPrice.label": "Итог ",
   "field.activitySearch.placeholder": "Поиск активности...",
+  "field.userId.label": "User ID",
+  "field.userId.placeholder": "@user ID",
+  "field.code.label": "Код",
+  "field.code.placeholder": "****",
 
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
@@ -222,6 +234,11 @@
   "navigation.link.org.mailing": "Рассылка",
   "navigation.link.org.news": "Новости",
   "navigation.link.org.profile": "Кабинет",
+
+  "navigation.link.app.activities": "Активности",
+  "navigation.link.app.rating": "Рейтинг",
+  "navigation.link.app.support": "Поддержка",
+  "navigation.link.app.profile": "Профиль",
 
   "radio.legalType.label": "Выберите форму сотрудничества",
   "radio.legalType.partner.label": "Партнер",
@@ -326,7 +343,7 @@
   "dialog.editOrganizationTariff.title": "Выбор тарифа",
   "dialog.editOrganizationTariff.freeActivities": "Бесплатные активности",
 
-  "dialog.scanQrCode.title": "QR-код партнера",
+  "dialog.scanQRCode.title": "QR-код партнера",
 
   "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
   "tooltip.kpp": "КПП - 9 цифр",

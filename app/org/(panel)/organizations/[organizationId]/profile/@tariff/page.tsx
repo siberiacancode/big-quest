@@ -36,9 +36,9 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
         <InfoCardTitle>
           <Typography variant='h5' tag='p'>
             <I18nText path='organization.profile.tariff.title' />{' '}
-            {getTariffByLegalEntityIdResponse.totalPrice !== '0' &&
+            {getTariffByLegalEntityIdResponse.totalPrice !== 0 &&
               getTariffByLegalEntityIdResponse.totalPrice}
-            {getTariffByLegalEntityIdResponse.totalPrice === '0' && (
+            {getTariffByLegalEntityIdResponse.totalPrice === 0 && (
               <I18nText path='organization.profile.tariff.free' />
             )}
           </Typography>

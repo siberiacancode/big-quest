@@ -1,3 +1,4 @@
+import type { AddressResponse } from '@/api-types';
 import { api } from '@/utils/api/instance';
 
 export interface DeleteLegalAddressByIdParams {
@@ -10,12 +11,6 @@ export const deleteLegalAddressById = async ({
   config
 }: DeleteLegalAddressByIdRequestConfig) =>
   api.delete<boolean>(`legal-address/${params.id}`, config);
-
-export type PutLegalAddressByIdParams = UpdateAddressDto;
-export type PutLegalAddressByIdRequestConfig = RequestConfig<PutLegalAddressByIdParams>;
-
-export const putLegalAddressById = async ({ params, config }: PutLegalAddressByIdRequestConfig) =>
-  api.put<AddressResponse>(`legal-address/${params.id}`, params, config);
 
 export interface GetLegalAddressByIdParams {
   id: string;

@@ -1,4 +1,5 @@
-import { api } from '../../instance';
+import type { ChangesResponse, CreateChangesDto } from '@/api-types';
+import { api } from '@/utils/api/instance';
 
 export interface GetChangesParams {
   current: number;
@@ -18,4 +19,4 @@ export type PostChangesParams = CreateChangesDto;
 export type PostChangesRequestConfig = RequestConfig<PostChangesParams>;
 
 export const postChanges = async ({ params, config }: PostChangesRequestConfig) =>
-  api.post<CreateChangesDto>('changes', params, config);
+  api.post<ChangesResponse>('changes', params, config);

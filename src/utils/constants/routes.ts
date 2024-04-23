@@ -32,6 +32,11 @@ export const ROUTES = {
     CITY: (cityId: string) => `/${cityId}`
   },
   APP: {
-    ACTIVITIES: '/app/activities'
+    ROOT: '/app',
+    PROFILE: '/app/profile',
+    SETTINGS: '/app/settings',
+    ACTIVITIES: '/app/activities',
+    RATING: '/app/rating',
+    SUPPORT: '/app/support'
   }
 };
