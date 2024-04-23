@@ -34,21 +34,21 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
   if (!getActivityPublicResponse.rows.length) return null;
 
   return (
-    <section id='activities' className='container mt-28'>
+    <section id='activities' className='container mt-[72px]'>
       <div className='flex items-center justify-between'>
         <Typography tag='h2' variant='h1' className='text-2xl md:text-[32px]'>
           <I18nText path='landing.activities.title' />
         </Typography>
 
         <Link href={ROUTES.LANDING.ROOT} className={buttonVariants({ variant: 'link' })}>
-          <Typography tag='p' variant='h6'>
+          <Typography tag='p' variant='body1'>
             <I18nText path='button.watchAll' />
           </Typography>
-          <ChevronRightIcon />
+          <ChevronRightIcon className='text-muted-foreground' />
         </Link>
       </div>
-      <div className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
-        {getActivityPublicResponse.rows.map((activity) => (
+      <div className='mt-[72px] flex flex-col items-center justify-center gap-10 lgx:w-full md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
+        {getActivityPublicResponse.rows.slice(0, 9).map((activity) => (
           <ActivityCard key={activity.id} {...activity} />
         ))}
       </div>

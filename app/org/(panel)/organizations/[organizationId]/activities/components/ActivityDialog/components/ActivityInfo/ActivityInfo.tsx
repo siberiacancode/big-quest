@@ -21,7 +21,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
         <div className='relative h-full'>
           <Image
             className='w-full rounded-lg sm:max-h-64 sm:w-[300px]'
-            src={activity.cover ?? background}
+            src={activity.media[0].url ?? background}
             fill
             object-fit='cover'
             alt={i18n.formatMessage({ id: `activity.image.alt` }, { name: activity.name })}
@@ -30,10 +30,10 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
         <div className='grid h-full grid-cols-2 grid-rows-2 gap-2'>
           {Array.from({ length: 4 }, (_, index) => (
             <div className='relative'>
-              {activity.content && activity.content[index] ? (
+              {activity.media && activity.media[index] ? (
                 <Image
                   className='max-h-[125px] w-full max-w-[150px] rounded-lg'
-                  src={activity.content[index]}
+                  src={activity.media[index].url}
                   fill
                   object-fit='cover'
                   alt={i18n.formatMessage({ id: `activity.image.alt` }, { name: activity.name })}
