@@ -25,32 +25,48 @@ export const FAQSection = ({ cityId }: FAQSectionProps) => {
   }));
 
   return (
-    <section className='container mt-28 w-full'>
-      <Typography tag='h2' variant='h1' className='text-center text-3xl lg:text-3xl'>
-        <I18nText path='landing.faq.title' />
-      </Typography>
-      <Accordion type='single' collapsible className='mt-8 w-full md:mt-16'>
-        {formattedFaq.map((item, index) => (
-          <AccordionItem
-            value={index.toString()}
-            className='mb-6 rounded-lg border-none bg-neutral-100 px-8'
-          >
-            <AccordionTrigger
-              className='py-4 md:py-8'
-              icon={<ChevronDown className='size-10 shrink-0 transition-transform duration-200' />}
+    <section className='bg-muted py-[72px] 2mdx:pt-0'>
+      <div className='container w-full'>
+        <Typography
+          tag='h3'
+          variant='h1'
+          className='flex-grow text-center mdx:text-3xl xsx:text-[21px]'
+        >
+          <I18nText path='landing.faq.title' />
+        </Typography>
+        <Accordion
+          type='single'
+          collapsible
+          className='mt-8 flex w-full flex-col gap-6 mdx:gap-3 md:mt-20'
+        >
+          {formattedFaq.map((item, index) => (
+            <AccordionItem
+              value={index.toString()}
+              className='h-fit rounded-3xl border-none bg-white px-10 py-8 mdx:py-6'
             >
-              <Typography tag='p' className='text-left text-lg font-normal md:text-2xl'>
-                {item.question}
-              </Typography>
-            </AccordionTrigger>
-            <AccordionContent>
-              <Typography tag='p' className='text-base font-normal md:text-xl'>
-                {item.answer}
-              </Typography>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+              <AccordionTrigger
+                className='p-0 hover:no-underline'
+                icon={
+                  <ChevronDown className='ml-4 size-10 shrink-0 text-taiga transition-transform duration-200' />
+                }
+              >
+                <Typography
+                  tag='p'
+                  variant='h4'
+                  className='text-left font-normal text-muted-foreground hover:font-medium hover:text-taiga mdx:text-lg'
+                >
+                  {item.question}
+                </Typography>
+              </AccordionTrigger>
+              <AccordionContent className='py-2'>
+                <Typography tag='p' className='text-base font-normal md:text-xl'>
+                  {item.answer}
+                </Typography>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
     </section>
   );
 };
