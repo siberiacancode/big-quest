@@ -10,7 +10,7 @@ export interface NewsCardProps {
 
 export const NewsCard = ({ description, title }: NewsCardProps) => (
   <div
-    className='relative ml-0 flex h-[650px] flex-grow flex-col justify-center rounded-[30px] px-12 3smx:h-[900px] 3smx:items-center 3smx:justify-between xsx:h-[480px]'
+    className='relative ml-0 flex h-[650px] flex-grow flex-col justify-center rounded-[30px] px-12 3smx:h-[650px] 3smx:items-center 3smx:justify-between 3smx:px-4 xsx:h-[480px]'
     style={{
       backgroundImage: 'url(/background/news.png)'
     }}
@@ -24,7 +24,7 @@ export const NewsCard = ({ description, title }: NewsCardProps) => (
       <Typography
         tag='h3'
         variant='h3'
-        className='rounded-[30px] bg-taiga-light px-6 py-4 text-[56px] font-bold leading-[70px] text-white xlx:text-[50px] lgx:text-4xl smx:text-xl'
+        className='w-full rounded-[30px] bg-taiga-light px-6 py-4 text-[56px] font-bold leading-[70px] text-white 2xlx:text-4xl 3smx:text-4xl smx:text-3xl xsx:text-xl'
       >
         {title}
       </Typography>

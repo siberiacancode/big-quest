@@ -19,7 +19,7 @@ const CAROUSEL_AUTO_PLAY_DELAY = 8000;
 export const NewsSection = () => (
   <section id='news' className='w-full bg-muted pt-14'>
     <Carousel
-      className='container relative w-full pl-0'
+      className='container relative  mx-auto w-full px-0 pl-0'
       opts={{
         loop: true,
         watchDrag: false
@@ -29,7 +29,7 @@ export const NewsSection = () => (
       <CarouselContent className='-ml-0'>
         {news.map((currentNews, index) => (
           <CarouselItem key={index} className='ml-0 flex justify-center bg-no-repeat'>
-            <div className='w-full'>
+            <div className='w-full 3mdx:w-[702px] 3smx:w-[500px] xsx:px-4 3md:w-[866px] 2xl:w-full '>
               <NewsCard {...currentNews} />
             </div>
           </CarouselItem>
