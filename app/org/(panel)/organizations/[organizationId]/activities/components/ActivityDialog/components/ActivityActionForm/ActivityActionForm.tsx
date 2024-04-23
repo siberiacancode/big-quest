@@ -223,13 +223,13 @@ export const ActivityActionForm = <ActionType extends Exclude<ActivityActionType
                             onValueChange={field.onChange}
                           >
                             {state.categoryValues &&
-                              state.categoryValues.map(({ category }) => (
+                              state.categoryValues.map((category) => (
                                 <DropdownMenuRadioItem
-                                  key={category}
+                                  key={category.name}
                                   className='cursor-pointer bg-background text-start'
-                                  value={category}
+                                  value={category.name}
                                 >
-                                  {category}
+                                  {category.name}
                                 </DropdownMenuRadioItem>
                               ))}
                           </DropdownMenuRadioGroup>
