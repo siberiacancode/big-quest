@@ -103,7 +103,7 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                         placeholder={i18n.formatMessage({ id: 'field.userId.placeholder' })}
                       />
                     </FormControl>
-                    <Typography variant='body3' tag='p' className='flex-1'>
+                    <Typography variant='body4' tag='p' className='text-muted-foreground'>
                       <I18nText path='app.profile.edit.userID.description' />
                     </Typography>
                     <FormMessage>

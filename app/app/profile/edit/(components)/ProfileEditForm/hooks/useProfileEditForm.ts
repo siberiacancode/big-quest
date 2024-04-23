@@ -25,11 +25,7 @@ export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
     }
   });
 
-  //   const organizationActionEmployeeMutation = useOrganizationActionEmployeeMutation();
-
-  const onSubmit = actionEmployeeForm.handleSubmit(async (values) => {
-    await console.log(values);
-  });
+  const onSubmit = actionEmployeeForm.handleSubmit(async () => {});
 
   return {
     state: {
