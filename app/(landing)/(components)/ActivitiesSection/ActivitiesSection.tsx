@@ -48,7 +48,7 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
         </Link>
       </div>
       <div className='mt-[72px] flex flex-col items-center justify-center gap-10 lgx:w-full md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
-        {getActivityPublicResponse.rows.slice(0, 9).map((activity) => (
+        {getActivityPublicResponse.rows.slice(0, 6).map((activity) => (
           <ActivityCard key={activity.id} {...activity} />
         ))}
       </div>

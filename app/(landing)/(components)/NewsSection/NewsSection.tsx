@@ -12,13 +12,18 @@ import {
   CarouselNext,
   CarouselPrevious
 } from '@/components/ui';
+import { cn } from '@/lib/utils';
 
 import { NewsCard } from './components/NewsCard/NewsCard';
 import { news } from './constants/news';
 
+interface NewsSectionProps {
+  isMobile: boolean;
+}
+
 const CAROUSEL_AUTO_PLAY_DELAY = 8000;
 
-export const NewsSection = () => (
+export const NewsSection = ({ isMobile }: NewsSectionProps) => (
   <section id='news' className='w-full bg-muted pt-14'>
     <Carousel
       className='container relative  mx-auto w-full px-0 pl-0'
@@ -37,13 +42,17 @@ export const NewsSection = () => (
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className='absolute -left-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100 lgx:size-10 2xl:-left-[5%] '>
-        {(disabled) => <ChevronLeftIcon color={disabled ? 'white' : 'black'} />}
-      </CarouselPrevious>
-      <CarouselNext className='absolute -right-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100 lgx:size-10 2xl:-right-[5%]'>
-        {(disabled) => <ChevronRightIcon color={disabled ? 'white' : 'black'} />}
-      </CarouselNext>
-      <CarouselDots className='bg-red mt-4' />
+
+      <span className={cn('2lgx:hidden', isMobile && 'hidden')}>
+        <CarouselPrevious className='absolute -left-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100 lgx:size-10 lg:left-8 2xl:-left-[5%]'>
+          {(disabled) => <ChevronLeftIcon color={disabled ? 'white' : 'black'} />}
+        </CarouselPrevious>
+        <CarouselNext className='absolute -right-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100 lgx:size-10 lg:right-8 2xl:-right-[5%]'>
+          {(disabled) => <ChevronRightIcon color={disabled ? 'white' : 'black'} />}
+        </CarouselNext>
+      </span>
+
+      <CarouselDots className={cn('mt-4 2lg:hidden', isMobile && 'block')} />
     </Carousel>
   </section>
 );
