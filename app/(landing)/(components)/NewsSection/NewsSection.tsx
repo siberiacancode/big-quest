@@ -1,11 +1,13 @@
 'use client';
 
+import React from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
 import {
   Carousel,
   CarouselContent,
+  CarouselDots,
   CarouselItem,
   CarouselNext,
   CarouselPrevious
@@ -41,8 +43,10 @@ export const NewsSection = () => (
       <CarouselNext className='absolute -right-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100 lgx:size-10 2xl:-right-[5%]'>
         {(disabled) => <ChevronRightIcon color={disabled ? 'white' : 'black'} />}
       </CarouselNext>
+      <CarouselDots className='bg-red mt-4' />
     </Carousel>
   </section>
 );
+
 // заменять карусель при меньше 1400px куржочками
 // с 900 сделать мобилку, т.е. сначала image мальчика потом ниж
