@@ -14,7 +14,7 @@ const AppProfilePage = () => (
       <Typography>
         <I18nText path='app.profile.title' />
       </Typography>
-      <Link href={ROUTES.APP.SETTINGS}>
+      <Link href={ROUTES.APP.PROFILE.SETTINGS}>
         <SettingsIcon />
       </Link>
     </div>

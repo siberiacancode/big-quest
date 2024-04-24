@@ -1,8 +1,8 @@
 'use client';
 
 import { ChevronLeftIcon } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 
+import { BackButton } from '@/components/buttons';
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -22,21 +22,14 @@ import { useLoginStep } from './hooks/useLoginStep';
 
 export const LoginStep = () => {
   const i18n = useI18n();
-  const router = useRouter();
-
   const { state, form, functions } = useLoginStep();
 
   return (
     <div className='flex min-h-screen md:items-center md:justify-center'>
       <div className='mx-auto max-w-lg px-4 py-[40px]'>
-        <Button
-          variant='outline'
-          size='icon'
-          className='absolute left-4 top-8 lg:hidden'
-          onClick={() => router.back()}
-        >
+        <BackButton variant='outline' size='icon' className='absolute left-4 top-8 lg:hidden'>
           <ChevronLeftIcon />
-        </Button>
+        </BackButton>
         <Typography variant='h4' className='mx-auto w-[70%] text-center font-semibold'>
           <I18nText path='auth.login.title' />
         </Typography>

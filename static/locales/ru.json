@@ -32,6 +32,13 @@
   "app.profile.bumps": "Шишек опыта",
   "app.profile.nuts": "Орешек",
 
+  "app.profile.settings.title": "Настройки",
+  "app.profile.settings.location": "Местоположение",
+  "app.profile.settings.app": "Приложение",
+  "app.profile.settings.opekun": "Я родитель (опекун)",
+  "app.profile.settings.theme": "Темная тема",
+  "app.profile.settings.additionalQR": "Дополнительные QR",
+
   "common.rubles": "{amount}руб.",
 
   "button.add": "Добавить",
@@ -58,6 +65,8 @@
   "button.skip": "Пропустить",
   "button.getQR": "Получить новый QR",
   "button.alreadyHaveQR": "У меня уже есть QR",
+  "button.logout": "Выйти",
+  "button.addQR": "Добавить новый QR",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",

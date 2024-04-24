@@ -20,7 +20,7 @@ export const useLoginStep = () => {
   const onSubmit = loginForm.handleSubmit(() => {
     // TODO make request
 
-    router.replace(ROUTES.APP.PROFILE);
+    router.replace(ROUTES.APP.PROFILE.ROOT);
   });
 
   return {

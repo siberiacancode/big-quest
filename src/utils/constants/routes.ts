@@ -33,8 +33,11 @@ export const ROUTES = {
   },
   APP: {
     ROOT: '/app',
-    PROFILE: '/app/profile',
-    SETTINGS: '/app/settings',
+    PROFILE: {
+      ROOT: '/app/profile',
+      SETTINGS: '/app/profile/settings',
+      EDIT: '/app/profile/edit'
+    },
     ACTIVITIES: '/app/activities',
     RATING: '/app/rating',
     SUPPORT: '/app/support'
