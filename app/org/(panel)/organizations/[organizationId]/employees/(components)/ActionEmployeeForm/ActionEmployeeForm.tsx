@@ -50,8 +50,8 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
                     value={employee.image}
                     onChange={functions.onDeletePreviewClick}
                     className='h-32 w-32'
+                    mobileVersion
                   />
-                  <Typography variant='sub2'>{employee.image.split('/').at(-1)}</Typography>
                 </div>
               )}
               {!state.showPreview && (
