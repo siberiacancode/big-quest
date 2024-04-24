@@ -237,10 +237,10 @@ type MediaType = 'IMAGE' | 'VIDEO';
 type MediaFlag = 'AVATAR' | 'COVER' | null;
 
 interface MediaDto {
-  id: 'string';
+  id: string;
   type: MediaType;
   flag: MediaFlag;
-  url: 'string';
+  url: string;
 }
 
 interface ActivityResponse {

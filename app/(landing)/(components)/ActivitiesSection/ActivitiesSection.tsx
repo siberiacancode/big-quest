@@ -47,7 +47,7 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
           <ChevronRightIcon className='text-muted-foreground' />
         </Link>
       </div>
-      <div className='mt-[72px] flex flex-col items-center justify-center gap-10 lgx:w-full md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
+      <div className='mt-[72px] grid grid-cols-3 gap-x-10 gap-y-12 2lgx:gap-x-5 lgx:w-full 2mdx:mt-10 mdx:grid-cols-2 3smx:gap-x-2 3smx:gap-y-5 md:justify-between'>
         {getActivityPublicResponse.rows.slice(0, 6).map((activity) => (
           <ActivityCard key={activity.id} {...activity} />
         ))}
