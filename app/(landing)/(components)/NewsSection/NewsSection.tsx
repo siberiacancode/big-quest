@@ -56,6 +56,3 @@ export const NewsSection = ({ isMobile }: NewsSectionProps) => (
     </Carousel>
   </section>
 );
-
-// заменять карусель при меньше 1400px куржочками
-// с 900 сделать мобилку, т.е. сначала image мальчика потом ниж
