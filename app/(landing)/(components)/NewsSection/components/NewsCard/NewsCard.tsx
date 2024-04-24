@@ -1,47 +1,44 @@
-import Image from 'next/image';
-
-import portrait from '@/assets/images/landing/news/portrait.png';
 import { Typography } from '@/components/ui';
+import { cn } from '@/lib/utils';
 
 export interface NewsCardProps {
+  image: string;
+  left: boolean;
   title: string;
   description: string;
 }
 
-export const NewsCard = ({ description, title }: NewsCardProps) => (
+export const NewsCard = ({ image, description, title, left }: NewsCardProps) => (
   <div
-    className='relative ml-0 flex h-[650px] flex-grow flex-col justify-center rounded-[30px] px-12 3smx:h-[650px] 3smx:items-center 3smx:justify-between 3smx:px-4 xsx:h-[480px]'
+    className='relative ml-0 flex flex-grow flex-col justify-center overflow-hidden rounded-[30px] 3smx:px-4'
     style={{
-      backgroundImage: 'url(/background/news.png)'
+      backgroundImage: `url(/background/news/${image})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      paddingTop: '47.2%'
     }}
   >
-    <Image
-      src={portrait}
-      alt='portrait'
-      className='z-3 absolute bottom-0 right-0 h-full rounded-r-[30px] 2mdx:size-2/3 3smx:hidden'
-    />
-    <div className='z-5 absolute w-[60%] max-w-[707px] xlx:w-[50%] lgx:w-[45%] 3smx:relative 3smx:w-full 3smx:pt-8 3smx:text-center'>
+    <div
+      className={cn(
+        'absolute top-[30%] flex w-[56%] max-w-[707px] flex-col gap-8 2lgx:gap-4 lgx:w-[55%] 2mdx:w-[50%] mdx:w-[55%] mdx:gap-2',
+        left && 'left-[5%]',
+        !left && 'right-[5%] top-[35%] max-w-[46%] items-end text-right'
+      )}
+    >
       <Typography
         tag='h3'
         variant='h3'
-        className='w-full rounded-[30px] bg-taiga-light px-6 py-4 text-[56px] font-bold leading-[70px] text-white 2xlx:text-4xl 3smx:text-4xl smx:text-3xl xsx:text-xl'
+        className='w-full whitespace-pre-wrap rounded-[30px] text-[56px] font-bold leading-[70px] text-taiga-light 2xlx:text-4xl 2mdx:text-3xl smx:text-2xl 2xsx:text-xl xsx:text-base xxsx:text-sm'
       >
         {title}
       </Typography>
       <Typography
         tag='p'
         variant='h4'
-        className='ml-6 mt-8 max-w-[578px] font-normal text-gray-two'
+        className='max-w-[80%] whitespace-pre-wrap font-normal text-gray-two xxlx:text-xl 2lgx:text-lg 3mdx:text-sm 2mdx:max-w-[90%] 3smx:hidden'
       >
         {description}
       </Typography>
     </div>
-    <Image
-      src={portrait}
-      alt='portrait'
-      className='absolute bottom-0 right-0 w-full rounded-r-[30px] 3sm:hidden'
-    />
   </div>
 );
-// поменять цвет зеленый
-// доделать адаптив мобилки

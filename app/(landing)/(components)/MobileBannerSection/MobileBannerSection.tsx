@@ -13,9 +13,13 @@ import { ROUTES } from '@/utils/constants';
 export const MobileBannerSection = () => (
   <section id='banner' className='container flex h-screen overflow-x-hidden px-5 pb-10'>
     <div className='flex w-full flex-col items-center justify-center'>
-      <Image src={bannerImage} alt='info image' className='w-[46rem]' />
+      <Image
+        src={bannerImage}
+        alt='info image'
+        className='w-[46rem] mdx:w-[90%] mdx:max-w-[30rem]'
+      />
 
-      <div className='mt-5 flex flex-col items-center justify-center gap-4 px-8 text-center'>
+      <div className='mt-5 flex flex-col items-center justify-center gap-4 text-center'>
         <Typography tag='h2' variant='h4' className='font-medium'>
           <I18nText path='landing.info.title' />
         </Typography>

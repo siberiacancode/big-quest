@@ -11,13 +11,14 @@ import { cn } from '@/lib/utils';
 import { ROUTES } from '@/utils/constants';
 
 export const DesktopBannerSection = () => (
-  <section
-    id='banner'
-    className='container relative flex mdx:h-screen mdx:overflow-x-hidden mdx:px-5 mdx:pb-10'
-  >
-    <div className='flex w-full flex-col-reverse items-center px-2 mdx:flex-col mdx:justify-center mdx:px-0 md:flex-row'>
-      <Image src={bannerImage} alt='info image' className='w-[46rem] md:hidden' />
-      <div className='mb-[365px] mt-[200px] flex w-1/2 max-w-[664px] flex-col gap-2 2xlx:mb-[240px] 2xlx:mt-[100px] xlx:max-w-[500px] mdx:mt-5 mdx:w-full mdx:justify-center mdx:gap-4 mdx:px-8 mdx:text-center'>
+  <section id='banner' className='container relative flex mdx:overflow-x-hidden mdx:px-5 mdx:pb-10'>
+    <div className='flex w-full flex-col-reverse items-center px-2 mdx:flex-col mdx:px-0 md:flex-row'>
+      <Image
+        src={bannerImage}
+        alt='info image'
+        className='w-[46rem] mdx:w-[90%] mdx:max-w-[30rem] md:hidden'
+      />
+      <div className='mb-16 mt-[200px] flex w-1/2 max-w-[664px] flex-col gap-2 2xlx:mt-[100px] xlx:max-w-[500px] mdx:mt-5 mdx:w-full mdx:justify-center mdx:gap-4 mdx:text-center 3sm:mb-[240px] 2xl:mb-[365px]'>
         <div className='flex flex-col gap-6 mdx:gap-4'>
           <Typography
             tag='h1'

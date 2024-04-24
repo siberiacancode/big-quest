@@ -17,6 +17,7 @@ const config = {
     screens: {
       '4xlx': { max: '2560px' },
       '3xlx': { max: '1750px' },
+      xxlx: { max: '1500px' },
       '2xlx': { max: '1400px' },
       xlx: { max: '1280px' },
       '2lgx': { max: '1124px' },
@@ -43,6 +44,7 @@ const config = {
       '2lg': { min: '1124px' },
       xl: { min: '1280px' },
       '2xl': { min: '1400px' },
+      xxl: { min: '1500px' },
       '3xl': { min: '1750px' },
       '4xl': { min: '2560px' }
     },

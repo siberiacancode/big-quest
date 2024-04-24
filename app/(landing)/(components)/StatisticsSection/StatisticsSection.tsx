@@ -11,7 +11,7 @@ export const StatisticsSection = () => (
         <Typography
           tag='h3'
           variant='h3'
-          className='text-5xl font-bold text-taiga-light 3mdx:text-[40px] '
+          className='text-5xl font-bold text-taiga-light 3mdx:text-[40px]'
         >
           3000
         </Typography>
@@ -31,7 +31,7 @@ export const StatisticsSection = () => (
         <Typography
           tag='h3'
           variant='h3'
-          className='text-5xl font-bold text-taiga-light 3mdx:text-[40px] '
+          className='text-5xl font-bold text-taiga-light 3mdx:text-[40px]'
         >
           200
         </Typography>
