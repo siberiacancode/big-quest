@@ -9,7 +9,7 @@ import { ROUTES } from '@/utils/constants';
 import { ProfileEditForm } from './(components)/ProfileEditForm/ProfileEditForm';
 
 const ProfileEditPage = async () => {
-  const getUserProfileResponse = await getUserProfile();
+  const getUserProfileResponse = await getUserProfile({ config: { cache: 'no-store' } });
 
   return (
     <div className='px-5 py-9'>

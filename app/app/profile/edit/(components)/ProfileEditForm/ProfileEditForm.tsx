@@ -92,97 +92,102 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                   }}
                 />
               )}
-              <FormField
-                control={form.control}
-                name='surname'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      <I18nText path='field.surname.label' />
-                    </FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage>
-                      {form.formState?.errors?.surname && (
-                        <I18nText path={form.formState.errors.surname.message as LocaleMessageId} />
-                      )}
-                    </FormMessage>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name='name'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      <I18nText path='field.name.label' />
-                    </FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage>
-                      {form.formState?.errors?.name && (
-                        <I18nText path={form.formState.errors.name.message as LocaleMessageId} />
-                      )}
-                    </FormMessage>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name='birthdate'
-                render={({ field }) => (
-                  <FormItem className='flex flex-col'>
-                    <FormLabel>
-                      <I18nText path='field.birthdate.label' />
-                    </FormLabel>
-                    <FormControl>
-                      <DatePicker {...field} classname='w-full' />
-                    </FormControl>
-                    <FormMessage>
-                      {form.formState?.errors?.birthdate && (
-                        <I18nText
-                          path={form.formState.errors.birthdate.message as LocaleMessageId}
-                        />
-                      )}
-                    </FormMessage>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name='userID'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      <I18nText path='field.userId.label' />
-                    </FormLabel>
-                    <div className='relative'>
+              <div className='space-y-5'>
+                <FormField
+                  control={form.control}
+                  name='surname'
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>
+                        <I18nText path='field.surname.label' />
+                      </FormLabel>
                       <FormControl>
-                        <Input
-                          {...field}
-                          placeholder={i18n.formatMessage({ id: 'field.userId.placeholder' })}
-                        />
+                        <Input {...field} />
                       </FormControl>
-                      <CopyToClipboardButton value={form.getValues('userID')} />
-                    </div>
-                    <Typography variant='body4' tag='p' className='text-muted-foreground'>
-                      <I18nText path='app.profile.edit.userID.description' />
-                    </Typography>
-
-                    <FormMessage>
-                      {form.formState?.errors?.userID && (
-                        <I18nText path={form.formState.errors.userID.message as LocaleMessageId} />
-                      )}
-                    </FormMessage>
-                  </FormItem>
-                )}
-              />
-              <div>
-                <I18nText path='field.code.label' />
-                <Typography>1822</Typography>
+                      <FormMessage>
+                        {form.formState?.errors?.surname && (
+                          <I18nText
+                            path={form.formState.errors.surname.message as LocaleMessageId}
+                          />
+                        )}
+                      </FormMessage>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name='name'
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>
+                        <I18nText path='field.name.label' />
+                      </FormLabel>
+                      <FormControl>
+                        <Input {...field} />
+                      </FormControl>
+                      <FormMessage>
+                        {form.formState?.errors?.name && (
+                          <I18nText path={form.formState.errors.name.message as LocaleMessageId} />
+                        )}
+                      </FormMessage>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name='birthdate'
+                  render={({ field }) => (
+                    <FormItem className='flex flex-col'>
+                      <FormLabel>
+                        <I18nText path='field.birthdate.label' />
+                      </FormLabel>
+                      <FormControl>
+                        <DatePicker {...field} classname='w-full' />
+                      </FormControl>
+                      <FormMessage>
+                        {form.formState?.errors?.birthdate && (
+                          <I18nText
+                            path={form.formState.errors.birthdate.message as LocaleMessageId}
+                          />
+                        )}
+                      </FormMessage>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name='userID'
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>
+                        <I18nText path='field.userId.label' />
+                      </FormLabel>
+                      <div className='relative'>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder={i18n.formatMessage({ id: 'field.userId.placeholder' })}
+                          />
+                        </FormControl>
+                        <CopyToClipboardButton value={form.getValues('userID')} />
+                      </div>
+                      <Typography variant='body4' tag='p' className='text-muted-foreground'>
+                        <I18nText path='app.profile.edit.userID.description' />
+                      </Typography>
+                      <FormMessage>
+                        {form.formState?.errors?.userID && (
+                          <I18nText
+                            path={form.formState.errors.userID.message as LocaleMessageId}
+                          />
+                        )}
+                      </FormMessage>
+                    </FormItem>
+                  )}
+                />
+                <div>
+                  <I18nText path='field.code.label' />
+                  <Typography>1822</Typography>
+                </div>
               </div>
             </div>
           </div>
