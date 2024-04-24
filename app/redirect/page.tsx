@@ -5,10 +5,8 @@ import { Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
 
 interface RedirectPageProps {
-  searchParams: { to?: RedirectTo };
+  searchParams: { to?: 'excursion' | 'login' };
 }
-
-type RedirectTo = 'excursion' | 'login';
 
 const RedirectPage = ({ searchParams }: RedirectPageProps) => {
   const headersList = headers();
