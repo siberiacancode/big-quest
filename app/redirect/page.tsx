@@ -19,8 +19,8 @@ const RedirectPage = ({ searchParams }: RedirectPageProps) => {
         href={ROUTES.LANDING.ROOT}
         className='absolute left-1/2 top-[72px] -translate-x-1/2 fill-taiga'
       />
-      <div className='container mt-[140px] flex max-w-[863px] justify-between gap-[47px] mdx:gap-5'>
-        <div>
+      <div className='container mb-8 mt-[140px] flex max-w-[763px] items-center justify-between gap-[47px] mdx:flex-col mdx:gap-5'>
+        <div className='mdx:text-center'>
           <Typography variant='h1'>
             <I18nText path='redirect.title' />
           </Typography>
@@ -28,7 +28,7 @@ const RedirectPage = ({ searchParams }: RedirectPageProps) => {
             <I18nText path='redirect.description' />
           </Typography>
         </div>
-        <div className='max-h-[300px] w-full max-w-[300px] overflow-hidden rounded-xl'>
+        <div className='max-h-[272px] w-full max-w-[272px] overflow-hidden rounded-xl'>
           <QRCode
             text={`${host}${ROUTES.AUTH}?step=${redirectTo}`}
             options={{
