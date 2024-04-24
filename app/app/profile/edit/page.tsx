@@ -1,17 +1,15 @@
-'use client';
-
 import { ChevronLeftIcon } from 'lucide-react';
 import Link from 'next/link';
 
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
+import { getUserProfile } from '@/utils/api';
 import { ROUTES } from '@/utils/constants';
 
-import { getUserProfile } from './(components)/ProfileEditForm/constants/getUserProfile';
 import { ProfileEditForm } from './(components)/ProfileEditForm/ProfileEditForm';
 
-const ProfileEditPage = () => {
-  const getUserProfileResponse = getUserProfile;
+const ProfileEditPage = async () => {
+  const getUserProfileResponse = await getUserProfile();
 
   return (
     <div className='px-5 py-9'>
