@@ -10,6 +10,9 @@
   "partners.activities.title": "Активности",
   "partners.employees.title": "Сотрудники",
 
+  "redirect.title": "Перейдите на мобильную версию",
+  "redirect.description": "Для дальнейшего пользования приложением, откройте страницу в телефоне",
+
   "org.auth.title": "Вход в личный кабинет",
   "org.auth.rememberMe": "Запомнить меня",
   "org.auth.footer.siteRules": "Правила пользования сайтом",
@@ -58,6 +61,7 @@
   "button.skip": "Пропустить",
   "button.getQR": "Получить новый QR",
   "button.alreadyHaveQR": "У меня уже есть QR",
+  "button.haveNotUserId": "У меня нет User ID",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",

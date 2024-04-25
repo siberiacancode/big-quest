@@ -1,5 +1,5 @@
 export const ROUTES = {
-  REGISTER: '/register',
+  REDIRECT: '/redirect',
   AUTH: '/auth',
   ORG: {
     AUTH: '/org/auth',

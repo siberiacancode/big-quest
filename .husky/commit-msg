@@ -7,7 +7,7 @@ message=$(cat "$1")
 if [ -f .emoji ]; then
   emoji=$(cat .emoji)
 
-  if echo "$message" | (! grep -q "^Merge branch*") && echo "$message" | (! grep -q "^${branch} ${emoji}*"); then
+  if echo "$message" | (! grep -q "^Merge*") && echo "$message" | (! grep -q "^${branch} ${emoji}*"); then
     echo "$branch $emoji $message" > "$1"
   fi
 else 

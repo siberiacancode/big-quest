@@ -4,10 +4,12 @@ import { useRouter } from 'next/navigation';
 
 import { ROUTES } from '@/utils/constants';
 
+import { useWizard } from '../../../(contexts)';
 import { type LoginSchema, loginSchema } from '../constants/loginSchema';
 
 export const useLoginStep = () => {
   const router = useRouter();
+  const { setStepId } = useWizard();
 
   const loginForm = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
@@ -23,11 +25,13 @@ export const useLoginStep = () => {
     router.replace(ROUTES.APP.PROFILE);
   });
 
+  const onRegisterClick = () => setStepId('excursion');
+
   return {
     state: {
       isLoading: loginForm.formState.isSubmitting
     },
     form: loginForm,
-    functions: { onSubmit }
+    functions: { onRegisterClick, onSubmit }
   };
 };
