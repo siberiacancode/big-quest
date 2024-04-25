@@ -24,7 +24,7 @@ import type { UserData } from '../../(constants)/types';
 import { useProfileEditForm } from './hooks/useProfileEditForm';
 
 interface ProfileEditFormProps {
-  user?: UserData;
+  user: UserData;
 }
 
 export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
