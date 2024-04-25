@@ -5,7 +5,7 @@ import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 
 export const StatisticsSection = () => (
-  <section className='w-full bg-muted pb-[61px] pt-12'>
+  <section className='w-full bg-muted pb-[61px] pt-12 xxsx:pt-10'>
     <div className='container flex w-full flex-wrap justify-center gap-10 px-0 3mdx:gap-4 3smx:px-4'>
       <div className='relative flex h-[265px] w-full flex-col justify-between rounded-[30px] bg-white px-8 py-7 3mdx:h-[187px] 3mdx:w-[343px] 2xsx:w-full 2xs:max-w-[245px] 3sm:max-w-[413px]'>
         <Typography
@@ -17,7 +17,7 @@ export const StatisticsSection = () => (
         </Typography>
         <Typography
           variant='h4'
-          className='max-w-[154px] font-normal text-gray-two 3mdx:text-xl 3smx:max-w-none'
+          className='max-w-[154px] font-normal text-gray-two 3mdx:text-xl 3smx:max-w-none xxsx:text-lg'
         >
           <I18nText path='landing.statistics.participants' />
         </Typography>
@@ -37,7 +37,7 @@ export const StatisticsSection = () => (
         </Typography>
         <Typography
           variant='h4'
-          className='max-w-[154px] font-normal text-gray-two 3mdx:text-xl 3smx:max-w-none'
+          className='max-w-[154px] font-normal text-gray-two 3mdx:text-xl 3smx:max-w-none xxsx:text-lg'
         >
           <I18nText path='landing.statistics.activities' />
         </Typography>

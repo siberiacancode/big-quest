@@ -6,22 +6,26 @@ import { RegisterOrganizationDialog } from '@/components/dialogs';
 import { Button, Typography } from '@/components/ui';
 
 export const LeaveRequestSection = () => (
-  <section className='relative mb-[67px] mt-[60px]'>
-    <div className='container flex justify-between gap-3 mdx:flex-col-reverse'>
-      <div className='flex flex-col gap-3 py-20 mdx:py-10'>
-        <Typography tag='h2' variant='h1' className='text-3xl xs:text-4xl'>
+  <section className='relative mb-[67px] mt-[60px] '>
+    <div className='container flex justify-between gap-3 mdx:flex-col-reverse xxsx:gap-1'>
+      <div className='flex flex-col gap-3 py-20 mdx:py-10 xxsx:gap-1  xxsx:py-3'>
+        <Typography tag='h2' variant='h1' className='text-3xl xxsx:text-2xl xs:text-4xl'>
           <I18nText path='landing.leaveRequest.title' />
         </Typography>
-        <Typography tag='h2' variant='h1' className='text-3xl text-taiga lg:text-4xl'>
-          <I18nText path='landing.leaveRequest.subtitle' />
+        <Typography tag='h2' variant='h1' className='text-3xl text-taiga xxsx:text-2xl lg:text-4xl'>
+          <I18nText path='landing.leaveRequest.subtitle' />!
         </Typography>
 
-        <Typography tag='p' variant='body1' className='mt-3 text-xl'>
+        <Typography tag='p' variant='body1' className='mt-3 text-xl xxsx:text-lg'>
           <I18nText path='landing.leaveRequest.description' />
         </Typography>
         <RegisterOrganizationDialog
           trigger={
-            <Button size='lg' variant='primary' className='mt-10 w-full px-[72px] md:w-fit'>
+            <Button
+              size='lg'
+              variant='primary'
+              className='mt-10 w-full px-[72px] xxsx:mt-5 md:w-fit'
+            >
               <Typography variant='h6' className='text-white'>
                 <I18nText path='button.goToRegisterOrganization' />
               </Typography>

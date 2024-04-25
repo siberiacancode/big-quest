@@ -10,7 +10,7 @@ export interface NewsCardProps {
 
 export const NewsCard = ({ image, description, title, left }: NewsCardProps) => (
   <div
-    className='relative ml-0 flex flex-grow flex-col justify-center overflow-hidden rounded-[30px] 3smx:px-4'
+    className='relative ml-0 flex flex-grow flex-col justify-center overflow-hidden rounded-[30px] 3smx:px-4 2smx:rounded-[16px]'
     style={{
       backgroundImage: `url(/background/news/${image})`,
       backgroundSize: 'cover',

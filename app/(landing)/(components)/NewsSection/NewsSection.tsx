@@ -24,7 +24,7 @@ interface NewsSectionProps {
 const CAROUSEL_AUTO_PLAY_DELAY = 8000;
 
 export const NewsSection = ({ isMobile }: NewsSectionProps) => (
-  <section id='news' className='w-full bg-muted pt-14'>
+  <section id='news' className='w-full bg-muted pt-14 xxsx:pt-6'>
     <Carousel
       className='container mx-auto w-full px-0 pl-0'
       opts={{

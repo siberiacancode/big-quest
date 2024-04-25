@@ -34,20 +34,20 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
   if (!getActivityPublicResponse.rows.length) return null;
 
   return (
-    <section id='activities' className='container mt-[72px]'>
+    <section id='activities' className='container mt-[72px] xxsx:mt-12'>
       <div className='flex items-center justify-between'>
-        <Typography tag='h2' variant='h1' className='text-2xl md:text-[32px]'>
+        <Typography tag='h2' variant='h1' className='text-[36px] mdx:text-3xl xxsx:text-[21px]'>
           <I18nText path='landing.activities.title' />
         </Typography>
 
         <Link href={ROUTES.LANDING.ROOT} className={buttonVariants({ variant: 'link' })}>
-          <Typography tag='p' variant='body1'>
+          <Typography tag='p' variant='body1' className='py-0 xxsx:text-base'>
             <I18nText path='button.watchAll' />
           </Typography>
           <ChevronRightIcon className='text-muted-foreground' />
         </Link>
       </div>
-      <div className='mt-[72px] grid grid-cols-3 gap-x-10 gap-y-12 2lgx:gap-x-5 lgx:w-full 2mdx:mt-10 mdx:grid-cols-2 3smx:gap-x-2 3smx:gap-y-5 md:justify-between'>
+      <div className='mt-[72px] grid grid-cols-3 gap-x-10 gap-y-12 2lgx:gap-x-5 lgx:w-full 2mdx:mt-10 mdx:grid-cols-2 3smx:gap-x-2 3smx:gap-y-5 xxsx:mt-10 md:justify-between'>
         {getActivityPublicResponse.rows.slice(0, 6).map((activity) => (
           <ActivityCard key={activity.id} {...activity} />
         ))}

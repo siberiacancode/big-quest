@@ -12,18 +12,18 @@ import { ROUTES } from '@/utils/constants';
 
 export const MobileBannerSection = () => (
   <section id='banner' className='container flex h-screen overflow-x-hidden px-5 pb-10'>
-    <div className='flex w-full flex-col items-center justify-center'>
+    <div className='flex w-full flex-col items-center'>
       <Image
         src={bannerImage}
         alt='info image'
-        className='w-[46rem] mdx:w-[90%] mdx:max-w-[30rem]'
+        className='w-[46rem] mdx:w-[90%] mdx:max-w-[30rem] xxsx:size-[260px]'
       />
 
-      <div className='mt-5 flex flex-col items-center justify-center gap-4 text-center'>
+      <div className='mt-5 flex flex-col items-center justify-center gap-4 text-center xxsx:gap-0'>
         <Typography tag='h2' variant='h4' className='font-medium'>
           <I18nText path='landing.info.title' />
         </Typography>
-        <Typography tag='h2' variant='body1'>
+        <Typography tag='h2' variant='body1' className='xxsx:text-sm'>
           <I18nText path='landing.info.subtitle' />
         </Typography>
       </div>
@@ -32,7 +32,7 @@ export const MobileBannerSection = () => (
         <Link
           href={{
             pathname: ROUTES.AUTH,
-            query: { step: 'excursion' }
+            query: { step: 'login' }
           }}
           className={cn(buttonVariants({ size: 'lg', variant: 'primary' }), 'w-[300px] mdx:w-full')}
         >
@@ -42,7 +42,7 @@ export const MobileBannerSection = () => (
           <Link
             href={{
               pathname: ROUTES.AUTH,
-              query: { step: 'login' }
+              query: { step: 'excursion' }
             }}
             className={cn(buttonVariants({ size: 'lg', variant: 'white' }), 'w-full ')}
           >

@@ -28,7 +28,7 @@ export const ActivitiesMapSection = async ({ cityId }: ActivitiesMapSectionProps
   if (!getActivityPublicResponse.rows.length) return null;
 
   return (
-    <section className='container my-[72px] min-h-[650px] px-0'>
+    <section className='container my-[72px] min-h-[650px] px-0 xxsx:my-12 xxsx:min-h-[300px]'>
       <ActivitiesMap cityId={cityId} activities={getActivityPublicResponse.rows} />
     </section>
   );

@@ -16,9 +16,9 @@ export const DesktopBannerSection = () => (
       <Image
         src={bannerImage}
         alt='info image'
-        className='w-[46rem] mdx:w-[90%] mdx:max-w-[30rem] md:hidden'
+        className='w-[46rem] mdx:w-[90%] mdx:max-w-[30rem] xxsx:size-[260px] md:hidden'
       />
-      <div className='mb-16 mt-[200px] flex w-1/2 max-w-[664px] flex-col gap-2 2xlx:mt-[100px] xlx:max-w-[500px] mdx:mt-5 mdx:w-full mdx:justify-center mdx:gap-4 mdx:text-center 3sm:mb-[240px] 2xl:mb-[365px]'>
+      <div className='mb-16 mt-[200px] flex w-1/2 max-w-[664px] flex-col gap-2 2xlx:mt-[100px] xlx:max-w-[500px] mdx:mt-5 mdx:w-full mdx:justify-center mdx:gap-4 mdx:text-center xxsx:mb-8 xxsx:gap-0 3sm:mb-[240px] 2xl:mb-[365px]'>
         <div className='flex flex-col gap-6 mdx:gap-4'>
           <Typography
             tag='h1'
@@ -31,7 +31,7 @@ export const DesktopBannerSection = () => (
           <Typography
             tag='p'
             variant='body1'
-            className='text-wrap text-2xl	2lgx:text-xl mdx:text-lg'
+            className='text-wrap text-2xl	2lgx:text-xl mdx:text-lg xxsx:text-sm'
           >
             <I18nText path='landing.info.subtitle' />
           </Typography>
@@ -40,7 +40,7 @@ export const DesktopBannerSection = () => (
           <Link
             href={{
               pathname: ROUTES.AUTH,
-              query: { step: 'excursion' }
+              query: { step: 'login' }
             }}
             className={cn(
               buttonVariants({ size: 'lg', variant: 'primary' }),
@@ -53,7 +53,7 @@ export const DesktopBannerSection = () => (
             <Link
               href={{
                 pathname: ROUTES.AUTH,
-                query: { step: 'login' }
+                query: { step: 'excursion' }
               }}
               className={cn(buttonVariants({ size: 'lg', variant: 'white' }), 'w-full')}
             >

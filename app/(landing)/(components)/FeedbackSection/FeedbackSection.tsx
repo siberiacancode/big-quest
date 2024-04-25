@@ -12,17 +12,17 @@ import { CommentCard } from './components/CommentCard/CommentCard';
 import { comments } from './constants/comments';
 
 export const FeedbackSection = () => (
-  <section id='feedback' className='w-full bg-muted py-[72px]'>
+  <section id='feedback' className='w-full bg-muted py-[72px] xxsx:py-12 xxsx:pb-0 '>
     <Carousel className='container'>
       <div className='flex items-center justify-between'>
         <Typography
           tag='h3'
           variant='h1'
-          className='flex-grow pl-16 text-center mdx:text-3xl xsx:text-[21px]'
+          className='flex-grow pl-16 text-center mdx:text-3xl xsx:text-[21px] xxsx:pl-0'
         >
           <I18nText path='landing.feedback.title' />
         </Typography>
-        <div className='pr-3'>
+        <div className='w-fit pr-3'>
           <CarouselPrevious
             variant='ghost'
             className='static right-0 top-0 translate-y-0 border-none hover:bg-white'
