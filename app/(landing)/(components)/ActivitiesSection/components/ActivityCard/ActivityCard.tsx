@@ -28,13 +28,15 @@ export const ActivityCard = ({ media, category, ageLimit, duration, name }: Acti
     <div className='flex w-full max-w-[413px] flex-col gap-4 lgx:max-w-[500px] 2xsx:gap-2'>
       <div className='relative w-full'>
         {activityMedia && (
-          <Image
-            src={activityMedia.url}
-            alt={name}
-            sizes='auto'
-            className='w-full rounded-[30px] object-cover 2xsx:rounded-[8px]'
-            fill
-          />
+          <div className='pt-full'>
+            <Image
+              src={activityMedia.url}
+              alt={name}
+              sizes='auto'
+              className='w-full rounded-[30px]  object-cover 2xsx:rounded-[8px]'
+              fill
+            />
+          </div>
         )}
         {!activityMedia && (
           <div className='w-full rounded-[30px] bg-muted p-1/2 2xsx:rounded-[8px]' />
