@@ -6,8 +6,8 @@ import { Typography } from '@/components/ui';
 
 export const StatisticsSection = () => (
   <section className='w-full bg-muted pb-[61px] pt-12 xxsx:pt-10'>
-    <div className='container flex w-full flex-wrap justify-center gap-10 px-0 3mdx:gap-4 3smx:px-4'>
-      <div className='relative flex h-[265px] w-full flex-col justify-between rounded-[30px] bg-white px-8 py-7 3mdx:h-[187px] 3mdx:w-[343px] 2xsx:w-full 2xs:max-w-[245px] 3sm:max-w-[413px]'>
+    <div className='container grid w-full max-w-[1320px] grid-cols-1 justify-center gap-10 px-0 xlx:gap-6 2lgx:px-0 3mdx:gap-4 3mdx:px-4 3smx:px-4 xs:grid-cols-2 md:grid md:grid-cols-3 md:flex-nowrap 2xl:px-0 '>
+      <div className='relative flex h-[265px] w-full flex-col justify-between rounded-[30px] bg-white px-8 py-7 3mdx:h-[187px] 2xsx:w-full md:max-w-full 2lg:max-w-[413px]'>
         <Typography
           tag='h3'
           variant='h3'
@@ -27,7 +27,7 @@ export const StatisticsSection = () => (
           className='absolute -right-1 top-[25%] 3mdx:h-[88px] 3mdx:w-[37px] 3md:-right-5'
         />
       </div>
-      <div className='relative flex h-[265px] w-full flex-col justify-between rounded-[30px] bg-white px-8 py-7 3mdx:h-[187px] 3mdx:w-[343px] 2xsx:w-full 2xs:max-w-[245px] 3sm:max-w-[413px]'>
+      <div className='relative flex h-[265px] w-full flex-col justify-between rounded-[30px] bg-white px-8 py-7 3mdx:h-[187px] 2xsx:w-full md:max-w-full 2lg:max-w-[413px]'>
         <Typography
           tag='h3'
           variant='h3'
@@ -47,7 +47,7 @@ export const StatisticsSection = () => (
           className='absolute -right-1 top-[25%] 3mdx:h-[88px] 3mdx:w-[37px] 3md:-right-5'
         />
       </div>
-      <div className='relative flex h-[265px] w-[413px] flex-col justify-between rounded-[30px] bg-white px-8 py-7 2xlx:w-[866px] 3mdx:h-[187px] 3mdx:w-[702px] 2mdx:gap-4 3smx:w-[500px]'>
+      <div className='relative col-span-2 flex h-[265px] w-full flex-col justify-between rounded-[30px] bg-white px-8 py-7 3mdx:h-[187px] 2mdx:gap-4 mdx:col-span-2 xsx:col-span-1 md:col-span-1 md:w-full'>
         <Typography
           tag='h3'
           variant='h3'

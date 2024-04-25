@@ -36,7 +36,7 @@ export const NewsSection = ({ isMobile }: NewsSectionProps) => (
       <CarouselContent className='-ml-0'>
         {news.map((currentNews, index) => (
           <CarouselItem key={index} className='mx-0 flex justify-center bg-no-repeat px-0'>
-            <div className='w-full px-4 xxlx:w-[95%] 2xlx:w-[90%] 2lgx:w-full'>
+            <div className='w-full xxlx:w-[95%] 2xlx:w-[90%] 2lgx:w-full'>
               <NewsCard {...currentNews} />
             </div>
           </CarouselItem>
