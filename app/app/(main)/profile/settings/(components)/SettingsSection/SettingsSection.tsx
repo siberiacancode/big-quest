@@ -34,7 +34,7 @@ export const SettingsSection = ({ isParent, hasChildren }: SettingsSectionProps)
             className='data-[state=checked]:bg-taiga'
             defaultChecked={isParent}
             disabled={hasChildren}
-            onChange={functions.onToggleParentChange}
+            onClick={functions.toggleIsParent}
           />
         </fieldset>
       </form>
@@ -49,7 +49,7 @@ export const SettingsSection = ({ isParent, hasChildren }: SettingsSectionProps)
           id='theme-switch'
           className='data-[state=checked]:bg-taiga'
           defaultChecked={state.isDarkTheme}
-          onChange={functions.onToggleThemeChange}
+          onClick={functions.toggleTheme}
         />
       </div>
     </div>
