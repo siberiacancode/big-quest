@@ -35,7 +35,7 @@
   "app.profile.settings.title": "Настройки",
   "app.profile.settings.location": "Местоположение",
   "app.profile.settings.app": "Приложение",
-  "app.profile.settings.opekun": "Я родитель (опекун)",
+  "app.profile.settings.parent": "Я родитель (опекун)",
   "app.profile.settings.theme": "Темная тема",
   "app.profile.settings.additionalQR": "Дополнительные QR",
 

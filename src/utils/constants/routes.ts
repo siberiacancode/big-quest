@@ -36,7 +36,7 @@ export const ROUTES = {
     PROFILE: {
       ROOT: '/app/profile',
       SETTINGS: '/app/profile/settings',
-      EDIT: '/app/profile/edit'
+      EDIT: (userId: string) => `/app/profile/${userId}/edit`
     },
     ACTIVITIES: '/app/activities',
     RATING: '/app/rating',

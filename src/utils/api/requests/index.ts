@@ -22,3 +22,5 @@ export * from './organization/register';
 export * from './tariff/id';
 export * from './tariff/legalEntityId';
 export * from './user';
+export * from './user/children';
+export * from './user/profile/settings';
