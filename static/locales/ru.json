@@ -33,6 +33,7 @@
   "app.profile.nuts": "Орешек",
 
   "app.profile.settings.title": "Настройки",
+  "app.profile.settings.additionalQRs": "Дополнительные QR",
   "app.profile.settings.location": "Местоположение",
   "app.profile.settings.app": "Приложение",
   "app.profile.settings.parent": "Я родитель (опекун)",

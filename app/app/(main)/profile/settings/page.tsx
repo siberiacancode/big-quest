@@ -6,6 +6,7 @@ import { CityIcon } from '@/components/icons';
 import { Typography } from '@/components/ui';
 import { getUserProfileSettings } from '@/utils/api';
 
+import { AdditionalQRsSection } from './(components)/AdditionalQRsSection/AdditionalQRsSection';
 import { AppSection } from './(components)/AppSection/AppSection';
 import { ProfileSettingsLink } from './(components)/ProfileSettingsLink/ProfileSettingsLink';
 import { SettingsSection } from './(components)/SettingsSection/SettingsSection';
@@ -24,13 +25,12 @@ const AppProfileSettingsPage = async () => {
         <I18nText path='app.profile.settings.title' />
       </Typography>
       <ProfileSettingsLink {...getUserProfileSettingsResponse} />
-      <hr className='mb-3 mt-5' />
+      <hr className='mx-auto mb-3 mt-5 w-[90%] opacity-50' />
       {getUserProfileSettingsResponse.isParent && (
-        <div>
-          {getUserProfileSettingsResponse.children.map((child) => (
-            <ProfileSettingsLink key={child.id} {...child} />
-          ))}
-        </div>
+        <>
+          <AdditionalQRsSection children={getUserProfileSettingsResponse.children} />
+          <hr className='mx-auto my-3 w-[90%] opacity-50' />
+        </>
       )}
       <div>
         <Typography variant='body3' className='font-medium text-taiga'>
@@ -43,12 +43,12 @@ const AppProfileSettingsPage = async () => {
           </Typography>
         </div>
       </div>
-      <hr className='my-3' />
+      <hr className='mx-auto my-3 w-[90%] opacity-50' />
       <SettingsSection
         isParent={getUserProfileSettingsResponse.isParent}
         hasChildren={!!getUserProfileSettingsResponse.children.length}
       />
-      <hr className='mb-4 mt-3' />
+      <hr className='mx-auto mb-4 mt-3 w-[90%] opacity-50' />
       <AppSection />
     </div>
   );

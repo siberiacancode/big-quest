@@ -3,11 +3,12 @@ import { useTheme } from '@/utils/contexts';
 export const useSettingsSection = () => {
   const { toggleTheme, theme } = useTheme();
 
-  const onToggleParentChange = () => {};
-  const onToggleThemeChange = () => toggleTheme();
+  const onToggleParentChange = () => {
+    // TODO request
+  };
 
   return {
     state: { isDarkTheme: theme === 'dark' },
-    functions: { onToggleThemeChange, onToggleParentChange }
+    functions: { onToggleThemeChange: toggleTheme, onToggleParentChange }
   };
 };

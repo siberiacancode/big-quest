@@ -19,6 +19,7 @@ export const ThemeProvider = ({ children, defaultTheme }: ThemeProviderProps) =>
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
   useNonInitialEffect(() => {
+    console.log('#theme switched to ', theme);
     setCookie(COOKIES.THEME, theme);
     document.documentElement.className = theme;
   }, [theme]);

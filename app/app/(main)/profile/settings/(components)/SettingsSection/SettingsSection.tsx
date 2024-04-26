@@ -31,7 +31,7 @@ export const SettingsSection = ({ isParent, hasChildren }: SettingsSectionProps)
           </Label>
           <Switch
             id='parent-switch'
-            className='bg-taiga'
+            className='data-[state=checked]:bg-taiga'
             defaultChecked={isParent}
             disabled={hasChildren}
             onChange={functions.onToggleParentChange}
@@ -47,7 +47,7 @@ export const SettingsSection = ({ isParent, hasChildren }: SettingsSectionProps)
         </Label>
         <Switch
           id='theme-switch'
-          className='bg-taiga'
+          className='data-[state=checked]:bg-taiga'
           defaultChecked={state.isDarkTheme}
           onChange={functions.onToggleThemeChange}
         />
