@@ -381,7 +381,7 @@ interface UserResponse {
 interface UserProfileResponse {
   id: string;
   birthdate: string;
-  userID: string;
+  userId: string;
   name: string;
   surname: string;
   code: string;

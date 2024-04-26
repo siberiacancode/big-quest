@@ -7,7 +7,7 @@ export const profileEditSchema = z.object({
   name: z.string().min(1, { message: 'validation.required' }),
   surname: z.string().min(1, { message: 'validation.required' }),
   birthdate: z.date(),
-  userID: z.string().min(1, { message: 'validation.required' }),
+  userId: z.string().min(1, { message: 'validation.required' }),
   file: z
     .custom<File>((file) => file instanceof File)
     .optional()

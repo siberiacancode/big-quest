@@ -4,6 +4,6 @@ export interface UserData {
   surname: string;
   birthdate: string;
   avatar: string;
-  userID: string;
+  userId: string;
   code: string;
 }

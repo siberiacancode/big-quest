@@ -59,16 +59,18 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                   render={({ field }) => {
                     const fileFieldValue = form.getValues('file');
                     return (
-                      <FormItem className='flex items-center gap-3'>
+                      <FormItem className='flex items-center justify-center gap-3'>
                         <FormControl>
-                          <div>
-                            <DropzoneCard {...field} className='h-32 w-32' />
+                          <div className='space-y-3'>
+                            <DropzoneCard {...field} className='h-32 w-32' mobileVersion />
+                            {fileFieldValue && (
+                              <Typography variant='body3' tag='p' className='flex-1'>
+                                <I18nText path='app.profile.edit.avatar.title' />
+                              </Typography>
+                            )}
                           </div>
                         </FormControl>
                         <div>
-                          {fileFieldValue && (
-                            <Typography variant='sub2'>{fileFieldValue.name}</Typography>
-                          )}
                           {!fileFieldValue && (
                             <>
                               <Typography variant='sub2'>
@@ -156,7 +158,7 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                 />
                 <FormField
                   control={form.control}
-                  name='userID'
+                  name='userId'
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>
@@ -169,15 +171,15 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                             placeholder={i18n.formatMessage({ id: 'field.userId.placeholder' })}
                           />
                         </FormControl>
-                        <CopyToClipboardButton value={form.getValues('userID')} />
+                        <CopyToClipboardButton value={form.getValues('userId')} />
                       </div>
                       <Typography variant='body4' tag='p' className='text-muted-foreground'>
                         <I18nText path='app.profile.edit.userID.description' />
                       </Typography>
                       <FormMessage>
-                        {form.formState?.errors?.userID && (
+                        {form.formState?.errors?.userId && (
                           <I18nText
-                            path={form.formState.errors.userID.message as LocaleMessageId}
+                            path={form.formState.errors.userId.message as LocaleMessageId}
                           />
                         )}
                       </FormMessage>

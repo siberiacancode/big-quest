@@ -20,7 +20,7 @@ export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
       name: user.name,
       surname: user.surname,
       birthdate: new Date(user.birthdate),
-      userID: user.userID,
+      userId: user.userId,
       file: undefined
     }
   });
