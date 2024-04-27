@@ -17,11 +17,15 @@ const AppProfileSettingsPage = async () => {
   });
 
   return (
-    <div className='px-5 py-9'>
-      <BackButton variant='outline' size='icon' className='absolute left-4 top-8 lg:hidden'>
+    <div className='px-4 py-8'>
+      <BackButton
+        variant='outline'
+        size='icon'
+        className='absolute left-4 top-8 z-10 size-8 bg-white lg:hidden'
+      >
         <ChevronLeftIcon />
       </BackButton>
-      <Typography variant='h4' className='text-center font-semibold'>
+      <Typography tag='h1' className='text-center font-semibold'>
         <I18nText path='app.profile.settings.title' />
       </Typography>
       <ProfileSettingsLink {...getUserProfileSettingsResponse} />

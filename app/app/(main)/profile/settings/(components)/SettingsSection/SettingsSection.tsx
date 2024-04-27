@@ -19,7 +19,7 @@ export const SettingsSection = ({ isParent, hasChildren }: SettingsSectionProps)
   return (
     <div>
       <Typography variant='body3' className='font-medium text-taiga'>
-        <I18nText path='app.profile.settings.app' />
+        <I18nText path='app.profile.settings.title' />
       </Typography>
       <form>
         <fieldset className='mt-3 flex items-center gap-4 px-[6px] py-3'>
