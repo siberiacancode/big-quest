@@ -42,7 +42,7 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                   <DropzoneCard
                     value={user?.avatar}
                     onChange={functions.onDeletePreviewClick}
-                    className='h-32 w-32'
+                    className='h-[100px] w-[100px]'
                     mobileVersion
                   />
                   <div onClick={functions.onDeletePreviewClick} role='presentation'>
@@ -59,10 +59,14 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                   render={({ field }) => {
                     const fileFieldValue = form.getValues('file');
                     return (
-                      <FormItem className='flex items-center justify-center gap-3'>
+                      <FormItem className='flex items-center justify-center gap-2'>
                         <FormControl>
-                          <div className='space-y-3'>
-                            <DropzoneCard {...field} className='h-32 w-32' mobileVersion />
+                          <div className='flex flex-col items-center justify-center gap-3'>
+                            <DropzoneCard
+                              {...field}
+                              className='h-[100px] w-[100px]'
+                              mobileVersion
+                            />
                             {fileFieldValue && (
                               <Typography variant='body3' tag='p' className='flex-1'>
                                 <I18nText path='app.profile.edit.avatar.title' />
@@ -73,10 +77,10 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                         <div>
                           {!fileFieldValue && (
                             <>
-                              <Typography variant='sub2'>
+                              <Typography variant='sub4'>
                                 <I18nText path='field.imageDownload.title' />
                               </Typography>
-                              <Typography variant='body2'>
+                              <Typography variant='body3'>
                                 <I18nText path='field.imageDownload.description' />
                               </Typography>
                             </>
@@ -94,13 +98,32 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                   }}
                 />
               )}
+              <FormField
+                control={form.control}
+                name='name'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='text-gray-two'>
+                      <I18nText path='field.name.label' />
+                    </FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage>
+                      {form.formState?.errors?.name && (
+                        <I18nText path={form.formState.errors.name.message as LocaleMessageId} />
+                      )}
+                    </FormMessage>
+                  </FormItem>
+                )}
+              />
               <div className='space-y-5'>
                 <FormField
                   control={form.control}
                   name='surname'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>
+                      <FormLabel className='text-gray-two'>
                         <I18nText path='field.surname.label' />
                       </FormLabel>
                       <FormControl>
@@ -118,29 +141,10 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                 />
                 <FormField
                   control={form.control}
-                  name='name'
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>
-                        <I18nText path='field.name.label' />
-                      </FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                      <FormMessage>
-                        {form.formState?.errors?.name && (
-                          <I18nText path={form.formState.errors.name.message as LocaleMessageId} />
-                        )}
-                      </FormMessage>
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
                   name='birthdate'
                   render={({ field }) => (
                     <FormItem className='flex flex-col'>
-                      <FormLabel>
+                      <FormLabel className='text-gray-two'>
                         <I18nText path='field.birthdate.label' />
                       </FormLabel>
                       <FormControl>
@@ -161,7 +165,7 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                   name='userId'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>
+                      <FormLabel className='text-gray-two'>
                         <I18nText path='field.userId.label' />
                       </FormLabel>
                       <div className='relative'>
@@ -186,9 +190,13 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                     </FormItem>
                   )}
                 />
-                <div>
-                  <I18nText path='field.code.label' />
-                  <Typography>1822</Typography>
+                <div className='space-y-3'>
+                  <Typography variant='sub4' className='text-gray-two'>
+                    <I18nText path='field.code.label' />
+                  </Typography>
+                  <Typography variant='sub3' className='text-gray-one'>
+                    1822
+                  </Typography>
                 </div>
               </div>
             </div>
