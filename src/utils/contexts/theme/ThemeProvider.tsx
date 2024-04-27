@@ -16,7 +16,7 @@ export interface ThemeProviderProps {
 export const ThemeProvider = ({ children, defaultTheme }: ThemeProviderProps) => {
   const [theme, setTheme] = React.useState<Theme>(defaultTheme);
 
-  const toggleTheme = () => setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
   useNonInitialEffect(() => {
     setCookie(COOKIES.THEME, theme);

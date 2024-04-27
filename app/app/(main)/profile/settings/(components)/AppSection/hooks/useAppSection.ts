@@ -1,6 +1,6 @@
 export const useAppSection = () => {
-  // TODO logout request
-  const onLogoutClick = () => {};
-
+  const onLogoutClick = () => {
+    // TODO request
+  };
   return { functions: { onLogoutClick } };
 };

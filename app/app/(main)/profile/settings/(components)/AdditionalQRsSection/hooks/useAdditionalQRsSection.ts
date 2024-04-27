@@ -1,4 +1,6 @@
 export const useAdditionalQRsSection = () => {
-  const onAddQRClick = () => {};
+  const onAddQRClick = () => {
+    // TODO request, maybe popup
+  };
   return { functions: { onAddQRClick } };
 };
