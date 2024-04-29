@@ -37,7 +37,7 @@ const config = {
       sm: { min: '640px' },
       '2sm': { min: '600px' },
       '3sm': { min: '705px' },
-      md: { min: '768px' },
+      md: { min: '769px' },
       '2md': { min: '900px' },
       '3md': { min: '925px' },
       lg: { min: '1024px' },

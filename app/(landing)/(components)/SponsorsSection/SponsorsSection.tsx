@@ -13,7 +13,7 @@ export const SponsorsSection = () => (
   >
     <div className='container relative w-max mdx:max-w-full'>
       <div className='z-3 absolute -left-8 top-10 h-full w-full rounded-[30px] border-2 border-dashed border-taiga-light xlx:-left-1 xlx:w-[94%] 2mdx:w-[93%] mdx:left-3 mdx:top-6 mdx:w-[88%] xxsx:top-4 xxsx:w-[85%]' />
-      <div className='relative z-10 flex w-fit flex-col rounded-[30px] bg-white px-[111px] py-[72px] 2mdx:px-[80px] mdx:mx-2 2smx:px-[24px] xsx:py-16 xxsx:py-12'>
+      <div className='relative z-10 flex w-fit flex-col rounded-[30px] bg-white px-[111px] py-[72px] 2mdx:px-[80px] mdx:mx-2 mdx:rounded-[16px] 2smx:px-[24px] xsx:py-16 xxsx:py-12'>
         <div className='flex flex-col items-center'>
           <Typography variant='h1' tag='h2' className='mb-8 mdx:text-3xl xsx:mb-4 xsx:text-[21px]'>
             <I18nText path='landing.sponsors.title' />

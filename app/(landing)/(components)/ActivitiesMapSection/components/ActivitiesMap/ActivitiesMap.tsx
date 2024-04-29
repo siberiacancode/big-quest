@@ -22,11 +22,7 @@ export const ActivitiesMap = ({ cityId, activities }: MapProps) => {
 
   return (
     <YMaps>
-      <Typography
-        tag='h2'
-        variant='h1'
-        className='text-center text-[36px] mdx:text-3xl mdx:text-[21px]'
-      >
+      <Typography tag='h2' variant='h1' className='text-center mdx:text-3xl xsx:text-[21px]'>
         <I18nText path='landing.activitiesMap.title' />
       </Typography>
       <Map

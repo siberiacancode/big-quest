@@ -42,7 +42,7 @@ export const FAQSection = ({ cityId }: FAQSectionProps) => {
           {formattedFaq.map((item, index) => (
             <AccordionItem
               value={index.toString()}
-              className='h-fit rounded-3xl border-none bg-white px-10 py-8 mdx:py-6'
+              className='h-fit rounded-3xl border-none bg-white px-10 py-8 mdx:rounded-[16px] mdx:py-6'
             >
               <AccordionTrigger
                 className='p-0 hover:no-underline'

@@ -11,15 +11,18 @@ import { cn } from '@/lib/utils';
 import { ROUTES } from '@/utils/constants';
 
 export const MobileBannerSection = () => (
-  <section id='banner' className='container flex h-screen overflow-x-hidden px-5 pb-10'>
-    <div className='flex w-full flex-col items-center '>
+  <section
+    id='banner'
+    className='container flex overflow-x-hidden px-5 mdx:-mt-[88px] mdx:h-screen mdx:pt-[88px] xxsx:-mt-[72px] xxsx:pt-[72px]'
+  >
+    <div className='flex w-full flex-col items-center'>
       <Image
         src={bannerImage}
         alt='info image'
-        className='w-[46rem] mdx:w-[90%] mdx:max-w-[30rem] xxsx:size-[260px]'
+        className='w-[46rem] mdx:ml-[10%] mdx:w-[90%] mdx:max-w-[30rem] xxsx:size-[260px] xxsx:w-fit'
       />
 
-      <div className='mt-5 flex flex-col items-center justify-center gap-4 text-center xxsx:gap-0'>
+      <div className='mt-5 flex flex-col items-center justify-center gap-4 text-center xxsx:mt-4 xxsx:gap-0'>
         <Typography tag='h2' variant='h4' className='font-medium'>
           <I18nText path='landing.info.title' />
         </Typography>
@@ -28,7 +31,7 @@ export const MobileBannerSection = () => (
         </Typography>
       </div>
 
-      <div className='mt-[70px] flex w-full flex-col gap-4'>
+      <div className='mt-[70px] flex w-full flex-col gap-4 xxsx:mt-4 xxsx:gap-3'>
         <Link
           href={{
             pathname: ROUTES.AUTH,

@@ -9,10 +9,10 @@ export const LeaveRequestSection = () => (
   <section className='relative mb-[67px] mt-[60px] '>
     <div className='container flex justify-between gap-3 mdx:flex-col-reverse xxsx:gap-1'>
       <div className='flex flex-col gap-3 py-20 mdx:py-10 xxsx:gap-1  xxsx:py-3'>
-        <Typography tag='h2' variant='h1' className='text-3xl xxsx:text-2xl xs:text-4xl'>
+        <Typography tag='h2' variant='h1' className='mdx:text-3xl xsx:text-[21px]'>
           <I18nText path='landing.leaveRequest.title' />
         </Typography>
-        <Typography tag='h2' variant='h1' className='text-3xl text-taiga xxsx:text-2xl lg:text-4xl'>
+        <Typography tag='h2' variant='h1' className='text-taiga mdx:text-3xl xsx:text-[21px]'>
           <I18nText path='landing.leaveRequest.subtitle' />!
         </Typography>
 

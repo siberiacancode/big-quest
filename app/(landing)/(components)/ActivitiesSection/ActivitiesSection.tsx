@@ -36,10 +36,9 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
   return (
     <section id='activities' className='container mt-[72px] xxsx:mt-12'>
       <div className='flex items-center justify-between'>
-        <Typography tag='h2' variant='h1' className='text-[36px] mdx:text-3xl xxsx:text-[21px]'>
+        <Typography tag='h2' variant='h1' className='mdx:text-3xl xsx:text-[21px]'>
           <I18nText path='landing.activities.title' />
         </Typography>
-
         <Link href={ROUTES.LANDING.ROOT} className={buttonVariants({ variant: 'link' })}>
           <Typography tag='p' variant='body1' className='py-0 xxsx:text-base'>
             <I18nText path='button.watchAll' />
