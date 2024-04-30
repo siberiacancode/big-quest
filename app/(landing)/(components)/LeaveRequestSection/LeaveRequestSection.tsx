@@ -6,35 +6,33 @@ import { RegisterOrganizationDialog } from '@/components/dialogs';
 import { Button, Typography } from '@/components/ui';
 
 export const LeaveRequestSection = () => (
-  <section className='relative mb-[67px] mt-[60px] '>
-    <div className='container flex justify-between gap-3 mdx:flex-col-reverse xxsx:gap-1'>
-      <div className='flex flex-col gap-3 py-20 mdx:py-10 xxsx:gap-1  xxsx:py-3'>
-        <Typography tag='h2' variant='h1' className='mdx:text-3xl xsx:text-[21px]'>
-          <I18nText path='landing.leaveRequest.title' />
-        </Typography>
-        <Typography tag='h2' variant='h1' className='text-taiga mdx:text-3xl xsx:text-[21px]'>
-          <I18nText path='landing.leaveRequest.subtitle' />!
-        </Typography>
+  <section className='container relative my-6'>
+    <div className='flex items-center justify-center gap-3 md:py-10 lg:justify-between'>
+      <div className='flex flex-col gap-2 md:gap-3'>
+        <div className='flex flex-col gap-2'>
+          <Typography tag='h1' variant='h1' className='text-xl md:text-4xl'>
+            <I18nText path='landing.leaveRequest.title' />
+          </Typography>
+          <Typography tag='h2' variant='h1' className='text-xl text-taiga md:text-4xl'>
+            <I18nText path='landing.leaveRequest.subtitle' />!
+          </Typography>
+        </div>
 
-        <Typography tag='p' variant='body1' className='mt-3 text-xl xxsx:text-lg'>
+        <Typography tag='p' variant='body1' className='text-md lg:text-xl'>
           <I18nText path='landing.leaveRequest.description' />
         </Typography>
         <RegisterOrganizationDialog
           trigger={
-            <Button
-              size='lg'
-              variant='primary'
-              className='mt-10 w-full px-[72px] xxsx:mt-5 md:w-fit'
-            >
-              <Typography variant='h6' className='text-white'>
+            <div className='mt-4 w-full md:w-fit'>
+              <Button size='lg' variant='primary' className='w-full'>
                 <I18nText path='button.goToRegisterOrganization' />
-              </Typography>
-            </Button>
+              </Button>
+            </div>
           }
         />
       </div>
-      <div className='flex items-center justify-center'>
-        <Image src={leaveRequestImage} alt='leaveRequest' className='max-w-[446px] lgx:w-[90%]' />
+      <div className='flex hidden items-center justify-center lg:block'>
+        <Image src={leaveRequestImage} alt='leaveRequest' className='w-[440px]' />
       </div>
     </div>
   </section>

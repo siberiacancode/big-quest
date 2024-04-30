@@ -20,7 +20,7 @@ export const Header = ({ cityId }: HeaderProps) => (
   <header className='container flex justify-between py-[52px] 2xlx:gap-8 2xlx:py-10 2xsx:py-6 xxsx:pb-2 2xl:gap-[80px]'>
     <Logo href={ROUTES.LANDING.CITY(cityId)} className='fill-taiga' />
 
-    <nav className='flex flex-grow items-center xlx:ml-0 xlx:hidden'>
+    <nav className='flex hidden flex-grow items-center lg:block'>
       <ul className='flex gap-12'>
         <li>
           <Link href={{ pathname: ROUTES.LANDING.ROOT, hash: 'banner' }}>
@@ -74,7 +74,7 @@ export const Header = ({ cityId }: HeaderProps) => (
         </li>
       </ul>
     </nav>
-    <div className='flex items-center justify-between xlx:gap-12 md:justify-end xl:gap-12'>
+    <div className='flex items-center justify-between gap-12 md:justify-end'>
       <DropdownMenu>
         <DropdownMenuTrigger>
           <div className='flex items-center gap-2'>
@@ -100,7 +100,7 @@ export const Header = ({ cityId }: HeaderProps) => (
           ))}
         </DropdownMenuContent>
       </DropdownMenu>
-      <div className='2xsx:hidden'>
+      <div className='hidden lg:block'>
         <Link href={ROUTES.ORG.AUTH}>
           <Typography
             variant='body2'

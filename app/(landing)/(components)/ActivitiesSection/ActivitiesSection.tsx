@@ -34,12 +34,12 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
   if (!getActivityPublicResponse.rows.length) return null;
 
   return (
-    <section id='activities' className='container mt-[72px] xxsx:mt-12'>
+    <section id='activities' className='container py-12'>
       <div className='flex items-center justify-between'>
-        <Typography tag='h2' variant='h1' className='mdx:text-3xl xsx:text-[21px]'>
+        <Typography tag='h2' variant='h1' className='text-[21px] lg:text-3xl'>
           <I18nText path='landing.activities.title' />
         </Typography>
-        <Link href={ROUTES.LANDING.ROOT} className={buttonVariants({ variant: 'link' })}>
+        <Link href={ROUTES.APP.ACTIVITIES} className={buttonVariants({ variant: 'link' })}>
           <Typography tag='p' variant='body1' className='py-0 xxsx:text-base'>
             <I18nText path='button.watchAll' />
           </Typography>
@@ -47,7 +47,7 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
         </Link>
       </div>
       <div className='mt-[72px] grid grid-cols-3 gap-x-10 gap-y-12 2lgx:gap-x-5 lgx:w-full 2mdx:mt-10 mdx:grid-cols-2 3smx:gap-x-2 3smx:gap-y-5 xxsx:mt-10 md:justify-between'>
-        {getActivityPublicResponse.rows.slice(0, 6).map((activity) => (
+        {getActivityPublicResponse.rows.map((activity) => (
           <ActivityCard key={activity.id} {...activity} />
         ))}
       </div>

@@ -5,9 +5,9 @@ import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 
 export const StatisticsSection = () => (
-  <section className='w-full bg-muted pb-[61px] pt-12 xxsx:pt-10'>
+  <section className='w-full bg-muted py-12'>
     <div className='container grid w-full max-w-[1320px] grid-cols-1 justify-center gap-10 px-0 xlx:gap-6 2lgx:px-0 3mdx:gap-4 3mdx:px-4 3smx:px-4 xs:grid-cols-2 md:grid md:grid-cols-3 md:flex-nowrap 2xl:px-0 '>
-      <div className='relative flex h-[265px] w-full flex-col justify-between rounded-[30px] bg-white px-8 py-7 3mdx:h-[187px] mdx:rounded-[16px] 2xsx:w-full md:max-w-full 2lg:max-w-[413px]'>
+      <div className='relative flex h-[265px] w-full flex-col justify-between overflow-hidden rounded-[30px] bg-white px-8 py-7 3mdx:h-[187px] mdx:rounded-[16px] 2xsx:w-full md:max-w-full 2lg:max-w-[413px]'>
         <Typography
           tag='h3'
           variant='h3'

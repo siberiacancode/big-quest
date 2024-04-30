@@ -25,29 +25,26 @@ export const FAQSection = ({ cityId }: FAQSectionProps) => {
   }));
 
   return (
-    <section className='bg-muted py-[72px] 2mdx:pt-0'>
+    <section className='bg-muted py-12'>
       <div className='container w-full'>
-        <Typography
-          tag='h3'
-          variant='h1'
-          className='flex-grow text-center mdx:text-3xl xsx:text-[21px]'
-        >
+        <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-3xl'>
           <I18nText path='landing.faq.title' />
         </Typography>
+
         <Accordion
           type='single'
           collapsible
-          className='mt-8 flex w-full flex-col gap-6 mdx:gap-3 md:mt-20'
+          className='mt-8 flex w-full flex-col gap-3 lg:mt-20 lg:gap-6'
         >
           {formattedFaq.map((item, index) => (
             <AccordionItem
               value={index.toString()}
-              className='h-fit rounded-3xl border-none bg-white px-10 py-8 mdx:rounded-[16px] mdx:py-6'
+              className='h-fit rounded-3xl border-none bg-white p-6'
             >
               <AccordionTrigger
                 className='p-0 hover:no-underline'
                 icon={
-                  <ChevronDown className='ml-4 size-10 shrink-0 text-taiga transition-transform duration-200' />
+                  <ChevronDown className='ml-4 size-8 shrink-0 text-taiga transition-transform duration-200 lg:size-10' />
                 }
               >
                 <Typography
@@ -59,7 +56,7 @@ export const FAQSection = ({ cityId }: FAQSectionProps) => {
                 </Typography>
               </AccordionTrigger>
               <AccordionContent className='py-2'>
-                <Typography tag='p' className='text-base font-normal md:text-xl'>
+                <Typography tag='p' className='text-base font-normal lg:text-xl'>
                   {item.answer}
                 </Typography>
               </AccordionContent>

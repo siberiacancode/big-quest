@@ -270,24 +270,23 @@ const CarouselDots = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLD
     const numberOfSlides = api?.scrollSnapList().length || 0;
     const currentSlide = api?.selectedScrollSnap() || 0;
 
-    if (numberOfSlides > 1) {
-      return (
-        <div ref={ref} className={`flex justify-center ${props.className}`}>
-          {Array.from({ length: numberOfSlides }, (_, i) => (
-            <Button
-              key={i}
-              className={`mx-1 h-2 w-2 rounded-full p-0 ${
-                i === currentSlide
-                  ? 'scale-125 transform bg-taiga hover:bg-taiga-light'
-                  : 'bg-gray-300 hover:bg-gray-300'
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-              onClick={() => api?.scrollTo(i)}
-            />
-          ))}
-        </div>
-      );
-    }
+    return (
+      <div ref={ref} className={`flex justify-center ${props.className}`}>
+        {Array.from({ length: numberOfSlides }, (_, i) => (
+          <Button
+            key={i}
+            className={cn(
+              'mx-1 h-2 w-2 rounded-full p-0',
+              i === currentSlide
+                ? 'scale-125 transform bg-taiga hover:bg-taiga-light'
+                : 'bg-gray-300 hover:bg-gray-300'
+            )}
+            aria-label={`Go to slide ${i + 1}`}
+            onClick={() => api?.scrollTo(i)}
+          />
+        ))}
+      </div>
+    );
   }
 );
 CarouselDots.displayName = 'CarouselDots';

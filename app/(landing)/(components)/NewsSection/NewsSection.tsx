@@ -12,19 +12,14 @@ import {
   CarouselNext,
   CarouselPrevious
 } from '@/components/ui';
-import { cn } from '@/lib/utils';
 
 import { NewsCard } from './components/NewsCard/NewsCard';
 import { news } from './constants/news';
 
-interface NewsSectionProps {
-  isMobile: boolean;
-}
-
 const CAROUSEL_AUTO_PLAY_DELAY = 8000;
 
-export const NewsSection = ({ isMobile }: NewsSectionProps) => (
-  <section id='news' className='mx-2 w-full bg-muted pt-14 xxsx:pt-6'>
+export const NewsSection = () => (
+  <section id='news' className='w-full bg-muted pt-12'>
     <Carousel
       className='container mx-auto w-full'
       opts={{
@@ -32,17 +27,15 @@ export const NewsSection = ({ isMobile }: NewsSectionProps) => (
       }}
       plugins={[Autoplay({ delay: CAROUSEL_AUTO_PLAY_DELAY })]}
     >
-      <CarouselContent className='-ml-0'>
-        {news.map((currentNews, index) => (
-          <CarouselItem key={index} className='mx-1 flex justify-center bg-no-repeat px-0'>
-            <div className='w-full xxlx:w-[95%] 2xlx:w-[90%] 2lgx:w-full'>
-              <NewsCard {...currentNews} />
-            </div>
+      <CarouselContent>
+        {news.map((article, index) => (
+          <CarouselItem key={index} className='w-full'>
+            <NewsCard {...article} />
           </CarouselItem>
         ))}
       </CarouselContent>
 
-      <span className={cn('2lgx:hidden', isMobile && 'hidden')}>
+      <span className='hidden lg:block'>
         <CarouselPrevious className='absolute -left-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100 xxlx:-left-[1%] 2xlx:left-[1%] lgx:size-10'>
           {(disabled) => <ChevronLeftIcon color={disabled ? 'white' : 'black'} />}
         </CarouselPrevious>
@@ -51,7 +44,7 @@ export const NewsSection = ({ isMobile }: NewsSectionProps) => (
         </CarouselNext>
       </span>
 
-      <CarouselDots className={cn('mt-4 2lg:hidden', isMobile && 'block text-center 2lg:block')} />
+      <CarouselDots className='mt-4 text-center lg:hidden' />
     </Carousel>
   </section>
 );

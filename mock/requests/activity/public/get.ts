@@ -10,7 +10,14 @@ export const getActivityPublicConfig: RestRequestConfig = {
           {
             id: '1',
             cover: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
-            content: ['http://localhost:31299/api/1.0/static/activity/image-2.png'],
+            media: [
+              {
+                id: '1',
+                type: 'IMAGE',
+                flag: 'COVER',
+                url: 'http://localhost:31299/api/1.0/static/activity/image-1.png'
+              }
+            ],
             name: 'Рисуем живопись',
             description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
@@ -46,7 +53,14 @@ export const getActivityPublicConfig: RestRequestConfig = {
           {
             id: '2',
             cover: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
-            content: [],
+            media: [
+              {
+                id: '1',
+                type: 'IMAGE',
+                flag: 'COVER',
+                url: 'http://localhost:31299/api/1.0/static/activity/image-1.png'
+              }
+            ],
             name: 'Рисуем живопись',
             description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
@@ -65,7 +79,14 @@ export const getActivityPublicConfig: RestRequestConfig = {
           {
             id: '3',
             cover: 'http://localhost:31299/api/1.0/static/activity/image-4.png',
-            content: [],
+            media: [
+              {
+                id: '1',
+                type: 'IMAGE',
+                flag: 'COVER',
+                url: 'http://localhost:31299/api/1.0/static/activity/image-1.png'
+              }
+            ],
             name: 'Рисуем живопись',
             description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
@@ -101,7 +122,14 @@ export const getActivityPublicConfig: RestRequestConfig = {
           {
             id: '4',
             cover: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
-            content: ['http://localhost:31299/api/1.0/static/activity/image-2.png'],
+            media: [
+              {
+                id: '1',
+                type: 'IMAGE',
+                flag: 'COVER',
+                url: 'http://localhost:31299/api/1.0/static/activity/image-1.png'
+              }
+            ],
             name: 'Рисуем живопись',
             ageLimit: [7, 13],
             price: 100,
@@ -109,23 +137,6 @@ export const getActivityPublicConfig: RestRequestConfig = {
             replay: false,
             view: 'ONLINE',
             status: 'EDITING',
-            category: 'COOKING',
-            participants: 200,
-            likes: 210,
-            nutsCount: 0,
-            schedule: []
-          },
-          {
-            id: '5',
-            cover: null,
-            content: [],
-            name: 'Рисуем живопись',
-            ageLimit: [7, 13],
-            price: 100,
-            duration: 120,
-            replay: false,
-            view: 'ONLINE',
-            status: 'MODERATION',
             category: 'COOKING',
             participants: 200,
             likes: 210,

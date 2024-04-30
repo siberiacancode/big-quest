@@ -1,3 +1,5 @@
+import { I18nText } from '@/components/common';
+import { Typography } from '@/components/ui';
 import { getActivityPublic } from '@/utils/api';
 import type { CITIES } from '@/utils/constants';
 
@@ -28,7 +30,11 @@ export const ActivitiesMapSection = async ({ cityId }: ActivitiesMapSectionProps
   if (!getActivityPublicResponse.rows.length) return null;
 
   return (
-    <section className='container my-[72px] min-h-[650px] px-0 xxsx:my-12 xxsx:min-h-[300px]'>
+    <section className='container px-0 py-12 lg:px-10'>
+      <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-3xl'>
+        <I18nText path='landing.activitiesMap.title' />
+      </Typography>
+
       <ActivitiesMap cityId={cityId} activities={getActivityPublicResponse.rows} />
     </section>
   );
