@@ -10,19 +10,21 @@ export const getUserProfileSettingsConfig: RestRequestConfig = {
         userId: 'jhg123123j',
         name: 'Пап',
         surname: 'Папов',
-        isParent: true,
+        role: 'PARENT',
         children: [
           {
             id: '10',
             userId: 'jhg1245453j',
             name: 'Сын',
-            surname: 'Сынов'
+            surname: 'Сынов',
+            role: 'CHILD'
           },
           {
             id: '11',
             userId: 'jhg12547953j',
             name: 'Сын 2',
-            surname: 'Сынов'
+            surname: 'Сынов',
+            role: 'CHILD'
           }
         ]
       }

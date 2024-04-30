@@ -30,7 +30,7 @@ const AppProfileSettingsPage = async () => {
       </Typography>
       <ProfileSettingsLink {...getUserProfileSettingsResponse} />
       <hr className='mx-auto mb-3 mt-5 w-[90%] opacity-50' />
-      {getUserProfileSettingsResponse.isParent && (
+      {getUserProfileSettingsResponse.role === 'PARENT' && (
         <>
           <AdditionalQRsSection children={getUserProfileSettingsResponse.children} />
           <hr className='mx-auto my-3 w-[90%] opacity-50' />
@@ -49,7 +49,7 @@ const AppProfileSettingsPage = async () => {
       </div>
       <hr className='mx-auto my-3 w-[90%] opacity-50' />
       <SettingsSection
-        isParent={getUserProfileSettingsResponse.isParent}
+        role={getUserProfileSettingsResponse.role}
         hasChildren={!!getUserProfileSettingsResponse.children.length}
       />
       <hr className='mx-auto mb-4 mt-3 w-[90%] opacity-50' />

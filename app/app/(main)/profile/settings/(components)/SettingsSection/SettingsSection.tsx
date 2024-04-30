@@ -9,11 +9,11 @@ import { Label, Switch, Typography } from '@/components/ui';
 import { useSettingsSection } from './hooks/useSettingsSection';
 
 interface SettingsSectionProps {
-  isParent: boolean;
+  role: ProfileSettingsRoleFixMe;
   hasChildren: boolean;
 }
 
-export const SettingsSection = ({ isParent, hasChildren }: SettingsSectionProps) => {
+export const SettingsSection = ({ role, hasChildren }: SettingsSectionProps) => {
   const { state, functions } = useSettingsSection();
 
   return (
@@ -21,8 +21,8 @@ export const SettingsSection = ({ isParent, hasChildren }: SettingsSectionProps)
       <Typography variant='body3' className='font-medium text-taiga'>
         <I18nText path='app.profile.settings.title' />
       </Typography>
-      <form>
-        <fieldset className='mt-3 flex items-center gap-4 px-[6px] py-3'>
+      {role !== 'CHILD' && (
+        <div className='mt-3 flex items-center gap-4 px-[6px] py-3'>
           <SmilePlusIcon />
           <Label htmlFor='parent-switch' className='flex-grow'>
             <Typography variant='body3' className='text-foreground'>
@@ -32,12 +32,12 @@ export const SettingsSection = ({ isParent, hasChildren }: SettingsSectionProps)
           <Switch
             id='parent-switch'
             className='data-[state=checked]:bg-taiga'
-            defaultChecked={isParent}
+            defaultChecked={role === 'PARENT'}
             disabled={hasChildren}
             onClick={functions.toggleIsParent}
           />
-        </fieldset>
-      </form>
+        </div>
+      )}
       <div className='mt-3 flex items-center gap-4 px-[6px] py-3'>
         <MoonIcon className='fill-foreground' />
         <Label htmlFor='theme-switch' className='flex-grow'>

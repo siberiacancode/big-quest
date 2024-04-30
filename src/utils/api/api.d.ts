@@ -498,11 +498,14 @@ interface ChangesResponseWithPagination {
   pagination: PaginationResponse;
 }
 
+type ProfileSettingsRoleFixMe = 'CHILD' | 'PARENT' | 'PARTICIPANT';
+
 interface ChildProfileSettingsResponseFixMe {
   id: string;
   userId: string;
   name: string;
   surname: string;
+  role: ProfileSettingsRoleFixMe;
 }
 
 interface ParticipantProfileSettingsResponseFixMe {
@@ -510,6 +513,6 @@ interface ParticipantProfileSettingsResponseFixMe {
   userId: string;
   name: string;
   surname: string;
-  isParent: boolean;
   children: ChildProfileSettingsResponseFixMe[];
+  role: ProfileSettingsRoleFixMe;
 }
