@@ -17,7 +17,7 @@ export const AdditionalQRsSection = ({ children }: AdditionalQRsSectionProps) =>
   const { functions } = useAdditionalQRsSection();
 
   return (
-    <div>
+    <section>
       <Typography variant='body3' className='mb-4 font-medium text-taiga'>
         <I18nText path='app.profile.settings.additionalQRs' />
       </Typography>
@@ -35,6 +35,6 @@ export const AdditionalQRsSection = ({ children }: AdditionalQRsSectionProps) =>
           <I18nText path='button.addQR' />
         </Typography>
       </Button>
-    </div>
+    </section>
   );
 };

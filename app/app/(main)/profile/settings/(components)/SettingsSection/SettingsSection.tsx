@@ -17,7 +17,7 @@ export const SettingsSection = ({ role, hasChildren }: SettingsSectionProps) => 
   const { state, functions } = useSettingsSection();
 
   return (
-    <div>
+    <section>
       <Typography variant='body3' className='font-medium text-taiga'>
         <I18nText path='app.profile.settings.title' />
       </Typography>
@@ -52,6 +52,6 @@ export const SettingsSection = ({ role, hasChildren }: SettingsSectionProps) => 
           onClick={functions.toggleTheme}
         />
       </div>
-    </div>
+    </section>
   );
 };

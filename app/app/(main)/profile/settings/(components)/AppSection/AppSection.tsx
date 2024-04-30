@@ -11,7 +11,7 @@ export const AppSection = () => {
   const { functions } = useAppSection();
 
   return (
-    <div>
+    <section>
       <Typography variant='body3' className='font-medium text-taiga'>
         <I18nText path='app.profile.settings.app' />
       </Typography>
@@ -23,6 +23,6 @@ export const AppSection = () => {
         <LogOutIcon className='stroke-[#EB5757]' />
         <I18nText path='button.logout' />
       </Button>
-    </div>
+    </section>
   );
 };

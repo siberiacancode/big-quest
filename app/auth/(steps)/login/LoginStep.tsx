@@ -1,11 +1,12 @@
 'use client';
 
 import { ChevronLeftIcon } from 'lucide-react';
+import Link from 'next/link';
 
-import { BackButton } from '@/components/buttons';
 import { I18nText } from '@/components/common';
 import {
   Button,
+  buttonVariants,
   Form,
   FormControl,
   FormField,
@@ -16,6 +17,8 @@ import {
   NumberFormatInput,
   Typography
 } from '@/components/ui';
+import { cn } from '@/lib/utils';
+import { ROUTES } from '@/utils/constants';
 import { useI18n } from '@/utils/contexts';
 
 import { useLoginStep } from './hooks/useLoginStep';
@@ -27,9 +30,15 @@ export const LoginStep = () => {
   return (
     <div className='flex min-h-screen md:items-center md:justify-center'>
       <div className='mx-auto max-w-lg px-4 py-[40px]'>
-        <BackButton variant='outline' size='icon' className='absolute left-4 top-8 lg:hidden'>
+        <Link
+          href={ROUTES.LANDING.ROOT}
+          className={cn(
+            'absolute left-4 top-8 lg:hidden',
+            buttonVariants({ variant: 'outline', size: 'icon' })
+          )}
+        >
           <ChevronLeftIcon />
-        </BackButton>
+        </Link>
         <Typography variant='h4' className='mx-auto w-[70%] text-center font-semibold'>
           <I18nText path='auth.login.title' />
         </Typography>

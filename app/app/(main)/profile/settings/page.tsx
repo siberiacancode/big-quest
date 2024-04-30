@@ -1,10 +1,11 @@
-import { ChevronLeftIcon } from 'lucide-react';
+import { ChevronLeftIcon, Link } from 'lucide-react';
 
-import { BackButton } from '@/components/buttons';
 import { I18nText } from '@/components/common';
 import { CityIcon } from '@/components/icons';
-import { Typography } from '@/components/ui';
+import { buttonVariants, Typography } from '@/components/ui';
+import { cn } from '@/lib/utils';
 import { getUserProfileSettings } from '@/utils/api';
+import { ROUTES } from '@/utils/constants';
 
 import { AdditionalQRsSection } from './(components)/AdditionalQRsSection/AdditionalQRsSection';
 import { AppSection } from './(components)/AppSection/AppSection';
@@ -18,13 +19,15 @@ const AppProfileSettingsPage = async () => {
 
   return (
     <div className='px-4 py-8'>
-      <BackButton
-        variant='outline'
-        size='icon'
-        className='absolute left-4 top-8 z-10 size-8 bg-white lg:hidden'
+      <Link
+        href={ROUTES.APP.PROFILE.ROOT}
+        className={cn(
+          'absolute left-4 top-8 z-10 size-8 bg-white lg:hidden',
+          buttonVariants({ variant: 'outline', size: 'icon' })
+        )}
       >
         <ChevronLeftIcon />
-      </BackButton>
+      </Link>
       <Typography tag='h1' className='text-center font-semibold'>
         <I18nText path='app.profile.settings.title' />
       </Typography>

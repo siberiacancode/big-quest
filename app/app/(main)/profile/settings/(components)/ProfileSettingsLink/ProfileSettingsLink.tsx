@@ -16,7 +16,7 @@ interface ProfileSettingsLinkProps {
 
 export const ProfileSettingsLink = ({ id, name, surname, userId }: ProfileSettingsLinkProps) => (
   <Link href={ROUTES.APP.PROFILE.EDIT(id)} className='mt-5 flex w-full items-center'>
-    <Image src={avatar} alt='' width={48} height={48} />
+    <Image src={avatar} alt={name} width={48} height={48} />
     <div className='ml-4 mr-6 flex-grow'>
       <Typography variant='sub3'>
         {name} {surname}
