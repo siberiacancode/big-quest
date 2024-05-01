@@ -1,14 +1,12 @@
 import { Typography } from '@/components/ui';
-import { cn } from '@/lib/utils';
 
 export interface NewsCardProps {
   image: string;
-  left: boolean;
   title: string;
   description: string;
 }
 
-export const NewsCard = ({ image, description, title, left }: NewsCardProps) => (
+export const NewsCard = ({ image, description, title }: NewsCardProps) => (
   <div
     className='relative flex flex-grow flex-col justify-center overflow-hidden rounded-[30px] mdx:rounded-[16px] 3smx:px-4 2smx:rounded-[16px]'
     style={{
@@ -18,13 +16,7 @@ export const NewsCard = ({ image, description, title, left }: NewsCardProps) => 
       paddingTop: '47.2%'
     }}
   >
-    <div
-      className={cn(
-        'absolute top-[30%] flex w-[56%] max-w-[707px] flex-col gap-8 2lgx:gap-4 lgx:w-[55%] 2mdx:w-[50%] mdx:w-[55%] mdx:gap-2',
-        left && 'left-[5%]',
-        !left && 'right-[5%] top-[35%] max-w-[46%] items-end text-right'
-      )}
-    >
+    <div className='absolute left-[5%] top-[30%] flex w-[56%] max-w-[707px] flex-col gap-8 2lgx:gap-4 lgx:w-[55%] 2mdx:w-[50%] mdx:w-[55%] mdx:gap-2'>
       <Typography
         tag='h3'
         variant='h3'
