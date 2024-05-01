@@ -16,4 +16,4 @@ interface DeleteFileByIdParams {
 export type DeleteFileByIdRequestConfig = RequestConfig<DeleteFileByIdParams>;
 
 export const deleteFileById = async ({ params, config }: DeleteFileByIdRequestConfig) =>
-  api.delete<FileDto>(`file/${params.id}`, config);
+  api.delete<boolean>(`file/${params.id}`, config);

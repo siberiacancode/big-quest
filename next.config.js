@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
 module.exports = {
-  ...nextConfig,
   images: {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: '*'
+      },
+      {
+        protocol: 'http',
         hostname: '*'
       }
     ],
@@ -15,8 +16,8 @@ module.exports = {
   rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: `${process.env.API_URL}/api/:path*`
+        source: '/api/1.0/:path*',
+        destination: `${process.env.API_URL}/api/1.0/:path*`
       }
     ];
   }

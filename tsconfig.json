@@ -25,7 +25,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/assets/*": ["./assets/*"],
-      "@/static/*": ["./static/*"]
+      "@/static/*": ["./static/*"],
+      "@/api-types": ["./generated/api"]
     },
     "plugins": [
       {
@@ -40,6 +41,6 @@
     "**/*.tsx",
     "next-env.d.ts",
     ".next/types/**/*.ts",
-    "next.config.cjs"
-  ]
+    "next.config.js"
+, "openapi-ts.config.cjs"  ]
 }

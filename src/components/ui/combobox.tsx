@@ -63,9 +63,12 @@ export const Combobox = ({
           variant='secondary'
           role='combobox'
           aria-expanded={open}
-          className={cn('justify-between gap-1', className)}
+          className={cn(
+            'justify-between gap-1 border-2 border-secondary bg-input-foreground',
+            className
+          )}
         >
-          <span className={cn('truncate', !value && 'text-muted-foreground')}>
+          <span className={cn('font-normal', !value && 'text-placeholder')}>
             {!!onSearchChange && (value || selectItemMsg)}
             {!onSearchChange &&
               (value ? items.find((item) => item.value === value)?.label : selectItemMsg)}
@@ -95,7 +98,7 @@ export const Combobox = ({
           <ScrollArea
             className={cn('max-h-[220px] overflow-auto', !items.length && !unselect && 'hidden')}
           >
-            <CommandGroup>
+            <CommandGroup className='dark:bg-background'>
               {unselect && (
                 <CommandItem
                   key='unselect'

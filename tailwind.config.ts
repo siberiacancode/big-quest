@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
 const config = {
   darkMode: ['class'],
@@ -10,6 +11,9 @@ const config = {
   ],
   prefix: '',
   theme: {
+    fontFamily: {
+      sans: ['var(--font-sans)', ...fontFamily.sans]
+    },
     screens: {
       '4xlx': { max: '2560px' },
       '3xlx': { max: '1750px' },
@@ -17,24 +21,26 @@ const config = {
       xlx: { max: '1280px' },
       '2lgx': { max: '1124px' },
       lgx: { max: '1023px' },
+      '2mdx': { max: '900px' },
       mdx: { max: '768px' },
       '2smx': { max: '600px' },
       smx: { max: '639px' },
       '2xsx': { max: '560px' },
-      xsx: { max: '475px' },
-      xxsx: { max: '420px' },
-      '4xl': { min: '2560px' },
-      '3xl': { min: '1750px' },
-      '2xl': { min: '1400px' },
-      xl: { min: '1280px' },
-      '2lg': { min: '1124px' },
-      lg: { min: '1024px' },
-      md: { min: '768px' },
-      '2sm': { min: '600px' },
-      sm: { min: '640px' },
       '2xs': { min: '560px' },
+      xsx: { max: '475px' },
+      xxsx: { max: '375px' },
+
+      xxs: { min: '375px' },
       xs: { min: '475px' },
-      xxs: { min: '420px' }
+      sm: { min: '640px' },
+      '2sm': { min: '600px' },
+      md: { min: '768px' },
+      lg: { min: '1024px' },
+      '2lg': { min: '1124px' },
+      xl: { min: '1280px' },
+      '2xl': { min: '1400px' },
+      '3xl': { min: '1750px' },
+      '4xl': { min: '2560px' }
     },
     container: {
       center: true,

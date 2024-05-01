@@ -7,7 +7,7 @@ export const useDeleteFileByIdMutation = (
   settings?: MutationSettings<DeleteFileByIdRequestConfig, typeof deleteFileById>
 ) =>
   useMutation({
-    mutationKey: ['DeleteFileById'],
+    mutationKey: ['deleteFileById'],
     mutationFn: ({ params, config }) =>
       deleteFileById({ params, config: { ...settings?.config, ...config } }),
     ...settings?.options

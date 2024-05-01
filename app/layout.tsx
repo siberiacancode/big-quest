@@ -1,17 +1,21 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Rubik as FontSans } from 'next/font/google';
 
 import { Toaster } from '@/components/ui/sonner';
-import { generateRefreshTokenInterceptor } from '@/utils/api/interceptors';
 import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
 import { getMessagesByLocale } from '@/utils/helpers';
-import { getDefaultTheme } from '@/utils/helpers/getDefaultTheme';
+import { getDefaultTheme, getUserSession } from '@/utils/helpers/server';
 
-import Providers from './providers';
+import { Providers } from './providers';
 
 import '@/assets/styles/globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const fontSans = FontSans({
+  weight: ['300', '400', '500', '600', '700', '900'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  variable: '--font-sans'
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,19 +25,27 @@ export const metadata: Metadata = {
 const TOASTER_DURATION = 5000;
 
 generateServerHeadersInterceptor();
-generateRefreshTokenInterceptor();
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+const RootLayout = ({ children }: RootLayoutProps) => {
   const locale = 'ru';
   const messages = getMessagesByLocale(locale);
   const defaultTheme = getDefaultTheme();
 
+  const userSession = getUserSession();
+
   return (
     <html className={defaultTheme} lang='en'>
-      <body className={`min-h-screen bg-background font-sans antialiased ${inter.className}`}>
+      <body className={`min-h-screen bg-background font-sans antialiased ${fontSans.variable}`}>
         <Providers
+          user={{
+            defaultUser: userSession
+          }}
           i18n={{ locale, messages }}
-          session={{ defaultSession: { isAuthenticated: true } }}
+          session={{ defaultSession: { isAuthenticated: !!userSession } }}
           theme={{ defaultTheme }}
         >
           {children}

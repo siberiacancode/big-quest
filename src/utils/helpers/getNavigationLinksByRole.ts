@@ -1,8 +1,10 @@
+import type { UserResponseRolesItem } from '@/api-types';
+
 import { ORGANIZER_LINKS } from '../constants';
 
-export const getNavigationLinksByUserRole = (userRole: UserRole) => {
+export const getNavigationLinksByUserRole = (userRole: UserResponseRolesItem) => {
   switch (userRole) {
-    case 'organizer':
+    case 'SUPERADMIN':
       return ORGANIZER_LINKS;
     default:
       throw new Error('Invalid user role');

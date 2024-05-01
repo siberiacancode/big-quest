@@ -64,7 +64,7 @@ export const DropzoneCard = ({
             <video
               className={cn(
                 isActive && 'border-2 border-emerald-700',
-                'h-full w-full flex-1 rounded-md border border-border'
+                'h-full w-full flex-1 rounded-md border border-border object-cover'
               )}
             >
               <source src={value} type='video/mp4' />

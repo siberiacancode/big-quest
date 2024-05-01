@@ -1,12 +1,21 @@
-import { api } from '../../instance';
+import type { OrganisationListPaginationResponse, OrganizationServerError } from '@/api-types';
+import { api } from '@/utils/api/instance';
 
-export type GetOrganizationRequestConfig = RequestConfig | void;
+export interface GetOrganizationParams {
+  limit?: number;
+  current?: number;
+  id?: string;
+  ids?: string;
+  name?: string;
+  locality?: string;
+  stage?: Stage;
+  type?: LegalType;
+  sort?: string;
+}
+export type GetOrganizationRequestConfig = RequestConfig<GetOrganizationParams>;
 
 export const getOrganization = async (requestConfig?: GetOrganizationRequestConfig) =>
-  api.get<OrganizationPaginationResponse>('organization', requestConfig?.config);
-
-export type PutOrganizationParams = UpdateOrganizationDto;
-export type PutOrganizationRequestConfig = RequestConfig<PutOrganizationParams>;
-
-export const putOrganization = async ({ params, config }: PutOrganizationRequestConfig) =>
-  api.put<UpdateOrganizationDto>('organization', params, config);
+  api.get<OrganizationServerError | OrganisationListPaginationResponse>(
+    'organization',
+    requestConfig?.config
+  );
