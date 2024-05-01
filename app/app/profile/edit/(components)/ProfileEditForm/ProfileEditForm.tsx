@@ -175,7 +175,10 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                             placeholder={i18n.formatMessage({ id: 'field.userId.placeholder' })}
                           />
                         </FormControl>
-                        <CopyToClipboardButton value={form.getValues('userId')} />
+                        <CopyToClipboardButton
+                          value={form.getValues('userId')}
+                          className='absolute right-1 top-0'
+                        />
                       </div>
                       <Typography variant='body4' tag='p' className='text-muted-foreground'>
                         <I18nText path='app.profile.edit.userID.description' />

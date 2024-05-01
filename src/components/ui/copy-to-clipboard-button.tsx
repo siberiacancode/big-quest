@@ -5,32 +5,27 @@ import { cn } from '@/lib/utils';
 
 import { Button } from './button';
 
-export interface CopyToClipboardButtonProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CopyToClipboardButtonProps extends React.ComponentProps<'div'> {
   value: string;
 }
+
+const RESET_COPY_TIMEOUT = 2000;
 
 export const CopyToClipboardButton = ({ className, value }: CopyToClipboardButtonProps) => {
   const [hasCopied, setHasCopied] = React.useState(false);
 
-  const resetCopy = React.useCallback(() => {
-    setHasCopied(false);
-  }, []);
-
   React.useEffect(() => {
-    const timer = setTimeout(resetCopy, 2000);
+    const timer = setTimeout(() => setHasCopied(false), RESET_COPY_TIMEOUT);
     return () => clearTimeout(timer);
-  }, [hasCopied, resetCopy]);
+  }, [hasCopied]);
 
   const handleCopy = () => {
     setHasCopied(true);
     navigator.clipboard.writeText(value);
   };
+
   return (
-    <Button
-      variant='ghost'
-      onClick={handleCopy}
-      className={cn('absolute right-0 top-0 px-3', className)}
-    >
+    <Button variant='ghost' onClick={handleCopy} size='icon' className={cn(className)}>
       {hasCopied ? (
         <CheckIcon className='stroke-muted-foreground' size={20} />
       ) : (
