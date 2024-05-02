@@ -1,14 +1,12 @@
+import type {
+  ActivityControllerGetPublicActivitysParams,
+  ActivityWithPaginationResponse
+} from '@/api-types';
 import { api } from '@/utils/api/instance';
 
-export interface GetActivityPublicParams {
-  limit?: number;
-  current?: number;
-  organizationId?: string;
-  city?: string;
-  category?: string;
-  name?: string;
-}
-export type GetActivityPublicRequestConfig = RequestConfig<GetActivityPublicParams>;
+export type GetActivityPublicParams = ActivityControllerGetPublicActivitysParams;
+export type GetActivityPublicRequestConfig =
+  RequestConfig<ActivityControllerGetPublicActivitysParams>;
 
 export const getActivityPublic = async ({ params, config }: GetActivityPublicRequestConfig) =>
   api.get<ActivityWithPaginationResponse>('activity/public', {

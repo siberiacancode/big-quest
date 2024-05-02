@@ -4,8 +4,8 @@ import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { getActivity } from '@/utils/api';
 
-import { ActivityCard } from './components/ActivityCard/ActivityCard';
-import { AddActivityDialog } from './components/AddActivityDialog/AddAddressDialog';
+import { ActivityCard } from './(components)/ActivityCard/ActivityCard';
+import { AddActivityDialog } from './(components)/AddActivityDialog/AddAddressDialog';
 
 interface OrganizationActivitiesPageProps {
   params: { organizationId: string };

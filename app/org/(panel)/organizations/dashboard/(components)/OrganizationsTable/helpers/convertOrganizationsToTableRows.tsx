@@ -1,5 +1,7 @@
 import { InfinityIcon } from 'lucide-react';
 
+import type { OrganizationListResponse } from '@/api-types';
+
 export interface OrganizationsTableRow {
   id: string;
   name: string;

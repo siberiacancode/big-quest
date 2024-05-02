@@ -1,6 +1,8 @@
 import type { InfiniteData, QueryKey } from '@tanstack/react-query';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
+import type { ActivityWithPaginationResponse } from '@/api-types';
+
 import type { GetActivityPublicParams } from '../requests';
 import { getActivityPublic } from '../requests';
 

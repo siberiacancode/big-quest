@@ -1,6 +1,7 @@
 import React from 'react';
 import { XIcon } from 'lucide-react';
 
+import type { UserResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
   Dialog,
@@ -11,12 +12,11 @@ import {
   Typography
 } from '@/components/ui';
 
-import type { PartnerData } from '../../(constants)/types';
 import { ActionPartnerForm } from '../ActionPartnerForm/ActionPartnerForm';
 
 interface EditPartnerDialogProps extends React.ComponentProps<typeof Dialog> {
   onEdit: () => void;
-  partner: PartnerData;
+  partner: UserResponse;
 }
 
 export const EditPartnerDialog = ({ onEdit, partner, ...props }: EditPartnerDialogProps) => (

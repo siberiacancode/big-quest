@@ -1,17 +1,14 @@
+import type { ActivityResponse } from '@/api-types';
 import { api } from '@/utils/api/instance';
 
 export interface GetActivityByIdParams {
-  id: string | undefined;
+  id: string;
 }
 
 export type GetActivityByIdRequestConfig = RequestConfig<GetActivityByIdParams>;
 
-export const getActivityById = async ({ params, config }: GetActivityByIdRequestConfig) => {
-  if (params.id) {
-    return api.get<ActivityResponse>(`activity/${params.id}`, config);
-  }
-  return null;
-};
+export const getActivityById = async ({ params, config }: GetActivityByIdRequestConfig) =>
+  api.get<ActivityResponse>(`activity/${params.id}`, config);
 
 interface PutActivityByIdParams {
   id: string;

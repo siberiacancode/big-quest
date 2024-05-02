@@ -30,7 +30,7 @@ const RedirectPage = ({ searchParams }: RedirectPageProps) => {
         </div>
         <div className='max-h-[272px] w-full max-w-[272px] overflow-hidden rounded-xl'>
           <QRCode
-            text={`${host}${ROUTES.AUTH}?step=${redirectTo}`}
+            text={`${host}${ROUTES.APP.AUTH}?step=${redirectTo}`}
             options={{
               margin: 5,
               color: {

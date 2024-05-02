@@ -1,5 +1,6 @@
 import { PlusIcon, Trash2Icon } from 'lucide-react';
 
+import type { OrganizationResponse } from '@/api-types';
 import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {

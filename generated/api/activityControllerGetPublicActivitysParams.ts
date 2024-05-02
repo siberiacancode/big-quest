@@ -23,4 +23,7 @@ export type ActivityControllerGetPublicActivitysParams = {
    * Название
    */
   name?: string;
+
+  limit?: number;
+  current?: number;
 };

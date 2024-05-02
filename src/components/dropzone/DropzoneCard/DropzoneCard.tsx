@@ -13,13 +13,14 @@ import { useI18n } from '@/utils/contexts';
 import { ACCEPT_FILE_TYPES } from './constants/acceptFileTypes';
 import type { FileType } from './constants/types';
 
+type DropzoneValue = string | File;
 interface DropzoneCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  value?: string;
+  value?: DropzoneValue;
   type?: FileType;
   isAvatar?: boolean;
   isActive?: boolean;
-  onDelete?: (value: string) => void;
-  onDropAccepted: (props: File) => void;
+  onDelete?: (value: DropzoneValue) => void;
+  onDropAccepted?: (value: File) => void;
 }
 
 const MAX_FILES_AMOUNT = 1;
@@ -29,7 +30,7 @@ export const DropzoneCard = ({
   type = 'IMAGE',
   isAvatar = false,
   isActive = false,
-  onDelete = () => {},
+  onDelete,
   onDropAccepted,
   ...props
 }: DropzoneCardProps) => {
@@ -44,7 +45,7 @@ export const DropzoneCard = ({
     maxFiles: MAX_FILES_AMOUNT,
     accept: ACCEPT_FILE_TYPES[type === 'IMAGE' || type === 'VIDEO' ? 'media' : 'docs'],
     onDropRejected,
-    onDropAccepted: (files: File[]) => onDropAccepted(files[0])
+    onDropAccepted: (files: File[]) => onDropAccepted?.(files[0])
   });
 
   return (
@@ -67,7 +68,10 @@ export const DropzoneCard = ({
                 'h-full w-full flex-1 rounded-md border border-border object-cover'
               )}
             >
-              <source src={value} type='video/mp4' />
+              <source
+                src={typeof value === 'string' ? value : URL.createObjectURL(value)}
+                type='video/mp4'
+              />
             </video>
           )}
           {!isAvatar && (
@@ -76,7 +80,7 @@ export const DropzoneCard = ({
               className='absolute right-0 top-0 m-2 h-fit rounded-full p-2 '
               onClick={(event) => {
                 event.stopPropagation();
-                onDelete(value);
+                onDelete?.(value);
               }}
             >
               <Trash2 className='h-3 w-3 ' />

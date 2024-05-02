@@ -2,6 +2,7 @@
 
 import { cookies } from 'next/headers';
 
+import type { UserResponse } from '@/api-types';
 import { COOKIES } from '@/utils/constants';
 
 // eslint-disable-next-line @typescript-eslint/require-await

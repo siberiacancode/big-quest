@@ -1,6 +1,8 @@
 import type { InfiniteData, QueryKey } from '@tanstack/react-query';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
+import type { ChangesResponseWithPagination } from '@/api-types';
+
 import type { GetChangesParams } from '../requests';
 import { getChanges } from '../requests';
 

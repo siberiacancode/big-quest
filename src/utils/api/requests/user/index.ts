@@ -6,7 +6,7 @@ export type GetUserRequestConfig = RequestConfig | void;
 export const getUser = async (requestConfig?: GetUserRequestConfig) =>
   api.get<UserResponse>('user', requestConfig?.config);
 
-export type PutUserParams = UserResponse & { file?: File };
+export type PutUserParams = Record<$TSFIXME, $TSFIXME>;
 
 export type PutUserRequestConfig = RequestConfig<PutUserParams>;
 

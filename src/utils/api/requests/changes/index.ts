@@ -1,4 +1,4 @@
-import type { ChangesResponse, CreateChangesDto } from '@/api-types';
+import type { ChangesResponse, ChangesResponseWithPagination, CreateChangesDto } from '@/api-types';
 import { api } from '@/utils/api/instance';
 
 export interface GetChangesParams {

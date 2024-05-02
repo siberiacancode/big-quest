@@ -39,7 +39,7 @@ export interface OrganizationResponse {
   /** Сайт организации */
   site?: string;
   /** Социальные сети */
-  social?: string;
+  social?: string[];
   /** Статус */
   stage: OrganizationResponseStage;
   /** Тип юр лица */
