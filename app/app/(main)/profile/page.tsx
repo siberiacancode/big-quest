@@ -11,10 +11,10 @@ import { ROUTES } from '@/utils/constants';
 const AppProfilePage = () => (
   <div className='px-5 py-9'>
     <div className='flex items-center justify-between'>
-      <Typography>
+      <Typography tag='h1' className='font-semibold'>
         <I18nText path='app.profile.title' />
       </Typography>
-      <Link href={ROUTES.APP.SETTINGS}>
+      <Link href={ROUTES.APP.PROFILE.SETTINGS}>
         <SettingsIcon />
       </Link>
     </div>

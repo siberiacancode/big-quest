@@ -8,7 +8,7 @@ import { getDevice } from '@/utils/helpers/server';
 generateServerHeadersInterceptor();
 
 const UNAUTH_ROUTES = [ROUTES.LANDING.ROOT, ROUTES.AUTH, ROUTES.ORG.AUTH, ROUTES.APP.ACTIVITIES];
-const MOBILE_ONLY_ROUTES = [ROUTES.AUTH, ROUTES.APP.PROFILE];
+const MOBILE_ONLY_ROUTES = [ROUTES.AUTH, ROUTES.APP.PROFILE.ROOT];
 
 export const middleware = (request: NextRequest) => {
   const { pathname } = new URL(request.url);

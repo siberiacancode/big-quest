@@ -497,3 +497,22 @@ interface ChangesResponseWithPagination {
   rows: ChangesResponse[];
   pagination: PaginationResponse;
 }
+
+type ProfileSettingsRoleFixMe = 'CHILD' | 'PARENT' | 'PARTICIPANT';
+
+interface ChildProfileSettingsResponseFixMe {
+  id: string;
+  userId: string;
+  name: string;
+  surname: string;
+  role: ProfileSettingsRoleFixMe;
+}
+
+interface ParticipantProfileSettingsResponseFixMe {
+  id: string;
+  userId: string;
+  name: string;
+  surname: string;
+  children: ChildProfileSettingsResponseFixMe[];
+  role: ProfileSettingsRoleFixMe;
+}
