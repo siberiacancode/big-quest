@@ -35,16 +35,16 @@ export const NewsSection = () => (
         ))}
       </CarouselContent>
 
-      <span className='hidden lg:block'>
-        <CarouselPrevious className='absolute -left-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100 xxlx:-left-[1%] 2xlx:left-[1%] lgx:size-10'>
+      <span className='hidden xxl:block'>
+        <CarouselPrevious className='absolute -left-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100'>
           {(disabled) => <ChevronLeftIcon color={disabled ? 'white' : 'black'} />}
         </CarouselPrevious>
-        <CarouselNext className='absolute -right-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100 xxlx:-right-[1%] 2xlx:right-[1%] lgx:size-10'>
+        <CarouselNext className='absolute -right-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100'>
           {(disabled) => <ChevronRightIcon color={disabled ? 'white' : 'black'} />}
         </CarouselNext>
       </span>
 
-      <CarouselDots className='mt-4 text-center lg:hidden' />
+      <CarouselDots className='mt-4 text-center xxl:hidden' />
     </Carousel>
   </section>
 );

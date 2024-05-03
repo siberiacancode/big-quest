@@ -20,8 +20,8 @@ export const Header = ({ cityId }: HeaderProps) => (
   <header className='container flex justify-between py-[52px] 2xlx:gap-8 2xlx:py-10 2xsx:py-6 xxsx:pb-2 2xl:gap-[80px]'>
     <Logo href={ROUTES.LANDING.CITY(cityId)} className='fill-taiga' />
 
-    <nav className='flex hidden flex-grow items-center lg:block'>
-      <ul className='flex gap-12'>
+    <nav className='hidden flex-grow items-center lg:flex'>
+      <ul className='flex items-center gap-12'>
         <li>
           <Link href={{ pathname: ROUTES.LANDING.ROOT, hash: 'banner' }}>
             <Typography
