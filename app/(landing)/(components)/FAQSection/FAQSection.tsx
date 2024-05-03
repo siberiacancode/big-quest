@@ -27,7 +27,7 @@ export const FAQSection = ({ cityId }: FAQSectionProps) => {
   return (
     <section className='bg-muted py-12'>
       <div className='container w-full'>
-        <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-3xl'>
+        <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-4xl'>
           <I18nText path='landing.faq.title' />
         </Typography>
 
@@ -39,7 +39,7 @@ export const FAQSection = ({ cityId }: FAQSectionProps) => {
           {formattedFaq.map((item, index) => (
             <AccordionItem
               value={index.toString()}
-              className='h-fit rounded-3xl border-none bg-white p-6'
+              className='h-fit rounded-[16px] border-none bg-white p-6 md:rounded-3xl'
             >
               <AccordionTrigger
                 className='p-0 hover:no-underline'
