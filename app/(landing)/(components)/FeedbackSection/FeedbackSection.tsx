@@ -15,7 +15,7 @@ export const FeedbackSection = () => (
   <section id='feedback' className='w-full bg-muted py-12'>
     <Carousel className='container'>
       <div className='flex items-center justify-start lg:justify-center'>
-        <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-3xl'>
+        <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-4xl'>
           <I18nText path='landing.feedback.title' />
         </Typography>
         <div className='absolute right-2'>

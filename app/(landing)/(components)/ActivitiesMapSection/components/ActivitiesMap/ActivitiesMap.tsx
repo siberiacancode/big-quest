@@ -22,7 +22,7 @@ export const ActivitiesMap = ({ cityId, activities }: MapProps) => {
     <YMaps>
       <Map
         instanceRef={(ref) => ref && ref.behaviors.disable('scrollZoom')}
-        className='mt-10 h-[400px] w-full overflow-hidden rounded-3xl lg:h-[650px]'
+        className='mt-10 h-[400px] w-full overflow-hidden md:rounded-3xl lg:h-[650px]'
         state={{
           zoom: DEFAULT_MAP_ZOOM,
           center: CITIES[cityId.toUpperCase()].map.center as [number, number]

@@ -10,7 +10,7 @@ export interface CommentCardProps {
 }
 
 export const CommentCard = ({ avatar, text, author }: CommentCardProps) => (
-  <div className='flex h-full flex-col items-center gap-4 rounded-3xl bg-white px-8 py-12'>
+  <div className='flex h-full flex-col items-center gap-4 rounded-2xl bg-white px-8 pt-12 md:rounded-3xl'>
     <Image src={avatar} alt='avatar' className='size-32' />
     <Typography variant='h4' className='text-lg text-primary lg:text-xl'>
       {author}

@@ -34,9 +34,9 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
   if (!getActivityPublicResponse.rows.length) return null;
 
   return (
-    <section id='activities' className='container py-12'>
+    <section id='activities' className='container pt-12'>
       <div className='flex items-center justify-between'>
-        <Typography tag='h2' variant='h1' className='text-[21px] lg:text-3xl'>
+        <Typography tag='h2' variant='h1' className='text-[21px] lg:text-4xl'>
           <I18nText path='landing.activities.title' />
         </Typography>
         <Link href={ROUTES.APP.ACTIVITIES} className={buttonVariants({ variant: 'link' })}>

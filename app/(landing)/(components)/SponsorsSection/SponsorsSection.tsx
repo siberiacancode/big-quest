@@ -10,7 +10,7 @@ export const SponsorsSection = () => (
   <section id='sponsors' className='relative w-full bg-muted pt-16 lg:pb-24'>
     <div className='container relative'>
       <div className='z-3 absolute left-3 top-4 h-full w-[95%] rounded-3xl border-2 border-dashed border-taiga-light md:left-3 md:top-6 xl:-left-1' />
-      <div className='relative z-10 mx-2 w-full rounded-[16px] bg-white px-6 py-12 md:rounded-3xl lg:py-[72px]'>
+      <div className='relative z-10 mx-2 w-full rounded-2xl bg-white px-6 py-12 md:rounded-3xl lg:py-[72px]'>
         <div className='flex flex-col items-center gap-8'>
           <Typography variant='h1' tag='h2' className='text-[21px] lg:text-4xl'>
             <I18nText path='landing.sponsors.title' />
