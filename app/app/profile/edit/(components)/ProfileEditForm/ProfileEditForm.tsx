@@ -35,7 +35,7 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
     <Form {...form}>
       <form onSubmit={functions.onSubmit} className='w-full'>
         <fieldset disabled={state.isLoading} className='flex w-full flex-col items-end'>
-          <div className='mb-7 flex w-full gap-5 smx:flex-col'>
+          <div className='mb-7 flex w-full flex-col gap-5'>
             <div className='flex-1 space-y-3'>
               {state.showPreview && user?.avatar && (
                 <div className='flex flex-col items-center justify-center gap-3'>
@@ -45,11 +45,15 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                     className='h-[100px] w-[100px]'
                     mobileVersion
                   />
-                  <div onClick={functions.onDeletePreviewClick} role='presentation'>
+                  <Button
+                    variant='ghost'
+                    onClick={functions.onDeletePreviewClick}
+                    role='presentation'
+                  >
                     <Typography variant='body3' tag='p' className='flex-1'>
                       <I18nText path='app.profile.edit.avatar.title' />
                     </Typography>
-                  </div>
+                  </Button>
                 </div>
               )}
               {!state.showPreview && (

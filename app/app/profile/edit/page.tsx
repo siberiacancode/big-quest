@@ -12,7 +12,7 @@ const ProfileEditPage = async () => {
   const getUserProfileResponse = await getUserProfile({ config: { cache: 'no-store' } });
 
   return (
-    <div className='px-4 pb-11 pt-8'>
+    <div className='px-4 pt-8'>
       <div className='flex text-nowrap'>
         <Link href={ROUTES.APP.PROFILE} className='absolute'>
           <ChevronLeftIcon size={32} className='rounded-md border' />
