@@ -11,8 +11,11 @@ const AppLayout = ({ children }: AppLayoutProps) => {
 
   return (
     <div className='h-screen'>
-      <div className='h-full overflow-y-auto pb-[100px] xxs:pb-[110px]'>{children}</div>
+      <div className='h-full overflow-y-auto px-4 pb-[100px] pt-[42px] xxs:pb-[110px]'>
+        {children}
+      </div>
       {!!userSession && <AppBottomNavigation />}
+      <AppBottomNavigation />
     </div>
   );
 };

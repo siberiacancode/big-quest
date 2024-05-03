@@ -9,7 +9,7 @@ import { Card, CardContent, Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
 
 const AppProfilePage = () => (
-  <div className='px-5 py-9'>
+  <div>
     <div className='flex items-center justify-between'>
       <Typography tag='h1' className='font-semibold'>
         <I18nText path='app.profile.title' />

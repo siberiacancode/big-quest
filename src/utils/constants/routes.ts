@@ -40,6 +40,7 @@ export const ROUTES = {
     },
     ACTIVITIES: '/app/activities',
     RATING: '/app/rating',
-    SUPPORT: '/app/support'
+    SUPPORT: '/app/support',
+    TAIGA: '/app/taiga'
   }
 };

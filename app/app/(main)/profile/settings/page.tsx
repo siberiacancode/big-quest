@@ -1,4 +1,5 @@
-import { ChevronLeftIcon, Link } from 'lucide-react';
+import { ChevronLeftIcon } from 'lucide-react';
+import Link from 'next/link';
 
 import { I18nText } from '@/components/common';
 import { CityIcon } from '@/components/icons';
@@ -18,11 +19,11 @@ const AppProfileSettingsPage = async () => {
   });
 
   return (
-    <div className='px-4 py-8'>
+    <div>
       <Link
         href={ROUTES.APP.PROFILE.ROOT}
         className={cn(
-          'absolute left-4 top-8 z-10 size-8 bg-white lg:hidden',
+          'absolute left-4 top-8 z-10 !size-8 bg-white lg:hidden',
           buttonVariants({ variant: 'outline', size: 'icon' })
         )}
       >
