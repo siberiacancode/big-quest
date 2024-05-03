@@ -13,25 +13,25 @@ import { ROUTES } from '@/utils/constants';
 export const BannerSection = () => (
   <section
     id='banner'
-    className='container flex h-screen items-center justify-center md:mt-0 md:h-fit'
+    className='container -mt-[72px] flex h-screen items-center justify-center pt-[72px] md:pt-0 4xl:h-fit'
   >
-    <div className='-mt-20 flex w-full flex-col items-center justify-between overflow-hidden px-2 sm:-mt-0 lg:flex-row-reverse lg:gap-32 lg:py-32'>
-      <div className='-mr-10 w-full items-center lg:-mr-20'>
+    <div className='mt-5 flex w-full flex-col items-center justify-between px-2 sm:-mt-0 lg:flex-row-reverse lg:gap-32 lg:py-32'>
+      <div className='-mr-10 w-[260px] items-center lg:-mr-20 lg:w-full'>
         <Image src={bannerImage} alt='banner image' />
       </div>
 
-      <div className='mt-8 flex w-full flex-col justify-center gap-2 text-center lg:mb-20'>
-        <div className='flex flex-col gap-2 lg:gap-4 lg:text-left'>
-          <Typography tag='h1' variant='h1' className='text-2xl lg:text-5xl'>
+      <div className='mt-4 flex w-full flex-col justify-center text-center lg:mb-20 lg:mt-8'>
+        <div className='flex flex-col gap-2 lg:gap-6 lg:text-left'>
+          <Typography tag='h1' variant='h1' className='text-2xl lg:text-[56px] lg:leading-[70px]'>
             <I18nText path='landing.info.title' />
           </Typography>
 
-          <Typography tag='p' variant='body1' className='text-md text-wrap leading-5 lg:text-xl'>
+          <Typography tag='p' variant='body1' className='text-wrap text-sm leading-5 lg:text-2xl'>
             <I18nText path='landing.info.subtitle' />
           </Typography>
         </div>
 
-        <div className='mt-10 flex w-full flex-col gap-4 lg:w-[90%] lg:flex-row'>
+        <div className='mt-6 flex w-full flex-col gap-4 lg:mt-10 lg:w-[90%] lg:flex-row lg:gap-8'>
           <Link
             href={{
               pathname: ROUTES.AUTH,
@@ -54,7 +54,7 @@ export const BannerSection = () => (
           </div>
         </div>
 
-        <div className='mt-5 block w-full text-center md:hidden'>
+        <div className='mb-8 mt-4 block w-full text-center md:hidden'>
           <Link href={ROUTES.ORG.AUTH}>
             <Typography
               variant='body2'
