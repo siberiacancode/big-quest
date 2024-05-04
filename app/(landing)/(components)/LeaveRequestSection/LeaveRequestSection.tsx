@@ -6,8 +6,8 @@ import { RegisterOrganizationDialog } from '@/components/dialogs';
 import { Button, Typography } from '@/components/ui';
 
 export const LeaveRequestSection = () => (
-  <section className='container relative my-6'>
-    <div className='flex w-full flex-col-reverse items-center justify-center gap-3 md:max-w-none md:flex-row md:py-10 lg:justify-between'>
+  <section className='container relative my-6 flex justify-center text-center lg:text-start'>
+    <div className='flex w-full max-w-96 flex-col-reverse items-center justify-center gap-3 md:max-w-none md:flex-row md:py-10 lg:justify-between'>
       <div className='flex flex-col gap-2 md:gap-3'>
         <div className='flex flex-col gap-2'>
           <Typography variant='h1' tag='h2' className='text-[21px] md:text-4xl'>

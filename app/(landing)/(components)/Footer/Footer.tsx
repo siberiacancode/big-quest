@@ -12,11 +12,11 @@ interface FooterProps {
 }
 
 export const Footer = ({ cityId }: FooterProps) => (
-  <footer className='bg-taiga text-white '>
-    <div className='container flex justify-between gap-28 py-20 xlx:gap-12 mdx:gap-8 2smx:flex-wrap 2smx:justify-around'>
-      <div className='flex flex-col xsx:w-full xsx:items-center md:mr-[83px]'>
+  <footer className='bg-taiga text-white'>
+    <div className='container flex flex-wrap justify-between gap-6 py-10 2sm:flex-nowrap 2sm:py-20'>
+      <div className='flex w-full flex-col'>
         <Logo href={ROUTES.LANDING.CITY(cityId)} fill='white' />
-        <div className='mt-14 flex gap-3'>
+        <div className='mt-8 flex gap-3 lg:mt-14'>
           {Object.entries(SOCIAL_LINKS[cityId.toUpperCase()]).map(
             ([socialLinkKey, socialLinkValue]) => {
               const Icon = SOCIAL_ICONS[socialLinkKey];
@@ -30,7 +30,7 @@ export const Footer = ({ cityId }: FooterProps) => (
           )}
         </div>
       </div>
-      <div className='xsx:flex xsx:w-full xsx:flex-col xsx:items-center'>
+      <div className='flex w-full flex-col'>
         <Typography tag='p' className='text-xl font-medium text-white'>
           <I18nText path='landing.footer.navigation.title' />
         </Typography>
@@ -79,24 +79,24 @@ export const Footer = ({ cityId }: FooterProps) => (
           </ul>
         </nav>
       </div>
-      <div className='2smx: 2lgx:max-w-[250px] xsx:w-full xsx:items-center 2lg:max-w-[337px]'>
-        <Typography tag='p' className='text-xl font-medium text-white xsx:text-center'>
+      <div className='w-full 2lg:max-w-[337px]'>
+        <Typography tag='p' className='text-xl font-medium text-white'>
           <I18nText path='landing.footer.addresses' />
         </Typography>
         <nav className='mt-4'>
-          <ul className='flex flex-col gap-3 text-center'>
+          <ul className='flex flex-col gap-3 lg:text-start'>
             {CITIES[cityId.toUpperCase()].headquarters}
           </ul>
         </nav>
       </div>
-      <div className='text-end xsx:h-fit xsx:text-center 2sm:flex-grow'>
+      <div className='w-full 2sm:text-end'>
         <Link href={ROUTES.ORG.AUTH} className='text-white hover:underline'>
           <I18nText path='button.organizationsEntrance' />
         </Link>
       </div>
     </div>
-    <div className='container border-t border-solid border-white py-[25px]'>
-      <Typography variant='body4' className='text-center text-white'>
+    <div className='container w-full border-t border-solid border-white py-[25px] text-center '>
+      <Typography variant='body4' className='text-white'>
         <FooterCopyrightText />
       </Typography>
     </div>

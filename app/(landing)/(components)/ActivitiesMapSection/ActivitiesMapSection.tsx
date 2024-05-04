@@ -30,7 +30,7 @@ export const ActivitiesMapSection = async ({ cityId }: ActivitiesMapSectionProps
   if (!getActivityPublicResponse.rows.length) return null;
 
   return (
-    <section className='container px-0 py-12 lg:px-10'>
+    <section className='container px-0 py-12'>
       <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-4xl'>
         <I18nText path='landing.activitiesMap.title' />
       </Typography>

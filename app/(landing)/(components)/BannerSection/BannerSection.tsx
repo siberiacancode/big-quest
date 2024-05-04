@@ -31,17 +31,17 @@ export const BannerSection = () => (
           </Typography>
         </div>
 
-        <div className='mt-6 flex w-full flex-col gap-4 lg:mt-10 lg:w-[90%] lg:flex-row lg:gap-8'>
+        <div className='mt-6 flex w-full  flex-col items-center gap-4 lg:mt-10 lg:w-[90%] lg:flex-row lg:gap-8'>
           <Link
             href={{
               pathname: ROUTES.AUTH,
               query: { step: 'login' }
             }}
-            className={cn(buttonVariants({ size: 'lg', variant: 'primary' }), 'w-full')}
+            className={cn(buttonVariants({ size: 'lg', variant: 'primary' }), 'w-full max-w-96')}
           >
             <I18nText path='button.auth' />
           </Link>
-          <div className='w-full mdx:rounded-md mdx:border mdx:border-taiga'>
+          <div className='w-full max-w-96 mdx:rounded-md mdx:border mdx:border-taiga'>
             <Link
               href={{
                 pathname: ROUTES.AUTH,
