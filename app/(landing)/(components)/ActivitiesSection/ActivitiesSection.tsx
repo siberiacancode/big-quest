@@ -48,7 +48,6 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
         <Typography tag='h2' variant='h1' className='text-2xl md:text-[32px]'>
           <I18nText path='landing.activities.title' />
         </Typography>
-
         <Link href={ROUTES.APP.ACTIVITIES} className={buttonVariants({ variant: 'link' })}>
           <Typography tag='p' variant='h6'>
             <I18nText path='button.watchAll' />

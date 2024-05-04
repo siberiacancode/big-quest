@@ -171,6 +171,9 @@
   "field.street.label": "Улица",
   "field.street.placeholder": "ул.",
   "field.details.label": "Детали",
+  "field.nearestFreeTime.label": "Ближайшее свободное время",
+  "field.chooseAnotherTime.label": "Выбрать другое время",
+  "field.goToSupportChat.label": "Перейти в чат с поддержкой",
   "field.details.placeholder": "офис, вход, этаж",
   "field.note.placeholder": "Оставьте заметку...",
   "field.title.label": "Название",
@@ -369,6 +372,7 @@
 
   "landing.info.subtitle": "Более <green>4000+ пользователей</green> уже с нами,{br} присоединяйся!",
   "landing.activities.title": "Активности",
+  "landing.adresses.title": "Адреса",
   "landing.activities.card.duration": "{duration} мин",
   "landing.activities.card.minimumAge": "{age}+ лет",
   "landing.activitiesMap.title": "Поиск активностей на карте",
