@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { I18nText } from '@/components/common';
 import { DropzoneCard } from '@/components/dropzone';
 import { Button, Typography } from '@/components/ui';
-import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 
 import type { ActivityMedia } from '../../../../(constants)/types';
@@ -31,20 +30,22 @@ export const ActivityMedias = ({
   const selectedMedia = activityMedias.find((media) => media.selected);
 
   return (
-    <div className='flex w-full gap-4'>
-      <div className='relative w-[65%]'>
+    <div className='flex w-full flex-col gap-4 md:flex-row'>
+      <div className='relative max-h-[418px] w-full md:max-w-[418px]'>
         {selectedMedia && selectedMedia.url && selectedMedia.type === 'IMAGE' && (
-          <Image
-            className='w-full rounded-lg 2smx:h-[360px]'
-            src={selectedMedia.url}
-            fill
-            alt={i18n.formatMessage({ id: 'activity.image.alt' })}
-          />
+          <div className='p-1/2'>
+            <Image
+              className=' rounded-lg'
+              src={selectedMedia.url}
+              fill
+              alt={i18n.formatMessage({ id: 'activity.image.alt' })}
+            />
+          </div>
         )}
 
         {selectedMedia && selectedMedia.url && selectedMedia.type === 'VIDEO' && (
           <video
-            className='h-full w-full rounded-lg border border-border object-cover'
+            className='size-[418px] rounded-lg border border-border object-cover'
             muted
             autoPlay
           >
@@ -53,7 +54,7 @@ export const ActivityMedias = ({
         )}
 
         {!selectedMedia && (
-          <div className='flex h-full w-full flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed border-dropzoneBorder p-8 text-muted-foreground sm:max-h-[418px]'>
+          <div className='flex max-h-[418px] w-full flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed border-dropzoneBorder py-[33%] text-muted-foreground'>
             <WallpaperIcon className='h-10 w-10 text-muted-foreground' />
             <Typography variant='body1'>
               <I18nText path='activity.image.placeholder' />
@@ -84,18 +85,13 @@ export const ActivityMedias = ({
           )}
       </div>
 
-      <div
-        className={cn(
-          'grid h-max w-[35%] grid-cols-2 gap-2',
-          activityMedias.length > 3 && '2smx:row-span-2'
-        )}
-      >
+      <div className='flex h-[100px] grid-rows-4 gap-2 overflow-x-scroll md:grid md:h-full md:w-[208px] md:grid-cols-2 md:overflow-x-hidden'>
         {activityMedias.map((item, index) => (
           <div className='relative' key={index}>
-            <div className='3smx:h-[85px] relative h-[100px] w-full xsx:h-[80px] xxsx:h-[60px]'>
+            <div className='relative h-[100px]'>
               <DropzoneCard
                 type={item.type}
-                className='h-full w-full rounded-3xl'
+                className='size-[100px] rounded-3xl'
                 value={item.url}
                 onClick={() => onClick(item.id)}
                 isAvatar={item.flag === 'AVATAR'}
@@ -108,10 +104,7 @@ export const ActivityMedias = ({
         ))}
         {activityMedias.length < MAX_MEDIA_AMOUNT && (
           <div className='relative'>
-            <DropzoneCard
-              className='3smx:h-[85px] relative h-[100px] w-full xsx:h-[80px] xxsx:h-[60px]'
-              onDropAccepted={onDropAccepted}
-            />
+            <DropzoneCard className='relative size-[100px]' onDropAccepted={onDropAccepted} />
           </div>
         )}
       </div>

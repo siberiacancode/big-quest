@@ -23,7 +23,7 @@ interface EditActivityDialogProps extends React.ComponentProps<typeof Dialog> {
 
 export const EditActivityDialog = ({ onEdit, activity, ...props }: EditActivityDialogProps) => (
   <Dialog {...props}>
-    <DialogContent className='flex h-fit w-11/12 max-w-[713px] flex-col rounded-lg smx:max-h-[90%]'>
+    <DialogContent className='flex h-screen w-full max-w-[713px] flex-col md:h-fit md:w-11/12 md:rounded-lg'>
       <DialogClose>
         <XIcon className='h-6 w-6' />
       </DialogClose>

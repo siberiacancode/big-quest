@@ -25,7 +25,7 @@ export const ActivitiesMapSection = async ({ cityId }: ActivitiesMapSectionProps
     }
   });
 
-  if (getActivityPublicResponse.rows.length) return null;
+  if (!getActivityPublicResponse?.rows?.length) return null;
 
   return (
     <section className='container mt-28 min-h-[500px]'>
