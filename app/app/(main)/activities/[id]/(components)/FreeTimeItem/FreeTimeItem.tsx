@@ -12,14 +12,14 @@ export const FreeTimeItem = ({ time }: FreeTimeItemProps) => {
   const dayNumber = new Date(time.date).getDay() + 1;
 
   return (
-    <div className='flex h-10 w-56 items-center justify-evenly rounded-lg border border-secondary'>
-      <div className='flex gap-2'>
+    <div className='flex h-10 w-56 items-center justify-evenly rounded-lg border border-secondary '>
+      <div className='flex items-center gap-2'>
         <CalendarIcon className='stroke-taiga' />
-        <Typography variant='body2' tag='p'>
+        <Typography variant='sub6' tag='p'>
           {time.time}
         </Typography>
       </div>
-      <Typography variant='body2' tag='p'>
+      <Typography variant='sub6' tag='p'>
         {dayNumber} <I18nText path={`month.${monthNumber}` as LocaleMessageId} />
       </Typography>
     </div>

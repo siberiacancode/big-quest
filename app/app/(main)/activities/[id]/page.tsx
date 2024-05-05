@@ -1,6 +1,15 @@
 import { I18nText } from '@/components/common';
-import { Typography } from '@/components/ui';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  Typography
+} from '@/components/ui';
 import { getActivityById } from '@/utils/api';
+import { ROUTES } from '@/utils/constants';
 
 import { AddressItem } from './(components)/AddressItem/AddressItem';
 
@@ -21,7 +30,17 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
 
   return (
     <section className='container py-[108px]'>
-      <div>Тут breadcrumbs </div>
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem className='list-none text-base'>
+            <BreadcrumbLink href={ROUTES.APP.ACTIVITIES}>
+              <I18nText path='landing.activities.title' />
+            </BreadcrumbLink>
+            <BreadcrumbSeparator />
+            <BreadcrumbPage>{getActivityByIdResponse.name}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
       <div>Тут блок с картинками </div>
       <div className='space-y-5'>
         <Typography tag='h5' variant='h7'>

@@ -42,6 +42,7 @@ export const getActivityById: RestRequestConfig = {
             },
             maxNumberOfParticipants: 20,
             period: [7, 14, 21],
+            details: '3 этаж, вход с ТЦ',
             nearestFreeTime: [
               {
                 date: new Date('2024-05-02'),
@@ -76,6 +77,7 @@ export const getActivityById: RestRequestConfig = {
             },
             maxNumberOfParticipants: 15,
             period: [7, 14, 21],
+            details: '3 этаж, вход с ТЦ',
             nearestFreeTime: [
               {
                 date: new Date('2024-05-02'),

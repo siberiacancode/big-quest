@@ -26,8 +26,8 @@ export const AddressItem = ({ schedule }: AddressItemProps) => (
           <Typography variant='sub3' tag='h3'>
             <I18nText path='field.details.label' />
           </Typography>
-          <Typography variant='body2' tag='p'>
-            3 этаж, вход с ТЦ
+          <Typography variant='body5' tag='p'>
+            {schedule?.details}
           </Typography>
         </div>
         <div className='flex flex-col gap-3 md:flex-row'>

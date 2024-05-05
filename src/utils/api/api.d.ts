@@ -229,6 +229,7 @@ interface Schedule {
     settlementWithType?: string;
   };
   nearestFreeTime?: FreeTimeDto[]; // update or delete later
+  details?: string;
   leadingEmployeeId: string;
   entry: boolean;
   regular: boolean;
