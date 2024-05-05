@@ -30,27 +30,27 @@ export const AddressItem = ({ schedule }: AddressItemProps) => (
             3 этаж, вход с ТЦ
           </Typography>
         </div>
-        <div className='flex gap-3'>
+        <div className='flex flex-col gap-3 md:flex-row'>
           <div className='w-1/3 min-w-60'>
             <Typography variant='sub3' tag='h3' className='flex-1'>
               <I18nText path='field.nearestFreeTime.label' />
             </Typography>
           </div>
           <div className='flex flex-wrap gap-3'>
-            {schedule.address.nearestFreeTime?.map((time) => <FreeTimeItem time={time} />)}
+            {schedule.nearestFreeTime?.map((time) => <FreeTimeItem time={time} />)}
           </div>
         </div>
         <div className='flex'>
           <Typography variant='sub3' tag='h3' className='flex-1'>
             <I18nText path='field.chooseAnotherTime.label' />
           </Typography>
-          <ChevronRightIcon />
+          <ChevronRightIcon className='stroke-muted-foreground' />
         </div>
         <div className='flex'>
           <Typography variant='sub3' tag='h3' className='flex-1'>
             <I18nText path='field.goToSupportChat.label' />
           </Typography>
-          <ChevronRightIcon />
+          <ChevronRightIcon className='stroke-muted-foreground' />
         </div>
       </AccordionContent>
     </AccordionItem>

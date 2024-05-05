@@ -227,8 +227,8 @@ interface Schedule {
     cityWithType?: string;
     settlement?: string;
     settlementWithType?: string;
-    nearestFreeTime?: FreeTimeDto[]; // update or delete later
   };
+  nearestFreeTime?: FreeTimeDto[]; // update or delete later
   leadingEmployeeId: string;
   entry: boolean;
   regular: boolean;

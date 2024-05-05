@@ -4,18 +4,19 @@ import { getActivityById } from '@/utils/api';
 
 import { AddressItem } from './(components)/AddressItem/AddressItem';
 
-interface ActivitysPageProps {
+interface ActivityPageProps {
   params: { activityId: string };
 }
 
-const ActivityPage = async ({ params }: ActivitysPageProps) => {
+const ActivityPage = async ({ params }: ActivityPageProps) => {
   const getActivityByIdResponse = await getActivityById({
-    params: { id: params.activityId },
+    params: { id: '1' },
     config: {
       cache: 'no-store'
     }
   });
 
+  console.log(params.activityId);
   console.log(getActivityByIdResponse);
 
   return (
