@@ -13,8 +13,6 @@ interface ActivityInfoProps {
   onEdit: () => void;
 }
 
-const MAX_MEDIA_AMOUNT = 8;
-
 export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
   const i18n = useI18n();
   const defaultActiveMedia = activity.media.find((media) => media.flag === 'AVATAR')!;
@@ -22,68 +20,67 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
   const [activeMedia, setActiveMedia] = React.useState(defaultActiveMedia);
 
   return (
-    <div className='flex flex-col items-end gap-4 smx:px-0'>
-      <div
-        className={cn(
-          'grid h-fit max-h-[600px] w-full grid-cols-3 gap-3 2smx:max-w-full 2smx:grid-cols-1 2smx:grid-rows-4 2smx:px-4 xsx:grid-rows-4 xsx:gap-2 xxsx:grid-rows-4',
-          activity.media.length > MAX_MEDIA_AMOUNT &&
-            '2smx:grid-rows-5 xsx:grid-rows-5 xxsx:grid-rows-5'
-        )}
-      >
-        <div className='relative col-span-2 max-h-[418px] max-w-[418px] 2smx:row-span-3 2smx:max-w-full xsx:row-span-3 xxsx:row-span-3 2sm:h-[418px]'>
+    <div className='scrollbar_hide flex h-full flex-col justify-between gap-4 overflow-y-auto smx:px-0'>
+      <div className='flex w-full flex-col gap-4 md:flex-row'>
+        <div className='relative max-h-[418px] w-full md:max-w-[418px]'>
           {activeMedia.url && activeMedia.type === 'IMAGE' && (
-            <Image
-              className='w-full rounded-lg 2smx:h-[360px]'
-              src={activeMedia.url}
-              fill
-              object-fit='cover'
-              alt={i18n.formatMessage({ id: 'activity.image.alt' }, { name: activity.name })}
-            />
+            <div className='p-1/2'>
+              <Image
+                className='rounded-lg'
+                src={activeMedia.url}
+                fill
+                alt={i18n.formatMessage({ id: 'activity.image.alt' }, { name: activity.name })}
+              />
+            </div>
           )}
           {activeMedia.type === 'VIDEO' && (
-            <video
-              autoPlay
-              muted
-              className='h-full w-full rounded-lg border border-border object-cover'
-            >
-              <source src={activeMedia.url} type='video/mp4' />
-            </video>
+            <div className='aspect-square'>
+              <video
+                autoPlay
+                muted
+                className='h-full w-full rounded-lg border border-border object-cover'
+              >
+                <source src={activeMedia.url} type='video/mp4' />
+              </video>
+            </div>
           )}
         </div>
 
-        <div
-          className={cn(
-            'grid h-max grid-cols-2 gap-2 2smx:row-span-1 2smx:grid-cols-4 2smx:grid-rows-1',
-            activity.media.length > MAX_MEDIA_AMOUNT && '2smx:row-span-2'
-          )}
-        >
+        <div className='flex w-full grid-rows-4 gap-2 overflow-x-scroll md:grid md:h-full md:w-fit md:grid-cols-2 md:gap-1 md:overflow-x-hidden'>
           {activity.media.map((item, index) => (
             <div className='relative' key={index}>
-              <div className='3smx:h-[85px] relative h-[100px] w-full xsx:h-[80px] xxsx:h-[60px]'>
+              <div className='relative h-[100px]'>
                 {item.url && item.type === 'IMAGE' && (
-                  <Image
-                    className={cn(
-                      'rounded-lg',
-                      activeMedia.url === item.url && 'border-2 border-emerald-700'
-                    )}
-                    src={item.url}
-                    fill
-                    onClick={() => setActiveMedia(item)}
-                    alt={i18n.formatMessage({ id: 'activity.image.alt' }, { name: activity.name })}
-                  />
+                  <div className='size-[100px]'>
+                    <Image
+                      className={cn(
+                        'w-full rounded-md',
+                        activeMedia.url === item.url && 'border-2 border-emerald-700'
+                      )}
+                      src={item.url}
+                      fill
+                      onClick={() => setActiveMedia(item)}
+                      alt={i18n.formatMessage(
+                        { id: 'activity.image.alt' },
+                        { name: activity.name }
+                      )}
+                    />
+                  </div>
                 )}
                 {item.type === 'VIDEO' && (
-                  <video
-                    autoPlay
-                    muted
-                    className={cn(
-                      activeMedia.url === item.url && 'border-2 border-emerald-700',
-                      'h-full w-full flex-1 rounded-md border border-border object-cover'
-                    )}
-                    onClick={() => setActiveMedia(item)}
-                  >
-                    <source src={item.url} type='video/mp4' />
-                  </video>
+                  <div className='size-[100px]'>
+                    <video
+                      autoPlay
+                      muted
+                      className={cn(
+                        activeMedia.url === item.url && 'border-2 border-emerald-700',
+                        'size-[100px] rounded-md border border-border object-cover'
+                      )}
+                      onClick={() => setActiveMedia(item)}
+                    >
+                      <source src={item.url} type='video/mp4' />
+                    </video>
+                  </div>
                 )}
               </div>
               {item.flag === 'AVATAR' && (

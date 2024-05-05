@@ -35,7 +35,7 @@ export const ActivityMedias = ({
         {selectedMedia && selectedMedia.url && selectedMedia.type === 'IMAGE' && (
           <div className='p-1/2'>
             <Image
-              className=' rounded-lg'
+              className='rounded-lg'
               src={selectedMedia.url}
               fill
               alt={i18n.formatMessage({ id: 'activity.image.alt' })}
@@ -85,7 +85,7 @@ export const ActivityMedias = ({
           )}
       </div>
 
-      <div className='flex h-[100px] grid-rows-4 gap-2 overflow-x-scroll md:grid md:h-full md:w-[208px] md:grid-cols-2 md:overflow-x-hidden'>
+      <div className='flex w-full grid-rows-4 gap-2 overflow-x-scroll md:grid md:h-full md:w-fit md:grid-cols-2 md:gap-1 md:overflow-x-hidden'>
         {activityMedias.map((item, index) => (
           <div className='relative' key={index}>
             <div className='relative h-[100px]'>

@@ -51,7 +51,7 @@ export const ActionActivityForm = <ActionType extends ActivityActionType>({
   });
 
   return (
-    <div className='flex h-full flex-col justify-between gap-4 overflow-y-auto smx:px-0'>
+    <div className='scrollbar_hide flex h-full flex-col justify-between gap-4 overflow-y-auto smx:px-0'>
       <div className='flex h-[418px] gap-6 2mdx:h-fit'>
         {state.isPending && <ActivityMediasSkeleton />}
         {!state.isPending && (
@@ -65,7 +65,7 @@ export const ActionActivityForm = <ActionType extends ActivityActionType>({
         )}
       </div>
       <Form {...form}>
-        <form onSubmit={functions.onSubmit} className='flex h-full flex-col justify-between gap-4'>
+        <form onSubmit={functions.onSubmit} className='flex h-full flex-col justify-between'>
           <fieldset disabled={state.isLoading} className='flex w-full flex-col items-end'>
             {state.isPending && <ActivityActionFormSkeleton />}
             {!state.isPending && (
@@ -380,7 +380,7 @@ export const ActionActivityForm = <ActionType extends ActivityActionType>({
                 </div>
               </div>
             )}
-            <div className='flex w-full justify-center'>
+            <div className='mt-4 flex w-full justify-center'>
               <Button
                 type='submit'
                 className='h-8 w-28'

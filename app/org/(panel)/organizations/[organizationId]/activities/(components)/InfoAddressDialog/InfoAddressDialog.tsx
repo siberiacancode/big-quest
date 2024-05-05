@@ -40,7 +40,7 @@ export const InfoAddressDialog = ({
 
   return (
     <Dialog {...props}>
-      <DialogContent className='flex h-screen w-full max-w-[713px] flex-col md:h-fit md:w-11/12 md:rounded-lg'>
+      <DialogContent className='flex h-screen w-full flex-col sm:rounded-none md:h-fit md:max-h-[90%] md:w-11/12 md:max-w-[713px] md:rounded-lg'>
         <DialogClose onClick={onCloseClick}>
           <XIcon className='h-6 w-6' />
         </DialogClose>
