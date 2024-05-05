@@ -44,13 +44,15 @@ export const ActivityMedias = ({
         )}
 
         {selectedMedia && selectedMedia.url && selectedMedia.type === 'VIDEO' && (
-          <video
-            className='size-[418px] rounded-lg border border-border object-cover'
-            muted
-            autoPlay
-          >
-            <source src={selectedMedia.url} type='video/mp4' />
-          </video>
+          <div className='aspect-square'>
+            <video
+              className='h-full w-full rounded-lg border border-border object-cover'
+              muted
+              autoPlay
+            >
+              <source src={selectedMedia.url} type='video/mp4' />
+            </video>
+          </div>
         )}
 
         {!selectedMedia && (
