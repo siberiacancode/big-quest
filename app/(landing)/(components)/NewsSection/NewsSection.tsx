@@ -35,7 +35,7 @@ export const NewsSection = () => (
         ))}
       </CarouselContent>
 
-      <span className='hidden xxl:block'>
+      <span className='hidden md:block'>
         <CarouselPrevious className='absolute -left-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100'>
           {(disabled) => <ChevronLeftIcon color={disabled ? 'white' : 'black'} />}
         </CarouselPrevious>
@@ -44,7 +44,7 @@ export const NewsSection = () => (
         </CarouselNext>
       </span>
 
-      <CarouselDots className='mt-4 text-center xxl:hidden' />
+      <CarouselDots className='mt-4 text-center md:hidden' />
     </Carousel>
   </section>
 );

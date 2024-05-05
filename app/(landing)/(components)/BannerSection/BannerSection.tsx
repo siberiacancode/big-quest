@@ -16,7 +16,7 @@ export const BannerSection = () => (
     className='container -mt-[72px] flex h-screen items-center justify-center pt-[72px] md:pt-0 4xl:h-fit'
   >
     <div className='mt-5 flex w-full flex-col items-center justify-between px-2 sm:-mt-0 lg:flex-row-reverse lg:gap-32 lg:py-32'>
-      <div className='-mr-10 w-[260px] items-center lg:-mr-20 lg:w-full'>
+      <div className='-mr-10 w-full items-center  overflow-hidden lg:-mr-20'>
         <Image src={bannerImage} alt='banner image' />
       </div>
 

@@ -8,7 +8,7 @@ import { Button, Typography } from '@/components/ui';
 export const LeaveRequestSection = () => (
   <section className='container relative my-6 flex justify-center text-center lg:text-start'>
     <div className='flex w-full max-w-96 flex-col-reverse items-center justify-center gap-3 md:max-w-none md:flex-row md:py-10 lg:justify-between'>
-      <div className='flex flex-col gap-2 md:gap-3'>
+      <div className='flex flex-col gap-2 text-start md:gap-3'>
         <div className='flex flex-col gap-2'>
           <Typography variant='h1' tag='h2' className='text-[21px] md:text-4xl'>
             <I18nText path='landing.leaveRequest.title' />
@@ -32,7 +32,7 @@ export const LeaveRequestSection = () => (
       <Image
         src={leaveRequestImage}
         alt='leaveRequest'
-        className='max-w-[260px] md:w-[440px] md:max-w-none'
+        className='hidden md:block md:w-[440px] md:max-w-none'
       />
     </div>
   </section>
