@@ -52,7 +52,7 @@ export const ActionActivityForm = <ActionType extends ActivityActionType>({
 
   return (
     <div className='scrollbar_hide flex h-full flex-col justify-between gap-4 overflow-y-auto smx:px-0'>
-      <div className='flex h-[418px] gap-6 2mdx:h-fit'>
+      <div className='2md:h-[418px] flex h-fit gap-6'>
         {state.isPending && <ActivityMediasSkeleton />}
         {!state.isPending && (
           <ActivityMedias
