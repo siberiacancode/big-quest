@@ -236,11 +236,20 @@ interface Schedule {
   maxNumberOfParticipants: number;
   period: number[];
 }
+type MediaType = 'IMAGE' | 'VIDEO';
+
+type MediaFlag = 'AVATAR' | 'COVER' | null;
+
+interface MediaDto {
+  id: string;
+  type: MediaType;
+  flag: MediaFlag;
+  url: string;
+}
 
 interface ActivityResponse {
   id: string;
-  cover: string;
-  content?: string[];
+  media: MediaDto[];
   name: string;
   description?: string;
   ageLimit: number[];

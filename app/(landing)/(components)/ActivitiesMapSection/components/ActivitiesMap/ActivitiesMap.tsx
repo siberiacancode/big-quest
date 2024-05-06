@@ -2,8 +2,6 @@
 
 import { GeoObject, Map, YMaps, ZoomControl } from '@pbe/react-yandex-maps';
 
-import { I18nText } from '@/components/common';
-import { Typography } from '@/components/ui';
 import { CITIES } from '@/utils/constants';
 
 const DEFAULT_MAP_ZOOM = 11;
@@ -22,18 +20,15 @@ export const ActivitiesMap = ({ cityId, activities }: MapProps) => {
 
   return (
     <YMaps>
-      <Typography tag='h2' variant='h1' className='text-2xl md:text-[32px]'>
-        <I18nText path='landing.activitiesMap.title' />
-      </Typography>
       <Map
         instanceRef={(ref) => ref && ref.behaviors.disable('scrollZoom')}
-        className='h-[500px] w-full'
+        className='mt-10 h-[400px] w-full overflow-hidden md:rounded-3xl lg:h-[650px]'
         state={{
           zoom: DEFAULT_MAP_ZOOM,
           center: CITIES[cityId.toUpperCase()].map.center as [number, number]
         }}
       >
-        <div className='mt-10 w-full mdx:mt-5'>
+        <div className=' '>
           {coordinates.map((coordinate, index) => (
             <GeoObject
               key={index}

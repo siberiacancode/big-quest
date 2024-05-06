@@ -12,23 +12,26 @@ import { CommentCard } from './components/CommentCard/CommentCard';
 import { comments } from './constants/comments';
 
 export const FeedbackSection = () => (
-  <section className='container mt-28 w-full'>
-    <Carousel className='mx-auto max-w-full'>
-      <div className='flex items-center justify-between'>
-        <Typography tag='h3' variant='h1' className='mdx:text-3xl xsx:text-[21px]'>
+  <section id='feedback' className='w-full bg-muted py-12'>
+    <Carousel className='container'>
+      <div className='flex items-center justify-start lg:justify-center'>
+        <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-4xl'>
           <I18nText path='landing.feedback.title' />
         </Typography>
-        <div>
-          <CarouselPrevious className='static right-0 top-0 translate-y-0 border-none bg-white' />
-          <CarouselNext className='static right-0 top-0 translate-y-0 border-none bg-white' />
+        <div className='absolute right-2'>
+          <CarouselPrevious
+            variant='ghost'
+            className='static right-0 top-0 translate-y-0 border-none hover:bg-white'
+          />
+          <CarouselNext
+            variant='ghost'
+            className='static right-0 top-0 translate-y-0 border-none hover:bg-white'
+          />
         </div>
       </div>
-      <CarouselContent className='-ml-0 mt-14 w-full lgx:mt-10 mdx:-ml-0 mdx:mt-6'>
+      <CarouselContent className='mt-8'>
         {comments.map((comment, index) => (
-          <CarouselItem
-            key={index}
-            className='w-full basis-1/3 px-3 xlx:basis-1/2 lgx:px-2 mdx:basis-full'
-          >
+          <CarouselItem key={index} className='w-full md:basis-1/2 xl:basis-1/3'>
             <CommentCard {...comment} />
           </CarouselItem>
         ))}

@@ -1,8 +1,20 @@
 export const ACTIVITIES: ActivityResponse[] = [
   {
     id: '1',
-    cover: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
-    content: ['http://localhost:31299/api/1.0/static/activity/image-2.png'],
+    media: [
+      {
+        id: '1',
+        url: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
+        type: 'IMAGE',
+        flag: 'COVER'
+      },
+      {
+        id: '2',
+        url: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
+        type: 'IMAGE',
+        flag: null
+      }
+    ],
     name: 'Рисуем живопись',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
@@ -37,8 +49,20 @@ export const ACTIVITIES: ActivityResponse[] = [
   },
   {
     id: '2',
-    cover: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
-    content: [],
+    media: [
+      {
+        id: '1',
+        url: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
+        type: 'IMAGE',
+        flag: null
+      },
+      {
+        id: '2',
+        url: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
+        type: 'IMAGE',
+        flag: 'COVER'
+      }
+    ],
     name: 'Готовим пиццу',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
@@ -56,8 +80,20 @@ export const ACTIVITIES: ActivityResponse[] = [
   },
   {
     id: '3',
-    cover: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
-    content: [],
+    media: [
+      {
+        id: '1',
+        url: 'http://localhost:31299/api/1.0/static/activity/image-3.png',
+        type: 'IMAGE',
+        flag: 'COVER'
+      },
+      {
+        id: '2',
+        url: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
+        type: 'IMAGE',
+        flag: null
+      }
+    ],
     name: 'Спортивный фестиваль',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
@@ -92,8 +128,20 @@ export const ACTIVITIES: ActivityResponse[] = [
   },
   {
     id: '4',
-    cover: 'http://localhost:31299/api/1.0/static/activity/image-4.png',
-    content: ['http://localhost:31299/api/1.0/static/activity/image-2.png'],
+    media: [
+      {
+        id: '1',
+        url: 'http://localhost:31299/api/1.0/static/activity/image-4.png',
+        type: 'IMAGE',
+        flag: 'COVER'
+      },
+      {
+        id: '2',
+        url: 'http://localhost:31299/api/1.0/static/activity/image-2.png',
+        type: 'IMAGE',
+        flag: null
+      }
+    ],
     name: 'Спорт это жизнь',
     ageLimit: [7, 13],
     price: 100,

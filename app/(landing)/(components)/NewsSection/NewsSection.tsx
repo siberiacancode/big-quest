@@ -1,14 +1,13 @@
 'use client';
 
+import React from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
-import { I18nText } from '@/components/common';
 import {
-  Button,
-  buttonVariants,
   Carousel,
   CarouselContent,
+  CarouselDots,
   CarouselItem,
   CarouselNext,
   CarouselPrevious
@@ -20,41 +19,32 @@ import { news } from './constants/news';
 const CAROUSEL_AUTO_PLAY_DELAY = 8000;
 
 export const NewsSection = () => (
-  <section className='relative w-full'>
+  <section id='news' className='w-full bg-muted pt-12'>
     <Carousel
-      className='w-full'
+      className='container mx-auto w-full'
       opts={{
-        loop: true,
-        watchDrag: false
+        loop: true
       }}
       plugins={[Autoplay({ delay: CAROUSEL_AUTO_PLAY_DELAY })]}
     >
-      <CarouselContent className='-ml-0'>
-        {news.map((currentNews, index) => (
-          <CarouselItem
-            key={index}
-            style={{
-              backgroundImage: 'url(/background/news.webp)'
-            }}
-            className='flex justify-center bg-cover bg-center bg-no-repeat py-40 pl-0 md:py-60'
-          >
-            <div className='max-w-[400px] lg:max-w-[800px]'>
-              <NewsCard {...currentNews} />
-            </div>
+      <CarouselContent>
+        {news.map((article, index) => (
+          <CarouselItem key={index} className='w-full'>
+            <NewsCard {...article} />
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className='absolute bottom-[15%] m-auto flex w-full justify-center'>
-        <Button className={buttonVariants({ size: 'lg', variant: 'white' })}>
-          <I18nText path='button.findOutDetails' />
-        </Button>
-      </div>
-      <CarouselPrevious className='absolute left-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100 lgx:size-10 2xl:left-[15%] '>
-        {(disabled) => <ChevronLeftIcon color={disabled ? 'white' : 'black'} />}
-      </CarouselPrevious>
-      <CarouselNext className='absolute right-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100 lgx:size-10 2xl:right-[15%]'>
-        {(disabled) => <ChevronRightIcon color={disabled ? 'white' : 'black'} />}
-      </CarouselNext>
+
+      <span className='hidden md:block'>
+        <CarouselPrevious className='absolute -left-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100'>
+          {(disabled) => <ChevronLeftIcon color={disabled ? 'white' : 'black'} />}
+        </CarouselPrevious>
+        <CarouselNext className='absolute -right-[5%] top-1/2 h-12 w-12 rounded-full border-none bg-white disabled:bg-taiga disabled:opacity-100'>
+          {(disabled) => <ChevronRightIcon color={disabled ? 'white' : 'black'} />}
+        </CarouselNext>
+      </span>
+
+      <CarouselDots className='mt-4 text-center md:hidden' />
     </Carousel>
   </section>
 );
