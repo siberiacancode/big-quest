@@ -55,7 +55,7 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
           <ChevronRightIcon className='text-muted-foreground' />
         </Link>
       </div>
-      <div className='3smx:gap-x-2 3smx:gap-y-5 mt-[72px] grid grid-cols-3 gap-x-10 gap-y-12 2lgx:gap-x-5 lgx:w-full 2mdx:mt-10 mdx:grid-cols-2 xxsx:mt-10 md:justify-between'>
+      <div className='mt-10 grid grid-cols-3 gap-x-2 gap-y-5 md:justify-between lg:mt-[72px] lg:gap-x-10 lg:gap-y-12'>
         {getActivityPublicResponse.rows.map((activity) => {
           const activityMedia = activity.media?.find((media) => media.flag === 'COVER');
 
