@@ -109,6 +109,10 @@ type ActivityView = 'ONLINE' | 'OFFLINE';
 
 type Gender = 'MALE' | 'FEMALE';
 
+interface CategoryResponse {
+  name: string;
+}
+
 interface LegalInformation {
   fullNameOfTheLegalEntity?: string | null;
   legalAddress?: string | null;
@@ -443,22 +447,7 @@ interface CreateAddressDto {
   locality: string;
   street: string;
   workingHours: WorkingHourDto[];
-  legalId: string;
-}
-
-interface AddressResponseFixMe {
-  country: string;
-  region: string;
-  city: string;
-  postal_code: string;
-  street: string;
-  house: string;
-  flat: number;
-  geo_lat: number;
-  geo_lon: number;
-  unrestrictedValue: string;
-  value: string;
-  cityWithType: string;
+  legalEntityId: string;
 }
 
 type TariffStatus = 'ACTIVE' | 'COORDINATION';
@@ -516,4 +505,23 @@ interface ChangesResponse {
 interface ChangesResponseWithPagination {
   rows: ChangesResponse[];
   pagination: PaginationResponse;
+}
+
+type ProfileSettingsRoleFixMe = 'CHILD' | 'PARENT' | 'PARTICIPANT';
+
+interface ChildProfileSettingsResponseFixMe {
+  id: string;
+  userId: string;
+  name: string;
+  surname: string;
+  role: ProfileSettingsRoleFixMe;
+}
+
+interface ParticipantProfileSettingsResponseFixMe {
+  id: string;
+  userId: string;
+  name: string;
+  surname: string;
+  children: ChildProfileSettingsResponseFixMe[];
+  role: ProfileSettingsRoleFixMe;
 }

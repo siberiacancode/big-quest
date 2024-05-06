@@ -20,6 +20,6 @@ export const PARTICIPANT_LINKS = [
   {
     icon: <ProfileIcon />,
     text: 'navigation.link.app.profile',
-    href: ROUTES.APP.PROFILE
+    href: ROUTES.APP.PROFILE.ROOT
   }
 ];

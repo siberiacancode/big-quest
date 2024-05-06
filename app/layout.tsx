@@ -6,7 +6,7 @@ import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/gener
 import { getMessagesByLocale } from '@/utils/helpers';
 import { getDefaultTheme, getUserSession } from '@/utils/helpers/server';
 
-import Providers from './providers';
+import { Providers } from './providers';
 
 import '@/assets/styles/globals.css';
 

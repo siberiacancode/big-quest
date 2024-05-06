@@ -1,8 +1,19 @@
-import { ChevronRightIcon } from 'lucide-react';
+import { ChevronRightIcon, Clock4Icon, UserRoundIcon } from 'lucide-react';
 import Link from 'next/link';
 
 import { I18nText } from '@/components/common';
-import { buttonVariants, Typography } from '@/components/ui';
+import {
+  ActivityCard,
+  ActivityCardCategory,
+  ActivityCardContent,
+  ActivityCardContentItem,
+  ActivityCardDivider,
+  ActivityCardHeader,
+  ActivityCardImage,
+  ActivityCardName,
+  buttonVariants,
+  Typography
+} from '@/components/ui';
 import { getActivityPublic } from '@/utils/api';
 import type { CITIES } from '@/utils/constants';
 import { ROUTES } from '@/utils/constants';
@@ -12,8 +23,6 @@ import {
   DEFAULT_ACTIVITIES_LIMIT,
   DEFAULT_ACTIVITIES_PAGE
 } from '../../(constants)';
-
-import { ActivityCard } from './components/ActivityCard/ActivityCard';
 
 interface ActivitiesSectionProps {
   cityId: (typeof CITIES)[keyof typeof CITIES]['id'];
@@ -46,10 +55,48 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
           <ChevronRightIcon className='text-muted-foreground' />
         </Link>
       </div>
-      <div className='mt-[72px] grid grid-cols-3 gap-x-10 gap-y-12 2lgx:gap-x-5 lgx:w-full 2mdx:mt-10 mdx:grid-cols-2 3smx:gap-x-2 3smx:gap-y-5 xxsx:mt-10 md:justify-between'>
-        {getActivityPublicResponse.rows.map((activity) => (
-          <ActivityCard key={activity.id} {...activity} />
-        ))}
+      <div className='3smx:gap-x-2 3smx:gap-y-5 mt-[72px] grid grid-cols-3 gap-x-10 gap-y-12 2lgx:gap-x-5 lgx:w-full 2mdx:mt-10 mdx:grid-cols-2 xxsx:mt-10 md:justify-between'>
+        {getActivityPublicResponse.rows.map((activity) => {
+          const activityMedia = activity.media?.find((media) => media.flag === 'COVER');
+
+          return (
+            <ActivityCard>
+              {activityMedia && <ActivityCardImage src={activityMedia.url} alt={activity.name} />}
+              {!activityMedia && (
+                <div className='w-full rounded-[16px] bg-muted p-1/2 md:rounded-[30px]' />
+              )}
+              <ActivityCardHeader>
+                <ActivityCardCategory>{activity.category}</ActivityCardCategory>
+                <ActivityCardName>{activity.name}</ActivityCardName>
+              </ActivityCardHeader>
+              <ActivityCardDivider />
+              <ActivityCardContent>
+                {activity.ageLimit[0] && (
+                  <ActivityCardContentItem>
+                    <UserRoundIcon className='size-4 stroke-muted-foreground lg:size-6' />
+                    <Typography tag='p' variant='body3' className='xsx:text-xs'>
+                      <I18nText
+                        path='landing.activities.card.minimumAge'
+                        values={{ age: activity.ageLimit[0] }}
+                      />
+                    </Typography>
+                  </ActivityCardContentItem>
+                )}
+                {activity.duration && (
+                  <ActivityCardContentItem>
+                    <Clock4Icon className='size-4 stroke-muted-foreground lg:size-6' />
+                    <Typography tag='p' variant='body3' className='xsx:text-xs'>
+                      <I18nText
+                        path='landing.activities.card.duration'
+                        values={{ duration: activity.duration }}
+                      />
+                    </Typography>
+                  </ActivityCardContentItem>
+                )}
+              </ActivityCardContent>
+            </ActivityCard>
+          );
+        })}
       </div>
     </section>
   );

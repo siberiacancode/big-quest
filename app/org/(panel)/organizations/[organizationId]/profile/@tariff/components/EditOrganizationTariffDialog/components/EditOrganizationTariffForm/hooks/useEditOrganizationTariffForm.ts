@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
+import type { TariffResponse, UpdateTariffDto } from '@/api-types';
 import { usePutTariffByIdMutation } from '@/utils/api';
 
 import {
@@ -28,7 +29,7 @@ export const useEditOrganizationTariffForm = ({
       freeActivity: tariff.freeActivity.toString(),
       paidActivity: tariff.paidActivity.toString(),
       periodMonth: tariff.periodMonth ? tariff.periodMonth.toString() : '',
-      totalPrice: tariff.totalPrice
+      totalPrice: tariff.totalPrice.toString()
     }
   });
 
@@ -40,8 +41,8 @@ export const useEditOrganizationTariffForm = ({
         id: tariff.id,
         freeActivity: +values.freeActivity,
         paidActivity: +values.paidActivity,
-        periodMonth: +values.periodMonth,
-        totalPrice: values.totalPrice
+        periodMonth: +values.periodMonth as UpdateTariffDto['periodMonth'],
+        totalPrice: +values.totalPrice
       }
     });
     router.refresh();

@@ -1,3 +1,4 @@
+import type { AddressResponseDto } from '@/api-types';
 import { api } from '@/utils/api/instance';
 
 export interface GetAddressParams {
@@ -7,7 +8,7 @@ export interface GetAddressParams {
 export type GetAddressRequestConfig = RequestConfig<GetAddressParams>;
 
 export const getAddress = async ({ params, config }: GetAddressRequestConfig) =>
-  api.get<AddressResponseFixMe[]>('address', {
+  api.get<AddressResponseDto[]>('address', {
     ...config,
     params: { ...config?.params, ...params }
   });

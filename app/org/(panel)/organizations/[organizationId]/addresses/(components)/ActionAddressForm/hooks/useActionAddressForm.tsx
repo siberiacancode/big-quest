@@ -75,7 +75,7 @@ export const useActionAddressForm = ({
 
     if (actionType === 'add') {
       const postOrganizationActionAddressParams = {
-        params: { ...requestParams, legalId: params.organizationId },
+        params: { ...requestParams, legalEntityId: params.organizationId },
         action: actionType
       } as const;
 
