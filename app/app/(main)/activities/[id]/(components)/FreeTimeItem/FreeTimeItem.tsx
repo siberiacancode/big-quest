@@ -4,7 +4,7 @@ import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 
 interface FreeTimeItemProps {
-  time: FreeTimeDto;
+  time: FreeTime;
 }
 
 export const FreeTimeItem = ({ time }: FreeTimeItemProps) => {

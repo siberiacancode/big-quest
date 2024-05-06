@@ -211,6 +211,11 @@ interface Time {
   minutes: number;
 }
 
+interface FreeTime {
+  date: string;
+  time: string;
+}
+
 interface Schedule {
   address: {
     country?: string;
@@ -228,7 +233,7 @@ interface Schedule {
     settlement?: string;
     settlementWithType?: string;
   };
-  nearestFreeTime?: FreeTimeDto[]; // update or delete later
+  nearestFreeTime?: FreeTime[];
   details?: string;
   leadingEmployeeId: string;
   entry: boolean;
@@ -424,15 +429,6 @@ interface AddressResponse {
   workingHours: WorkingHourDto[];
   id: string;
 }
-
-interface FreeTimeDto {
-  date: string;
-  time: string;
-}
-
-// interface ActivityByIdResponse extends ActivityResponse {
-//   nearestFreeTime: FreeTimeDto[];
-// }
 
 interface UpdateAddressDto {
   details?: string;
