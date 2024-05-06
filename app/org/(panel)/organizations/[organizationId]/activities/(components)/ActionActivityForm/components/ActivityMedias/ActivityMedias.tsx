@@ -46,7 +46,7 @@ export const ActivityMedias = ({
         {selectedMedia && selectedMedia.url && selectedMedia.type === 'VIDEO' && (
           <div className='aspect-square'>
             <video
-              className='h-full w-full rounded-lg border border-border object-cover'
+              className='h-full max-h-[418px] w-full rounded-lg border border-border object-cover'
               muted
               autoPlay
             >
