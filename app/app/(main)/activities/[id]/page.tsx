@@ -26,7 +26,6 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
   });
 
   console.log(params.activityId);
-  console.log(getActivityByIdResponse);
 
   return (
     <section className='container py-[108px]'>
