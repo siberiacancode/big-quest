@@ -38,7 +38,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
               <video
                 autoPlay
                 muted
-                className='h-full w-full rounded-lg border border-border object-cover'
+                className='h-full max-h-[418px] w-full rounded-lg border border-border object-cover'
               >
                 <source src={activeMedia.url} type='video/mp4' />
               </video>
