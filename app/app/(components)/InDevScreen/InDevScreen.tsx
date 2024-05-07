@@ -1,14 +1,14 @@
 import Image from 'next/image';
 
-import sleepImage from '@/assets/images/sleep.webp';
+import sleepImage from '@/assets/illustrations/sleep.webp';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 
-interface UnavailableScreenProps {
+interface InDevScreenProps {
   screen: 'rating' | 'support' | 'taiga';
 }
 
-export const InDevScreen = ({ screen }: UnavailableScreenProps) => (
+export const InDevScreen = ({ screen }: InDevScreenProps) => (
   <div className='relative flex min-h-full flex-col items-center justify-center'>
     <Typography variant='h5' className='absolute left-0 top-0 self-start font-semibold'>
       <I18nText path={`app.${screen}.title`} />

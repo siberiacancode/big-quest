@@ -15,7 +15,6 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         {children}
       </div>
       {!!userSession && <AppBottomNavigation />}
-      <AppBottomNavigation />
     </div>
   );
 };
