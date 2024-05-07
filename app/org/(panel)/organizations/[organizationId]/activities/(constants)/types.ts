@@ -1,8 +1,8 @@
-import type { MediaDto } from '@/api-types';
+import type { MediaResponse } from '@/api-types';
 
 export type ActivityActionType = 'add' | 'edit';
 
-export type ActivityMedia = MediaDto & {
+export type ActivityMedia = MediaResponse & {
   file?: File;
   selected: boolean;
 };

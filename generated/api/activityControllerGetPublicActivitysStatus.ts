@@ -6,11 +6,11 @@
  * OpenAPI spec version: 1.0
  */
 
-export type ActivityControllerGetActivitysStatus =
-  (typeof ActivityControllerGetActivitysStatus)[keyof typeof ActivityControllerGetActivitysStatus];
+export type ActivityControllerGetPublicActivitysStatus =
+  (typeof ActivityControllerGetPublicActivitysStatus)[keyof typeof ActivityControllerGetPublicActivitysStatus];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-export const ActivityControllerGetActivitysStatus = {
+export const ActivityControllerGetPublicActivitysStatus = {
   DRAFT: 'DRAFT',
   MODERATION: 'MODERATION',
   EDITING: 'EDITING',

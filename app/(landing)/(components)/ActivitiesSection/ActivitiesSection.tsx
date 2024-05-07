@@ -14,7 +14,7 @@ import {
   buttonVariants,
   Typography
 } from '@/components/ui';
-import { getActivityPublic } from '@/utils/api';
+import { getActivity } from '@/utils/api';
 import type { CITIES } from '@/utils/constants';
 import { ROUTES } from '@/utils/constants';
 
@@ -29,7 +29,7 @@ interface ActivitiesSectionProps {
 }
 
 export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
-  const getActivityPublicResponse = await getActivityPublic({
+  const getActivityResponse = await getActivity({
     params: {
       city: cityId,
       limit: DEFAULT_ACTIVITIES_LIMIT,
@@ -40,7 +40,7 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
     }
   });
 
-  if (!getActivityPublicResponse?.rows?.length) return null;
+  if (!getActivityResponse.rows.length) return null;
 
   return (
     <section id='activities' className='container mt-28'>
@@ -57,32 +57,36 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
         </Link>
       </div>
       <div className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
-        {getActivityPublicResponse.rows.map((activity) => (
-          <ActivityCard>
-            <ActivityCardImage src={activity.cover} alt={activity.name} />
-            <ActivityCardHeader>
-              <ActivityCardCategory>{activity.category}</ActivityCardCategory>
-              <ActivityCardName>{activity.name}</ActivityCardName>
-            </ActivityCardHeader>
-            <ActivityCardDivider />
-            <ActivityCardContent>
-              <ActivityCardContentItem>
-                <UserRoundIcon className='size-6 stroke-muted-foreground' />
-                <I18nText
-                  path='landing.activities.card.minimumAge'
-                  values={{ age: activity.ageLimit[0] }}
-                />
-              </ActivityCardContentItem>
-              <ActivityCardContentItem>
-                <Clock4Icon className='size-6 stroke-muted-foreground' />
-                <I18nText
-                  path='landing.activities.card.duration'
-                  values={{ duration: activity.duration }}
-                />
-              </ActivityCardContentItem>
-            </ActivityCardContent>
-          </ActivityCard>
-        ))}
+        {getActivityResponse.rows.map((activity) => {
+          const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
+
+          return (
+            <ActivityCard>
+              <ActivityCardImage src={activityCover.url} alt={activity.name} />
+              <ActivityCardHeader>
+                <ActivityCardCategory>{activity.category.RU}</ActivityCardCategory>
+                <ActivityCardName>{activity.name}</ActivityCardName>
+              </ActivityCardHeader>
+              <ActivityCardDivider />
+              <ActivityCardContent>
+                <ActivityCardContentItem>
+                  <UserRoundIcon className='size-6 stroke-muted-foreground' />
+                  <I18nText
+                    path='landing.activities.card.minimumAge'
+                    values={{ age: activity.ageLimit[0] }}
+                  />
+                </ActivityCardContentItem>
+                <ActivityCardContentItem>
+                  <Clock4Icon className='size-6 stroke-muted-foreground' />
+                  <I18nText
+                    path='landing.activities.card.duration'
+                    values={{ duration: activity.duration }}
+                  />
+                </ActivityCardContentItem>
+              </ActivityCardContent>
+            </ActivityCard>
+          );
+        })}
       </div>
     </section>
   );

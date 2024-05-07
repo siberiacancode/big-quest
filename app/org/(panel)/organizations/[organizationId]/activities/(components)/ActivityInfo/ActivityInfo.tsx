@@ -2,22 +2,22 @@ import React from 'react';
 import { Edit3Icon, WallpaperIcon } from 'lucide-react';
 import Image from 'next/image';
 
-import type { ActivityResponse } from '@/api-types';
+import type { ActivityListResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 
 interface ActivityInfoProps {
-  activity: ActivityResponse;
+  activity: ActivityListResponse;
   onEdit: () => void;
 }
 
 export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
   const i18n = useI18n();
-  const defaultActiveMedia = activity.media.find((media) => media.flag === 'AVATAR')!;
+  const activityCover = activity.media.find((media) => media.flag === 'AVATAR')!;
   const [lowerAgeLimit, upperAgeLimit] = activity.ageLimit;
-  const [activeMedia, setActiveMedia] = React.useState(defaultActiveMedia);
+  const [activeMedia, setActiveMedia] = React.useState(activityCover);
 
   return (
     <div className='scrollbar_hide flex h-full flex-col justify-between gap-4 overflow-y-auto smx:px-0'>
@@ -138,7 +138,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
               <Typography variant='sub1'>
                 <I18nText path='field.category.label' />
               </Typography>
-              <Typography variant='body1'>{activity.category}</Typography>
+              <Typography variant='body1'>{activity.category.RU}</Typography>
             </div>
             <div className='flex flex-col gap-2'>
               <Typography variant='sub1'>

@@ -3,7 +3,7 @@
 import React from 'react';
 import { useDebounceCallback } from 'usehooks-ts';
 
-import type { ActivityResponse, CategoryResponse, PaginationResponse } from '@/api-types';
+import type { ActivityListResponse, CategoryResponse, PaginationResponse } from '@/api-types';
 import { useSearchParams } from '@/utils/hooks';
 
 import { handleLoadActivitiesMore } from '../../(actions)/handleLoadActivitiesMore';
@@ -15,7 +15,7 @@ export interface ActivitiesPageProviderProps {
   children: React.ReactNode;
   defaultActivitiesPage: {
     categories: CategoryResponse[];
-    activities: ActivityResponse[];
+    activities: ActivityListResponse[];
     pagination: PaginationResponse;
   };
 }
@@ -28,7 +28,7 @@ export const ActivitiesPageProvider = ({
 }: ActivitiesPageProviderProps) => {
   const { setSearchParam, searchParams } = useSearchParams();
   const [page, setPage] = React.useState(1);
-  const [activities, setActivities] = React.useState<ActivityResponse[]>(
+  const [activities, setActivities] = React.useState<ActivityListResponse[]>(
     defaultActivitiesPage.activities
   );
   const [isPending, startTransition] = React.useTransition();

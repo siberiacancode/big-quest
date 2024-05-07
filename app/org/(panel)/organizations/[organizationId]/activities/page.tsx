@@ -11,17 +11,17 @@ interface OrganizationActivitiesPageProps {
   params: { organizationId: string };
 }
 
-const DEFAULT_ACTIVITIES_LIMIT = '10';
-const DEFAULT_ACTIVITIES_PAGE = '1';
+const DEFAULT_ACTIVITIES_LIMIT = 10;
+const DEFAULT_ACTIVITIES_PAGE = 1;
 
 const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPageProps) => {
   const getActivityResponse = await getActivity({
+    params: {
+      limit: DEFAULT_ACTIVITIES_LIMIT,
+      current: DEFAULT_ACTIVITIES_PAGE,
+      ...params
+    },
     config: {
-      params: {
-        limit: DEFAULT_ACTIVITIES_LIMIT,
-        current: DEFAULT_ACTIVITIES_PAGE,
-        ...params
-      },
       cache: 'no-store'
     }
   });

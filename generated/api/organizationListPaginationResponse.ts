@@ -8,7 +8,7 @@
 import type { PaginationResponse } from './paginationResponse';
 import type { OrganizationListResponse } from './organizationListResponse';
 
-export interface OrganisationListPaginationResponse {
+export interface OrganizationListPaginationResponse {
   /** Пагинация */
   pagination: PaginationResponse;
   /** Строки с данными */

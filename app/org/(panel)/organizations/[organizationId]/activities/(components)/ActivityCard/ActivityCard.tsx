@@ -1,9 +1,10 @@
 'use client';
 
-import { Clock5Icon, Edit3Icon, HeartIcon, UserRoundIcon, UsersRoundIcon } from 'lucide-react';
+import { Clock5Icon, Edit3Icon, UserRoundIcon } from 'lucide-react';
+// import { Clock5Icon, Edit3Icon, HeartIcon, UserRoundIcon, UsersRoundIcon } from 'lucide-react';
 import Image from 'next/image';
 
-import type { ActivityResponse } from '@/api-types';
+import type { ActivityListResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import { Button, Separator, Typography } from '@/components/ui';
 
@@ -13,12 +14,12 @@ import { InfoAddressDialog } from '../InfoAddressDialog/InfoAddressDialog';
 import { useActivityCard } from './hooks/useActivityCard';
 
 interface ActivityCardProps {
-  activity: ActivityResponse;
+  activity: ActivityListResponse;
 }
 
 export const ActivityCard = ({ activity }: ActivityCardProps) => {
   const { state, functions } = useActivityCard();
-  const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
+  const activityCover = activity.media.find((item) => item.flag === 'AVATAR');
 
   return (
     <div className='h-[397px] w-full rounded-lg bg-background p-4'>
@@ -76,10 +77,10 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => {
         <div className='mb-2 mt-3 flex justify-between text-muted-foreground'>
           {activity.category && (
             <Typography variant='sub4' tag='p' className='text-muted-foreground'>
-              {activity.category}
+              {activity.category.RU}
             </Typography>
           )}
-          <div className='flex gap-4'>
+          {/* <div className='flex gap-4'>
             <div className='flex items-center gap-2'>
               <UsersRoundIcon className='h-4 w-4 text-muted-foreground' />
               <Typography variant='body4' tag='p'>
@@ -92,7 +93,7 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => {
                 {activity.likes}
               </Typography>
             </div>
-          </div>
+          </div> */}
         </div>
         <Typography variant='h7'>{activity.name}</Typography>
         <Separator className='my-4' />

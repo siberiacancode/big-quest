@@ -1,4 +1,4 @@
-import { getActivityPublic } from '@/utils/api';
+import { getActivity } from '@/utils/api';
 import type { CITIES } from '@/utils/constants';
 
 import {
@@ -14,7 +14,7 @@ interface ActivitiesMapSectionProps {
 }
 
 export const ActivitiesMapSection = async ({ cityId }: ActivitiesMapSectionProps) => {
-  const getActivityPublicResponse = await getActivityPublic({
+  const getActivityResponse = await getActivity({
     params: {
       city: cityId,
       limit: DEFAULT_ACTIVITIES_LIMIT,
@@ -25,11 +25,11 @@ export const ActivitiesMapSection = async ({ cityId }: ActivitiesMapSectionProps
     }
   });
 
-  if (!getActivityPublicResponse?.rows?.length) return null;
+  if (!getActivityResponse.rows.length) return null;
 
   return (
     <section className='container mt-28 min-h-[500px]'>
-      <ActivitiesMap cityId={cityId} activities={getActivityPublicResponse.rows} />
+      <ActivitiesMap cityId={cityId} activities={getActivityResponse.rows} />
     </section>
   );
 };

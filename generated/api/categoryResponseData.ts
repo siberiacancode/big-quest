@@ -7,6 +7,6 @@
  */
 
 /**
- * Видимость
+ * Значение на разных языках
  */
-export type ActivityResponseView = $TSFIXME;
+export type CategoryResponseData = { [key: string]: string };

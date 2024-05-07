@@ -2,7 +2,7 @@ import React from 'react';
 import { Controller } from 'react-hook-form';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 
-import type { ActivityResponse } from '@/api-types';
+import type { ActivityListResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -35,7 +35,7 @@ import { useActivityActionForm } from './hooks/useActivityActionForm';
 interface ActionActivityFormProps<ActionType extends ActivityActionType> {
   onAction: () => void;
   actionType: ActionType;
-  activity?: ActivityResponse;
+  activity?: ActivityListResponse;
 }
 
 export const ActionActivityForm = <ActionType extends ActivityActionType>({
@@ -221,24 +221,24 @@ export const ActionActivityForm = <ActionType extends ActivityActionType>({
                             >
                               <DropdownMenuTrigger asChild disabled={state.isLoading}>
                                 <div className='flex h-10 max-w-40 cursor-pointer items-center justify-between gap-2 rounded-md border border-secondary bg-input-foreground px-3 py-2'>
-                                  <Typography variant='body2'>{field.value}</Typography>
+                                  <Typography variant='body2'>{field.value.name}</Typography>
                                   {state.isCategoryOpen && <ChevronUpIcon className='h-4 w-4' />}
                                   {!state.isCategoryOpen && <ChevronDownIcon className='h-4 w-4' />}
                                 </div>
                               </DropdownMenuTrigger>
                               <DropdownMenuContent className='w-40 bg-background'>
                                 <DropdownMenuRadioGroup
-                                  value={field.value}
+                                  value={field.value.name}
                                   onValueChange={field.onChange}
                                 >
                                   {state.categories &&
-                                    state.categories.map((category) => (
+                                    state.categories.rows.map((category) => (
                                       <DropdownMenuRadioItem
-                                        key={category.name}
+                                        key={category.data.RU}
                                         className='cursor-pointer bg-background text-start'
-                                        value={category.name}
+                                        value={category.data.RU}
                                       >
-                                        {category.name}
+                                        {category.data.RU}
                                       </DropdownMenuRadioItem>
                                     ))}
                                 </DropdownMenuRadioGroup>

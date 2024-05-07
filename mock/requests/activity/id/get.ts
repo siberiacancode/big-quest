@@ -8,14 +8,7 @@ export const getActivityById: RestRequestConfig = {
     {
       data: (request) => {
         const { id } = request.params;
-        return DATABASE.ACTIVITIES.find((activity) => activity.id === id);
-      },
-      entities: {
-        params: {
-          id: {
-            checkMode: 'exists'
-          }
-        }
+        return DATABASE.ACTIVITY_LIST.find((activity) => activity.id === id);
       }
     }
   ]

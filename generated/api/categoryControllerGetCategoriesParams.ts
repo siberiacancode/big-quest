@@ -6,6 +6,7 @@
  * OpenAPI spec version: 1.0
  */
 
-export interface DeleteCategoryDto {
-  [key: string]: any;
-}
+export type CategoryControllerGetCategoriesParams = {
+  current?: number;
+  limit?: number;
+};

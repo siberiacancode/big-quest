@@ -1,9 +1,10 @@
-import type { ActivityResponse } from '@/api-types';
+import type { ActivityListResponse } from '@/api-types';
 
-export const ACTIVITIES: ActivityResponse[] = [
+import { CATEGORIES } from './categories';
+
+export const ACTIVITY_LIST: ActivityListResponse[] = [
   {
     id: '1',
-    cover: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
     media: [
       {
         id: '1',
@@ -39,15 +40,19 @@ export const ACTIVITIES: ActivityResponse[] = [
     replay: false,
     view: 'ONLINE',
     status: 'PUBLISHED',
-    category: 'Образование',
-    participants: 600,
+    category: CATEGORIES[0],
     likes: 210,
     nutsCount: 0,
-    schedule: []
+    organizationId: '1',
+    organizationName: 'Организация 1',
+    locality: {
+      city: 'город',
+      lat: 1,
+      lon: 1
+    }
   },
   {
     id: '2',
-    cover: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
     media: [
       {
         id: '1',
@@ -83,16 +88,19 @@ export const ACTIVITIES: ActivityResponse[] = [
     replay: false,
     view: 'ONLINE',
     status: 'CLOSED',
-    category: 'Образование',
-    participants: 600,
+    category: CATEGORIES[0],
     likes: 210,
     nutsCount: 0,
-    schedule: []
+    organizationId: '1',
+    organizationName: 'Организация 1',
+    locality: {
+      city: 'город',
+      lat: 1,
+      lon: 1
+    }
   },
   {
     id: '3',
-
-    cover: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
     media: [
       {
         id: '1',
@@ -128,16 +136,19 @@ export const ACTIVITIES: ActivityResponse[] = [
     replay: false,
     view: 'ONLINE',
     status: 'DRAFT',
-    category: 'Образование',
-    participants: 600,
+    category: CATEGORIES[0],
     likes: 210,
     nutsCount: 0,
-    schedule: []
+    organizationId: '1',
+    organizationName: 'Организация 1',
+    locality: {
+      city: 'город',
+      lat: 1,
+      lon: 1
+    }
   },
   {
     id: '4',
-
-    cover: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
     media: [
       {
         id: '1',
@@ -162,16 +173,19 @@ export const ACTIVITIES: ActivityResponse[] = [
     replay: false,
     view: 'ONLINE',
     status: 'EDITING',
-    category: 'Образование',
-    participants: 200,
+    category: CATEGORIES[0],
     likes: 210,
     nutsCount: 0,
-    schedule: []
+    organizationId: '1',
+    organizationName: 'Организация 1',
+    locality: {
+      city: 'город',
+      lat: 1,
+      lon: 1
+    }
   },
   {
     id: '5',
-
-    cover: 'http://localhost:31299/api/1.0/static/activity/image-1.png',
     media: [
       {
         id: '2',
@@ -202,10 +216,15 @@ export const ACTIVITIES: ActivityResponse[] = [
     replay: false,
     view: 'ONLINE',
     status: 'MODERATION',
-    category: 'Образование',
-    participants: 200,
+    category: CATEGORIES[0],
     likes: 210,
     nutsCount: 0,
-    schedule: []
+    organizationId: '1',
+    organizationName: 'Организация 1',
+    locality: {
+      city: 'город',
+      lat: 1,
+      lon: 1
+    }
   }
 ];

@@ -1,23 +1,46 @@
-export const CATEGORIES = [
+import type { Translations } from '@/api-types';
+
+export const CATEGORIES: Translations[] = [
   {
-    name: 'Кулинария'
+    id: '1',
+
+    RU: 'Кулинария',
+    EN: 'Cooking'
   },
   {
-    name: 'Культура'
+    id: '2',
+
+    RU: 'Культура',
+    EN: 'Culture'
   },
   {
-    name: 'Медиа'
+    id: '3',
+
+    RU: 'Медиа',
+    EN: 'Media'
   },
   {
-    name: 'Образование'
+    id: '4',
+
+    RU: 'Образование',
+    EN: 'Education'
   },
   {
-    name: 'Развлечение'
+    id: '5',
+
+    RU: 'Развлечение',
+    EN: 'Entertainment'
   },
   {
-    name: 'Спорт'
+    id: '6',
+
+    RU: 'Спорт',
+    EN: 'Sport'
   },
   {
-    name: 'Челлендж'
+    id: '7',
+
+    RU: 'Челлендж',
+    EN: 'Challenge'
   }
-];
+] as const;

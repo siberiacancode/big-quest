@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
-import type { ActivityResponse } from '@/api-types';
+import type { ActivityListResponse } from '@/api-types';
 import {
   useDeleteFileByIdMutation,
   // useGetActivityByIdQuery,
@@ -22,7 +22,7 @@ import { useActionActivityMutation } from './useActionActivityMutation';
 interface UseActivityActionFormParams {
   onAction: () => void;
   actionType: Exclude<ActivityActionType, 'info'>;
-  activity?: ActivityResponse;
+  activity?: ActivityListResponse;
 }
 
 export const useActivityActionForm = ({
@@ -65,9 +65,18 @@ export const useActivityActionForm = ({
       price: activity?.duration ?? 1000,
       replay: activity?.replay ?? false,
       status: activity?.status ?? 'DRAFT',
-      category: activity?.category ?? ''
+      category: activity?.category
+        ? { id: activity?.category.id, name: activity?.category.RU }
+        : undefined
     }
   });
+
+  React.useEffect(() => {
+    if (getCategoryQuery.isSuccess) {
+      const category = getCategoryQuery.data.rows[0];
+      activityForm.setValue('category', { id: category.id, name: category.data.RU });
+    }
+  }, [getCategoryQuery.isSuccess]);
 
   const actionActivityMutation = useActionActivityMutation();
   const deleteFileByIdMutation = useDeleteFileByIdMutation();
@@ -166,7 +175,8 @@ export const useActivityActionForm = ({
     const requestParams = {
       ...values,
       ageLimit: [values.ageLimit.min, values.ageLimit.max],
-      organizationId: params.organizationId
+      organizationId: params.organizationId,
+      categoryId: values.category?.id
     };
 
     if (actionType === 'add') {
@@ -175,6 +185,7 @@ export const useActivityActionForm = ({
         action: actionType
       } as const;
 
+      // @ts-ignore
       await actionActivityMutation.mutateAsync(postActivityActionParams);
     }
 

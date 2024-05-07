@@ -5,14 +5,21 @@
  * ## API BQ
  * OpenAPI spec version: 1.0
  */
+import type { ActivityControllerGetPublicActivitysSortBy } from './activityControllerGetPublicActivitysSortBy';
+import type { SortDirectionEnum } from './sortDirectionEnum';
+import type { ActivityControllerGetPublicActivitysStatus } from './activityControllerGetPublicActivitysStatus';
 
 export type ActivityControllerGetPublicActivitysParams = {
+  current?: number;
+  limit?: number;
+  sortBy?: ActivityControllerGetPublicActivitysSortBy;
+  sortDirection?: SortDirectionEnum;
   /**
-   * Идентификатор организации
+   * Строка поиска
    */
-  organizationId?: string;
+  query?: string;
   /**
-   * Город присутствия
+   * Название города или адрес
    */
   city?: string;
   /**
@@ -20,10 +27,7 @@ export type ActivityControllerGetPublicActivitysParams = {
    */
   category?: string;
   /**
-   * Название
+   * Статус
    */
-  name?: string;
-
-  limit?: number;
-  current?: number;
+  status?: ActivityControllerGetPublicActivitysStatus;
 };

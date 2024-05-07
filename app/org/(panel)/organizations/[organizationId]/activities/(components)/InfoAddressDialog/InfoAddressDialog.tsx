@@ -3,7 +3,7 @@
 import React from 'react';
 import { XIcon } from 'lucide-react';
 
-import type { ActivityResponse } from '@/api-types';
+import type { ActivityListResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
   Dialog,
@@ -19,7 +19,7 @@ import { ActivityInfo } from '../ActivityInfo/ActivityInfo';
 
 interface InfoActivityDialogProps extends React.ComponentProps<typeof Dialog> {
   onEdit: () => void;
-  activity: ActivityResponse;
+  activity: ActivityListResponse;
 }
 
 export const InfoAddressDialog = ({
