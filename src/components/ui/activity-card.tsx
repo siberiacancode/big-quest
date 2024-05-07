@@ -17,6 +17,13 @@ const ActivityCard = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'
 );
 ActivityCard.displayName = 'ActivityCard';
 
+const ActivityCardStatus = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} {...props} className={cn('rounded-md bg-secondary px-3 py-2', className)} />
+  )
+);
+ActivityCardStatus.displayName = 'ActivityCardStatus';
+
 const ActivityCardImage = React.forwardRef<HTMLDivElement, React.ComponentProps<typeof Image>>(
   ({ className, ...props }, ref) => (
     <div ref={ref} className='relative aspect-square w-full'>
@@ -37,6 +44,17 @@ const ActivityCardHeader = React.forwardRef<HTMLDivElement, React.ComponentProps
   )
 );
 ActivityCardHeader.displayName = 'ActivityCardHeader';
+
+const ActivityCardBanner = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      {...props}
+      className={cn('absolute top-0 flex w-full items-center justify-between p-3', className)}
+    />
+  )
+);
+ActivityCardBanner.displayName = 'ActivityCardBanner';
 
 const ActivityCardName = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
   ({ className, ...props }, ref) => (
@@ -101,6 +119,7 @@ const ActivityCardContentItem = React.forwardRef<HTMLDivElement, React.Component
 ActivityCardContentItem.displayName = 'ActivityCardContentItem';
 export {
   ActivityCard,
+  ActivityCardBanner,
   ActivityCardCategory,
   ActivityCardContent,
   ActivityCardContentItem,
@@ -108,5 +127,6 @@ export {
   ActivityCardHeader,
   ActivityCardHeaderTop,
   ActivityCardImage,
-  ActivityCardName
+  ActivityCardName,
+  ActivityCardStatus
 };

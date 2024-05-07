@@ -4,7 +4,7 @@ import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { getActivity } from '@/utils/api';
 
-import { ActivityCard } from './(components)/ActivityCard/ActivityCard';
+import { OrganizationActivityCard } from './(components)/ActivityCard/OrganizationActivityCard';
 import { AddActivityDialog } from './(components)/AddActivityDialog/AddAddressDialog';
 
 const DEFAULT_ACTIVITIES_LIMIT = 10;
@@ -36,7 +36,7 @@ const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPage
       </div>
       <div className='grid w-full grid-cols-5 gap-7 3xlx:grid-cols-4 xlx:grid-cols-3 lgx:p-4 mdx:grid-cols-2 2xsx:grid-cols-1'>
         {getActivityResponse.rows.map((activity) => (
-          <ActivityCard activity={activity} />
+          <OrganizationActivityCard activity={activity} />
         ))}
       </div>
     </>

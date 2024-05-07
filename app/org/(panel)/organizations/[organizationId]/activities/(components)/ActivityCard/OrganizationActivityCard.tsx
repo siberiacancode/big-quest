@@ -5,7 +5,8 @@ import { Clock4Icon, Edit3Icon, UserRoundIcon } from 'lucide-react';
 import type { ActivityListResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
-  ActivityCard as ActivityCardItem,
+  ActivityCard,
+  ActivityCardBanner,
   ActivityCardCategory,
   ActivityCardContent,
   ActivityCardContentItem,
@@ -14,6 +15,7 @@ import {
   ActivityCardHeaderTop,
   ActivityCardImage,
   ActivityCardName,
+  ActivityCardStatus,
   Button,
   Typography
 } from '@/components/ui';
@@ -21,19 +23,19 @@ import {
 import { EditActivityDialog } from '../EditActivityDialog/EditActivityDialog';
 import { InfoAddressDialog } from '../InfoAddressDialog/InfoAddressDialog';
 
-import { useActivityCard } from './(hooks)/useActivityCard';
+import { useOrganizationActivityCard } from './(hooks)/useOrganizationActivityCard';
 
 interface ActivityCardProps {
   activity: ActivityListResponse;
 }
 
-export const ActivityCard = ({ activity }: ActivityCardProps) => {
-  const { state, functions } = useActivityCard();
+export const OrganizationActivityCard = ({ activity }: ActivityCardProps) => {
+  const { state, functions } = useOrganizationActivityCard();
   const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
 
   return (
     <div className='h-fit w-full rounded-lg bg-background p-4'>
-      <ActivityCardItem key={activity.id} className='max-w-none'>
+      <ActivityCard key={activity.id} className='max-w-none'>
         <div className='relative'>
           <div className='relative mdx:max-h-[256px]'>
             <ActivityCardImage
@@ -42,9 +44,9 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => {
               className='mdx:max-h-[256px] md:rounded-[16px]'
             />
           </div>
-          <div className='absolute top-0 flex w-full items-center justify-between p-3'>
+          <ActivityCardBanner>
             {activity.status && (
-              <div className='rounded-md bg-secondary px-3 py-2'>
+              <ActivityCardStatus>
                 <Typography variant='sub4' tag='p'>
                   <I18nText
                     path={
@@ -52,7 +54,7 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => {
                     }
                   />
                 </Typography>
-              </div>
+              </ActivityCardStatus>
             )}
 
             <Button
@@ -70,7 +72,7 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => {
               onEdit={functions.onEdit}
               activity={activity}
             />
-          </div>
+          </ActivityCardBanner>
         </div>
         <div
           className='flex cursor-pointer flex-col gap-2 md:gap-4'
@@ -138,7 +140,7 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => {
           open={state.infoDialogOpen}
           onOpenChange={functions.onInfoCloseClick}
         />
-      </ActivityCardItem>
+      </ActivityCard>
     </div>
   );
 };

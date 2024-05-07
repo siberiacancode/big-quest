@@ -4,7 +4,7 @@ import { toast } from 'sonner';
 
 import { useI18n } from '@/utils/contexts';
 
-export const useActivityCard = () => {
+export const useOrganizationActivityCard = () => {
   const i18n = useI18n();
   const router = useRouter();
 
