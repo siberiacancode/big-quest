@@ -1,6 +1,6 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
-import { COOKIES } from '@/utils/constants';
+import { COOKIES } from '@/utils/constants/cookies';
 
 export const getOrganizationActivitiesConfig: RestRequestConfig = {
   path: '/organization/:id/activities',
@@ -25,16 +25,12 @@ export const getOrganizationActivitiesConfig: RestRequestConfig = {
           id: '1',
           name: 'Рисуем живопись',
           category: 'Образование',
-          participants: 600,
-          likes: 210,
           time: { hour: 12, minutes: 0 }
         },
         {
           id: '2',
           name: 'Играем в футбол',
           category: 'Спорт',
-          participants: 10,
-          likes: 20,
           time: { hour: 19, minutes: 30 }
         }
       ]
