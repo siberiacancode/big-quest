@@ -2,10 +2,7 @@ import * as z from 'zod';
 
 export const activityActionSchema = z.object({
   name: z.string().min(1, { message: 'validation.required' }),
-  category: z.object({
-    id: z.string().min(1, { message: 'validation.required' }),
-    name: z.string().min(1, { message: 'validation.required' })
-  }),
+  categoryId: z.string(z.string().min(1, { message: 'validation.required' })),
   description: z.string().optional(),
   ageLimit: z.object({
     min: z.number().min(1, { message: 'validation.required' }),

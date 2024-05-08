@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
 interface QueryProviderProps {
@@ -10,8 +9,6 @@ interface QueryProviderProps {
 }
 
 export const QueryProvider: React.FC<QueryProviderProps> = ({ children }) => {
-  const router = useRouter();
-
   const queryClient = React.useMemo(
     () =>
       new QueryClient({
@@ -19,10 +16,6 @@ export const QueryProvider: React.FC<QueryProviderProps> = ({ children }) => {
         queryCache: new QueryCache({
           onError: (error) => {
             const responseError = error.cause as ResponseError;
-
-            if (responseError?.response?.status === 401) {
-              router.replace('/auth');
-            }
 
             toast.error(responseError.response.statusText, {
               cancel: { label: 'Close' }
@@ -32,10 +25,6 @@ export const QueryProvider: React.FC<QueryProviderProps> = ({ children }) => {
         mutationCache: new MutationCache({
           onError: (error) => {
             const responseError = error.cause as ResponseError;
-
-            if (responseError?.response?.status === 401) {
-              router.replace('/auth');
-            }
 
             toast.error(responseError.response.statusText, {
               cancel: { label: 'Close' }

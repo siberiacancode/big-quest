@@ -55,7 +55,7 @@ interface InterceptorResponseResult {
   data: any;
 }
 type SuccessResponseFun = (res: InterceptorResponseResult) => InterceptorResponseResult['data'];
-type SuccessRequestFun = (options: _RequestConfig) => _RequestConfig;
+type SuccessRequestFun = (options: _RequestConfig) => _RequestConfig | Promise<_RequestConfig>;
 
 type ResponseError = Error & { config: _RequestConfig; response: InterceptorResponseResult };
 type FailureResponseFun = (e: ResponseError) => any;
@@ -74,6 +74,8 @@ interface Interceptors {
   request?: RequestInterceptor[];
   response?: ResponseInterceptor[];
 }
+
+type RequestBody = Record<string, any> | FormData;
 
 interface RequestOptions extends Omit<RequestInit, 'method'> {
   headers?: Record<string, string>;

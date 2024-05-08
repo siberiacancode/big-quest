@@ -2,11 +2,8 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 import type { UserResponse } from '@/api-types';
-import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
 import { CITIES, COOKIES, ROUTES } from '@/utils/constants';
 import { getDevice } from '@/utils/helpers/server';
-
-generateServerHeadersInterceptor();
 
 const UNAUTH_ROUTES = [ROUTES.APP.AUTH, ROUTES.ORG.AUTH, ROUTES.APP.ACTIVITIES];
 const MOBILE_ONLY_ROUTES = [ROUTES.APP.AUTH, ROUTES.APP.PROFILE];

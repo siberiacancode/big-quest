@@ -65,16 +65,14 @@ export const useActivityActionForm = ({
       price: activity?.duration ?? 1000,
       replay: activity?.replay ?? false,
       status: activity?.status ?? 'DRAFT',
-      category: activity?.category
-        ? { id: activity?.category.id, name: activity?.category.RU }
-        : undefined
+      categoryId: activity?.category?.id ?? ''
     }
   });
 
   React.useEffect(() => {
     if (getCategoryQuery.isSuccess) {
       const category = getCategoryQuery.data.rows[0];
-      activityForm.setValue('category', { id: category.id, name: category.data.RU });
+      activityForm.setValue('categoryId', category.id);
     }
   }, [getCategoryQuery.isSuccess]);
 
@@ -163,7 +161,9 @@ export const useActivityActionForm = ({
         const { file, url, ...props } = setActivityMedia;
 
         if (file) {
-          const id = await postFileMutation.mutateAsync({ params: { file } });
+          const formData = new FormData();
+          formData.append('file', file);
+          const id = await postFileMutation.mutateAsync({ params: formData });
           transformedMedias.push({ ...props, id });
           return;
         }
@@ -175,8 +175,7 @@ export const useActivityActionForm = ({
     const requestParams = {
       ...values,
       ageLimit: [values.ageLimit.min, values.ageLimit.max],
-      organizationId: params.organizationId,
-      categoryId: values.category?.id
+      organizationId: params.organizationId
     };
 
     if (actionType === 'add') {
@@ -185,7 +184,6 @@ export const useActivityActionForm = ({
         action: actionType
       } as const;
 
-      // @ts-ignore
       await actionActivityMutation.mutateAsync(postActivityActionParams);
     }
 

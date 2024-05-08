@@ -208,52 +208,60 @@ export const ActionActivityForm = <ActionType extends ActivityActionType>({
                   <div className='flex-1 space-y-3'>
                     <FormField
                       control={form.control}
-                      name='category'
-                      render={({ field }) => (
-                        <FormItem className='flex flex-col'>
-                          <FormLabel className='text-base'>
-                            <I18nText path='field.category.label' />
-                          </FormLabel>
-                          <FormControl>
-                            <DropdownMenu
-                              open={state.isCategoryOpen}
-                              onOpenChange={functions.setIsCategoryOpen}
-                            >
-                              <DropdownMenuTrigger asChild disabled={state.isLoading}>
-                                <div className='flex h-10 max-w-40 cursor-pointer items-center justify-between gap-2 rounded-md border border-secondary bg-input-foreground px-3 py-2'>
-                                  <Typography variant='body2'>{field.value.name}</Typography>
-                                  {state.isCategoryOpen && <ChevronUpIcon className='h-4 w-4' />}
-                                  {!state.isCategoryOpen && <ChevronDownIcon className='h-4 w-4' />}
-                                </div>
-                              </DropdownMenuTrigger>
-                              <DropdownMenuContent className='w-40 bg-background'>
-                                <DropdownMenuRadioGroup
-                                  value={field.value.name}
-                                  onValueChange={field.onChange}
-                                >
-                                  {state.categories &&
-                                    state.categories.rows.map((category) => (
-                                      <DropdownMenuRadioItem
-                                        key={category.data.RU}
-                                        className='cursor-pointer bg-background text-start'
-                                        value={category.data.RU}
-                                      >
-                                        {category.data.RU}
-                                      </DropdownMenuRadioItem>
-                                    ))}
-                                </DropdownMenuRadioGroup>
-                              </DropdownMenuContent>
-                            </DropdownMenu>
-                          </FormControl>
-                          <FormMessage>
-                            {form.formState?.errors?.category && (
-                              <I18nText
-                                path={form.formState.errors.category.message as LocaleMessageId}
-                              />
-                            )}
-                          </FormMessage>
-                        </FormItem>
-                      )}
+                      name='categoryId'
+                      render={({ field }) => {
+                        const category = state.categories?.rows.find(
+                          (category) => category.id === field.value
+                        );
+
+                        return (
+                          <FormItem className='flex flex-col'>
+                            <FormLabel className='text-base'>
+                              <I18nText path='field.category.label' />
+                            </FormLabel>
+                            <FormControl>
+                              <DropdownMenu
+                                open={state.isCategoryOpen}
+                                onOpenChange={functions.setIsCategoryOpen}
+                              >
+                                <DropdownMenuTrigger asChild disabled={state.isLoading}>
+                                  <div className='flex h-10 max-w-40 cursor-pointer items-center justify-between gap-2 rounded-md border border-secondary bg-input-foreground px-3 py-2'>
+                                    <Typography variant='body2'>{category?.data.RU}</Typography>
+                                    {state.isCategoryOpen && <ChevronUpIcon className='h-4 w-4' />}
+                                    {!state.isCategoryOpen && (
+                                      <ChevronDownIcon className='h-4 w-4' />
+                                    )}
+                                  </div>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent className='w-40 bg-background'>
+                                  <DropdownMenuRadioGroup
+                                    value={field.value}
+                                    onValueChange={field.onChange}
+                                  >
+                                    {state.categories &&
+                                      state.categories.rows.map((category) => (
+                                        <DropdownMenuRadioItem
+                                          key={category.id}
+                                          className='cursor-pointer bg-background text-start'
+                                          value={category.id}
+                                        >
+                                          {category.data.RU}
+                                        </DropdownMenuRadioItem>
+                                      ))}
+                                  </DropdownMenuRadioGroup>
+                                </DropdownMenuContent>
+                              </DropdownMenu>
+                            </FormControl>
+                            <FormMessage>
+                              {form.formState?.errors?.categoryId && (
+                                <I18nText
+                                  path={form.formState.errors.categoryId.message as LocaleMessageId}
+                                />
+                              )}
+                            </FormMessage>
+                          </FormItem>
+                        );
+                      }}
                     />
                     <FormField
                       control={form.control}

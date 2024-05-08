@@ -1,8 +1,6 @@
 import { api } from '@/utils/api/instance';
 
-export interface PostFileParams {
-  file: File;
-}
+export type PostFileParams = FormData;
 
 export type PostFileRequestConfig = RequestConfig<PostFileParams>;
 
