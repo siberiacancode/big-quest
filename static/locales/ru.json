@@ -73,6 +73,7 @@
   "button.haveNotUserId": "У меня нет User ID",
   "button.logout": "Выйти",
   "button.addQR": "Добавить новый QR",
+  "button.mark": "Отметить",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
@@ -155,6 +156,9 @@
   "partner.menu.scanQRCode": "Сканирование QR",
   "partner.menu.notification": "Уведомление",
   "partner.menu.exit": "Выход",
+
+  "partner.confirmParticipation.participant": "Участник",
+  "partner.confirmParticipation.activities": "Активности",
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",

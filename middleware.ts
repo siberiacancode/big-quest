@@ -24,7 +24,7 @@ export const middleware = (request: NextRequest) => {
 
   const isAuthenticated = !!sessionIdCookie && !!userSessionCookie;
   const isAuthRoute = !UNAUTH_ROUTES.some((route) => request.url.includes(route));
-  const isMobileOnlyRoute = MOBILE_ONLY_ROUTES.some((route) => request.url.includes(route));
+  const isMobileOnlyRoute = MOBILE_ONLY_ROUTES.some((route) => request.url.startsWith(route));
 
   if (!isMobile && isMobileOnlyRoute) {
     return NextResponse.redirect(

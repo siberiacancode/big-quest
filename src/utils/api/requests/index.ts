@@ -17,6 +17,7 @@ export * from './organization/dashboard';
 export * from './organization/delete-employee';
 export * from './organization/edit-employee';
 export * from './organization/id';
+export * from './organization/id/activities';
 export * from './organization/id/employees';
 export * from './organization/register';
 export * from './tariff/id';
