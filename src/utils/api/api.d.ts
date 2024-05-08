@@ -163,7 +163,7 @@ interface OrganizationAddressDto {
 
 interface AddEmployeeDto {
   legalEntityId?: string;
-  role: 'Administrator' | 'Leading' | 'Manager';
+  role: 'ADMIN' | 'LEADING' | 'MANAGER';
   name: string;
   surname: string;
   email: string;
@@ -178,7 +178,7 @@ interface DeleteEmployeeDto {
 interface EditEmployeeDto {
   userId: string;
   legalEntityId?: string;
-  role: 'Administrator' | 'Leading' | 'Manager';
+  role: 'ADMIN' | 'LEADING' | 'MANAGER';
   name: string;
   surname: string;
   email: string;
@@ -393,7 +393,7 @@ interface UserResponse {
 
 interface EmployeeDto {
   id: string;
-  role: 'Administrator' | 'Leading' | 'Manager';
+  role: 'ADMIN' | 'LEADING' | 'MANAGER';
   name: string;
   surname: string;
   email: string;

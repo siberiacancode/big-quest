@@ -15,28 +15,27 @@ export const SelectActivitySection = ({ activities }: SelectActivitySectionProps
   const { state, functions } = useSelectActivitySection();
 
   return (
-    <>
+    <div className='flex h-full flex-col'>
       <Typography variant='h7' className='text-gray-two'>
         <I18nText path='partner.confirmParticipation.activities' />
       </Typography>
       <RadioGroup
-        defaultValue='card'
         value={state.selectedActivityId}
         onValueChange={functions.setSelectedActivityId}
-        className='mt-6 grow'
+        className='mt-6 flex grow flex-col gap-2 '
       >
         {activities.map((activity) => (
           <ActivityCard key={activity.id} {...activity} />
         ))}
       </RadioGroup>
       <Button
-        size='lg'
         variant='primary'
         onClick={functions.onConfirmParticipationClick}
+        disabled={!state.selectedActivityId}
         className='mt-6 w-full'
       >
         <I18nText path='button.mark' />
       </Button>
-    </>
+    </div>
   );
 };

@@ -142,11 +142,11 @@
 
   "organization.employee.email": "Email",
   "organization.employee.phoneNumber": "Телефон",
-  "organization.employee.role.administrator": "Администратор",
+  "organization.employee.role.admin": "Администратор",
   "organization.employee.role.leading": "Ведущий",
   "organization.employee.role.manager": "Менеджер",
 
-  "partner.role.administrator": "Администратор",
+  "partner.role.admin": "Администратор",
   "partner.role.leading": "Ведущий",
   "partner.role.manager": "Менеджер",
   "partner.scanner.qrCode": "QR-код",

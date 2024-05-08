@@ -110,13 +110,13 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
                           <SelectValue placeholder='Роль' />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value='Administrator'>
-                            <I18nText path='organization.employee.role.administrator' />
+                          <SelectItem value='ADMIN'>
+                            <I18nText path='organization.employee.role.admin' />
                           </SelectItem>
-                          <SelectItem value='Leading'>
+                          <SelectItem value='LEADING'>
                             <I18nText path='organization.employee.role.leading' />
                           </SelectItem>
-                          <SelectItem value='Manager'>
+                          <SelectItem value='MANAGER'>
                             <I18nText path='organization.employee.role.manager' />
                           </SelectItem>
                         </SelectContent>

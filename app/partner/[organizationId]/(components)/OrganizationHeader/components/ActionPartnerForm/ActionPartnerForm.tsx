@@ -110,10 +110,10 @@ export const ActionPartnerForm = ({ onAction, partner }: ActionPartnerProps) => 
                           <SelectValue placeholder='Роль' />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value='Administrator'>
-                            <I18nText path='partner.role.administrator' />
+                          <SelectItem value='ADMIN'>
+                            <I18nText path='partner.role.admin' />
                           </SelectItem>
-                          <SelectItem value='Leading'>
+                          <SelectItem value='LEADING'>
                             <I18nText path='partner.role.leading' />
                           </SelectItem>
                         </SelectContent>

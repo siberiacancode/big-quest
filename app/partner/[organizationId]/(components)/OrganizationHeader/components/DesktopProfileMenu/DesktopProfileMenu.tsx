@@ -32,7 +32,7 @@ export const DesktopProfileMenu = ({
             {`${partner.name} ${partner.surname}`}
           </Typography>
           <Typography className='text-muted-foreground' variant='sub4' tag='p'>
-            <I18nText path={`partner.${partner.roles[0].toLowerCase()}` as LocaleMessageId} />
+            <I18nText path={`partner.role.${partner.roles[0].toLowerCase()}` as LocaleMessageId} />
           </Typography>
         </div>
       </Button>
