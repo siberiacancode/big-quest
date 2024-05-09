@@ -27,7 +27,7 @@ export const postAuthLoginEmailConfig: RestRequestConfig = {
         response: (data, { setCookie }) => {
           setCookie(COOKIES.SESSION_ID, COOKIES.SESSION_ID, {
             httpOnly: true,
-            maxAge: 36000000,
+            maxAge: 360000,
             path: '/'
           });
 
