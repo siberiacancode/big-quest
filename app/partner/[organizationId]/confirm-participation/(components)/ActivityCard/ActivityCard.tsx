@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 import activityBackground from '@/assets/images/background/activity.png';
 import { Label, RadioGroupItem, Typography } from '@/components/ui';
+import { addLeadingZero } from '@/utils/helpers';
 
 interface ActivityCardProps {
   id: string;
@@ -16,7 +17,7 @@ interface ActivityCardProps {
 
 export const ActivityCard = ({ id, name, category, time, avatar }: ActivityCardProps) => (
   <div>
-    <RadioGroupItem value={id} id={id} className='peer sr-only ' />
+    <RadioGroupItem value={id} id={id} className='peer sr-only' />
     <Label
       htmlFor={id}
       className='flex items-center gap-3 rounded-md border-2 border-inherit px-4 py-[14px] peer-data-[state=checked]:border-[#ABCF38] [&:has([data-state=checked])]:border-[#ABCF38]'
@@ -40,7 +41,7 @@ export const ActivityCard = ({ id, name, category, time, avatar }: ActivityCardP
         <div className='flex items-center gap-2'>
           <Clock4Icon className='size-3 text-muted-foreground' />
           <Typography variant='body4' className='text-muted-foreground'>
-            {time.hour}: {time.minutes}
+            {addLeadingZero(time.hour)}:{addLeadingZero(time.minutes)}
           </Typography>
         </div>
       </div>

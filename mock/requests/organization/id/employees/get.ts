@@ -11,7 +11,7 @@ export const getOrganizationEmployeesConfig: RestRequestConfig = {
           name: 'Arthur',
           surname: 'Morgan',
           email: 'katinalang@bunga.com',
-          role: 'Manager',
+          role: 'MANAGER',
           phone: '+7 (927) 424-3144',
           status: 'active',
           image: 'http://localhost:31299/api/1.0/static/employees/avatar.webp'
@@ -21,7 +21,7 @@ export const getOrganizationEmployeesConfig: RestRequestConfig = {
           name: 'Dutch',
           surname: 'van der Linde',
           email: 'letafoster@coash.com',
-          role: 'Manager',
+          role: 'MANAGER',
           phone: '+7 (809) 521-3230',
           status: 'active',
           image: 'http://localhost:31299/api/1.0/static/employees/avatar.webp'
@@ -31,7 +31,7 @@ export const getOrganizationEmployeesConfig: RestRequestConfig = {
           name: 'Sadie',
           surname: 'Adler',
           email: 'jimmiemathis@tasmania.com',
-          role: 'Manager',
+          role: 'MANAGER',
           phone: '+7 (948) 476-3906',
           status: 'active',
           image: 'http://localhost:31299/api/1.0/static/employees/avatar.webp'
@@ -41,7 +41,7 @@ export const getOrganizationEmployeesConfig: RestRequestConfig = {
           name: 'John',
           surname: 'Marston',
           email: 'mccrayharding@kidgrease.com',
-          role: 'Manager',
+          role: 'MANAGER',
           phone: '+7 (981) 522-3212',
           status: 'active',
           image: 'http://localhost:31299/api/1.0/static/employees/avatar.webp'
@@ -51,7 +51,7 @@ export const getOrganizationEmployeesConfig: RestRequestConfig = {
           name: 'Susan',
           surname: 'Grimshaw',
           email: 'maribelowens@liquicom.com',
-          role: 'Manager',
+          role: 'MANAGER',
           phone: '+7 (929) 545-2962',
           status: 'active',
           image: 'http://localhost:31299/api/1.0/static/employees/avatar.webp'
@@ -61,7 +61,7 @@ export const getOrganizationEmployeesConfig: RestRequestConfig = {
           name: 'Javier',
           surname: 'Escuella',
           email: 'sylviacalderon@veraq.com',
-          role: 'Manager',
+          role: 'MANAGER',
           phone: '+7 (859) 535-3975',
           status: 'inactive',
           image: 'http://localhost:31299/api/1.0/static/employees/avatar.webp'
@@ -71,7 +71,7 @@ export const getOrganizationEmployeesConfig: RestRequestConfig = {
           name: 'Michael',
           surnmae: 'de Santa',
           email: 'douglasprice@calcula.com',
-          role: 'Manager',
+          role: 'MANAGER',
           phone: '+7 (959) 483-3327',
           status: 'inactive',
           image: 'http://localhost:31299/api/1.0/static/employees/avatar.webp'
@@ -81,7 +81,7 @@ export const getOrganizationEmployeesConfig: RestRequestConfig = {
           name: 'Trevor',
           surname: 'Phillips',
           email: 'hilldyer@cincyr.com',
-          role: 'Manager',
+          role: 'MANAGER',
           phone: '+7 (908) 430-3932',
           status: 'inactive',
           image: 'http://localhost:31299/api/1.0/static/employees/avatar.webp'
@@ -91,7 +91,7 @@ export const getOrganizationEmployeesConfig: RestRequestConfig = {
           name: 'Franklin',
           surname: 'Clinton',
           email: 'dodsonchang@menbrain.com',
-          role: 'Manager',
+          role: 'MANAGER',
           phone: '+7 (894) 515-2053',
           status: 'inactive',
           image: 'http://localhost:31299/api/1.0/static/employees/avatar.webp'

@@ -142,10 +142,12 @@
 
   "organization.employee.email": "Email",
   "organization.employee.phoneNumber": "Телефон",
+  "organization.employee.role.superadmin": "Главный администратор",
   "organization.employee.role.admin": "Администратор",
   "organization.employee.role.leading": "Ведущий",
   "organization.employee.role.manager": "Менеджер",
 
+  "partner.role.superadmin": "Главный администратор",
   "partner.role.admin": "Администратор",
   "partner.role.leading": "Ведущий",
   "partner.role.manager": "Менеджер",

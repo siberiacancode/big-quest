@@ -8,14 +8,15 @@ import { ActivityCard } from '../ActivityCard/ActivityCard';
 import { useSelectActivitySection } from './hooks/useSelectActivitySection';
 
 interface SelectActivitySectionProps {
+  userId: string;
   activities: OrganizationActivityFixMe[];
 }
 
-export const SelectActivitySection = ({ activities }: SelectActivitySectionProps) => {
-  const { state, functions } = useSelectActivitySection();
+export const SelectActivitySection = ({ userId, activities }: SelectActivitySectionProps) => {
+  const { state, functions } = useSelectActivitySection({ userId });
 
   return (
-    <div className='flex h-full flex-col'>
+    <section className='flex h-full flex-col'>
       <Typography variant='h7' className='text-gray-two'>
         <I18nText path='partner.confirmParticipation.activities' />
       </Typography>
@@ -36,6 +37,6 @@ export const SelectActivitySection = ({ activities }: SelectActivitySectionProps
       >
         <I18nText path='button.mark' />
       </Button>
-    </div>
+    </section>
   );
 };

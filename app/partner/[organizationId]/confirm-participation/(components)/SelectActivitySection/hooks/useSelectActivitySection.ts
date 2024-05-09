@@ -1,10 +1,16 @@
 import React from 'react';
 
-export const useSelectActivitySection = () => {
+interface UseSelectActivitySectionParams {
+  userId: string;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const useSelectActivitySection = ({ userId }: UseSelectActivitySectionParams) => {
   const [selectedActivityId, setSelectedActivityId] = React.useState<string | undefined>();
 
   const onConfirmParticipationClick = () => {
-    // TODO request
+    // TODO request with userId and selectedActivityId
+    return userId;
   };
 
   return {

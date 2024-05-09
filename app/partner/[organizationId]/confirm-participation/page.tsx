@@ -10,14 +10,15 @@ import { getOrganizationActivities } from '@/utils/api';
 
 import { SelectActivitySection } from './(components)/SelectActivitySection/SelectActivitySection';
 
-interface PartnerConfirmParticipationPageProps {
+interface OrganizationConfirmParticipationPageProps {
   searchParams: { userId?: string };
   params: { organizationId: string };
 }
 
-const PartnerConfirmParticipationPage = async ({
+const OrganizationConfirmParticipationPage = async ({
+  searchParams,
   params
-}: PartnerConfirmParticipationPageProps) => {
+}: OrganizationConfirmParticipationPageProps) => {
   const getOrganizationActivitiesResponse = await getOrganizationActivities({
     params: { id: params.organizationId }
   });
@@ -37,7 +38,7 @@ const PartnerConfirmParticipationPage = async ({
               <I18nText path='partner.confirmParticipation.participant' />
             </Typography>
             <div className='mt-6 flex items-center gap-3'>
-              {/* // TODO add request to get user info */}
+              {/* // TODO add request to get user using userId from searchParams */}
               <Image src={participantAvatar} alt='' className='size-10 rounded-full' />
               <div className='flex grow flex-col justify-between'>
                 <Typography variant='sub3'>Имя Фамилия</Typography>
@@ -49,7 +50,10 @@ const PartnerConfirmParticipationPage = async ({
           </div>
 
           <div className='mt-8 grow'>
-            <SelectActivitySection activities={getOrganizationActivitiesResponse} />
+            <SelectActivitySection
+              userId={searchParams.userId ?? ''}
+              activities={getOrganizationActivitiesResponse}
+            />
           </div>
         </div>
       </DialogContent>
@@ -57,4 +61,4 @@ const PartnerConfirmParticipationPage = async ({
   );
 };
 
-export default PartnerConfirmParticipationPage;
+export default OrganizationConfirmParticipationPage;
