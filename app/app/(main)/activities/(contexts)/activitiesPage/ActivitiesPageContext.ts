@@ -2,9 +2,11 @@
 
 import React from 'react';
 
+import type { ActivityListResponse, CategoryResponse, PaginationResponse } from '@/api-types';
+
 export interface ActivitiesPageContextParams {
   categories: CategoryResponse[];
-  activities: ActivityResponse[];
+  activities: ActivityListResponse[];
   pagination: PaginationResponse;
   isLoading: boolean;
   onCategoryClick: (category: string) => void;

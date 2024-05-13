@@ -55,8 +55,9 @@
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
   "button.close": "Закрыть",
-  "button.addActivities": "Добавить активность",
+  "button.addActivity": "Добавить активность",
   "button.addEmployee": "Добавить сотрудника",
+  "button.makeCover": "Сделать обложкой",
   "button.updateTariff": "Сменить тариф",
   "button.learnDetails": "Узнать подробности",
   "button.login": "Войти",
@@ -315,7 +316,10 @@
 
   "activityCard.ageLimit.label": "от {ageMin}+ лет",
   "activityCard.duration.label": "{duration} ч",
-  "activity.image.alt": "Изображение активности {name}",
+  "activity.image.alt": "Изображение активности",
+  "activity.image.placeholder": "Место для показа медиа",
+  "activity.image.add": "Добавьте изображение",
+  "activity.cover.add": "Выберите обложку",
 
   "pagination.from": "из",
   "pagination.selected": "выбрано",

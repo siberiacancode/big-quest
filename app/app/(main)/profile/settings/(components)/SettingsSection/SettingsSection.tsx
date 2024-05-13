@@ -9,7 +9,7 @@ import { Label, Switch, Typography } from '@/components/ui';
 import { useSettingsSection } from './hooks/useSettingsSection';
 
 interface SettingsSectionProps {
-  role: ProfileSettingsRoleFixMe;
+  role: $TSFIXME;
   hasChildren: boolean;
 }
 

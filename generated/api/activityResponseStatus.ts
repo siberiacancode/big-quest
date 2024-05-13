@@ -9,14 +9,4 @@
 /**
  * Статус
  */
-export type ActivityResponseStatus =
-  (typeof ActivityResponseStatus)[keyof typeof ActivityResponseStatus];
-
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export const ActivityResponseStatus = {
-  DRAFT: 'DRAFT',
-  MODERATION: 'MODERATION',
-  EDITING: 'EDITING',
-  PUBLISHED: 'PUBLISHED',
-  CLOSED: 'CLOSED'
-} as const;
+export type ActivityResponseStatus = $TSFIXME;

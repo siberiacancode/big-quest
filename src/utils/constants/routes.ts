@@ -1,6 +1,5 @@
 export const ROUTES = {
   REDIRECT: '/redirect',
-  AUTH: '/auth',
   ORG: {
     AUTH: '/org/auth',
     ROOT: '/org/',
@@ -38,6 +37,8 @@ export const ROUTES = {
       SETTINGS: '/app/profile/settings',
       EDIT: (userId: string) => `/app/profile/${userId}/edit`
     },
+    AUTH: '/app/auth',
+    SETTINGS: '/app/settings',
     ACTIVITIES: '/app/activities',
     RATING: '/app/rating',
     SUPPORT: '/app/support'

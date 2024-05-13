@@ -10,7 +10,7 @@ import { ProfileSettingsLink } from '../ProfileSettingsLink/ProfileSettingsLink'
 import { useAdditionalQRsSection } from './hooks/useAdditionalQRsSection';
 
 interface AdditionalQRsSectionProps {
-  children: ChildProfileSettingsResponseFixMe[];
+  children: $TSFIXME[];
 }
 
 export const AdditionalQRsSection = ({ children }: AdditionalQRsSectionProps) => {

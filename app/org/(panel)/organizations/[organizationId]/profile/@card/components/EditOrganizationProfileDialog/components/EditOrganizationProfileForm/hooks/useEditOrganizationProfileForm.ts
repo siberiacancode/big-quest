@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
+import type { OrganizationResponse } from '@/api-types';
 import { usePutOrganizationByIdMutation } from '@/utils/api';
 
 import type { EditOrganizationProfileSchema } from '../constants/editOrganizationProfileSchema';

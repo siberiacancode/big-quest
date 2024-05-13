@@ -8,9 +8,7 @@ export interface ActivitiesTableRow {
   view: string;
 }
 
-export const convertActivitiesToTableRows = (
-  activities: ActivitiesResponse[]
-): ActivitiesTableRow[] =>
+export const convertActivitiesToTableRows = (activities: $TSFIXME[]): ActivitiesTableRow[] =>
   activities.map((activity) => ({
     id: activity.id,
     organization: activity.organization ?? '-',

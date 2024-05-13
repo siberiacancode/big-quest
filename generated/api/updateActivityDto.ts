@@ -13,7 +13,7 @@ export interface UpdateActivityDto {
   /** Возрастное ограничение ОТ и ДО */
   ageLimit?: number[];
   /** Категория */
-  category?: string;
+  categoryId?: string;
   /** Описание */
   description?: string;
   /** Продолжительность (мин) */
@@ -22,7 +22,7 @@ export interface UpdateActivityDto {
   media: MediaDto[];
   /** Название */
   name?: string;
-  /** Кол-во орешков */
+  /** Кол-во ОРЕшков */
   nutsCount: number;
   /** Стоимость */
   price?: number;
