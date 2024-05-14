@@ -43,6 +43,13 @@
   "app.profile.settings.theme": "Темная тема",
   "app.profile.settings.additionalQR": "Дополнительные QR",
 
+  "app.rating.title": "Рейтинг",
+  "app.support.title": "Поддержка",
+  "app.taiga.title": "Игры",
+
+  "app.inDev.title": "Раздел в стадии разработки",
+  "app.inDev.description": "Проходите активности,{br} копите шишки опыта!",
+
   "common.rubles": "{amount}руб.",
 
   "button.add": "Добавить",

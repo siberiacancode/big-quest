@@ -1,7 +1,7 @@
 import { Card, CardContent, Skeleton } from '@/components/ui';
 
 const AppProfileLoading = () => (
-  <div className='px-5 py-9'>
+  <div>
     <div className='flex items-center justify-between'>
       <Skeleton className='h-7 w-32' />
       <Skeleton className='size-8' />

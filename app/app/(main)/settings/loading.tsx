@@ -1,7 +1,7 @@
 import { Skeleton } from '@/components/ui';
 
 const AppProfileSettingsLoading = () => (
-  <div className='px-4 py-8'>
+  <div>
     <Skeleton className='mx-auto h-7 w-32' />
     <div className='mt-5 flex w-full items-center'>
       <Skeleton className='size-14 rounded-full' />

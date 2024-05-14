@@ -6,7 +6,13 @@ import { CITIES, COOKIES, ROUTES } from '@/utils/constants';
 import { getDevice } from '@/utils/helpers/server';
 
 const UNAUTH_ROUTES = [ROUTES.APP.AUTH, ROUTES.ORG.AUTH, ROUTES.APP.ACTIVITIES];
-const MOBILE_ONLY_ROUTES = [ROUTES.APP.AUTH, ROUTES.APP.PROFILE.ROOT];
+const MOBILE_ONLY_ROUTES = [
+  ROUTES.APP.AUTH,
+  ROUTES.APP.PROFILE.ROOT,
+  ROUTES.APP.RATING,
+  ROUTES.APP.SUPPORT,
+  ROUTES.APP.TAIGA
+];
 
 export const middleware = (request: NextRequest) => {
   const { pathname } = new URL(request.url);
