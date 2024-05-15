@@ -8,7 +8,11 @@ import { getDevice } from '@/utils/helpers/server';
 generateServerHeadersInterceptor();
 
 const UNAUTH_ROUTES = [ROUTES.LANDING.ROOT, ROUTES.AUTH, ROUTES.ORG.AUTH, ROUTES.APP.ACTIVITIES];
-const MOBILE_ONLY_ROUTES = [ROUTES.AUTH, ROUTES.APP.PROFILE.ROOT];
+const MOBILE_ONLY_ROUTES = [
+  ROUTES.AUTH,
+  ROUTES.APP.PROFILE.ROOT,
+  ROUTES.PARTNER.CONFIRM_PARTICIPATION
+];
 
 export const middleware = (request: NextRequest) => {
   const { pathname } = new URL(request.url);
@@ -24,7 +28,7 @@ export const middleware = (request: NextRequest) => {
 
   const isAuthenticated = !!sessionIdCookie && !!userSessionCookie;
   const isAuthRoute = !UNAUTH_ROUTES.some((route) => request.url.includes(route));
-  const isMobileOnlyRoute = MOBILE_ONLY_ROUTES.some((route) => request.url.startsWith(route));
+  const isMobileOnlyRoute = MOBILE_ONLY_ROUTES.some((route) => request.url.includes(route));
 
   if (!isMobile && isMobileOnlyRoute) {
     return NextResponse.redirect(

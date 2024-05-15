@@ -1,7 +1,9 @@
 'use client';
 
+import React from 'react';
+
 import { I18nText } from '@/components/common';
-import { Button, RadioGroup, Typography } from '@/components/ui';
+import { Button, RadioGroup, RadioGroupItem, Typography } from '@/components/ui';
 
 import { ActivityCard } from '../ActivityCard/ActivityCard';
 
@@ -26,7 +28,10 @@ export const SelectActivitySection = ({ userId, activities }: SelectActivitySect
         className='mt-6 flex grow flex-col gap-2 '
       >
         {activities.map((activity) => (
-          <ActivityCard key={activity.id} {...activity} />
+          <div key={activity.id}>
+            <RadioGroupItem value={activity.id} id={activity.id} className='peer sr-only' />
+            <ActivityCard key={activity.id} {...activity} />
+          </div>
         ))}
       </RadioGroup>
       <Button

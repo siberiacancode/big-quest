@@ -44,6 +44,7 @@
   "app.profile.settings.additionalQR": "Дополнительные QR",
 
   "common.rubles": "{amount}руб.",
+  "common.age": "{age, plural, =1 {# год} one {# год} few {# года} many {# лет} other {# лет}}",
 
   "button.add": "Добавить",
   "button.watchAll": "Смотреть все",

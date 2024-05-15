@@ -21,6 +21,7 @@ export const ROUTES = {
     }
   },
   PARTNER: {
+    CONFIRM_PARTICIPATION: '/partner/confirm-participation',
     PROFILE: '/partner/profile',
     ADDRESSES: '/partner/addresses',
     EMPLOYEES: '/partner/employees',
