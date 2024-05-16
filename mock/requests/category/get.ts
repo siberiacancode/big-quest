@@ -1,3 +1,4 @@
+import { DATABASE } from 'mock/database';
 import type { RestRequestConfig } from 'mock-config-server';
 
 export const getCategories: RestRequestConfig = {
@@ -5,7 +6,7 @@ export const getCategories: RestRequestConfig = {
   method: 'get',
   routes: [
     {
-      data: ['Образование', 'Кулинария']
+      data: () => DATABASE.CATEGORIES
     }
   ]
 };

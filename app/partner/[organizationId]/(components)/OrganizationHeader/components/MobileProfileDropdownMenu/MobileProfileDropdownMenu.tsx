@@ -4,6 +4,7 @@ import React from 'react';
 import { BellIcon, LogOutIcon, QrCodeIcon, SunIcon } from 'lucide-react';
 import Image from 'next/image';
 
+import type { UserResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -13,20 +14,18 @@ import {
   Typography
 } from '@/components/ui';
 
-import type { PartnerData } from '../../(constants)/types';
-
 import { useMobileProfileDropdownMenu } from './hooks/useMobileProfileDropdownMenu';
 
 interface MobileProfileDropdownMenuProps {
-  partner: PartnerData;
+  partner: UserResponse;
   onEditPartnerClick: () => void;
-  onEditQrScannerClick: () => void;
+  onEditQRScannerClick: () => void;
 }
 
 export const MobileProfileDropdownMenu = ({
   partner,
   onEditPartnerClick,
-  onEditQrScannerClick
+  onEditQRScannerClick
 }: MobileProfileDropdownMenuProps) => {
   const { state, functions } = useMobileProfileDropdownMenu();
 
@@ -59,11 +58,11 @@ export const MobileProfileDropdownMenu = ({
         <Button
           variant='ghost'
           className='flex items-center justify-start gap-5 rounded-md border-none px-2 py-1 hover:cursor-pointer hover:bg-accent'
-          onClick={onEditQrScannerClick}
+          onClick={onEditQRScannerClick}
         >
           <QrCodeIcon />
           <Typography variant='body2'>
-            <I18nText path='partner.menu.scanQrCode' />
+            <I18nText path='partner.menu.scanQRCode' />
           </Typography>
         </Button>
         <Button

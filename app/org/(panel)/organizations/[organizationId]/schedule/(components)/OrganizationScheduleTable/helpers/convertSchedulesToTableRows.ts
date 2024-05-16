@@ -1,22 +1,11 @@
-export interface ScheduleTableRow {
-  id: string;
-  activityName: string;
-  locality: string;
-  employee: string;
-  date: string;
-  time: string;
-  maxNumberOfParticipants: number;
-  passed: boolean;
-}
-
-export const convertSchedulesToTableRows = (schedules: ScheduleResponse[]): ScheduleTableRow[] =>
+export const convertSchedulesToTableRows = (schedules: $TSFIXME[]): $TSFIXME =>
   schedules.map((schedule) => ({
     id: schedule.id,
     activityName: schedule.activityId ?? '-',
     locality: schedule.address.street ?? '-',
     employee: schedule.leadingEmployeeId ?? '-',
     date: schedule.dateAndTime.date ?? '-',
-    time: schedule.time ?? '-',
+    time: schedule.dateAndTime.timeFrom.hour ?? '-',
     maxNumberOfParticipants: schedule.maxNumberOfParticipants ?? '-',
     passed: schedule.regular ?? '-'
   }));

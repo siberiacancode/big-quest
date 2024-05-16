@@ -1,3 +1,4 @@
+import type { SchedulesResponse } from '@/api-types';
 import { api } from '@/utils/api/instance';
 
 interface GetScheduleOrganizationByIdParams {

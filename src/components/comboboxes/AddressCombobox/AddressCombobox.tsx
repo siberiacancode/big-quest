@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDebounceCallback } from 'usehooks-ts';
 
+import type { AddressResponseDto } from '@/api-types';
 import type { ComboBoxItemType, ComboboxProps } from '@/components/ui';
 import { Combobox } from '@/components/ui';
 import { useGetAddressQuery } from '@/utils/api';

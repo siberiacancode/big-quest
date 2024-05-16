@@ -1,3 +1,5 @@
+import type { AddressResponseDto } from '@/api-types';
+
 export const convertLocalitiesToComboboxItems = (addresses: AddressResponseDto[]) =>
   addresses
     .filter(

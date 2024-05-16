@@ -1,0 +1,2 @@
+export const DEFAULT_ACTIVITIES_LIMIT = 6;
+export const DEFAULT_ACTIVITIES_PAGE = 1;

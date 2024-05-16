@@ -1,6 +1,7 @@
-import { api } from '../../../instance';
+import type { OrganizationResponse, UpdateOrganizationDto } from '@/api-types';
+import { api } from '@/utils/api/instance';
 
-export type PutOrganizationByIdParams = UpdateOrganizationDto;
+export type PutOrganizationByIdParams = UpdateOrganizationDto & { id: string };
 export type PutOrganizationByIdRequestConfig = RequestConfig<PutOrganizationByIdParams>;
 
 export const putOrganizationById = async ({ params, config }: PutOrganizationByIdRequestConfig) =>

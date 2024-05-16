@@ -25,7 +25,7 @@ const OrganizationAddressesPage = async ({ params }: OrganizationAddressesPagePr
         </Typography>
         <AddAddressDialog />
       </div>
-      <div className='gap-5 2xlx:grid-cols-2 xlx:flex xlx:flex-wrap 2xl:grid-cols-3 xl:grid'>
+      <div className='gap-5 2xlx:grid-cols-2 xlx:flex xlx:flex-wrap xl:grid 2xl:grid-cols-3'>
         {getLegalAddressesByLegalIdResponse.map((address) => (
           <AddressCard key={address.id} address={address} />
         ))}

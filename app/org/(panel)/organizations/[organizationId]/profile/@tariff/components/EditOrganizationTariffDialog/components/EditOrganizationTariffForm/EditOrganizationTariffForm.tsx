@@ -2,6 +2,7 @@
 
 import { MinusIcon, PlusIcon } from 'lucide-react';
 
+import type { TariffResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
   Button,

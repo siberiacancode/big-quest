@@ -7,7 +7,7 @@ export interface GetLeadsParams {
 export type GetLeadsRequestConfig = RequestConfig<GetLeadsParams>;
 
 export const getLeads = async ({ params, config }: GetLeadsRequestConfig) =>
-  api.get<LeadResponse[]>('leads', {
+  api.get<$TSFIXME>('leads', {
     ...config,
     params: { ...config?.params, ...params }
   });

@@ -4,9 +4,7 @@ import { CheckIcon } from 'lucide-react';
 import { I18nText } from '@/components/common';
 import { Checkbox, generateDataTableColumn } from '@/components/ui';
 
-import type { ScheduleTableRow } from '../helpers/convertSchedulesToTableRows';
-
-export const columns: ColumnDef<ScheduleTableRow>[] = [
+export const columns: ColumnDef<$TSFIXME>[] = [
   {
     id: 'select',
     header: ({ table }) => (
@@ -54,8 +52,8 @@ export const columns: ColumnDef<ScheduleTableRow>[] = [
     headerLabel: 'table.column.schedule.time'
   }),
   generateDataTableColumn({
-    accessorKey: 'registrationCount',
-    headerLabel: 'table.column.schedule.registrationCount'
+    accessorKey: 'maxNumberOfParticipants',
+    headerLabel: 'table.column.schedule.maxNumberOfParticipants'
   }),
   {
     id: 'actions',

@@ -1,6 +1,6 @@
 import { api } from '@/utils/api/instance';
 
-export type PostOrganizationAddScheduleParams = OrganizationScheduleDto;
+export type PostOrganizationAddScheduleParams = Record<string, $TSFIXME>;
 export type PostOrganizationAddScheduleRequestConfig =
   RequestConfig<PostOrganizationAddScheduleParams>;
 

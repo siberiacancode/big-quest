@@ -9,8 +9,7 @@ export const useOrganizationHeader = () => {
   const router = useRouter();
   const { user } = useUser();
   const [editEmployeeDialogOpen, setEditEmployeeDialogOpen] = React.useState(false);
-  const [editQrScannerDialogOpen, setEditQrScannerDialogOpen] = React.useState(false);
-  console.log(user);
+  const [editQRScannerDialogOpen, setEditQRScannerDialogOpen] = React.useState(false);
   const [isEditPending, startEditTransition] = React.useTransition();
 
   const onEditPartner = () => {
@@ -24,21 +23,21 @@ export const useOrganizationHeader = () => {
   const onEditPartnerClick = () => setEditEmployeeDialogOpen(true);
   const onEditPartnerCloseClick = () => setEditEmployeeDialogOpen(false);
 
-  const onEditQrScannerClick = () => setEditQrScannerDialogOpen(true);
-  const onEditQrScannerCloseClick = () => setEditQrScannerDialogOpen(false);
+  const onEditQRScannerClick = () => setEditQRScannerDialogOpen(true);
+  const onEditQRScannerCloseClick = () => setEditQRScannerDialogOpen(false);
 
   return {
     state: {
-      partner: { ...user, phone: '79138888888', password: 'password' },
+      partner: user,
       editEmployeeDialogOpen,
-      editQrScannerDialogOpen,
+      editQRScannerDialogOpen,
       isLoading: isEditPending
     },
     functions: {
       onEditPartnerClick,
-      onEditQrScannerClick,
+      onEditQRScannerClick,
       onEditPartnerCloseClick,
-      onEditQrScannerCloseClick,
+      onEditQRScannerCloseClick,
       onEditPartner
     }
   };

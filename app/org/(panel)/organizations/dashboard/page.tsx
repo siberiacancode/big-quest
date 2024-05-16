@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import { getOrganization } from '@/utils/api';
 
 import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
@@ -14,15 +16,17 @@ const DEFAULT_ORGANIZATIONS_PAGE = 1;
 
 const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPageProps) => {
   const getOrganizationResponse = await getOrganization({
+    params: {
+      limit: DEFAULT_ORGANIZATIONS_LIMIT,
+      current: DEFAULT_ORGANIZATIONS_PAGE,
+      ...searchParams
+    },
     config: {
-      params: {
-        limit: DEFAULT_ORGANIZATIONS_LIMIT,
-        current: DEFAULT_ORGANIZATIONS_PAGE,
-        ...searchParams
-      },
       cache: 'no-store'
     }
   });
+
+  if ('message' in getOrganizationResponse) return notFound();
 
   return (
     <div className='bg-secondary px-4'>

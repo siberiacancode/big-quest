@@ -1,6 +1,7 @@
 export const ACCEPT_FILE_TYPES = {
-  image: {
-    'image/*': []
+  media: {
+    'image/*': [],
+    'video/*': []
   },
   docs: {
     '.doc, .docx, .pdf': [

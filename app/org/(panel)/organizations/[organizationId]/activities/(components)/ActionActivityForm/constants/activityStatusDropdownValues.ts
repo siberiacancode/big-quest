@@ -1,0 +1,7 @@
+export const ACTIVITY_STATUS_DROPDOWN_VALUES = [
+  'DRAFT',
+  'MODERATION',
+  'EDITING',
+  'PUBLISHED',
+  'CLOSED'
+];

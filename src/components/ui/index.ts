@@ -1,4 +1,5 @@
 export * from './accordion';
+export * from './activity-card';
 export * from './activity-card-skeleton';
 export * from './address-card-skeleton';
 export * from './alert-dialog';
@@ -21,7 +22,7 @@ export * from './date-picker';
 export * from './date-picker-with-range';
 export * from './dialog';
 export * from './dropdown-menu';
-export * from './dropzone-image';
+export * from './dropzone-media';
 export * from './employee-card-skeleton';
 export * from './form';
 export * from './hover-card';

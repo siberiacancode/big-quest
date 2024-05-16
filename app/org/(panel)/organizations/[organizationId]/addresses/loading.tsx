@@ -8,7 +8,7 @@ const OrganizationAddressesLoading = () => (
       <Skeleton className='h-10 w-36 bg-background' />
     </div>
 
-    <div className='justify-center gap-5 2xlx:grid-cols-2 xlx:flex xlx:flex-wrap 2xl:grid-cols-3 xl:grid'>
+    <div className='justify-center gap-5 2xlx:grid-cols-2 xlx:flex xlx:flex-wrap xl:grid 2xl:grid-cols-3'>
       {Array(5)
         .fill({})
         .map((_, index) => (

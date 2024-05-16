@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import type { PaginationResponse, ScheduleResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
   DataTable,
@@ -24,7 +25,7 @@ import { convertSchedulesToTableRows } from './helpers/convertSchedulesToTableRo
 import { useOrganizationScheduleTable } from './hooks/useOrganizationScheduleTable';
 
 interface OrganizationScheduleTableProps {
-  schedules: SchedulesResponse[];
+  schedules: ScheduleResponse[];
   pagination: PaginationResponse;
 }
 
