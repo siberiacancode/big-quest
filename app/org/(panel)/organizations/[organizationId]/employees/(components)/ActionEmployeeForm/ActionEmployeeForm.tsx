@@ -50,7 +50,6 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
                     value={employee.image}
                     onChange={functions.onDeletePreviewClick}
                     className='h-32 w-32'
-                    mobileVersion
                   />
                 </div>
               )}

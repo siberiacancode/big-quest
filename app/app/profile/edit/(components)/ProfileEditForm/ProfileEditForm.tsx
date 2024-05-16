@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
+import userPlaceholder from '@/assets/images/avatar/participant.png';
 import { I18nText } from '@/components/common';
-import { DropzoneCard } from '@/components/dropzone';
 import {
   Button,
   CopyToClipboardButton,
@@ -29,66 +30,77 @@ interface ProfileEditFormProps {
 
 export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
   const i18n = useI18n();
+  const fileInputRef = React.useRef<HTMLInputElement | null>(null);
   const { state, form, functions } = useProfileEditForm({ user });
 
   return (
     <Form {...form}>
       <form onSubmit={functions.onSubmit} className='w-full'>
         <fieldset disabled={state.isLoading} className='flex w-full flex-col items-end'>
-          <div className='mb-7 flex w-full flex-col gap-5'>
+          <div className='mb-7 flex w-full gap-5 smx:flex-col'>
             <div className='flex-1 space-y-3'>
               {state.showPreview && user?.avatar && (
                 <div className='flex flex-col items-center justify-center gap-3'>
-                  <DropzoneCard
-                    value={user?.avatar}
-                    onChange={functions.onDeletePreviewClick}
-                    className='h-[100px] w-[100px]'
-                    mobileVersion
+                  <Image
+                    src={user?.avatar}
+                    alt='avatar_image'
+                    className='h-[100px] w-[100px] rounded-full'
+                    width={100}
+                    height={100}
                   />
-                  <Button
-                    variant='ghost'
-                    onClick={functions.onDeletePreviewClick}
-                    role='presentation'
-                  >
+                  <div onClick={functions.onDeletePreviewClick} role='presentation'>
                     <Typography variant='body3' tag='p' className='flex-1'>
                       <I18nText path='app.profile.edit.avatar.title' />
                     </Typography>
-                  </Button>
+                  </div>
                 </div>
               )}
               {!state.showPreview && (
                 <FormField
                   control={form.control}
                   name='file'
-                  render={({ field }) => {
+                  render={() => {
                     const fileFieldValue = form.getValues('file');
                     return (
                       <FormItem className='flex items-center justify-center gap-2'>
                         <FormControl>
                           <div className='flex flex-col items-center justify-center gap-3'>
-                            <DropzoneCard
-                              {...field}
-                              className='h-[100px] w-[100px]'
-                              mobileVersion
-                            />
+                            {!fileFieldValue && (
+                              <Image
+                                src={userPlaceholder}
+                                alt='avatar_image'
+                                className='h-[100px] w-[100px] rounded-full'
+                                width={100}
+                                height={100}
+                              />
+                            )}
                             {fileFieldValue && (
+                              <Image
+                                src={URL.createObjectURL(fileFieldValue)}
+                                alt='avatar_image'
+                                className='h-[100px] w-[100px] rounded-full'
+                                width={100}
+                                height={100}
+                              />
+                            )}
+                            <input
+                              type='file'
+                              onChange={functions.onFileChange}
+                              className='hidden'
+                              accept='image/*'
+                              ref={fileInputRef}
+                            />
+                            <Button
+                              variant='ghost'
+                              onClick={() => fileInputRef.current && fileInputRef.current.click()}
+                            >
                               <Typography variant='body3' tag='p' className='flex-1'>
                                 <I18nText path='app.profile.edit.avatar.title' />
                               </Typography>
-                            )}
+                            </Button>
                           </div>
                         </FormControl>
                         <div>
-                          {!fileFieldValue && (
-                            <>
-                              <Typography variant='sub4'>
-                                <I18nText path='field.imageDownload.title' />
-                              </Typography>
-                              <Typography variant='body3'>
-                                <I18nText path='field.imageDownload.description' />
-                              </Typography>
-                            </>
-                          )}
                           <FormMessage>
                             {form.formState?.errors?.file && (
                               <I18nText

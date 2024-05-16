@@ -25,7 +25,15 @@ export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
     }
   });
 
-  const onSubmit = profileEditForm.handleSubmit(async () => {});
+  const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      profileEditForm.setValue('file', event.target.files[0]);
+    }
+  };
+
+  const onSubmit = profileEditForm.handleSubmit(async (values) => {
+    await console.log(values);
+  });
 
   return {
     state: {
@@ -33,6 +41,6 @@ export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
       isLoading: false
     },
     form: profileEditForm,
-    functions: { onSubmit, onDeletePreviewClick }
+    functions: { onSubmit, onDeletePreviewClick, onFileChange }
   };
 };
