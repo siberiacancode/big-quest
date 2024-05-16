@@ -1,11 +1,13 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 
 import userPlaceholder from '@/assets/images/avatar/participant.png';
 import { I18nText } from '@/components/common';
 import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
   Button,
   CopyToClipboardButton,
   DatePicker,
@@ -41,18 +43,15 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
             <div className='flex-1 space-y-3'>
               {state.showPreview && user?.avatar && (
                 <div className='flex flex-col items-center justify-center gap-3'>
-                  <Image
-                    src={user?.avatar}
-                    alt='avatar_image'
-                    className='h-[100px] w-[100px] rounded-full'
-                    width={100}
-                    height={100}
-                  />
-                  <div onClick={functions.onDeletePreviewClick} role='presentation'>
+                  <Avatar className='h-[100px] w-[100px]'>
+                    <AvatarImage src={user?.avatar} />
+                    <AvatarFallback />
+                  </Avatar>
+                  <Button variant='ghost' onClick={functions.onDeletePreviewClick}>
                     <Typography variant='body3' tag='p' className='flex-1'>
                       <I18nText path='app.profile.edit.avatar.title' />
                     </Typography>
-                  </div>
+                  </Button>
                 </div>
               )}
               {!state.showPreview && (
@@ -66,22 +65,14 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                         <FormControl>
                           <div className='flex flex-col items-center justify-center gap-3'>
                             {!fileFieldValue && (
-                              <Image
-                                src={userPlaceholder}
-                                alt='avatar_image'
-                                className='h-[100px] w-[100px] rounded-full'
-                                width={100}
-                                height={100}
-                              />
+                              <Avatar className='h-[100px] w-[100px]'>
+                                <AvatarImage src={userPlaceholder.src} />
+                              </Avatar>
                             )}
                             {fileFieldValue && (
-                              <Image
-                                src={URL.createObjectURL(fileFieldValue)}
-                                alt='avatar_image'
-                                className='h-[100px] w-[100px] rounded-full'
-                                width={100}
-                                height={100}
-                              />
+                              <Avatar className='h-[100px] w-[100px]'>
+                                <AvatarImage src={URL.createObjectURL(fileFieldValue)} />
+                              </Avatar>
                             )}
                             <input
                               type='file'
