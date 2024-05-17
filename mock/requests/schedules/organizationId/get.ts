@@ -1,11 +1,11 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
 export const getSchedulesByOrganizationId: RestRequestConfig = {
-  path: '/schedule/:organizationId',
+  path: '/schedules/:organizationId',
   method: 'get',
   routes: [
     {
-      entities: { query: { current: '1', limit: '10' } },
+      entities: { query: { current: 1, limit: 10 } },
       data: {
         pagination: {
           limit: 10,
