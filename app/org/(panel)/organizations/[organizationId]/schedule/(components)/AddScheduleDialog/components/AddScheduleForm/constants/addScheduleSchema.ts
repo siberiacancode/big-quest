@@ -16,15 +16,15 @@ const workingHourSchema = z.object({
 });
 
 export const addScheduleSchema = z.object({
-  activity: z.string().min(1, { message: 'validation.required' }),
-  locality: z.string().min(1, { message: 'validation.required' }),
-  lead: z.string().min(1, { message: 'validation.required' }),
+  activityId: z.string().min(1, { message: 'validation.required' }),
+  addressId: z.string().min(1, { message: 'validation.required' }),
+  leadingId: z.string().min(1, { message: 'validation.required' }),
   preEntry: z.boolean().default(false),
-  isRepeat: z.boolean().default(false),
+  isRegularActivity: z.boolean().default(false),
   dateRange: dateSchema.optional(),
   date: z.date(),
   time: timeSchema,
-  placesCount: z.string(),
+  numberOfSeats: z.string(),
   workingHours: z.object({
     '0': workingHourSchema,
     '1': workingHourSchema,

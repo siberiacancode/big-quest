@@ -213,12 +213,12 @@
   "field.activity.label": "Активность",
   "field.startAndEndDate.label": "Дата начала и окончания",
   "field.date.label": "Дата",
-  "field.placesCount.label": "Кол-во мест",
+  "field.numberOfSeats.label": "Кол-во мест",
 
   "field.preEntry.true": "По записи",
   "field.preEntry.false": "Без записи",
-  "field.isRepeat.true": "Регулярное",
-  "field.isRepeat.false": "Разовое",
+  "field.isRegularActivity.true": "Регулярное",
+  "field.isRegularActivity.false": "Разовое",
   "field.freeActivity.label": "Бесплатные активности",
   "field.paidActivity.label": "Платные активности",
   "field.periodMonth.label": "Период",
@@ -372,7 +372,7 @@
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
 
   "dialog.addAddress.title": "Добавление адреса",
-  "dialog.addAddress.form.untill": "до",
+  "dialog.addAddress.form.until": "до",
 
   "dropzone.image.error": "Разрешена загрузка 1 файла-изображения",
   "dropzone.docs.error": "Разрешена загрузка 1 файла-документа",

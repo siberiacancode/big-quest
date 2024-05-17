@@ -34,7 +34,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
           <div className='flex-1 space-y-3'>
             <FormField
               control={form.control}
-              name='activity'
+              name='activityId'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
@@ -43,11 +43,13 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                   <AcivityListCombobox
                     value={field.value}
                     className='w-full'
-                    onSelect={(newValue) => form.setValue('activity', newValue ?? '')}
+                    onSelect={(newValue) => form.setValue('activityId', newValue ?? '')}
                   />
                   <FormMessage>
-                    {form.formState?.errors?.locality && (
-                      <I18nText path={form.formState.errors.locality.message as LocaleMessageId} />
+                    {form.formState?.errors?.activityId && (
+                      <I18nText
+                        path={form.formState.errors.activityId.message as LocaleMessageId}
+                      />
                     )}
                   </FormMessage>
                 </FormItem>
@@ -55,7 +57,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
             />
             <FormField
               control={form.control}
-              name='locality'
+              name='addressId'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
@@ -64,12 +66,12 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                   <AddressCombobox
                     value={field.value}
                     className='w-full'
-                    onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                    onSelect={(newValue) => form.setValue('addressId', newValue ?? '')}
                     convertAddresses={convertLocalitiesToComboboxItems}
                   />
                   <FormMessage>
-                    {form.formState?.errors?.locality && (
-                      <I18nText path={form.formState.errors.locality.message as LocaleMessageId} />
+                    {form.formState?.errors?.addressId && (
+                      <I18nText path={form.formState.errors.addressId.message as LocaleMessageId} />
                     )}
                   </FormMessage>
                 </FormItem>
@@ -77,7 +79,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
             />
             <FormField
               control={form.control}
-              name='lead'
+              name='leadingId'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
@@ -86,17 +88,17 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                   <LeadsCombobox
                     value={field.value}
                     className='w-full'
-                    onSelect={(newValue) => form.setValue('lead', newValue ?? '')}
+                    onSelect={(newValue) => form.setValue('leadingId', newValue ?? '')}
                   />
                   <FormMessage>
-                    {form.formState?.errors?.locality && (
-                      <I18nText path={form.formState.errors.locality.message as LocaleMessageId} />
+                    {form.formState?.errors?.leadingId && (
+                      <I18nText path={form.formState.errors.leadingId.message as LocaleMessageId} />
                     )}
                   </FormMessage>
                 </FormItem>
               )}
             />
-            {form.getValues('isRepeat') && (
+            {form.getValues('isRegularActivity') && (
               <>
                 <Typography variant='sub1' tag='p'>
                   <I18nText path='addressCard.description.workingTime' />
@@ -140,7 +142,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                           )}
                         />
                       </div>
-                      <I18nText path='dialog.addAddress.form.untill' />
+                      <I18nText path='dialog.addAddress.form.until' />
                       <div>
                         <FormField
                           control={form.control}
@@ -198,7 +200,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
             />
             <FormField
               control={form.control}
-              name='isRepeat'
+              name='isRegularActivity'
               render={({ field }) => (
                 <FormItem className='flex flex-col space-y-3'>
                   <FormLabel>
@@ -207,19 +209,25 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                   <FormControl>
                     <div className='flex items-center gap-4 text-sm'>
                       <Switch checked={field.value} onCheckedChange={field.onChange} />
-                      {form.getValues('isRepeat') && <I18nText path='field.isRepeat.true' />}
-                      {!form.getValues('isRepeat') && <I18nText path='field.isRepeat.false' />}
+                      {form.getValues('isRegularActivity') && (
+                        <I18nText path='field.isRegularActivity.true' />
+                      )}
+                      {!form.getValues('isRegularActivity') && (
+                        <I18nText path='field.isRegularActivity.false' />
+                      )}
                     </div>
                   </FormControl>
                   <FormMessage>
-                    {form.formState?.errors?.isRepeat && (
-                      <I18nText path={form.formState.errors.isRepeat.message as LocaleMessageId} />
+                    {form.formState?.errors?.isRegularActivity && (
+                      <I18nText
+                        path={form.formState.errors.isRegularActivity.message as LocaleMessageId}
+                      />
                     )}
                   </FormMessage>
                 </FormItem>
               )}
             />
-            {form.getValues('isRepeat') && (
+            {form.getValues('isRegularActivity') && (
               <FormField
                 control={form.control}
                 name='dateRange'
@@ -242,19 +250,19 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
             {form.getValues('preEntry') && (
               <FormField
                 control={form.control}
-                name='placesCount'
+                name='numberOfSeats'
                 render={({ field }) => (
                   <FormItem className='flex flex-col space-y-3'>
                     <FormLabel>
-                      <I18nText path='field.placesCount.label' />
+                      <I18nText path='field.numberOfSeats.label' />
                     </FormLabel>
                     <FormControl>
                       <Input {...field} type='number' min={1} />
                     </FormControl>
                     <FormMessage>
-                      {form.formState?.errors?.placesCount && (
+                      {form.formState?.errors?.numberOfSeats && (
                         <I18nText
-                          path={form.formState.errors.placesCount.message as LocaleMessageId}
+                          path={form.formState.errors.numberOfSeats.message as LocaleMessageId}
                         />
                       )}
                     </FormMessage>
@@ -262,7 +270,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                 )}
               />
             )}
-            {!form.getValues('isRepeat') && (
+            {!form.getValues('isRegularActivity') && (
               <div className='flex flex-col gap-2'>
                 <Typography tag='p' variant='sub3'>
                   <I18nText path='field.date.label' />
@@ -310,7 +318,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                       </>
                     )}
                   />
-                  <I18nText path='dialog.addAddress.form.untill' />
+                  <I18nText path='dialog.addAddress.form.until' />
                   <FormField
                     control={form.control}
                     name='time.to'

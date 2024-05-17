@@ -36,7 +36,7 @@ export const useOrganizationScheduleTable = () => {
     FILTER_INPUT_DELAY
   );
 
-  const onDateRangeChange = useDebounceCallback((dateRange: DateRange | undefined) => {
+  const onDateRangeChange = useDebounceCallback((dateRange?: DateRange) => {
     if (dateRange) {
       console.log('Selected date range:', dateRange);
       setSearchParams([
@@ -55,10 +55,9 @@ export const useOrganizationScheduleTable = () => {
         onChange={(event) => onActivityFilterChange(event.target.value)}
         className='max-w-[180px]'
       />,
-
       <DatePickerWithRange onSelect={onDateRangeChange} value={defaultDate} />
     ],
-    [onActivityFilterChange, activityFilter]
+    [onActivityFilterChange, activityFilter, onDateRangeChange, defaultDate]
   );
 
   return {

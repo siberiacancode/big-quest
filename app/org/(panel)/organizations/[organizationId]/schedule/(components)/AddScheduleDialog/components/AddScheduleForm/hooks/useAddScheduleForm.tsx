@@ -1,9 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
-import { usePostOrganizationAddScheduleMutation } from '@/utils/api';
+import { usePostScheduleMutation } from '@/utils/api';
 import { useI18n } from '@/utils/contexts';
 
 import type { AddScheduleSchema } from '../constants/addScheduleSchema';
@@ -15,18 +14,17 @@ interface UseAddScheduleFormParams {
 
 export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
   const i18n = useI18n();
-  const params = useParams<{ id: string }>();
 
   const addScheduleForm = useForm<AddScheduleSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(addScheduleSchema),
     defaultValues: {
-      activity: '',
-      locality: '',
-      lead: '',
+      activityId: '',
+      addressId: '',
+      leadingId: '',
       preEntry: false,
-      isRepeat: false,
-      placesCount: '',
+      isRegularActivity: false,
+      numberOfSeats: '',
       time: { from: '09:00', to: '18:00' },
       workingHours: {
         '0': { time: { from: '09:00', to: '18:00' }, dayOff: false },
@@ -40,7 +38,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
     }
   });
 
-  const postOrganizationAddScheduleMutation = usePostOrganizationAddScheduleMutation();
+  const postScheduleMutation = usePostScheduleMutation();
 
   const onSubmit = addScheduleForm.handleSubmit(async (values) => {
     console.log(values);
@@ -75,8 +73,8 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
     };
     console.log('@formattedValues', formattedValues);
 
-    await postOrganizationAddScheduleMutation.mutateAsync({
-      params: { ...formattedValues, organizationId: params.id }
+    await postScheduleMutation.mutateAsync({
+      params: { ...formattedValues }
     });
 
     toast(i18n.formatMessage({ id: 'dialog.addAddress.success' }), {
@@ -88,7 +86,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
 
   return {
     state: {
-      isLoading: postOrganizationAddScheduleMutation.isPending
+      isLoading: postScheduleMutation.isPending
     },
     form: addScheduleForm,
     functions: { onSubmit }

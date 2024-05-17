@@ -2,7 +2,7 @@ import { PlusCircledIcon } from '@radix-ui/react-icons';
 
 import { I18nText } from '@/components/common';
 import { Button, Typography } from '@/components/ui';
-import { getScheduleOrganizationById } from '@/utils/api/requests';
+import { getScheduleByOrganizationId } from '@/utils/api/requests';
 
 import { AddScheduleDialog } from './(components)/AddScheduleDialog/AddScheduleDialog';
 import { OrganizationScheduleTable } from './(components)/OrganizationScheduleTable/OrganizationScheduleTable';
@@ -12,16 +12,16 @@ export interface OrganizationsPageProps {
   params: { organizationId: string };
 }
 
-const DEFAULT_ORGANIZATIONS_LIMIT = '10';
-const DEFAULT_ORGANIZATIONS_PAGE = '1';
+const DEFAULT_SCHEDULES_LIMIT = 10;
+const DEFAULT_SCHEDULES_PAGE = 1;
 
 const OrganizationSchedulePage = async ({ searchParams, params }: OrganizationsPageProps) => {
-  const getScheduleOrganizationByIdResponse = await getScheduleOrganizationById({
-    params: { id: params.organizationId },
+  const getScheduleByOrganizationIdResponse = await getScheduleByOrganizationId({
+    params: { organizationId: params.organizationId },
     config: {
       params: {
-        limit: DEFAULT_ORGANIZATIONS_LIMIT,
-        current: DEFAULT_ORGANIZATIONS_PAGE,
+        limit: DEFAULT_SCHEDULES_LIMIT,
+        current: DEFAULT_SCHEDULES_PAGE,
         ...searchParams
       },
       cache: 'no-store'
@@ -44,8 +44,8 @@ const OrganizationSchedulePage = async ({ searchParams, params }: OrganizationsP
         />
       </div>
       <OrganizationScheduleTable
-        schedules={getScheduleOrganizationByIdResponse.rows}
-        pagination={getScheduleOrganizationByIdResponse.pagination}
+        schedules={getScheduleByOrganizationIdResponse.rows}
+        pagination={getScheduleByOrganizationIdResponse.pagination}
       />
     </div>
   );

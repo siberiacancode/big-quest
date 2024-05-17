@@ -5,30 +5,30 @@
  * ## API BQ
  * OpenAPI spec version: 1.0
  */
-import type { ScheduleAddress } from './scheduleAddress';
-import type { DateAndTime } from './dateAndTime';
-import type { DatePeriodWithTimes } from './datePeriodWithTimes';
-import type { Points } from './points';
+import type { Activity } from './activity';
+import type { Address } from './address';
+import type { Leading } from './leading';
+import type { WeekAndTimeEntityResponse } from './weekAndTimeEntityResponse';
 
 export interface ScheduleResponse {
-  /** Идентификатор активности */
-  activityId: string;
+  /** Активность */
+  activity?: Activity;
   /** Адрес */
-  address: ScheduleAddress;
-  /** Дата и время */
-  dateAndTime: DateAndTime;
-  /** Период дат и время по л=дням недели */
-  datePeriodWithTimes: DatePeriodWithTimes;
-  /** Предварительная запись */
-  entry: boolean;
-  /** Идентификатор */
+  address?: Address;
+  /** Дата расписания */
+  date: string;
+  /** ID расписания */
   id: string;
-  /** Идентификатор ведущего */
-  leadingEmployeeId: string;
-  /** Максимальное кол-во участников */
-  maxNumberOfParticipants: number;
-  /** Координаты */
-  points: Points;
-  /** Регулярность */
-  regular: boolean;
+  /** Признак регулярности */
+  isRegularActivity: boolean;
+  /** Ведущий */
+  leading?: Leading;
+  /** Кол-во мест */
+  numberOfSeats?: number;
+  /** ID организации */
+  organizationId?: string;
+  /** Признак предварительной записи */
+  preEntry: boolean;
+  /** Дни недели и время */
+  weekAndTime?: WeekAndTimeEntityResponse[];
 }
