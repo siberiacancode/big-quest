@@ -8,7 +8,7 @@ import { useSearchParams } from '@/utils/hooks';
 
 const FILTER_INPUT_DELAY = 500;
 
-export const useOrganizationScheduleTable = () => {
+export const useOrganizationSchedulesTable = () => {
   const i18n = useI18n();
   const { searchParams, setSearchParams, setSearchParam } = useSearchParams();
   const [isPending, startTransition] = React.useTransition();

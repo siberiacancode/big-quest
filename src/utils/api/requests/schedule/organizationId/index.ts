@@ -1,19 +1,22 @@
-import type { ScheduleControllerGetScheduleByOrganizationParams } from '@/api-types';
+import type {
+  ScheduleControllerGetScheduleByOrganizationParams,
+  ScheduleListResponse
+} from '@/api-types';
 import { api } from '@/utils/api/instance';
 
-interface GetScheduleByOrganizationIdParams
+interface GetSchedulesByOrganizationIdParams
   extends ScheduleControllerGetScheduleByOrganizationParams {
   organizationId: string;
 }
 
-export type GetScheduleByOrganizationIdRequestConfig =
-  RequestConfig<GetScheduleByOrganizationIdParams>;
+export type GetSchedulesByOrganizationIdRequestConfig =
+  RequestConfig<GetSchedulesByOrganizationIdParams>;
 
-export const getScheduleByOrganizationId = async ({
+export const getSchedulesByOrganizationId = async ({
   params: { organizationId, ...params },
   config
-}: GetScheduleByOrganizationIdRequestConfig) =>
-  api.get<$TSFIXME>(`schedule/${organizationId}`, {
+}: GetSchedulesByOrganizationIdRequestConfig) =>
+  api.get<ScheduleListResponse>(`schedules/${organizationId}`, {
     ...config,
     params: { ...config?.params, ...params }
   });

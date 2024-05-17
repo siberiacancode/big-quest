@@ -40,7 +40,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
                 width={60}
                 height={60}
                 src={organization.avatar || avatar}
-                alt='org-background'
+                alt={organization.name ?? ''}
               />
               <div className='flex flex-col justify-center'>
                 <Typography variant='h5' tag='h5'>

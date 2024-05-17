@@ -19,7 +19,8 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
         priority={false}
         className='h-[168px] w-full rounded-lg'
         src={organization.background || background}
-        alt='org-background'
+        alt={`${organization.name ?? ''} background`}
+        fill
       />
       <div className='absolute bottom-0 mx-4 mt-auto h-36 w-[96%] rounded-lg border-none bg-background/70 pb-4 pl-4 pr-4 pt-3 shadow-sm backdrop-blur-lg'>
         <div className='flex gap-5'>
@@ -29,7 +30,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
             width={80}
             height={80}
             src={organization.avatar || avatar}
-            alt='org-background'
+            alt={`${organization.name ?? ''} avatar`}
           />
           <div className='flex flex-col justify-center'>
             <Typography variant='h5' tag='h5'>

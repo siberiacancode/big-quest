@@ -22,20 +22,20 @@ import {
 
 import { columns } from './constants/columns';
 import { convertSchedulesToTableRows } from './helpers/convertSchedulesToTableRows';
-import { useOrganizationScheduleTable } from './hooks/useOrganizationScheduleTable';
+import { useOrganizationSchedulesTable } from './hooks/useOrganizationSchedulesTable';
 
 interface OrganizationScheduleTableProps {
   schedules: ScheduleResponse[];
   pagination: PaginationResponse;
 }
 
-export const OrganizationScheduleTable = ({
+export const OrganizationSchedulesTable = ({
   schedules,
   pagination
 }: OrganizationScheduleTableProps) => {
   const rows = React.useMemo(() => convertSchedulesToTableRows(schedules), [schedules]);
   const table = useDataTable(rows, columns);
-  const { state, functions } = useOrganizationScheduleTable();
+  const { state, functions } = useOrganizationSchedulesTable();
 
   return (
     <DataTable

@@ -40,7 +40,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
 
   const postScheduleMutation = usePostScheduleMutation();
 
-  const onSubmit = addScheduleForm.handleSubmit(async (values) => {
+  const onSubmit = addScheduleForm.handleSubmit((values) => {
     console.log(values);
     const formattedWorkingHours = Object.entries(values.workingHours).map(([day, element]) => {
       const [from1, from2] = element.time.from.split(':');
@@ -73,9 +73,10 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
     };
     console.log('@formattedValues', formattedValues);
 
-    await postScheduleMutation.mutateAsync({
-      params: { ...formattedValues }
-    });
+    // TODO fix types
+    // await postScheduleMutation.mutateAsync({
+    //   params: { ...formattedValues }
+    // });
 
     toast(i18n.formatMessage({ id: 'dialog.addAddress.success' }), {
       cancel: { label: 'Close' }

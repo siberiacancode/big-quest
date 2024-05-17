@@ -313,12 +313,12 @@
   "table.column.organization.tariff": "Тариф",
   "table.column.organization.countDays": "Кол-во дней",
 
-  "table.column.schedule.activityName": "Активность",
-  "table.column.schedule.locality": "Адрес",
-  "table.column.schedule.employee": "Сотрудник",
+  "table.column.schedule.activity": "Активность",
+  "table.column.schedule.address": "Адрес",
+  "table.column.schedule.leading": "Сотрудник",
   "table.column.schedule.date": "Дата",
   "table.column.schedule.time": "Время",
-  "table.column.schedule.maxNumberOfParticipants": "Кол-во записей",
+  "table.column.schedule.numberOfSeats": "Кол-во записей",
   "table.column.schedule.passed": "Проведено",
 
   "table.column.activities.organization": "Организация",

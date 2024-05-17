@@ -4,7 +4,9 @@ import { CheckIcon } from 'lucide-react';
 import { I18nText } from '@/components/common';
 import { Checkbox, generateDataTableColumn } from '@/components/ui';
 
-export const columns: ColumnDef<$TSFIXME>[] = [
+import type { SchedulesTableRow } from '../helpers/convertSchedulesToTableRows';
+
+export const columns: ColumnDef<SchedulesTableRow>[] = [
   {
     id: 'select',
     header: ({ table }) => (
@@ -32,16 +34,19 @@ export const columns: ColumnDef<$TSFIXME>[] = [
     enableHiding: false
   },
   generateDataTableColumn({
-    accessorKey: 'activityName',
-    headerLabel: 'table.column.schedule.activityName'
+    accessorKey: 'activity',
+    headerLabel: 'table.column.schedule.activity',
+    sortable: true
   }),
   generateDataTableColumn({
-    accessorKey: 'locality',
-    headerLabel: 'table.column.schedule.locality'
+    accessorKey: 'address',
+    headerLabel: 'table.column.schedule.address',
+    sortable: true
   }),
   generateDataTableColumn({
-    accessorKey: 'employee',
-    headerLabel: 'table.column.schedule.employee'
+    accessorKey: 'leading',
+    headerLabel: 'table.column.schedule.leading',
+    sortable: true
   }),
   generateDataTableColumn({
     accessorKey: 'date',
@@ -52,8 +57,8 @@ export const columns: ColumnDef<$TSFIXME>[] = [
     headerLabel: 'table.column.schedule.time'
   }),
   generateDataTableColumn({
-    accessorKey: 'maxNumberOfParticipants',
-    headerLabel: 'table.column.schedule.maxNumberOfParticipants'
+    accessorKey: 'numberOfSeats',
+    headerLabel: 'table.column.schedule.numberOfSeats'
   }),
   {
     id: 'actions',
