@@ -11,7 +11,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  Input,
+  NumberFormatInput,
   Switch,
   Typography
 } from '@/components/ui';
@@ -124,7 +124,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                           render={({ field }) => (
                             <>
                               <ClockInput
-                                className='mx-2 h-6 w-11 border-0 border-b p-1'
+                                className='mx-2 h-6 w-12 border-0 border-b p-1'
                                 disabled={dayOff}
                                 {...field}
                               />
@@ -150,7 +150,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                           render={({ field }) => (
                             <>
                               <ClockInput
-                                className='mx-2 h-6 w-11 border-0 border-b p-1'
+                                className='mx-2 h-6 w-12 border-0 border-b p-1'
                                 disabled={dayOff}
                                 {...field}
                               />
@@ -257,7 +257,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                       <I18nText path='field.numberOfSeats.label' />
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} type='number' min={1} />
+                      <NumberFormatInput {...field} />
                     </FormControl>
                     <FormMessage>
                       {form.formState?.errors?.numberOfSeats && (
@@ -285,7 +285,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                           <DatePicker
                             onChange={field.onChange}
                             value={field.value}
-                            classname='w-40'
+                            className='w-40'
                           />
                         </FormControl>
                         <FormMessage>
@@ -304,7 +304,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                     render={({ field }) => (
                       <>
                         <ClockInput
-                          className='mx-2 h-6 w-11 border-0 border-b p-1'
+                          className='mx-2 h-6 w-12 border-0 border-b p-1'
                           disabled={false}
                           {...field}
                         />
@@ -325,7 +325,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                     render={({ field }) => (
                       <>
                         <ClockInput
-                          className='mx-2 h-6 w-11 border-0 border-b p-1'
+                          className='mx-2 h-6 w-12 border-0 border-b p-1'
                           disabled={false}
                           {...field}
                         />

@@ -2,8 +2,11 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 
+import type { WeekAndTime } from '@/api-types';
+import type { PostScheduleParams } from '@/utils/api';
 import { usePostScheduleMutation } from '@/utils/api';
 import { useI18n } from '@/utils/contexts';
+import { getWeekDayByIndex } from '@/utils/helpers';
 
 import type { AddScheduleSchema } from '../constants/addScheduleSchema';
 import { addScheduleSchema } from '../constants/addScheduleSchema';
@@ -14,7 +17,6 @@ interface UseAddScheduleFormParams {
 
 export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
   const i18n = useI18n();
-
   const addScheduleForm = useForm<AddScheduleSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(addScheduleSchema),
@@ -40,9 +42,9 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
 
   const postScheduleMutation = usePostScheduleMutation();
 
-  const onSubmit = addScheduleForm.handleSubmit((values) => {
+  const onSubmit = addScheduleForm.handleSubmit(async (values) => {
     console.log(values);
-    const formattedWorkingHours = Object.entries(values.workingHours).map(([day, element]) => {
+    const weekAndTime = Object.entries(values.workingHours).map(([day, element]): WeekAndTime => {
       const [from1, from2] = element.time.from.split(':');
       const [to1, to2] = element.time.to.split(':');
 
@@ -53,30 +55,33 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
       const toMinutes = Number(to2);
 
       return {
-        day: Number(day),
-        from: { hour: fromHour, minutes: fromMinutes },
-        to: { hour: toHour, minutes: toMinutes },
-        dayOff: element.dayOff
+        weekDay: getWeekDayByIndex(+day),
+        hourStart: fromHour,
+        minStart: fromMinutes,
+        hourEnd: toHour,
+        minEnd: toMinutes
       };
     });
 
     const formattedDate = {
-      from: values.dateRange!.from?.toISOString() ?? '',
-      to: values.dateRange!.to?.toISOString() ?? ''
+      from: values.dateRange?.from
+        ? values.dateRange.from.toISOString()
+        : values.date.toISOString(),
+      to: values.dateRange?.to?.toISOString()
     };
 
-    const formattedValues = {
+    const postScheduleMutationParams: PostScheduleParams = {
       ...values,
-      workingHours: formattedWorkingHours,
-      dateRange: formattedDate,
-      date: values.date.toISOString()
+      weekAndTime,
+      numberOfSeats: +values.numberOfSeats,
+      dateStart: formattedDate.from,
+      dateEnd: formattedDate.to
     };
-    console.log('@formattedValues', formattedValues);
+    console.log('@formattedValues', postScheduleMutationParams);
 
-    // TODO fix types
-    // await postScheduleMutation.mutateAsync({
-    //   params: { ...formattedValues }
-    // });
+    await postScheduleMutation.mutateAsync({
+      params: postScheduleMutationParams
+    });
 
     toast(i18n.formatMessage({ id: 'dialog.addAddress.success' }), {
       cancel: { label: 'Close' }

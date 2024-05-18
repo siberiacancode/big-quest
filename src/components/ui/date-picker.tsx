@@ -8,10 +8,10 @@ import { cn } from '@/lib/utils';
 export type DatePickerProps = {
   value?: Date;
   onChange: (value: Date | undefined) => void;
-  classname?: string;
+  className?: string;
 };
 
-export const DatePicker = ({ onChange, value, classname }: DatePickerProps) => {
+export const DatePicker = ({ onChange, value, className }: DatePickerProps) => {
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -20,7 +20,7 @@ export const DatePicker = ({ onChange, value, classname }: DatePickerProps) => {
           className={cn(
             'w-[240px] pl-3 text-left font-normal',
             !value && 'text-muted-foreground',
-            classname
+            className
           )}
         >
           {value ? format(value, 'PPP') : <I18nText path='field.datePicker.label' />}

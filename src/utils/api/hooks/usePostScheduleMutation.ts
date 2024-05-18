@@ -7,7 +7,7 @@ export const usePostScheduleMutation = (
   settings?: MutationSettings<PostScheduleRequestConfig, typeof postSchedule>
 ) =>
   useMutation({
-    mutationKey: ['PostSchedule'],
+    mutationKey: ['postSchedule'],
     mutationFn: ({ params, config }) =>
       postSchedule({ params, config: { ...settings?.config, ...config } }),
     ...settings?.options

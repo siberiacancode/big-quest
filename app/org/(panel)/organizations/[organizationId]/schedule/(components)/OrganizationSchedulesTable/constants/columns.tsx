@@ -62,8 +62,16 @@ export const columns: ColumnDef<SchedulesTableRow>[] = [
   }),
   {
     id: 'actions',
-    header: () => <I18nText path='table.column.schedule.passed' />,
+    header: () => (
+      <p className='text-center'>
+        <I18nText path='table.column.schedule.passed' />
+      </p>
+    ),
     enableHiding: false,
-    cell: ({ row }) => <div>{row.original.passed && <CheckIcon className='size-4' />}</div>
+    cell: ({ row }) => (
+      <div className='flex justify-center'>
+        {row.original.passed && <CheckIcon className='size-4' />}
+      </div>
+    )
   }
 ];

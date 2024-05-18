@@ -26,8 +26,6 @@ const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPage
     }
   });
 
-  console.log('@', getActivityResponse);
-
   return (
     <>
       <div className='flex flex-wrap justify-between gap-3 lgx:p-4'>
