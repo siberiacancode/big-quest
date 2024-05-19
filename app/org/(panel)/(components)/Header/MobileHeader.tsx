@@ -6,6 +6,7 @@ import { MenuIcon, XIcon } from 'lucide-react';
 import { Logo, NotificationsDropdownMenu, ThemeSwitcher } from '@/components/common';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
+import { ROUTES } from '@/utils/constants';
 
 import { SidebarNavigation } from '../navigation/SidebarNavigation/SidebarNavigation';
 
@@ -18,7 +19,7 @@ export const MobileHeader = () => {
 
   return (
     <header className='flex h-20 w-full items-center justify-between bg-background px-6'>
-      <Logo full={false} className='fill-current' />
+      <Logo href={ROUTES.ORG.ORGANIZATIONS.DASHBOARD} full={false} className='fill-current' />
       <div
         className={cn(
           'fixed -top-full left-0 z-10 h-screen w-full bg-background py-24 opacity-0 transition-all',

@@ -21,17 +21,17 @@ export const RegisterOrganizationDialog = ({ trigger }: RegisterOrganizationModa
   return (
     <Dialog open={state.open} onOpenChange={functions.setOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className='max-h-screen min-h-screen min-w-full overflow-y-scroll rounded-none border-none sm:rounded-none'>
+      <DialogContent className='h-screen w-full lg:h-auto lg:w-max lg:px-52'>
         <DialogClose>
           <XIcon className='h-6 w-6' />
         </DialogClose>
         <div className='flex items-center justify-center overflow-y-auto'>
-          <Image className='absolute' src={treeBackground} alt='' />
-          <div className='flex flex-col items-center'>
+          <Image className='absolute' src={treeBackground} alt='tree background' />
+          <div className='flex flex-col items-center md:mb-32'>
             <Typography variant='h2' tag='h2'>
               <I18nText path='dialog.registerOrganization.title' />
             </Typography>
-            <div className='round relative z-10 mt-16 border bg-background p-5 xsx:mt-7 xsx:w-full lg:mt-16 lg:p-10 sm:w-[450px]'>
+            <div className='round z-10 mt-36 border bg-background p-5'>
               <RegisterOrganizationForm onRegistered={functions.onRegistered} />
             </div>
           </div>

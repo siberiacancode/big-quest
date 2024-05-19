@@ -48,7 +48,7 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
                 <div className='flex items-center gap-3'>
                   <DropzoneCard
                     value={employee.image}
-                    onChange={functions.onDeletePreviewClick}
+                    onDelete={functions.onDeletePreviewClick}
                     className='h-32 w-32'
                   />
                   <Typography variant='sub2'>{employee.image.split('/').at(-1)}</Typography>
@@ -65,7 +65,11 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
                       <FormItem className='flex items-center gap-3'>
                         <FormControl>
                           <div>
-                            <DropzoneCard {...field} className='h-32 w-32' />
+                            <DropzoneCard
+                              {...field}
+                              onDropAccepted={field.onChange}
+                              className='h-32 w-32'
+                            />
                           </div>
                         </FormControl>
                         <div>

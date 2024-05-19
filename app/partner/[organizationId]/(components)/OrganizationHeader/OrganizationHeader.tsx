@@ -2,8 +2,9 @@
 
 import Image from 'next/image';
 
+import type { OrganizationResponse } from '@/api-types';
+import avatar from '@/assets/images/avatar/organization.png';
 import background from '@/assets/images/background/organization.png';
-import logo from '@/assets/images/logo/organization.png';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 
@@ -11,7 +12,7 @@ import { DesktopProfileMenu } from './components/DesktopProfileMenu/DesktopProfi
 import { EditPartnerDialog } from './components/EditPartnerDialog/EditPartnerDialog';
 import { MobileProfileDropdownMenu } from './components/MobileProfileDropdownMenu/MobileProfileDropdownMenu';
 import { OrganizationHeaderTabs } from './components/OrganizationHeaderTabs/OrganizationHeaderTabs';
-// import { QrCodeScanner } from './components/QrCodeScanner/QrCodeScannerDialog';
+// import { QRCodeScanner } from './components/QRCodeScanner/QRCodeScannerDialog';
 import { useOrganizationHeader } from './hooks/useOrganizationHeader';
 
 interface OrganizationHeaderProps {
@@ -38,7 +39,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
                 className='h-15 w-15 rounded border-none'
                 width={60}
                 height={60}
-                src={organization.avatar || logo}
+                src={organization.avatar || avatar}
                 alt='org-background'
               />
               <div className='flex flex-col justify-center'>
@@ -58,14 +59,14 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
               <MobileProfileDropdownMenu
                 partner={state.partner}
                 onEditPartnerClick={functions.onEditPartnerClick}
-                onEditQrScannerClick={functions.onEditQrScannerClick}
+                onEditQRScannerClick={functions.onEditQRScannerClick}
               />
             </div>
             <div className='2mdx:hidden'>
               <DesktopProfileMenu
                 partner={state.partner}
                 onEditPartnerClick={functions.onEditPartnerClick}
-                onEditQrScannerClick={functions.onEditQrScannerClick}
+                onEditQRScannerClick={functions.onEditQRScannerClick}
               />
             </div>
             <EditPartnerDialog
@@ -74,11 +75,11 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
               partner={state.partner}
               onEdit={functions.onEditPartner}
             />
-            {/* <QrCodeScanner
+            {/* <QRCodeScanner
               avatar={organization.avatar}
-              open={state.editQrScannerDialogOpen}
-              onOpenChange={functions.onEditQrScannerCloseClick}
-              onEdit={functions.onEditQrScannerClick}
+              open={state.editQRScannerDialogOpen}
+              onOpenChange={functions.onEditQRScannerCloseClick}
+              onEdit={functions.onEditQRScannerClick}
             /> */}
           </div>
           <OrganizationHeaderTabs organization={organization} />

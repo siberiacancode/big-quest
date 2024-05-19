@@ -4,6 +4,7 @@ import { ArrowLeftFromLineIcon, ArrowRightFromLineIcon } from 'lucide-react';
 import { Logo } from '@/components/common';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
+import { ROUTES } from '@/utils/constants';
 
 import { useSidebar } from './hooks/useSidebar';
 
@@ -28,7 +29,11 @@ export const Sidebar = ({ children, defaultOpen }: SidebarProps) => {
           !state.isOpen && 'justify-center'
         )}
       >
-        <Logo full={state.isOpen} className='fill-foreground' />
+        <Logo
+          href={ROUTES.ORG.ORGANIZATIONS.DASHBOARD}
+          full={state.isOpen}
+          className='fill-foreground'
+        />
         <Button
           className={cn(
             'absolute bottom-0 translate-x-1/2 translate-y-1/2',

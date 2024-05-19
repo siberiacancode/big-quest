@@ -6,7 +6,7 @@ export const postLegalAddressConfig: RestRequestConfig = {
   method: 'post',
   interceptors: {
     response: (data, { request }) => {
-      DATABASE.ORGANIZATIONS.LEGAL_ADDRESSES.push({ id: Math.random(), ...request.body });
+      DATABASE.ORGANIZATIONS.ADDRESSES.push({ id: Math.random(), ...request.body });
       return data;
     }
   },

@@ -3,16 +3,16 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 
+import type { UserResponse } from '@/api-types';
 import { usePutUserMutation } from '@/utils/api/hooks/usePutUserMutation';
 import { useI18n } from '@/utils/contexts';
 
-import type { PartnerData } from '../../../(constants)/types';
-import type { PartnerSchema } from '../constants/actionPartnerSchema';
+import type { ActionPartnerSchema } from '../constants/actionPartnerSchema';
 import { actionPartnerSchema } from '../constants/actionPartnerSchema';
 
 interface UseActionPartnerFormParams {
   onAction: () => void;
-  partner: PartnerData;
+  partner: UserResponse;
 }
 
 export const useActionPartnerForm = ({ onAction, partner }: UseActionPartnerFormParams) => {
@@ -21,7 +21,7 @@ export const useActionPartnerForm = ({ onAction, partner }: UseActionPartnerForm
   const [showPreview, setShowPreview] = React.useState(!!partner.avatar);
   const onDeletePreviewClick = () => setShowPreview(false);
 
-  const actionPartnerForm = useForm<PartnerSchema>({
+  const actionPartnerForm = useForm<ActionPartnerSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(actionPartnerSchema),
     defaultValues: {
@@ -29,7 +29,7 @@ export const useActionPartnerForm = ({ onAction, partner }: UseActionPartnerForm
       name: partner.name ?? '',
       surname: partner.surname ?? '',
       email: partner.email ?? '',
-      phone: partner.phone.replace('+7', '') ?? '',
+      phone: partner.phone.toString().replace('+7', '') ?? '',
       file: undefined
     }
   });

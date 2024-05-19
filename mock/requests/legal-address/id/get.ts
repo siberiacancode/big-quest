@@ -6,9 +6,7 @@ export const getLegalAddressByIdConfig: RestRequestConfig = {
   method: 'get',
   interceptors: {
     response: (_, { request }) =>
-      DATABASE.ORGANIZATIONS.LEGAL_ADDRESSES.find(
-        (legalAddress) => legalAddress.id === request.params.id
-      )
+      DATABASE.ORGANIZATIONS.ADDRESSES.find((legalAddress) => legalAddress.id === request.params.id)
   },
   routes: [
     {

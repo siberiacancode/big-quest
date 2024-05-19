@@ -1,53 +1,44 @@
 import React from 'react';
-import { PlusCircledIcon } from '@radix-ui/react-icons';
 
 import { I18nText } from '@/components/common';
-import { Button, Typography } from '@/components/ui';
+import { Typography } from '@/components/ui';
 import { getActivity } from '@/utils/api';
 
-import { ActivityCard } from './components/ActivityCard/ActivityCard';
-import { ActivityDialog } from './components/ActivityDialog/ActivityDialog';
+import { OrganizationActivityCard } from './(components)/ActivityCard/OrganizationActivityCard';
+import { AddActivityDialog } from './(components)/AddActivityDialog/AddAddressDialog';
+
+const DEFAULT_ACTIVITIES_LIMIT = 10;
+const DEFAULT_ACTIVITIES_PAGE = 1;
 
 interface OrganizationActivitiesPageProps {
   params: { organizationId: string };
 }
 
-const DEFAULT_ACTIVITIES_LIMIT = '10';
-const DEFAULT_ACTIVITIES_PAGE = '1';
-
 const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPageProps) => {
   const getActivityResponse = await getActivity({
+    params: {
+      limit: DEFAULT_ACTIVITIES_LIMIT,
+      current: DEFAULT_ACTIVITIES_PAGE,
+      ...params
+    },
     config: {
-      params: {
-        limit: DEFAULT_ACTIVITIES_LIMIT,
-        current: DEFAULT_ACTIVITIES_PAGE,
-        ...params
-      },
       cache: 'no-store'
     }
   });
 
+  console.log('@', getActivityResponse);
+
   return (
     <>
-      <div className='flex flex-wrap justify-between gap-3'>
+      <div className='flex flex-wrap justify-between gap-3 lgx:p-4'>
         <Typography variant='h5' tag='h5'>
           <I18nText path='partners.activities.title' />
         </Typography>
-        <ActivityDialog
-          trigger={
-            <Button variant='light' className='p-5' size='sm'>
-              <PlusCircledIcon className='mr-2 h-4 w-4' />
-              <I18nText path='button.addActivities' />
-            </Button>
-          }
-          actionType='add'
-        />
+        <AddActivityDialog />
       </div>
-      <div className='mb-6 grid w-full grid-cols-5 gap-7 3xlx:grid-cols-4 xlx:grid-cols-3 mdx:grid-cols-2 2xsx:grid-cols-1'>
+      <div className='grid w-full grid-cols-5 gap-7 3xlx:grid-cols-4 xlx:grid-cols-3 lgx:p-4 mdx:grid-cols-2 2xsx:grid-cols-1'>
         {getActivityResponse.rows.map((activity) => (
-          <React.Fragment key={activity.id}>
-            <ActivityCard activity={activity} />
-          </React.Fragment>
+          <OrganizationActivityCard activity={activity} />
         ))}
       </div>
     </>

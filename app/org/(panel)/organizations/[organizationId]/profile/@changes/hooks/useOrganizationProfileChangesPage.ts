@@ -32,6 +32,7 @@ export const useOrganizationProfileChangesPage = () => {
       params: {
         criteria: params.organizationId,
         new: { comment: values.comment },
+        old: {},
         action: 'comment'
       }
     });

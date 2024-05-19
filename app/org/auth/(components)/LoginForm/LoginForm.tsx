@@ -87,12 +87,7 @@ export const LoginForm = () => {
               <I18nText path='org.auth.rememberMe' />
             </span>
           </div>
-          <Button
-            type='submit'
-            size='lg'
-            className='w-full bg-taiga text-white hover:bg-taiga-foreground'
-            loading={state.isLoading}
-          >
+          <Button type='submit' size='lg' variant='primary' loading={state.isLoading}>
             <I18nText path='button.login' />
           </Button>
         </div>

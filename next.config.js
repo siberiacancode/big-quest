@@ -10,7 +10,8 @@ module.exports = {
         protocol: 'http',
         hostname: '*'
       }
-    ]
+    ],
+    domains: ['localhost']
   },
   rewrites() {
     return [
