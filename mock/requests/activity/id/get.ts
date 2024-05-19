@@ -45,16 +45,16 @@ export const getActivityById: RestRequestConfig = {
             details: '3 этаж, вход с ТЦ',
             nearestFreeTime: [
               {
-                date: new Date('2024-05-02'),
+                date: new Date('2024-01-02'),
                 time: '12:32'
               },
               {
-                date: new Date('2024-03-05'),
+                date: new Date('2024-07-04'),
                 time: '13:31'
               },
               {
-                date: new Date('2024-05-03'),
-                time: '11:32'
+                date: new Date('2024-09-03'),
+                time: '15:31'
               }
             ]
           },
@@ -80,16 +80,16 @@ export const getActivityById: RestRequestConfig = {
             details: '3 этаж, вход с ТЦ',
             nearestFreeTime: [
               {
-                date: new Date('2024-05-02'),
+                date: new Date('2024-01-02'),
                 time: '12:32'
               },
               {
-                date: new Date('2024-03-05'),
+                date: new Date('2024-07-04'),
                 time: '13:31'
               },
               {
-                date: new Date('2024-05-03'),
-                time: '11:32'
+                date: new Date('2024-09-03'),
+                time: '15:31'
               }
             ]
           }

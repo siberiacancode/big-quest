@@ -1,5 +1,3 @@
-import { ChevronRightIcon } from 'lucide-react';
-
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import {
@@ -37,10 +35,12 @@ export const AddressItem = ({ schedule }: AddressItemProps) => (
             </Typography>
           </div>
           <div className='flex flex-wrap gap-3'>
-            {schedule.nearestFreeTime?.map((time) => <FreeTimeItem time={time} />)}
+            {schedule.nearestFreeTime?.map((time, index) => (
+              <FreeTimeItem value={time} key={index} />
+            ))}
           </div>
         </div>
-        <div className='flex'>
+        {/* <div className='flex'>
           <Typography variant='sub3' tag='h3' className='flex-1'>
             <I18nText path='field.chooseAnotherTime.label' />
           </Typography>
@@ -51,7 +51,7 @@ export const AddressItem = ({ schedule }: AddressItemProps) => (
             <I18nText path='field.goToSupportChat.label' />
           </Typography>
           <ChevronRightIcon className='stroke-muted-foreground' />
-        </div>
+        </div> */}
       </AccordionContent>
     </AccordionItem>
   </Accordion>

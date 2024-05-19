@@ -14,18 +14,16 @@ import { ROUTES } from '@/utils/constants';
 import { AddressItem } from './(components)/AddressItem/AddressItem';
 
 interface ActivityPageProps {
-  params: { activityId: string };
+  params: { id: string };
 }
 
 const ActivityPage = async ({ params }: ActivityPageProps) => {
   const getActivityByIdResponse = await getActivityById({
-    params: { id: '1' },
+    params: { id: params.id },
     config: {
       cache: 'no-store'
     }
   });
-
-  console.log(params.activityId);
 
   return (
     <section className='container py-[108px]'>
