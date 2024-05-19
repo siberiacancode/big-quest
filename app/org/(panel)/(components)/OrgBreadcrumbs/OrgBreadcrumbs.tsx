@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useParams, usePathname } from 'next/navigation';
 
 import { I18nText } from '@/components/common';
@@ -63,13 +64,13 @@ export const OrgBreadcrumbs = ({ ids = {}, ...props }: OrgBreadcrumbsProps) => {
           );
 
           return (
-            <>
-              <BreadcrumbItem key={href} className='list-none text-base'>
+            <React.Fragment key={href}>
+              <BreadcrumbItem className='list-none text-base'>
                 {clickable && <BreadcrumbLink href={href}>{item}</BreadcrumbLink>}
                 {!clickable && <BreadcrumbPage>{item}</BreadcrumbPage>}
               </BreadcrumbItem>
               {index !== filteredPathnames.length - 1 && <BreadcrumbSeparator />}
-            </>
+            </React.Fragment>
           );
         })}
       </BreadcrumbList>

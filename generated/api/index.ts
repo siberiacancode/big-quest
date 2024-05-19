@@ -100,6 +100,7 @@ export * from './scheduleControllerGetSchedulesParams';
 export * from './scheduleControllerGetSchedulesSortBy';
 export * from './scheduleListResponse';
 export * from './scheduleResponse';
+export * from './scheduleSortByEnum';
 export * from './schedulesResponse';
 export * from './sortDirectionEnum';
 export * from './tariffResponse';

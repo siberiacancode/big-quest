@@ -28,7 +28,7 @@ export const getOrganizationConfig: RestRequestConfig = {
             stage: 'CONCLUSION',
             type: 'SPONSOR',
             tariff: 'Бесплатный',
-            countDays: '♾️',
+            countDays: 'INFINITY',
             id: '40d1c089-39eb-465c-8651-c68cbf11b725'
           },
           {
@@ -37,7 +37,7 @@ export const getOrganizationConfig: RestRequestConfig = {
             stage: 'CONCLUSION',
             type: 'SPONSOR',
             tariff: 'Бесплатный',
-            countDays: '♾️',
+            countDays: 'INFINITY',
             id: '88aa5df3-5773-43e0-be50-f78f457a5bed'
           },
           {
@@ -55,7 +55,7 @@ export const getOrganizationConfig: RestRequestConfig = {
             stage: 'REQUEST',
             type: 'FRANCHISEE',
             tariff: 'Бесплатный',
-            countDays: '♾️',
+            countDays: 'INFINITY',
             id: '92930682-c2a8-4ec8-b7a5-a5641e5abb28'
           },
           {
@@ -139,7 +139,7 @@ export const getOrganizationConfig: RestRequestConfig = {
             stage: 'REQUEST',
             type: 'FRANCHISEE',
             tariff: 'Бесплатный',
-            countDays: '♾️',
+            countDays: 'INFINITY',
             id: 'bb02448f-19c4-496f-b274-b8078145f0d1'
           },
           {
@@ -148,7 +148,7 @@ export const getOrganizationConfig: RestRequestConfig = {
             stage: 'CONCLUSION',
             type: 'SPONSOR',
             tariff: 'Бесплатный',
-            countDays: '♾️',
+            countDays: 'INFINITY',
             id: '645c2f33-9290-4680-a63c-8725ebffbd02'
           },
           {
@@ -241,7 +241,7 @@ export const getOrganizationConfig: RestRequestConfig = {
             stage: 'CONCLUSION',
             type: 'SPONSOR',
             tariff: 'Бесплатный',
-            countDays: '♾️',
+            countDays: 'INFINITY',
             id: 'bd4bdeee-3dbe-48ee-af24-576d66f13382'
           },
           {
@@ -277,7 +277,7 @@ export const getOrganizationConfig: RestRequestConfig = {
             stage: 'CONCLUSION',
             type: 'PARTNER',
             tariff: 'Бесплатный',
-            countDays: '♾️',
+            countDays: 'INFINITY',
             id: '964ecdd8-2b33-4a25-a195-1641d36020da'
           },
           {
@@ -327,7 +327,7 @@ export const getOrganizationConfig: RestRequestConfig = {
             stage: 'NEGOTIATION',
             type: 'PARTNER',
             tariff: 'Бесплатный',
-            countDays: '♾️',
+            countDays: 'INFINITY',
             id: '16423bc3-18bd-4c5a-965d-804c0d0bf4ea'
           },
           {
@@ -336,7 +336,7 @@ export const getOrganizationConfig: RestRequestConfig = {
             stage: 'NEGOTIATION',
             type: 'PARTNER',
             tariff: 'Бесплатный',
-            countDays: '♾️',
+            countDays: 'INFINITY',
             id: 'f69602d4-1caf-4f21-a855-7a722162882e'
           },
           {
@@ -440,7 +440,7 @@ export const getOrganizationConfig: RestRequestConfig = {
             stage: 'CONCLUSION',
             type: 'SPONSOR',
             tariff: 'Бесплатный',
-            countDays: '♾️',
+            countDays: 'INFINITY',
             id: '40d1c089-39eb-465c-8651-c68cbf11b725'
           },
           {
@@ -449,7 +449,7 @@ export const getOrganizationConfig: RestRequestConfig = {
             stage: 'CONCLUSION',
             type: 'SPONSOR',
             tariff: 'Бесплатный',
-            countDays: '♾️',
+            countDays: 'INFINITY',
             id: '88aa5df3-5773-43e0-be50-f78f457a5bed'
           },
           {
@@ -467,7 +467,7 @@ export const getOrganizationConfig: RestRequestConfig = {
             stage: 'REQUEST',
             type: 'FRANCHISEE',
             tariff: 'Бесплатный',
-            countDays: '♾️',
+            countDays: 'INFINITY',
             id: '92930682-c2a8-4ec8-b7a5-a5641e5abb28'
           },
           {

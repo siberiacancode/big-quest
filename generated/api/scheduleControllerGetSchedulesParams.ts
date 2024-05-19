@@ -5,12 +5,21 @@
  * ## API BQ
  * OpenAPI spec version: 1.0
  */
-import type { ScheduleControllerGetSchedulesSortBy } from './scheduleControllerGetSchedulesSortBy';
-import type { SortDirectionEnum } from './sortDirectionEnum';
+import type { ScheduleSortByEnum } from './scheduleSortByEnum';
 
 export type ScheduleControllerGetSchedulesParams = {
   current?: number;
   limit?: number;
-  sortBy?: ScheduleControllerGetSchedulesSortBy;
-  sortDirection?: SortDirectionEnum;
+  /**
+   * Дата С
+   */
+  dateStart?: string;
+  /**
+   * Дата По
+   */
+  dateEnd?: string;
+  /**
+   * Сортировка по ключам. Для DESC сортировки в начале добавляется "-"
+   */
+  sort?: ScheduleSortByEnum;
 };

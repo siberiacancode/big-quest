@@ -319,7 +319,7 @@
   "table.column.schedule.date": "Дата",
   "table.column.schedule.time": "Время",
   "table.column.schedule.numberOfSeats": "Кол-во записей",
-  "table.column.schedule.passed": "Проведено",
+  "table.column.schedule.isDone": "Проведено",
 
   "table.column.activities.organization": "Организация",
   "table.column.activities.activity": "Активность",

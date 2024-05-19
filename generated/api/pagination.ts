@@ -5,7 +5,6 @@
  * ## API BQ
  * OpenAPI spec version: 1.0
  */
-import type { SortDirectionEnum } from './sortDirectionEnum';
 
 export interface Pagination {
   /** Общее число записей */
@@ -14,7 +13,4 @@ export interface Pagination {
   current: number;
   /** Кол-во элементов */
   limit: number;
-  /** Сортировка */
-  sortBy?: string;
-  sortDirection?: SortDirectionEnum;
 }

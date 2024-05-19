@@ -5,10 +5,16 @@
  * ## API BQ
  * OpenAPI spec version: 1.0
  */
+import type { Translations } from './translations';
+import type { MediaDto } from './mediaDto';
 
 export interface Activity {
+  /** Категория активности */
+  category: Translations;
   /** ID активности */
   id: string;
+  /** Категория активности */
+  media: MediaDto[];
   /** Название активности */
   name: string;
 }

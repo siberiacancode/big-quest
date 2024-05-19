@@ -19,11 +19,13 @@ export interface ScheduleResponse {
   date: string;
   /** ID расписания */
   id: string;
+  /** Проведено */
+  isDone: boolean;
   /** Признак регулярности */
   isRegularActivity: boolean;
   /** Ведущий */
   leading?: Leading;
-  /** Кол-во мест */
+  /** Кол-во записей */
   numberOfSeats?: number;
   /** ID организации */
   organizationId?: string;

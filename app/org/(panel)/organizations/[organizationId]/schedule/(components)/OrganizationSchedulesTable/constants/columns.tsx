@@ -1,7 +1,5 @@
 import type { ColumnDef } from '@tanstack/react-table';
-import { CheckIcon } from 'lucide-react';
 
-import { I18nText } from '@/components/common';
 import { Checkbox, generateDataTableColumn } from '@/components/ui';
 
 import type { SchedulesTableRow } from '../helpers/convertSchedulesToTableRows';
@@ -50,28 +48,22 @@ export const columns: ColumnDef<SchedulesTableRow>[] = [
   }),
   generateDataTableColumn({
     accessorKey: 'date',
-    headerLabel: 'table.column.schedule.date'
+    headerLabel: 'table.column.schedule.date',
+    centered: true
   }),
   generateDataTableColumn({
     accessorKey: 'time',
-    headerLabel: 'table.column.schedule.time'
+    headerLabel: 'table.column.schedule.time',
+    centered: true
   }),
   generateDataTableColumn({
     accessorKey: 'numberOfSeats',
-    headerLabel: 'table.column.schedule.numberOfSeats'
+    headerLabel: 'table.column.schedule.numberOfSeats',
+    centered: true
   }),
-  {
-    id: 'actions',
-    header: () => (
-      <p className='text-center'>
-        <I18nText path='table.column.schedule.passed' />
-      </p>
-    ),
-    enableHiding: false,
-    cell: ({ row }) => (
-      <div className='flex justify-center'>
-        {row.original.passed && <CheckIcon className='size-4' />}
-      </div>
-    )
-  }
+  generateDataTableColumn({
+    accessorKey: 'isDone',
+    headerLabel: 'table.column.schedule.isDone',
+    centered: true
+  })
 ];

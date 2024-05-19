@@ -14,230 +14,463 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
         },
         rows: [
           {
-            id: '7b27ef81-c448-4b3f-b88a-4842eb7a352e',
-            activityName: 'Egretta thula',
-            locality: '75435 John Wall Plaza',
-            employee: 'Christan Tattershaw',
-            date: '2023-02',
-            time: '12:59 PM',
-            registrationCount: 10,
-            passed: false
+            id: 'activity_001',
+            leading: {
+              id: 'leader_001',
+              name: 'John',
+              surname: 'Doe'
+            },
+            isRegularActivity: true,
+            preEntry: true,
+            activity: {
+              id: 'act_001',
+              name: 'Yoga Class',
+              category: {
+                id: 'cat_001',
+                RU: 'Йога',
+                EN: 'Yoga'
+              },
+              media: [
+                {
+                  id: 'media_001',
+                  type: 'IMAGE',
+                  flag: 'AVATAR',
+                  url: 'https://example.com/yoga.jpg'
+                }
+              ]
+            },
+            address: {
+              id: 'addr_001',
+              value: '123 Main St, Springfield'
+            },
+            date: '2023-05-19T05:58:03.245Z',
+            numberOfSeats: 20,
+            weekAndTime: [
+              {
+                weekDay: 'MONDAY',
+                hourStart: 18,
+                minStart: 0
+              },
+              {
+                weekDay: 'TUESDAY',
+                hourStart: 17,
+                hourEnd: 19,
+                minStart: 0,
+                minEnd: 0
+              }
+            ],
+            organizationId: 'org_001',
+            isDone: false
           },
           {
-            id: 'fcf501a5-3d56-4539-b2d0-636678ef6cf7',
-            activityName: 'Cathartes aura',
-            locality: '5743 Haas Lane',
-            employee: 'Anselm Gosenell',
-            date: '2023-09',
-            time: '10:03 AM',
-            registrationCount: 20,
-            passed: true
+            id: 'activity_002',
+            leading: {
+              id: 'leader_002',
+              name: 'Jane',
+              surname: 'Smith'
+            },
+            isRegularActivity: true,
+            preEntry: true,
+            activity: {
+              id: 'act_002',
+              name: 'Cooking Class',
+              category: {
+                id: 'cat_002',
+                RU: 'Кулинария',
+                EN: 'Cooking'
+              },
+              media: [
+                {
+                  id: 'media_002',
+                  type: 'IMAGE',
+                  flag: 'AVATAR',
+                  url: 'https://example.com/cooking.jpg'
+                }
+              ]
+            },
+            address: {
+              id: 'addr_002',
+              value: '456 Oak St, Springfield'
+            },
+            date: '2024-05-29T05:58:03.245Z',
+            numberOfSeats: 15,
+            weekAndTime: [
+              {
+                weekDay: 'TUESDAY',
+                hourStart: 17,
+                hourEnd: 19,
+                minStart: 0,
+                minEnd: 0
+              }
+            ],
+            organizationId: 'org_002',
+            isDone: true
           },
           {
-            id: 'cf9b47c8-9f11-42e8-baf2-b00e4c0ecd42',
-            activityName: 'Colaptes campestroides',
-            locality: '5 Loeprich Terrace',
-            employee: "Dylan O'Donohue",
-            date: '2023-03',
-            time: '8:05 PM',
-            registrationCount: 9,
-            passed: true
+            id: 'activity_003',
+            leading: {
+              id: 'leader_003',
+              name: 'Michael',
+              surname: 'Brown'
+            },
+            isRegularActivity: true,
+            preEntry: true,
+            activity: {
+              id: 'act_003',
+              name: 'Painting Workshop',
+              category: {
+                id: 'cat_003',
+                RU: 'Рисование',
+                EN: 'Painting'
+              },
+              media: [
+                {
+                  id: 'media_003',
+                  type: 'IMAGE',
+                  flag: 'AVATAR',
+                  url: 'https://example.com/painting.jpg'
+                }
+              ]
+            },
+            address: {
+              id: 'addr_003',
+              value: '789 Birch St, Springfield'
+            },
+            date: '2024-01-19T05:58:03.245Z',
+            numberOfSeats: 10,
+            weekAndTime: [
+              {
+                weekDay: 'WEDNESDAY',
+                hourStart: 16,
+                hourEnd: 18,
+                minStart: 30,
+                minEnd: 30
+              }
+            ],
+            organizationId: 'org_003',
+            isDone: false
           },
           {
-            id: 'c643113f-8c9d-41fd-8510-ebed0490b724',
-            activityName: 'Ceratotherium simum',
-            locality: '07111 Mcbride Point',
-            employee: 'Zebulen Renvoise',
-            date: '2023-12',
-            time: '10:26 PM',
-            registrationCount: 13,
-            passed: true
+            id: 'activity_004',
+            leading: {
+              id: 'leader_004',
+              name: 'Emily',
+              surname: 'Davis'
+            },
+            isRegularActivity: true,
+            preEntry: true,
+            activity: {
+              id: 'act_004',
+              name: 'Music Class',
+              category: {
+                id: 'cat_004',
+                RU: 'Музыка',
+                EN: 'Music'
+              },
+              media: [
+                {
+                  id: 'media_004',
+                  type: 'IMAGE',
+                  flag: 'AVATAR',
+                  url: 'https://example.com/music.jpg'
+                }
+              ]
+            },
+            address: {
+              id: 'addr_004',
+              value: '101 Pine St, Springfield'
+            },
+            date: '2024-05-09T05:58:03.245Z',
+            numberOfSeats: 25,
+            weekAndTime: [
+              {
+                weekDay: 'THURSDAY',
+                hourStart: 19,
+                hourEnd: 20,
+                minStart: 0,
+                minEnd: 0
+              }
+            ],
+            organizationId: 'org_004',
+            isDone: true
           },
           {
-            id: '7043aeb9-b88d-4dbd-9ab3-e973ab61daba',
-            activityName: 'Cervus duvauceli',
-            locality: '58849 Melby Place',
-            employee: 'Brewer Tubritt',
-            date: '2023-07',
-            time: '7:28 PM',
-            registrationCount: 13,
-            passed: true
+            id: 'activity_005',
+            leading: {
+              id: 'leader_005',
+              name: 'Robert',
+              surname: 'Johnson'
+            },
+            isRegularActivity: true,
+            preEntry: true,
+            activity: {
+              id: 'act_005',
+              name: 'Dance Class',
+              category: {
+                id: 'cat_005',
+                RU: 'Танцы',
+                EN: 'Dance'
+              },
+              media: [
+                {
+                  id: 'media_005',
+                  type: 'IMAGE',
+                  flag: 'AVATAR',
+                  url: 'https://example.com/dance.jpg'
+                }
+              ]
+            },
+            address: {
+              id: 'addr_005',
+              value: '202 Maple St, Springfield'
+            },
+            date: '2024-05-19T05:58:03.245Z',
+            numberOfSeats: 20,
+            weekAndTime: [
+              {
+                weekDay: 'FRIDAY',
+                hourStart: 18,
+                hourEnd: 19,
+                minStart: 0,
+                minEnd: 0
+              }
+            ],
+            organizationId: 'org_005',
+            isDone: true
           },
           {
-            id: '8e247f75-dbbf-4bc0-9372-2ded97ec5271',
-            activityName: 'Ratufa indica',
-            locality: '48 Northport Junction',
-            employee: 'Malorie Featherstonhalgh',
-            date: '2023-08',
-            time: '6:12 AM',
-            registrationCount: 8,
-            passed: false
+            id: 'activity_006',
+            leading: {
+              id: 'leader_006',
+              name: 'Lisa',
+              surname: 'Miller'
+            },
+            isRegularActivity: true,
+            preEntry: true,
+            activity: {
+              id: 'act_006',
+              name: 'Photography Class',
+              category: {
+                id: 'cat_006',
+                RU: 'Фотография',
+                EN: 'Photography'
+              },
+              media: [
+                {
+                  id: 'media_006',
+                  type: 'IMAGE',
+                  flag: 'AVATAR',
+                  url: 'https://example.com/photography.jpg'
+                }
+              ]
+            },
+            address: {
+              id: 'addr_006',
+              value: '303 Cedar St, Springfield'
+            },
+            date: '2024-05-19T05:58:03.245Z',
+            numberOfSeats: 12,
+            weekAndTime: [
+              {
+                weekDay: 'SATURDAY',
+                hourStart: 14,
+                hourEnd: 16,
+                minStart: 0,
+                minEnd: 0
+              }
+            ],
+            organizationId: 'org_006',
+            isDone: false
           },
           {
-            id: '0b657943-35ec-44d0-940c-18c4f0742d4e',
-            activityName: 'Vulpes cinereoargenteus',
-            locality: '01429 Butterfield Road',
-            employee: 'Sheri Crowch',
-            date: '2023-10',
-            time: '7:22 PM',
-            registrationCount: 11,
-            passed: false
+            id: 'activity_007',
+            leading: {
+              id: 'leader_007',
+              name: 'David',
+              surname: 'Martinez'
+            },
+            isRegularActivity: true,
+            preEntry: true,
+            activity: {
+              id: 'act_007',
+              name: 'Martial Arts Class',
+              category: {
+                id: 'cat_007',
+                RU: 'Боевые искусства',
+                EN: 'Martial Arts'
+              },
+              media: [
+                {
+                  id: 'media_007',
+                  type: 'IMAGE',
+                  flag: 'AVATAR',
+                  url: 'https://example.com/martialarts.jpg'
+                }
+              ]
+            },
+            address: {
+              id: 'addr_007',
+              value: '404 Walnut St, Springfield'
+            },
+            date: '2024-05-19T05:58:03.245Z',
+            numberOfSeats: 30,
+            weekAndTime: [
+              {
+                weekDay: 'SUNDAY',
+                hourStart: 10,
+                hourEnd: 12,
+                minStart: 0,
+                minEnd: 0
+              }
+            ],
+            organizationId: 'org_007',
+            isDone: true
           },
           {
-            id: '3906fb41-bf25-469c-8cbc-3561515baf23',
-            activityName: 'Acrantophis madagascariensis',
-            locality: '23347 Dawn Alley',
-            employee: 'Conroy Laybourn',
-            date: '2024-02',
-            time: '5:35 AM',
-            registrationCount: 16,
-            passed: true
+            id: 'activity_008',
+            leading: {
+              id: 'leader_008',
+              name: 'Sarah',
+              surname: 'Wilson'
+            },
+            isRegularActivity: true,
+            preEntry: true,
+            activity: {
+              id: 'act_008',
+              name: 'Gardening Club',
+              category: {
+                id: 'cat_008',
+                RU: 'Садоводство',
+                EN: 'Gardening'
+              },
+              media: [
+                {
+                  id: 'media_008',
+                  type: 'IMAGE',
+                  flag: 'AVATAR',
+                  url: 'https://example.com/gardening.jpg'
+                }
+              ]
+            },
+            address: {
+              id: 'addr_008',
+              value: '505 Elm St, Springfield'
+            },
+            date: '2024-05-19T05:58:03.245Z',
+            numberOfSeats: 10,
+            weekAndTime: [
+              {
+                weekDay: 'MONDAY',
+                hourStart: 9,
+                hourEnd: 11,
+                minStart: 0,
+                minEnd: 0
+              }
+            ],
+            organizationId: 'org_008',
+            isDone: false
           },
           {
-            id: '29008873-2b31-40ce-9357-e27c4623f515',
-            activityName: 'Phoenicopterus ruber',
-            locality: '29872 Mockingbird Road',
-            employee: 'Marve Brotherhed',
-            date: '2023-10',
-            time: '6:02 AM',
-            registrationCount: 10,
-            passed: true
+            id: 'activity_009',
+            leading: {
+              id: 'leader_009',
+              name: 'Paul',
+              surname: 'Garcia'
+            },
+            isRegularActivity: true,
+            preEntry: true,
+            activity: {
+              id: 'act_009',
+              name: 'Chess Club',
+              category: {
+                id: 'cat_009',
+                RU: 'Шахматы',
+                EN: 'Chess'
+              },
+              media: [
+                {
+                  id: 'media_009',
+                  type: 'IMAGE',
+                  flag: 'AVATAR',
+                  url: 'https://example.com/chess.jpg'
+                }
+              ]
+            },
+            address: {
+              id: 'addr_009',
+              value: '606 Ash St, Springfield'
+            },
+            date: '2024-05-19T05:58:03.245Z',
+            numberOfSeats: 8,
+            weekAndTime: [
+              {
+                weekDay: 'TUESDAY',
+                hourStart: 18,
+                hourEnd: 20,
+                minStart: 0,
+                minEnd: 0
+              }
+            ],
+            organizationId: 'org_009',
+            isDone: true
           },
           {
-            id: '273e2b6a-8587-4995-b13f-e9ba24d0d7c8',
-            activityName: 'Ephipplorhynchus senegalensis',
-            locality: '40 Pine View Crossing',
-            employee: 'Diann Tewes',
-            date: '2023-06',
-            time: '8:51 PM',
-            registrationCount: 9,
-            passed: false
+            id: 'activity_010',
+            leading: {
+              id: 'leader_010',
+              name: 'Anna',
+              surname: 'Clark'
+            },
+            isRegularActivity: true,
+            preEntry: true,
+            activity: {
+              id: 'act_010',
+              name: 'Book Club',
+              category: {
+                id: 'cat_010',
+                RU: 'Книги',
+                EN: 'Books'
+              },
+              media: [
+                {
+                  id: 'media_010',
+                  type: 'IMAGE',
+                  flag: 'AVATAR',
+                  url: 'https://example.com/bookclub.jpg'
+                }
+              ]
+            },
+            address: {
+              id: 'addr_010',
+              value: '707 Poplar St, Springfield'
+            },
+            date: '2024-05-19T05:58:03.245Z',
+            numberOfSeats: 12,
+            weekAndTime: [
+              {
+                weekDay: 'WEDNESDAY',
+                hourStart: 17,
+                hourEnd: 18,
+                minStart: 0,
+                minEnd: 0
+              }
+            ],
+            organizationId: 'org_010',
+            isDone: true
           }
         ]
       }
     },
     {
-      entities: { query: { current: '2', limit: '10' } },
-      data: {
-        pagination: {
-          limit: 10,
-          current: 2,
-          count: 100
-        },
-        rows: [
-          {
-            id: 'e576a58e-6e63-4a3c-9777-d57f56153f53',
-            activityName: 'Vanellus chilensis',
-            locality: '9 Northport Drive',
-            employee: 'Christopher Nason',
-            date: '2023-02',
-            time: '12:01 AM',
-            registrationCount: 7,
-            passed: true
-          },
-          {
-            id: '17152819-3dd0-47e3-a82c-1c7f3a6adfce',
-            activityName: 'Canis lupus baileyi',
-            locality: '3 Bunker Hill Road',
-            employee: 'Hope Barmadier',
-            date: '2024-02',
-            time: '12:51 AM',
-            registrationCount: 7,
-            passed: false
-          },
-          {
-            id: 'bd674b1f-fc68-4936-bd26-c2c122d4527e',
-            activityName: 'Uraeginthus granatina',
-            locality: '52830 Forest Dale Trail',
-            employee: 'Dew Bestiman',
-            date: '2023-11',
-            time: '5:04 AM',
-            registrationCount: 10,
-            passed: true
-          },
-          {
-            id: 'b5be1fed-3060-4ef0-b5b6-3c010607f375',
-            activityName: 'Bubulcus ibis',
-            locality: '49013 Debs Terrace',
-            employee: 'Lanny Jelphs',
-            date: '2023-09',
-            time: '5:24 PM',
-            registrationCount: 10,
-            passed: false
-          },
-          {
-            id: '06d640b8-e756-436f-a3e4-849706ecff5d',
-            activityName: 'Chauna torquata',
-            locality: '84 Michigan Plaza',
-            employee: 'Brucie Haskur',
-            date: '2024-03',
-            time: '6:14 PM',
-            registrationCount: 13,
-            passed: true
-          },
-          {
-            id: 'e9c207b0-f3fe-469b-9b85-7fbbb63cb81f',
-            activityName: 'Rhabdomys pumilio',
-            locality: '71752 Grasskamp Alley',
-            employee: 'Gage Scarlett',
-            date: '2023-10',
-            time: '7:40 PM',
-            registrationCount: 19,
-            passed: true
-          },
-          {
-            id: '64c9c632-c769-4e9b-8edc-3d742b94a089',
-            activityName: 'Francolinus swainsonii',
-            locality: '0307 Tomscot Drive',
-            employee: 'Lynsey Donkersley',
-            date: '2023-11',
-            time: '6:21 AM',
-            registrationCount: 10,
-            passed: true
-          },
-          {
-            id: '85a4daa8-d2e6-42af-a3d4-05d8d34ab688',
-            activityName: 'Nyctanassa violacea',
-            locality: '77 Moulton Crossing',
-            employee: 'Mil Lazer',
-            date: '2024-02',
-            time: '3:29 PM',
-            registrationCount: 12,
-            passed: false
-          },
-          {
-            id: '39ebfa53-0f3b-4859-9110-104a15ad8dc3',
-            activityName: 'Ictonyx striatus',
-            locality: '7 Hazelcrest Parkway',
-            employee: 'Duffy Harmes',
-            date: '2023-04',
-            time: '12:48 PM',
-            registrationCount: 7,
-            passed: true
-          },
-          {
-            id: '169aa914-554a-4f51-8312-1ab4594da197',
-            activityName: 'Mustela nigripes',
-            locality: '749 Bashford Avenue',
-            employee: 'Edee Cossom',
-            date: '2023-12',
-            time: '11:45 AM',
-            registrationCount: 10,
-            passed: false
-          }
-        ]
-      }
-    },
-    {
-      entities: { query: { current: '1', limit: '10', activity: 'Рисовашки' } },
+      entities: { query: { current: 1, limit: 10, activity: 'Рисовашки' } },
       data: {
         rows: [
           {
             id: 'e576a58e-6e63-4a3c-9777-d57f56153f53',
-            activityName: 'Рисовашки',
-            locality: '9 Northport Drive',
-            employee: 'Christopher Nason',
-            date: '2023-02',
+            activity: 'Рисовашки',
+            address: '9 Northport Drive',
+            leading: 'Christopher Nason',
+            date: '2024-05-18T08:28:47.932Z',
             time: '12:01 AM',
             registrationCount: 7,
             passed: true

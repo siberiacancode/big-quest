@@ -44,24 +44,26 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
 
   const onSubmit = addScheduleForm.handleSubmit(async (values) => {
     console.log(values);
-    const weekAndTime = Object.entries(values.workingHours).map(([day, element]): WeekAndTime => {
-      const [from1, from2] = element.time.from.split(':');
-      const [to1, to2] = element.time.to.split(':');
+    const weekAndTime = Object.entries(values.workingHours)
+      .filter(([, element]) => !element.dayOff)
+      .map(([day, element]): WeekAndTime => {
+        const [from1, from2] = element.time.from.split(':');
+        const [to1, to2] = element.time.to.split(':');
 
-      const fromHour = Number(from1);
-      const fromMinutes = Number(from2);
+        const fromHour = Number(from1);
+        const fromMinutes = Number(from2);
 
-      const toHour = Number(to1);
-      const toMinutes = Number(to2);
+        const toHour = Number(to1);
+        const toMinutes = Number(to2);
 
-      return {
-        weekDay: getWeekDayByIndex(+day),
-        hourStart: fromHour,
-        minStart: fromMinutes,
-        hourEnd: toHour,
-        minEnd: toMinutes
-      };
-    });
+        return {
+          weekDay: getWeekDayByIndex(+day),
+          hourStart: fromHour,
+          minStart: fromMinutes,
+          hourEnd: toHour,
+          minEnd: toMinutes
+        };
+      });
 
     const formattedDate = {
       from: values.dateRange?.from
