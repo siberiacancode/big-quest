@@ -1,9 +1,8 @@
 import React from 'react';
 import { CheckIcon, CopyIcon } from 'lucide-react';
 
+import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
-
-import { Button } from './button';
 
 export interface CopyToClipboardButtonProps extends React.ComponentProps<'div'> {
   value: string;
@@ -25,7 +24,13 @@ export const CopyToClipboardButton = ({ className, value }: CopyToClipboardButto
   };
 
   return (
-    <Button variant='ghost' onClick={handleCopy} size='icon' className={cn(className)}>
+    <Button
+      variant='ghost'
+      onClick={handleCopy}
+      size='icon'
+      className={cn(className)}
+      type='button'
+    >
       {hasCopied ? (
         <CheckIcon className='stroke-muted-foreground' size={20} />
       ) : (

@@ -3,12 +3,11 @@
 import React from 'react';
 
 import userPlaceholder from '@/assets/images/avatar/participant.png';
-import { I18nText } from '@/components/common';
+import { CopyToClipboardButton, I18nText } from '@/components/common';
 import {
   Avatar,
   AvatarImage,
   Button,
-  CopyToClipboardButton,
   DatePicker,
   Form,
   FormControl,

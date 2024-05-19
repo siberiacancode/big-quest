@@ -17,7 +17,6 @@ export * from './clock-input';
 export * from './collapsible';
 export * from './combobox';
 export * from './command';
-export * from './copy-to-clipboard-button';
 export * from './data-table';
 export * from './date-picker';
 export * from './dialog';
