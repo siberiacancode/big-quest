@@ -6,7 +6,6 @@ import userPlaceholder from '@/assets/images/avatar/participant.png';
 import { I18nText } from '@/components/common';
 import {
   Avatar,
-  AvatarFallback,
   AvatarImage,
   Button,
   CopyToClipboardButton,
@@ -40,73 +39,58 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
         <fieldset disabled={state.isLoading} className='flex w-full flex-col items-end'>
           <div className='mb-7 flex w-full gap-5 smx:flex-col'>
             <div className='flex-1 space-y-3'>
-              {state.showPreview && (
-                <div className='flex flex-col items-center justify-center gap-3'>
-                  <Avatar className='size-[100px]'>
-                    <AvatarImage src={user?.avatar || userPlaceholder.src} />
-                    <AvatarFallback />
-                  </Avatar>
-                  <Button variant='ghost' onClick={functions.onDeletePreviewClick}>
-                    <Typography variant='body3' tag='p' className='flex-1'>
-                      <I18nText path='app.profile.edit.avatar.title' />
-                    </Typography>
-                  </Button>
-                </div>
-              )}
-              {!state.showPreview && (
-                <FormField
-                  control={form.control}
-                  name='file'
-                  render={() => {
-                    const fileFieldValue = form.getValues('file');
-                    return (
-                      <FormItem className='flex items-center justify-center gap-2'>
-                        <FormControl>
-                          <div className='flex flex-col items-center justify-center gap-3'>
-                            {!fileFieldValue && (
-                              <Avatar className='size-[100px]'>
-                                <AvatarImage src={userPlaceholder.src} />
-                              </Avatar>
-                            )}
-                            {fileFieldValue && (
-                              <Avatar className='size-[100px]'>
-                                <AvatarImage src={URL.createObjectURL(fileFieldValue)} />
-                              </Avatar>
-                            )}
-                            <input
-                              type='file'
-                              onChange={functions.onFileChange}
-                              className='hidden'
-                              accept='image/*'
-                              ref={state.fileInputRef}
-                            />
-                            <Button
-                              variant='ghost'
-                              onClick={() =>
-                                state.fileInputRef.current && state.fileInputRef.current.click()
-                              }
-                              type='button'
-                            >
-                              <Typography variant='body3' tag='p' className='flex-1'>
-                                <I18nText path='app.profile.edit.avatar.title' />
-                              </Typography>
-                            </Button>
-                          </div>
-                        </FormControl>
-                        <div>
-                          <FormMessage>
-                            {form.formState?.errors?.file && (
-                              <I18nText
-                                path={form.formState.errors.file.message as LocaleMessageId}
-                              />
-                            )}
-                          </FormMessage>
+              <FormField
+                control={form.control}
+                name='file'
+                render={() => {
+                  const fileFieldValue = form.getValues('file');
+                  return (
+                    <FormItem className='flex items-center justify-center gap-2'>
+                      <FormControl>
+                        <div className='flex flex-col items-center justify-center gap-3'>
+                          {!fileFieldValue && (
+                            <Avatar className='size-[100px]'>
+                              <AvatarImage src={user?.avatar || userPlaceholder.src} />
+                            </Avatar>
+                          )}
+                          {fileFieldValue && (
+                            <Avatar className='size-[100px]'>
+                              <AvatarImage src={URL.createObjectURL(fileFieldValue)} />
+                            </Avatar>
+                          )}
+                          <input
+                            type='file'
+                            onChange={functions.onFileChange}
+                            className='hidden'
+                            accept='image/*'
+                            ref={state.fileInputRef}
+                          />
+                          <Button
+                            variant='ghost'
+                            onClick={() =>
+                              state.fileInputRef.current && state.fileInputRef.current.click()
+                            }
+                            type='button'
+                          >
+                            <Typography variant='body3' tag='p' className='flex-1'>
+                              <I18nText path='app.profile.edit.avatar.title' />
+                            </Typography>
+                          </Button>
                         </div>
-                      </FormItem>
-                    );
-                  }}
-                />
-              )}
+                      </FormControl>
+                      <div>
+                        <FormMessage>
+                          {form.formState?.errors?.file && (
+                            <I18nText
+                              path={form.formState.errors.file.message as LocaleMessageId}
+                            />
+                          )}
+                        </FormMessage>
+                      </div>
+                    </FormItem>
+                  );
+                }}
+              />
               <FormField
                 control={form.control}
                 name='name'

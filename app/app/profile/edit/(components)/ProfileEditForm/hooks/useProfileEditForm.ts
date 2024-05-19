@@ -11,10 +11,7 @@ interface UseProfileEditFormParams {
 }
 
 export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
-  const [showPreview, setShowPreview] = React.useState(true);
   const fileInputRef = React.useRef<HTMLInputElement | null>(null);
-
-  const onDeletePreviewClick = () => setShowPreview(false);
 
   const profileEditForm = useForm<ProfileEditSchema>({
     mode: 'onSubmit',
@@ -40,11 +37,10 @@ export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
 
   return {
     state: {
-      showPreview,
       isLoading: false,
       fileInputRef
     },
     form: profileEditForm,
-    functions: { onSubmit, onDeletePreviewClick, onFileChange }
+    functions: { onSubmit, onFileChange }
   };
 };
