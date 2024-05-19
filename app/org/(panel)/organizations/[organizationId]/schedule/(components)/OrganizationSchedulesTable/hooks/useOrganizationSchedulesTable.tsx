@@ -1,12 +1,14 @@
 import React from 'react';
 import type { DateRange } from 'react-day-picker';
+import * as fns from 'date-fns';
 import { useDebounceCallback } from 'usehooks-ts';
 
 import { DatePickerWithRange, Input } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 import { useSearchParams } from '@/utils/hooks';
 
-const FILTER_INPUT_DELAY = 500;
+const ACTIVITY_INPUT_DELAY = 500;
+const DATE_RANGE_INPUT_DELAY = 100;
 
 export const useOrganizationSchedulesTable = () => {
   const i18n = useI18n();
@@ -14,12 +16,12 @@ export const useOrganizationSchedulesTable = () => {
   const [isPending, startTransition] = React.useTransition();
 
   const activityFilter = searchParams.get('activity');
-  const fromFilter = searchParams.get('from');
-  const toFilter = searchParams.get('to');
+  const dateStartFilter = searchParams.get('dateStart');
+  const dateEndFilter = searchParams.get('dateEnd');
 
-  const defaultDate = {
-    from: fromFilter ? new Date(fromFilter) : undefined,
-    to: toFilter ? new Date(toFilter) : undefined
+  const dateRange = {
+    from: dateStartFilter ? new Date(dateStartFilter) : undefined,
+    to: dateEndFilter ? new Date(dateEndFilter) : undefined
   };
 
   const onPaginationClick = (page: number) =>
@@ -33,19 +35,24 @@ export const useOrganizationSchedulesTable = () => {
           { key: 'current', value: '1' }
         ])
       ),
-    FILTER_INPUT_DELAY
+    ACTIVITY_INPUT_DELAY
   );
 
   const onDateRangeChange = useDebounceCallback((dateRange?: DateRange) => {
     if (dateRange) {
-      console.log('Selected date range:', dateRange);
       setSearchParams([
-        { key: 'from', value: dateRange.from?.toISOString() ?? '' },
-        { key: 'to', value: dateRange.to?.toISOString() ?? '' },
+        {
+          key: 'dateStart',
+          value: dateRange.from ? fns.format(dateRange.from, 'yyyy-MM-dd') : ''
+        },
+        {
+          key: 'dateEnd',
+          value: dateRange.to ? fns.format(dateRange.to, 'yyyy-MM-dd') : ''
+        },
         { key: 'current', value: '1' }
       ]);
     }
-  }, FILTER_INPUT_DELAY);
+  }, DATE_RANGE_INPUT_DELAY);
 
   const toolbar = React.useCallback(
     () => [
@@ -55,9 +62,9 @@ export const useOrganizationSchedulesTable = () => {
         onChange={(event) => onActivityFilterChange(event.target.value)}
         className='max-w-[180px]'
       />,
-      <DatePickerWithRange onSelect={onDateRangeChange} value={defaultDate} />
+      <DatePickerWithRange onSelect={onDateRangeChange} value={dateRange} />
     ],
-    [onActivityFilterChange, activityFilter, onDateRangeChange, defaultDate]
+    [onActivityFilterChange, activityFilter, onDateRangeChange, dateRange]
   );
 
   return {
