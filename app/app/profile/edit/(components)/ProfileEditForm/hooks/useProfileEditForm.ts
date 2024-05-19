@@ -3,7 +3,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import type { UserData } from '../../../(constants)/types';
-import { type ProfileEditSchema, profileEditSchema } from '../constants/profileEditScheme';
+import type { ProfileEditSchema } from '../constants/profileEditScheme';
+import { profileEditSchema } from '../constants/profileEditScheme';
 
 interface UseProfileEditFormParams {
   user: UserData;
@@ -11,6 +12,8 @@ interface UseProfileEditFormParams {
 
 export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
   const [showPreview, setShowPreview] = React.useState(true);
+  const fileInputRef = React.useRef<HTMLInputElement | null>(null);
+
   const onDeletePreviewClick = () => setShowPreview(false);
 
   const profileEditForm = useForm<ProfileEditSchema>({
@@ -38,7 +41,8 @@ export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
   return {
     state: {
       showPreview,
-      isLoading: false
+      isLoading: false,
+      fileInputRef
     },
     form: profileEditForm,
     functions: { onSubmit, onDeletePreviewClick, onFileChange }

@@ -32,7 +32,6 @@ interface ProfileEditFormProps {
 
 export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
   const i18n = useI18n();
-  const fileInputRef = React.useRef<HTMLInputElement | null>(null);
   const { state, form, functions } = useProfileEditForm({ user });
 
   return (
@@ -41,10 +40,10 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
         <fieldset disabled={state.isLoading} className='flex w-full flex-col items-end'>
           <div className='mb-7 flex w-full gap-5 smx:flex-col'>
             <div className='flex-1 space-y-3'>
-              {state.showPreview && user?.avatar && (
+              {state.showPreview && (
                 <div className='flex flex-col items-center justify-center gap-3'>
-                  <Avatar className='h-[100px] w-[100px]'>
-                    <AvatarImage src={user?.avatar} />
+                  <Avatar className='size-[100px]'>
+                    <AvatarImage src={user?.avatar || userPlaceholder.src} />
                     <AvatarFallback />
                   </Avatar>
                   <Button variant='ghost' onClick={functions.onDeletePreviewClick}>
@@ -65,12 +64,12 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                         <FormControl>
                           <div className='flex flex-col items-center justify-center gap-3'>
                             {!fileFieldValue && (
-                              <Avatar className='h-[100px] w-[100px]'>
+                              <Avatar className='size-[100px]'>
                                 <AvatarImage src={userPlaceholder.src} />
                               </Avatar>
                             )}
                             {fileFieldValue && (
-                              <Avatar className='h-[100px] w-[100px]'>
+                              <Avatar className='size-[100px]'>
                                 <AvatarImage src={URL.createObjectURL(fileFieldValue)} />
                               </Avatar>
                             )}
@@ -79,11 +78,14 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                               onChange={functions.onFileChange}
                               className='hidden'
                               accept='image/*'
-                              ref={fileInputRef}
+                              ref={state.fileInputRef}
                             />
                             <Button
                               variant='ghost'
-                              onClick={() => fileInputRef.current && fileInputRef.current.click()}
+                              onClick={() =>
+                                state.fileInputRef.current && state.fileInputRef.current.click()
+                              }
+                              type='button'
                             >
                               <Typography variant='body3' tag='p' className='flex-1'>
                                 <I18nText path='app.profile.edit.avatar.title' />
