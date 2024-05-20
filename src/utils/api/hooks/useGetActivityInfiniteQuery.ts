@@ -1,26 +1,26 @@
 import type { InfiniteData, QueryKey } from '@tanstack/react-query';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
-import type { ChangesResponseWithPagination } from '@/api-types';
+import type { ActivityWithPaginationResponse } from '@/api-types';
 
-import type { GetChangesParams } from '../requests';
-import { getChanges } from '../requests';
+import type { GetActivityParams } from '../requests';
+import { getActivity } from '../requests';
 
-export const useGetChangesInfiniteQuery = (
-  params: GetChangesParams,
-  settings?: InfiniteQuerySettings<typeof getChanges>
+export const useGetActivityInfiniteQuery = (
+  params: GetActivityParams,
+  settings?: InfiniteQuerySettings<typeof getActivity>
 ) =>
   useInfiniteQuery<
-    ChangesResponseWithPagination,
+    ActivityWithPaginationResponse,
     any,
-    InfiniteData<ChangesResponseWithPagination>,
+    InfiniteData<ActivityWithPaginationResponse>,
     QueryKey,
     number
   >({
-    queryKey: ['getChanges', params.current],
+    queryKey: ['getActivityList', params.current],
     initialPageParam: params.current ?? 1,
     queryFn: ({ pageParam }) =>
-      getChanges({
+      getActivity({
         params: { ...params, current: pageParam },
         config: settings?.config
       }),

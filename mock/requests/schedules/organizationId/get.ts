@@ -45,20 +45,11 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
             },
             date: '2023-05-19T05:58:03.245Z',
             numberOfSeats: 20,
-            weekAndTime: [
-              {
-                weekDay: 'MONDAY',
-                hourStart: 18,
-                minStart: 0
-              },
-              {
-                weekDay: 'TUESDAY',
-                hourStart: 17,
-                hourEnd: 19,
-                minStart: 0,
-                minEnd: 0
-              }
-            ],
+            weekAndTime: {
+              weekDay: 'MONDAY',
+              hourStart: 18,
+              minStart: 0
+            },
             organizationId: 'org_001',
             isDone: false
           },
@@ -94,15 +85,13 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
             },
             date: '2024-05-29T05:58:03.245Z',
             numberOfSeats: 15,
-            weekAndTime: [
-              {
-                weekDay: 'TUESDAY',
-                hourStart: 17,
-                hourEnd: 19,
-                minStart: 0,
-                minEnd: 0
-              }
-            ],
+            weekAndTime: {
+              weekDay: 'TUESDAY',
+              hourStart: 17,
+              hourEnd: 19,
+              minStart: 0,
+              minEnd: 0
+            },
             organizationId: 'org_002',
             isDone: true
           },
@@ -138,15 +127,13 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
             },
             date: '2024-01-19T05:58:03.245Z',
             numberOfSeats: 10,
-            weekAndTime: [
-              {
-                weekDay: 'WEDNESDAY',
-                hourStart: 16,
-                hourEnd: 18,
-                minStart: 30,
-                minEnd: 30
-              }
-            ],
+            weekAndTime: {
+              weekDay: 'WEDNESDAY',
+              hourStart: 16,
+              hourEnd: 18,
+              minStart: 30,
+              minEnd: 30
+            },
             organizationId: 'org_003',
             isDone: false
           },
@@ -182,15 +169,13 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
             },
             date: '2024-05-09T05:58:03.245Z',
             numberOfSeats: 25,
-            weekAndTime: [
-              {
-                weekDay: 'THURSDAY',
-                hourStart: 19,
-                hourEnd: 20,
-                minStart: 0,
-                minEnd: 0
-              }
-            ],
+            weekAndTime: {
+              weekDay: 'THURSDAY',
+              hourStart: 19,
+              hourEnd: 20,
+              minStart: 0,
+              minEnd: 0
+            },
             organizationId: 'org_004',
             isDone: true
           },
@@ -226,15 +211,13 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
             },
             date: '2024-05-19T05:58:03.245Z',
             numberOfSeats: 20,
-            weekAndTime: [
-              {
-                weekDay: 'FRIDAY',
-                hourStart: 18,
-                hourEnd: 19,
-                minStart: 0,
-                minEnd: 0
-              }
-            ],
+            weekAndTime: {
+              weekDay: 'FRIDAY',
+              hourStart: 18,
+              hourEnd: 19,
+              minStart: 0,
+              minEnd: 0
+            },
             organizationId: 'org_005',
             isDone: true
           },
@@ -270,15 +253,13 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
             },
             date: '2024-05-19T05:58:03.245Z',
             numberOfSeats: 12,
-            weekAndTime: [
-              {
-                weekDay: 'SATURDAY',
-                hourStart: 14,
-                hourEnd: 16,
-                minStart: 0,
-                minEnd: 0
-              }
-            ],
+            weekAndTime: {
+              weekDay: 'SATURDAY',
+              hourStart: 14,
+              hourEnd: 16,
+              minStart: 0,
+              minEnd: 0
+            },
             organizationId: 'org_006',
             isDone: false
           },
@@ -314,15 +295,13 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
             },
             date: '2024-05-19T05:58:03.245Z',
             numberOfSeats: 30,
-            weekAndTime: [
-              {
-                weekDay: 'SUNDAY',
-                hourStart: 10,
-                hourEnd: 12,
-                minStart: 0,
-                minEnd: 0
-              }
-            ],
+            weekAndTime: {
+              weekDay: 'SUNDAY',
+              hourStart: 10,
+              hourEnd: 12,
+              minStart: 0,
+              minEnd: 0
+            },
             organizationId: 'org_007',
             isDone: true
           },
@@ -358,15 +337,13 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
             },
             date: '2024-05-19T05:58:03.245Z',
             numberOfSeats: 10,
-            weekAndTime: [
-              {
-                weekDay: 'MONDAY',
-                hourStart: 9,
-                hourEnd: 11,
-                minStart: 0,
-                minEnd: 0
-              }
-            ],
+            weekAndTime: {
+              weekDay: 'MONDAY',
+              hourStart: 9,
+              hourEnd: 11,
+              minStart: 0,
+              minEnd: 0
+            },
             organizationId: 'org_008',
             isDone: false
           },
@@ -402,15 +379,13 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
             },
             date: '2024-05-19T05:58:03.245Z',
             numberOfSeats: 8,
-            weekAndTime: [
-              {
-                weekDay: 'TUESDAY',
-                hourStart: 18,
-                hourEnd: 20,
-                minStart: 0,
-                minEnd: 0
-              }
-            ],
+            weekAndTime: {
+              weekDay: 'TUESDAY',
+              hourStart: 18,
+              hourEnd: 20,
+              minStart: 0,
+              minEnd: 0
+            },
             organizationId: 'org_009',
             isDone: true
           },
@@ -446,15 +421,13 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
             },
             date: '2024-05-19T05:58:03.245Z',
             numberOfSeats: 12,
-            weekAndTime: [
-              {
-                weekDay: 'WEDNESDAY',
-                hourStart: 17,
-                hourEnd: 18,
-                minStart: 0,
-                minEnd: 0
-              }
-            ],
+            weekAndTime: {
+              weekDay: 'WEDNESDAY',
+              hourStart: 17,
+              hourEnd: 18,
+              minStart: 0,
+              minEnd: 0
+            },
             organizationId: 'org_010',
             isDone: true
           }

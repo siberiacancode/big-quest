@@ -17,13 +17,12 @@ export interface SchedulesTableRow {
 
 export const convertSchedulesToTableRows = (schedules: ScheduleResponse[]): SchedulesTableRow[] =>
   schedules.map((schedule) => {
-    const weekAndTime = schedule.weekAndTime?.[0];
-    const startTime = weekAndTime
-      ? `${addLeadingZero(weekAndTime.hourStart)}:${addLeadingZero(weekAndTime.minStart)}`
+    const startTime = schedule.weekAndTime
+      ? `${addLeadingZero(schedule.weekAndTime.hourStart)}:${addLeadingZero(schedule.weekAndTime.minStart)}`
       : '';
     const endTime =
-      weekAndTime?.hourEnd !== undefined && weekAndTime.minEnd !== undefined
-        ? `/${addLeadingZero(weekAndTime.hourEnd)}:${addLeadingZero(weekAndTime.minEnd)}`
+      schedule.weekAndTime?.hourEnd !== undefined && schedule.weekAndTime?.minEnd !== undefined
+        ? `/${addLeadingZero(schedule.weekAndTime.hourEnd)}:${addLeadingZero(schedule.weekAndTime.minEnd)}`
         : '';
 
     return {

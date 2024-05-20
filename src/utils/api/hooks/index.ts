@@ -2,6 +2,7 @@ export * from './useDeleteFileByIdMutation';
 export * from './useDeleteLegalAddressByIdMutation';
 export * from './useDeleteOrganizationDeleteEmployeeMutation';
 export * from './useGetActivityByIdQuery';
+export * from './useGetActivityInfiniteQuery';
 export * from './useGetAddressQuery';
 export * from './useGetAuthNewCodeMutation';
 export * from './useGetCategoryQuery';

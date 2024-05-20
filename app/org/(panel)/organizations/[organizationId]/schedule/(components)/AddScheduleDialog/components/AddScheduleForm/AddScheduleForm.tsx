@@ -1,4 +1,4 @@
-import { AcivityListCombobox, AddressCombobox, LeadsCombobox } from '@/components/comboboxes';
+import { ActivitiesCombobox, AddressCombobox, LeadsCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -40,10 +40,11 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                   <FormLabel>
                     <I18nText path='field.chooseActivity.label' />
                   </FormLabel>
-                  <AcivityListCombobox
+                  <ActivitiesCombobox
                     value={field.value}
-                    className='w-full'
+                    organizationId={state.organizationId}
                     onSelect={(newValue) => form.setValue('activityId', newValue ?? '')}
+                    className='w-full'
                   />
                   <FormMessage>
                     {form.formState?.errors?.activityId && (

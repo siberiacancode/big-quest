@@ -32,5 +32,5 @@ export interface ScheduleResponse {
   /** Признак предварительной записи */
   preEntry: boolean;
   /** Дни недели и время */
-  weekAndTime?: WeekAndTimeEntityResponse[];
+  weekAndTime?: WeekAndTimeEntityResponse;
 }

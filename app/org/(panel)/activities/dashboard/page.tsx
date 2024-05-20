@@ -9,8 +9,8 @@ export interface ActivitiesDashboardPageProps {
   searchParams: SearchParams;
 }
 
-const DEFAULT_ACTIVITIES_LIMIT = '10';
-const DEFAULT_ACTIVITIES_PAGE = '1';
+const DEFAULT_ACTIVITIES_LIMIT = 10;
+const DEFAULT_ACTIVITIES_PAGE = 1;
 
 const ActivitiesDashboardPage = async ({ searchParams }: ActivitiesDashboardPageProps) => {
   const activitiesTableResponse = await getActivities({

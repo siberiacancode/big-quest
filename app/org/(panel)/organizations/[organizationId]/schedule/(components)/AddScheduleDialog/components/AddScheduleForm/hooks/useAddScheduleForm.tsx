@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
 import type { WeekAndTime } from '@/api-types';
@@ -17,6 +18,7 @@ interface UseAddScheduleFormParams {
 
 export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
   const i18n = useI18n();
+  const params = useParams<{ organizationId: string }>();
   const addScheduleForm = useForm<AddScheduleSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(addScheduleSchema),
@@ -94,7 +96,8 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
 
   return {
     state: {
-      isLoading: postScheduleMutation.isPending
+      isLoading: postScheduleMutation.isPending,
+      organizationId: params.organizationId
     },
     form: addScheduleForm,
     functions: { onSubmit }
