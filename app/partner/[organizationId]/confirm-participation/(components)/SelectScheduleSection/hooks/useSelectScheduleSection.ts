@@ -23,7 +23,7 @@ export const useSelectScheduleSection = ({ userId }: UseSelectScheduleSectionPar
 
   const { ref } = useIntersectionObserver({
     threshold: 0.5,
-    onChange(isIntersecting) {
+    onChange: (isIntersecting) => {
       if (isIntersecting) getSchedulesByOrganizationIdInfiniteQuery.fetchNextPage();
     }
   });

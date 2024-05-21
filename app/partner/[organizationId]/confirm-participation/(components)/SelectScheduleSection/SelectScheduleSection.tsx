@@ -46,6 +46,7 @@ export const SelectScheduleSection = ({ userId }: SelectScheduleSectionProps) =>
         variant='primary'
         onClick={functions.onConfirmParticipationClick}
         disabled={!state.selectedActivityId}
+        loading={state.query.isFetchingNextPage}
         className='mt-6 w-full'
       >
         <I18nText path='button.mark' />

@@ -160,6 +160,7 @@
   "partner.role.admin": "Администратор",
   "partner.role.leading": "Ведущий",
   "partner.role.manager": "Менеджер",
+  "partner.role.user": "Пользователь",
   "partner.scanner.qrCode": "QR-код",
   "partner.scanner.scanner": "Сканер",
   "partner.scanner.pointCamera": "Наведите камеру на QR-код",
