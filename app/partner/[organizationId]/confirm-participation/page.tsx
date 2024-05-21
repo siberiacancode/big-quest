@@ -5,26 +5,19 @@ import Image from 'next/image';
 import participantAvatar from '@/assets/images/avatar/participant.png';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
-import { getOrganizationActivities, getUserById } from '@/utils/api';
+import { getUserById } from '@/utils/api';
 
-import { SelectActivitySection } from './(components)/SelectActivitySection/SelectActivitySection';
+import { SelectScheduleSection } from './(components)/SelectScheduleSection/SelectScheduleSection';
 
 interface OrganizationConfirmParticipationPageProps {
   searchParams: { userId?: string };
-  params: { organizationId: string };
 }
 
 const OrganizationConfirmParticipationPage = async ({
-  searchParams,
-  params
+  searchParams
 }: OrganizationConfirmParticipationPageProps) => {
   const userId = searchParams.userId ?? '';
-  const [getUserByIdResponse, getOrganizationActivitiesResponse] = await Promise.all([
-    getUserById({ params: { id: userId } }),
-    getOrganizationActivities({
-      params: { id: params.organizationId }
-    })
-  ]);
+  const getUserByIdResponse = await getUserById({ params: { id: userId } });
 
   return (
     <div className='mt-5 flex h-full flex-col'>
@@ -42,15 +35,16 @@ const OrganizationConfirmParticipationPage = async ({
               {getUserByIdResponse.surname} {getUserByIdResponse.name}
             </Typography>
             <Typography variant='body4' className='text-muted-foreground'>
-              {/* // TODO backend will add age to response */}
-              <I18nText path='common.age' values={{ age: 22 }} />
+              {getUserByIdResponse.age && (
+                <I18nText path='common.age' values={{ age: getUserByIdResponse.age }} />
+              )}
             </Typography>
           </div>
         </div>
       </div>
 
       <div className='mt-8 grow'>
-        <SelectActivitySection userId={userId} activities={getOrganizationActivitiesResponse} />
+        <SelectScheduleSection userId={userId} />
       </div>
     </div>
   );

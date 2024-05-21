@@ -5,8 +5,11 @@
  * ## API BQ
  * OpenAPI spec version: 1.0
  */
+import type { CategoryResponseData } from './categoryResponseData';
 
 export interface CategoryResponse {
-  /** Категория */
-  name: string;
+  /** Значение на разных языках */
+  data: CategoryResponseData;
+  /** Идентификатор */
+  id: string;
 }

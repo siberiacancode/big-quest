@@ -1,4 +1,3 @@
-import type { CategoryResponse } from '@/api-types';
 import { api } from '@/utils/api/instance';
 
 export type GetCategoryRequestConfig = RequestConfig | void;

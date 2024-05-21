@@ -6,26 +6,29 @@
  * OpenAPI spec version: 1.0
  */
 import type { Translations } from './translations';
+import type { Locality } from './locality';
 import type { MediaResponse } from './mediaResponse';
 import type { ActivityStatus } from './activityStatus';
 import type { ActivityView } from './activityView';
 
-export interface ActivityResponse {
-  /** Возрастное ограничение ОТ и ДО */
+export interface ActivityListResponse {
+  /** Возрастное ограничение */
   ageLimit: number[];
   /** Категория */
   category: Translations;
   /** Описание */
   description?: string;
-  /** Продолжительность (мин) */
+  /** Продолжительность */
   duration: number;
   /** Идентификатор */
   id: string;
   /** Кол-во лайков */
   likes: number;
+  /** Местоположение */
+  locality: Locality;
   /** Медиа */
   media: MediaResponse[];
-  /** Название */
+  /** Название активности */
   name: string;
   /** Кол-во орешков */
   nutsCount: number;
@@ -33,12 +36,10 @@ export interface ActivityResponse {
   organizationId: string;
   /** Название организации */
   organizationName: string;
-  /** Стоимость */
+  /** Цена */
   price: number;
-  /** Повторное прохождение */
+  /** Признак повтора */
   replay: boolean;
-  /** Идентификатор родительской активности */
-  rootId: string;
   status: ActivityStatus;
   view: ActivityView;
 }

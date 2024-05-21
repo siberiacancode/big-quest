@@ -10,8 +10,8 @@ import type { MediaDto } from './mediaDto';
 export interface CreateActivityDto {
   /** Возрастное ограничение ОТ и ДО */
   ageLimit: number[];
-  /** Категория */
-  category: string;
+  /** Идентификатор категории */
+  categoryId: string;
   /** Описание */
   description?: string;
   /** Продолжительность (мин) */
@@ -20,7 +20,7 @@ export interface CreateActivityDto {
   media?: MediaDto[];
   /** Название */
   name: string;
-  /** Идентификатор организации */
+  /** ID организации */
   organizationId: string;
   /** Стоимость */
   price: number;

@@ -1,3 +1,4 @@
+import type { UserResponse } from '@/api-types';
 import { api } from '@/utils/api/instance';
 
 interface GetUserByIdParams {

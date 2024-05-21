@@ -525,11 +525,3 @@ interface ParticipantProfileSettingsResponseFixMe {
   children: ChildProfileSettingsResponseFixMe[];
   role: ProfileSettingsRoleFixMe;
 }
-
-interface OrganizationActivityFixMe {
-  id: string;
-  name: string;
-  category: string;
-  time: Time;
-  avatar?: string;
-}

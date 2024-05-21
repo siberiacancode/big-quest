@@ -5,17 +5,17 @@
  * ## API BQ
  * OpenAPI spec version: 1.0
  */
-import type { I } from './i';
 import type { WorkingHourDto } from './workingHourDto';
 
-export interface CreateAddressDto {
+export interface MainAddressResponse {
   city?: string;
   cityWithType?: string;
   country?: string;
   flat?: number;
-  geoLat?: I;
-  geoLon?: I;
+  geoLat?: number;
+  geoLon?: number;
   house?: string;
+  id: string;
   /** Идентификатор партнера */
   legalEntityId: string;
   postalCode?: string;

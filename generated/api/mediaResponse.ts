@@ -15,4 +15,6 @@ export interface MediaResponse {
   id: string;
   /** Тип медиа */
   type: MediaResponseType;
+  /** Ссылка на файл */
+  url: string;
 }
