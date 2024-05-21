@@ -244,11 +244,18 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                         onSelect={(newValue) => form.setValue('dateRange', newValue)}
                       />
                     </FormControl>
+                    <FormMessage>
+                      {form.formState?.errors?.dateRange && (
+                        <I18nText
+                          path={form.formState.errors.dateRange.message as LocaleMessageId}
+                        />
+                      )}
+                    </FormMessage>
                   </FormItem>
                 )}
               />
             )}
-            {form.getValues('preEntry') && (
+            {form.getValues('preEntry') === true && (
               <FormField
                 control={form.control}
                 name='numberOfSeats'

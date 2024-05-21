@@ -55,7 +55,10 @@ export const Combobox = ({
   loading = false
 }: ComboboxProps) => {
   const [open, setOpen] = React.useState(false);
-
+  const label = React.useMemo(
+    () => (value ? items.find((item) => item.value === value)?.label : selectItemMsg),
+    [items, value]
+  );
   return (
     <Popover open={open} onOpenChange={setOpen} modal>
       <PopoverTrigger asChild>
@@ -69,9 +72,8 @@ export const Combobox = ({
           )}
         >
           <span className={cn('font-normal', !value && 'text-placeholder')}>
-            {!!onSearchChange && (value || selectItemMsg)}
-            {!onSearchChange &&
-              (value ? items.find((item) => item.value === value)?.label : selectItemMsg)}
+            {!!onSearchChange && (label || selectItemMsg)}
+            {!onSearchChange && label}
           </span>
           <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
         </Button>

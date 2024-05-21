@@ -25,7 +25,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
     defaultValues: {
       activityId: '',
       addressId: '',
-      leadingId: '',
+      leadingId: '1',
       preEntry: false,
       isRegularActivity: false,
       numberOfSeats: '',
@@ -45,48 +45,50 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
   const postScheduleMutation = usePostScheduleMutation();
 
   const onSubmit = addScheduleForm.handleSubmit(async (values) => {
-    console.log(values);
-    const weekAndTime = Object.entries(values.workingHours)
-      .filter(([, element]) => !element.dayOff)
-      .map(([day, element]): WeekAndTime => {
-        const [from1, from2] = element.time.from.split(':');
-        const [to1, to2] = element.time.to.split(':');
+    let weekAndTime: WeekAndTime[] | undefined;
+    let dateStart = '';
+    let dateEnd: string | undefined;
+    let numberOfSeats: number | undefined;
+    if (values.isRegularActivity && values.dateRange?.from) {
+      weekAndTime = Object.entries(values.workingHours)
+        .filter(([, element]) => !element.dayOff)
+        .map(([day, element]): WeekAndTime => {
+          const [from1, from2] = element.time.from.split(':');
+          const [to1, to2] = element.time.to.split(':');
 
-        const fromHour = Number(from1);
-        const fromMinutes = Number(from2);
+          const fromHour = Number(from1);
+          const fromMinutes = Number(from2);
 
-        const toHour = Number(to1);
-        const toMinutes = Number(to2);
+          const toHour = Number(to1);
+          const toMinutes = Number(to2);
 
-        return {
-          weekDay: getWeekDayByIndex(+day),
-          hourStart: fromHour,
-          minStart: fromMinutes,
-          hourEnd: toHour,
-          minEnd: toMinutes
-        };
-      });
-
-    const formattedDate = {
-      from: values.dateRange?.from
-        ? values.dateRange.from.toISOString()
-        : values.date.toISOString(),
-      to: values.dateRange?.to?.toISOString()
-    };
+          return {
+            weekDay: getWeekDayByIndex(+day),
+            hourStart: fromHour,
+            minStart: fromMinutes,
+            hourEnd: toHour,
+            minEnd: toMinutes
+          };
+        });
+      dateStart = values.dateRange?.from?.toISOString();
+      dateEnd = values.dateRange?.to?.toISOString();
+    } else if (!values.isRegularActivity && values.date) {
+      dateStart = values.date.toISOString();
+    }
+    if (values.preEntry && values.numberOfSeats) {
+      numberOfSeats = +values.numberOfSeats;
+    }
 
     const postScheduleMutationParams: PostScheduleParams = {
       ...values,
       weekAndTime,
-      numberOfSeats: +values.numberOfSeats,
-      dateStart: formattedDate.from,
-      dateEnd: formattedDate.to
+      dateStart,
+      dateEnd,
+      numberOfSeats
     };
-    console.log('@formattedValues', postScheduleMutationParams);
-
     await postScheduleMutation.mutateAsync({
       params: postScheduleMutationParams
     });
-
     toast(i18n.formatMessage({ id: 'dialog.addAddress.success' }), {
       cancel: { label: 'Close' }
     });

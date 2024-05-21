@@ -8,7 +8,7 @@ export const getActivityById: RestRequestConfig = {
     {
       data: (request) => {
         const { id } = request.params;
-        return DATABASE.ACTIVITY_LIST.find((activity) => activity.id === id);
+        return DATABASE.ACTIVITIES.find((activity) => activity.id === id);
       }
     }
   ]
