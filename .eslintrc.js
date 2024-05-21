@@ -23,10 +23,14 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'off',
         'no-restricted-syntax': 'off',
         'promise/always-return': 'off',
+        'no-await-in-loop': 'off',
+        'no-continue': 'off',
+        'promise/catch-or-return': 'off',
         'class-methods-use-this': 'off',
         '@typescript-eslint/naming-convention': 'warn',
         'no-underscore-dangle': 'warn',
-        'no-bitwise': 'warn'
+        'no-bitwise': 'warn',
+        'jsx-a11y/media-has-caption': 'warn'
       }
     }
   ]

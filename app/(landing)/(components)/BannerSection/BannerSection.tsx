@@ -34,7 +34,7 @@ export const BannerSection = () => (
         <div className='mt-6 flex w-full  flex-col items-center gap-4 lg:mt-10 lg:w-[90%] lg:flex-row lg:gap-8'>
           <Link
             href={{
-              pathname: ROUTES.AUTH,
+              pathname: ROUTES.APP.AUTH,
               query: { step: 'login' }
             }}
             className={cn(buttonVariants({ size: 'lg', variant: 'primary' }), 'w-full max-w-96')}
@@ -44,7 +44,7 @@ export const BannerSection = () => (
           <div className='w-full max-w-96 mdx:rounded-md mdx:border mdx:border-taiga'>
             <Link
               href={{
-                pathname: ROUTES.AUTH,
+                pathname: ROUTES.APP.AUTH,
                 query: { step: 'excursion' }
               }}
               className={cn(buttonVariants({ size: 'lg', variant: 'white' }), 'w-full')}

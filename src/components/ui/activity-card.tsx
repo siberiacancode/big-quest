@@ -17,13 +17,20 @@ const ActivityCard = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'
 );
 ActivityCard.displayName = 'ActivityCard';
 
+const ActivityCardStatus = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} {...props} className={cn('rounded-md bg-secondary px-3 py-2', className)} />
+  )
+);
+ActivityCardStatus.displayName = 'ActivityCardStatus';
+
 const ActivityCardImage = React.forwardRef<HTMLDivElement, React.ComponentProps<typeof Image>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('relative aspect-square w-full', className)}>
+    <div ref={ref} className='relative aspect-square w-full'>
       <Image
         {...props}
         sizes='370px'
-        className='w-full rounded-[8px] object-cover md:rounded-[30px]'
+        className={cn('w-full rounded-[8px] object-cover md:rounded-[30px]', className)}
         fill
       />
     </div>
@@ -38,6 +45,17 @@ const ActivityCardHeader = React.forwardRef<HTMLDivElement, React.ComponentProps
 );
 ActivityCardHeader.displayName = 'ActivityCardHeader';
 
+const ActivityCardBanner = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      {...props}
+      className={cn('absolute top-0 flex w-full items-center justify-between p-3', className)}
+    />
+  )
+);
+ActivityCardBanner.displayName = 'ActivityCardBanner';
+
 const ActivityCardName = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
   ({ className, ...props }, ref) => (
     <div ref={ref} {...props} className={cn('text-base font-semibold lg:text-xl', className)} />
@@ -45,6 +63,18 @@ const ActivityCardName = React.forwardRef<HTMLDivElement, React.ComponentProps<'
 );
 
 ActivityCardName.displayName = 'ActivityCardName';
+
+const ActivityCardHeaderTop = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      {...props}
+      className={cn('mb-2 mt-3 flex flex-wrap justify-between text-muted-foreground', className)}
+    />
+  )
+);
+
+ActivityCardHeaderTop.displayName = 'ActivityCardHeaderTop';
 
 const ActivityCardCategory = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
   ({ className, ...props }, ref) => (
@@ -55,7 +85,6 @@ const ActivityCardCategory = React.forwardRef<HTMLDivElement, React.ComponentPro
     />
   )
 );
-
 ActivityCardCategory.displayName = 'ActivityCardCategory';
 
 const ActivityCardDivider = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
@@ -75,7 +104,6 @@ const ActivityCardContent = React.forwardRef<HTMLDivElement, React.ComponentProp
   )
 );
 ActivityCardContent.displayName = 'ActivityCardContent';
-
 const ActivityCardContentItem = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
   ({ className, ...props }, ref) => (
     <div
@@ -89,14 +117,16 @@ const ActivityCardContentItem = React.forwardRef<HTMLDivElement, React.Component
   )
 );
 ActivityCardContentItem.displayName = 'ActivityCardContentItem';
-
 export {
   ActivityCard,
+  ActivityCardBanner,
   ActivityCardCategory,
   ActivityCardContent,
   ActivityCardContentItem,
   ActivityCardDivider,
   ActivityCardHeader,
+  ActivityCardHeaderTop,
   ActivityCardImage,
-  ActivityCardName
+  ActivityCardName,
+  ActivityCardStatus
 };

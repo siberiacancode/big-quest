@@ -2,6 +2,7 @@
 
 import { XIcon } from 'lucide-react';
 
+import type { OrganizationResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
   Dialog,

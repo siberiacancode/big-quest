@@ -1,22 +1,24 @@
 'use client';
 
-import { GeoObject, Map, YMaps, ZoomControl } from '@pbe/react-yandex-maps';
+// import { GeoObject, Map, YMaps, ZoomControl } from '@pbe/react-yandex-maps';
+import { Map, YMaps, ZoomControl } from '@pbe/react-yandex-maps';
 
+import type { ActivityListResponse } from '@/api-types';
 import { CITIES } from '@/utils/constants';
 
 const DEFAULT_MAP_ZOOM = 11;
 
 interface MapProps {
   cityId: (typeof CITIES)[keyof typeof CITIES]['id'];
-  activities: ActivityResponse[];
+  activities: ActivityListResponse[];
 }
 
-export const ActivitiesMap = ({ cityId, activities }: MapProps) => {
-  const coordinates = activities
-    .filter((activity) => activity.schedule)
-    .flatMap((activity) =>
-      activity.schedule!.map((schedule) => [schedule.address.geoLat, schedule.address.geoLon])
-    );
+export const ActivitiesMap = ({ cityId }: MapProps) => {
+  // const coordinates = activities
+  //   .filter((activity) => activity.schedule)
+  //   .flatMap((activity) =>
+  //     activity.schedule.map((schedule) => [schedule.address.geoLat, schedule.address.geoLon])
+  //   );
 
   return (
     <YMaps>
@@ -28,7 +30,7 @@ export const ActivitiesMap = ({ cityId, activities }: MapProps) => {
           center: CITIES[cityId.toUpperCase()].map.center as [number, number]
         }}
       >
-        <div className=' '>
+        {/* <div className='mt-10 w-full mdx:mt-5'>
           {coordinates.map((coordinate, index) => (
             <GeoObject
               key={index}
@@ -43,7 +45,7 @@ export const ActivitiesMap = ({ cityId, activities }: MapProps) => {
               }}
             />
           ))}
-        </div>
+        </div> */}
         <ZoomControl />
       </Map>
     </YMaps>

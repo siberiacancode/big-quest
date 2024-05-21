@@ -1,6 +1,5 @@
 'use server';
 
-import { getActivityPublic } from '@/utils/api';
+import { getActivity } from '@/utils/api';
 
-export const handleLoadActivitiesMore: typeof getActivityPublic = async (params) =>
-  getActivityPublic(params);
+export const handleLoadActivitiesMore: typeof getActivity = async (params) => getActivity(params);

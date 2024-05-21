@@ -33,16 +33,13 @@ export const ActivityList = () => {
     <>
       <div className='mt-6 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
         {activities.map((activity) => {
-          const activityMedia = activity.media?.find((media) => media.flag === 'COVER');
+          const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
 
           return (
             <ActivityCard key={activity.id}>
-              {activityMedia && <ActivityCardImage src={activityMedia.url} alt={activity.name} />}
-              {!activityMedia && (
-                <div className='w-full rounded-[16px] bg-muted p-1/2 md:rounded-[30px]' />
-              )}
+              <ActivityCardImage src={activityCover.url} alt={activity.name} />
               <ActivityCardHeader>
-                <ActivityCardCategory>{activity.category}</ActivityCardCategory>
+                <ActivityCardCategory>{activity.category.RU}</ActivityCardCategory>
                 <ActivityCardName>{activity.name}</ActivityCardName>
               </ActivityCardHeader>
               <ActivityCardDivider />

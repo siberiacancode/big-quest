@@ -1,5 +1,6 @@
 import React from 'react';
 
+import type { WorkingHourDto } from '@/api-types';
 import { I18nText } from '@/components/common';
 import { addLeadingZero } from '@/utils/helpers';
 

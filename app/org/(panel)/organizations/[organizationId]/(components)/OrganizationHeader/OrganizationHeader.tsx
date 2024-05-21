@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import type { OrganizationResponse } from '@/api-types';
 import avatar from '@/assets/images/avatar/organization.png';
 import background from '@/assets/images/background/organization.png';
 import { I18nText } from '@/components/common';

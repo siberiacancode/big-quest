@@ -43,6 +43,13 @@
   "app.profile.settings.theme": "Темная тема",
   "app.profile.settings.additionalQR": "Дополнительные QR",
 
+  "app.rating.title": "Рейтинг",
+  "app.support.title": "Поддержка",
+  "app.taiga.title": "Игры",
+
+  "app.inDev.title": "Раздел в стадии разработки",
+  "app.inDev.description": "Проходите активности,{br} копите шишки опыта!",
+
   "common.rubles": "{amount}руб.",
   "common.age": "{age, plural, =1 {# год} one {# год} few {# года} many {# лет} other {# лет}}",
 
@@ -56,8 +63,9 @@
   "button.save": "Сохранить",
   "button.addAddress": "Добавить адрес",
   "button.close": "Закрыть",
-  "button.addActivities": "Добавить активность",
+  "button.addActivity": "Добавить активность",
   "button.addEmployee": "Добавить сотрудника",
+  "button.makeCover": "Сделать обложкой",
   "button.updateTariff": "Сменить тариф",
   "button.learnDetails": "Узнать подробности",
   "button.login": "Войти",
@@ -322,7 +330,10 @@
 
   "activityCard.ageLimit.label": "от {ageMin}+ лет",
   "activityCard.duration.label": "{duration} ч",
-  "activity.image.alt": "Изображение активности {name}",
+  "activity.image.alt": "Изображение активности",
+  "activity.image.placeholder": "Место для показа медиа",
+  "activity.image.add": "Добавьте изображение",
+  "activity.cover.add": "Выберите обложку",
 
   "pagination.from": "из",
   "pagination.selected": "выбрано",

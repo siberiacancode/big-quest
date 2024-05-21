@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import type { UserResponse } from '@/api-types';
+
 import { UserContext } from './UserContext';
 
 export interface UserProviderProps {

@@ -14,7 +14,7 @@ import {
   buttonVariants,
   Typography
 } from '@/components/ui';
-import { getActivityPublic } from '@/utils/api';
+import { getActivity } from '@/utils/api';
 import type { CITIES } from '@/utils/constants';
 import { ROUTES } from '@/utils/constants';
 
@@ -29,7 +29,7 @@ interface ActivitiesSectionProps {
 }
 
 export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
-  const getActivityPublicResponse = await getActivityPublic({
+  const getActivityResponse = await getActivity({
     params: {
       city: cityId,
       limit: DEFAULT_ACTIVITIES_LIMIT,
@@ -40,7 +40,7 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
     }
   });
 
-  if (!getActivityPublicResponse.rows.length) return null;
+  if (!getActivityResponse.rows.length) return null;
 
   return (
     <section id='activities' className='container py-12'>
@@ -55,44 +55,33 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
           <ChevronRightIcon className='text-muted-foreground' />
         </Link>
       </div>
-      <div className='mt-10 grid grid-cols-3 gap-x-2 gap-y-5 md:justify-between lg:mt-[72px] lg:gap-x-10 lg:gap-y-12'>
-        {getActivityPublicResponse.rows.map((activity) => {
-          const activityMedia = activity.media?.find((media) => media.flag === 'COVER');
+      <div className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
+        {getActivityResponse.rows.map((activity) => {
+          const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
 
           return (
             <ActivityCard>
-              {activityMedia && <ActivityCardImage src={activityMedia.url} alt={activity.name} />}
-              {!activityMedia && (
-                <div className='w-full rounded-[16px] bg-muted p-1/2 md:rounded-[30px]' />
-              )}
+              <ActivityCardImage src={activityCover.url} alt={activity.name} />
               <ActivityCardHeader>
-                <ActivityCardCategory>{activity.category}</ActivityCardCategory>
+                <ActivityCardCategory>{activity.category.RU}</ActivityCardCategory>
                 <ActivityCardName>{activity.name}</ActivityCardName>
               </ActivityCardHeader>
               <ActivityCardDivider />
               <ActivityCardContent>
-                {activity.ageLimit[0] && (
-                  <ActivityCardContentItem>
-                    <UserRoundIcon className='size-4 stroke-muted-foreground lg:size-6' />
-                    <Typography tag='p' variant='body3' className='xsx:text-xs'>
-                      <I18nText
-                        path='landing.activities.card.minimumAge'
-                        values={{ age: activity.ageLimit[0] }}
-                      />
-                    </Typography>
-                  </ActivityCardContentItem>
-                )}
-                {activity.duration && (
-                  <ActivityCardContentItem>
-                    <Clock4Icon className='size-4 stroke-muted-foreground lg:size-6' />
-                    <Typography tag='p' variant='body3' className='xsx:text-xs'>
-                      <I18nText
-                        path='landing.activities.card.duration'
-                        values={{ duration: activity.duration }}
-                      />
-                    </Typography>
-                  </ActivityCardContentItem>
-                )}
+                <ActivityCardContentItem>
+                  <UserRoundIcon className='size-6 stroke-muted-foreground' />
+                  <I18nText
+                    path='landing.activities.card.minimumAge'
+                    values={{ age: activity.ageLimit[0] }}
+                  />
+                </ActivityCardContentItem>
+                <ActivityCardContentItem>
+                  <Clock4Icon className='size-6 stroke-muted-foreground' />
+                  <I18nText
+                    path='landing.activities.card.duration'
+                    values={{ duration: activity.duration }}
+                  />
+                </ActivityCardContentItem>
               </ActivityCardContent>
             </ActivityCard>
           );

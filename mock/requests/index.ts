@@ -4,7 +4,6 @@ export * from './activity/get';
 export * from './activity/id/get';
 export * from './activity/id/put';
 export * from './activity/post';
-export * from './activity/public/get';
 export * from './address/get';
 export * from './auth/login/email/post';
 export * from './auth/new-code/get';

@@ -1,3 +1,4 @@
+import type { UserResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import { DropzoneCard } from '@/components/dropzone';
 import {
@@ -20,13 +21,11 @@ import {
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-import type { PartnerData } from '../../(constants)/types';
-
 import { useActionPartnerForm } from './hooks/useActionPartnerForm';
 
 interface ActionPartnerProps {
   onAction: () => void;
-  partner: PartnerData;
+  partner: UserResponse;
 }
 
 export const ActionPartnerForm = ({ onAction, partner }: ActionPartnerProps) => {
@@ -43,7 +42,7 @@ export const ActionPartnerForm = ({ onAction, partner }: ActionPartnerProps) => 
                 <div className='flex items-center gap-3'>
                   <DropzoneCard
                     value={partner.avatar}
-                    onChange={functions.onDeletePreviewClick}
+                    onDelete={functions.onDeletePreviewClick}
                     className='h-32 w-32'
                   />
                   <Typography variant='sub2'>{partner.avatar.split('/').at(-1)}</Typography>
