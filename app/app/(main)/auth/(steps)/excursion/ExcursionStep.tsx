@@ -26,7 +26,7 @@ export const ExcursionStep = () => {
             <Typography variant='h4' className='text-center'>
               <I18nText path={`auth.excursion.${state.screen}.title`} />
             </Typography>
-            <Typography variant='sub3' className='mt-4 text-center text-muted-foreground'>
+            <Typography variant='sub6' className='mt-4 text-center'>
               <I18nText path={`auth.excursion.${state.screen}.description`} />
             </Typography>
           </div>

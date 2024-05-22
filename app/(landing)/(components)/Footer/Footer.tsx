@@ -31,7 +31,7 @@ export const Footer = ({ cityId }: FooterProps) => (
         </div>
       </div>
       <div className='flex w-full flex-col'>
-        <Typography tag='p' className='text-xl font-medium text-white'>
+        <Typography tag='p' variant='h6' className='text-white'>
           <I18nText path='landing.footer.navigation.title' />
         </Typography>
         <nav className='mt-4'>
@@ -80,7 +80,7 @@ export const Footer = ({ cityId }: FooterProps) => (
         </nav>
       </div>
       <div className='w-full 2lg:max-w-[337px]'>
-        <Typography tag='p' className='text-xl font-medium text-white'>
+        <Typography tag='p' variant='h6' className='text-white'>
           <I18nText path='landing.footer.addresses' />
         </Typography>
         <nav className='mt-4'>

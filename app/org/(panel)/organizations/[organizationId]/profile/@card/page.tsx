@@ -53,7 +53,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
         </InfoCardAction>
       </InfoCardHeader>
       <InfoCardContent className='flex w-full flex-col px-7'>
-        <Typography variant='body2' tag='p' className='text-muted-foreground'>
+        <Typography variant='body5' tag='p'>
           {getOrganizationByIdResponse.description}
         </Typography>
         <Separator className='my-5' />

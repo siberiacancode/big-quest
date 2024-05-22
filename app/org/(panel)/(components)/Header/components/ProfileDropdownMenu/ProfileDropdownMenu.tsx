@@ -24,10 +24,10 @@ export const ProfileDropdownMenu = () => {
             <div className='absolute bottom-0 right-0 h-2 w-2 rounded-full border bg-muted-foreground' />
           </div>
           <div className='flex flex-col justify-between'>
-            <Typography variant='h6' tag='p'>
+            <Typography variant='sub1' tag='p'>
               {state.user.name} {state.user.surname}
             </Typography>
-            <Typography variant='body2' tag='p' className='text-muted-foreground'>
+            <Typography variant='body5' tag='p'>
               Админ
             </Typography>
           </div>

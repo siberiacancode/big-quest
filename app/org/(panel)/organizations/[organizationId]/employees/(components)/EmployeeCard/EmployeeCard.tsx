@@ -154,10 +154,10 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
               </Typography>
             </div>
             <div className='flex-1 space-y-2'>
-              <Typography variant='sub3' tag='p' className='flex-1 font-normal'>
+              <Typography variant='body2' tag='p' className='flex-1'>
                 {employee.email}
               </Typography>
-              <Typography variant='sub3' tag='p' className='flex-1 font-normal'>
+              <Typography variant='body2' tag='p' className='flex-1'>
                 {employee.phone}
               </Typography>
             </div>

@@ -25,16 +25,12 @@ const AppProfilePage = () => (
             <Image src={avatar} alt='' width={80} height={80} />
             <div>
               <Typography variant='sub3'>ФИО</Typography>
-              <Typography variant='body4' className='mt-2.5 text-muted-foreground'>
+              <Typography variant='body4' className='mt-2.5'>
                 <I18nText path='app.profile.passportId' /> -
               </Typography>
-              <Typography variant='body4' className='mt-1.5 text-muted-foreground'>
+              <Typography variant='body4' className='mt-1.5'>
                 <I18nText path='app.profile.userId' />
-                <Typography
-                  variant='body4'
-                  tag='span'
-                  className='font-medium text-muted-foreground'
-                >
+                <Typography variant='body4' tag='span' className='font-medium'>
                   @7654Qwerty
                 </Typography>
               </Typography>

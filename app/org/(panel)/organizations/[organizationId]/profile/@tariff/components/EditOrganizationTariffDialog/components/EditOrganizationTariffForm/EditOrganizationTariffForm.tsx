@@ -160,7 +160,7 @@ export const EditOrganizationTariffForm = ({
                                 values={{ monthsAmount: periodMonthOption.monthsAmount }}
                               />
                             </Typography>
-                            <Typography variant='body3' className=''>
+                            <Typography variant='body3'>
                               <I18nText
                                 path='organization.profile.tariff.discount'
                                 values={{ discount: periodMonthOption.discount }}

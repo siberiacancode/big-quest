@@ -26,7 +26,7 @@ export const BannerSection = () => (
             <I18nText path='landing.info.title' />
           </Typography>
 
-          <Typography tag='p' variant='body1' className='text-wrap text-sm leading-5 lg:text-2xl'>
+          <Typography tag='p' variant='body3' className='text-wrap leading-5 lg:text-2xl'>
             <I18nText path='landing.info.subtitle' />
           </Typography>
         </div>

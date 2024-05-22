@@ -63,7 +63,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
             </Typography>
           </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>
-            <Typography variant='body2' tag='p' className='text-muted-foreground'>
+            <Typography variant='body5' tag='p'>
               <I18nText path='organization.profile.tariff.activity' />
             </Typography>
           </InfoCardItemDescription>
@@ -75,7 +75,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
             </Typography>
           </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>
-            <Typography variant='body2' tag='p' className='text-muted-foreground'>
+            <Typography variant='body5' tag='p'>
               <I18nText path='organization.profile.tariff.paid' />
             </Typography>
           </InfoCardItemDescription>
@@ -91,7 +91,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
             </Typography>
           </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>
-            <Typography variant='body2' tag='p' className='text-muted-foreground'>
+            <Typography variant='body5' tag='p'>
               <I18nText path='organization.profile.tariff.valid' />
             </Typography>
           </InfoCardItemDescription>

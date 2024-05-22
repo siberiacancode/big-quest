@@ -17,11 +17,13 @@ const typographyVariants = cva('text-foreground', {
       sub2: 'leading-5 font-bold text-base',
       sub3: 'leading-5 font-medium text-base',
       sub4: 'leading-5 font-medium text-sm',
-      sub5: 'leading-[14px] font-medium text-sm',
+      sub5: 'leading-4 font-medium text-sm text-taiga',
+      sub6: 'leading-5 font-medium text-base text-muted-foreground',
       body1: 'leading-5 font-normal text-lg text-muted-foreground',
       body2: 'leading-5 font-normal text-base',
       body3: 'leading-4 font-normal text-sm text-muted-foreground',
-      body4: 'leading-[14px] font-normal text-[12px]'
+      body4: 'leading-[14px] font-normal text-[12px] text-muted-foreground',
+      body5: 'leading-5 font-normal text-base text-muted-foreground'
     }
   },
   defaultVariants: {

@@ -24,50 +24,35 @@ export const Header = ({ cityId }: HeaderProps) => (
       <ul className='flex items-center gap-12'>
         <li>
           <Link href={{ pathname: ROUTES.LANDING.ROOT, hash: 'banner' }}>
-            <Typography
-              variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga'
-            >
+            <Typography variant='body5' className='hover:font-semibold hover:text-taiga'>
               <I18nText path='landing.navigation.banner' />
             </Typography>
           </Link>
         </li>
         <li>
           <Link href={{ pathname: ROUTES.LANDING.ROOT, hash: 'news' }}>
-            <Typography
-              variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga'
-            >
+            <Typography variant='body5' className='hover:font-semibold hover:text-taiga'>
               <I18nText path='landing.navigation.news' />
             </Typography>
           </Link>
         </li>
         <li>
           <Link href={{ pathname: ROUTES.LANDING.ROOT, hash: 'activities' }}>
-            <Typography
-              variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga'
-            >
+            <Typography variant='body5' className='hover:font-semibold hover:text-taiga'>
               <I18nText path='landing.navigation.activities' />
             </Typography>
           </Link>
         </li>
         <li>
           <Link href={{ pathname: ROUTES.LANDING.ROOT, hash: 'feedback' }}>
-            <Typography
-              variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga'
-            >
+            <Typography variant='body5' className='hover:font-semibold hover:text-taiga'>
               <I18nText path='landing.navigation.feedback' />
             </Typography>
           </Link>
         </li>
         <li>
           <Link href={{ pathname: ROUTES.LANDING.ROOT, hash: 'questions' }}>
-            <Typography
-              variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga'
-            >
+            <Typography variant='body5' className='hover:font-semibold hover:text-taiga'>
               <I18nText path='landing.navigation.questions' />
             </Typography>
           </Link>
@@ -79,8 +64,8 @@ export const Header = ({ cityId }: HeaderProps) => (
         <DropdownMenuTrigger>
           <div className='flex items-center gap-2'>
             <Typography
-              variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga mdx:text-gray-two'
+              variant='body5'
+              className='hover:font-semibold hover:text-taiga mdx:text-gray-two'
             >
               {CITIES[cityId.toUpperCase()].name}
             </Typography>
@@ -102,10 +87,7 @@ export const Header = ({ cityId }: HeaderProps) => (
       </DropdownMenu>
       <div className='hidden lg:block'>
         <Link href={ROUTES.ORG.AUTH}>
-          <Typography
-            variant='body2'
-            className='text-muted-foreground hover:font-semibold hover:text-taiga'
-          >
+          <Typography variant='body5' className='hover:font-semibold hover:text-taiga'>
             <I18nText path='button.organizationsEntrance' />
           </Typography>
         </Link>

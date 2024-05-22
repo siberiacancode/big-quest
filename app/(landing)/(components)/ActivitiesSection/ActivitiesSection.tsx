@@ -45,7 +45,7 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
   return (
     <section id='activities' className='container py-12'>
       <div className='flex items-center justify-between'>
-        <Typography tag='h2' variant='h1' className='text-[21px] lg:text-4xl'>
+        <Typography tag='h2' variant='h6' className='lg:text-4xl'>
           <I18nText path='landing.activities.title' />
         </Typography>
         <Link href={ROUTES.APP.ACTIVITIES} className={buttonVariants({ variant: 'link' })}>
@@ -55,7 +55,7 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
           <ChevronRightIcon className='text-muted-foreground' />
         </Link>
       </div>
-      <div className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
+      <div className='mt-4 flex flex-col items-center justify-center gap-8 sm:mt-16 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
         {getActivityResponse.rows.map((activity) => {
           const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
 
