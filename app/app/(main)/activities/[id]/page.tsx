@@ -11,6 +11,7 @@ import {
 import { getActivityById } from '@/utils/api';
 import { ROUTES } from '@/utils/constants';
 
+import { ActivityInfo } from './(components)/ActivityInfo/ActivityInfo';
 import { ActivityMedia } from './(components)/ActivityMedia/ActivityMedia';
 import { AddressItem } from './(components)/AddressItem/AddressItem';
 
@@ -25,7 +26,7 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
       cache: 'no-store'
     }
   });
-  console.log(getActivityByIdResponse, 'getActivityByIdResponse');
+
   return (
     <section className='container py-[108px]'>
       <Breadcrumb>
@@ -40,6 +41,10 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
         </BreadcrumbList>
       </Breadcrumb>
       <ActivityMedia activity={getActivityByIdResponse} />
+      <ActivityInfo activity={getActivityByIdResponse} />
+      <Typography variant='body2' className='mb-8 mt-6 w-full text-muted-foreground'>
+        {getActivityByIdResponse.description}
+      </Typography>
       <div className='space-y-5'>
         <Typography tag='h5' variant='h7'>
           <I18nText path='landing.adresses.title' />
