@@ -19,6 +19,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
     <div className='flex flex-col items-end gap-4 overflow-y-auto px-5 smx:px-0'>
       <div className='grid h-screen max-h-[260px] w-full grid-cols-2 items-center gap-4 px-5 xsx:max-h-[130px] xsx:gap-2'>
         <div className='relative h-full'>
+          {/* Временное решение до мержа релиза */}
           <Image
             className='w-full rounded-lg sm:max-h-64 sm:w-[300px]'
             src={activity.media[0].url ?? background}
@@ -30,6 +31,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
         <div className='grid h-full grid-cols-2 grid-rows-2 gap-2'>
           {Array.from({ length: 4 }, (_, index) => (
             <div className='relative'>
+              {/* Временное решение до мержа релиза */}
               {activity.media && activity.media[index] ? (
                 <Image
                   className='max-h-[125px] w-full max-w-[150px] rounded-lg'

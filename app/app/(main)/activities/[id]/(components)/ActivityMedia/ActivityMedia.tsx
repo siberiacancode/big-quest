@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { WallpaperIcon } from 'lucide-react';
 import Image from 'next/image';
 
 import { cn } from '@/lib/utils';
@@ -72,11 +71,6 @@ export const ActivityMedia = ({ activity }: { activity: ActivityResponse }) => {
                 </div>
               )}
             </div>
-            {item.flag === 'AVATAR' && (
-              <div className='absolute right-0 top-0 m-2 rounded-full bg-emerald-700 p-2'>
-                <WallpaperIcon className='h-3 w-3 text-white' />
-              </div>
-            )}
           </div>
         ))}
       </div>

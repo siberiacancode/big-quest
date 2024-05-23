@@ -15,6 +15,7 @@ export const ActivityCard = ({ activity }: ActivityCardProps) => (
   <div className='h-[397px] w-full rounded-lg bg-background p-4'>
     <div className='relative h-2/3'>
       <div className='mdx-h-1/2 relative h-full w-full'>
+        {/* Временное решение до мержа релиза */}
         <Image
           className='w-full rounded-lg'
           src={activity.media[0].url ?? background}

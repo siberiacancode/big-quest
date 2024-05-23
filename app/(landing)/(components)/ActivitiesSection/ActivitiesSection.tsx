@@ -58,6 +58,7 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
       <div className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
         {getActivityPublicResponse.rows.map((activity) => (
           <ActivityCard>
+            {/* Временное решение до мержа релиза */}
             <ActivityCardImage src={activity.media[0].url} alt={activity.name} />
             <ActivityCardHeader>
               <ActivityCardCategory>{activity.category}</ActivityCardCategory>

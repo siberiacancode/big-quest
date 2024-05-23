@@ -34,6 +34,7 @@ export const ActivityList = () => {
       <div className='mt-6 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
         {activities.map((activity) => (
           <ActivityCard key={activity.id}>
+            {/* Временное решение до мержа релиза */}
             <ActivityCardImage src={activity.media[0].url} alt={activity.name} />
             <ActivityCardHeader>
               <ActivityCardCategory>{activity.category}</ActivityCardCategory>
