@@ -7,8 +7,26 @@ export const getActivityById: RestRequestConfig = {
     {
       data: {
         id: '1',
-        cover: '',
-        content: [],
+        media: [
+          {
+            id: '1',
+            type: 'IMAGE',
+            flag: 'AVATAR',
+            url: 'http://localhost:31299/api/1.0/static/activity/image-1.png'
+          },
+          {
+            id: '2',
+            type: 'IMAGE',
+            flag: undefined,
+            url: 'http://localhost:31299/api/1.0/static/activity/image-2.png'
+          },
+          {
+            id: '3',
+            type: 'IMAGE',
+            flag: undefined,
+            url: 'http://localhost:31299/api/1.0/static/activity/image-3.png'
+          }
+        ],
         name: 'Рисуем живопись',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',

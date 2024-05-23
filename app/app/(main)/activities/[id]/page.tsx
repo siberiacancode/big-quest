@@ -11,6 +11,7 @@ import {
 import { getActivityById } from '@/utils/api';
 import { ROUTES } from '@/utils/constants';
 
+import { ActivityMedia } from './(components)/ActivityMedia/ActivityMedia';
 import { AddressItem } from './(components)/AddressItem/AddressItem';
 
 interface ActivityPageProps {
@@ -24,7 +25,7 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
       cache: 'no-store'
     }
   });
-
+  console.log(getActivityByIdResponse, 'getActivityByIdResponse');
   return (
     <section className='container py-[108px]'>
       <Breadcrumb>
@@ -38,7 +39,7 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <div>Тут блок с картинками </div>
+      <ActivityMedia activity={getActivityByIdResponse} />
       <div className='space-y-5'>
         <Typography tag='h5' variant='h7'>
           <I18nText path='landing.adresses.title' />

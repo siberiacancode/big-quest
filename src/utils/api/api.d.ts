@@ -244,10 +244,20 @@ interface Schedule {
   period: number[];
 }
 
+type MediaResponseFlag = 'AVATAR' | 'COVER';
+
+type MediaResponseType = 'IMAGE' | 'VIDEO';
+
+interface MediaResponse {
+  flag?: MediaResponseFlag;
+  id: string;
+  type: MediaResponseType;
+  url: string;
+}
+
 interface ActivityResponse {
   id: string;
-  cover: string;
-  content?: string[];
+  media: MediaResponse[];
   name: string;
   description?: string;
   ageLimit: number[];

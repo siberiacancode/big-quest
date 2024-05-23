@@ -34,6 +34,7 @@ const config = {
       sm: { min: '640px' },
       '2sm': { min: '600px' },
       md: { min: '768px' },
+      '2md': { min: '900px' },
       lg: { min: '1024px' },
       '2lg': { min: '1124px' },
       xl: { min: '1280px' },

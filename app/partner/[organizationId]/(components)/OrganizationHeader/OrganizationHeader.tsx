@@ -54,7 +54,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
                 </Typography>
               </div>
             </div>
-            <div className='2md:hidden relative'>
+            <div className='relative 2md:hidden'>
               <MobileProfileDropdownMenu
                 partner={state.partner}
                 onEditPartnerClick={functions.onEditPartnerClick}
