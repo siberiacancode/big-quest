@@ -26,7 +26,7 @@ const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
   ]);
 
   return (
-    <section className='container py-[108px]'>
+    <section className='container bg-background p-6 2sm:rounded-[8px]'>
       <Providers
         activitiesPage={{
           defaultActivitiesPage: {
@@ -36,18 +36,18 @@ const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
           }
         }}
       >
-        <div className='mt-10 flex flex-col gap-5'>
-          <div className='flex gap-2'>
-            <Typography tag='h3' variant='h3' className='xsx:text-[25px]'>
+        <div className='flex flex-col gap-5'>
+          <div className='flex items-center gap-2'>
+            <Typography tag='h3' variant='h7' className='xsx:text-[25px]'>
               <I18nText path='landing.activities.title' />
             </Typography>
             {!!getActivityPublicResponse.rows.length && (
-              <Typography tag='h3' variant='h3' className='text-muted-foreground'>
+              <Typography tag='h3' variant='body3'>
                 {getActivityPublicResponse.pagination.count}
               </Typography>
             )}
           </div>
-          <div className='flex items-baseline justify-between space-y-3 lgx:flex-col'>
+          <div className='flex flex-wrap items-center justify-between gap-4'>
             <ActivitiesCategories />
             <ActivitySearchInput />
           </div>

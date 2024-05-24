@@ -30,7 +30,7 @@ const ActivityCardImage = React.forwardRef<HTMLDivElement, React.ComponentProps<
       <Image
         {...props}
         sizes='370px'
-        className={cn('w-full rounded-[8px] object-cover md:rounded-[30px]', className)}
+        className={cn('w-full rounded-[8px] object-cover 2md:rounded-[30px]', className)}
         fill
       />
     </div>
@@ -58,7 +58,7 @@ ActivityCardBanner.displayName = 'ActivityCardBanner';
 
 const ActivityCardName = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} {...props} className={cn('text-base font-semibold lg:text-xl', className)} />
+    <div ref={ref} {...props} className={cn('text-sm font-semibold 2xs:text-xl', className)} />
   )
 );
 
@@ -81,7 +81,7 @@ const ActivityCardCategory = React.forwardRef<HTMLDivElement, React.ComponentPro
     <div
       ref={ref}
       {...props}
-      className={cn('text-sm font-normal text-muted-foreground lg:text-base', className)}
+      className={cn('text-xs font-normal text-muted-foreground 2xs:text-base', className)}
     />
   )
 );
@@ -110,7 +110,7 @@ const ActivityCardContentItem = React.forwardRef<HTMLDivElement, React.Component
       ref={ref}
       {...props}
       className={cn(
-        'flex items-center gap-1 text-lg font-normal text-muted-foreground lg:gap-3',
+        'flex items-center gap-1 text-xs font-normal text-muted-foreground 2xs:text-lg lg:gap-3',
         className
       )}
     />
