@@ -23,9 +23,9 @@ export const ActivityMedia = ({ activity, isMobile }: ActivityMediaProps) => {
       {isMobile && <CarouselMedia activity={activity} />}
       {!isMobile && (
         <div className='flex w-full flex-col gap-4 md:flex-row 2md:gap-6'>
-          <div className='relative max-h-[483px] w-full md:max-w-[483px]'>
+          <div className='relative max-h-[483px] w-full md:w-[65%] md:max-w-[483px]'>
             {activeMedia.url && activeMedia.type === 'IMAGE' && (
-              <div className='p-1/2'>
+              <div className='aspect-square p-1/2'>
                 <Image
                   className='rounded-lg'
                   src={activeMedia.url}
@@ -47,12 +47,12 @@ export const ActivityMedia = ({ activity, isMobile }: ActivityMediaProps) => {
             )}
           </div>
 
-          <div className='flex w-full grid-rows-4 gap-2 overflow-x-scroll md:grid md:h-full md:w-fit md:grid-cols-2 md:overflow-x-hidden 2md:gap-4'>
+          <div className='flex w-full max-w-[240px] flex-grow grid-rows-4 gap-2 overflow-x-scroll md:grid md:h-full md:w-fit md:grid-cols-2 md:overflow-x-hidden 2md:gap-4'>
             {activity.media.map((item, index) => (
               <div className='relative' key={index}>
-                <div className='relative h-[112px]'>
+                <div className='relative w-[112px]  md:w-full'>
                   {item.url && item.type === 'IMAGE' && (
-                    <div className='size-[112px]'>
+                    <div className='aspect-square h-full w-full'>
                       <Image
                         className={cn(
                           'w-full rounded-lg',

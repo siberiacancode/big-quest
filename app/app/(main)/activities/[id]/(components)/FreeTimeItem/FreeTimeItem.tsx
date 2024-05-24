@@ -12,7 +12,7 @@ export const FreeTimeItem = ({ value }: FreeTimeItemProps) => {
   const dayNumber = new Date(value.date).getDay();
 
   return (
-    <div className='flex h-10 w-56 items-center justify-evenly rounded-lg border border-secondary '>
+    <div className='flex h-10 w-56 items-center justify-between rounded-lg border border-secondary px-[30px] '>
       <div className='flex items-center gap-2'>
         <CalendarIcon className='stroke-taiga' />
         <Typography variant='sub6' tag='p'>

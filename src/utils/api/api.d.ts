@@ -212,7 +212,7 @@ interface Time {
 }
 
 interface FreeTime {
-  date: string;
+  date: Date;
   time: string;
 }
 

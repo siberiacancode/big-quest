@@ -67,6 +67,10 @@ export const getActivityById: RestRequestConfig = {
                 time: '12:32'
               },
               {
+                date: new Date('2024-01-02'),
+                time: '12:20'
+              },
+              {
                 date: new Date('2024-07-04'),
                 time: '13:31'
               },

@@ -405,6 +405,9 @@
 
   "landing.adresses.title": "Адреса",
 
+  "app.activity.description": "Описание",
+  "app.activity.addresses": "Адреса",
+
   "toast.deleted": "Успешно удалено",
   "toast.organizationTariffChanged": "Тариф успешно изменен",
   "toast.organizationProfileChanged": "Профиль успешно изменен",

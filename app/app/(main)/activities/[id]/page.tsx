@@ -49,23 +49,30 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
       )}
       <div
         className={cn(
-          `bg-background xs:mt-6 xs:p-6 2sm:rounded-[8px]`,
-          isMobile && 'mb-[80px] h-fit min-h-screen pb-6'
+          `bg-background p-6 xs:mt-6 xs:rounded-[8px]`,
+          isMobile && 'mb-[80px] h-fit min-h-screen p-0 pb-6'
         )}
       >
         <ActivityMedia activity={getActivityByIdResponse} isMobile={isMobile} />
         <div className='px-[14px] xs:px-0'>
           <ActivityInfo activity={getActivityByIdResponse} />
-          <Typography variant='body2' className='mb-8 mt-6 w-full text-muted-foreground'>
-            {getActivityByIdResponse.description}
-          </Typography>
-          <div className='space-y-5'>
-            <Typography tag='h5' variant='h7'>
-              <I18nText path='landing.adresses.title' />
-            </Typography>
-            {getActivityByIdResponse.schedule?.map((schedule, index) => (
-              <AddressItem key={index} schedule={schedule} />
-            ))}
+          <div className='mt-4 space-y-4 md:space-y-8'>
+            <div className='space-y-3'>
+              <Typography tag='h5' variant='h7' className='text-sm md:text-lg'>
+                <I18nText path='app.activity.description' />
+              </Typography>
+              <Typography variant='body2' className='mb-8 w-full text-muted-foreground'>
+                {getActivityByIdResponse.description}
+              </Typography>
+            </div>
+            <div className='space-y-3 xs:space-y-5'>
+              <Typography tag='h5' variant='h7' className='text-sm md:text-lg'>
+                <I18nText path='app.activity.addresses' />
+              </Typography>
+              {getActivityByIdResponse.schedule?.map((schedule, index) => (
+                <AddressItem key={index} schedule={schedule} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ export const ActivityInfo = ({ activity }: { activity: ActivityResponse }) => (
                 )}
               </div> */}
       </ActivityCardHeaderTop>
-      <ActivityCardName className='2md:text-xl'>{activity.name}</ActivityCardName>
+      <ActivityCardName className='text-lg 2md:text-xl'>{activity.name}</ActivityCardName>
     </ActivityCardHeader>
     <ActivityCardContent className='mt-[11px]'>
       <div className='flex gap-[20px]'>
