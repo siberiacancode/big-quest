@@ -194,7 +194,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, CarouselPreviousPro
         variant={variant}
         size={size}
         className={cn(
-          'absolute  h-8 w-8 rounded-full',
+          'absolute h-8 w-8 rounded-full',
           orientation === 'horizontal'
             ? '-left-12 top-1/2 -translate-y-1/2'
             : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
@@ -246,10 +246,56 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, CarouselNextProps>(
 );
 CarouselNext.displayName = 'CarouselNext';
 
+const CarouselDots = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    const { api } = useCarousel();
+    const [, setUpdateState] = React.useState(false);
+    const toggleUpdateState = React.useCallback(
+      () => setUpdateState((prevState) => !prevState),
+      []
+    );
+
+    React.useEffect(() => {
+      if (api) {
+        api.on('select', toggleUpdateState);
+        api.on('reInit', toggleUpdateState);
+
+        return () => {
+          api.off('select', toggleUpdateState);
+          api.off('reInit', toggleUpdateState);
+        };
+      }
+    }, [api, toggleUpdateState]);
+
+    const numberOfSlides = api?.scrollSnapList().length || 0;
+    const currentSlide = api?.selectedScrollSnap() || 0;
+
+    return (
+      <div ref={ref} className={`flex justify-center ${props.className}`}>
+        {Array.from({ length: numberOfSlides }, (_, i) => (
+          <Button
+            key={i}
+            className={cn(
+              'mx-1 h-2 w-2 rounded-full p-0',
+              i === currentSlide
+                ? 'hover:bg-taiga-light scale-125 transform bg-taiga'
+                : 'bg-gray-300 hover:bg-gray-300'
+            )}
+            aria-label={`Go to slide ${i + 1}`}
+            onClick={() => api?.scrollTo(i)}
+          />
+        ))}
+      </div>
+    );
+  }
+);
+CarouselDots.displayName = 'CarouselDots';
+
 export {
   Carousel,
   type CarouselApi,
   CarouselContent,
+  CarouselDots,
   CarouselItem,
   CarouselNext,
   CarouselPrevious

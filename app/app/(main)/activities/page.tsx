@@ -26,7 +26,7 @@ const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
   ]);
 
   return (
-    <section className='container bg-background p-6 2sm:rounded-[8px]'>
+    <section className='container bg-background xs:p-6 2sm:rounded-[8px]'>
       <Providers
         activitiesPage={{
           defaultActivitiesPage: {
