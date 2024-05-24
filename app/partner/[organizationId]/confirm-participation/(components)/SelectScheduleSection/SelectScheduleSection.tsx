@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import type { ScheduleResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import { Button, RadioGroup, RadioGroupItem, Typography } from '@/components/ui';
 
@@ -26,20 +27,24 @@ export const SelectScheduleSection = ({ userId }: SelectScheduleSectionProps) =>
         onValueChange={functions.setSelectedActivityId}
         className='mt-6 flex grow flex-col gap-2 '
       >
-        {state.query?.data?.pages
-          .flatMap((page) => page.rows)
-          .filter((schedule) => schedule.activity)
-          .map((schedule) => (
-            <div key={schedule.id}>
-              <RadioGroupItem value={schedule.id} id={schedule.id} className='peer sr-only' />
-              <ScheduleCard
-                key={schedule.id}
-                id={schedule.id}
-                weekAndTime={schedule.weekAndTime}
-                activity={schedule.activity!}
-              />
-            </div>
-          ))}
+        {(
+          state.query?.data?.pages
+            .flatMap((page) => page.rows)
+            .filter((schedule) => schedule.activity) as RequiredFields<
+            ScheduleResponse,
+            'activity'
+          >[]
+        ).map((schedule) => (
+          <div key={schedule.id}>
+            <RadioGroupItem value={schedule.id} id={schedule.id} className='peer sr-only' />
+            <ScheduleCard
+              key={schedule.id}
+              id={schedule.id}
+              weekAndTime={schedule.weekAndTime}
+              activity={schedule.activity}
+            />
+          </div>
+        ))}
       </RadioGroup>
       <div ref={state.intersectionRef} />
       <Button

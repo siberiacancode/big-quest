@@ -14,11 +14,14 @@ const DEFAULT_SCHEDULES_LIMIT = 10;
 export const useSelectScheduleSection = ({ userId }: UseSelectScheduleSectionParams) => {
   const params = useParams<{ organizationId: string }>();
   const [selectedActivityId, setSelectedActivityId] = React.useState<string | undefined>();
+  // const dateString = new Date().toISOString();
 
   const getSchedulesByOrganizationIdInfiniteQuery = useGetSchedulesByOrganizationIdInfiniteQuery({
     organizationId: params.organizationId,
     current: DEFAULT_SCHEDULES_PAGE,
     limit: DEFAULT_SCHEDULES_LIMIT
+    // dateStart: dateString,
+    // dateEnd: dateString
   });
 
   const { ref } = useIntersectionObserver({
