@@ -17,7 +17,7 @@ interface UseProfileEditFormParams {
 export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
   const i18n = useI18n();
   const fileInputRef = React.useRef<HTMLInputElement | null>(null);
-  const [copiedText, copy] = useCopyToClipboard();
+  const [, copy] = useCopyToClipboard();
 
   const profileEditForm = useForm<ProfileEditSchema>({
     mode: 'onSubmit',
@@ -39,7 +39,7 @@ export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
 
   const onCopy = (value: string) => {
     copy(value);
-    toast.success(i18n.formatMessage({ id: 'toast.userIdCopied' }, { value: copiedText }));
+    toast.success(i18n.formatMessage({ id: 'toast.userIdCopied' }, { value }));
   };
 
   const onSubmit = profileEditForm.handleSubmit(async (values) => {
