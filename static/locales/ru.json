@@ -385,5 +385,6 @@
   "toast.addAddress": "Адрес добавлен",
   "toast.editAddress": "Адрес отредактирован",
   "toast.addEmployee": "Сотрудник добавлен",
-  "toast.editEmployee": "Сотрудник отредактирован"
+  "toast.editEmployee": "Сотрудник отредактирован",
+  "toast.userIdCopied": "Код участника {value} скопирован"
 }

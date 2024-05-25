@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import { CheckIcon, CopyIcon } from 'lucide-react';
-import { useCopyToClipboard } from 'usehooks-ts';
+import { CopyIcon } from 'lucide-react';
 
 import userPlaceholder from '@/assets/images/avatar/participant.png';
 import { I18nText } from '@/components/common';
@@ -32,7 +31,6 @@ interface ProfileEditFormProps {
 
 export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
   const i18n = useI18n();
-  const [copiedText, copy] = useCopyToClipboard();
   const { state, form, functions } = useProfileEditForm({ user });
 
   return (
@@ -172,16 +170,12 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                         </FormControl>
                         <Button
                           variant='ghost'
-                          onClick={() => copy(form.getValues('userId'))}
+                          onClick={() => functions.onCopy(form.getValues('userId'))}
                           size='icon'
                           className='absolute right-1 top-0'
                           type='button'
                         >
-                          {copiedText ? (
-                            <CheckIcon className='stroke-muted-foreground' size={20} />
-                          ) : (
-                            <CopyIcon className='stroke-muted-foreground' size={20} />
-                          )}
+                          <CopyIcon className='stroke-muted-foreground' size={20} />
                         </Button>
                       </div>
                       <Typography variant='body4' tag='p' className='text-muted-foreground'>
