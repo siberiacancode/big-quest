@@ -19,7 +19,7 @@ const ProfileEditPage = async () => {
           href={ROUTES.APP.ACTIVITIES}
           className={cn(buttonVariants({ variant: 'link' }), 'absolute')}
         >
-          <ChevronLeftIcon size={32} className='rounded-md border' />
+          <ChevronLeftIcon className='size-8 rounded-md border' />
         </Link>
         <Typography variant='h6' className='flex-grow text-center font-semibold'>
           <I18nText path='app.profile.edit.title' />

@@ -175,7 +175,7 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                           className='absolute right-1 top-0'
                           type='button'
                         >
-                          <CopyIcon className='stroke-muted-foreground' size={20} />
+                          <CopyIcon className='size-5 stroke-muted-foreground' />
                         </Button>
                       </div>
                       <Typography variant='body4' tag='p' className='text-muted-foreground'>

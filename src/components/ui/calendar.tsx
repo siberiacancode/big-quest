@@ -1,6 +1,3 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable react/no-unstable-nested-components */
-
 'use client';
 
 import * as React from 'react';
@@ -49,7 +46,9 @@ const Calendar = ({ className, classNames, showOutsideDays = true, ...props }: C
       ...classNames
     }}
     components={{
+      // eslint-disable-next-line react/no-unstable-nested-components
       IconLeft: () => <ChevronLeft className='h-4 w-4' />,
+      // eslint-disable-next-line react/no-unstable-nested-components
       IconRight: () => <ChevronRight className='h-4 w-4' />
     }}
     {...props}
