@@ -3,6 +3,11 @@ import { CalendarIcon } from 'lucide-react';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 
+export interface FreeTime {
+  date: string;
+  time: string;
+}
+
 interface FreeTimeItemProps {
   value: FreeTime;
 }

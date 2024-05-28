@@ -1,6 +1,7 @@
 import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 
+import type { ActivityResponse } from '@/api-types';
 import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 

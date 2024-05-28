@@ -1,22 +1,17 @@
-import { CalendarIcon } from 'lucide-react';
-
-import { Typography } from '@/components/ui';
-
-import { FreeTimeItem } from '../FreeTimeItem/FreeTimeItem';
-
-import { groupTimesByDate } from './(constants)/groupTimesByDate';
+import type { ScheduleActivityDto } from '@/api-types';
 
 interface FreeTimeListProps {
   isMobile: boolean;
-  schedule: Schedule;
+  schedule: ScheduleActivityDto;
 }
 
 export const FreeTimeList = ({ isMobile, schedule }: FreeTimeListProps) => {
+  console.log(isMobile, schedule);
   return (
     <>
-      {!isMobile && (
+      {/* {!isMobile && (
         <div className='flex flex-wrap gap-3'>
-          {schedule.nearestFreeTime?.map((time, index) => (
+          } {schedule.nearestFreeTime?.map((time, index) => (
             <FreeTimeItem value={time} key={index} />
           ))}
         </div>
@@ -39,7 +34,7 @@ export const FreeTimeList = ({ isMobile, schedule }: FreeTimeListProps) => {
             </div>
           ))}
         </div>
-      )}
+      )} */}
     </>
   );
 };

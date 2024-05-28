@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 
+import type { ActivityResponse } from '@/api-types';
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 

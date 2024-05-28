@@ -15,7 +15,6 @@ import { getDevice } from '@/utils/helpers/server';
 
 import { ActivityInfo } from './(components)/ActivityInfo/ActivityInfo';
 import { ActivityMedia } from './(components)/ActivityMedia/ActivityMedia';
-import { AddressItem } from './(components)/AddressItem/AddressItem';
 
 interface ActivityPageProps {
   params: { id: string };
@@ -69,9 +68,9 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
               <Typography tag='h5' variant='h7' className='text-sm md:text-lg'>
                 <I18nText path='app.activity.addresses' />
               </Typography>
-              {getActivityByIdResponse.schedule?.map((schedule, index) => (
+              {/* {getActivityByIdResponse.schedule?.map((schedule, index) => (
                 <AddressItem key={index} schedule={schedule} />
-              ))}
+              ))} */}
             </div>
           </div>
         </div>

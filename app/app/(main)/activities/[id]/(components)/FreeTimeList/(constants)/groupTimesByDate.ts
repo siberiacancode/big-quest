@@ -1,4 +1,6 @@
-export const formatDate = (date: Date) => {
+import type { FreeTime } from '../../FreeTimeItem/FreeTimeItem';
+
+export const formatDate = (date: string) => {
   const day = String(new Date(date).getDate()).padStart(2, '0');
   const month = String(new Date(date).getMonth() + 1).padStart(2, '0');
   const year = String(new Date(date).getFullYear()).slice(-2);

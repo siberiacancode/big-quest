@@ -1,3 +1,4 @@
+import type { ScheduleActivityDto } from '@/api-types';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import {
@@ -11,7 +12,7 @@ import { getDevice } from '@/utils/helpers/server';
 import { FreeTimeList } from '../FreeTimeList/FreeTimeList';
 
 interface AddressItemProps {
-  schedule: Schedule;
+  schedule: ScheduleActivityDto;
 }
 
 export const AddressItem = ({ schedule }: AddressItemProps) => {
@@ -29,9 +30,9 @@ export const AddressItem = ({ schedule }: AddressItemProps) => {
             <Typography variant='sub3' tag='h3'>
               <I18nText path='field.details.label' />
             </Typography>
-            <Typography variant='body5' tag='p'>
+            {/* <Typography variant='body5' tag='p'>
               {schedule?.details}
-            </Typography>
+            </Typography> */}
           </div>
           <div className='flex flex-col gap-3 md:flex-row'>
             <div className='w-1/3 min-w-60'>
