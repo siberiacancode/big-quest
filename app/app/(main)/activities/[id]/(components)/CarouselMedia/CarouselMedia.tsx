@@ -1,13 +1,16 @@
-import Autoplay from 'embla-carousel-autoplay';
+'use client';
+
 import Image from 'next/image';
 
 import type { ActivityResponse } from '@/api-types';
 import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 
-const CAROUSEL_AUTO_PLAY_DELAY = 8000;
+interface CarouselMediaProps {
+  activity: ActivityResponse;
+}
 
-export const CarouselMedia = ({ activity }: { activity: ActivityResponse }) => {
+export const CarouselMedia = ({ activity }: CarouselMediaProps) => {
   const i18n = useI18n();
 
   return (
@@ -16,7 +19,6 @@ export const CarouselMedia = ({ activity }: { activity: ActivityResponse }) => {
       opts={{
         loop: true
       }}
-      plugins={[Autoplay({ delay: CAROUSEL_AUTO_PLAY_DELAY })]}
     >
       <CarouselContent>
         {activity.media.map((item, index) => (

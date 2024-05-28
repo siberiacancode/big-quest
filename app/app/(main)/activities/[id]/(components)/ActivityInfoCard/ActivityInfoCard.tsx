@@ -3,6 +3,7 @@ import { Clock4Icon, UserRoundIcon } from 'lucide-react';
 import type { ActivityResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
+  ActivityCard,
   ActivityCardCategory,
   ActivityCardContent,
   ActivityCardContentItem,
@@ -13,8 +14,8 @@ import {
   Typography
 } from '@/components/ui';
 
-export const ActivityInfo = ({ activity }: { activity: ActivityResponse }) => (
-  <div className='mt-3 max-w-[483px]'>
+export const ActivityInfoCard = ({ activity }: { activity: ActivityResponse }) => (
+  <ActivityCard className='mt-3 max-w-[483px]'>
     <ActivityCardHeader className='lg:gap-2'>
       <ActivityCardHeaderTop className='mb-0 mt-0'>
         <ActivityCardCategory>{activity.category.RU}</ActivityCardCategory>
@@ -66,5 +67,5 @@ export const ActivityInfo = ({ activity }: { activity: ActivityResponse }) => (
       </div>
     </ActivityCardContent>
     <ActivityCardDivider className='mt-4' />
-  </div>
+  </ActivityCard>
 );

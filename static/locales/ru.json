@@ -215,6 +215,9 @@
   "field.userId.placeholder": "@user ID",
   "field.code.label": "Код",
   "field.code.placeholder": "****",
+  "field.workTime.label": "Время работы",
+  "field.workTime.preEntry.label": "По предварительной записи",
+  "field.employee.number.label": "Номер для связи",
 
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",

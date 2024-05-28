@@ -9,12 +9,15 @@ import {
   Typography
 } from '@/components/ui';
 import { cn } from '@/lib/utils';
-import { getActivityById } from '@/utils/api';
+import { getActivityById, getScheduleByActivityId } from '@/utils/api';
 import { ROUTES } from '@/utils/constants';
 import { getDevice } from '@/utils/helpers/server';
 
-import { ActivityInfo } from './(components)/ActivityInfo/ActivityInfo';
+import { ActivityInfoCard } from './(components)/ActivityInfoCard/ActivityInfoCard';
 import { ActivityMedia } from './(components)/ActivityMedia/ActivityMedia';
+import { AddressItem } from './(components)/AddressItem/AddressItem';
+import { CarouselMedia } from './(components)/CarouselMedia/CarouselMedia';
+import { groupAddresses } from './(constants)/groupAddresses';
 
 interface ActivityPageProps {
   params: { id: string };
@@ -31,8 +34,15 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
     }
   });
 
+  const getScheduleByActivityIdResponse = await getScheduleByActivityId({
+    params: { id: params.id },
+    config: {
+      cache: 'no-store'
+    }
+  });
+
   return (
-    <section className='container xsx:p-0 '>
+    <section className='container p-0'>
       {!isMobile && (
         <Breadcrumb>
           <BreadcrumbList>
@@ -48,13 +58,14 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
       )}
       <div
         className={cn(
-          `bg-background p-6 xs:mt-6 xs:rounded-[8px]`,
-          isMobile && 'mb-[80px] h-fit min-h-screen p-0 pb-6'
+          'bg-background p-6 xs:mt-6 xs:rounded-[8px]',
+          isMobile && 'mb-20 h-fit min-h-screen p-0 pb-6'
         )}
       >
-        <ActivityMedia activity={getActivityByIdResponse} isMobile={isMobile} />
+        {isMobile && <CarouselMedia activity={getActivityByIdResponse} />}
+        {!isMobile && <ActivityMedia activity={getActivityByIdResponse} />}
         <div className='px-[14px] xs:px-0'>
-          <ActivityInfo activity={getActivityByIdResponse} />
+          <ActivityInfoCard activity={getActivityByIdResponse} />
           <div className='mt-4 space-y-4 md:space-y-8'>
             <div className='space-y-3'>
               <Typography tag='h5' variant='h7' className='text-sm md:text-lg'>
@@ -64,14 +75,16 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
                 {getActivityByIdResponse.description}
               </Typography>
             </div>
-            <div className='space-y-3 xs:space-y-5'>
-              <Typography tag='h5' variant='h7' className='text-sm md:text-lg'>
-                <I18nText path='app.activity.addresses' />
-              </Typography>
-              {/* {getActivityByIdResponse.schedule?.map((schedule, index) => (
-                <AddressItem key={index} schedule={schedule} />
-              ))} */}
-            </div>
+            {getScheduleByActivityIdResponse.rows && (
+              <div className='space-y-3 xs:space-y-5'>
+                <Typography tag='h5' variant='h7' className='text-sm md:text-lg'>
+                  <I18nText path='app.activity.addresses' />
+                </Typography>
+                {groupAddresses(getScheduleByActivityIdResponse.rows).map((address, index) => (
+                  <AddressItem key={index} address={address} />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

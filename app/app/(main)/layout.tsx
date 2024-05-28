@@ -13,7 +13,6 @@ const AppLayout = ({ children }: AppLayoutProps) => {
 
   return (
     <div className='h-screen min-h-screen overflow-y-auto bg-secondary 2sm:h-full'>
-      {/* Здесь должен быть хэдер с поиском и кнопками */}
       <div className='h-fit min-h-full max-w-[880px] xs:m-4 2md:mx-[100px] 2md:my-[60px] 2lg:mx-[200px] xl:mx-auto'>
         {children}
       </div>
