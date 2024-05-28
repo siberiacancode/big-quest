@@ -5,6 +5,7 @@
  * ## API BQ
  * OpenAPI spec version: 1.0
  */
+import type { WorkingTimeDto } from './workingTimeDto';
 
 export interface WorkingHourDto {
   /** Дни недели от 0 до 6, где 0 - понедельник */
@@ -12,7 +13,7 @@ export interface WorkingHourDto {
   /** Выходной */
   dayOff: boolean;
   /** Время С */
-  from: any;
+  from: WorkingTimeDto;
   /** Время По */
-  to: any;
+  to: WorkingTimeDto;
 }

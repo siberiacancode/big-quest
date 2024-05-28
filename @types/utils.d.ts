@@ -7,3 +7,5 @@ type CITY =
   | 'KEMEROVO'
   | 'NOVOKUZNETSK'
   | 'MEZHDURECHENSK';
+
+type $TSFIXME = any;

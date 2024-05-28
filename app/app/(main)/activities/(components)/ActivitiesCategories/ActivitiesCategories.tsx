@@ -26,12 +26,12 @@ export const ActivitiesCategories = () => {
 
           {categories.map((category) => (
             <TabsTrigger
-              key={category.name}
-              value={category.name}
+              key={category.id}
+              value={category.data.RU}
               className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
-              onClick={() => onCategoryClick(category.name)}
+              onClick={() => onCategoryClick(category.data.RU)}
             >
-              {category.name}
+              {category.data.RU}
             </TabsTrigger>
           ))}
         </TabsList>

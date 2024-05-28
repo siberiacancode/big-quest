@@ -1,6 +1,6 @@
 import { api } from '@/utils/api/instance';
 
-export type PutOrganizationEditEmployeeParams = EditEmployeeDto;
+export type PutOrganizationEditEmployeeParams = Record<$TSFIXME, $TSFIXME>;
 
 export type PutOrganizationEditEmployeeRequestConfig =
   RequestConfig<PutOrganizationEditEmployeeParams>;

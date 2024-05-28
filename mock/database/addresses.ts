@@ -1,3 +1,5 @@
+import type { AddressResponse } from '@/api-types';
+
 export const ADDRESSES: AddressResponse[] = [
   {
     id: '1',

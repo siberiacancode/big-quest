@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Clock4Icon, UserRoundIcon } from 'lucide-react';
-import Link from 'next/link';
 import { useIntersectionObserver } from 'usehooks-ts';
 
 import { I18nText } from '@/components/common';
@@ -17,7 +16,6 @@ import {
   ActivityCardName,
   Typography
 } from '@/components/ui';
-import { ROUTES } from '@/utils/constants';
 
 import { useActivitiesPage } from '../../(contexts)/activitiesPage';
 
@@ -34,18 +32,15 @@ export const ActivityList = () => {
 
   return (
     <>
-      <div className='grid grid-cols-2 gap-x-2 gap-y-5 lgx:w-full md:grid-cols-3  md:gap-x-3 md:gap-y-8'>
-        {activities.map((activity) => (
-          <Link href={`${ROUTES.APP.ACTIVITIES}/${activity.id}`}>
+      <div className='mt-6 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
+        {activities.map((activity) => {
+          const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
+
+          return (
             <ActivityCard key={activity.id}>
-              {/* Временное решение до мержа релиза */}
-              <ActivityCardImage
-                src={activity.media[0].url}
-                alt={activity.name}
-                className='2md:rounded-[8px]'
-              />
+              <ActivityCardImage src={activityCover.url} alt={activity.name} />
               <ActivityCardHeader>
-                <ActivityCardCategory>{activity.category}</ActivityCardCategory>
+                <ActivityCardCategory>{activity.category.RU}</ActivityCardCategory>
                 <ActivityCardName>{activity.name}</ActivityCardName>
               </ActivityCardHeader>
               <ActivityCardDivider />
@@ -78,8 +73,8 @@ export const ActivityList = () => {
                 </ActivityCardContentItem>
               </ActivityCardContent>
             </ActivityCard>
-          </Link>
-        ))}
+          );
+        })}
       </div>
       <div ref={ref} />
     </>

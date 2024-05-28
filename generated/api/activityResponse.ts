@@ -5,42 +5,36 @@
  * ## API BQ
  * OpenAPI spec version: 1.0
  */
-import type { MediaDto } from './mediaDto';
-import type { ScheduleResponse } from './scheduleResponse';
-import type { ActivityResponseStatus } from './activityResponseStatus';
-import type { ActivityResponseView } from './activityResponseView';
+import type { Translations } from './translations';
+import type { MediaResponse } from './mediaResponse';
+import type { ActivityStatus } from './activityStatus';
+import type { ActivityView } from './activityView';
 
 export interface ActivityResponse {
   /** Возрастное ограничение ОТ и ДО */
   ageLimit: number[];
   /** Категория */
-  category: string;
-  /** Обложка */
-  cover: string;
+  category: Translations;
   /** Описание */
-  description: string;
+  description?: string;
   /** Продолжительность (мин) */
   duration: number;
   /** Идентификатор */
   id: string;
-  /** Лайки */
+  /** Кол-во лайков */
   likes: number;
-  /** контент (фото/видео) */
-  media: MediaDto[];
+  /** Медиа */
+  media: MediaResponse[];
   /** Название */
   name: string;
   /** Кол-во орешков */
   nutsCount: number;
-  /** Участники */
-  participants: number;
   /** Стоимость */
   price: number;
   /** Повторное прохождение */
   replay: boolean;
-  /** Расписание */
-  schedule: ScheduleResponse[];
-  /** Статус */
-  status: ActivityResponseStatus;
-  /** Вид */
-  view: ActivityResponseView;
+  /** Идентификатор родительской активности */
+  rootId: string;
+  status: ActivityStatus;
+  view: ActivityView;
 }

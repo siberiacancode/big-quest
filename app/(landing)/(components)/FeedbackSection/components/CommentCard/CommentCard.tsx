@@ -7,19 +7,15 @@ export interface CommentCardProps {
   avatar: StaticImageData;
   text: string;
   author: string;
-  authorAge: number;
 }
 
-export const CommentCard = ({ avatar, text, author, authorAge }: CommentCardProps) => (
-  <div className='flex flex-col items-center gap-[22px] rounded-md bg-taiga px-[30px] py-[60px] lgx:px-6 lgx:py-12 mdx:gap-3 mdx:px-4 mdx:py-9'>
-    <Image src={avatar} alt='avatar' />
-    <Typography variant='h4' className='text-white'>
+export const CommentCard = ({ avatar, text, author }: CommentCardProps) => (
+  <div className='flex h-full flex-col items-center gap-4 rounded-2xl bg-white px-8 pt-12 md:rounded-3xl'>
+    <Image src={avatar} alt='avatar' className='size-32' />
+    <Typography variant='h4' className='text-lg text-primary lg:text-xl'>
       {author}
     </Typography>
-    <Typography variant='body2' className='text-white'>
-      {authorAge}
-    </Typography>
-    <Typography className='text-center text-xl font-normal text-white mdx:text-lg'>
+    <Typography className='mt-3 text-center text-base font-normal text-gray-two lg:text-xl'>
       {text}
     </Typography>
   </div>

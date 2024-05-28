@@ -6,11 +6,11 @@
  * OpenAPI spec version: 1.0
  */
 import type { PaginationResponse } from './paginationResponse';
-import type { ActivityResponse } from './activityResponse';
+import type { ActivityListResponse } from './activityListResponse';
 
 export interface ActivityWithPaginationResponse {
   /** Пагинация */
   pagination: PaginationResponse;
   /** Строки с данными */
-  rows: ActivityResponse[];
+  rows: ActivityListResponse[];
 }

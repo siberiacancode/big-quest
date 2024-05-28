@@ -17,36 +17,54 @@ const config = {
     screens: {
       '4xlx': { max: '2560px' },
       '3xlx': { max: '1750px' },
+      xxlx: { max: '1500px' },
       '2xlx': { max: '1400px' },
       xlx: { max: '1280px' },
       '2lgx': { max: '1124px' },
       lgx: { max: '1023px' },
+      '3mdx': { max: '925px' },
       '2mdx': { max: '900px' },
       mdx: { max: '768px' },
+      '3smx': { max: '705px' },
       '2smx': { max: '600px' },
       smx: { max: '639px' },
       '2xsx': { max: '560px' },
-      '2xs': { min: '560px' },
       xsx: { max: '475px' },
       xxsx: { max: '375px' },
+
       xxs: { min: '375px' },
       xs: { min: '475px' },
+      '2xs': { min: '560px' },
       sm: { min: '640px' },
       '2sm': { min: '600px' },
-      md: { min: '768px' },
+      '3sm': { min: '705px' },
+      md: { min: '769px' },
       '2md': { min: '900px' },
+      '3md': { min: '925px' },
       lg: { min: '1024px' },
       '2lg': { min: '1124px' },
       xl: { min: '1280px' },
       '2xl': { min: '1400px' },
+      xxl: { min: '1500px' },
       '3xl': { min: '1750px' },
       '4xl': { min: '2560px' }
     },
     container: {
       center: true,
-      padding: '2rem',
+      padding: {
+        DEFAULT: '1rem',
+        xxs: '2rem',
+        sm: '2rem',
+        lg: '1rem',
+        '2xl': '0.5rem'
+      },
       screens: {
-        '2xl': '1400px'
+        xxs: '800px',
+        xs: '920px',
+        sm: '1024px',
+        lg: '1124px',
+        '2lg': '1124px',
+        '2xl': '1320px'
       }
     },
     extend: {
@@ -65,7 +83,11 @@ const config = {
           two: 'hsl(var(--gray-two))',
           light: 'hsl(var(--gray-light))'
         },
-        taiga: { DEFAULT: 'hsl(var(--taiga-light))', foreground: 'hsl(var(--taiga-dark))' },
+        taiga: {
+          DEFAULT: 'hsl(var(--taiga-light))',
+          foreground: 'hsl(var(--taiga-dark))',
+          light: 'hsl(var(--taiga-light-two))'
+        },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))'

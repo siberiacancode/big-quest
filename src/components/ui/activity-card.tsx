@@ -30,7 +30,7 @@ const ActivityCardImage = React.forwardRef<HTMLDivElement, React.ComponentProps<
       <Image
         {...props}
         sizes='370px'
-        className={cn('w-full rounded-[8px] object-cover 2md:rounded-[30px]', className)}
+        className={cn('w-full rounded-[8px] object-cover md:rounded-[30px]', className)}
         fill
       />
     </div>

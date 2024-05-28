@@ -7,12 +7,6 @@
  */
 
 /**
- * Вид
+ * Видимость
  */
-export type ActivityResponseView = (typeof ActivityResponseView)[keyof typeof ActivityResponseView];
-
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export const ActivityResponseView = {
-  ONLINE: 'ONLINE',
-  OFFLINE: 'OFFLINE'
-} as const;
+export type ActivityResponseView = $TSFIXME;

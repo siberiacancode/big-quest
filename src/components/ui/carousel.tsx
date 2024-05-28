@@ -292,6 +292,7 @@ const CarouselDots = React.forwardRef<
     </div>
   );
 });
+
 CarouselDots.displayName = 'CarouselDots';
 
 export {

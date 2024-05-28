@@ -2,7 +2,7 @@ import React from 'react';
 
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
-import { getActivityPublic, getCategory } from '@/utils/api';
+import { getActivity, getCategory } from '@/utils/api';
 
 import { ActivitiesCategories, ActivityList, ActivitySearchInput } from './(components)';
 import { DEFAULT_ACTIVITIES_LIMIT, DEFAULT_ACTIVITIES_PAGE } from './(constants)';
@@ -13,9 +13,9 @@ interface ActivitiesPageProps {
 }
 
 const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
-  const [getCategoryResponse, getActivityPublicResponse] = await Promise.all([
+  const [getCategoryResponse, getActivityResponse] = await Promise.all([
     getCategory({ config: { cache: 'no-store' } }),
-    getActivityPublic({
+    getActivity({
       params: {
         limit: DEFAULT_ACTIVITIES_LIMIT,
         current: DEFAULT_ACTIVITIES_PAGE,
@@ -30,9 +30,9 @@ const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
       <Providers
         activitiesPage={{
           defaultActivitiesPage: {
-            categories: getCategoryResponse,
-            activities: getActivityPublicResponse.rows,
-            pagination: getActivityPublicResponse.pagination
+            categories: getCategoryResponse.rows,
+            activities: getActivityResponse.rows,
+            pagination: getActivityResponse.pagination
           }
         }}
       >
@@ -41,9 +41,9 @@ const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
             <Typography tag='h3' variant='h7' className='xsx:text-[25px]'>
               <I18nText path='landing.activities.title' />
             </Typography>
-            {!!getActivityPublicResponse.rows.length && (
+            {!!getActivityResponse.rows.length && (
               <Typography tag='h3' variant='body3'>
-                {getActivityPublicResponse.pagination.count}
+                {getActivityResponse.pagination.count}
               </Typography>
             )}
           </div>

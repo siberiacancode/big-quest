@@ -7,12 +7,8 @@ import { SidebarNavigation } from '../navigation/SidebarNavigation/SidebarNaviga
 
 type OrgSidebarProps = Omit<SidebarProps, 'children'>;
 
-export const OrgSidebar = (props: OrgSidebarProps) => {
-  const userRole = 'organizer';
-
-  return (
-    <Sidebar {...props}>
-      {(isOpen) => <SidebarNavigation isOpen={isOpen} userRole={userRole} />}
-    </Sidebar>
-  );
-};
+export const OrgSidebar = (props: OrgSidebarProps) => (
+  <Sidebar {...props}>
+    {(isOpen) => <SidebarNavigation isOpen={isOpen} userRole='SUPERADMIN' />}
+  </Sidebar>
+);

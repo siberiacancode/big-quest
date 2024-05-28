@@ -32,6 +32,7 @@
     --gray-light: 0, 0%, 90%, 1;
     --taiga-dark: 145 100% 10%;
     --taiga-light: 155 100% 17%;
+    --taiga-light-two: 145 63% 42%;
     --input-bg: 240 20% 99%;
     --tabs-background: 0 0% 100%;
     --tabs-text: 0 0% 10%;
@@ -66,6 +67,7 @@
     --gray-light: 0, 0%, 18%, 1;
     --taiga-dark: 145, 100%, 10%;
     --taiga-light: 155, 100%, 17%;
+    --taiga-light-two: 145 63% 42%;
     --tabs-background: 0 0% 100%;
     --tabs-text: 0 0% 10%;
     --dropzone-border: 0 0% 90%;
@@ -85,13 +87,29 @@
 
 @layer base {
 
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
     margin: 0;
     appearance: none;
   }
 
-  input[type="number"] {
-    appearance: textfield
+  input[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+
+  .scrollbar_hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+
+  .scrollbar_hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

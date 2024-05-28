@@ -10,4 +10,4 @@ export const getOrganizationEmployees = async ({
   params,
   config
 }: GetOrganizationEmployeesRequestConfig) =>
-  api.get<EmployeeDto[]>(`/organization/${params.id}/employees`, config);
+  api.get<$TSFIXME>(`/organization/${params.id}/employees`, config);
