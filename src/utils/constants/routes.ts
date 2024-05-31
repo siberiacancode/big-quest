@@ -38,7 +38,11 @@ export const ROUTES = {
     },
     AUTH: '/app/auth',
     SETTINGS: '/app/settings',
-    ACTIVITIES: '/app/activities',
+    ACTIVITIES: {
+      ROOT: '/app/activities',
+      ID: (activityId: string) => `/app/activities/${activityId}`,
+      SCHEDULE: (activityId: string) => `/app/activities/${activityId}/schedule`
+    },
     RATING: '/app/rating',
     SUPPORT: '/app/support',
     TAIGA: '/app/taiga'

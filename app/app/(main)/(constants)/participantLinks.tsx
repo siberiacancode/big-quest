@@ -5,7 +5,7 @@ export const PARTICIPANT_LINKS = [
   {
     icon: <ActivitiesIcon />,
     text: 'navigation.link.app.activities',
-    href: ROUTES.APP.ACTIVITIES
+    href: ROUTES.APP.ACTIVITIES.ROOT
   },
   {
     icon: <RatingIcon />,

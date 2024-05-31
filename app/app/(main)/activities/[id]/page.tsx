@@ -47,7 +47,7 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem className='list-none text-base'>
-              <BreadcrumbLink href={ROUTES.APP.ACTIVITIES}>
+              <BreadcrumbLink href={ROUTES.APP.ACTIVITIES.ROOT}>
                 <I18nText path='landing.activities.title' />
               </BreadcrumbLink>
               <BreadcrumbSeparator />
@@ -81,7 +81,7 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
                   <I18nText path='app.activity.addresses' />
                 </Typography>
                 {groupAddresses(getScheduleByActivityIdResponse.rows).map((address, index) => (
-                  <AddressItem key={index} address={address} />
+                  <AddressItem key={index} address={address} id={params.id} />
                 ))}
               </div>
             )}

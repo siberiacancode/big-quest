@@ -426,6 +426,9 @@
 
   "app.activity.description": "Описание",
   "app.activity.addresses": "Адреса",
+  "app.activity.schedule.title": "Выберите дату",
+  "app.activity.schedule.label": "Выбор даты",
+  "app.activity.schedule.time.title": "Выберите время",
 
   "toast.deleted": "Успешно удалено",
   "toast.organizationTariffChanged": "Тариф успешно изменен",
