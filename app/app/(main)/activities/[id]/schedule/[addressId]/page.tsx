@@ -27,7 +27,12 @@ const SchedulePage = async ({ params }: SchedulePageProps) => {
   });
 
   return (
-    <section className='container relative min-h-screen bg-white px-4'>
+    <section
+      className={cn(
+        'container relative mx-auto  min-h-[677px] rounded-[8px] bg-white px-4 md:min-h-fit md:px-6 md:py-6',
+        isMobile && 'min-h-screen rounded-[0px]'
+      )}
+    >
       {isMobile && (
         <div className='pt-[42px]'>
           <Link
@@ -44,6 +49,7 @@ const SchedulePage = async ({ params }: SchedulePageProps) => {
           </Typography>
         </div>
       )}
+
       <CalendarItem
         schedule={getScheduleByActivityIdResponse.rows.filter(
           (schedule) => schedule.address?.id === params.addressId

@@ -429,6 +429,7 @@
   "app.activity.schedule.title": "Выберите дату",
   "app.activity.schedule.label": "Выбор даты",
   "app.activity.schedule.time.title": "Выберите время",
+  "app.activity.schedule.time.description": "Ниже представлены доступное время для записи",
 
   "toast.deleted": "Успешно удалено",
   "toast.organizationTariffChanged": "Тариф успешно изменен",

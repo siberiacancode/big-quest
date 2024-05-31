@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
@@ -22,9 +21,6 @@ export const FreeTimeList = ({ schedule }: FreeTimeListProps) => {
 
   return (
     <div className='mt-4 w-full space-y-4 md:space-y-8 '>
-      <Typography variant='sub2' tag='h1' className=''>
-        <I18nText path='app.activity.schedule.time.title' />
-      </Typography>
       {schedule && (
         <div className='flex flex-wrap gap-3'>
           {schedule.times.map((time, index) => (
