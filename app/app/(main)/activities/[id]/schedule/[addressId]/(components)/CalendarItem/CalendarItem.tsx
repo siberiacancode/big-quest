@@ -7,7 +7,7 @@ import type { ScheduleResponse } from '@/api-types';
 import { Calendar } from '@/components/ui/calendar';
 import { cn } from '@/lib/utils';
 
-import type { GroupedSchedule } from '../../../(constants)/types';
+import type { GroupedSchedule } from '../../../../(constants)/types';
 import { groupTimesByDate } from '../../(constants)/groupTimesByDate';
 import { FreeTimeList } from '../FreeTimeList/FreeTimeList';
 

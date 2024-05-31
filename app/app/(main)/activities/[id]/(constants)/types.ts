@@ -9,8 +9,9 @@ export interface ExtendedInfoResponse extends ScheduleResponse {
 }
 
 export interface AddressProps {
-  id: number;
+  id: string;
   value: string;
+  details: string;
 }
 
 export interface GroupedSchedule {

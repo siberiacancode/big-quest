@@ -6,10 +6,8 @@ export const groupAddresses = (data: ScheduleResponse[]): AddressProps[] => {
   const groupedData = data.reduce((acc, item) => {
     const addressId = item.address!.id;
     if (!acc[addressId]) {
-      acc[addressId] = { id: addressId, value: item.address?.value, schedule: [] };
+      acc[addressId] = { id: addressId, value: item.address?.value, details: item.details };
     }
-    acc[addressId].schedule.push(item);
-    console.log(acc[addressId]);
 
     return acc;
   }, {});

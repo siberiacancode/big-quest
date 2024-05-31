@@ -41,7 +41,8 @@ export const ROUTES = {
     ACTIVITIES: {
       ROOT: '/app/activities',
       ID: (activityId: string) => `/app/activities/${activityId}`,
-      SCHEDULE: (activityId: string) => `/app/activities/${activityId}/schedule`
+      SCHEDULE: (activityId: string, scheduleId: string) =>
+        `/app/activities/${activityId}/schedule/${scheduleId}`
     },
     RATING: '/app/rating',
     SUPPORT: '/app/support',

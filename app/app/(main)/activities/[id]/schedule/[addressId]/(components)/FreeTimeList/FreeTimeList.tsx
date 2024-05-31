@@ -4,7 +4,7 @@ import React from 'react';
 
 import { cn } from '@/lib/utils';
 
-import type { GroupedSchedule } from '../../../(constants)/types';
+import type { GroupedSchedule } from '../../../../(constants)/types';
 import { FreeTimeItem } from '../FreeTimeItem/FreeTimeItem';
 
 interface FreeTimeListProps {

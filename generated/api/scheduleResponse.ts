@@ -17,6 +17,8 @@ export interface ScheduleResponse {
   address?: Address;
   /** Дата расписания */
   date: string;
+  /** Детали */
+  details?: string;
   /** ID расписания */
   id: string;
   /** Проведено */

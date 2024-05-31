@@ -12,10 +12,11 @@ import { getDevice } from '@/utils/helpers/server';
 import { CalendarItem } from './(components)/CalendarItem/CalendarItem';
 
 interface SchedulePageProps {
-  params: { id: string };
+  params: { id: string; addressId: string };
 }
 
 const SchedulePage = async ({ params }: SchedulePageProps) => {
+  console.log(params);
   const device = getDevice();
   const isMobile = device.type === 'mobile';
   const getScheduleByActivityIdResponse = await getScheduleByActivityId({
@@ -44,7 +45,11 @@ const SchedulePage = async ({ params }: SchedulePageProps) => {
         </>
       )}
       <div className='pt-[40px]'>
-        <CalendarItem schedule={getScheduleByActivityIdResponse.rows} />
+        <CalendarItem
+          schedule={getScheduleByActivityIdResponse.rows.filter(
+            (schedule) => schedule.address?.id === params.addressId
+          )}
+        />
       </div>
     </section>
   );
