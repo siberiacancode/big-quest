@@ -11,26 +11,35 @@ import type { GroupedSchedule } from '../../../../(constants)/types';
 import { groupTimesByDate } from '../../(constants)/groupTimesByDate';
 import { FreeTimeList } from '../FreeTimeList/FreeTimeList';
 
-export const CalendarItem = ({ schedule }: { schedule: ScheduleResponse[] }) => {
+export const CalendarItem = ({
+  schedule,
+  isMobile
+}: {
+  schedule: ScheduleResponse[];
+  isMobile: boolean;
+}) => {
   const groupedDates: GroupedSchedule[] = groupTimesByDate(schedule);
 
-  const [date, setDate] = React.useState<Date | undefined>(new Date(groupedDates[0].date));
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
 
-  const activeDateSchedule =
-    date &&
-    groupedDates.find(
-      (group) =>
-        fns.format(group.date.toString(), 'dd.MM.yy') === fns.format(date?.toString(), 'dd.MM.yy')
-    );
+  const activeDateSchedule = date && groupedDates.find((group) => fns.isSameDay(group.date, date));
+
   console.log(schedule, activeDateSchedule);
+
   return (
     <div
       className={cn(
-        'bg-background p-6 xs:mt-6 xs:rounded-[8px]',
-        true && 'mb-20 h-fit min-h-screen p-0 pb-6'
+        'flex-col: mt-6 flex w-full items-center bg-background xs:rounded-[8px] md:flex-row',
+        isMobile && 'flex-col'
       )}
     >
-      <Calendar mode='single' selected={date} onSelect={setDate} className='rounded-md border' />
+      <Calendar
+        mode='single'
+        selected={date}
+        onSelect={setDate}
+        schedules={groupedDates.map((date) => date.date)}
+        className='w-full max-w-[345px] rounded-md border'
+      />
 
       {activeDateSchedule && <FreeTimeList schedule={activeDateSchedule} />}
     </div>

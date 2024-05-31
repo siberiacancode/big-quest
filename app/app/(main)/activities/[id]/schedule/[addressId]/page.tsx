@@ -27,9 +27,9 @@ const SchedulePage = async ({ params }: SchedulePageProps) => {
   });
 
   return (
-    <section className='container relative bg-white p-4'>
+    <section className='container relative min-h-screen bg-white px-4'>
       {isMobile && (
-        <>
+        <div className='pt-[42px]'>
           <Link
             href={ROUTES.APP.ACTIVITIES.ID(params.id)}
             className={cn(
@@ -39,18 +39,17 @@ const SchedulePage = async ({ params }: SchedulePageProps) => {
           >
             <ChevronLeftIcon />
           </Link>
-          <Typography tag='h1' className='text-center font-semibold'>
+          <Typography variant='h5' tag='h1' className='text-center font-semibold'>
             <I18nText path='app.activity.schedule.title' />
           </Typography>
-        </>
+        </div>
       )}
-      <div className='pt-[40px]'>
-        <CalendarItem
-          schedule={getScheduleByActivityIdResponse.rows.filter(
-            (schedule) => schedule.address?.id === params.addressId
-          )}
-        />
-      </div>
+      <CalendarItem
+        schedule={getScheduleByActivityIdResponse.rows.filter(
+          (schedule) => schedule.address?.id === params.addressId
+        )}
+        isMobile={isMobile}
+      />
     </section>
   );
 };

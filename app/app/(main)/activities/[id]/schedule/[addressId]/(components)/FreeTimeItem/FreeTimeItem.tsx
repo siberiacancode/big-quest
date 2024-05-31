@@ -1,4 +1,3 @@
-import { Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 interface FreeTimeItemProps extends React.HTMLAttributes<HTMLButtonElement> {
@@ -8,11 +7,11 @@ interface FreeTimeItemProps extends React.HTMLAttributes<HTMLButtonElement> {
 export const FreeTimeItem = ({ time, className, ...props }: FreeTimeItemProps) => (
   <button
     className={cn(
-      'text-light min-w-[53px] rounded-[8px] bg-muted-foreground px-2 py-1 text-center text-white',
+      'text-light min-w-[61px] rounded-[8px] border border-accent bg-white px-3 py-[6px] text-center text-sm font-light text-gray-two',
       className
     )}
     {...props}
   >
-    <Typography>{time}</Typography>
+    {time}
   </button>
 );

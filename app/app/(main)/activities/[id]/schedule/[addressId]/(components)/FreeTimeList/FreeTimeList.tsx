@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import { I18nText } from '@/components/common';
+import { Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 import type { GroupedSchedule } from '../../../../(constants)/types';
@@ -19,20 +21,39 @@ export const FreeTimeList = ({ schedule }: FreeTimeListProps) => {
   console.log(activeInfo);
 
   return (
-    <div className='mt-4 space-y-4 md:space-y-8'>
+    <div className='mt-4 w-full space-y-4 md:space-y-8 '>
+      <Typography variant='sub2' tag='h1' className=''>
+        <I18nText path='app.activity.schedule.time.title' />
+      </Typography>
       {schedule && (
-        <div className='space-y-3 xs:space-y-5'>
+        <div className='flex flex-wrap gap-3'>
           {schedule.times.map((time, index) => (
             <FreeTimeItem
               time={time}
               key={index}
-              className={cn(activeTime === time && 'bg-taiga')}
+              className={cn(activeTime === time && 'bg-taiga text-white')}
               onClick={() => setActiveTime(time)}
             />
           ))}
         </div>
       )}
-      {activeInfo && <div> jhghjghj{activeInfo.preEntry && 'fffff'}</div>}
+      {activeInfo && (
+        <div className='pb-[120px]'>
+          {!activeInfo?.preEntry && (
+            <div>
+              <Typography variant='body2'>Свободное посещение</Typography>
+              <Typography variant='body2'>Запись не требуется</Typography>
+            </div>
+          )}
+
+          {activeInfo?.preEntry && (
+            <div>
+              <Typography variant='body2'>По предварительной записи </Typography>
+              <Typography variant='body2'>Номер телефона: +{activeInfo?.employeeNumber}</Typography>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
