@@ -13,7 +13,8 @@ import {
   ActivityCardDivider,
   ActivityCardHeader,
   ActivityCardImage,
-  ActivityCardName
+  ActivityCardName,
+  Typography
 } from '@/components/ui';
 
 import { useActivitiesPage } from '../../(contexts)/activitiesPage';
@@ -45,18 +46,30 @@ export const ActivityList = () => {
               <ActivityCardDivider />
               <ActivityCardContent>
                 <ActivityCardContentItem>
-                  <UserRoundIcon className='size-6 stroke-muted-foreground' />
-                  <I18nText
-                    path='landing.activities.card.minimumAge'
-                    values={{ age: activity.ageLimit[0] }}
-                  />
+                  <UserRoundIcon className='size-3 stroke-muted-foreground 2xs:size-5' />
+                  <Typography
+                    tag='p'
+                    variant='body4'
+                    className='text-muted-foreground 2xs:text-base'
+                  >
+                    <I18nText
+                      path='landing.activities.card.minimumAge'
+                      values={{ age: activity.ageLimit[0] }}
+                    />
+                  </Typography>
                 </ActivityCardContentItem>
                 <ActivityCardContentItem>
-                  <Clock4Icon className='size-6 stroke-muted-foreground' />
-                  <I18nText
-                    path='landing.activities.card.duration'
-                    values={{ duration: activity.duration }}
-                  />
+                  <Clock4Icon className='size-3 stroke-muted-foreground 2xs:size-5' />
+                  <Typography
+                    tag='p'
+                    variant='body4'
+                    className='text-muted-foreground 2xs:text-base'
+                  >
+                    <I18nText
+                      path='landing.activities.card.duration'
+                      values={{ duration: activity.duration }}
+                    />
+                  </Typography>
                 </ActivityCardContentItem>
               </ActivityCardContent>
             </ActivityCard>

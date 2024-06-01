@@ -1,4 +1,4 @@
-import { getUserSession } from '@/utils/helpers/server';
+import { getDevice, getUserSession } from '@/utils/helpers/server';
 
 import { AppBottomNavigation } from './(components)/AppBottomNavigation/AppBottomNavigation';
 
@@ -8,13 +8,15 @@ interface AppLayoutProps {
 
 const AppLayout = ({ children }: AppLayoutProps) => {
   const userSession = getUserSession();
+  const device = getDevice();
+  const isMobile = device.type === 'mobile';
 
   return (
-    <div className='h-screen'>
-      <div className='h-full overflow-y-auto px-4 pb-[100px] pt-[42px] xxs:pb-[110px]'>
+    <div className='h-screen min-h-screen overflow-y-auto bg-secondary 2sm:h-full'>
+      <div className='h-fit min-h-full max-w-[880px] xs:m-4 2md:mx-[100px] 2md:my-[60px] 2lg:mx-[200px] xl:mx-auto'>
         {children}
       </div>
-      {!!userSession && <AppBottomNavigation />}
+      {!!userSession && isMobile && <AppBottomNavigation />}
     </div>
   );
 };

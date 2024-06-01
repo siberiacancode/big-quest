@@ -13,7 +13,7 @@ export const ActivitiesCategories = () => {
   const { categories, onCategoryClick } = useActivitiesPage();
 
   return (
-    <ScrollArea className='w-full space-y-3 whitespace-nowrap'>
+    <ScrollArea className='space-y-3 whitespace-nowrap'>
       <Tabs defaultValue={searchParams.get('category') ?? ''}>
         <TabsList className='flex w-full justify-start gap-1 bg-transparent p-0'>
           <TabsTrigger

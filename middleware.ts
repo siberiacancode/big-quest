@@ -5,7 +5,7 @@ import type { UserResponse } from '@/api-types';
 import { CITIES, COOKIES, ROUTES } from '@/utils/constants';
 import { getDevice } from '@/utils/helpers/server';
 
-const UNAUTH_ROUTES = [ROUTES.APP.AUTH, ROUTES.ORG.AUTH, ROUTES.APP.ACTIVITIES];
+const UNAUTH_ROUTES = [ROUTES.APP.AUTH, ROUTES.ORG.AUTH, ROUTES.APP.ACTIVITIES.ROOT];
 const MOBILE_ONLY_ROUTES = [
   ROUTES.APP.AUTH,
   ROUTES.APP.PROFILE.ROOT,

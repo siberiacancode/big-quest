@@ -180,6 +180,9 @@
   "field.street.label": "Улица",
   "field.street.placeholder": "ул.",
   "field.details.label": "Детали",
+  "field.nearestFreeTime.label": "Ближайшее свободное время",
+  "field.chooseAnotherTime.label": "Выбрать другое время",
+  "field.goToSupportChat.label": "Перейти в чат с поддержкой",
   "field.details.placeholder": "офис, вход, этаж",
   "field.note.placeholder": "Оставьте заметку...",
   "field.title.label": "Название",
@@ -212,6 +215,9 @@
   "field.userId.placeholder": "@user ID",
   "field.code.label": "Код",
   "field.code.placeholder": "****",
+  "field.workTime.label": "Время работы",
+  "field.workTime.preEntry.label": "По предварительной записи",
+  "field.employee.number.label": "Номер для связи",
 
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
@@ -312,6 +318,19 @@
   "dayOfWeek.7": "Вс",
   "dayOfWeek.dayOff": "Выходной",
 
+  "month.1": "Января",
+  "month.2": "Февраля",
+  "month.3": "Марта",
+  "month.4": "Апреля",
+  "month.5": "Мая",
+  "month.6": "Июня",
+  "month.7": "Июля",
+  "month.8": "Августа",
+  "month.9": "Сентября",
+  "month.10": "Октября",
+  "month.11": "Ноября",
+  "month.12": "Декабря",
+
   "addressCard.description.workingTime": "Время работы",
 
   "table.column.status": "Статус",
@@ -402,6 +421,15 @@
   "landing.navigation.activities": "Активности",
   "landing.navigation.feedback": "Отзывы",
   "landing.navigation.questions": "Частые вопросы",
+
+  "landing.adresses.title": "Адреса",
+
+  "app.activity.description": "Описание",
+  "app.activity.addresses": "Адреса",
+  "app.activity.schedule.title": "Выберите дату",
+  "app.activity.schedule.label": "Выбор даты",
+  "app.activity.schedule.time.title": "Выберите время",
+  "app.activity.schedule.time.description": "Ниже представлены доступное время для записи",
 
   "toast.deleted": "Успешно удалено",
   "toast.organizationTariffChanged": "Тариф успешно изменен",
