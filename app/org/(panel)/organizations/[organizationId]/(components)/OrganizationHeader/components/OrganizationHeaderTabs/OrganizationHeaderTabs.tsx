@@ -2,6 +2,7 @@
 
 import { useSelectedLayoutSegment } from 'next/navigation';
 
+import type { OrganizationResponse, OrganizationResponseType } from '@/api-types';
 import { I18nText } from '@/components/common';
 import { Tabs, TabsList } from '@/components/ui';
 
@@ -16,7 +17,7 @@ import {
 
 import { OrganizationHeaderTabsTrigger } from './components/OrganizationHeaderTabsTrigger/OrganizationHeaderTabsTrigger';
 
-const TABS: Record<LegalType, ProfileTab[]> = {
+const TABS: Record<OrganizationResponseType, ProfileTab[]> = {
   PARTNER: PARTNER_PROFILE_TABS,
   SPONSOR: SPONSOR_PROFILE_TABS,
   FRANCHISEE: FRANCHISEE_PROFILE_TABS,

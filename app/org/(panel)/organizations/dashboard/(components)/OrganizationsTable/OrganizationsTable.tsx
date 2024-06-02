@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import type { OrganizationListResponse, PaginationResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
   DataTable,

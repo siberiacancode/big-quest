@@ -1,17 +1,20 @@
 export const news = [
   {
-    title: 'Приведи друга и получи орешки',
+    image: 'background1.webp',
+    title: 'Игра размером с город \nИгра длиною в лето',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor semper at ac tempus enim.'
+      'Делай сальто, стреляй из лука, собирай роботов, слушай картины, решай головоломки, проходи экскурсии и выполняй челленджи'
   },
   {
-    title: 'Приведи друга и получи орешки',
+    image: 'background2.webp',
+    title: 'Теперь и в приложении!',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor semper at ac tempus enim.'
+      'Можно начать проходить квест без паспорта жителя Таёжной Цивилизации! \nПросто получи QR-код, а если хочешь получать печати шишек опыта, то приобретай паспорт  у партнёров, как в прошлом году! '
   },
   {
-    title: 'Приведи друга и получи орешки',
+    image: 'background3.webp',
+    title: 'Старт нового сезона',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor semper at ac tempus enim.'
+      '1 июня стартует третий сезон квеста! Теперь три города: Кемерово, Новокузнецк и Междуреченск'
   }
 ];

@@ -8,7 +8,13 @@ export const postActivity: RestRequestConfig = {
       data: {
         message: 'success'
       },
-      entities: { body: { organizationId: '1' } }
+      entities: {
+        body: {
+          organizationId: {
+            checkMode: 'exists'
+          }
+        }
+      }
     }
   ]
 };

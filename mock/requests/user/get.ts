@@ -1,26 +1,12 @@
+import { DATABASE } from 'mock/database';
 import type { RestRequestConfig } from 'mock-config-server';
 
-export const getUserMeConfig: RestRequestConfig = {
+export const getUserConfig: RestRequestConfig = {
   path: '/user',
   method: 'get',
   routes: [
     {
-      data: {
-        id: '77672e1e-f8cc-4e56-9f4b-9840a94dbbca',
-        email: 'superadmin@mail.ru',
-        isActive: true,
-        isBlocked: false,
-        roles: ['SUPERADMIN'],
-        name: 'Admin',
-        surname: 'Super',
-        middleName: null,
-        avatar: null,
-        passportId: 'passportId',
-        sex: null,
-        lastLogin: '2024-03-25T11:27:50.335Z',
-        createdAt: '2024-03-25T11:08:17.464Z',
-        updatedAt: '2024-03-25T11:27:50.336Z'
-      }
+      data: () => DATABASE.USER.SUPERADMIN
     },
     {
       entities: {
@@ -28,22 +14,7 @@ export const getUserMeConfig: RestRequestConfig = {
           email: 'partner@mail.ru'
         }
       },
-      data: {
-        id: '72372e1e-f8cc-4e56-9f4b-9840a94dbasd',
-        email: 'partner@mail.ru',
-        isActive: true,
-        isBlocked: false,
-        roles: ['MANAGER'],
-        name: 'Partner',
-        surname: 'Partner',
-        middleName: null,
-        avatar: null,
-        passportId: 'passportId',
-        sex: null,
-        lastLogin: '2024-03-25T11:27:50.335Z',
-        createdAt: '2024-03-25T11:08:17.464Z',
-        updatedAt: '2024-03-25T11:27:50.336Z'
-      }
+      data: () => DATABASE.USER.MANAGER
     }
   ]
 };

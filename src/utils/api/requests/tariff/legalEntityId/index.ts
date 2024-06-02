@@ -1,4 +1,5 @@
-import { api } from '../../../instance';
+import type { TariffResponse } from '@/api-types';
+import { api } from '@/utils/api/instance';
 
 interface GetTariffByLegalEntityIdParams {
   legalEntityId: string;

@@ -1,6 +1,5 @@
 export const ROUTES = {
-  REGISTER: '/register',
-  AUTH: '/auth',
+  REDIRECT: '/redirect',
   ORG: {
     AUTH: '/org/auth',
     ROOT: '/org/',
@@ -33,10 +32,16 @@ export const ROUTES = {
   },
   APP: {
     ROOT: '/app',
-    PROFILE: '/app/profile',
+    PROFILE: {
+      ROOT: '/app/profile',
+      EDIT_ME: '/app/profile/edit',
+      EDIT: (userId: string) => `/app/profile/${userId}/edit`
+    },
+    AUTH: '/app/auth',
     SETTINGS: '/app/settings',
     ACTIVITIES: '/app/activities',
     RATING: '/app/rating',
-    SUPPORT: '/app/support'
+    SUPPORT: '/app/support',
+    TAIGA: '/app/taiga'
   }
 };

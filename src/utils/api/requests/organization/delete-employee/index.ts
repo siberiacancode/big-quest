@@ -1,6 +1,6 @@
 import { api } from '@/utils/api/instance';
 
-export type DeleteOrganizationDeleteEmployeeParams = DeleteEmployeeDto;
+export type DeleteOrganizationDeleteEmployeeParams = Record<$TSFIXME, $TSFIXME>;
 
 export type DeleteOrganizationDeleteEmployeeRequestConfig =
   RequestConfig<DeleteOrganizationDeleteEmployeeParams>;

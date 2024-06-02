@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 
 import { usePostAuthLoginEmailMutation } from '@/utils/api';
-import { useGetUserMutation } from '@/utils/api/hooks';
+import { useGetUserMeMutation } from '@/utils/api/hooks';
 import { ROUTES } from '@/utils/constants';
 import { useSession, useUser } from '@/utils/contexts';
 
@@ -26,12 +26,12 @@ export const useLoginForm = () => {
   });
 
   const postAuthLoginEmailMutation = usePostAuthLoginEmailMutation();
-  const getUserMutation = useGetUserMutation();
+  const getUserMeMutation = useGetUserMeMutation();
 
   const onSubmit = loginForm.handleSubmit(async (values) => {
     await postAuthLoginEmailMutation.mutateAsync({ params: values });
 
-    const getUserMeMutationResponse = await getUserMutation.mutateAsync();
+    const getUserMeMutationResponse = await getUserMeMutation.mutateAsync();
 
     setUser(getUserMeMutationResponse);
     setSession({ isAuthenticated: true });

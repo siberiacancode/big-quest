@@ -2,11 +2,10 @@ import type { Metadata } from 'next';
 import { Rubik as FontSans } from 'next/font/google';
 
 import { Toaster } from '@/components/ui/sonner';
-import { generateServerHeadersInterceptor } from '@/utils/api/interceptors/generateServerHeadersInterceptor';
 import { getMessagesByLocale } from '@/utils/helpers';
 import { getDefaultTheme, getUserSession } from '@/utils/helpers/server';
 
-import Providers from './providers';
+import { Providers } from './providers';
 
 import '@/assets/styles/globals.css';
 
@@ -23,8 +22,6 @@ export const metadata: Metadata = {
 };
 
 const TOASTER_DURATION = 5000;
-
-generateServerHeadersInterceptor();
 
 interface RootLayoutProps {
   children: React.ReactNode;

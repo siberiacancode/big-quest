@@ -1,3 +1,4 @@
+import type { DashBoardResponse } from '@/api-types';
 import { api } from '@/utils/api/instance';
 
 export type GetOrganizationDashboardRequestConfig = RequestConfig | void;

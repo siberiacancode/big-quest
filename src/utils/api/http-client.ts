@@ -113,21 +113,23 @@ export class HttpClient {
     return body;
   }
 
-  private runRequestInterceptors(initialConfig: _RequestConfig) {
+  private async runRequestInterceptors(initialConfig: _RequestConfig) {
     let config = initialConfig;
 
-    this.interceptorHandlers.request?.forEach(({ onSuccess, onFailure }) => {
+    if (!this.interceptorHandlers.request?.length) return config;
+
+    for (const { onSuccess, onFailure } of this.interceptorHandlers.request) {
       try {
-        if (!onSuccess) return;
-        config = onSuccess(config);
+        if (!onSuccess) continue;
+        config = await onSuccess(config);
       } catch (error) {
         // @ts-ignore
         error.config = initialConfig;
         if (onFailure) {
           onFailure(error as ResponseError);
-        } else return Promise.reject(error);
+        } else Promise.reject(error);
       }
-    });
+    }
 
     return config;
   }
@@ -148,16 +150,22 @@ export class HttpClient {
       ...options,
       url: endpoint,
       method,
-      headers: { ...(!!options?.headers && options.headers), ...this.headers }
+      headers: {
+        ...this.headers,
+        ...(options?.body &&
+          !(options.body instanceof FormData) && {
+            'content-type': 'application/json'
+          }),
+        ...(!!options?.headers && options.headers)
+      }
     };
-
-    const config = this.runRequestInterceptors(defaultConfig);
+    const config = await this.runRequestInterceptors(defaultConfig);
 
     let url = `${this.baseURL}/${endpoint}`;
     if (options.params) {
       url += this.createSearchParams(options.params);
     }
-
+    console.log('@config', config);
     const response: Response = await fetch(url, config);
 
     if (response.status >= 400) {
@@ -191,24 +199,24 @@ export class HttpClient {
     return this.request<T>(endpoint, 'DELETE', options);
   }
 
-  post<T>(endpoint: string, body?: Record<string, any>, options: RequestOptions = {}) {
+  post<T>(endpoint: string, body?: RequestBody, options: RequestOptions = {}) {
     return this.request<T>(endpoint, 'POST', {
       ...options,
-      ...(!!body && { body: JSON.stringify(body) })
+      ...(!!body && { body: body instanceof FormData ? body : JSON.stringify(body) })
     });
   }
 
-  put<T>(endpoint: string, body?: Record<string, any>, options: RequestOptions = {}) {
+  put<T>(endpoint: string, body?: RequestBody, options: RequestOptions = {}) {
     return this.request<T>(endpoint, 'PUT', {
       ...options,
-      ...(!!body && { body: JSON.stringify(body) })
+      ...(!!body && { body: body instanceof FormData ? body : JSON.stringify(body) })
     });
   }
 
-  patch<T>(endpoint: string, body?: Record<string, any>, options: RequestOptions = {}) {
+  patch<T>(endpoint: string, body?: RequestBody, options: RequestOptions = {}) {
     return this.request<T>(endpoint, 'PATCH', {
       ...options,
-      ...(!!body && { body: JSON.stringify(body) })
+      ...(!!body && { body: body instanceof FormData ? body : JSON.stringify(body) })
     });
   }
 

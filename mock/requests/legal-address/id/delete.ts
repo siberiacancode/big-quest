@@ -6,7 +6,7 @@ export const deleteLegalAddressByIdConfig: RestRequestConfig = {
   method: 'delete',
   interceptors: {
     response: (data, { request }) => {
-      DATABASE.ORGANIZATIONS.LEGAL_ADDRESSES = DATABASE.ORGANIZATIONS.LEGAL_ADDRESSES.filter(
+      DATABASE.ORGANIZATIONS.ADDRESSES = DATABASE.ORGANIZATIONS.ADDRESSES.filter(
         (legalAddress) => legalAddress.id !== request.params.id
       );
       return data;

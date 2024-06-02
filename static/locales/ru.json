@@ -10,6 +10,9 @@
   "partners.activities.title": "Активности",
   "partners.employees.title": "Сотрудники",
 
+  "redirect.title": "Перейдите на мобильную версию",
+  "redirect.description": "Для дальнейшего пользования приложением, откройте страницу в телефоне",
+
   "org.auth.title": "Вход в личный кабинет",
   "org.auth.rememberMe": "Запомнить меня",
   "org.auth.footer.siteRules": "Правила пользования сайтом",
@@ -123,6 +126,7 @@
   "organization.activities.category.education": "Образование",
   "organization.activities.category.entertainment": "Развлечение",
   "organization.activities.category.challenge": "Челлендж",
+  "organization.activities.category.all": "Все",
 
   "organization.activities.view.offline": "Оффлайн",
   "organization.activities.view.online": "Онлайн",
@@ -222,6 +226,8 @@
   "field.organization.bik.label": "БИК",
   "field.organization.checkingAccount.label": "Р/С",
 
+  "field.activitySearch.placeholder": "Поиск активности...",
+
   "navigation.link.default": "Текущая",
   "navigation.link.org.organizations": "Организации",
   "navigation.link.org.organizations.profile": "Профиль",
@@ -305,6 +311,9 @@
   "activityCard.ageLimit.label": "от {ageMin}+ лет",
   "activityCard.duration.label": "{duration} ч",
   "activity.image.alt": "Изображение активности {name}",
+  "activity.image.placeholder": "Место для показа медиа",
+  "activity.image.add": "Добавьте изображение",
+  "activity.cover.add": "Выберите обложку",
 
   "pagination.from": "из",
   "pagination.selected": "выбрано",
@@ -376,6 +385,15 @@
   "landing.footer.navigation.activities": "Активности",
   "landing.footer.navigation.sponsors": "Спонсоры",
   "landing.footer.navigation.feedback": "Отзывы",
+  "landing.info.title": "Собирай шишки опыта всё лето!",
+  "landing.sponsors.description": "Если вы хотите стать нашим партнером или спонсором,",
+  "landing.faq.title": "Частые вопросы",
+  "landing.footer.addresses": "Адрес штаба",
+  "landing.navigation.banner": "Главная",
+  "landing.navigation.news": "Новости",
+  "landing.navigation.activities": "Активности",
+  "landing.navigation.feedback": "Отзывы",
+  "landing.navigation.questions": "Частые вопросы",
 
   "toast.deleted": "Успешно удалено",
   "toast.organizationTariffChanged": "Тариф успешно изменен",
@@ -386,5 +404,27 @@
   "toast.editAddress": "Адрес отредактирован",
   "toast.addEmployee": "Сотрудник добавлен",
   "toast.editEmployee": "Сотрудник отредактирован",
-  "toast.userIdCopied": "Код участника {value} скопирован"
+  "toast.userIdCopied": "Код участника {value} скопирован",
+
+  "app.profile.settings.title": "Настройки",
+  "app.profile.settings.additionalQRs": "Дополнительные QR",
+  "app.profile.settings.location": "Местоположение",
+  "app.profile.settings.app": "Приложение",
+  "app.profile.settings.parent": "Я родитель (опекун)",
+  "app.profile.settings.theme": "Темная тема",
+  "app.profile.settings.additionalQR": "Дополнительные QR",
+
+  "app.rating.title": "Рейтинг",
+  "app.support.title": "Поддержка",
+  "app.taiga.title": "Игры",
+
+  "app.inDev.title": "Раздел в стадии разработки",
+  "app.inDev.description": "Проходите активности,{br} копите шишки опыта!",
+
+  "button.addActivity": "Добавить активность",
+  "button.makeCover": "Сделать обложкой",
+  "button.auth": "Вход",
+  "button.haveNotUserId": "У меня нет User ID",
+  "button.logout": "Выйти",
+  "button.addQR": "Добавить новый QR"
 }

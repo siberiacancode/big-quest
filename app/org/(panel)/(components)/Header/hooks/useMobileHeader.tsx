@@ -1,12 +1,12 @@
+import { useUser } from '@/utils/contexts';
 import { useHeader } from '@/utils/hooks';
 
 export const useMobileHeader = () => {
+  const { user } = useUser();
   const [isOpen, onBurgerClick] = useHeader();
 
-  const userRole: UserRole = 'organizer';
-
   return {
-    state: { isOpen, userRole },
+    state: { isOpen, userRole: user.roles[0] },
     functions: { onBurgerClick }
   };
 };

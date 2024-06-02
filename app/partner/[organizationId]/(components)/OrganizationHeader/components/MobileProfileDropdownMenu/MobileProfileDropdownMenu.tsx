@@ -4,6 +4,7 @@ import React from 'react';
 import { BellIcon, LogOutIcon, QrCodeIcon, SunIcon } from 'lucide-react';
 import Image from 'next/image';
 
+import type { UserResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
   Button,
@@ -13,12 +14,10 @@ import {
   Typography
 } from '@/components/ui';
 
-import type { PartnerData } from '../../(constants)/types';
-
 import { useMobileProfileDropdownMenu } from './hooks/useMobileProfileDropdownMenu';
 
 interface MobileProfileDropdownMenuProps {
-  partner: PartnerData;
+  partner: UserResponse;
   onEditPartnerClick: () => void;
   onEditQRScannerClick: () => void;
 }

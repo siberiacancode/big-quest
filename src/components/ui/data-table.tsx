@@ -51,13 +51,17 @@ import { useSearchParams } from '@/utils/hooks';
 
 import { I18nText } from '../common';
 
-type DataTableContextValue<TData = any> = {
+interface DataTableContextValue<TData = any> {
   rows: TData;
   table: Table<TData>;
   loading?: boolean;
   columns: ColumnDef<TData>[];
-  pagination: PaginationResponse;
-};
+  pagination: {
+    count: number;
+    current: number;
+    limit: number;
+  };
+}
 
 const DataTableContext = React.createContext<DataTableContextValue>({} as DataTableContextValue);
 
@@ -67,7 +71,11 @@ export const getPaginationNumbers = ({
   current,
   count,
   limit
-}: PaginationResponse): (number | '...')[] => {
+}: {
+  count: number;
+  current: number;
+  limit: number;
+}): (number | '...')[] => {
   const maxButtons = 5;
   const pageCount = getPageCount(limit, count);
   const numbers: (number | '...')[] = [];
@@ -115,7 +123,7 @@ interface DataTableProps<TData> extends React.ComponentProps<'div'> {
   table: Table<TData>;
   columns: ColumnDef<TData>[];
   loading?: boolean;
-  pagination: PaginationResponse;
+  pagination: { count: number; current: number; limit: number };
 }
 
 export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any>>(
@@ -501,7 +509,7 @@ export const generateDataTableColumn = <TData,>({
   ),
   cell: ({ row }) => (
     <div className='px-4 text-left font-medium'>
-      {translateValue && <I18nText path={row.getValue(String(accessorKey)) as LocaleMessageId} />}
+      {translateValue && <I18nText path={row.getValue(String(accessorKey))} />}
       {!translateValue && row.getValue(String(accessorKey))}
     </div>
   ),

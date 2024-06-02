@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import type { ActivityResponse, PaginationResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
   DataTable,
@@ -24,7 +25,7 @@ import { convertActivitiesToTableRows } from './helpers/convertActivitiesToTable
 import { useActivitiesTable } from './hooks/useActivitiesTable';
 
 interface ActivitiesTableProps {
-  activities: ActivitiesResponse[];
+  activities: ActivityResponse[];
   pagination: PaginationResponse;
 }
 
