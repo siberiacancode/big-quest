@@ -51,7 +51,6 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
                     onDelete={functions.onDeletePreviewClick}
                     className='h-32 w-32'
                   />
-                  <Typography variant='sub2'>{employee.image.split('/').at(-1)}</Typography>
                 </div>
               )}
               {!state.showPreview && (
@@ -60,7 +59,6 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
                   name='file'
                   render={({ field }) => {
                     const fileFieldValue = form.getValues('file');
-
                     return (
                       <FormItem className='flex items-center gap-3'>
                         <FormControl>

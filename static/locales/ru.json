@@ -43,6 +43,10 @@
   "app.profile.settings.theme": "Темная тема",
   "app.profile.settings.additionalQR": "Дополнительные QR",
 
+  "app.profile.edit.title": "Настройки профиля",
+  "app.profile.edit.avatar.title": "Изменить аватар",
+  "app.profile.edit.userID.description": "Вы можете указать другой user ID, чтобы вас было проще найти",
+
   "app.rating.title": "Рейтинг",
   "app.support.title": "Поддержка",
   "app.taiga.title": "Игры",
@@ -202,6 +206,7 @@
   "field.name.label": "Имя",
   "field.surname.label": "Фамилия",
   "field.role.label": "Роль",
+  "field.birthdate.label": "Дата рождения",
   "field.freeActivity.label": "Бесплатные активности",
   "field.paidActivity.label": "Платные активности",
   "field.periodMonth.label": "Период",
@@ -212,6 +217,7 @@
   "field.userId.placeholder": "@user ID",
   "field.code.label": "Код",
   "field.code.placeholder": "****",
+  "field.datePicker.label": "Выберите дату",
 
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",
@@ -411,5 +417,6 @@
   "toast.addAddress": "Адрес добавлен",
   "toast.editAddress": "Адрес отредактирован",
   "toast.addEmployee": "Сотрудник добавлен",
-  "toast.editEmployee": "Сотрудник отредактирован"
+  "toast.editEmployee": "Сотрудник отредактирован",
+  "toast.userIdCopied": "Код участника {value} скопирован"
 }

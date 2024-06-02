@@ -509,7 +509,7 @@ export const generateDataTableColumn = <TData,>({
   ),
   cell: ({ row }) => (
     <div className='px-4 text-left font-medium'>
-      {translateValue && <I18nText path={row.getValue(String(accessorKey)) as LocaleMessageId} />}
+      {translateValue && <I18nText path={row.getValue(String(accessorKey))} />}
       {!translateValue && row.getValue(String(accessorKey))}
     </div>
   ),

@@ -34,6 +34,7 @@ export const ROUTES = {
     ROOT: '/app',
     PROFILE: {
       ROOT: '/app/profile',
+      EDIT_ME: '/app/profile/edit',
       EDIT: (userId: string) => `/app/profile/${userId}/edit`
     },
     AUTH: '/app/auth',

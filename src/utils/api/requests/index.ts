@@ -23,4 +23,5 @@ export * from './tariff/id';
 export * from './tariff/legalEntityId';
 export * from './user';
 export * from './user/me';
+export * from './user/profile';
 export * from './user/profile/settings';
