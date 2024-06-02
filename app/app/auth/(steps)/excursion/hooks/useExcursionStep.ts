@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useWizard } from '../../../(contexts)/wizard/useWizard';
+import { useWizard } from '../../../(contexts)';
 
 export type ExcursionStepScreen = 0 | 1 | 2 | 3;
 

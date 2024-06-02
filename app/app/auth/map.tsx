@@ -1,6 +1,7 @@
-import type { WizardMap } from './(contexts)/wizard/WizardContext';
 import { ExcursionStep } from './(steps)/excursion/ExcursionStep';
 import { LoginStep } from './(steps)/login/LoginStep';
+import { RegisterStep } from './(steps)/register/RegisterStep';
+import type { WizardMap } from './(contexts)';
 
 export const authMap: WizardMap = {
   excursion: {
@@ -11,11 +12,11 @@ export const authMap: WizardMap = {
   register: {
     id: 'register',
     nodes: [],
-    component: null
+    component: <RegisterStep />
   },
   login: {
     id: 'login',
-    nodes: [],
+    nodes: ['excursion', 'register'],
     component: <LoginStep />
   }
 };
