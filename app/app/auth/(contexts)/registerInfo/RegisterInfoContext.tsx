@@ -13,6 +13,5 @@ export interface RegisterInfoContextParams {
 }
 
 export const RegisterInfoContext = React.createContext<RegisterInfoContextParams>({
-  registerInfo: undefined,
   setRegisterInfo: () => {}
 });

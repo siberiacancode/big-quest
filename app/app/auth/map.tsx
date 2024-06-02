@@ -11,7 +11,7 @@ export const authMap: WizardMap = {
   },
   register: {
     id: 'register',
-    nodes: [],
+    nodes: ['excursion'],
     component: <RegisterStep />
   },
   login: {
