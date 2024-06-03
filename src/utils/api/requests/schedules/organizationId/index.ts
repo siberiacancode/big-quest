@@ -1,11 +1,7 @@
-import type {
-  ScheduleControllerGetScheduleByOrganizationParams,
-  ScheduleListResponse
-} from '@/api-types';
+import type { ScheduleControllerGetSchedulesParams, ScheduleListResponse } from '@/api-types';
 import { api } from '@/utils/api/instance';
 
-export interface GetSchedulesByOrganizationIdParams
-  extends ScheduleControllerGetScheduleByOrganizationParams {
+export interface GetSchedulesByOrganizationIdParams extends ScheduleControllerGetSchedulesParams {
   organizationId: string;
 }
 
