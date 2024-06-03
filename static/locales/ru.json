@@ -171,6 +171,7 @@
 
   "partner.confirmParticipation.participant": "Участник",
   "partner.confirmParticipation.activities": "Активности",
+  "partner.confirmParticipation.noActivities": "Сегодня нет активностей",
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { BellIcon, LogOutIcon, QrCodeIcon, SunIcon } from 'lucide-react';
-import Image from 'next/image';
 
 import type { UserResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
@@ -33,7 +32,7 @@ export const MobileProfileDropdownMenu = ({
     <DropdownMenu open={state.isOpen} onOpenChange={functions.setIsOpen}>
       <DropdownMenuTrigger asChild>
         <div>
-          {state.user.avatar && <Image src={state.user.avatar} alt='partner_avatar' />}
+          {/* {state.user.avatar && <Image src={state.user.avatar} alt='partner_avatar' />} */}
           {!state.user.avatar && (
             <div className=' h-8 w-8 rounded-full bg-primary hover:cursor-pointer' />
           )}

@@ -2,7 +2,7 @@ import { SettingsIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import avatar from '@/assets/images/avatar/participant.png';
+import userAvatar from '@/assets/images/avatar/user.png';
 import { I18nText, QRCode } from '@/components/common';
 import { BumpIcon, NutIcon } from '@/components/icons';
 import { Card, CardContent, Typography } from '@/components/ui';
@@ -22,7 +22,7 @@ const AppProfilePage = () => (
       <Card className='shadow-sm'>
         <CardContent className='px-5 py-8'>
           <div className='flex gap-4'>
-            <Image src={avatar} alt='' width={80} height={80} />
+            <Image src={userAvatar} alt='' width={80} height={80} />
             <div>
               <Typography variant='sub3'>ФИО</Typography>
               <Typography variant='body4' className='mt-2.5 text-muted-foreground'>

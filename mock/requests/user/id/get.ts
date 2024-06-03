@@ -1,10 +1,13 @@
+import { DATABASE } from 'mock/database';
 import type { RestRequestConfig } from 'mock-config-server';
 
 export const getUserByIdConfig: RestRequestConfig = {
   path: '/user/:id',
   method: 'get',
   routes: [
+    { data: DATABASE.USER.SUPERADMIN },
     {
+      entities: { params: { id: '122' } },
       data: {
         id: '122',
         email: 'chel1@mail.ru',

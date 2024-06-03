@@ -4,7 +4,7 @@ import React from 'react';
 import { Clock4Icon, UserRoundIcon } from 'lucide-react';
 import { useIntersectionObserver } from 'usehooks-ts';
 
-import activityBackground from '@/assets/images/background/activity.png';
+import type { MediaResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import {
   ActivityCard,
@@ -33,14 +33,13 @@ export const ActivityList = () => {
     <>
       <div className='mt-6 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
         {activities.map((activity) => {
-          const activityAvatar = activity.media.find((item) => item.flag === 'AVATAR')!;
+          const activityAvatar = activity.media.find(
+            (item) => item.flag === 'AVATAR'
+          ) as MediaResponse;
 
           return (
             <ActivityCard key={activity.id}>
-              <ActivityCardImage
-                src={activityAvatar ? activityAvatar.url : activityBackground}
-                alt={activity.name}
-              />
+              <ActivityCardImage src={activityAvatar.url} alt={activity.name} />
               <ActivityCardHeader>
                 <ActivityCardCategory>{activity.category.RU}</ActivityCardCategory>
                 <ActivityCardName>{activity.name}</ActivityCardName>

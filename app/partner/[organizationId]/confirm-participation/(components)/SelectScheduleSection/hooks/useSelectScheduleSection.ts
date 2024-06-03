@@ -38,6 +38,8 @@ export const useSelectScheduleSection = ({ userId }: UseSelectScheduleSectionPar
 
   return {
     state: {
+      activities:
+        getSchedulesByOrganizationIdInfiniteQuery?.data?.pages.flatMap((page) => page.rows) ?? [],
       selectedActivityId,
       query: getSchedulesByOrganizationIdInfiniteQuery,
       intersectionRef: ref

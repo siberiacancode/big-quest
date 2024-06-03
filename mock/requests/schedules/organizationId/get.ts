@@ -30,14 +30,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Йога',
                 EN: 'Yoga'
               },
-              media: [
-                {
-                  id: 'media_001',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/yoga.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_001',
@@ -70,14 +63,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Кулинария',
                 EN: 'Cooking'
               },
-              media: [
-                {
-                  id: 'media_002',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/cooking.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_002',
@@ -112,14 +98,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Рисование',
                 EN: 'Painting'
               },
-              media: [
-                {
-                  id: 'media_003',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/painting.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_003',
@@ -154,14 +133,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Музыка',
                 EN: 'Music'
               },
-              media: [
-                {
-                  id: 'media_004',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/music.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_004',
@@ -196,14 +168,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Танцы',
                 EN: 'Dance'
               },
-              media: [
-                {
-                  id: 'media_005',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/dance.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_005',
@@ -238,14 +203,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Фотография',
                 EN: 'Photography'
               },
-              media: [
-                {
-                  id: 'media_006',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/photography.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_006',
@@ -280,14 +238,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Боевые искусства',
                 EN: 'Martial Arts'
               },
-              media: [
-                {
-                  id: 'media_007',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/martialarts.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_007',
@@ -322,14 +273,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Садоводство',
                 EN: 'Gardening'
               },
-              media: [
-                {
-                  id: 'media_008',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/gardening.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_008',
@@ -364,14 +308,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Шахматы',
                 EN: 'Chess'
               },
-              media: [
-                {
-                  id: 'media_009',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/chess.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_009',
@@ -406,14 +343,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Книги',
                 EN: 'Books'
               },
-              media: [
-                {
-                  id: 'media_010',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/bookclub.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_010',
@@ -460,14 +390,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Йога',
                 EN: 'Yoga'
               },
-              media: [
-                {
-                  id: 'media_001',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/yoga.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_001',
@@ -500,14 +423,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Кулинария',
                 EN: 'Cooking'
               },
-              media: [
-                {
-                  id: 'media_002',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/cooking.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_002',
@@ -542,14 +458,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Рисование',
                 EN: 'Painting'
               },
-              media: [
-                {
-                  id: 'media_003',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/painting.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_003',
@@ -584,14 +493,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Музыка',
                 EN: 'Music'
               },
-              media: [
-                {
-                  id: 'media_004',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/music.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_004',
@@ -626,14 +528,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Танцы',
                 EN: 'Dance'
               },
-              media: [
-                {
-                  id: 'media_005',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/dance.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_005',
@@ -668,14 +563,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Фотография',
                 EN: 'Photography'
               },
-              media: [
-                {
-                  id: 'media_006',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/photography.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_006',
@@ -710,14 +598,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Боевые искусства',
                 EN: 'Martial Arts'
               },
-              media: [
-                {
-                  id: 'media_007',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/martialarts.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_007',
@@ -752,14 +633,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Садоводство',
                 EN: 'Gardening'
               },
-              media: [
-                {
-                  id: 'media_008',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/gardening.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_008',
@@ -794,14 +668,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Шахматы',
                 EN: 'Chess'
               },
-              media: [
-                {
-                  id: 'media_009',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/chess.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_009',
@@ -836,14 +703,7 @@ export const getSchedulesByOrganizationId: RestRequestConfig = {
                 RU: 'Книги',
                 EN: 'Books'
               },
-              media: [
-                {
-                  id: 'media_010',
-                  type: 'IMAGE',
-                  flag: 'AVATAR',
-                  url: 'https://example.com/bookclub.jpg'
-                }
-              ]
+              media: []
             },
             address: {
               id: 'addr_010',

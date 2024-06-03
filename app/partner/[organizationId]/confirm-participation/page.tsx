@@ -2,7 +2,7 @@ import * as fns from 'date-fns';
 import * as fnsLocale from 'date-fns/locale';
 import Image from 'next/image';
 
-import participantAvatar from '@/assets/images/avatar/participant.png';
+import defaultUserAvatar from '@/assets/images/avatar/user.png';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { getUserById } from '@/utils/api';
@@ -18,9 +18,10 @@ const OrganizationConfirmParticipationPage = async ({
 }: OrganizationConfirmParticipationPageProps) => {
   const userId = searchParams.userId ?? '';
   const getUserByIdResponse = await getUserById({ params: { id: userId } });
+  const userAvatar = getUserByIdResponse.media.find((item) => item.flag === 'AVATAR');
 
   return (
-    <div className='mt-5 flex h-full flex-col'>
+    <div className='mx-auto mt-5 flex h-full w-11/12 max-w-[700px] flex-col rounded-lg bg-background px-4 py-[42px]'>
       <Typography tag='h2' className='text-center font-semibold'>
         {fns.format(new Date(), 'dd MMMM yyyy', { locale: fnsLocale.ru })}
       </Typography>
@@ -29,16 +30,20 @@ const OrganizationConfirmParticipationPage = async ({
           <I18nText path='partner.confirmParticipation.participant' />
         </Typography>
         <div className='mt-6 flex items-center gap-3'>
-          <Image src={participantAvatar} alt='' className='size-10 rounded-full' />
+          <Image
+            src={userAvatar?.url ?? defaultUserAvatar}
+            alt=''
+            className='size-10 rounded-full'
+          />
           <div className='flex grow flex-col justify-between'>
             <Typography variant='sub3'>
               {getUserByIdResponse.surname} {getUserByIdResponse.name}
             </Typography>
-            <Typography variant='body4' className='text-muted-foreground'>
-              {getUserByIdResponse.age && (
+            {getUserByIdResponse.age && (
+              <Typography variant='body4' className='text-muted-foreground'>
                 <I18nText path='common.age' values={{ age: getUserByIdResponse.age }} />
-              )}
-            </Typography>
+              </Typography>
+            )}
           </div>
         </div>
       </div>
