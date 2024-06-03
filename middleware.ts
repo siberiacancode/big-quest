@@ -66,6 +66,14 @@ export const middleware = (request: NextRequest) => {
     return NextResponse.redirect(new URL(ROUTES.APP.AUTH, request.url));
   }
 
+  const isConfirmParticipation = request.url.includes(ROUTES.PARTNER.CONFIRM_PARTICIPATION);
+  if (isConfirmParticipation && !request.nextUrl.searchParams.get('userId')) {
+    console.log(
+      '@.3 isConfirmParticipation &&, confirm participation page requires userId query param'
+    );
+    return NextResponse.redirect(new URL(ROUTES.PARTNER.PROFILE, request.url));
+  }
+  console.log('#request.nextUrl', request.nextUrl);
   if (isAuthenticated && !isUnAuthRoute) {
     console.log('@.4 isAuthenticated');
     const userSessionCookie = request.cookies.get(COOKIES.USER_SESSION);

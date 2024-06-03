@@ -10,14 +10,13 @@ import { getUserById } from '@/utils/api';
 import { SelectScheduleSection } from './(components)/SelectScheduleSection/SelectScheduleSection';
 
 interface OrganizationConfirmParticipationPageProps {
-  searchParams: { userId?: string };
+  searchParams: { userId: string };
 }
 
 const OrganizationConfirmParticipationPage = async ({
   searchParams
 }: OrganizationConfirmParticipationPageProps) => {
-  const userId = searchParams.userId ?? '';
-  const getUserByIdResponse = await getUserById({ params: { id: userId } });
+  const getUserByIdResponse = await getUserById({ params: { id: searchParams.userId } });
   const userAvatar = getUserByIdResponse.media.find((item) => item.flag === 'AVATAR');
 
   return (
@@ -49,7 +48,7 @@ const OrganizationConfirmParticipationPage = async ({
       </div>
 
       <div className='mt-8 grow'>
-        <SelectScheduleSection userId={userId} />
+        <SelectScheduleSection userId={searchParams.userId} />
       </div>
     </div>
   );
