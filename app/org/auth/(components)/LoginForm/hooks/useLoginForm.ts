@@ -30,8 +30,7 @@ export const useLoginForm = () => {
 
   const onSubmit = loginForm.handleSubmit(async (values) => {
     await postAuthLoginEmailMutation.mutateAsync({ params: values });
-    // eslint-disable-next-line no-debugger
-    debugger;
+
     const getUserMeMutationResponse = await getUserMeMutation.mutateAsync();
     console.log('#getUserMeMutationResponse', getUserMeMutationResponse);
     setUser(getUserMeMutationResponse);

@@ -73,7 +73,6 @@ export const middleware = (request: NextRequest) => {
     );
     return NextResponse.redirect(new URL(ROUTES.PARTNER.PROFILE, request.url));
   }
-  console.log('#request.nextUrl', request.nextUrl);
   if (isAuthenticated && !isUnAuthRoute) {
     console.log('@.4 isAuthenticated');
     const userSessionCookie = request.cookies.get(COOKIES.USER_SESSION);

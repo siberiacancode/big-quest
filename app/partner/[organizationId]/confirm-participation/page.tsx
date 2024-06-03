@@ -32,6 +32,8 @@ const OrganizationConfirmParticipationPage = async ({
           <Image
             src={userAvatar?.url ?? defaultUserAvatar}
             alt=''
+            width={40}
+            height={40}
             className='size-10 rounded-full'
           />
           <div className='flex grow flex-col justify-between'>
