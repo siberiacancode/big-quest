@@ -182,6 +182,7 @@
   "field.street.house": "Улица",
   "field.house.label": "Дом",
   "field.street.label": "Улица",
+  "field.address.label": "Адрес",
   "field.street.placeholder": "ул.",
   "field.details.label": "Детали",
   "field.details.placeholder": "офис, вход, этаж",
@@ -218,6 +219,7 @@
   "field.code.label": "Код",
   "field.code.placeholder": "****",
   "field.datePicker.label": "Выберите дату",
+  "field.city.label": "Город",
 
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",

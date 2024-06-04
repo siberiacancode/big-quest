@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
+import { CITIES } from '@/utils/constants';
 import { useI18n } from '@/utils/contexts';
 
 import type { AddressData } from '../../../(constants)/types';
@@ -40,6 +41,7 @@ export const useActionAddressForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(actionAddressSchema),
     defaultValues: {
+      city: CITIES.KEMEROVO.name ?? '', // fix
       locality: address?.locality ?? '',
       street: address?.street ?? '',
       house: address?.house ?? '',

@@ -11,6 +11,8 @@ const workingHourSchema = z.object({
 });
 
 export const actionAddressSchema = z.object({
+  // city: z.enum(['Новосибирск', 'Кемерово', 'Междуреченск']),
+  city: z.string(),
   locality: z.string().min(1, { message: 'validation.required' }),
   street: z.string().min(1, { message: 'validation.required' }),
   house: z.string().min(1, { message: 'validation.required' }),
