@@ -1,5 +1,5 @@
 import type { WizardStepId } from './(contexts)';
-import { RegisterInfoProvider, WizardProvider, WizardStep } from './(contexts)';
+import { WizardProvider, WizardStep } from './(contexts)';
 import { authMap } from './map';
 
 interface AuthPageProps {
@@ -10,11 +10,9 @@ const AuthPage = ({ searchParams }: AuthPageProps) => {
   const initialStepId = searchParams.step ?? 'excursion';
 
   return (
-    <RegisterInfoProvider>
-      <WizardProvider map={authMap} initialStepId={initialStepId}>
-        <WizardStep />
-      </WizardProvider>
-    </RegisterInfoProvider>
+    <WizardProvider map={authMap} initialStepId={initialStepId}>
+      <WizardStep />
+    </WizardProvider>
   );
 };
 

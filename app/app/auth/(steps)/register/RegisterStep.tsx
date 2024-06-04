@@ -10,13 +10,14 @@ import { I18nText } from '@/components/common';
 import { buttonVariants, InputOTP, InputOTPGroup, InputOTPSlot, Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
 
-import { useRegisterInfo, useWizard } from '../../(contexts)';
+import { useUserCredentials } from '../../../(contexts)';
+import { useWizard } from '../../(contexts)';
 
 export const RegisterStep = () => {
-  const { registerInfo } = useRegisterInfo();
+  const { userCredentials } = useUserCredentials();
   const { setStepId } = useWizard();
 
-  if (!registerInfo) {
+  if (!userCredentials) {
     setStepId('excursion');
     return null;
   }
@@ -35,14 +36,14 @@ export const RegisterStep = () => {
           <I18nText path='auth.register.id' />
         </Typography>
         <Typography variant='sub1' className='ml-3 text-taiga'>
-          {registerInfo.userId}
+          {userCredentials.userId}
         </Typography>
       </div>
       <div className='mt-3'>
         <Typography variant='sub5' className='text-center'>
           <I18nText path='auth.register.code' />
         </Typography>
-        <InputOTP maxLength={4} defaultValue={registerInfo.code}>
+        <InputOTP maxLength={4} defaultValue={userCredentials.code}>
           <InputOTPGroup className='mt-3'>
             <InputOTPSlot index={0} />
             <InputOTPSlot index={1} />
@@ -57,7 +58,7 @@ export const RegisterStep = () => {
           values={{
             // eslint-disable-next-line react/no-unstable-nested-components
             settingsLink: (children: React.ReactNode) => (
-              <Link href={ROUTES.APP.PROFILE.EDIT(registerInfo.userId)}>
+              <Link href={ROUTES.APP.PROFILE.EDIT(userCredentials.userId)}>
                 <Typography variant='body3' className='text-taiga underline'>
                   {children}
                 </Typography>
