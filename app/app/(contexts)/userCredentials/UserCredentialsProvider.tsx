@@ -16,7 +16,7 @@ export const UserCredentialsProvider = ({
   const [userCredentials, setUserCredentials] = React.useState(defaultUserCredentials);
 
   const value = React.useMemo(
-    () => ({ userCredentials, setUserCredentials }),
+    () => ({ state: userCredentials, set: setUserCredentials }),
     [userCredentials, setUserCredentials]
   );
 

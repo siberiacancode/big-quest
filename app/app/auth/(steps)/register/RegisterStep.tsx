@@ -10,15 +10,17 @@ import { I18nText } from '@/components/common';
 import { buttonVariants, InputOTP, InputOTPGroup, InputOTPSlot, Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
 
-import { useUserCredentials } from '../../../(contexts)';
+import { useUserCredentialsContext } from '../../../(contexts)';
 import { useWizard } from '../../(contexts)';
 
 export const RegisterStep = () => {
-  const { userCredentials } = useUserCredentials();
-  const { setStepId } = useWizard();
+  const userCredentialsContext = useUserCredentialsContext();
+  const wizard = useWizard();
+
+  const userCredentials = userCredentialsContext.state;
 
   if (!userCredentials) {
-    setStepId('excursion');
+    wizard.setStepId('excursion');
     return null;
   }
 

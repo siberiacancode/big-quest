@@ -8,10 +8,10 @@ export interface UserCredentials {
 }
 
 export interface UserCredentialsContextParams {
-  userCredentials?: UserCredentials;
-  setUserCredentials: (registerInfo: UserCredentials) => void;
+  state?: UserCredentials;
+  set: (userCredentials: UserCredentials) => void;
 }
 
 export const UserCredentialsContext = React.createContext<UserCredentialsContextParams>({
-  setUserCredentials: () => {}
+  set: () => {}
 });
