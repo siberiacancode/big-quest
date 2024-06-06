@@ -19,7 +19,6 @@ import {
 } from '@tanstack/react-table';
 import { CheckIcon } from 'lucide-react';
 
-import type { ComboBoxItemType } from '@/components/ui';
 import {
   Badge,
   Button,
@@ -259,10 +258,15 @@ export const DataTableColumnHeaderLabel = React.forwardRef<
 ));
 DataTableColumnHeaderLabel.displayName = 'DataTableColumnHeaderLabel';
 
+interface DataTableFacetedFilterItemType {
+  value: string;
+  label: string;
+}
+
 export interface DataTableFacetedFilterProps {
   values: string[];
   onSelect: (value: string[]) => void;
-  items: ComboBoxItemType[];
+  items: DataTableFacetedFilterItemType[];
   searchPlaceholder?: string;
   noResultsMsg?: string;
   title: string;

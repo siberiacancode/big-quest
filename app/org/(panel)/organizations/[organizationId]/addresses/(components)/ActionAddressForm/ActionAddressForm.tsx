@@ -58,13 +58,20 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                       <I18nText path='field.city.label' />
                     </FormLabel>
                     <FormControl>
-                      <Select {...field} value={field.value} onValueChange={field.onChange}>
+                      <Select
+                        {...field}
+                        value={field.value}
+                        onValueChange={(value) => {
+                          field.onChange(value);
+                          form.setValue('locality', {});
+                        }}
+                      >
                         <SelectTrigger className='h-8 w-48'>
                           <SelectValue placeholder='Город' />
                         </SelectTrigger>
                         <SelectContent>
-                          {Object.keys(CITIES).map((city, index) => (
-                            <SelectItem key={index} value={CITIES[city].name}>
+                          {Object.keys(CITIES).map((city) => (
+                            <SelectItem key={CITIES[city].id} value={CITIES[city].name}>
                               {CITIES[city].name}
                             </SelectItem>
                           ))}
@@ -88,10 +95,13 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                       <I18nText path='field.address.label' />
                     </FormLabel>
                     <AddressCombobox
-                      value={form.getValues('city') + field.value}
+                      value={field.value}
                       className='w-full'
-                      onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                      onSelect={(newValue) => {
+                        form.setValue('locality', newValue);
+                      }}
                       convertAddresses={convertLocalitiesToComboboxItems}
+                      prefilledCity={form.getValues('city')}
                     />
                     <FormMessage>
                       {form.formState?.errors?.locality && (

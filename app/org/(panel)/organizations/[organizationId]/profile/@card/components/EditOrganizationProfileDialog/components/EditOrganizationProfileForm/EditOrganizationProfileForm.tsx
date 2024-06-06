@@ -214,8 +214,10 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <AddressCombobox
+                    // @ts-ignore
                     value={field.value}
                     className='w-full'
+                    // @ts-ignore
                     onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
                     convertAddresses={convertLocalitiesToComboboxItems}
                   />
@@ -323,9 +325,11 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <AddressCombobox
+                    // @ts-ignore
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) =>
+                      // @ts-ignore
                       form.setValue('information.legalAddress', newValue ?? '')
                     }
                   />
@@ -352,9 +356,11 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <AddressCombobox
+                    // @ts-ignore
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) =>
+                      // @ts-ignore
                       form.setValue('information.postAddress', newValue ?? '')
                     }
                   />

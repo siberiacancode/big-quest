@@ -19,13 +19,13 @@ import { Input } from './input';
 import { ScrollArea } from './scroll-area';
 
 export interface ComboBoxItemType {
-  value: string;
+  value: string | object;
   label: string;
 }
 
 export type ComboboxProps = {
-  value?: string;
-  onSelect: (value: string | undefined) => void;
+  value?: string | object;
+  onSelect: (value: string | object) => void;
   items: ComboBoxItemType[];
   searchPlaceholder?: string;
   noResultsMsg?: string;
@@ -56,6 +56,11 @@ export const Combobox = ({
 }: ComboboxProps) => {
   const [open, setOpen] = React.useState(false);
 
+  const getLabelForValue = (val?: string | object) => {
+    const item = items.find((item) => JSON.stringify(item.value) === JSON.stringify(val));
+    return item ? item.label : '';
+  };
+
   return (
     <Popover open={open} onOpenChange={setOpen} modal>
       <PopoverTrigger asChild>
@@ -69,9 +74,8 @@ export const Combobox = ({
           )}
         >
           <span className={cn('font-normal', !value && 'text-placeholder')}>
-            {!!onSearchChange && (value || selectItemMsg)}
-            {!onSearchChange &&
-              (value ? items.find((item) => item.value === value)?.label : selectItemMsg)}
+            {!!onSearchChange && (value ? getLabelForValue(value) : selectItemMsg)}
+            {!onSearchChange && (value ? getLabelForValue(value) : selectItemMsg)}
           </span>
           <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
         </Button>
@@ -108,18 +112,16 @@ export const Combobox = ({
                     setOpen(false);
                   }}
                 >
-                  <Check
-                    className={cn('mr-2 h-4 w-4', value === '' ? 'opacity-100' : 'opacity-0')}
-                  />
+                  <Check className={cn('mr-2 h-4 w-4', !value ? 'opacity-100' : 'opacity-0')} />
                   {unselectMsg}
                 </CommandItem>
               )}
               {items.map((item) => (
                 <CommandItem
-                  key={item.value}
-                  value={item.label}
-                  onSelect={(currentValue) => {
-                    onSelect(currentValue === item.label.toLowerCase() ? item.value : '');
+                  key={JSON.stringify(item.value)}
+                  value={typeof item.value === 'string' ? item.value : JSON.stringify(item.value)} // Изменено: передается значение как оно есть
+                  onSelect={() => {
+                    onSelect(item.value);
                     setOpen(false);
                   }}
                 >

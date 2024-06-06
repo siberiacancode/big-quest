@@ -41,10 +41,8 @@ export const useActionAddressForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(actionAddressSchema),
     defaultValues: {
-      city: CITIES.KEMEROVO.name ?? '', // fix
-      locality: address?.locality ?? '',
-      street: address?.street ?? '',
-      house: address?.house ?? '',
+      city: CITIES.KEMEROVO.name ?? '',
+      locality: {},
       details: address?.details ?? '',
       workingHours: address?.workingHours
         ? convertWorkingHours(address.workingHours)
@@ -73,7 +71,7 @@ export const useActionAddressForm = ({
       };
     });
 
-    const requestParams = { ...values, workingHours: formattedWorkingHours };
+    const { city, ...requestParams } = { ...values, workingHours: formattedWorkingHours };
 
     if (actionType === 'add') {
       const postOrganizationActionAddressParams = {
@@ -81,6 +79,8 @@ export const useActionAddressForm = ({
         action: actionType
       } as const;
 
+      // пофиксить
+      // @ts-ignore
       await organizationActionAddressMutation.mutateAsync(postOrganizationActionAddressParams);
 
       toast.success(i18n.formatMessage({ id: 'toast.addAddress' }), {
