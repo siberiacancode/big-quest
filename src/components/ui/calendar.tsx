@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { DayPicker } from 'react-day-picker';
-import { isSameDay } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -13,7 +12,7 @@ const IconLeft = () => <ChevronLeft className='h-4 w-4' />;
 const IconRight = () => <ChevronRight className='h-4 w-4' />;
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
-  schedules: Date[];
+  schedules?: Date[];
 };
 
 const Calendar = ({
@@ -24,12 +23,9 @@ const Calendar = ({
   ...props
 }: CalendarProps) => {
   // TODO add border styles on schedule days
-  const modifiers = {
-    outside: (date: Date) => schedules.some((schedule) => isSameDay(new Date(schedule), date))
-  };
-
+  const modifiers = { some: schedules?.map((date) => new Date(date)) ?? [] };
   const modifiersClassNames = {
-    outside: 'border-taiga'
+    some: 'border border-taiga'
   };
 
   return (

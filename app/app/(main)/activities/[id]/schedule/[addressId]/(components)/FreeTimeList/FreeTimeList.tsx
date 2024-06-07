@@ -17,8 +17,6 @@ export const FreeTimeList = ({ schedule }: FreeTimeListProps) => {
 
   const activeInfo = activeTime && schedule.info.find((info) => info.formattedTime === activeTime);
 
-  console.log(activeInfo);
-
   return (
     <div className='mt-4 w-full space-y-4 md:space-y-8 '>
       {schedule && (

@@ -16,7 +16,6 @@ interface SchedulePageProps {
 }
 
 const SchedulePage = async ({ params }: SchedulePageProps) => {
-  console.log(params);
   const device = getDevice();
   const isMobile = device.type === 'mobile';
   const getScheduleByActivityIdResponse = await getScheduleByActivityId({

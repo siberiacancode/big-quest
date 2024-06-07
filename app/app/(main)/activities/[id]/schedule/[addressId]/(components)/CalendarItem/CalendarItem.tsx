@@ -20,13 +20,10 @@ export const CalendarItem = ({
   schedule: ScheduleResponse[];
   isMobile: boolean;
 }) => {
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
   const groupedDates: GroupedSchedule[] = groupTimesByDate(schedule);
 
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
-
   const activeDateSchedule = date && groupedDates.find((group) => fns.isSameDay(group.date, date));
-
-  console.log(schedule, activeDateSchedule);
 
   return (
     <div
