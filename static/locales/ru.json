@@ -153,9 +153,13 @@
 
   "organization.employee.email": "Email",
   "organization.employee.phoneNumber": "Телефон",
-  "organization.employee.role.administrator": "Администратор",
+  "organization.employee.role.admin": "Администратор",
+  "organization.employee.role.superadmin": "Суперадмин",
   "organization.employee.role.leading": "Ведущий",
+  "organization.employee.role.user": "Юзер",
   "organization.employee.role.manager": "Менеджер",
+  "organization.employee.role.moderator": "Модератор",
+  "organization.employee.role.support": "Помощник",
 
   "partner.role.administrator": "Администратор",
   "partner.role.leading": "Ведущий",

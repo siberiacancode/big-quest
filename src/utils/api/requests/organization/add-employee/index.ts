@@ -1,6 +1,7 @@
+import type { AddUserDto } from '@/api-types';
 import { api } from '@/utils/api/instance';
 
-export type PostOrganizationAddEmployeeParams = Record<$TSFIXME, $TSFIXME>;
+export type PostOrganizationAddEmployeeParams = AddUserDto;
 
 export type PostOrganizationAddEmployeeRequestConfig =
   RequestConfig<PostOrganizationAddEmployeeParams>;
