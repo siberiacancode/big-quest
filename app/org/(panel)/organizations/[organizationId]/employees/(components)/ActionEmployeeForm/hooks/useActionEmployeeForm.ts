@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
+import { usePostFileMutation } from '@/utils/api';
 import { useI18n } from '@/utils/contexts';
 
 import type { EmployeeData } from '../../../(constants)/types';
@@ -44,16 +45,38 @@ export const useActionEmployeeForm = ({
   });
 
   const organizationActionEmployeeMutation = useOrganizationActionEmployeeMutation();
+  const postFileMutation = usePostFileMutation();
 
   const onSubmit = actionEmployeeForm.handleSubmit(async (values) => {
+    const { file, ...restValues } = values;
     const requestParams = {
-      ...values,
+      ...restValues,
       legalEntityId: params.organizationId
     };
 
+    let avatarMedia;
+
+    if (file) {
+      const formData = new FormData();
+      formData.append('file', file);
+      const fileId = await postFileMutation.mutateAsync({ params: formData });
+      avatarMedia = {
+        media: [
+          {
+            id: { fileId },
+            type: 'IMAGE',
+            flag: 'AVATAR'
+          }
+        ]
+      };
+    }
+
     if (actionType === 'add') {
       const postOrganizationActionEmployeeParams = {
-        params: requestParams,
+        params: {
+          ...requestParams,
+          ...(avatarMedia && { avatarMedia })
+        },
         action: actionType
       } as const;
 
@@ -65,12 +88,10 @@ export const useActionEmployeeForm = ({
     }
 
     if (actionType === 'edit') {
-      const { file, ...restRequestParams } = requestParams;
-
       const postOrganizationActionEmployeeParams = {
         params: {
-          ...restRequestParams,
-          ...(file && { file }),
+          ...requestParams,
+          ...(avatarMedia && { avatarMedia }),
           userId: employee!.id
         },
         action: actionType
