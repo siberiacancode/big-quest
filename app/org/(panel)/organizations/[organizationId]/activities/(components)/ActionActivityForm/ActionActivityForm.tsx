@@ -337,6 +337,7 @@ export const ActionActivityForm = <ActionType extends ActivityActionType>({
                                 className='h-9 max-w-72 text-center'
                                 {...field}
                                 placeholder='0'
+                                type='number'
                               />
                               <Typography variant='body2' className='text-muted-foreground'>
                                 <I18nText path='field.price.currency' />

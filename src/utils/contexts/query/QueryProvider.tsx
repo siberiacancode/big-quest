@@ -17,7 +17,7 @@ export const QueryProvider: React.FC<QueryProviderProps> = ({ children }) => {
           onError: (error) => {
             const responseError = error.cause as ResponseError;
 
-            toast.error(responseError.response.statusText, {
+            toast.error(responseError.response.data.exception.message, {
               cancel: { label: 'Close' }
             });
           }
@@ -26,7 +26,7 @@ export const QueryProvider: React.FC<QueryProviderProps> = ({ children }) => {
           onError: (error) => {
             const responseError = error.cause as ResponseError;
 
-            toast.error(responseError.response.statusText, {
+            toast.error(responseError.response.data.exception.message, {
               cancel: { label: 'Close' }
             });
           }
