@@ -27,19 +27,19 @@ export const useEditOrganizationProfileForm = ({
     resolver: zodResolver(editOrganizationProfileSchema),
     defaultValues: {
       stage: organization.stage ?? 'REQUEST',
-      locality: organization.locality ?? '',
+      locality: organization.locality ?? {},
       name: organization.name ?? '',
       description: organization.description ?? undefined,
       inn: organization.information?.inn ?? undefined,
       information: {
-        postAddress: organization.information?.postAddress ?? undefined,
+        postAddress: organization.information?.postAddress ?? {},
         contactName: organization.contactName ?? '',
         phone: organization.phone ? String(organization.phone).slice(1) : '',
         email: organization.email ?? undefined,
         site: organization.site ?? undefined,
         social: organization.social ? convertSocialToFormValues(organization.social) : [{}],
         fullNameOfTheLegalEntity: organization.information?.fullNameOfTheLegalEntity ?? undefined,
-        legalAddress: organization.information?.legalAddress ?? undefined,
+        legalAddress: organization.information?.legalAddress ?? {},
         kpp: organization.information?.kpp ?? undefined,
         ogrn: organization.information?.ogrn ?? undefined
       },

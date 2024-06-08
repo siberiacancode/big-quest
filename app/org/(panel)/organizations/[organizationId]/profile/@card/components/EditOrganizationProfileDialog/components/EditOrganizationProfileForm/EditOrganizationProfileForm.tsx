@@ -214,21 +214,13 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <AddressCombobox
-                    // @ts-ignore
-                    value={field.value}
-                    className='w-full'
-                    // @ts-ignore
-                    onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
-                    convertAddresses={convertLocalitiesToComboboxItems}
-                  />
-                  {/* <AddressCombobox
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) => {
                       form.setValue('locality', newValue);
                     }}
                     convertAddresses={convertLocalitiesToComboboxItems}
-                  /> */}
+                  />
                 </FormControl>
                 <FormMessage>
                   {form.formState?.errors?.locality && (
@@ -333,22 +325,13 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <AddressCombobox
-                    // @ts-ignore
-                    value={field.value}
-                    className='w-full'
-                    onSelect={(newValue) =>
-                      // @ts-ignore
-                      form.setValue('information.legalAddress', newValue ?? '')
-                    }
-                  />
-                  {/* <AddressCombobox
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) => {
                       form.setValue('information.legalAddress', newValue);
                     }}
                     convertAddresses={convertLocalitiesToComboboxItems}
-                  /> */}
+                  />
                 </FormControl>
                 <FormMessage>
                   {form.formState?.errors?.information?.legalAddress && (
@@ -372,22 +355,13 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <AddressCombobox
-                    // @ts-ignore
-                    value={field.value}
-                    className='w-full'
-                    onSelect={(newValue) =>
-                      // @ts-ignore
-                      form.setValue('information.postAddress', newValue ?? '')
-                    }
-                  />
-                  {/* <AddressCombobox
                     value={field.value}
                     className='w-full'
                     onSelect={(newValue) => {
                       form.setValue('information.postAddress', newValue);
                     }}
                     convertAddresses={convertLocalitiesToComboboxItems}
-                  /> */}
+                  />
                 </FormControl>
                 <FormMessage>
                   {form.formState?.errors?.information?.postAddress && (
