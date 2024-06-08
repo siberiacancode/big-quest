@@ -46,7 +46,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
                 <Typography variant='h5' tag='h5'>
                   {organization.name}
                 </Typography>
-                <Typography variant='sub6' tag='p'>
+                <Typography variant='sub3' tag='p' className='text-muted-foreground'>
                   <I18nText
                     path={
                       `organization.stage.${organization.stage.toLowerCase()}` as LocaleMessageId

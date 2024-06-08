@@ -147,7 +147,7 @@ export const ActionActivityForm = <ActionType extends ActivityActionType>({
                                   />
                                 )}
                               />
-                              <Typography variant='body5'>
+                              <Typography variant='body2' className='text-muted-foreground'>
                                 <I18nText path='field.ageLimit.before' />
                               </Typography>
                               <Controller
@@ -189,7 +189,7 @@ export const ActionActivityForm = <ActionType extends ActivityActionType>({
                                 {...field}
                                 placeholder='120'
                               />
-                              <Typography variant='body5'>
+                              <Typography variant='body2' className='text-muted-foreground'>
                                 <I18nText path='field.duration.minutes' />
                               </Typography>
                             </div>
@@ -338,7 +338,7 @@ export const ActionActivityForm = <ActionType extends ActivityActionType>({
                                 {...field}
                                 placeholder='0'
                               />
-                              <Typography variant='body5'>
+                              <Typography variant='body2' className='text-muted-foreground'>
                                 <I18nText path='field.price.currency' />
                               </Typography>
                             </div>

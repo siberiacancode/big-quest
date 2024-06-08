@@ -25,12 +25,16 @@ const AppProfilePage = () => (
             <Image src={avatar} alt='' width={80} height={80} />
             <div>
               <Typography variant='sub3'>ФИО</Typography>
-              <Typography variant='body4' className='mt-2.5'>
+              <Typography variant='body4' className='mt-2.5 text-muted-foreground'>
                 <I18nText path='app.profile.passportId' /> -
               </Typography>
-              <Typography variant='body4' className='mt-1.5'>
+              <Typography variant='body4' className='mt-1.5 text-muted-foreground'>
                 <I18nText path='app.profile.userId' />
-                <Typography variant='body4' tag='span' className='font-medium'>
+                <Typography
+                  variant='body4'
+                  tag='span'
+                  className='font-medium text-muted-foreground'
+                >
                   @7654Qwerty
                 </Typography>
               </Typography>
@@ -53,13 +57,13 @@ const AppProfilePage = () => (
             <Card className='basis-1/2'>
               <CardContent className='flex items-center justify-center gap-3 px-3 py-[18px]'>
                 <BumpIcon />
-                <Typography variant='h7'>-</Typography>
+                <Typography variant='h6'>-</Typography>
               </CardContent>
             </Card>
             <Card className='basis-1/2'>
               <CardContent className='flex items-center justify-center gap-3 px-3 py-[18px]'>
                 <NutIcon />
-                <Typography variant='h7'>-</Typography>
+                <Typography variant='h6'>-</Typography>
               </CardContent>
             </Card>
           </div>

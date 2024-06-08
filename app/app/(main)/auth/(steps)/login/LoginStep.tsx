@@ -108,7 +108,7 @@ export const LoginStep = () => {
         </Form>
 
         <Button variant='link' onClick={functions.onRegisterClick} className='mx-auto mt-3 block'>
-          <Typography tag='p' variant='body3' className='underline'>
+          <Typography tag='p' variant='body3' className='text-muted-foreground underline'>
             <I18nText path='button.haveNotUserId' />
           </Typography>
         </Button>

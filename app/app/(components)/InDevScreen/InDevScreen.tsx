@@ -18,7 +18,7 @@ export const InDevScreen = ({ screen }: InDevScreenProps) => (
       <Typography variant='h5' className='mt-8'>
         <I18nText path='app.inDev.title' />
       </Typography>
-      <Typography variant='sub6' className='mt-4'>
+      <Typography variant='sub3' className='mt-4 text-muted-foreground'>
         <I18nText path='app.inDev.description' values={{ br: <br /> }} />
       </Typography>
     </div>

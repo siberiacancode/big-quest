@@ -27,7 +27,7 @@ export const ProfileDropdownMenu = () => {
             <Typography variant='sub1' tag='p'>
               {state.user.name} {state.user.surname}
             </Typography>
-            <Typography variant='body5' tag='p'>
+            <Typography variant='body2' tag='p' className='text-muted-foreground'>
               Админ
             </Typography>
           </div>

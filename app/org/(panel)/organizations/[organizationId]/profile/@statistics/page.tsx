@@ -31,7 +31,7 @@ const OrganizationProfileStatisticsPage = () => (
           <InfoCardItemTitle>560</InfoCardItemTitle>
           <InfoCardItemDescription className='flex gap-1 text-foreground'>
             <TrendingUpIcon size={14} />
-            <Typography variant='body4' tag='p'>
+            <Typography variant='body4' tag='p' className='text-muted-foreground'>
               +24 <I18nText path='infoCard.description.perMonth' />
             </Typography>
           </InfoCardItemDescription>

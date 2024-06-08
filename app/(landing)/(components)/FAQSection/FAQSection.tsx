@@ -27,7 +27,7 @@ export const FAQSection = ({ cityId }: FAQSectionProps) => {
   return (
     <section className='bg-muted py-12'>
       <div className='container w-full'>
-        <Typography tag='h2' variant='h6' className='text-center lg:text-4xl'>
+        <Typography tag='h2' variant='h5' className='text-center font-medium lg:text-4xl'>
           <I18nText path='landing.faq.title' />
         </Typography>
 
