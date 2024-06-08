@@ -119,7 +119,7 @@ export const Combobox = ({
               {items.map((item) => (
                 <CommandItem
                   key={JSON.stringify(item.value)}
-                  value={typeof item.value === 'string' ? item.value : JSON.stringify(item.value)} // Изменено: передается значение как оно есть
+                  value={typeof item.value === 'string' ? item.value : JSON.stringify(item.value)}
                   onSelect={() => {
                     onSelect(item.value);
                     setOpen(false);

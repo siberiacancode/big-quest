@@ -41,8 +41,8 @@ export const useActionAddressForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(actionAddressSchema),
     defaultValues: {
-      city: CITIES.KEMEROVO.name ?? '',
-      locality: {},
+      city: address?.locality.city ?? CITIES.MEZHDURECHENSK.name,
+      locality: address?.locality ?? {},
       details: address?.details ?? '',
       workingHours: address?.workingHours
         ? convertWorkingHours(address.workingHours)
@@ -79,7 +79,7 @@ export const useActionAddressForm = ({
         action: actionType
       } as const;
 
-      // пофиксить
+      // пофиксить как будет бэк
       // @ts-ignore
       await organizationActionAddressMutation.mutateAsync(postOrganizationActionAddressParams);
 

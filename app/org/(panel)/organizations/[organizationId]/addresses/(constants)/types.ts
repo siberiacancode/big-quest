@@ -1,3 +1,5 @@
+import type { ScheduleAddress } from '@/api-types';
+
 export interface WorkingHour {
   day: number;
   from: {
@@ -13,9 +15,7 @@ export interface WorkingHour {
 
 export interface AddressData {
   id: string;
-  locality: string;
-  street: string;
-  house: string;
-  details?: string;
+  locality: ScheduleAddress;
   workingHours: WorkingHour[];
+  details?: string;
 }

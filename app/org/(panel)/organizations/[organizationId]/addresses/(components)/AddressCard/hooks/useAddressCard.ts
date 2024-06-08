@@ -27,7 +27,7 @@ export const useAddressCard = ({ address }: UseAddressCardParams) => {
     toast.success(
       i18n.formatMessage(
         { id: 'toast.deleted' },
-        { name: `${address.locality} ${address.street}, ${address.house}` }
+        { name: `${address.locality.city} ${address.locality.street}, ${address.locality.house}` }
       ),
       {
         cancel: { label: i18n.formatMessage({ id: 'button.close' }) }

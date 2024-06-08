@@ -5,19 +5,16 @@
  * ## API BQ
  * OpenAPI spec version: 1.0
  */
+import { ScheduleAddress } from './scheduleAddress';
 import type { WorkingHourDto } from './workingHourDto';
 
 export interface AddressResponse {
   /** Детали адреса в свободной форме */
   details: string;
-  /** Номер дома */
-  house: string;
   /** Идентификатор адреса */
   id: string;
   /** Населенный пункт */
-  locality: string;
-  /** Улица */
-  street: string;
+  locality: ScheduleAddress;
   /** Рабочие часы */
   workingHours: WorkingHourDto[];
 }
