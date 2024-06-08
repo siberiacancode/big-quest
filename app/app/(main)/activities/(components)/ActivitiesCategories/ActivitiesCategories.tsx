@@ -24,16 +24,17 @@ export const ActivitiesCategories = () => {
             <I18nText path='organization.activities.category.all' />
           </TabsTrigger>
 
-          {categories.map((category) => (
-            <TabsTrigger
-              key={category.id}
-              value={category.data.RU}
-              className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
-              onClick={() => onCategoryClick(category.data.RU)}
-            >
-              {category.data.RU}
-            </TabsTrigger>
-          ))}
+          {categories &&
+            categories.map((category) => (
+              <TabsTrigger
+                key={category.id}
+                value={category.data.RU}
+                className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
+                onClick={() => onCategoryClick(category.data.RU)}
+              >
+                {category.data.RU}
+              </TabsTrigger>
+            ))}
         </TabsList>
       </Tabs>
       <ScrollBar orientation='horizontal' />

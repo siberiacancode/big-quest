@@ -1,16 +1,7 @@
 import { I18nText } from '@/components/common';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-  Typography
-} from '@/components/ui';
+import { Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { getActivityById, getScheduleByActivityId } from '@/utils/api';
-import { ROUTES } from '@/utils/constants';
 import { getDevice } from '@/utils/helpers/server';
 
 import { ActivityInfoCard } from './(components)/ActivityInfoCard/ActivityInfoCard';
@@ -43,19 +34,6 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
 
   return (
     <section className='container p-0'>
-      {!isMobile && (
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem className='list-none text-base'>
-              <BreadcrumbLink href={ROUTES.APP.ACTIVITIES.ROOT}>
-                <I18nText path='landing.activities.title' />
-              </BreadcrumbLink>
-              <BreadcrumbSeparator />
-              <BreadcrumbPage>{getActivityByIdResponse.name}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-      )}
       <div
         className={cn(
           'bg-background p-6 xs:mt-6 xs:rounded-[8px]',
