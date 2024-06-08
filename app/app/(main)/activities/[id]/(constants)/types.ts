@@ -2,7 +2,7 @@ import type { ScheduleResponse } from '@/api-types';
 
 export interface ExtendedScheduleResponse extends ScheduleResponse {
   employeeNumber?: string;
-  formattedTime?: string;
+  start?: string;
 }
 
 export interface AddressProps {
@@ -11,8 +11,13 @@ export interface AddressProps {
   details: string;
 }
 
+export interface Time {
+  start: string;
+  end: string;
+}
+
 export interface GroupedSchedule {
   date: Date;
-  times: string[];
+  times: Time[];
   info: ExtendedScheduleResponse[];
 }

@@ -22,7 +22,6 @@ const Calendar = ({
   showOutsideDays = true,
   ...props
 }: CalendarProps) => {
-  // TODO add border styles on schedule days
   const modifiers = { some: schedules?.map((date) => new Date(date)) ?? [] };
   const modifiersClassNames = {
     some: 'border border-taiga'

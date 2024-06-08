@@ -318,19 +318,6 @@
   "dayOfWeek.7": "Вс",
   "dayOfWeek.dayOff": "Выходной",
 
-  "month.1": "Января",
-  "month.2": "Февраля",
-  "month.3": "Марта",
-  "month.4": "Апреля",
-  "month.5": "Мая",
-  "month.6": "Июня",
-  "month.7": "Июля",
-  "month.8": "Августа",
-  "month.9": "Сентября",
-  "month.10": "Октября",
-  "month.11": "Ноября",
-  "month.12": "Декабря",
-
   "addressCard.description.workingTime": "Время работы",
 
   "table.column.status": "Статус",
@@ -430,6 +417,12 @@
   "app.activity.schedule.label": "Выбор даты",
   "app.activity.schedule.time.title": "Выберите время",
   "app.activity.schedule.time.description": "Ниже представлены доступное время для записи",
+  "app.activity.schedule.noPreEntry.title": "Свободное посещение",
+  "app.activity.schedule.noPreEntry.description": "Запись не требуется",
+
+  "app.activity.schedule.preEntry": "По предварительной записи",
+  "app.activity.phone": "Номер телефона",
+  "app.activity.phone.copy": "Номер скопирован",
 
   "toast.deleted": "Успешно удалено",
   "toast.organizationTariffChanged": "Тариф успешно изменен",

@@ -56,7 +56,7 @@ export const CalendarItem = ({
           </Typography>
         )}
 
-        {activeDateSchedule && <FreeTimeList schedule={activeDateSchedule} />}
+        {activeDateSchedule && <FreeTimeList schedule={activeDateSchedule} isMobile={isMobile} />}
       </div>
     </div>
   );

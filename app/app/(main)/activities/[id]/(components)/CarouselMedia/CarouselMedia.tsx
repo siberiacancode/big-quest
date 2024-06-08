@@ -34,11 +34,7 @@ export const CarouselMedia = ({ activity }: CarouselMediaProps) => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselDots
-        className='absolute bottom-5 mx-auto mt-4 w-full text-center'
-        activeStyle='bg-white scale-100'
-        inactiveStyle='bg-transparent border border-white'
-      />
+      <CarouselDots className='absolute bottom-5 mx-auto mt-4 w-full text-center' />
     </Carousel>
   );
 };

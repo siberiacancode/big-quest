@@ -11,6 +11,6 @@ export const groupAddresses = (data: ScheduleResponse[]): AddressProps[] => {
 
     return acc;
   }, {});
-  console.log(groupedData);
+
   return Object.values(groupedData);
 };

@@ -246,52 +246,49 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, CarouselNextProps>(
 );
 CarouselNext.displayName = 'CarouselNext';
 
-interface CarouselDotsProps {
-  activeStyle?: string;
-  inactiveStyle?: string;
-}
+const CarouselDots = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    const { api } = useCarousel();
+    const [, setUpdateState] = React.useState(false);
+    const toggleUpdateState = React.useCallback(
+      () => setUpdateState((prevState) => !prevState),
+      []
+    );
 
-const CarouselDots = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & CarouselDotsProps
->((props, ref) => {
-  const { api } = useCarousel();
-  const [, setUpdateState] = React.useState(false);
-  const toggleUpdateState = React.useCallback(() => setUpdateState((prevState) => !prevState), []);
+    React.useEffect(() => {
+      if (api) {
+        api.on('select', toggleUpdateState);
+        api.on('reInit', toggleUpdateState);
 
-  React.useEffect(() => {
-    if (api) {
-      api.on('select', toggleUpdateState);
-      api.on('reInit', toggleUpdateState);
+        return () => {
+          api.off('select', toggleUpdateState);
+          api.off('reInit', toggleUpdateState);
+        };
+      }
+    }, [api, toggleUpdateState]);
 
-      return () => {
-        api.off('select', toggleUpdateState);
-        api.off('reInit', toggleUpdateState);
-      };
-    }
-  }, [api, toggleUpdateState]);
+    const numberOfSlides = api?.scrollSnapList().length ?? 0;
+    const currentSlide = api?.selectedScrollSnap() ?? 0;
 
-  const numberOfSlides = api?.scrollSnapList().length || 0;
-  const currentSlide = api?.selectedScrollSnap() || 0;
-
-  return (
-    <div ref={ref} className={`flex justify-center ${props.className}`}>
-      {Array.from({ length: numberOfSlides }, (_, i) => (
-        <Button
-          key={i}
-          className={cn(
-            'mx-1 h-2 w-2 rounded-full p-0',
-            i === currentSlide
-              ? cn('scale-125 transform bg-taiga hover:bg-taiga-light', props.activeStyle)
-              : cn('bg-gray-300 hover:bg-gray-300', props.inactiveStyle)
-          )}
-          aria-label={`Go to slide ${i + 1}`}
-          onClick={() => api?.scrollTo(i)}
-        />
-      ))}
-    </div>
-  );
-});
+    return (
+      <div ref={ref} className={`flex justify-center ${props.className}`}>
+        {Array.from({ length: numberOfSlides }, (_, i) => (
+          <Button
+            key={i}
+            className={cn(
+              'mx-1 h-2 w-2 rounded-full p-0',
+              i === currentSlide
+                ? 'scale-125 transform bg-taiga hover:bg-taiga-light'
+                : 'bg-gray-300 hover:bg-gray-300'
+            )}
+            aria-label={`Go to slide ${i + 1}`}
+            onClick={() => api?.scrollTo(i)}
+          />
+        ))}
+      </div>
+    );
+  }
+);
 
 CarouselDots.displayName = 'CarouselDots';
 
