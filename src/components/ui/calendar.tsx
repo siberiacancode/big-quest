@@ -22,9 +22,9 @@ const Calendar = ({
   showOutsideDays = true,
   ...props
 }: CalendarProps) => {
-  const modifiers = { some: schedules?.map((date) => new Date(date)) ?? [] };
+  const modifiers = { scheduled: schedules?.map((date) => new Date(date)) ?? [] };
   const modifiersClassNames = {
-    some: 'border border-taiga'
+    scheduled: 'border border-taiga'
   };
 
   return (
