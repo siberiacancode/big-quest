@@ -23,8 +23,8 @@ export const FreeTimeList = ({ schedule, isMobile }: FreeTimeListProps) => {
 
   const activeInfo = schedule.info.find((info) => info.start === activeTime)!;
 
-  const copy = async () => {
-    await navigator.clipboard.writeText(activeInfo.employeeNumber as string);
+  const copyNumberOnClick = async () => {
+    await navigator.clipboard.writeText(activeInfo.employeeNumber);
     toast(i18n.formatMessage({ id: 'app.activity.phone.copy' }), {
       cancel: { label: i18n.formatMessage({ id: 'button.close' }) }
     });
@@ -74,7 +74,7 @@ export const FreeTimeList = ({ schedule, isMobile }: FreeTimeListProps) => {
                 {!isMobile && (
                   <Button
                     variant='link'
-                    onClick={copy}
+                    onClick={copyNumberOnClick}
                     className='h-fit py-0 text-base font-normal'
                   >
                     +{activeInfo?.employeeNumber}

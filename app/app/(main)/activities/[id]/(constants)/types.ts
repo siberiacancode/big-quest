@@ -1,7 +1,7 @@
 import type { ScheduleResponse } from '@/api-types';
 
 export interface ExtendedScheduleResponse extends ScheduleResponse {
-  employeeNumber?: string;
+  employeeNumber: string;
   start?: string;
 }
 
