@@ -163,7 +163,7 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                         render={({ field }) => (
                           <>
                             <ClockInput
-                              className='mx-2 h-6 w-11 border-0 border-b p-1'
+                              className='mx-2 h-6 w-12 border-0 border-b p-1'
                               disabled={dayOff}
                               {...field}
                             />
@@ -189,7 +189,7 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                         render={({ field }) => (
                           <>
                             <ClockInput
-                              className='mx-2 h-6 w-11 border-0 border-b p-1'
+                              className='mx-2 h-6 w-12 border-0 border-b p-1'
                               disabled={dayOff}
                               {...field}
                             />
