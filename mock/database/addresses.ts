@@ -3,9 +3,22 @@ import type { AddressResponse } from '@/api-types';
 export const ADDRESSES: AddressResponse[] = [
   {
     id: '1',
-    locality: 'Martinez',
-    street: 'Mill Lane',
-    house: '36',
+    locality: {
+      country: 'Россия',
+      region: 'Томская',
+      city: 'Томск',
+      postalCode: '634050',
+      street: 'Ленина',
+      house: '36',
+      flat: 0,
+      geoLat: 56.46946,
+      geoLon: 84.94757,
+      unrestrictedValue: '634050, Томская обл, г Томск, пр-кт Ленина, д 36',
+      value: 'г Томск, пр-кт Ленина, д 36',
+      cityWithType: 'г Томск',
+      settlement: undefined,
+      settlementWithType: undefined
+    },
     details: 'something',
     workingHours: [
       {
@@ -96,9 +109,22 @@ export const ADDRESSES: AddressResponse[] = [
   },
   {
     id: '2',
-    locality: 'Hinsdale',
-    street: 'Cobek Court',
-    house: '96',
+    locality: {
+      country: 'Россия',
+      region: 'Томская',
+      city: 'Томск',
+      postalCode: '634050',
+      street: 'Ленина',
+      house: '36',
+      flat: 0,
+      geoLat: 56.46946,
+      geoLon: 84.94757,
+      unrestrictedValue: '634050, Томская обл, г Томск, пр-кт Ленина, д 36',
+      value: 'г Томск, пр-кт Ленина, д 36',
+      cityWithType: 'г Томск',
+      settlement: undefined,
+      settlementWithType: undefined
+    },
     details: 'something',
     workingHours: [
       {
@@ -189,9 +215,22 @@ export const ADDRESSES: AddressResponse[] = [
   },
   {
     id: '3',
-    locality: 'Fairlee',
-    street: 'Elmwood Avenue',
-    house: '23',
+    locality: {
+      country: 'Россия',
+      region: 'Томская',
+      city: 'Томск',
+      postalCode: '634050',
+      street: 'Ленина',
+      house: '36',
+      flat: 0,
+      geoLat: 56.46946,
+      geoLon: 84.94757,
+      unrestrictedValue: '634050, Томская обл, г Томск, пр-кт Ленина, д 36',
+      value: 'г Томск, пр-кт Ленина, д 36',
+      cityWithType: 'г Томск',
+      settlement: undefined,
+      settlementWithType: undefined
+    },
     details: 'something',
     workingHours: [
       {
@@ -282,9 +321,22 @@ export const ADDRESSES: AddressResponse[] = [
   },
   {
     id: '4',
-    locality: 'Canby',
-    street: 'Ryder Avenue',
-    house: '58',
+    locality: {
+      country: 'Россия',
+      region: 'Томская',
+      city: 'Томск',
+      postalCode: '634050',
+      street: 'Ленина',
+      house: '36',
+      flat: 0,
+      geoLat: 56.46946,
+      geoLon: 84.94757,
+      unrestrictedValue: '634050, Томская обл, г Томск, пр-кт Ленина, д 36',
+      value: 'г Томск, пр-кт Ленина, д 36',
+      cityWithType: 'г Томск',
+      settlement: undefined,
+      settlementWithType: undefined
+    },
     details: 'something',
     workingHours: [
       {

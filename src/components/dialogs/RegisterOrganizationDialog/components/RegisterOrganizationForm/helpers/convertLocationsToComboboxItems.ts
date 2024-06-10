@@ -8,5 +8,5 @@ export const convertLocationsToComboboxItems = (addresses: AddressResponseDto[])
     )
     .map((address) => ({
       label: address.cityWithType,
-      value: address.cityWithType
+      value: address
     }));

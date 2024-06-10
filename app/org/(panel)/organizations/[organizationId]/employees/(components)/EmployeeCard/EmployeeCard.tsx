@@ -132,7 +132,7 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
         >
           <div className='mb-2 flex flex-col items-center'>
             <div className='relative h-16 w-16'>
-              <Image src={employee.image} fill alt='user' className='rounded-full' />
+              <Image src={employee.media[0].url} fill alt='user' className='rounded-full' />
             </div>
             <div className='mt-2 flex flex-col items-center space-y-1'>
               <Typography variant='h7' tag='p' className='flex-1'>

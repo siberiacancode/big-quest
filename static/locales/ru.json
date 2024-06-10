@@ -153,9 +153,13 @@
 
   "organization.employee.email": "Email",
   "organization.employee.phoneNumber": "Телефон",
-  "organization.employee.role.administrator": "Администратор",
+  "organization.employee.role.admin": "Администратор",
+  "organization.employee.role.superadmin": "Суперадмин",
   "organization.employee.role.leading": "Ведущий",
+  "organization.employee.role.user": "Юзер",
   "organization.employee.role.manager": "Менеджер",
+  "organization.employee.role.moderator": "Модератор",
+  "organization.employee.role.support": "Помощник",
 
   "partner.role.administrator": "Администратор",
   "partner.role.leading": "Ведущий",
@@ -182,6 +186,7 @@
   "field.street.house": "Улица",
   "field.house.label": "Дом",
   "field.street.label": "Улица",
+  "field.address.label": "Адрес",
   "field.street.placeholder": "ул.",
   "field.details.label": "Детали",
   "field.details.placeholder": "офис, вход, этаж",
@@ -218,6 +223,7 @@
   "field.code.label": "Код",
   "field.code.placeholder": "****",
   "field.datePicker.label": "Выберите дату",
+  "field.city.label": "Город",
 
   "field.imageDownload.title": "Нажмите, чтобы загрузить",
   "field.imageDownload.description": "файл SVG, PNG, JPG или GIF (max. 400x400px)",

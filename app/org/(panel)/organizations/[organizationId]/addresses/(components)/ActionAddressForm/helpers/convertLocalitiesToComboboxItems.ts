@@ -2,11 +2,8 @@ import type { AddressResponseDto } from '@/api-types';
 
 export const convertLocalitiesToComboboxItems = (addresses: AddressResponseDto[]) =>
   addresses
-    .filter(
-      (address) =>
-        address.city && !address.street && !address.house && !address.flat && address.cityWithType
-    )
+    // .filter((address) => address.street && address.house)
     .map((address) => ({
-      label: address.cityWithType,
-      value: address.cityWithType
+      label: address.value,
+      value: address
     }));

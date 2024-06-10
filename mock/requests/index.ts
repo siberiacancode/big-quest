@@ -10,6 +10,8 @@ export * from './auth/new-code/get';
 export * from './category/get';
 export * from './changes/get';
 export * from './changes/post';
+export * from './file/delete';
+export * from './file/post';
 export * from './legal-address/id/delete';
 export * from './legal-address/id/get';
 export * from './legal-address/id/put';

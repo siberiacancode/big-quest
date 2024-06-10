@@ -1,3 +1,4 @@
+import { Role } from '@/api-types';
 import { I18nText } from '@/components/common';
 import { DropzoneCard } from '@/components/dropzone';
 import {
@@ -44,10 +45,10 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
         <fieldset disabled={state.isLoading} className='flex w-full flex-col items-end'>
           <div className='mb-7 flex w-full gap-5 smx:flex-col'>
             <div className='flex-1 space-y-3'>
-              {state.showPreview && employee?.image && (
+              {state.showPreview && employee?.media && (
                 <div className='flex items-center gap-3'>
                   <DropzoneCard
-                    value={employee.image}
+                    value={employee.media[0].url}
                     onDelete={functions.onDeletePreviewClick}
                     className='h-32 w-32'
                   />
@@ -112,15 +113,11 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
                           <SelectValue placeholder='Роль' />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value='Administrator'>
-                            <I18nText path='organization.employee.role.administrator' />
-                          </SelectItem>
-                          <SelectItem value='Leading'>
-                            <I18nText path='organization.employee.role.leading' />
-                          </SelectItem>
-                          <SelectItem value='Manager'>
-                            <I18nText path='organization.employee.role.manager' />
-                          </SelectItem>
+                          {Object.values(Role).map((role) => (
+                            <SelectItem key={role} value={role}>
+                              <I18nText path={`organization.employee.role.${role.toLowerCase()}`} />
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </FormControl>

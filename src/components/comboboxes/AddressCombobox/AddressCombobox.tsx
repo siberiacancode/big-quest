@@ -14,15 +14,21 @@ interface AddressComboboxProps extends Omit<ComboboxProps, 'items' | 'onSearchCh
 
 const LOCATION_SEARCH_DELAY = 600;
 
+interface AddressComboboxProps extends Omit<ComboboxProps, 'items' | 'onSearchChange' | 'loading'> {
+  convertAddresses?: (addresses: AddressResponseDto[]) => ComboBoxItemType[];
+  prefilledCity?: string;
+}
+
 export const AddressCombobox = ({
   convertAddresses = defaultConvertAddresses,
+  prefilledCity,
   ...props
 }: AddressComboboxProps) => {
   const [locationSearch, setLocationSearch] = React.useState('');
   const debouncedSetLocationSearch = useDebounceCallback(setLocationSearch, LOCATION_SEARCH_DELAY);
 
   const getAddressQuery = useGetAddressQuery(
-    { address: locationSearch },
+    { address: prefilledCity ? `${prefilledCity} ${locationSearch}` : locationSearch },
     {
       options: { enabled: locationSearch.length > 3 }
     }

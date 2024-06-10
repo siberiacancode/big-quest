@@ -216,7 +216,9 @@ export const EditOrganizationProfileForm = ({
                   <AddressCombobox
                     value={field.value}
                     className='w-full'
-                    onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                    onSelect={(newValue) => {
+                      form.setValue('locality', newValue);
+                    }}
                     convertAddresses={convertLocalitiesToComboboxItems}
                   />
                 </FormControl>
@@ -325,9 +327,10 @@ export const EditOrganizationProfileForm = ({
                   <AddressCombobox
                     value={field.value}
                     className='w-full'
-                    onSelect={(newValue) =>
-                      form.setValue('information.legalAddress', newValue ?? '')
-                    }
+                    onSelect={(newValue) => {
+                      form.setValue('information.legalAddress', newValue);
+                    }}
+                    convertAddresses={convertLocalitiesToComboboxItems}
                   />
                 </FormControl>
                 <FormMessage>
@@ -354,9 +357,10 @@ export const EditOrganizationProfileForm = ({
                   <AddressCombobox
                     value={field.value}
                     className='w-full'
-                    onSelect={(newValue) =>
-                      form.setValue('information.postAddress', newValue ?? '')
-                    }
+                    onSelect={(newValue) => {
+                      form.setValue('information.postAddress', newValue);
+                    }}
+                    convertAddresses={convertLocalitiesToComboboxItems}
                   />
                 </FormControl>
                 <FormMessage>

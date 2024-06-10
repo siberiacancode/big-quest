@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
+import { useDeleteFileByIdMutation, usePostFileMutation } from '@/utils/api';
 import { useI18n } from '@/utils/contexts';
 
 import type { EmployeeData } from '../../../(constants)/types';
@@ -27,14 +28,25 @@ export const useActionEmployeeForm = ({
   const i18n = useI18n();
   const params = useParams<{ organizationId: string }>();
 
-  const [showPreview, setShowPreview] = React.useState(actionType === 'edit' && !!employee?.image);
-  const onDeletePreviewClick = () => setShowPreview(false);
+  const [avatarMedia, setAvatarMedia] = React.useState({});
+  const [deleteFileId, setDeleteFileId] = React.useState<string>();
+
+  const [showPreview, setShowPreview] = React.useState(
+    actionType === 'edit' && !!employee?.media[0]
+  );
+
+  const onDeletePreviewClick = () => {
+    setShowPreview(false);
+    if (actionType === 'edit' && employee?.media) {
+      setDeleteFileId(employee?.media[0].id);
+    }
+  };
 
   const actionEmployeeForm = useForm<EmployeeSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(actionEmployeeSchema),
     defaultValues: {
-      role: employee?.role ?? 'Manager',
+      role: employee?.role ?? 'MANAGER',
       name: employee?.name ?? '',
       surname: employee?.surname ?? '',
       email: employee?.email ?? '',
@@ -44,16 +56,39 @@ export const useActionEmployeeForm = ({
   });
 
   const organizationActionEmployeeMutation = useOrganizationActionEmployeeMutation();
+  const deleteFileByIdMutation = useDeleteFileByIdMutation();
+  const postFileMutation = usePostFileMutation();
 
   const onSubmit = actionEmployeeForm.handleSubmit(async (values) => {
+    const { file, ...restValues } = values;
     const requestParams = {
-      ...values,
+      ...restValues,
       legalEntityId: params.organizationId
     };
 
+    if (file) {
+      const formData = new FormData();
+      formData.append('file', file);
+      const fileId = await postFileMutation.mutateAsync({ params: formData });
+      const media = {
+        media: [
+          {
+            id: { fileId },
+            type: 'IMAGE',
+            flag: 'AVATAR'
+          }
+        ]
+      };
+
+      setAvatarMedia(media);
+    }
+
     if (actionType === 'add') {
       const postOrganizationActionEmployeeParams = {
-        params: requestParams,
+        params: {
+          ...requestParams,
+          ...(avatarMedia && { avatarMedia })
+        },
         action: actionType
       } as const;
 
@@ -65,16 +100,20 @@ export const useActionEmployeeForm = ({
     }
 
     if (actionType === 'edit') {
-      const { file, ...restRequestParams } = requestParams;
-
       const postOrganizationActionEmployeeParams = {
         params: {
-          ...restRequestParams,
-          ...(file && { file }),
+          ...requestParams,
+          ...(avatarMedia && { avatarMedia }),
           userId: employee!.id
         },
         action: actionType
       } as const;
+
+      if (deleteFileId) {
+        await deleteFileByIdMutation.mutateAsync({
+          params: { id: deleteFileId }
+        });
+      }
 
       await organizationActionEmployeeMutation.mutateAsync(postOrganizationActionEmployeeParams);
 

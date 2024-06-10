@@ -46,7 +46,7 @@ export const AddressCard = ({ address }: AddressCardProps) => {
                 path='addressCard.deleteAlert.description'
                 values={{
                   bold: BoldText,
-                  name: `${address.locality} ${address.street}, ${address.house}`
+                  name: `${address.locality.city} ${address.locality.street}, ${address.locality.house}`
                 }}
               />
             </AlertDialogDescription>
@@ -106,7 +106,7 @@ export const AddressCard = ({ address }: AddressCardProps) => {
               <I18nText path='table.column.location' />
             </Typography>
             <Typography variant='body2' tag='p' className='flex-1'>
-              {address.locality}
+              {address.locality.city}
             </Typography>
           </div>
 
@@ -115,7 +115,7 @@ export const AddressCard = ({ address }: AddressCardProps) => {
               <I18nText path='field.street.label' />
             </Typography>
             <Typography variant='body2' tag='p' className='flex-1'>
-              {address.street}
+              {address.locality.street}
             </Typography>
           </div>
 
@@ -124,7 +124,7 @@ export const AddressCard = ({ address }: AddressCardProps) => {
               <I18nText path='field.house.label' />
             </Typography>
             <Typography variant='body2' tag='p' className='flex-1'>
-              {address.house}
+              {address.locality.house}
             </Typography>
           </div>
 

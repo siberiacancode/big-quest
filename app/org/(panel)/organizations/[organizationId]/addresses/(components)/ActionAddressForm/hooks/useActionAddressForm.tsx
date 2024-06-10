@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
+import { CITIES } from '@/utils/constants';
 import { useI18n } from '@/utils/contexts';
 
 import type { AddressData } from '../../../(constants)/types';
@@ -40,9 +41,8 @@ export const useActionAddressForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(actionAddressSchema),
     defaultValues: {
-      locality: address?.locality ?? '',
-      street: address?.street ?? '',
-      house: address?.house ?? '',
+      city: address?.locality.city ?? CITIES.MEZHDURECHENSK.name,
+      locality: address?.locality ?? {},
       details: address?.details ?? '',
       workingHours: address?.workingHours
         ? convertWorkingHours(address.workingHours)
@@ -71,7 +71,7 @@ export const useActionAddressForm = ({
       };
     });
 
-    const requestParams = { ...values, workingHours: formattedWorkingHours };
+    const { city, ...requestParams } = { ...values, workingHours: formattedWorkingHours };
 
     if (actionType === 'add') {
       const postOrganizationActionAddressParams = {
@@ -79,6 +79,8 @@ export const useActionAddressForm = ({
         action: actionType
       } as const;
 
+      // пофиксить как будет бэк
+      // @ts-ignore
       await organizationActionAddressMutation.mutateAsync(postOrganizationActionAddressParams);
 
       toast.success(i18n.formatMessage({ id: 'toast.addAddress' }), {

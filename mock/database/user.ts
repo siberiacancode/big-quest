@@ -1,4 +1,4 @@
-import type { UserResponse, UserResponseRolesItem } from '@/api-types';
+import type { UserResponse, UserRole } from '@/api-types';
 
 export const USER = {
   SUPERADMIN: {
@@ -37,4 +37,4 @@ export const USER = {
     createdAt: '2024-03-25T11:08:17.464Z',
     updatedAt: '2024-03-25T11:27:50.336Z'
   }
-} satisfies Partial<Record<UserResponseRolesItem, UserResponse>>;
+} satisfies Partial<Record<UserRole, UserResponse>>;
