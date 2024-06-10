@@ -1,4 +1,4 @@
-import type { Role } from '@/api-types';
+import type { MediaResponse, Role } from '@/api-types';
 
 export interface EmployeeData {
   id: string;
@@ -8,5 +8,5 @@ export interface EmployeeData {
   role: Role;
   phone: string;
   status: string;
-  image: string;
+  media: MediaResponse[];
 }

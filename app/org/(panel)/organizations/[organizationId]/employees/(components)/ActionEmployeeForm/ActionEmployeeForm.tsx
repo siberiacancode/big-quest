@@ -45,10 +45,10 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
         <fieldset disabled={state.isLoading} className='flex w-full flex-col items-end'>
           <div className='mb-7 flex w-full gap-5 smx:flex-col'>
             <div className='flex-1 space-y-3'>
-              {state.showPreview && employee?.image && (
+              {state.showPreview && employee?.media && (
                 <div className='flex items-center gap-3'>
                   <DropzoneCard
-                    value={employee.image}
+                    value={employee.media[0].url}
                     onDelete={functions.onDeletePreviewClick}
                     className='h-32 w-32'
                   />
