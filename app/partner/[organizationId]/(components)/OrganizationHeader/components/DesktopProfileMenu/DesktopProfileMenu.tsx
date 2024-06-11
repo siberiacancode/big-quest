@@ -23,7 +23,13 @@ export const DesktopProfileMenu = ({
       onClick={onEditPartnerClick}
     >
       {partner.avatar && (
-        <Image src={partner.avatar} alt={partner.name} width={40} height={40} className='size-10' />
+        <Image
+          src={partner.avatar}
+          alt={partner.name}
+          width={40}
+          height={40}
+          className='size-10 rounded-full'
+        />
       )}
       {!partner.avatar && <div className='h-8 w-8 rounded-full bg-primary' />}
 
