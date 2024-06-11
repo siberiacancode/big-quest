@@ -1,3 +1,3 @@
 export * from './UserCredentialsContext';
 export * from './UserCredentialsProvider';
-export * from './useUserCredentials';
+export * from './useUserCredentialsContext';

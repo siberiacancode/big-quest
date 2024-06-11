@@ -11,18 +11,10 @@ import { buttonVariants, InputOTP, InputOTPGroup, InputOTPSlot, Typography } fro
 import { ROUTES } from '@/utils/constants';
 
 import { useUserCredentialsContext } from '../../../(contexts)';
-import { useWizard } from '../../(contexts)';
 
 export const RegisterStep = () => {
   const userCredentialsContext = useUserCredentialsContext();
-  const wizard = useWizard();
-
-  const userCredentials = userCredentialsContext.state;
-
-  if (!userCredentials) {
-    wizard.setStepId('excursion');
-    return null;
-  }
+  const userCredentials = userCredentialsContext.state!;
 
   return (
     <div className='flex h-screen flex-col items-center overflow-y-auto px-4 py-11'>
