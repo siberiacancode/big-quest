@@ -13,12 +13,9 @@ export const UserCredentialsProvider = ({
   children,
   defaultUserCredentials
 }: UserCredentialsProviderProps) => {
-  const [userCredentials, setUserCredentials] = React.useState(defaultUserCredentials);
+  const [state, set] = React.useState(defaultUserCredentials);
 
-  const value = React.useMemo(
-    () => ({ state: userCredentials, set: setUserCredentials }),
-    [userCredentials, setUserCredentials]
-  );
+  const value = React.useMemo(() => ({ state, set }), [state, set]);
 
   return (
     <UserCredentialsContext.Provider value={value}>{children}</UserCredentialsContext.Provider>
