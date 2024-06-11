@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-import type { Activity } from '@/api-types';
 import { I18nText } from '@/components/common';
 import { Button, Label, RadioGroup, RadioGroupItem, Typography } from '@/components/ui';
 
@@ -50,7 +49,7 @@ export const SelectScheduleSection = ({ userId }: SelectScheduleSectionProps) =>
                   <ScheduleCard
                     key={schedule.id}
                     weekAndTime={schedule.weekAndTime}
-                    activity={schedule.activity as Activity}
+                    activity={schedule.activity!}
                   />
                 </Label>
               </div>
