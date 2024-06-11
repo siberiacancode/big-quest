@@ -32,7 +32,6 @@ export const useLoginForm = () => {
     await postAuthLoginEmailMutation.mutateAsync({ params: values });
 
     const getUserMeMutationResponse = await getUserMeMutation.mutateAsync();
-    console.log('#getUserMeMutationResponse', getUserMeMutationResponse);
     setUser(getUserMeMutationResponse);
     setSession({ isAuthenticated: true });
 

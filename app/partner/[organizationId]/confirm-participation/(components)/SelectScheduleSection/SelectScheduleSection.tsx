@@ -18,7 +18,7 @@ interface SelectScheduleSectionProps {
 export const SelectScheduleSection = ({ userId }: SelectScheduleSectionProps) => {
   const { state, functions } = useSelectScheduleSection({ userId });
 
-  if (state.query.isFetching && !state.query.data?.pages) {
+  if (state.isLoading && !state.activities.length) {
     return <SelectScheduleSectionLoading />;
   }
 
@@ -61,7 +61,7 @@ export const SelectScheduleSection = ({ userId }: SelectScheduleSectionProps) =>
             variant='primary'
             onClick={functions.onConfirmParticipationClick}
             disabled={!state.selectedActivityId}
-            loading={state.query.isFetchingNextPage}
+            loading={state.isLoadingMore}
             className='mt-6 w-full'
           >
             <I18nText path='button.mark' />

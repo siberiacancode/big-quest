@@ -36,7 +36,7 @@ export const MobileProfileDropdownMenu = ({
           {state.user.avatar && (
             <Image
               src={state.user.avatar}
-              alt='partner_avatar'
+              alt={partner.name}
               width={40}
               height={40}
               className='size-10 rounded-full'

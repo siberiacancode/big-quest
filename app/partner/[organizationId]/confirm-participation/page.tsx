@@ -31,7 +31,7 @@ const OrganizationConfirmParticipationPage = async ({
         <div className='mt-6 flex items-center gap-3'>
           <Image
             src={userAvatar?.url ?? defaultUserAvatar}
-            alt=''
+            alt={getUserByIdResponse.name}
             width={40}
             height={40}
             className='size-10 rounded-full'
