@@ -1,12 +1,5 @@
-'use client';
-
-import { useUser } from '@/utils/contexts';
-
-import { useUserCredentialsContext } from '../(contexts)';
-
 import type { WizardStepId } from './(contexts)';
 import { WizardProvider, WizardStep } from './(contexts)';
-import { redirectToProfileAction } from './actions';
 import { authMap } from './map';
 
 interface AuthPageProps {
@@ -14,16 +7,8 @@ interface AuthPageProps {
 }
 
 const AuthPage = ({ searchParams }: AuthPageProps) => {
-  const userCredentialsContext = useUserCredentialsContext();
-  const userContext = useUser();
-
-  const defaultStepId = 'excursion';
-  let initialStepId = searchParams.step ?? defaultStepId;
-  if (initialStepId === 'register' && !userCredentialsContext.state) {
-    initialStepId = defaultStepId;
-  } else if (initialStepId === 'register' && userContext.user.id) {
-    redirectToProfileAction();
-  }
+  const step = searchParams.step ?? 'login';
+  const initialStepId = step !== 'register' ? step : 'login';
 
   return (
     <WizardProvider map={authMap} initialStepId={initialStepId}>
