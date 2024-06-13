@@ -29,6 +29,10 @@ export interface ActivityResponse {
   name: string;
   /** Кол-во орешков */
   nutsCount: number;
+  /** Идентификатор организации */
+  organizationId: string;
+  /** Название организации */
+  organizationName: string;
   /** Стоимость */
   price: number;
   /** Повторное прохождение */

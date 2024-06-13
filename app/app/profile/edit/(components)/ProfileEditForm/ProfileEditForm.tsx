@@ -3,7 +3,7 @@
 import React from 'react';
 import { CopyIcon } from 'lucide-react';
 
-import userPlaceholder from '@/assets/images/avatar/participant.png';
+import userPlaceholder from '@/assets/images/avatar/user.png';
 import { I18nText } from '@/components/common';
 import {
   Avatar,

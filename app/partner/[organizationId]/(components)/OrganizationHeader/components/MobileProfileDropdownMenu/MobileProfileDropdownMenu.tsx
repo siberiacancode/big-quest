@@ -33,7 +33,15 @@ export const MobileProfileDropdownMenu = ({
     <DropdownMenu open={state.isOpen} onOpenChange={functions.setIsOpen}>
       <DropdownMenuTrigger asChild>
         <div>
-          {state.user.avatar && <Image src={state.user.avatar} alt='partner_avatar' />}
+          {state.user.avatar && (
+            <Image
+              src={state.user.avatar}
+              alt={partner.name}
+              width={40}
+              height={40}
+              className='size-10 rounded-full'
+            />
+          )}
           {!state.user.avatar && (
             <div className=' h-8 w-8 rounded-full bg-primary hover:cursor-pointer' />
           )}
@@ -51,7 +59,9 @@ export const MobileProfileDropdownMenu = ({
               {`${partner.name} ${partner.surname}`}
             </Typography>
             <Typography className='text-muted-foreground' variant='sub4' tag='p'>
-              <I18nText path={`partner.${partner.roles[0].toLowerCase()}` as LocaleMessageId} />
+              <I18nText
+                path={`partner.role.${partner.roles[0].toLowerCase()}` as LocaleMessageId}
+              />
             </Typography>
           </div>
         </Button>

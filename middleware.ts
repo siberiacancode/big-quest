@@ -9,6 +9,7 @@ const UNAUTH_ROUTES = [ROUTES.APP.AUTH, ROUTES.ORG.AUTH, ROUTES.APP.ACTIVITIES];
 const MOBILE_ONLY_ROUTES = [
   ROUTES.APP.AUTH,
   ROUTES.APP.PROFILE.ROOT,
+  ROUTES.PARTNER.CONFIRM_PARTICIPATION,
   ROUTES.APP.RATING,
   ROUTES.APP.SUPPORT,
   ROUTES.APP.TAIGA
@@ -65,6 +66,13 @@ export const middleware = (request: NextRequest) => {
     return NextResponse.redirect(new URL(ROUTES.APP.AUTH, request.url));
   }
 
+  const isConfirmParticipation = request.url.includes(ROUTES.PARTNER.CONFIRM_PARTICIPATION);
+  if (isConfirmParticipation && !request.nextUrl.searchParams.get('userId')) {
+    console.log(
+      '@.3 isConfirmParticipation &&, confirm participation page requires userId query param'
+    );
+    return NextResponse.redirect(new URL(ROUTES.PARTNER.PROFILE, request.url));
+  }
   if (isAuthenticated && !isUnAuthRoute) {
     console.log('@.4 isAuthenticated');
     const userSessionCookie = request.cookies.get(COOKIES.USER_SESSION);

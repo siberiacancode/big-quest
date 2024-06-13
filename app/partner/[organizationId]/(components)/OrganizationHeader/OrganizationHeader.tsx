@@ -36,9 +36,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
             <div className='flex gap-5'>
               <Image
                 priority={false}
-                className='h-15 w-15 rounded border-none'
-                width={60}
-                height={60}
+                className='size-15 rounded border-none mdx:size-10'
                 src={organization.avatar || avatar}
                 alt='org-background'
               />

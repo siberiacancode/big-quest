@@ -55,6 +55,7 @@
   "app.inDev.description": "Проходите активности,{br} копите шишки опыта!",
 
   "common.rubles": "{amount}руб.",
+  "common.age": "{age, plural, =1 {# год} one {# год} few {# года} many {# лет} other {# лет}}",
 
   "button.add": "Добавить",
   "button.watchAll": "Смотреть все",
@@ -85,6 +86,7 @@
   "button.haveNotUserId": "У меня нет User ID",
   "button.logout": "Выйти",
   "button.addQR": "Добавить новый QR",
+  "button.mark": "Отметить",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
@@ -153,13 +155,16 @@
 
   "organization.employee.email": "Email",
   "organization.employee.phoneNumber": "Телефон",
-  "organization.employee.role.administrator": "Администратор",
+  "organization.employee.role.superadmin": "Главный администратор",
+  "organization.employee.role.admin": "Администратор",
   "organization.employee.role.leading": "Ведущий",
   "organization.employee.role.manager": "Менеджер",
 
-  "partner.role.administrator": "Администратор",
+  "partner.role.superadmin": "Главный администратор",
+  "partner.role.admin": "Администратор",
   "partner.role.leading": "Ведущий",
   "partner.role.manager": "Менеджер",
+  "partner.role.user": "Пользователь",
   "partner.scanner.qrCode": "QR-код",
   "partner.scanner.scanner": "Сканер",
   "partner.scanner.pointCamera": "Наведите камеру на QR-код",
@@ -167,6 +172,10 @@
   "partner.menu.scanQRCode": "Сканирование QR",
   "partner.menu.notification": "Уведомление",
   "partner.menu.exit": "Выход",
+
+  "partner.confirmParticipation.participant": "Участник",
+  "partner.confirmParticipation.activities": "Активности",
+  "partner.confirmParticipation.noActivities": "Сегодня нет активностей",
 
   "field.email.label": "Email",
   "field.password.label": "Пароль",
