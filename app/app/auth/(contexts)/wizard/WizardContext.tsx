@@ -4,13 +4,13 @@ import React from 'react';
 
 export type WizardStepId = 'excursion' | 'register' | 'login';
 
-export interface WizardStep {
+interface WizardStepParams {
   id: WizardStepId;
   nodes: WizardStepId[];
   component: React.ReactNode;
 }
 
-export type WizardMap = Record<WizardStepId, WizardStep>;
+export type WizardMap = Record<WizardStepId, WizardStepParams>;
 
 export interface WizardContextParams {
   map: WizardMap;

@@ -1,6 +1,5 @@
-import type { WizardStepId } from './(contexts)/wizard/WizardContext';
-import { WizardProvider } from './(contexts)/wizard/WizardProvider';
-import { WizardStep } from './(contexts)/wizard/WizardStep';
+import type { WizardStepId } from './(contexts)';
+import { WizardProvider, WizardStep } from './(contexts)';
 import { authMap } from './map';
 
 interface AuthPageProps {
@@ -8,7 +7,8 @@ interface AuthPageProps {
 }
 
 const AuthPage = ({ searchParams }: AuthPageProps) => {
-  const initialStepId = searchParams.step ?? 'excursion';
+  const step = searchParams.step ?? 'login';
+  const initialStepId = step !== 'register' ? step : 'login';
 
   return (
     <WizardProvider map={authMap} initialStepId={initialStepId}>

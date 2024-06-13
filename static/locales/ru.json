@@ -29,6 +29,12 @@
 
   "auth.login.title": "Добро пожаловать в Большой Квест!",
 
+  "auth.register.title": "Присвоен ID участника",
+  "auth.register.description": "Благодарим за регистрацию!{br} Вам присвоен ID и код для входа.{br} Сохраните данную информацию,{br} чтобы не потерять свой прогресс.",
+  "auth.register.changeCode": "Сменить код можно в разделе <settingsLink>“Настройки профиля”</settingsLink>",
+  "auth.register.code": "Ваш код для входа:",
+  "auth.register.id": "Ваш ID:",
+
   "app.profile.title": "Профиль",
   "app.profile.passportId": "Паспорт ID",
   "app.profile.userId": "user ID",
@@ -87,6 +93,7 @@
   "button.logout": "Выйти",
   "button.addQR": "Добавить новый QR",
   "button.mark": "Отметить",
+  "button.okay": "Хорошо",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",

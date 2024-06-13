@@ -30,6 +30,7 @@ export * from './info-card';
 export * from './info-card-skeleton';
 export * from './inn-input';
 export * from './input';
+export * from './input-otp';
 export * from './kpp-input';
 export * from './label';
 export * from './number-format-input';
