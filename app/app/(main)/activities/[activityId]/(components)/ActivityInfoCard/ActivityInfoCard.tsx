@@ -14,7 +14,11 @@ import {
   Typography
 } from '@/components/ui';
 
-export const ActivityInfoCard = ({ activity }: { activity: ActivityResponse }) => (
+interface ActivityInfoCardProps {
+  activity: ActivityResponse;
+}
+
+export const ActivityInfoCard = ({ activity }: ActivityInfoCardProps) => (
   <ActivityCard className='mt-3 max-w-[483px]'>
     <ActivityCardHeader className='lg:gap-2'>
       <ActivityCardHeaderTop className='mb-0 mt-0'>

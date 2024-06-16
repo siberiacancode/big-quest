@@ -1,4 +1,4 @@
-import { Breadcrumbs } from '@/components/breadcrumbs/Breadcrumbs';
+import { Breadcrumbs } from '@/components/breadcrumbs';
 import { getOrganizationById } from '@/utils/api/requests';
 import { ROUTES } from '@/utils/constants';
 

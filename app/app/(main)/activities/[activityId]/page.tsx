@@ -1,32 +1,34 @@
+import Link from 'next/link';
+
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { getActivityById, getScheduleByActivityId } from '@/utils/api';
+import { ROUTES } from '@/utils/constants';
 import { getDevice } from '@/utils/helpers/server';
 
 import { ActivityInfoCard } from './(components)/ActivityInfoCard/ActivityInfoCard';
 import { ActivityMedia } from './(components)/ActivityMedia/ActivityMedia';
 import { AddressItem } from './(components)/AddressItem/AddressItem';
 import { CarouselMedia } from './(components)/CarouselMedia/CarouselMedia';
-import { groupAddresses } from './(constants)/groupAddresses';
+import { groupAddresses } from './(helpers)/groupAddresses';
 
 interface ActivityPageProps {
-  params: { id: string };
+  params: { activityId: string };
 }
 
 const ActivityPage = async ({ params }: ActivityPageProps) => {
-  const device = getDevice();
-  const isMobile = device.type === 'mobile';
+  const { isMobile } = getDevice();
 
   const getActivityByIdResponse = await getActivityById({
-    params: { id: params.id },
+    params: { id: params.activityId },
     config: {
       cache: 'no-store'
     }
   });
 
   const getScheduleByActivityIdResponse = await getScheduleByActivityId({
-    params: { id: params.id },
+    params: { id: params.activityId },
     config: {
       cache: 'no-store'
     }
@@ -58,7 +60,13 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
                   <I18nText path='app.activity.addresses' />
                 </Typography>
                 {groupAddresses(getScheduleByActivityIdResponse.rows).map((address, index) => (
-                  <AddressItem key={index} address={address} id={params.id} />
+                  <Link
+                    key={index}
+                    href={ROUTES.APP.ACTIVITIES.SCHEDULE(params.activityId, address.id)}
+                    className='flex w-full items-center justify-between gap-3 rounded-lg border border-border p-3 hover:bg-secondary'
+                  >
+                    <AddressItem address={address} />
+                  </Link>
                 ))}
               </div>
             )}

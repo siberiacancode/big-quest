@@ -4,15 +4,16 @@ import { ActivitiesBreadcrumbs } from '../(components)/ActivitiesBreadcrumbs/Act
 
 interface ActivityLayoutProps {
   children: React.ReactNode;
+  params: { activityId: string; addressId: string };
 }
 
-const ActivityLayout = ({ children }: ActivityLayoutProps) => {
-  const device = getDevice();
-  const isMobile = device.type === 'mobile';
+const ActivityLayout = ({ children, params }: ActivityLayoutProps) => {
+  const { isMobile } = getDevice();
 
   return (
     <div>
-      {!isMobile && <ActivitiesBreadcrumbs />}
+      <ActivitiesBreadcrumbs isMobile={isMobile} activityId={params.activityId} />
+
       {children}
     </div>
   );

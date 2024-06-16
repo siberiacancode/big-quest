@@ -1,6 +1,6 @@
 import type { ScheduleResponse } from '@/api-types';
 
-import type { AddressProps } from './types';
+import type { AddressProps } from '../(constants)/types';
 
 export const groupAddresses = (data: ScheduleResponse[]): AddressProps[] => {
   const groupedData = data.reduce((acc, item) => {

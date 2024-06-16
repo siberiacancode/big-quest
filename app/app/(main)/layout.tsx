@@ -8,8 +8,7 @@ interface AppLayoutProps {
 
 const AppLayout = ({ children }: AppLayoutProps) => {
   const userSession = getUserSession();
-  const device = getDevice();
-  const isMobile = device.type === 'mobile';
+  const { isMobile } = getDevice();
 
   return (
     <div className='h-screen min-h-screen overflow-y-auto bg-secondary 2sm:h-full'>

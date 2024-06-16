@@ -23,8 +23,7 @@ export const middleware = (request: NextRequest) => {
   const sessionIdCookie = request.cookies.get(COOKIES.SESSION_ID);
   const userSessionCookie = request.cookies.get(COOKIES.USER_SESSION);
 
-  const device = getDevice();
-  const isMobile = device.type === 'mobile';
+  const { isMobile } = getDevice();
 
   const isAuthenticated = !!sessionIdCookie && !!userSessionCookie;
   const isUnAuthRoute = UNAUTH_ROUTES.some((route) => request.url.includes(route));

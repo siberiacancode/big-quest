@@ -1,4 +1,4 @@
-import { Breadcrumbs } from '@/components/breadcrumbs/Breadcrumbs';
+import { Breadcrumbs } from '@/components/breadcrumbs';
 import { getActivities } from '@/utils/api';
 
 import { ActivitiesDashboard } from './(components)/ActivitiesDashboard/ActivitiesDashboard';

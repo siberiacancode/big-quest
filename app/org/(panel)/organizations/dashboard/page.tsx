@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import { Breadcrumbs } from '@/components/breadcrumbs/Breadcrumbs';
+import { Breadcrumbs } from '@/components/breadcrumbs';
 import { getOrganization } from '@/utils/api';
 
 import { OrganizationsDashboard } from './(components)/OrganizationsDashboard/OrganizationsDashboard';

@@ -1,10 +1,10 @@
 import * as fns from 'date-fns';
 
-import type { ScheduleResponse } from '@/api-types';
+import type { ExtendedScheduleResponse } from '@/utils/api';
 
 import type { GroupedSchedule } from '../../../(constants)/types';
 
-export const groupTimesByDate = (data: ScheduleResponse[]): GroupedSchedule[] => {
+export const groupTimesByDate = (data: ExtendedScheduleResponse[]): GroupedSchedule[] => {
   const groupedData = data.reduce((acc, item) => {
     const formattedDate = fns.format(item.date, 'dd.MM.yy');
     const formattedTimeStart = `${item.weekAndTime?.hourStart}:${item.weekAndTime?.minStart}`;
@@ -18,7 +18,8 @@ export const groupTimesByDate = (data: ScheduleResponse[]): GroupedSchedule[] =>
     if (!acc[formattedDate].times.includes(item.weekAndTime)) {
       acc[formattedDate].times.push({
         start: formattedTimeStart,
-        end: formattedTimeEnd
+        end: formattedTimeEnd,
+        info: { employeeNumber: item.employeeNumber, preEntry: item.preEntry }
       });
       acc[formattedDate].info.push({ ...item, start: formattedTimeStart });
     }

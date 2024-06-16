@@ -1,9 +1,4 @@
-import type { ScheduleResponse } from '@/api-types';
-
-export interface ExtendedScheduleResponse extends ScheduleResponse {
-  employeeNumber: string;
-  start?: string;
-}
+import type { ExtendedScheduleResponse } from '@/utils/api';
 
 export interface AddressProps {
   id: string;
@@ -14,10 +9,10 @@ export interface AddressProps {
 export interface Time {
   start: string;
   end: string;
+  info: ExtendedScheduleResponse;
 }
 
 export interface GroupedSchedule {
   date: Date;
   times: Time[];
-  info: ExtendedScheduleResponse[];
 }
