@@ -1,6 +1,5 @@
+import { Breadcrumbs } from '@/components/breadcrumbs/Breadcrumbs';
 import { getActivities } from '@/utils/api';
-
-import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
 
 import { ActivitiesDashboard } from './(components)/ActivitiesDashboard/ActivitiesDashboard';
 import { ActivitiesTable } from './(components)/ActivitiesTable/ActivitiesTable';
@@ -25,7 +24,7 @@ const ActivitiesDashboardPage = async ({ searchParams }: ActivitiesDashboardPage
 
   return (
     <div className='bg-secondary px-4'>
-      <OrgBreadcrumbs ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }} />
+      <Breadcrumbs ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }} />
       <ActivitiesDashboard />
       <ActivitiesTable
         activities={activitiesTableResponse.rows}

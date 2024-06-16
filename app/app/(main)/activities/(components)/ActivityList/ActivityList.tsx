@@ -39,7 +39,7 @@ export const ActivityList = () => {
           const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
 
           return (
-            <Link href={`${ROUTES.APP.ACTIVITIES.ID(activity.id)}`}>
+            <Link href={`${ROUTES.APP.ACTIVITIES.ITEM(activity.id)}`}>
               <ActivityCard key={activity.id}>
                 <ActivityCardImage src={activityCover.url} alt={activity.name} />
                 <ActivityCardHeader>

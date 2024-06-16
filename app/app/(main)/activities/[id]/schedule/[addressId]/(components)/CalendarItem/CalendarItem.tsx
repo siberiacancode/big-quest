@@ -7,7 +7,6 @@ import type { ScheduleResponse } from '@/api-types';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { Calendar } from '@/components/ui/calendar';
-import { cn } from '@/lib/utils';
 
 import type { GroupedSchedule } from '../../../../(constants)/types';
 import { groupTimesByDate } from '../../(constants)/groupTimesByDate';
@@ -26,12 +25,7 @@ export const CalendarItem = ({
   const activeDateSchedule = date && groupedDates.find((group) => fns.isSameDay(group.date, date));
 
   return (
-    <div
-      className={cn(
-        'mx-auto mt-6 flex w-full max-w-[345px] flex-col items-center xs:rounded-[8px] md:mb-12 md:mt-0 md:max-w-none md:flex-row md:items-start md:gap-8',
-        isMobile && 'flex-col'
-      )}
-    >
+    <div className='mx-auto mt-6 flex w-full max-w-[345px] flex-col items-center xs:rounded-[8px] md:mb-12 md:mt-0 md:max-w-none md:flex-row md:items-start md:gap-8'>
       <div className='flex w-full flex-col md:w-fit'>
         {!isMobile && (
           <Typography variant='h7' tag='h1' className='my-6 font-semibold md:my-0'>

@@ -1,4 +1,4 @@
-export const SCHEDULE = [
+export const SCHEDULES = [
   {
     id: '1',
     date: '2024-05-28T05:18:21.424Z',

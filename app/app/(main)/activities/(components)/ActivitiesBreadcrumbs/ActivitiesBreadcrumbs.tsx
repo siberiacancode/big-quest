@@ -1,14 +1,13 @@
 'use client';
 
+import { Breadcrumbs } from '@/components/breadcrumbs/Breadcrumbs';
 import { useI18n } from '@/utils/contexts';
-
-import { ActivitiesBreadcrumbsItem } from '../ActivitiesBreadcrumbsItem/ActivitiesBreadcrumbsItem';
 
 export const ActivitiesBreadcrumbs = () => {
   const i18n = useI18n();
 
   return (
-    <ActivitiesBreadcrumbsItem
+    <Breadcrumbs
       ids={{
         app: { hidden: true },
         activities: {

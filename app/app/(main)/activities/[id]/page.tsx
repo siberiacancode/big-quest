@@ -36,8 +36,7 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
     <section className='container p-0'>
       <div
         className={cn(
-          'bg-background p-6 xs:mt-6 xs:rounded-[8px]',
-          isMobile && 'h-fit min-h-screen p-0 pb-6'
+          'h-fit min-h-screen bg-background p-0 pb-6 xs:mt-6 xs:min-h-fit xs:rounded-[8px] xs:p-6'
         )}
       >
         {isMobile && <CarouselMedia activity={getActivityByIdResponse} />}

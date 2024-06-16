@@ -7,9 +7,7 @@ export const getScheduleByActivityIdConfig: RestRequestConfig = {
   routes: [
     {
       entities: { params: { id: { checkMode: 'exists' } } },
-      data: () => {
-        return { rows: DATABASE.SCHEDULE };
-      }
+      data: () => ({ rows: DATABASE.SCHEDULES })
     }
   ]
 };

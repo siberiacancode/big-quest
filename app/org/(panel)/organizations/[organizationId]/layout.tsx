@@ -1,7 +1,6 @@
+import { Breadcrumbs } from '@/components/breadcrumbs/Breadcrumbs';
 import { getOrganizationById } from '@/utils/api/requests';
 import { ROUTES } from '@/utils/constants';
-
-import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
 
 import { OrganizationHeader } from './(components)/OrganizationHeader/OrganizationHeader';
 
@@ -17,7 +16,7 @@ const OrganizationPageLayout = async ({ params, children }: OrganizationPageLayo
 
   return (
     <div className='bg-secondary'>
-      <OrgBreadcrumbs
+      <Breadcrumbs
         className='mb-5'
         ids={{
           organizationId: { value: organization.name, clickable: false },

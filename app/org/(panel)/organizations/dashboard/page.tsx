@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation';
 
+import { Breadcrumbs } from '@/components/breadcrumbs/Breadcrumbs';
 import { getOrganization } from '@/utils/api';
-
-import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
 
 import { OrganizationsDashboard } from './(components)/OrganizationsDashboard/OrganizationsDashboard';
 import { OrganizationsTable } from './(components)/OrganizationsTable/OrganizationsTable';
@@ -30,7 +29,7 @@ const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPagePro
 
   return (
     <div className='bg-secondary px-4'>
-      <OrgBreadcrumbs ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }} />
+      <Breadcrumbs ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }} />
       <OrganizationsDashboard />
       <OrganizationsTable
         organizations={getOrganizationResponse.rows}

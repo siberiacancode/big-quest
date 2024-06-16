@@ -35,7 +35,7 @@ const SchedulePage = async ({ params }: SchedulePageProps) => {
       {isMobile && (
         <div className='pt-[42px]'>
           <Link
-            href={ROUTES.APP.ACTIVITIES.ID(params.id)}
+            href={ROUTES.APP.ACTIVITIES.ITEM(params.id)}
             className={cn(
               'absolute left-4 top-8 z-10 !size-8 bg-white lg:hidden',
               buttonVariants({ variant: 'outline', size: 'icon' })
