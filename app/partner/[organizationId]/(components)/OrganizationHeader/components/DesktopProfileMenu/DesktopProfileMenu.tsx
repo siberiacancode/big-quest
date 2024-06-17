@@ -22,7 +22,15 @@ export const DesktopProfileMenu = ({
       className='flex items-center justify-start gap-5 rounded-md border-none px-2 py-1 hover:cursor-pointer hover:bg-accent'
       onClick={onEditPartnerClick}
     >
-      {partner.avatar && <Image src={partner.avatar} alt='partner_avatar' />}
+      {partner.avatar && (
+        <Image
+          src={partner.avatar}
+          alt={partner.name}
+          width={40}
+          height={40}
+          className='size-10 rounded-full'
+        />
+      )}
       {!partner.avatar && <div className='h-8 w-8 rounded-full bg-primary' />}
 
       <div className='flex flex-col items-start'>
@@ -30,7 +38,7 @@ export const DesktopProfileMenu = ({
           {`${partner.name} ${partner.surname}`}
         </Typography>
         <Typography className='text-muted-foreground' variant='sub4' tag='p'>
-          <I18nText path={`partner.${partner.roles[0].toLowerCase()}` as LocaleMessageId} />
+          <I18nText path={`partner.role.${partner.roles[0].toLowerCase()}` as LocaleMessageId} />
         </Typography>
       </div>
     </Button>

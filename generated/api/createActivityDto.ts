@@ -20,6 +20,8 @@ export interface CreateActivityDto {
   media?: MediaDto[];
   /** Название */
   name: string;
+  /** ID организации */
+  organizationId: string;
   /** Стоимость */
   price: number;
   /** Повторное прохождение */

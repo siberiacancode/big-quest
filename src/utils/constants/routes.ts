@@ -20,6 +20,8 @@ export const ROUTES = {
     }
   },
   PARTNER: {
+    ROOT: '/partner',
+    CONFIRM_PARTICIPATION: '/partner/confirm-participation',
     PROFILE: '/partner/profile',
     ADDRESSES: '/partner/addresses',
     EMPLOYEES: '/partner/employees',

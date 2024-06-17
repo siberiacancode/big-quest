@@ -21,23 +21,22 @@ import { useActivitiesPage } from '../../(contexts)/activitiesPage';
 export const ActivityList = () => {
   const { activities, loadActivitiesMore } = useActivitiesPage();
 
-  const { isIntersecting, ref } = useIntersectionObserver({
-    threshold: 0.5
+  const { ref } = useIntersectionObserver({
+    threshold: 0.5,
+    onChange: (isIntersecting) => {
+      if (isIntersecting) loadActivitiesMore();
+    }
   });
-
-  React.useEffect(() => {
-    if (isIntersecting) loadActivitiesMore();
-  }, [isIntersecting]);
 
   return (
     <>
       <div className='mt-6 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
         {activities.map((activity) => {
-          const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
+          const activityAvatar = activity.media.find((item) => item.flag === 'AVATAR')!;
 
           return (
             <ActivityCard key={activity.id}>
-              <ActivityCardImage src={activityCover.url} alt={activity.name} />
+              <ActivityCardImage src={activityAvatar.url} alt={activity.name} />
               <ActivityCardHeader>
                 <ActivityCardCategory>{activity.category.RU}</ActivityCardCategory>
                 <ActivityCardName>{activity.name}</ActivityCardName>

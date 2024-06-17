@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import sleepImage from '@/assets/illustrations/sleep.webp';
+import sleepIllustration from '@/assets/illustrations/sleep.webp';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 
@@ -14,7 +14,7 @@ export const InDevScreen = ({ screen }: InDevScreenProps) => (
       <I18nText path={`app.${screen}.title`} />
     </Typography>
     <div className='flex h-full flex-col items-center justify-center'>
-      <Image src={sleepImage} alt='' />
+      <Image src={sleepIllustration} alt='' />
       <Typography variant='h5' className='mt-8'>
         <I18nText path='app.inDev.title' />
       </Typography>

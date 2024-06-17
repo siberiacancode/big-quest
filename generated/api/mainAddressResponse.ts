@@ -8,16 +8,23 @@
 import type { WorkingHourDto } from './workingHourDto';
 
 export interface MainAddressResponse {
-  /** Детали адреса в свободной форме */
-  details: string;
-  /** Номер дома */
-  house: string;
-  /** Идентификатор адреса */
+  city?: string;
+  cityWithType?: string;
+  country?: string;
+  flat?: number;
+  geoLat?: number;
+  geoLon?: number;
+  house?: string;
   id: string;
-  /** Населенный пункт */
-  locality: string;
-  /** Улица */
-  street: string;
+  /** Идентификатор партнера */
+  legalEntityId: string;
+  postalCode?: string;
+  region?: string;
+  settlement?: string;
+  settlementWithType?: string;
+  street?: string;
+  unrestrictedValue?: string;
+  value?: string;
   /** Рабочие часы */
   workingHours: WorkingHourDto[];
 }

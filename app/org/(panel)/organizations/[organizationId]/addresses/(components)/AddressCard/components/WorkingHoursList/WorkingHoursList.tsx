@@ -2,16 +2,13 @@ import React from 'react';
 
 import type { WorkingHourDto } from '@/api-types';
 import { I18nText } from '@/components/common';
+import { addLeadingZero } from '@/utils/helpers';
 
 import type { WorkingHour } from '../../../../(constants)/types';
 
 interface WorkingHoursListProps {
   workingHours: WorkingHour[];
 }
-
-const formatTime = (time: number) => {
-  return time.toString().padStart(2, '0');
-};
 
 export const WorkingHoursList = ({ workingHours }: WorkingHoursListProps) => {
   const formattedWorkingHours = workingHours.reduce(
@@ -24,7 +21,7 @@ export const WorkingHoursList = ({ workingHours }: WorkingHoursListProps) => {
       }
 
       if (!workingHour.dayOff) {
-        const timeKey = `${formatTime(workingHour.from.hour)}:${formatTime(workingHour.from.minutes)} - ${formatTime(workingHour.to.hour)}:${formatTime(workingHour.to.minutes)}`;
+        const timeKey = `${addLeadingZero(workingHour.from.hour)}:${addLeadingZero(workingHour.from.minutes)} - ${addLeadingZero(workingHour.to.hour)}:${addLeadingZero(workingHour.to.minutes)}`;
         if (acc[timeKey]) {
           acc[timeKey].push(workingHour);
         } else acc[timeKey] = [workingHour];
