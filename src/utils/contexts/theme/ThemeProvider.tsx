@@ -4,7 +4,6 @@ import React from 'react';
 import { setCookie } from 'cookies-next';
 
 import { COOKIES } from '@/utils/constants';
-import { useNonInitialEffect } from '@/utils/hooks';
 
 import { ThemeContext } from './ThemeContext';
 
@@ -16,14 +15,17 @@ export interface ThemeProviderProps {
 export const ThemeProvider = ({ children, defaultTheme }: ThemeProviderProps) => {
   const [theme, setTheme] = React.useState<Theme>(defaultTheme);
 
-  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
-
-  useNonInitialEffect(() => {
-    setCookie(COOKIES.THEME, theme);
-    document.documentElement.className = theme;
-  }, [theme]);
-
-  const value = React.useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
+  const value = React.useMemo(
+    () => ({
+      theme,
+      toggleTheme: () => {
+        setTheme(theme === 'light' ? 'dark' : 'light');
+        setCookie(COOKIES.THEME, theme);
+        document.documentElement.className = theme;
+      }
+    }),
+    [theme]
+  );
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };
