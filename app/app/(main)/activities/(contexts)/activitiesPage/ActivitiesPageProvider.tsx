@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useDebounceCallback } from 'usehooks-ts';
+import { useDebounceCallback } from '@siberiacancode/reactuse';
 
 import type { ActivityListResponse, CategoryResponse, PaginationResponse } from '@/api-types';
 import { useSearchParams } from '@/utils/hooks';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
-import { Layers2 } from 'lucide-react';
-import { useDebounceCallback } from 'usehooks-ts';
+import { useDebounceCallback } from '@siberiacancode/reactuse';
+import { Layers2Icon } from 'lucide-react';
 
 import { I18nText } from '@/components/common';
 import { RegisterOrganizationDialog } from '@/components/dialogs';
@@ -72,7 +72,7 @@ export const useActivitiesTable = () => {
       <DataTableFacetedFilter
         values={selectedCategories}
         onSelect={onCategoriesSelect}
-        icon={<Layers2 className='mr-2 h-4 w-4' />}
+        icon={<Layers2Icon className='mr-2 h-4 w-4' />}
         items={[
           {
             value: 'COOKING',

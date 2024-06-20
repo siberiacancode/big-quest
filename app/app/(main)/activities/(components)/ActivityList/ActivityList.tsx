@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
+import { useIntersectionObserver } from '@siberiacancode/reactuse';
 import { Clock4Icon, UserRoundIcon } from 'lucide-react';
-import { useIntersectionObserver } from 'usehooks-ts';
 
 import { I18nText } from '@/components/common';
 import {
@@ -21,7 +21,7 @@ import { useActivitiesPage } from '../../(contexts)/activitiesPage';
 export const ActivityList = () => {
   const { activities, loadActivitiesMore } = useActivitiesPage();
 
-  const { ref } = useIntersectionObserver({
+  const { ref } = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.5,
     onChange: (isIntersecting) => {
       if (isIntersecting) loadActivitiesMore();

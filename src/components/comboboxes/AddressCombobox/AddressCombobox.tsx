@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDebounceCallback } from 'usehooks-ts';
+import { useDebounceCallback } from '@siberiacancode/reactuse';
 
 import type { AddressResponseDto } from '@/api-types';
 import type { ComboBoxItemType, ComboboxProps } from '@/components/ui';

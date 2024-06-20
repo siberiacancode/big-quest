@@ -1,6 +1,6 @@
 import React from 'react';
+import { useIntersectionObserver } from '@siberiacancode/reactuse';
 import { useParams } from 'next/navigation';
-import { useIntersectionObserver } from 'usehooks-ts';
 
 import { useGetSchedulesByOrganizationIdInfiniteQuery } from '@/utils/api';
 
@@ -24,7 +24,7 @@ export const useSelectScheduleSection = ({ userId }: UseSelectScheduleSectionPar
     dateEnd: dateString
   });
 
-  const { ref } = useIntersectionObserver({
+  const { ref } = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.5,
     onChange: (isIntersecting) => {
       if (isIntersecting) getSchedulesByOrganizationIdInfiniteQuery.fetchNextPage();

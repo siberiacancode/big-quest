@@ -1,6 +1,6 @@
 import React from 'react';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
-import { useDebounceCallback } from 'usehooks-ts';
+import { useDebounceCallback } from '@siberiacancode/reactuse';
 
 import { I18nText } from '@/components/common';
 import { RegisterOrganizationDialog } from '@/components/dialogs';

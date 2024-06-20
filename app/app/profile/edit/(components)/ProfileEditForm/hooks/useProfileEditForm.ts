@@ -1,8 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useCopyToClipboard } from '@siberiacancode/reactuse';
 import { toast } from 'sonner';
-import { useCopyToClipboard } from 'usehooks-ts';
 
 import { useI18n } from '@/utils/contexts';
 
@@ -17,7 +17,7 @@ interface UseProfileEditFormParams {
 export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
   const i18n = useI18n();
   const fileInputRef = React.useRef<HTMLInputElement | null>(null);
-  const [, copy] = useCopyToClipboard();
+  const clipboard = useCopyToClipboard();
 
   const profileEditForm = useForm<ProfileEditSchema>({
     mode: 'onSubmit',
@@ -38,7 +38,7 @@ export const useProfileEditForm = ({ user }: UseProfileEditFormParams) => {
   };
 
   const onCopy = (value: string) => {
-    copy(value);
+    clipboard.copy(value);
     toast.success(i18n.formatMessage({ id: 'toast.userIdCopied' }, { value }));
   };
 
