@@ -1,33 +1,45 @@
 import React from 'react';
-import { useDebounceCallback } from 'usehooks-ts';
+import { useDebounceCallback, useIntersectionObserver } from 'usehooks-ts';
 
 import type { ComboboxProps } from '@/components/ui';
 import { Combobox } from '@/components/ui';
-import { useGetLeadsQuery } from '@/utils/api';
+import { useGetEmployeeInfiniteQuery } from '@/utils/api';
 
 import { defaultConvertLeads } from './helpers/defaultConvertLeads';
 
-interface LeadsComboboxProps extends Omit<ComboboxProps, 'items' | 'onSearchChange' | 'loading'> {}
+interface LeadsComboboxProps extends Omit<ComboboxProps, 'items' | 'onSearchChange' | 'loading'> {
+  organizationId: string;
+}
 
 const LEADS_SEARCH_DELAY = 200;
 
-export const LeadsCombobox = ({ ...props }: LeadsComboboxProps) => {
+export const LeadsCombobox = ({ organizationId, ...props }: LeadsComboboxProps) => {
   const [leadSearch, setLeadSearch] = React.useState('');
   const debouncedSetActivitySearch = useDebounceCallback(setLeadSearch, LEADS_SEARCH_DELAY);
 
-  const getLeadListQuery = useGetLeadsQuery(
-    { fullname: leadSearch },
-    {
-      options: { enabled: leadSearch.length > 2 }
+  // TODO add name and position filters
+  const getEmployeeInfiniteQuery = useGetEmployeeInfiniteQuery({ organizationId });
+
+  const { ref } = useIntersectionObserver({
+    threshold: 0.5,
+    onChange: (isIntersecting) => {
+      if (isIntersecting) getEmployeeInfiniteQuery.fetchNextPage();
     }
-  );
+  });
 
   return (
-    <Combobox
-      {...props}
-      items={getLeadListQuery.data ? defaultConvertLeads(getLeadListQuery.data) : []}
-      onSearchChange={debouncedSetActivitySearch}
-      loading={getLeadListQuery.isLoading}
-    />
+    <>
+      <Combobox
+        {...props}
+        items={
+          getEmployeeInfiniteQuery.data
+            ? defaultConvertLeads(getEmployeeInfiniteQuery.data.pages.flatMap((page) => page.rows))
+            : []
+        }
+        onSearchChange={debouncedSetActivitySearch}
+        loading={getEmployeeInfiniteQuery.isLoading}
+      />
+      <div ref={ref} />
+    </>
   );
 };

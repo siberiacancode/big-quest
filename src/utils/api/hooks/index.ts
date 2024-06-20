@@ -7,7 +7,7 @@ export * from './useGetAddressQuery';
 export * from './useGetAuthNewCodeMutation';
 export * from './useGetCategoryQuery';
 export * from './useGetChangesInfiniteQuery';
-export * from './useGetLeadsQuery';
+export * from './useGetEmployeeInfiniteQuery';
 export * from './useGetUserMeMutation';
 export * from './usePostAuthLoginEmailMutation';
 export * from './usePostChangesMutation';

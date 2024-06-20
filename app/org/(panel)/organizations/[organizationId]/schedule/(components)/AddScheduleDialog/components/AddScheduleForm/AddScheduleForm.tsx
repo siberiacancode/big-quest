@@ -89,6 +89,7 @@ export const AddScheduleForm = ({ onAdded }: AddScheduleFormProps) => {
                   <LeadsCombobox
                     value={field.value}
                     className='w-full'
+                    organizationId={state.organizationId}
                     onSelect={(newValue) => form.setValue('leadingId', newValue ?? '')}
                   />
                   <FormMessage>
