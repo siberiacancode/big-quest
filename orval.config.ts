@@ -1,8 +1,8 @@
 export default {
   'big-quest': {
-    input: 'http://95.174.93.7/api-doc-json',
+    input: 'http://192.144.13.154/api-doc-json',
     output: {
-      schemas: 'generated/api',
+      schemas: 'generated-temp/api',
       prettier: true
     }
   }

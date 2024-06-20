@@ -2,28 +2,26 @@ import { DATABASE } from 'mock/database';
 import type { RestRequestConfig } from 'mock-config-server';
 
 export const getEmployeeConfig: RestRequestConfig = {
-  path: '/changes',
+  path: '/employee',
   method: 'get',
   routes: [
     {
       data: (request) => {
-        // TODO add name and position filters
-        // const { name, position } = request.query;
+        const { search, position } = request.query;
 
-        const rows = DATABASE.ORGANIZATIONS.EMPLOYEES;
+        let rows = DATABASE.ORGANIZATIONS.EMPLOYEES;
 
-        // TODO add name and position filters
-        // if (typeof name === 'string') {
-        //   rows = rows.filter((employee) =>
-        //     (employee.firstName + employee.middleName + employee.lastName)
-        //       .toLowerCase()
-        //       .includes(name.toLowerCase())
-        //   );
-        // }
+        if (typeof search === 'string') {
+          rows = rows.filter((employee) =>
+            (employee.firstName + employee.middleName + employee.lastName)
+              .toLowerCase()
+              .includes(search.toLowerCase())
+          );
+        }
 
-        // if (typeof position === 'string') {
-        //   rows = rows.filter((employee) => employee.position === position);
-        // }
+        if (typeof position === 'string') {
+          rows = rows.filter((employee) => employee.position === position);
+        }
 
         return {
           pagination: {
