@@ -17,7 +17,7 @@ export const useGetActivityInfiniteQuery = (
     QueryKey,
     number
   >({
-    queryKey: ['getActivityList', params.current],
+    queryKey: ['getActivityList', ...Object.values(params)],
     initialPageParam: params.current ?? 1,
     queryFn: ({ pageParam }) =>
       getActivity({

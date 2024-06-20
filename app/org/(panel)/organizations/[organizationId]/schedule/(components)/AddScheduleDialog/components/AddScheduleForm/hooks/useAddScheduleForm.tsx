@@ -25,7 +25,7 @@ export const useAddScheduleForm = ({ onAdded }: UseAddScheduleFormParams) => {
     defaultValues: {
       activityId: '',
       addressId: '',
-      leadingId: '1',
+      leadingId: '',
       preEntry: false,
       isRegularActivity: false,
       numberOfSeats: '',

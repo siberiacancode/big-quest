@@ -1,7 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
 export const getAddressConfig: RestRequestConfig = {
-  path: '/address/:address',
+  path: '/address',
   method: 'get',
   routes: [
     {

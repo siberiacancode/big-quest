@@ -11,7 +11,7 @@ export const useGetEmployeeInfiniteQuery = (
 ) =>
   useInfiniteQuery<EmployeeListResponse, any, InfiniteData<EmployeeListResponse>, QueryKey, number>(
     {
-      queryKey: ['getEmployee', params.current, params.limit, params.organizationId],
+      queryKey: ['getEmployee', ...Object.values(params)],
       initialPageParam: params.current ?? 1,
       queryFn: ({ pageParam }) =>
         getEmployee({
