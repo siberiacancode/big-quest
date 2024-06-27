@@ -53,7 +53,9 @@ export const useSelectScheduleSection = ({ userId }: UseSelectScheduleSectionPar
       activities:
         getSchedulesByOrganizationIdInfiniteQuery?.data?.pages.flatMap((page) => page.rows) ?? [],
       selectedScheduleId,
-      isLoading: getSchedulesByOrganizationIdInfiniteQuery.isFetching,
+      isLoading:
+        getSchedulesByOrganizationIdInfiniteQuery.isFetching ||
+        postScheduleConfirmMutation.isPending,
       isLoadingMore: getSchedulesByOrganizationIdInfiniteQuery.isFetchingNextPage,
       intersectionRef: ref
     },

@@ -60,7 +60,7 @@ export const SelectScheduleSection = ({ userId }: SelectScheduleSectionProps) =>
             variant='primary'
             onClick={functions.onConfirmParticipationClick}
             disabled={!state.selectedScheduleId}
-            loading={state.isLoadingMore}
+            loading={state.isLoading || state.isLoadingMore}
             className='mt-6 w-full'
           >
             <I18nText path='button.mark' />
