@@ -35,8 +35,8 @@ export const SelectScheduleSection = ({ userId }: SelectScheduleSectionProps) =>
           </Typography>
 
           <RadioGroup
-            value={state.selectedActivityId}
-            onValueChange={functions.setSelectedActivityId}
+            value={state.selectedScheduleId}
+            onValueChange={functions.setSelectedScheduleId}
             className='mt-6 flex grow flex-col gap-2 '
           >
             {state.activities.map((schedule) => (
@@ -59,7 +59,7 @@ export const SelectScheduleSection = ({ userId }: SelectScheduleSectionProps) =>
           <Button
             variant='primary'
             onClick={functions.onConfirmParticipationClick}
-            disabled={!state.selectedActivityId}
+            disabled={!state.selectedScheduleId}
             loading={state.isLoadingMore}
             className='mt-6 w-full'
           >

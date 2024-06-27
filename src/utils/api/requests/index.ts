@@ -19,6 +19,7 @@ export * from './organization/edit-employee';
 export * from './organization/id';
 export * from './organization/id/employees';
 export * from './organization/register';
+export * from './schedule/confirm';
 export * from './schedules/organizationId';
 export * from './tariff/id';
 export * from './tariff/legalEntityId';

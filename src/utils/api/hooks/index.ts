@@ -12,6 +12,7 @@ export * from './usePostAuthLoginEmailMutation';
 export * from './usePostChangesMutation';
 export * from './usePostFileMutation';
 export * from './usePostOrganizationRegisterMutation';
+export * from './usePostScheduleConfirmMutation';
 export * from './usePutActivityByIdMutation';
 export * from './usePutOrganizationByIdMutation';
 export * from './usePutTariffByIdMutation';
