@@ -84,7 +84,7 @@ export const LoginForm = () => {
               )}
             />
             <span className='px-2 text-xs text-muted-foreground'>
-              <I18nText path='org.auth.rememberMe' />
+              <I18nText path='page.org.auth.rememberMe' />
             </span>
           </div>
           <Button type='submit' size='lg' variant='primary' loading={state.isLoading}>

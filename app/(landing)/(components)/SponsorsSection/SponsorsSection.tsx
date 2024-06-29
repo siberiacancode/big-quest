@@ -13,15 +13,15 @@ export const SponsorsSection = () => (
       <div className='relative z-10 mx-2 w-full rounded-2xl bg-white px-6 py-12 md:rounded-3xl lg:py-[72px]'>
         <div className='flex flex-col items-center gap-8'>
           <Typography variant='h1' tag='h2' className='text-[21px] lg:text-4xl'>
-            <I18nText path='landing.sponsors.title' />
+            <I18nText path='page.landing.sponsors.title' />
           </Typography>
           <div className='flex max-w-[656px]'>
             <Typography variant='body1' tag='p' className='text-center text-base md:text-[21px]'>
-              <I18nText path='landing.sponsors.description' />{' '}
+              <I18nText path='page.landing.sponsors.description' />{' '}
               <RegisterOrganizationDialog
                 trigger={
                   <span className='text-center text-base font-medium lowercase underline md:text-[21px]'>
-                    <I18nText path='landing.leaveRequest.subtitle' />
+                    <I18nText path='page.landing.leaveRequest.subtitle' />
                   </span>
                 }
               />

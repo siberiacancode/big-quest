@@ -156,13 +156,13 @@ export const EditOrganizationTariffForm = ({
                           <div className='flex items-center gap-4'>
                             <Typography variant='body2' className='flex-grow'>
                               <I18nText
-                                path='organization.profile.tariff.periodMonth'
+                                path='page.organization.profile.tariff.periodMonth'
                                 values={{ monthsAmount: periodMonthOption.monthsAmount }}
                               />
                             </Typography>
                             <Typography variant='body3' className=''>
                               <I18nText
-                                path='organization.profile.tariff.discount'
+                                path='page.organization.profile.tariff.discount'
                                 values={{ discount: periodMonthOption.discount }}
                               />
                             </Typography>

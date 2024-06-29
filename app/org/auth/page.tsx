@@ -16,7 +16,7 @@ const OrgAuthPage = () => (
         </div>
         <div>
           <Typography variant='h2' tag='h2' className='my-[30px] text-center text-4xl xlx:text-2xl'>
-            <I18nText path='org.auth.title' />
+            <I18nText path='page.org.auth.title' />
           </Typography>
           <LoginForm />
         </div>
@@ -28,10 +28,10 @@ const OrgAuthPage = () => (
         Copyright © {new Date().getFullYear()} <I18nText path='site.title' />
       </Typography>
       <Typography variant='body3' className='underline'>
-        <I18nText path='org.auth.footer.siteRules' />
+        <I18nText path='page.org.auth.footer.siteRules' />
       </Typography>
       <Typography variant='body3' className='underline'>
-        <I18nText path='org.auth.footer.privacyPolicy' />
+        <I18nText path='page.org.auth.footer.privacyPolicy' />
       </Typography>
     </footer>
   </div>

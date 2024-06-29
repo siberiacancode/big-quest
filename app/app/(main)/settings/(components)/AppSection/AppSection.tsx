@@ -13,7 +13,7 @@ export const AppSection = () => {
   return (
     <section>
       <Typography variant='body3' className='font-medium text-taiga'>
-        <I18nText path='app.profile.settings.app' />
+        <I18nText path='page.app.profile.settings.app' />
       </Typography>
       <Button
         variant='link'

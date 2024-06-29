@@ -1,7 +1,8 @@
+import { ChevronLeftIcon } from 'lucide-react';
 import Link from 'next/link';
 
 import { I18nText } from '@/components/common';
-import { Typography } from '@/components/ui';
+import { buttonVariants, Typography } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { getActivityById, getScheduleByActivityId } from '@/utils/api';
 import { ROUTES } from '@/utils/constants';
@@ -36,19 +37,29 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
 
   return (
     <section className='container p-0'>
-      <div
-        className={cn(
-          'h-fit min-h-screen bg-background p-0 pb-6 xs:mt-6 xs:min-h-fit xs:rounded-[8px] xs:p-6'
-        )}
-      >
-        {isMobile && <CarouselMedia activity={getActivityByIdResponse} />}
-        {!isMobile && <ActivityMedia activity={getActivityByIdResponse} />}
+      {isMobile && (
+        <Link
+          href={ROUTES.APP.ACTIVITIES.ROOT}
+          className={cn(
+            'absolute left-4 top-8 z-10 !size-8 bg-white lg:hidden',
+            buttonVariants({ variant: 'outline', size: 'icon' })
+          )}
+        >
+          <ChevronLeftIcon />
+        </Link>
+      )}
+      <div className='h-fit min-h-screen rounded-[8px] bg-background p-0 pb-6 xs:mt-6 xs:min-h-fit xs:p-6'>
+        <CarouselMedia className='xs:hidden' activity={getActivityByIdResponse} />
+        <ActivityMedia
+          className='hidden w-full flex-col gap-4 xs:flex md:flex-row 2md:gap-6'
+          activity={getActivityByIdResponse}
+        />
         <div className='px-[14px] xs:px-0'>
           <ActivityInfoCard activity={getActivityByIdResponse} />
           <div className='mt-4 space-y-4 md:space-y-8'>
             <div className='space-y-3'>
               <Typography tag='h5' variant='h7' className='text-sm md:text-lg'>
-                <I18nText path='app.activity.description' />
+                <I18nText path='page.app.activity.description' />
               </Typography>
               <Typography variant='body2' className='mb-8 w-full text-muted-foreground'>
                 {getActivityByIdResponse.description}
@@ -57,7 +68,7 @@ const ActivityPage = async ({ params }: ActivityPageProps) => {
             {getScheduleByActivityIdResponse.rows && (
               <div className='space-y-3 xs:space-y-5'>
                 <Typography tag='h5' variant='h7' className='text-sm md:text-lg'>
-                  <I18nText path='app.activity.addresses' />
+                  <I18nText path='page.app.activity.addresses' />
                 </Typography>
                 {groupAddresses(getScheduleByActivityIdResponse.rows).map((address, index) => (
                   <Link

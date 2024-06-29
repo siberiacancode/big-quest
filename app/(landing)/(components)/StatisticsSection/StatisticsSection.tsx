@@ -12,7 +12,7 @@ export const StatisticsSection = () => (
           3000
         </Typography>
         <Typography variant='h4' className='max-w-[161px] font-normal text-gray-two'>
-          <I18nText path='landing.statistics.participants' />
+          <I18nText path='page.landing.statistics.participants' />
         </Typography>
         <Image src={tree} alt='Tree' className='absolute -right-4 h-[142px]' />
       </div>
@@ -21,7 +21,7 @@ export const StatisticsSection = () => (
           200
         </Typography>
         <Typography variant='h4' className='max-w-[161px] font-normal text-gray-two'>
-          <I18nText path='landing.statistics.activities' />
+          <I18nText path='page.landing.statistics.activities' />
         </Typography>
         <Image src={tree} alt='Tree' className='absolute -right-4 h-[142px]' />
       </div>
@@ -30,7 +30,7 @@ export const StatisticsSection = () => (
           1150
         </Typography>
         <Typography variant='h4' className='max-w-[161px] font-normal text-gray-two'>
-          <I18nText path='landing.statistics.awards' />
+          <I18nText path='page.landing.statistics.awards' />
         </Typography>
         <Image src={tree} alt='Tree' className='absolute -right-4 h-[142px]' />
       </div>

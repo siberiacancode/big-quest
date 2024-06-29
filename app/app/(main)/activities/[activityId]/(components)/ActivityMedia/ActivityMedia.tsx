@@ -7,17 +7,17 @@ import type { ActivityResponse } from '@/api-types';
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/utils/contexts';
 
-interface ActivityMediaProps {
+interface ActivityMediaProps extends React.HTMLAttributes<HTMLDivElement> {
   activity: ActivityResponse;
 }
 
-export const ActivityMedia = ({ activity }: ActivityMediaProps) => {
+export const ActivityMedia = ({ activity, ...props }: ActivityMediaProps) => {
   const i18n = useI18n();
   const activityCover = activity.media.find((media) => media.flag === 'AVATAR')!;
   const [activeMedia, setActiveMedia] = React.useState(activityCover);
 
   return (
-    <div className='flex w-full flex-col gap-4 md:flex-row 2md:gap-6'>
+    <div {...props}>
       <div className='relative max-h-[483px] w-full md:w-[65%] md:max-w-[483px]'>
         {activeMedia.url && activeMedia.type === 'IMAGE' && (
           <div className='aspect-square p-1/2'>
@@ -42,7 +42,7 @@ export const ActivityMedia = ({ activity }: ActivityMediaProps) => {
         )}
       </div>
 
-      <div className='flex w-full max-w-[240px] flex-grow grid-rows-4 gap-2 overflow-x-scroll md:grid md:h-full md:w-fit md:grid-cols-2 md:overflow-x-hidden 2md:gap-4'>
+      <div className='flex w-full flex-grow grid-rows-4 gap-2 overflow-x-scroll md:grid md:h-full md:w-fit md:max-w-[240px] md:grid-cols-2 md:overflow-x-hidden 2md:gap-4'>
         {activity.media.map((item, index) => (
           <div className='relative' key={index}>
             <div className='relative w-[112px]  md:w-full'>

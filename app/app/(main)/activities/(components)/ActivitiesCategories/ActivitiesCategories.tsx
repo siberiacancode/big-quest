@@ -21,7 +21,7 @@ export const ActivitiesCategories = () => {
             className='gap-10 rounded-full data-[state=active]:bg-taiga data-[state=active]:text-white'
             onClick={() => onCategoryClick('')}
           >
-            <I18nText path='organization.activities.category.all' />
+            <I18nText path='page.organization.activities.category.all' />
           </TabsTrigger>
 
           {categories &&

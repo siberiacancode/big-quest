@@ -32,7 +32,7 @@ export const Footer = ({ cityId }: FooterProps) => (
       </div>
       <div className='flex w-full flex-col'>
         <Typography tag='p' className='text-xl font-medium text-white'>
-          <I18nText path='landing.footer.navigation.title' />
+          <I18nText path='page.landing.footer.navigation.title' />
         </Typography>
         <nav className='mt-4'>
           <ul className='flex flex-col gap-3'>
@@ -41,7 +41,7 @@ export const Footer = ({ cityId }: FooterProps) => (
                 className='hover:underline'
                 href={{ pathname: ROUTES.LANDING.ROOT, hash: 'banner' }}
               >
-                <I18nText path='landing.navigation.banner' />
+                <I18nText path='page.landing.navigation.banner' />
               </Link>
             </li>
             <li>
@@ -49,7 +49,7 @@ export const Footer = ({ cityId }: FooterProps) => (
                 className='hover:underline'
                 href={{ pathname: ROUTES.LANDING.ROOT, hash: 'news' }}
               >
-                <I18nText path='landing.navigation.news' />
+                <I18nText path='page.landing.navigation.news' />
               </Link>
             </li>
             <li>
@@ -57,7 +57,7 @@ export const Footer = ({ cityId }: FooterProps) => (
                 className='hover:underline'
                 href={{ pathname: ROUTES.LANDING.ROOT, hash: 'activities' }}
               >
-                <I18nText path='landing.navigation.activities' />
+                <I18nText path='page.landing.navigation.activities' />
               </Link>
             </li>
             <li>
@@ -65,7 +65,7 @@ export const Footer = ({ cityId }: FooterProps) => (
                 className='hover:underline'
                 href={{ pathname: ROUTES.LANDING.ROOT, hash: 'feedback' }}
               >
-                <I18nText path='landing.navigation.feedback' />
+                <I18nText path='page.landing.navigation.feedback' />
               </Link>
             </li>
             <li>
@@ -73,7 +73,7 @@ export const Footer = ({ cityId }: FooterProps) => (
                 className='hover:underline'
                 href={{ pathname: ROUTES.LANDING.ROOT, hash: 'questions' }}
               >
-                <I18nText path='landing.navigation.questions' />
+                <I18nText path='page.landing.navigation.questions' />
               </Link>
             </li>
           </ul>
@@ -81,7 +81,7 @@ export const Footer = ({ cityId }: FooterProps) => (
       </div>
       <div className='w-full 2lg:max-w-[337px]'>
         <Typography tag='p' className='text-xl font-medium text-white'>
-          <I18nText path='landing.footer.addresses' />
+          <I18nText path='page.landing.footer.addresses' />
         </Typography>
         <nav className='mt-4'>
           <ul className='flex flex-col gap-3 lg:text-start'>

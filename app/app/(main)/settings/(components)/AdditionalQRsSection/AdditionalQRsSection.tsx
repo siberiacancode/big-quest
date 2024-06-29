@@ -19,7 +19,7 @@ export const AdditionalQRsSection = ({ children }: AdditionalQRsSectionProps) =>
   return (
     <section>
       <Typography variant='body3' className='mb-4 font-medium text-taiga'>
-        <I18nText path='app.profile.settings.additionalQRs' />
+        <I18nText path='page.app.profile.settings.additionalQRs' />
       </Typography>
       {children.map((child) => (
         <ProfileSettingsLink key={child.id} {...child} />

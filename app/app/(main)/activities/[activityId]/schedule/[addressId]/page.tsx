@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { cn } from '@/lib/utils';
 import { getScheduleByActivityId } from '@/utils/api';
-import { getDevice } from '@/utils/helpers/server';
 
 import { ScheduleItem } from './(components)/ScheduleItem/ScheduleItem';
 
@@ -11,8 +9,6 @@ interface SchedulePageProps {
 }
 
 const SchedulePage = async ({ params }: SchedulePageProps) => {
-  const { isMobile } = getDevice();
-
   const getScheduleByActivityIdResponse = await getScheduleByActivityId({
     params: { id: params.activityId },
     config: {
@@ -21,12 +17,7 @@ const SchedulePage = async ({ params }: SchedulePageProps) => {
   });
 
   return (
-    <section
-      className={cn(
-        'container relative mx-auto min-h-[677px] rounded-[8px] bg-white px-4 pt-4 md:min-h-fit md:px-6 md:py-6',
-        isMobile && 'min-h-screen rounded-[0px]'
-      )}
-    >
+    <section className='container relative mx-auto min-h-[665px] rounded-[8px] bg-white px-4 pt-4 md:px-6 md:py-6'>
       <ScheduleItem
         schedule={getScheduleByActivityIdResponse.rows.filter(
           (schedule) => schedule.address?.id === params.addressId

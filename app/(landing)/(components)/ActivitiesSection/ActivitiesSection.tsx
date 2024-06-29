@@ -46,7 +46,7 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
     <section id='activities' className='container py-12'>
       <div className='flex items-center justify-between'>
         <Typography tag='h2' variant='h1' className='text-[21px] lg:text-4xl'>
-          <I18nText path='landing.activities.title' />
+          <I18nText path='page.landing.activities.title' />
         </Typography>
         <Link href={ROUTES.APP.ACTIVITIES.ROOT} className={buttonVariants({ variant: 'link' })}>
           <Typography tag='p' variant='body1' className='py-0 xxsx:text-base'>
@@ -71,14 +71,14 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
                 <ActivityCardContentItem>
                   <UserRoundIcon className='size-6 stroke-muted-foreground' />
                   <I18nText
-                    path='landing.activities.card.minimumAge'
+                    path='page.landing.activities.card.minimumAge'
                     values={{ age: activity.ageLimit[0] }}
                   />
                 </ActivityCardContentItem>
                 <ActivityCardContentItem>
                   <Clock4Icon className='size-6 stroke-muted-foreground' />
                   <I18nText
-                    path='landing.activities.card.duration'
+                    path='page.landing.activities.card.duration'
                     values={{ duration: activity.duration }}
                   />
                 </ActivityCardContentItem>

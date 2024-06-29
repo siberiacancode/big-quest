@@ -12,7 +12,7 @@ const AppProfilePage = () => (
   <div>
     <div className='flex items-center justify-between'>
       <Typography tag='h1' className='font-semibold'>
-        <I18nText path='app.profile.title' />
+        <I18nText path='page.app.profile.title' />
       </Typography>
       <Link href={ROUTES.APP.SETTINGS}>
         <SettingsIcon />
@@ -26,10 +26,10 @@ const AppProfilePage = () => (
             <div>
               <Typography variant='sub3'>ФИО</Typography>
               <Typography variant='body4' className='mt-2.5 text-muted-foreground'>
-                <I18nText path='app.profile.passportId' /> -
+                <I18nText path='page.app.profile.passportId' /> -
               </Typography>
               <Typography variant='body4' className='mt-1.5 text-muted-foreground'>
-                <I18nText path='app.profile.userId' />
+                <I18nText path='page.app.profile.userId' />
                 <Typography
                   variant='body4'
                   tag='span'

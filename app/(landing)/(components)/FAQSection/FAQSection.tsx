@@ -28,7 +28,7 @@ export const FAQSection = ({ cityId }: FAQSectionProps) => {
     <section className='bg-muted py-12'>
       <div className='container w-full'>
         <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-4xl'>
-          <I18nText path='landing.faq.title' />
+          <I18nText path='page.landing.faq.title' />
         </Typography>
 
         <Accordion

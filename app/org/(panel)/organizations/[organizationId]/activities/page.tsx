@@ -30,7 +30,7 @@ const OrganizationActivitiesPage = async ({ params }: OrganizationActivitiesPage
     <>
       <div className='flex flex-wrap justify-between gap-3 lgx:p-4'>
         <Typography variant='h5' tag='h5'>
-          <I18nText path='partners.activities.title' />
+          <I18nText path='page.partners.activities.title' />
         </Typography>
         <AddActivityDialog />
       </div>

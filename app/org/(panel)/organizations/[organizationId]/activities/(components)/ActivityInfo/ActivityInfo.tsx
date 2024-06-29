@@ -147,7 +147,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
               <Typography variant='sub4' className='w-fit rounded-md bg-secondary px-3 py-2'>
                 <I18nText
                   path={
-                    `organization.activities.status.${activity.status.toLowerCase()}` as LocaleMessageId
+                    `page.organization.activities.status.${activity.status.toLowerCase()}` as LocaleMessageId
                   }
                 />
               </Typography>

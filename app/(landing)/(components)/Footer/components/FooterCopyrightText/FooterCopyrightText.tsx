@@ -21,7 +21,7 @@ const PrivacyPolicyLink = (children: React.ReactNode) => (
 
 export const FooterCopyrightText = () => (
   <I18nText
-    path='landing.footer.copyright'
+    path='page.landing.footer.copyright'
     values={{ useTerms: UseTermsLink, privacyPolicy: PrivacyPolicyLink }}
   />
 );

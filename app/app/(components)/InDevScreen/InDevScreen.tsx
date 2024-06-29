@@ -11,15 +11,15 @@ interface InDevScreenProps {
 export const InDevScreen = ({ screen }: InDevScreenProps) => (
   <div className='relative flex min-h-full flex-col items-center justify-center'>
     <Typography variant='h5' className='absolute left-0 top-0 self-start font-semibold'>
-      <I18nText path={`app.${screen}.title`} />
+      <I18nText path={`page.app.${screen}.title`} />
     </Typography>
     <div className='flex h-full flex-col items-center justify-center'>
       <Image src={sleepImage} alt='' />
       <Typography variant='h5' className='mt-8'>
-        <I18nText path='app.inDev.title' />
+        <I18nText path='page.app.inDev.title' />
       </Typography>
       <Typography variant='sub3' className='mt-4 text-muted-foreground'>
-        <I18nText path='app.inDev.description' values={{ br: <br /> }} />
+        <I18nText path='page.app.inDev.description' values={{ br: <br /> }} />
       </Typography>
     </div>
   </div>

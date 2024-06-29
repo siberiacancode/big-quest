@@ -50,7 +50,7 @@ export const EditOrganizationProfileForm = ({
       <form onSubmit={functions.onSubmit} className='relative'>
         <fieldset disabled={state.isLoading} className='relative space-y-3 px-1'>
           <Typography variant='h5' tag='h5'>
-            <I18nText path='organization.profile.title' />
+            <I18nText path='page.organization.profile.title' />
           </Typography>
 
           <FormField
@@ -74,7 +74,9 @@ export const EditOrganizationProfileForm = ({
                       {ORGANIZATION_STAGES.map((stage) => (
                         <SelectItem value={stage}>
                           <I18nText
-                            path={`organization.stage.${stage.toLowerCase()}` as LocaleMessageId}
+                            path={
+                              `page.organization.stage.${stage.toLowerCase()}` as LocaleMessageId
+                            }
                           />
                         </SelectItem>
                       ))}
@@ -286,7 +288,7 @@ export const EditOrganizationProfileForm = ({
           </Button>
 
           <Typography variant='h5' tag='h5' className='mt-5'>
-            <I18nText path='organization.profile.information.title' />
+            <I18nText path='page.organization.profile.information.title' />
           </Typography>
 
           <FormField
@@ -433,7 +435,7 @@ export const EditOrganizationProfileForm = ({
             )}
           />
           <Typography variant='h5' tag='h5' className='mt-5'>
-            <I18nText path='organization.profile.requisites.title' />
+            <I18nText path='page.organization.profile.requisites.title' />
           </Typography>
           <FormField
             control={form.control}

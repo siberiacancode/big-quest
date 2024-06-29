@@ -21,7 +21,7 @@ const OrganizationEmployeesPage = async ({ params }: OrganizationEmployeesPagePr
     <div className='space-y-4'>
       <div className='flex justify-between'>
         <Typography variant='h5' tag='h5'>
-          <I18nText path='partners.employees.title' />
+          <I18nText path='page.partners.employees.title' />
         </Typography>
         <AddEmployeeDialog />
       </div>

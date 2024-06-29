@@ -17,7 +17,7 @@ interface ScheduleItemProps {
 }
 
 export const ScheduleItem = ({ schedule }: ScheduleItemProps) => {
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
+  const [date, setDate] = React.useState(new Date());
   const groupedDates: GroupedSchedule[] = groupTimesByDate(schedule);
 
   const activeDateSchedule = date && groupedDates.find((group) => fns.isSameDay(group.date, date));
@@ -30,23 +30,23 @@ export const ScheduleItem = ({ schedule }: ScheduleItemProps) => {
           tag='h1'
           className='my-6 text-center font-semibold md:my-0 md:text-start'
         >
-          <I18nText path='app.activity.schedule.title' />
+          <I18nText path='page.app.activity.schedule.title' />
         </Typography>
 
         <Calendar
           mode='single'
           selected={date}
-          onSelect={setDate}
+          onSelect={(date) => date && setDate(date)}
           schedules={groupedDates.map(({ date }) => date)}
           className='w-full max-w-[345px] rounded-md border md:mt-5'
         />
       </div>
       <div className='w-full'>
         <Typography variant='h7' tag='h1' className='mt-4 font-semibold md:mt-0'>
-          <I18nText path='app.activity.schedule.time.title' />
+          <I18nText path='page.app.activity.schedule.time.title' />
         </Typography>
         <Typography variant='body3' tag='h1'>
-          <I18nText path='app.activity.schedule.time.description' />
+          <I18nText path='page.app.activity.schedule.time.description' />
         </Typography>
 
         {activeDateSchedule && <FreeTimeList schedule={activeDateSchedule} />}

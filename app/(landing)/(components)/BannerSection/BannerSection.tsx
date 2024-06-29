@@ -23,11 +23,11 @@ export const BannerSection = () => (
       <div className='mt-4 flex w-full flex-col justify-center text-center lg:mb-20 lg:mt-8'>
         <div className='flex flex-col gap-2 lg:gap-6 lg:text-left'>
           <Typography tag='h1' variant='h1' className='text-2xl lg:text-[56px] lg:leading-[70px]'>
-            <I18nText path='landing.info.title' />
+            <I18nText path='page.landing.info.title' />
           </Typography>
 
           <Typography tag='p' variant='body1' className='text-wrap text-sm leading-5 lg:text-2xl'>
-            <I18nText path='landing.info.subtitle' />
+            <I18nText path='page.landing.info.subtitle' />
           </Typography>
         </div>
 

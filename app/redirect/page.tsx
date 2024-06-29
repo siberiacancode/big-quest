@@ -22,10 +22,10 @@ const RedirectPage = ({ searchParams }: RedirectPageProps) => {
       <div className='container mb-8 mt-[140px] flex max-w-[763px] items-center justify-between gap-[47px] mdx:flex-col mdx:gap-5'>
         <div className='mdx:text-center'>
           <Typography variant='h1' className='mdx:text-3xl'>
-            <I18nText path='redirect.title' />
+            <I18nText path='page.redirect.title' />
           </Typography>
           <Typography variant='h6' className='mt-6 font-normal'>
-            <I18nText path='redirect.description' />
+            <I18nText path='page.redirect.description' />
           </Typography>
         </div>
         <div className='max-h-[272px] w-full max-w-[272px] overflow-hidden rounded-xl'>

@@ -67,7 +67,7 @@ const OrganizationProfileChangesPage = () => {
       </Form>
       <CardTitle className='mt-5'>
         <Typography variant='h5' tag='p'>
-          <I18nText path='organization.profile.changes.title' />
+          <I18nText path='page.organization.profile.changes.title' />
         </Typography>
       </CardTitle>
       <Timeline>

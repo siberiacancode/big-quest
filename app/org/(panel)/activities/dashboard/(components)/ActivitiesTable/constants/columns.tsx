@@ -59,7 +59,7 @@ export const columns: ColumnDef<ActivitiesTableRow>[] = [
       <Button variant='secondary'>
         <I18nText
           path={
-            `organization.activities.status.${row.original.status.toLowerCase()}` as LocaleMessageId
+            `page.organization.activities.status.${row.original.status.toLowerCase()}` as LocaleMessageId
           }
         />
       </Button>
@@ -79,7 +79,7 @@ export const columns: ColumnDef<ActivitiesTableRow>[] = [
       <Button variant='secondary'>
         <I18nText
           path={
-            `organization.activities.view.${row.original.view.toLowerCase()}` as LocaleMessageId
+            `page.organization.activities.view.${row.original.view.toLowerCase()}` as LocaleMessageId
           }
         />
       </Button>

@@ -22,7 +22,7 @@ export const ProfileSettingsLink = ({ id, name, surname, userId }: ProfileSettin
         {name} {surname}
       </Typography>
       <Typography variant='body3'>
-        <I18nText path='app.profile.userId' />: {userId}
+        <I18nText path='page.app.profile.userId' />: {userId}
       </Typography>
     </div>
     <ChevronRightIcon />

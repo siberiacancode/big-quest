@@ -28,7 +28,7 @@ export const Header = ({ cityId }: HeaderProps) => (
               variant='body2'
               className='text-muted-foreground hover:font-semibold hover:text-taiga'
             >
-              <I18nText path='landing.navigation.banner' />
+              <I18nText path='page.landing.navigation.banner' />
             </Typography>
           </Link>
         </li>
@@ -38,7 +38,7 @@ export const Header = ({ cityId }: HeaderProps) => (
               variant='body2'
               className='text-muted-foreground hover:font-semibold hover:text-taiga'
             >
-              <I18nText path='landing.navigation.news' />
+              <I18nText path='page.landing.navigation.news' />
             </Typography>
           </Link>
         </li>
@@ -48,7 +48,7 @@ export const Header = ({ cityId }: HeaderProps) => (
               variant='body2'
               className='text-muted-foreground hover:font-semibold hover:text-taiga'
             >
-              <I18nText path='landing.navigation.activities' />
+              <I18nText path='page.landing.navigation.activities' />
             </Typography>
           </Link>
         </li>
@@ -58,7 +58,7 @@ export const Header = ({ cityId }: HeaderProps) => (
               variant='body2'
               className='text-muted-foreground hover:font-semibold hover:text-taiga'
             >
-              <I18nText path='landing.navigation.feedback' />
+              <I18nText path='page.landing.navigation.feedback' />
             </Typography>
           </Link>
         </li>
@@ -68,7 +68,7 @@ export const Header = ({ cityId }: HeaderProps) => (
               variant='body2'
               className='text-muted-foreground hover:font-semibold hover:text-taiga'
             >
-              <I18nText path='landing.navigation.questions' />
+              <I18nText path='page.landing.navigation.questions' />
             </Typography>
           </Link>
         </li>

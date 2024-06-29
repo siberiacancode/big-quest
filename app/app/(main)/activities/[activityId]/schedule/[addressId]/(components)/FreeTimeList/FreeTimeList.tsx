@@ -47,10 +47,10 @@ export const FreeTimeList = ({ schedule }: FreeTimeListProps) => {
           {!activeInfo.preEntry && (
             <div>
               <Typography variant='body2'>
-                <I18nText path='app.activity.schedule.noPreEntry.title' />
+                <I18nText path='page.app.activity.schedule.noPreEntry.title' />
               </Typography>
               <Typography variant='body2'>
-                <I18nText path='app.activity.schedule.noPreEntry.description' />
+                <I18nText path='page.app.activity.schedule.noPreEntry.description' />
               </Typography>
             </div>
           )}
@@ -58,11 +58,11 @@ export const FreeTimeList = ({ schedule }: FreeTimeListProps) => {
           {activeInfo.preEntry && (
             <div>
               <Typography variant='body2'>
-                <I18nText path='app.activity.schedule.preEntry' />
+                <I18nText path='page.app.activity.schedule.preEntry' />
               </Typography>
 
               <Typography variant='body2'>
-                <I18nText path='app.activity.phone' />:
+                <I18nText path='page.app.activity.phone' />:
                 <Link href={`tel:${activeInfo?.employeeNumber}`}>
                   {' '}
                   +{activeInfo?.employeeNumber}

@@ -26,6 +26,6 @@ export const convertOrganizationsToTableRows = (
         organization.countDays
       ),
     tariff: organization.tariff ?? '-',
-    stage: `organization.stage.${organization.stage.toLowerCase()}`,
-    type: `organization.legalType.${organization.type.toLowerCase()}`
+    stage: `page.organization.stage.${organization.stage.toLowerCase()}`,
+    type: `page.organization.legalType.${organization.type.toLowerCase()}`
   }));

@@ -39,7 +39,7 @@ const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
         <div className='flex flex-col gap-5'>
           <div className='flex items-center gap-2'>
             <Typography tag='h3' variant='h7' className='xsx:text-[25px]'>
-              <I18nText path='landing.activities.title' />
+              <I18nText path='page.landing.activities.title' />
             </Typography>
             {!!getActivityResponse.rows.length && (
               <Typography tag='h3' variant='body3'>

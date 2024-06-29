@@ -50,7 +50,7 @@ export const OrganizationActivityCard = ({ activity }: ActivityCardProps) => {
                 <Typography variant='sub4' tag='p'>
                   <I18nText
                     path={
-                      `organization.activities.status.${activity.status.toLowerCase()}` as LocaleMessageId
+                      `page.organization.activities.status.${activity.status.toLowerCase()}` as LocaleMessageId
                     }
                   />
                 </Typography>
@@ -115,7 +115,7 @@ export const OrganizationActivityCard = ({ activity }: ActivityCardProps) => {
                 <UserRoundIcon className='size-4 stroke-muted-foreground lg:size-6' />
                 <Typography tag='p' variant='body3' className='xsx:text-xs'>
                   <I18nText
-                    path='landing.activities.card.minimumAge'
+                    path='page.landing.activities.card.minimumAge'
                     values={{ age: activity.ageLimit[0] }}
                   />
                 </Typography>
@@ -126,7 +126,7 @@ export const OrganizationActivityCard = ({ activity }: ActivityCardProps) => {
                 <Clock4Icon className='size-4 stroke-muted-foreground lg:size-6' />
                 <Typography tag='p' variant='body3' className='xsx:text-xs'>
                   <I18nText
-                    path='landing.activities.card.duration'
+                    path='page.landing.activities.card.duration'
                     values={{ duration: activity.duration }}
                   />
                 </Typography>

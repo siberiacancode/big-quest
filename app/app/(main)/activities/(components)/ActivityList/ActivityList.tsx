@@ -56,7 +56,7 @@ export const ActivityList = () => {
                       className='text-muted-foreground 2xs:text-base'
                     >
                       <I18nText
-                        path='landing.activities.card.minimumAge'
+                        path='page.landing.activities.card.minimumAge'
                         values={{ age: activity.ageLimit[0] }}
                       />
                     </Typography>
@@ -69,7 +69,7 @@ export const ActivityList = () => {
                       className='text-muted-foreground 2xs:text-base'
                     >
                       <I18nText
-                        path='landing.activities.card.duration'
+                        path='page.landing.activities.card.duration'
                         values={{ duration: activity.duration }}
                       />
                     </Typography>

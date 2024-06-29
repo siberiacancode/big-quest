@@ -35,11 +35,11 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
       <InfoCardHeader className='p-5'>
         <InfoCardTitle>
           <Typography variant='h5' tag='p'>
-            <I18nText path='organization.profile.tariff.title' />{' '}
+            <I18nText path='page.organization.profile.tariff.title' />{' '}
             {getTariffByLegalEntityIdResponse.totalPrice !== 0 &&
               getTariffByLegalEntityIdResponse.totalPrice}
             {getTariffByLegalEntityIdResponse.totalPrice === 0 && (
-              <I18nText path='organization.profile.tariff.free' />
+              <I18nText path='page.organization.profile.tariff.free' />
             )}
           </Typography>
         </InfoCardTitle>
@@ -64,7 +64,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
           </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>
             <Typography variant='body2' tag='p' className='text-muted-foreground'>
-              <I18nText path='organization.profile.tariff.activity' />
+              <I18nText path='page.organization.profile.tariff.activity' />
             </Typography>
           </InfoCardItemDescription>
         </InfoCardItem>
@@ -76,7 +76,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
           </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>
             <Typography variant='body2' tag='p' className='text-muted-foreground'>
-              <I18nText path='organization.profile.tariff.paid' />
+              <I18nText path='page.organization.profile.tariff.paid' />
             </Typography>
           </InfoCardItemDescription>
         </InfoCardItem>
@@ -92,7 +92,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
           </InfoCardItemTitle>
           <InfoCardItemDescription className='flex'>
             <Typography variant='body2' tag='p' className='text-muted-foreground'>
-              <I18nText path='organization.profile.tariff.valid' />
+              <I18nText path='page.organization.profile.tariff.valid' />
             </Typography>
           </InfoCardItemDescription>
         </InfoCardItem>

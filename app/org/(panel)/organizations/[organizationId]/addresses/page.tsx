@@ -21,7 +21,7 @@ const OrganizationAddressesPage = async ({ params }: OrganizationAddressesPagePr
     <>
       <div className='flex justify-between'>
         <Typography variant='h5' tag='h5'>
-          <I18nText path='partners.addresses.title' />
+          <I18nText path='page.partners.addresses.title' />
         </Typography>
         <AddAddressDialog />
       </div>

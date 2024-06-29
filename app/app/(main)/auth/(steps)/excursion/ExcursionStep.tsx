@@ -24,10 +24,10 @@ export const ExcursionStep = () => {
         <div className='flex flex-grow flex-col px-4'>
           <div className='mt-[40px] flex-grow px-[42px]'>
             <Typography variant='h4' className='text-center'>
-              <I18nText path={`auth.excursion.${state.screen}.title`} />
+              <I18nText path={`page.auth.excursion.${state.screen}.title`} />
             </Typography>
             <Typography variant='sub3' className='mt-4 text-center text-muted-foreground'>
-              <I18nText path={`auth.excursion.${state.screen}.description`} />
+              <I18nText path={`page.auth.excursion.${state.screen}.description`} />
             </Typography>
           </div>
           <div className='mt-6 flex-shrink'>

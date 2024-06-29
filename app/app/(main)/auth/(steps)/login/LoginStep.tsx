@@ -40,7 +40,7 @@ export const LoginStep = () => {
           <ChevronLeftIcon />
         </Link>
         <Typography variant='h4' className='mx-auto w-[70%] text-center font-semibold'>
-          <I18nText path='auth.login.title' />
+          <I18nText path='page.auth.login.title' />
         </Typography>
 
         <Form {...form}>

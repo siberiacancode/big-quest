@@ -11,15 +11,15 @@ export const LeaveRequestSection = () => (
       <div className='flex flex-col gap-2 text-start md:gap-3'>
         <div className='flex flex-col gap-2'>
           <Typography variant='h1' tag='h2' className='text-[21px] md:text-4xl'>
-            <I18nText path='landing.leaveRequest.title' />
+            <I18nText path='page.landing.leaveRequest.title' />
           </Typography>
           <Typography tag='h2' variant='h1' className='text-[21px] text-taiga md:text-4xl'>
-            <I18nText path='landing.leaveRequest.subtitle' />!
+            <I18nText path='page.landing.leaveRequest.subtitle' />!
           </Typography>
         </div>
 
         <Typography tag='p' variant='body1' className='text-md lg:text-xl'>
-          <I18nText path='landing.leaveRequest.description' />
+          <I18nText path='page.landing.leaveRequest.description' />
         </Typography>
         <RegisterOrganizationDialog
           trigger={

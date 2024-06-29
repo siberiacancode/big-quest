@@ -38,7 +38,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
       <InfoCardHeader className='pb-0'>
         <InfoCardTitle>
           <Typography variant='h5' tag='h5'>
-            <I18nText path='organization.profile.title' />
+            <I18nText path='page.organization.profile.title' />
           </Typography>
         </InfoCardTitle>
         <InfoCardAction className='rounded-none bg-transparent'>
@@ -61,7 +61,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
           {getOrganizationByIdResponse.name && (
             <OrganizationProfileCardInfo>
               <OrganizationProfileCardInfoTitle>
-                <I18nText path='organization.profile.name' />
+                <I18nText path='page.organization.profile.name' />
               </OrganizationProfileCardInfoTitle>
               <OrganizationProfileCardInfoContent>
                 {getOrganizationByIdResponse.name}
@@ -71,7 +71,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
           {getOrganizationByIdResponse.contactName && (
             <OrganizationProfileCardInfo>
               <OrganizationProfileCardInfoTitle>
-                <I18nText path='organization.profile.contactName' />
+                <I18nText path='page.organization.profile.contactName' />
               </OrganizationProfileCardInfoTitle>
               <OrganizationProfileCardInfoContent>
                 {getOrganizationByIdResponse.contactName}
@@ -81,7 +81,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
           {getOrganizationByIdResponse.phone && (
             <OrganizationProfileCardInfo>
               <OrganizationProfileCardInfoTitle>
-                <I18nText path='organization.profile.phone' />
+                <I18nText path='page.organization.profile.phone' />
               </OrganizationProfileCardInfoTitle>
               <OrganizationProfileCardInfoContent>
                 {getOrganizationByIdResponse.phone}
@@ -91,7 +91,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
           {getOrganizationByIdResponse.email && (
             <OrganizationProfileCardInfo>
               <OrganizationProfileCardInfoTitle>
-                <I18nText path='organization.profile.email' />
+                <I18nText path='page.organization.profile.email' />
               </OrganizationProfileCardInfoTitle>
               <OrganizationProfileCardInfoContent>
                 {getOrganizationByIdResponse.email}
@@ -101,7 +101,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
           {getOrganizationByIdResponse.locality && (
             <OrganizationProfileCardInfo>
               <OrganizationProfileCardInfoTitle>
-                <I18nText path='organization.profile.locality' />
+                <I18nText path='page.organization.profile.locality' />
               </OrganizationProfileCardInfoTitle>
               <OrganizationProfileCardInfoContent>
                 {getOrganizationByIdResponse.locality}
@@ -111,7 +111,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
           {getOrganizationByIdResponse.social && (
             <OrganizationProfileCardInfo>
               <OrganizationProfileCardInfoTitle>
-                <I18nText path='organization.profile.social' />
+                <I18nText path='page.organization.profile.social' />
               </OrganizationProfileCardInfoTitle>
               <OrganizationProfileCardInfoContent>
                 <span className='flex gap-2'>
@@ -125,10 +125,10 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
         </div>
         <Separator className='mt-4' />
         <Accordion type='single' collapsible>
-          <AccordionItem value='organization.information' className='border-none'>
+          <AccordionItem value='page.organization.information' className='border-none'>
             <AccordionTrigger>
               <Typography variant='h7' tag='h6'>
-                <I18nText path='organization.profile.information.title' />
+                <I18nText path='page.organization.profile.information.title' />
               </Typography>
             </AccordionTrigger>
             {getOrganizationByIdResponse.information &&
@@ -137,7 +137,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
                   {getOrganizationByIdResponse.information.fullNameOfTheLegalEntity && (
                     <OrganizationProfileCardInfo>
                       <OrganizationProfileCardInfoTitle>
-                        <I18nText path='organization.profile.information.fullName' />
+                        <I18nText path='page.organization.profile.information.fullName' />
                       </OrganizationProfileCardInfoTitle>
                       <OrganizationProfileCardInfoContent>
                         {getOrganizationByIdResponse.information.fullNameOfTheLegalEntity}
@@ -147,7 +147,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
                   {getOrganizationByIdResponse.information.legalAddress && (
                     <OrganizationProfileCardInfo>
                       <OrganizationProfileCardInfoTitle>
-                        <I18nText path='organization.profile.information.legalAddress' />
+                        <I18nText path='page.organization.profile.information.legalAddress' />
                       </OrganizationProfileCardInfoTitle>
                       <OrganizationProfileCardInfoContent>
                         {getOrganizationByIdResponse.information.legalAddress}
@@ -157,7 +157,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
                   {getOrganizationByIdResponse.information.postAddress && (
                     <OrganizationProfileCardInfo>
                       <OrganizationProfileCardInfoTitle>
-                        <I18nText path='organization.profile.information.postAddress' />
+                        <I18nText path='page.organization.profile.information.postAddress' />
                       </OrganizationProfileCardInfoTitle>
                       <OrganizationProfileCardInfoContent>
                         {getOrganizationByIdResponse.information.postAddress}
@@ -167,7 +167,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
                   {getOrganizationByIdResponse.information.inn && (
                     <OrganizationProfileCardInfo>
                       <OrganizationProfileCardInfoTitle>
-                        <I18nText path='organization.profile.information.inn' />
+                        <I18nText path='page.organization.profile.information.inn' />
                       </OrganizationProfileCardInfoTitle>
                       <OrganizationProfileCardInfoContent>
                         {getOrganizationByIdResponse.information.inn}
@@ -177,7 +177,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
                   {getOrganizationByIdResponse.information.kpp && (
                     <OrganizationProfileCardInfo>
                       <OrganizationProfileCardInfoTitle>
-                        <I18nText path='organization.profile.information.kpp' />
+                        <I18nText path='page.organization.profile.information.kpp' />
                       </OrganizationProfileCardInfoTitle>
                       <OrganizationProfileCardInfoContent>
                         {getOrganizationByIdResponse.information.kpp}
@@ -187,7 +187,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
                   {getOrganizationByIdResponse.information.ogrn && (
                     <OrganizationProfileCardInfo>
                       <OrganizationProfileCardInfoTitle>
-                        <I18nText path='organization.profile.information.ogrn' />
+                        <I18nText path='page.organization.profile.information.ogrn' />
                       </OrganizationProfileCardInfoTitle>
                       <OrganizationProfileCardInfoContent>
                         {getOrganizationByIdResponse.information.ogrn}
@@ -200,10 +200,10 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
         </Accordion>
         <Separator />
         <Accordion type='single' collapsible>
-          <AccordionItem value='organization.requisites' className='border-none'>
+          <AccordionItem value='page.organization.requisites' className='border-none'>
             <AccordionTrigger>
               <Typography variant='h7' tag='h6'>
-                <I18nText path='organization.profile.requisites.title' />
+                <I18nText path='page.organization.profile.requisites.title' />
               </Typography>
             </AccordionTrigger>
             {getOrganizationByIdResponse.requisites &&
@@ -212,7 +212,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
                   {getOrganizationByIdResponse.requisites.bank && (
                     <OrganizationProfileCardInfo>
                       <OrganizationProfileCardInfoTitle>
-                        <I18nText path='organization.profile.requisites.bank' />
+                        <I18nText path='page.organization.profile.requisites.bank' />
                       </OrganizationProfileCardInfoTitle>
                       <OrganizationProfileCardInfoContent>
                         {getOrganizationByIdResponse.requisites.bank}
@@ -222,7 +222,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
                   {getOrganizationByIdResponse.requisites.bik && (
                     <OrganizationProfileCardInfo>
                       <OrganizationProfileCardInfoTitle>
-                        <I18nText path='organization.profile.requisites.bik' />
+                        <I18nText path='page.organization.profile.requisites.bik' />
                       </OrganizationProfileCardInfoTitle>
                       <OrganizationProfileCardInfoContent>
                         {getOrganizationByIdResponse.requisites.bik}
@@ -232,7 +232,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
                   {getOrganizationByIdResponse.requisites.checkingAccount && (
                     <OrganizationProfileCardInfo>
                       <OrganizationProfileCardInfoTitle>
-                        <I18nText path='organization.profile.requisites.checkingAccount' />
+                        <I18nText path='page.organization.profile.requisites.checkingAccount' />
                       </OrganizationProfileCardInfoTitle>
                       <OrganizationProfileCardInfoContent>
                         {getOrganizationByIdResponse.requisites.checkingAccount}

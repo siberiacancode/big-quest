@@ -15,6 +15,6 @@ export const convertActivitiesToTableRows = (activities: $TSFIXME[]): Activities
     activity: activity.activity ?? '-',
     location: activity.location ?? '-',
     status: activity.status,
-    category: `organization.activities.category.${activity.category.toLowerCase()}`,
+    category: `page.organization.activities.category.${activity.category.toLowerCase()}`,
     view: activity.view
   }));

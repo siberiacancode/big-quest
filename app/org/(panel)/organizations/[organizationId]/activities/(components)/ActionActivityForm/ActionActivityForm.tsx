@@ -281,7 +281,7 @@ export const ActionActivityForm = <ActionType extends ActivityActionType>({
                                   <Typography variant='body2'>
                                     <I18nText
                                       path={
-                                        `organization.activities.status.${field.value.toLowerCase()}` as LocaleMessageId
+                                        `page.organization.activities.status.${field.value.toLowerCase()}` as LocaleMessageId
                                       }
                                     />
                                   </Typography>
@@ -303,7 +303,7 @@ export const ActionActivityForm = <ActionType extends ActivityActionType>({
                                       >
                                         <I18nText
                                           path={
-                                            `organization.activities.status.${value.toLowerCase()}` as LocaleMessageId
+                                            `page.organization.activities.status.${value.toLowerCase()}` as LocaleMessageId
                                           }
                                         />
                                       </DropdownMenuRadioItem>

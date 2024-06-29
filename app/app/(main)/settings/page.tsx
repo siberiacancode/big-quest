@@ -30,7 +30,7 @@ const AppProfileSettingsPage = async () => {
         <ChevronLeftIcon />
       </Link>
       <Typography tag='h1' className='text-center font-semibold'>
-        <I18nText path='app.profile.settings.title' />
+        <I18nText path='page.app.profile.settings.title' />
       </Typography>
       <ProfileSettingsLink {...getUserProfileSettingsResponse} />
       <hr className='mx-auto mb-3 mt-5 w-[90%] opacity-50' />
@@ -42,7 +42,7 @@ const AppProfileSettingsPage = async () => {
       )}
       <div>
         <Typography variant='body3' className='font-medium text-taiga'>
-          <I18nText path='app.profile.settings.location' />
+          <I18nText path='page.app.profile.settings.location' />
         </Typography>
         <div className='mt-3 flex items-center gap-4 px-[6px] py-3'>
           <CityIcon className='stroke-foreground' squareClassName='fill-foreground' />

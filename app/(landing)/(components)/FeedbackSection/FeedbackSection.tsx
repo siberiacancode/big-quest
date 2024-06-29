@@ -16,7 +16,7 @@ export const FeedbackSection = () => (
     <Carousel className='container'>
       <div className='flex items-center justify-start lg:justify-center'>
         <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-4xl'>
-          <I18nText path='landing.feedback.title' />
+          <I18nText path='page.landing.feedback.title' />
         </Typography>
         <div className='absolute right-2'>
           <CarouselPrevious

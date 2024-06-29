@@ -19,7 +19,7 @@ const OrganizationProfileStatisticsPage = () => (
       <InfoCardHeader className='p-5'>
         <InfoCardTitle>
           <Typography variant='sub1' tag='p'>
-            <I18nText path='organization.profile.members' />
+            <I18nText path='page.organization.profile.members' />
           </Typography>
         </InfoCardTitle>
         <InfoCardAction>
@@ -42,7 +42,7 @@ const OrganizationProfileStatisticsPage = () => (
       <InfoCardHeader className='p-5'>
         <InfoCardTitle>
           <Typography variant='sub1' tag='p'>
-            <I18nText path='organization.profile.entries' />
+            <I18nText path='page.organization.profile.entries' />
           </Typography>
         </InfoCardTitle>
         <InfoCardAction>

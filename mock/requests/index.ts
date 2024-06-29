@@ -25,5 +25,6 @@ export * from './schedule/id/get';
 export * from './tariff/id/put';
 export * from './tariff/legalEntityId/get';
 export * from './user/get';
+export * from './user/me/get';
 export * from './user/profile/settings/get';
 export * from './user/put';

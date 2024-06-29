@@ -19,14 +19,14 @@ export const SettingsSection = ({ role, hasChildren }: SettingsSectionProps) => 
   return (
     <section>
       <Typography variant='body3' className='font-medium text-taiga'>
-        <I18nText path='app.profile.settings.title' />
+        <I18nText path='page.app.profile.settings.title' />
       </Typography>
       {role !== 'CHILD' && (
         <div className='mt-3 flex items-center gap-4 px-[6px] py-3'>
           <SmilePlusIcon />
           <Label htmlFor='parent-switch' className='flex-grow'>
             <Typography variant='body3' className='text-foreground'>
-              <I18nText path='app.profile.settings.parent' />
+              <I18nText path='page.app.profile.settings.parent' />
             </Typography>
           </Label>
           <Switch
@@ -42,7 +42,7 @@ export const SettingsSection = ({ role, hasChildren }: SettingsSectionProps) => 
         <MoonIcon className='fill-foreground' />
         <Label htmlFor='theme-switch' className='flex-grow'>
           <Typography variant='body3' className='text-foreground'>
-            <I18nText path='app.profile.settings.theme' />
+            <I18nText path='page.app.profile.settings.theme' />
           </Typography>
         </Label>
         <Switch
