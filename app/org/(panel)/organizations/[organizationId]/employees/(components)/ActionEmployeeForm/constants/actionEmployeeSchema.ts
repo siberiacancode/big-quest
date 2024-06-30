@@ -4,9 +4,10 @@ const MAX_FILE_SIZE = 5000000;
 const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
 
 export const actionEmployeeSchema = z.object({
-  role: z.enum(['SUPERADMIN', 'ADMIN', 'USER', 'MANAGER', 'MODERATOR', 'SUPPORT', 'LEADING']),
-  surname: z.string().min(1, { message: 'validation.required' }),
-  name: z.string().min(1, { message: 'validation.required' }),
+  position: z.enum(['ADMINISTRATOR', 'LEADING']),
+  firstName: z.string().min(1, { message: 'validation.required' }),
+  middleName: z.string(),
+  lastName: z.string().min(1, { message: 'validation.required' }),
   email: z
     .string()
     .min(1, {

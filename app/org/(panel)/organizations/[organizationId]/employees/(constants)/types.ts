@@ -1,12 +1,14 @@
-import type { MediaResponse, Role } from '@/api-types';
+import type { EmployeePosition } from '@/api-types';
 
 export interface EmployeeData {
-  id: string;
-  name: string;
-  surname: string;
+  id?: string;
+  avatar?: string;
   email: string;
-  role: Role;
+  firstName: string;
+  lastName: string;
+  middleName?: string;
+  organizationId: string;
   phone: string;
-  status: string;
-  media: MediaResponse[];
+  position: EmployeePosition;
+  userId?: string;
 }

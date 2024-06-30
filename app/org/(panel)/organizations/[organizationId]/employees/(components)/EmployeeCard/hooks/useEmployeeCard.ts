@@ -24,7 +24,9 @@ export const useEmployeeCard = (employee: EmployeeData) => {
 
   const onAlertDeleteClick = async () => {
     await deleteOrganizationDeleteEmployeeMutation.mutateAsync({ params: { id: employee.id } });
-    toast.success(i18n.formatMessage({ id: 'toast.employeeDeleted' }, { name: employee.name }));
+    toast.success(
+      i18n.formatMessage({ id: 'toast.employeeDeleted' }, { name: employee.firstName })
+    );
     setDeleteAlertOpen(false);
     startDeleteTransition(() => router.refresh());
   };

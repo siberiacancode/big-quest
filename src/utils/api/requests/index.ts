@@ -7,6 +7,7 @@ export * from './auth/login/email';
 export * from './auth/new-code';
 export * from './category';
 export * from './changes';
+export * from './employee';
 export * from './file/id/index';
 export * from './legal-address';
 export * from './legal-address/id';

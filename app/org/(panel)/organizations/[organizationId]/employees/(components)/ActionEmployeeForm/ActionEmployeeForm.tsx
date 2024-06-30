@@ -1,4 +1,4 @@
-import { Role } from '@/api-types';
+import { EmployeePosition } from '@/api-types';
 import { I18nText } from '@/components/common';
 import { DropzoneCard } from '@/components/dropzone';
 import {
@@ -45,10 +45,10 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
         <fieldset disabled={state.isLoading} className='flex w-full flex-col items-end'>
           <div className='mb-7 flex w-full gap-5 smx:flex-col'>
             <div className='flex-1 space-y-3'>
-              {state.showPreview && employee?.media && (
+              {state.showPreview && employee?.avatar && (
                 <div className='flex items-center gap-3'>
                   <DropzoneCard
-                    value={employee.media[0].url}
+                    value={employee.avatar}
                     onDelete={functions.onDeletePreviewClick}
                     className='h-32 w-32'
                   />
@@ -101,7 +101,7 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
               )}
               <FormField
                 control={form.control}
-                name='role'
+                name='position'
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
@@ -113,7 +113,7 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
                           <SelectValue placeholder='Роль' />
                         </SelectTrigger>
                         <SelectContent>
-                          {Object.values(Role).map((role) => (
+                          {Object.values(EmployeePosition).map((role) => (
                             <SelectItem key={role} value={role}>
                               <I18nText path={`organization.employee.role.${role.toLowerCase()}`} />
                             </SelectItem>
@@ -122,8 +122,10 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
                       </Select>
                     </FormControl>
                     <FormMessage>
-                      {form.formState?.errors?.role && (
-                        <I18nText path={form.formState.errors.role.message as LocaleMessageId} />
+                      {form.formState?.errors?.position && (
+                        <I18nText
+                          path={form.formState.errors.position.message as LocaleMessageId}
+                        />
                       )}
                     </FormMessage>
                   </FormItem>
@@ -131,18 +133,20 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
               />
               <FormField
                 control={form.control}
-                name='surname'
+                name='lastName'
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      <I18nText path='field.surname.label' />
+                      <I18nText path='field.lastName.label' />
                     </FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
                     <FormMessage>
-                      {form.formState?.errors?.surname && (
-                        <I18nText path={form.formState.errors.surname.message as LocaleMessageId} />
+                      {form.formState?.errors?.lastName && (
+                        <I18nText
+                          path={form.formState.errors.lastName.message as LocaleMessageId}
+                        />
                       )}
                     </FormMessage>
                   </FormItem>
@@ -150,18 +154,20 @@ export const ActionEmployeeForm = <ActionType extends EmployeeActionType>({
               />
               <FormField
                 control={form.control}
-                name='name'
+                name='middleName'
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      <I18nText path='field.name.label' />
+                      <I18nText path='field.middleName.label' />
                     </FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
                     <FormMessage>
-                      {form.formState?.errors?.name && (
-                        <I18nText path={form.formState.errors.name.message as LocaleMessageId} />
+                      {form.formState?.errors?.middleName && (
+                        <I18nText
+                          path={form.formState.errors.middleName.message as LocaleMessageId}
+                        />
                       )}
                     </FormMessage>
                   </FormItem>

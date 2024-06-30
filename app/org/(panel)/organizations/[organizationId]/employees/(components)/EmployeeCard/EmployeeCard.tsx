@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Edit3Icon, MailIcon, MoreHorizontalIcon, Trash2Icon } from 'lucide-react';
+import { Edit3Icon, MoreHorizontalIcon, Trash2Icon } from 'lucide-react';
 import Image from 'next/image';
 
+import userPlaceholder from '@/assets/images/avatar/participant.png';
 import { BoldText, I18nText } from '@/components/common';
 import {
   AlertDialog,
@@ -12,7 +13,6 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  Badge,
   Button,
   Card,
   CardContent,
@@ -42,13 +42,13 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
     <Card className='relative min-w-[330px] flex-1'>
       <CardContent className='flex items-center justify-center p-8 pb-12 pr-5 pt-4'>
         <div>
-          {employee.status === 'inactive' && (
+          {/* {employee.status === 'inactive' && (
             <div className='right absolute left-4 top-4'>
               <Badge>
                 <I18nText path='employeeCard.status.inactive' />
               </Badge>
             </div>
-          )}
+          )} */}
 
           <div className='right absolute right-2 top-2 z-10 flex gap-1'>
             <EditEmployeeDialog
@@ -67,7 +67,7 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
                   <AlertDialogDescription>
                     <I18nText
                       path='employeeCard.deleteAlert.description'
-                      values={{ bold: BoldText, name: employee.name }}
+                      values={{ bold: BoldText, name: employee.firstName }}
                     />
                   </AlertDialogDescription>
                 </AlertDialogHeader>
@@ -94,7 +94,7 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                {employee.status === 'inactive' && (
+                {/* {employee.status === 'inactive' && (
                   <DropdownMenuItem
                     className='cursor-pointer'
                     onClick={functions.onSendConfirmationClick}
@@ -104,7 +104,7 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
                       <I18nText path='button.sendConfirmation' />
                     </Typography>
                   </DropdownMenuItem>
-                )}
+                )} */}
                 <DropdownMenuItem className='cursor-pointer' onClick={functions.onEditClick}>
                   <Edit3Icon className='mr-2 h-4 w-4' />
                   <Typography tag='p' variant='body2'>
@@ -125,21 +125,22 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
           </div>
         </div>
 
-        <div
-          className={cn('flex flex-1 flex-col items-center space-y-3 pt-4', {
-            'opacity-70': employee.status === 'inactive'
-          })}
-        >
+        <div className={cn('flex flex-1 flex-col items-center space-y-3 pt-4')}>
           <div className='mb-2 flex flex-col items-center'>
             <div className='relative h-16 w-16'>
-              <Image src={employee.media[0].url} fill alt='user' className='rounded-full' />
+              <Image
+                src={employee.avatar || userPlaceholder.src}
+                fill
+                alt='user'
+                className='rounded-full'
+              />
             </div>
             <div className='mt-2 flex flex-col items-center space-y-1'>
               <Typography variant='h7' tag='p' className='flex-1'>
-                {employee.name} {employee.surname}
+                {employee.firstName} {employee.lastName}
               </Typography>
               <Typography variant='body3' tag='p' className='flex-1'>
-                {employee.role}
+                {employee.position}
               </Typography>
             </div>
           </div>
