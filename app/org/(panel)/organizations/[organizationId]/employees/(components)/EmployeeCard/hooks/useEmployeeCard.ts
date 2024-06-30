@@ -2,10 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
-import {
-  useDeleteOrganizationDeleteEmployeeMutation,
-  useGetAuthNewCodeMutation
-} from '@/utils/api/hooks';
+import { useDeleteEmployeeMutation, useGetAuthNewCodeMutation } from '@/utils/api/hooks';
 import { useI18n } from '@/utils/contexts';
 
 import type { EmployeeData } from '../../../(constants)/types';
@@ -20,15 +17,17 @@ export const useEmployeeCard = (employee: EmployeeData) => {
   const [isEditPending, startEditTransition] = React.useTransition();
 
   const getAuthNewCodeMutation = useGetAuthNewCodeMutation();
-  const deleteOrganizationDeleteEmployeeMutation = useDeleteOrganizationDeleteEmployeeMutation();
+  const deleteEmployeeMutation = useDeleteEmployeeMutation();
 
   const onAlertDeleteClick = async () => {
-    await deleteOrganizationDeleteEmployeeMutation.mutateAsync({ params: { id: employee.id } });
-    toast.success(
-      i18n.formatMessage({ id: 'toast.employeeDeleted' }, { name: employee.firstName })
-    );
-    setDeleteAlertOpen(false);
-    startDeleteTransition(() => router.refresh());
+    if (employee?.id) {
+      await deleteEmployeeMutation.mutateAsync({ params: { id: employee?.id } });
+      toast.success(
+        i18n.formatMessage({ id: 'toast.employeeDeleted' }, { name: employee.firstName })
+      );
+      setDeleteAlertOpen(false);
+      startDeleteTransition(() => router.refresh());
+    }
   };
 
   const onSendConfirmationClick = async () => {
@@ -57,7 +56,7 @@ export const useEmployeeCard = (employee: EmployeeData) => {
       deleteAlertOpen,
       isLoading:
         getAuthNewCodeMutation.isPending ||
-        deleteOrganizationDeleteEmployeeMutation.isPending ||
+        deleteEmployeeMutation.isPending ||
         isDeletePending ||
         isEditPending
     },

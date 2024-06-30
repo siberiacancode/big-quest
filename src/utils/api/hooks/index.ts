@@ -1,6 +1,6 @@
+export * from './useDeleteEmployeeMutation';
 export * from './useDeleteFileByIdMutation';
 export * from './useDeleteLegalAddressByIdMutation';
-export * from './useDeleteOrganizationDeleteEmployeeMutation';
 export * from './useGetActivityByIdQuery';
 export * from './useGetAddressQuery';
 export * from './useGetAuthNewCodeMutation';

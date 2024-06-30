@@ -89,13 +89,15 @@ export const useActionEmployeeForm = ({
       });
     }
 
-    if (actionType === 'edit') {
-      const postOrganizationActionEmployeeParams = {
+    if (actionType === 'edit' && employee?.userId) {
+      const putOrganizationActionEmployeeParams = {
         params: {
           ...requestParams,
           ...(avatarMedia && { avatarMedia }),
-          userId: employee!.userId
+          userId: employee?.userId,
+          id: employee?.userId
         },
+
         action: actionType
       } as const;
 
@@ -105,7 +107,7 @@ export const useActionEmployeeForm = ({
         });
       }
 
-      await organizationActionEmployeeMutation.mutateAsync(postOrganizationActionEmployeeParams);
+      await organizationActionEmployeeMutation.mutateAsync(putOrganizationActionEmployeeParams);
 
       toast.success(i18n.formatMessage({ id: 'toast.editEmployee' }), {
         cancel: { label: i18n.formatMessage({ id: 'button.close' }) }
