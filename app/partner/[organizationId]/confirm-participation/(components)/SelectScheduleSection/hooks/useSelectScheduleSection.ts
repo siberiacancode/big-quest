@@ -13,8 +13,8 @@ interface UseSelectScheduleSectionParams {
   userId: string;
 }
 
-const DEFAULT_SCHEDULES_PAGE = 1;
 const DEFAULT_SCHEDULES_LIMIT = 10;
+const DEFAULT_SCHEDULES_PAGE = 1;
 
 export const useSelectScheduleSection = ({ userId }: UseSelectScheduleSectionParams) => {
   const i18n = useI18n();
@@ -30,13 +30,17 @@ export const useSelectScheduleSection = ({ userId }: UseSelectScheduleSectionPar
     dateEnd: dateString
   });
 
+  const activities =
+    getSchedulesByOrganizationIdInfiniteQuery?.data?.pages.flatMap((page) => page.rows) ?? [];
+
   const postScheduleConfirmMutation = usePostScheduleConfirmMutation();
 
   const { ref } = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.5,
     onChange: ({ isIntersecting }) => {
       if (isIntersecting) getSchedulesByOrganizationIdInfiniteQuery.fetchNextPage();
-    }
+    },
+    enabled: !!activities.length && getSchedulesByOrganizationIdInfiniteQuery.hasNextPage
   });
 
   const onConfirmParticipationClick = async () => {
@@ -50,8 +54,7 @@ export const useSelectScheduleSection = ({ userId }: UseSelectScheduleSectionPar
 
   return {
     state: {
-      activities:
-        getSchedulesByOrganizationIdInfiniteQuery?.data?.pages.flatMap((page) => page.rows) ?? [],
+      activities,
       selectedScheduleId,
       isLoading:
         getSchedulesByOrganizationIdInfiniteQuery.isFetching ||
