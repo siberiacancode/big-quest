@@ -5,6 +5,7 @@
  * ## API Big Quest
  * OpenAPI spec version: 1.0
  */
+import type { EmployeePosition } from './employeePosition';
 
 export type EmployeeControllerGetEmployeesParams = {
   current?: number;
@@ -13,4 +14,12 @@ export type EmployeeControllerGetEmployeesParams = {
    * Идентификатор организации
    */
   organizationId: string;
+  /**
+   * Роль сотрудника
+   */
+  position?: EmployeePosition;
+  /**
+   * ФИО пользователя или его часть
+   */
+  search?: string;
 };

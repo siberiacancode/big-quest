@@ -3,7 +3,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
-import type { OrganizationResponse } from '@/api-types';
+import type { AddressResponseDto, OrganizationResponse } from '@/api-types';
+import type { ComboBoxOption } from '@/components/ui';
 import { usePutOrganizationByIdMutation } from '@/utils/api';
 
 import type { EditOrganizationProfileSchema } from '../constants/editOrganizationProfileSchema';
@@ -27,7 +28,7 @@ export const useEditOrganizationProfileForm = ({
     resolver: zodResolver(editOrganizationProfileSchema),
     defaultValues: {
       stage: organization.stage ?? 'REQUEST',
-      locality: organization.locality ?? {},
+      locality: organization.locality ?? ({} as ComboBoxOption<AddressResponseDto>),
       name: organization.name ?? '',
       description: organization.description ?? undefined,
       inn: organization.information?.inn ?? undefined,

@@ -7,7 +7,7 @@
  */
 
 /**
- * Должность
+ * Роль сотрудника
  */
 export type EmployeePosition = (typeof EmployeePosition)[keyof typeof EmployeePosition];
 

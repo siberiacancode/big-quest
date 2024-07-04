@@ -91,11 +91,22 @@ export const RegisterOrganizationForm = ({ onRegistered }: RegisterOrganizationF
               <FormLabel>
                 <I18nText path='field.location.label' />
               </FormLabel>
-              <AddressCombobox
+              {/* <AddressCombobox
                 value={field.value}
                 className='w-full'
                 // @ts-ignore
                 onSelect={(newValue) => form.setValue('location', newValue ?? '')}
+                convertAddresses={convertLocationsToComboboxItems}
+              /> */}
+              <AddressCombobox
+                // @ts-ignore
+                value={field.value}
+                className='w-full'
+                onSelect={(newValue) => {
+                  // @ts-ignore
+                  form.setValue('location', newValue);
+                }}
+                // @ts-ignore
                 convertAddresses={convertLocationsToComboboxItems}
               />
               <FormMessage>

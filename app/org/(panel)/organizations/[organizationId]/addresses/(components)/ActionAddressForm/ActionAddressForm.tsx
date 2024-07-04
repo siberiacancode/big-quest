@@ -1,7 +1,9 @@
 'use client';
 
+import type { AddressResponseDto } from '@/api-types';
 import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
+import type { ComboBoxOption } from '@/components/ui';
 import {
   Button,
   ClockInput,
@@ -58,14 +60,7 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                       <I18nText path='field.city.label' />
                     </FormLabel>
                     <FormControl>
-                      <Select
-                        {...field}
-                        value={field.value}
-                        onValueChange={(value) => {
-                          field.onChange(value);
-                          form.setValue('locality', {});
-                        }}
-                      >
+                      <Select {...field} onValueChange={(value) => field.onChange(value)}>
                         <SelectTrigger className='h-8 w-48'>
                           <SelectValue placeholder='Город' />
                         </SelectTrigger>
@@ -95,13 +90,13 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                       <I18nText path='field.address.label' />
                     </FormLabel>
                     <AddressCombobox
-                      value={field.value}
+                      value={field.value as ComboBoxOption<AddressResponseDto>}
                       className='w-full'
                       onSelect={(newValue) => {
-                        form.setValue('locality', newValue);
+                        if (newValue) form.setValue('locality', newValue);
                       }}
                       convertAddresses={convertLocalitiesToComboboxItems}
-                      prefilledCity={form.getValues('city')}
+                      prefix={form.getValues('city')}
                     />
                     <FormMessage>
                       {form.formState?.errors?.locality && (

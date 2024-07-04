@@ -3,6 +3,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
+import type { AddressResponseDto } from '@/api-types';
+import type { ComboBoxOption } from '@/components/ui';
 import { CITIES } from '@/utils/constants';
 import { useI18n } from '@/utils/contexts';
 
@@ -41,8 +43,8 @@ export const useActionAddressForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(actionAddressSchema),
     defaultValues: {
-      city: address?.locality.city ?? CITIES.MEZHDURECHENSK.name,
-      locality: address?.locality ?? {},
+      city: address?.city ?? CITIES.NOVOSIBIRSK.name,
+      locality: address ?? ({} as ComboBoxOption<AddressResponseDto>),
       details: address?.details ?? '',
       workingHours: address?.workingHours
         ? convertWorkingHours(address.workingHours)
@@ -71,16 +73,18 @@ export const useActionAddressForm = ({
       };
     });
 
-    const { city, ...requestParams } = { ...values, workingHours: formattedWorkingHours };
+    const { city, locality, ...requestParams } = { ...values, workingHours: formattedWorkingHours };
 
     if (actionType === 'add') {
       const postOrganizationActionAddressParams = {
-        params: { ...requestParams, legalEntityId: params.organizationId },
+        params: {
+          ...requestParams,
+          legalEntityId: params.organizationId,
+          locality: locality.value
+        },
         action: actionType
       } as const;
 
-      // пофиксить как будет бэк
-      // @ts-ignore
       await organizationActionAddressMutation.mutateAsync(postOrganizationActionAddressParams);
 
       toast.success(i18n.formatMessage({ id: 'toast.addAddress' }), {
@@ -90,7 +94,12 @@ export const useActionAddressForm = ({
 
     if (actionType === 'edit') {
       const putOrganizationActionAddressParams = {
-        params: { ...requestParams, id: address!.id },
+        params: {
+          ...requestParams,
+          legalEntityId: params.organizationId,
+          id: address!.id,
+          locality: locality.value
+        },
         action: actionType
       } as const;
 

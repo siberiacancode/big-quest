@@ -7,22 +7,24 @@
  */
 import type { EmployeePosition } from './employeePosition';
 
-export interface CreateEmployeeDto {
-  /** ID фото аватара */
+export interface EmployeeResponse {
+  /** Фото аватара */
   avatar?: string;
-  /** Email */
-  email?: string;
+  /** Email сотрудника */
+  email: string;
   /** Имя */
-  firstName?: string;
+  firstName: string;
+  /** Идентификатор сотрудника */
+  id: string;
   /** Фамилия */
-  lastName?: string;
+  lastName: string;
   /** Отчество */
   middleName?: string;
   /** Идентификатор организации */
   organizationId: string;
-  /** Телефонный номер */
-  phone?: string;
+  /** Тел номер */
+  phone: string;
   position: EmployeePosition;
   /** Идентификатор пользователя */
-  userId?: string;
+  userId: string;
 }

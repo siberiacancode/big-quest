@@ -11,18 +11,18 @@ export interface UpdateEmployeeDto {
   /** ID фото аватара */
   avatar?: string;
   /** Email */
-  email: string;
+  email?: string;
   /** Имя */
-  firstName: string;
+  firstName?: string;
   /** Фамилия */
-  lastName: string;
+  lastName?: string;
   /** Отчество */
   middleName?: string;
   /** Идентификатор организации */
   organizationId: string;
   /** Телефонный номер */
-  phone: string;
+  phone?: string;
   position: EmployeePosition;
   /** Идентификатор пользователя */
-  userId: string;
+  userId?: string;
 }

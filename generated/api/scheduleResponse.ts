@@ -8,6 +8,7 @@
 import type { Activity } from './activity';
 import type { Address } from './address';
 import type { Leading } from './leading';
+import type { ParticipantEntityResponse } from './participantEntityResponse';
 import type { WeekAndTimeEntityResponse } from './weekAndTimeEntityResponse';
 
 export interface ScheduleResponse {
@@ -15,6 +16,8 @@ export interface ScheduleResponse {
   activity?: Activity;
   /** Адрес */
   address?: Address;
+  /** Идентификатор связанного расписания */
+  chainScheduleId?: string;
   /** Дата расписания */
   date: string;
   /** Детали */
@@ -31,6 +34,8 @@ export interface ScheduleResponse {
   numberOfSeats?: number;
   /** ID организации */
   organizationId?: string;
+  /** Участники */
+  participants: ParticipantEntityResponse[];
   /** Признак предварительной записи */
   preEntry: boolean;
   /** Дни недели и время */

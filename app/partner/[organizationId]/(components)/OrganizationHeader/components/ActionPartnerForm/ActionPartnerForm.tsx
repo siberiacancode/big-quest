@@ -38,14 +38,14 @@ export const ActionPartnerForm = ({ onAction, partner }: ActionPartnerProps) => 
         <fieldset disabled={state.isLoading} className='flex w-full flex-col items-end'>
           <div className='mb-7 flex w-full gap-5 smx:flex-col'>
             <div className='flex-1 space-y-3'>
-              {state.showPreview && partner.avatar && (
+              {state.showPreview && partner.media && partner.media[0].url && (
                 <div className='flex items-center gap-3'>
                   <DropzoneCard
-                    value={partner.avatar}
+                    value={partner.media[0].url}
                     onDelete={functions.onDeletePreviewClick}
                     className='h-32 w-32'
                   />
-                  <Typography variant='sub2'>{partner.avatar.split('/').at(-1)}</Typography>
+                  <Typography variant='sub2'>{partner.media[0].url.split('/').at(-1)}</Typography>
                 </div>
               )}
               {!state.showPreview && (

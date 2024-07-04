@@ -11,9 +11,34 @@ const workingHourSchema = z.object({
 });
 
 export const actionAddressSchema = z.object({
-  // city: z.enum(['Новосибирск', 'Кемерово', 'Междуреченск']),
   city: z.string().min(1, { message: 'validation.required' }),
-  locality: z.any(),
+  locality: z.object(
+    { id: z.string(), label: z.string(), value: z.object({}) },
+    { message: 'validation.required' }
+  ),
+  // locality: z.object(
+  //   {
+  //     id: z.string(),
+  //     label: z.string(),
+  //     value: z.object({
+  //       city: z.string(),
+  //       cityWithType: z.string(),
+  //       country: z.string(),
+  //       flat: z.number(), //
+  //       geoLat: z.number(), //
+  //       geoLon: z.number(), //
+  //       house: z.string(),
+  //       postalCode: z.string(),
+  //       region: z.string(),
+  //       settlement: z.string(),
+  //       settlementWithType: z.string(),
+  //       street: z.string(),
+  //       unrestrictedValue: z.string(),
+  //       value: z.string()
+  //     })
+  //   },
+  //   { message: 'validation.required' }
+  // ),
   details: z.string(),
   workingHours: z.object({
     '0': workingHourSchema,

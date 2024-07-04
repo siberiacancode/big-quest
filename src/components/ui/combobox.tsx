@@ -18,15 +18,16 @@ import { cn } from '@/lib/utils';
 import { Input } from './input';
 import { ScrollArea } from './scroll-area';
 
-export interface ComboBoxItemType {
-  value: string | object;
+export interface ComboBoxOption<Option> {
+  id: string;
+  value: Option;
   label: string;
 }
 
-export type ComboboxProps = {
-  value?: string | object;
-  onSelect: (value: string | object) => void;
-  items: ComboBoxItemType[];
+export type ComboboxProps<Option> = {
+  value?: ComboBoxOption<Option>;
+  onSelect: (value?: ComboBoxOption<Option>) => void;
+  items: ComboBoxOption<Option>[];
   searchPlaceholder?: string;
   noResultsMsg?: string;
   selectItemMsg?: string;
@@ -41,7 +42,7 @@ const popOverStyles = {
   width: 'var(--radix-popover-trigger-width)'
 };
 
-export const Combobox = ({
+export const Combobox = <Option,>({
   value,
   onSelect,
   items,
@@ -53,13 +54,8 @@ export const Combobox = ({
   unselectMsg = 'Оставить пустым',
   onSearchChange,
   loading = false
-}: ComboboxProps) => {
+}: ComboboxProps<Option>) => {
   const [open, setOpen] = React.useState(false);
-
-  const getLabelForValue = (val?: string | object) => {
-    const item = items.find((item) => JSON.stringify(item.value) === JSON.stringify(val));
-    return item ? item.label : '';
-  };
 
   return (
     <Popover open={open} onOpenChange={setOpen} modal>
@@ -74,8 +70,8 @@ export const Combobox = ({
           )}
         >
           <span className={cn('font-normal', !value && 'text-placeholder')}>
-            {!!onSearchChange && (value ? getLabelForValue(value) : selectItemMsg)}
-            {!onSearchChange && (value ? getLabelForValue(value) : selectItemMsg)}
+            {!!onSearchChange && (value?.label || selectItemMsg)}
+            {!onSearchChange && value?.label}
           </span>
           <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
         </Button>
@@ -108,20 +104,25 @@ export const Combobox = ({
                   key='unselect'
                   value=''
                   onSelect={() => {
-                    onSelect('');
+                    onSelect(undefined);
                     setOpen(false);
                   }}
                 >
-                  <Check className={cn('mr-2 h-4 w-4', !value ? 'opacity-100' : 'opacity-0')} />
+                  <Check
+                    className={cn(
+                      'mr-2 h-4 w-4',
+                      value === undefined ? 'opacity-100' : 'opacity-0'
+                    )}
+                  />
                   {unselectMsg}
                 </CommandItem>
               )}
               {items.map((item) => (
                 <CommandItem
-                  key={JSON.stringify(item.value)}
-                  value={typeof item.value === 'string' ? item.value : JSON.stringify(item.value)}
-                  onSelect={() => {
-                    onSelect(item.value);
+                  key={item.id}
+                  value={item.id}
+                  onSelect={(currentId) => {
+                    onSelect(currentId === item.id.toLowerCase() ? item : undefined);
                     setOpen(false);
                   }}
                 >
