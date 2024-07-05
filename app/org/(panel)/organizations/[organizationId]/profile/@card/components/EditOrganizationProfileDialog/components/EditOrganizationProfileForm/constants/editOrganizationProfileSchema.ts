@@ -36,7 +36,10 @@ export const editOrganizationProfileSchema = z.object({
       })
     ),
     fullNameOfTheLegalEntity: z.string().max(1000, { message: 'validation.max' }).optional(),
-    legalAddress: z.any(),
+    legalAddress: z.object(
+      { id: z.string(), label: z.string(), value: z.string() },
+      { message: 'validation.required' }
+    ),
     kpp: kppSchema.optional(),
     ogrn: ogrnSchema.optional()
   }),

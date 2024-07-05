@@ -16,11 +16,11 @@ interface AddressComboboxProps<Option>
   prefix?: string;
 }
 
-export const AddressCombobox = ({
+export const AddressCombobox = <Option,>({
   convertAddresses = defaultConvertAddresses,
   prefix,
   ...props
-}: AddressComboboxProps<AddressResponseDto>) => {
+}: AddressComboboxProps<Option>) => {
   const [locationSearch, setLocationSearch] = React.useState('');
   const debouncedSetLocationSearch = useDebounceCallback(setLocationSearch, LOCATION_SEARCH_DELAY);
 

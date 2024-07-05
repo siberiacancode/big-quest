@@ -2,6 +2,7 @@
 
 import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
+import type { ComboBoxOption } from '@/components/ui';
 import {
   Button,
   Form,
@@ -91,22 +92,12 @@ export const RegisterOrganizationForm = ({ onRegistered }: RegisterOrganizationF
               <FormLabel>
                 <I18nText path='field.location.label' />
               </FormLabel>
-              {/* <AddressCombobox
-                value={field.value}
-                className='w-full'
-                // @ts-ignore
-                onSelect={(newValue) => form.setValue('location', newValue ?? '')}
-                convertAddresses={convertLocationsToComboboxItems}
-              /> */}
               <AddressCombobox
-                // @ts-ignore
-                value={field.value}
+                value={field.value as ComboBoxOption<string>}
                 className='w-full'
                 onSelect={(newValue) => {
-                  // @ts-ignore
-                  form.setValue('location', newValue);
+                  if (newValue) form.setValue('location', newValue);
                 }}
-                // @ts-ignore
                 convertAddresses={convertLocationsToComboboxItems}
               />
               <FormMessage>
