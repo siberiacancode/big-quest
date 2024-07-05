@@ -93,6 +93,7 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                       value={field.value as ComboBoxOption<AddressResponseDto>}
                       className='w-full'
                       onSelect={(newValue) => {
+                        console.log('@newValue', newValue);
                         if (newValue) form.setValue('locality', newValue);
                       }}
                       convertAddresses={convertLocalitiesToComboboxItems}
