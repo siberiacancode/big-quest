@@ -13,7 +13,7 @@ const workingHourSchema = z.object({
 export const actionAddressSchema = z.object({
   city: z.string().min(1, { message: 'validation.required' }),
   locality: z.object(
-    { id: z.string(), label: z.string(), value: z.object({}) },
+    { id: z.string(), label: z.string(), value: z.any() },
     { message: 'validation.required' }
   ),
   // locality: z.object(
