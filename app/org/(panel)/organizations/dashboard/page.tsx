@@ -21,9 +21,7 @@ const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPagePro
       current: DEFAULT_ORGANIZATIONS_PAGE,
       ...searchParams
     },
-    config: {
-      cache: 'no-store'
-    }
+    config: { cache: 'no-store' }
   });
 
   if ('message' in getOrganizationResponse) return notFound();
