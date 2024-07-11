@@ -349,6 +349,8 @@
   "dialog.addAddress.title": "Добавление адреса",
   "dialog.addAddress.form.untill": "до",
 
+  "dialog.editAddress.title": "Редактирование адреса",
+
   "dropzone.image.error": "Разрешена загрузка 1 файла-изображения",
   "dropzone.docs.error": "Разрешена загрузка 1 файла-документа",
 

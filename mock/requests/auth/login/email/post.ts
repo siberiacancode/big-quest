@@ -20,7 +20,7 @@ export const postAuthLoginEmailConfig: RestRequestConfig = {
       entities: {
         body: {
           email: 'superadmin@mail.ru',
-          password: '123456'
+          password: 'Pa$$w0rd'
         }
       },
       interceptors: {

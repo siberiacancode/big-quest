@@ -11,10 +11,11 @@ const workingHourSchema = z.object({
 });
 
 export const actionAddressSchema = z.object({
-  locality: z.string().min(1, { message: 'validation.required' }),
+  city: z.string().min(1, { message: 'validation.required' }),
   street: z.string().min(1, { message: 'validation.required' }),
   house: z.string().min(1, { message: 'validation.required' }),
-  details: z.string(),
+  phoneNumber: z.string().min(1, { message: 'validation.required' }),
+  unrestrictedValue: z.string(),
   workingHours: z.object({
     '0': workingHourSchema,
     '1': workingHourSchema,

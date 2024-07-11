@@ -12,10 +12,22 @@ export interface WorkingHour {
 }
 
 export interface AddressData {
+  city?: string;
+  cityWithType?: string;
+  country?: string;
+  flat?: number;
+  geoLat?: number;
+  geoLon?: number;
+  house?: string;
   id: string;
-  locality: string;
-  street: string;
-  house: string;
-  details?: string;
+  legalEntityId: string;
+  phoneNumber: string;
+  postalCode?: string;
+  region?: string;
+  settlement?: string;
+  settlementWithType?: string;
+  street?: string;
+  unrestrictedValue?: string;
+  value?: string;
   workingHours: WorkingHour[];
 }

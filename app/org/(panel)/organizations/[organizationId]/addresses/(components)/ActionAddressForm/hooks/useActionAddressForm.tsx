@@ -40,10 +40,10 @@ export const useActionAddressForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(actionAddressSchema),
     defaultValues: {
-      locality: address?.locality ?? '',
+      city: address?.city ?? '',
       street: address?.street ?? '',
       house: address?.house ?? '',
-      details: address?.details ?? '',
+      unrestrictedValue: address?.unrestrictedValue ?? '',
       workingHours: address?.workingHours
         ? convertWorkingHours(address.workingHours)
         : DEFAULT_WORKING_HOURS
@@ -71,18 +71,25 @@ export const useActionAddressForm = ({
       };
     });
 
-    const requestParams = { ...values, workingHours: formattedWorkingHours };
+    const { phoneNumber, workingHours, ...otherValues } = values;
+
+    const requestParams = {
+      locality: { ...otherValues },
+      phoneNumber,
+      legalEntityId: params.organizationId,
+      workingHours: formattedWorkingHours
+    };
 
     if (actionType === 'add') {
       const postOrganizationActionAddressParams = {
-        params: { ...requestParams, legalEntityId: params.organizationId },
+        params: { ...requestParams },
         action: actionType
       } as const;
 
       await organizationActionAddressMutation.mutateAsync(postOrganizationActionAddressParams);
 
       toast.success(i18n.formatMessage({ id: 'toast.addAddress' }), {
-        cancel: { label: 'Close' }
+        cancel: { label: i18n.formatMessage({ id: 'button.close' }) }
       });
     }
 
@@ -95,7 +102,7 @@ export const useActionAddressForm = ({
       await organizationActionAddressMutation.mutateAsync(putOrganizationActionAddressParams);
 
       toast.success(i18n.formatMessage({ id: 'toast.editAddress' }), {
-        cancel: { label: 'Close' }
+        cancel: { label: i18n.formatMessage({ id: 'button.close' }) }
       });
     }
 
