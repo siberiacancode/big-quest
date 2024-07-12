@@ -5,21 +5,16 @@
  * ## API Big Quest
  * OpenAPI spec version: 1.0
  */
-import type { WorkingHourDto } from './workingHourDto';
+import type { I } from './i';
 
-export interface MainAddressResponse {
+export interface LocalityDto {
   city?: string;
   cityWithType?: string;
   country?: string;
   flat?: number;
-  geoLat?: number;
-  geoLon?: number;
+  geoLat?: I;
+  geoLon?: I;
   house?: string;
-  id: string;
-  /** Идентификатор партнера */
-  legalEntityId: string;
-  /** Телефонный номер */
-  phoneNumber: string;
   postalCode?: string;
   region?: string;
   settlement?: string;
@@ -27,6 +22,4 @@ export interface MainAddressResponse {
   street?: string;
   unrestrictedValue?: string;
   value?: string;
-  /** Рабочие часы */
-  workingHours: WorkingHourDto[];
 }

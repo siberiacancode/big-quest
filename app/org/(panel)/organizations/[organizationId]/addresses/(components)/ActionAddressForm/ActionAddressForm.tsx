@@ -45,7 +45,7 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
             <div className='flex-1 space-y-3'>
               <FormField
                 control={form.control}
-                name='locality'
+                name='city'
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
@@ -54,14 +54,12 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                     <AddressCombobox
                       value={field.value}
                       className='w-full'
-                      onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                      onSelect={(newValue) => form.setValue('city', newValue ?? '')}
                       convertAddresses={convertLocalitiesToComboboxItems}
                     />
                     <FormMessage>
-                      {form.formState?.errors?.locality && (
-                        <I18nText
-                          path={form.formState.errors.locality.message as LocaleMessageId}
-                        />
+                      {form.formState?.errors?.city && (
+                        <I18nText path={form.formState.errors.city.message as LocaleMessageId} />
                       )}
                     </FormMessage>
                   </FormItem>
@@ -110,11 +108,32 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                   </FormItem>
                 )}
               />
+              <FormField
+                control={form.control}
+                name='phoneNumber'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      <I18nText path='field.phone.label' />
+                    </FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage>
+                      {form.formState?.errors?.phoneNumber && (
+                        <I18nText
+                          path={form.formState.errors.phoneNumber.message as LocaleMessageId}
+                        />
+                      )}
+                    </FormMessage>
+                  </FormItem>
+                )}
+              />
             </div>
             <div className='flex-1 space-y-3'>
               <FormField
                 control={form.control}
-                name='details'
+                name='unrestrictedValue'
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
@@ -129,8 +148,10 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                       />
                     </FormControl>
                     <FormMessage>
-                      {form.formState?.errors?.details && (
-                        <I18nText path={form.formState.errors.details.message as LocaleMessageId} />
+                      {form.formState?.errors?.unrestrictedValue && (
+                        <I18nText
+                          path={form.formState.errors.unrestrictedValue.message as LocaleMessageId}
+                        />
                       )}
                     </FormMessage>
                   </FormItem>

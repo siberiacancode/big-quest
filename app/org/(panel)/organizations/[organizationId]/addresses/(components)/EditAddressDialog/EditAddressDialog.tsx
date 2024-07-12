@@ -30,7 +30,7 @@ export const EditAddressDialog = ({ onEdit, address, ...props }: EditAddressDial
       <DialogHeader>
         <DialogTitle>
           <Typography variant='h4' tag='h4'>
-            <I18nText path='dialog.addAddress.title' />
+            <I18nText path='dialog.editAddress.title' />
           </Typography>
         </DialogTitle>
       </DialogHeader>

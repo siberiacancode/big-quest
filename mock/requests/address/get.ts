@@ -1,7 +1,7 @@
 import type { RestRequestConfig } from 'mock-config-server';
 
 export const getAddressConfig: RestRequestConfig = {
-  path: '/address/:address',
+  path: '/address',
   method: 'get',
   routes: [
     {
@@ -154,7 +154,13 @@ export const getAddressConfig: RestRequestConfig = {
           unrestrictedValue: 'Томская область, Томск',
           cityWithType: 'г. Томск'
         }
-      ]
+      ],
+      interceptors: {
+        response: (data, params) => {
+          console.log(params.request.query);
+          return data;
+        }
+      }
     }
   ]
 };
