@@ -193,6 +193,8 @@
   "field.results.noResults": "Нет результатов",
   "field.organization.label": "Название организации",
   "field.location.label": "Населенный пункт",
+  "field.city.label": "Город",
+  "field.address.label": "Адрес",
   "field.contactName.label": "Ваше имя",
   "field.phone.label": "Телефон",
   "field.street.house": "Улица",

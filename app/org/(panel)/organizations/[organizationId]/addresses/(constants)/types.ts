@@ -13,9 +13,20 @@ export interface WorkingHour {
 
 export interface AddressData {
   id: string;
-  locality: string;
-  street: string;
-  house: string;
-  details?: string;
+  city?: string;
+  cityWithType?: string;
+  country?: string;
+  flat?: number;
+  geoLat?: number;
+  geoLon?: number;
+  house?: string;
+  postalCode?: string;
+  region?: string;
+  settlement?: string;
+  settlementWithType?: string;
+  street?: string;
+  unrestrictedValue?: string;
+  value?: string;
   workingHours: WorkingHour[];
+  details?: string;
 }

@@ -3,6 +3,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
+import type { AddressResponseDto } from '@/api-types';
+import type { ComboBoxOption } from '@/components/ui';
+import { CITIES } from '@/utils/constants';
 import { useI18n } from '@/utils/contexts';
 
 import type { AddressData } from '../../../(constants)/types';
@@ -40,9 +43,10 @@ export const useActionAddressForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(actionAddressSchema),
     defaultValues: {
-      locality: address?.locality ?? '',
-      street: address?.street ?? '',
-      house: address?.house ?? '',
+      city: address?.city ?? CITIES.NOVOSIBIRSK.name,
+      locality:
+        { id: address?.value, label: address?.value, value: address } ??
+        ({} as ComboBoxOption<AddressResponseDto>),
       details: address?.details ?? '',
       workingHours: address?.workingHours
         ? convertWorkingHours(address.workingHours)
@@ -71,11 +75,15 @@ export const useActionAddressForm = ({
       };
     });
 
-    const requestParams = { ...values, workingHours: formattedWorkingHours };
+    const { city, locality, ...requestParams } = { ...values, workingHours: formattedWorkingHours };
 
     if (actionType === 'add') {
       const postOrganizationActionAddressParams = {
-        params: { ...requestParams, legalEntityId: params.organizationId },
+        params: {
+          ...requestParams,
+          legalEntityId: params.organizationId,
+          locality: locality.value
+        },
         action: actionType
       } as const;
 
@@ -88,7 +96,12 @@ export const useActionAddressForm = ({
 
     if (actionType === 'edit') {
       const putOrganizationActionAddressParams = {
-        params: { ...requestParams, legalEntityId: params.organizationId },
+        params: {
+          ...requestParams,
+          legalEntityId: params.organizationId,
+          id: address!.id,
+          locality: locality.value
+        },
         action: actionType
       } as const;
 
