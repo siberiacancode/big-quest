@@ -1,2 +1,2 @@
 export * from './getMessagesByLocale';
-export * from './getNavigationLinksByRole';
+export * from './getNavigationLinksByUserRoles';
