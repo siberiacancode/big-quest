@@ -29,4 +29,5 @@ export interface AddressData {
   value?: string;
   workingHours: WorkingHour[];
   details?: string;
+  phoneNumber: string;
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import type { AddressResponseDto } from '@/api-types';
 import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import type { ComboBoxOption } from '@/components/ui';
@@ -13,6 +14,7 @@ import {
   FormLabel,
   FormMessage,
   Input,
+  PhoneNumberInput,
   Select,
   SelectContent,
   SelectItem,
@@ -89,7 +91,7 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                       <I18nText path='field.address.label' />
                     </FormLabel>
                     <AddressCombobox
-                      value={field.value as ComboBoxOption<string>}
+                      value={field.value as ComboBoxOption<AddressResponseDto>}
                       className='w-full'
                       onSelect={(newValue) => {
                         if (newValue) form.setValue('locality', newValue);
@@ -101,6 +103,31 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                       {form.formState?.errors?.locality && (
                         <I18nText
                           path={form.formState.errors.locality.message as LocaleMessageId}
+                        />
+                      )}
+                    </FormMessage>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name='phoneNumber'
+                render={({ field: { onChange, ref, ...field } }) => (
+                  <FormItem>
+                    <FormLabel>
+                      <I18nText path='field.phone.label' />
+                    </FormLabel>
+                    <FormControl>
+                      <PhoneNumberInput
+                        disabled={state.isLoading}
+                        onValueChange={({ value }) => onChange(value)}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage>
+                      {form.formState?.errors?.phoneNumber && (
+                        <I18nText
+                          path={form.formState.errors.phoneNumber.message as LocaleMessageId}
                         />
                       )}
                     </FormMessage>

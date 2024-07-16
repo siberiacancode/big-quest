@@ -48,6 +48,7 @@ export const useActionAddressForm = ({
         { id: address?.value, label: address?.value, value: address } ??
         ({} as ComboBoxOption<AddressResponseDto>),
       details: address?.details ?? '',
+      phoneNumber: address?.phoneNumber.toString().replace('+7', '') ?? '',
       workingHours: address?.workingHours
         ? convertWorkingHours(address.workingHours)
         : DEFAULT_WORKING_HOURS
@@ -75,14 +76,18 @@ export const useActionAddressForm = ({
       };
     });
 
-    const { city, locality, ...requestParams } = { ...values, workingHours: formattedWorkingHours };
+    const { city, locality, phoneNumber, ...requestParams } = {
+      ...values,
+      workingHours: formattedWorkingHours
+    };
 
     if (actionType === 'add') {
       const postOrganizationActionAddressParams = {
         params: {
           ...requestParams,
           legalEntityId: params.organizationId,
-          locality: locality.value
+          locality: locality.value,
+          phoneNumber: `7${phoneNumber}`
         },
         action: actionType
       } as const;
@@ -100,7 +105,8 @@ export const useActionAddressForm = ({
           ...requestParams,
           legalEntityId: params.organizationId,
           id: address!.id,
-          locality: locality.value
+          locality: locality.value,
+          phoneNumber: `7${phoneNumber}`
         },
         action: actionType
       } as const;
