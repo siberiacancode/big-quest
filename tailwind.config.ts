@@ -53,9 +53,9 @@ const config = {
       center: true,
       padding: {
         DEFAULT: '1rem',
-        xxs: '2rem',
-        sm: '2rem',
-        lg: '1rem',
+        xxs: '1rem',
+        sm: '1rem',
+        lg: '2rem',
         '2xl': '0.5rem'
       },
       screens: {
@@ -80,6 +80,7 @@ const config = {
           foreground: 'hsl(var(--primary-foreground))'
         },
         gray: {
+          one: 'hsl(var(--gray-one))',
           two: 'hsl(var(--gray-two))',
           light: 'hsl(var(--gray-light))'
         },
@@ -136,7 +137,8 @@ const config = {
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'spin-slow': 'spin 20s linear infinite'
       },
       transitionProperty: {
         width: 'width'

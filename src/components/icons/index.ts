@@ -11,6 +11,7 @@ export * from './ProfileIcon';
 export * from './RatingIcon';
 export * from './RhombIcon';
 export * from './SupportIcon';
+export * from './TelegramColoredIcon';
 export * from './TelegramIcon';
 export * from './TitleLogoIcon';
 export * from './VkIcon';

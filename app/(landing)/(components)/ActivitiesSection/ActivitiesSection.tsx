@@ -1,13 +1,10 @@
-import { ChevronRightIcon, Clock4Icon, UserRoundIcon } from 'lucide-react';
+import { ChevronRightIcon } from 'lucide-react';
 import Link from 'next/link';
 
 import { I18nText } from '@/components/common';
 import {
   ActivityCard,
   ActivityCardCategory,
-  ActivityCardContent,
-  ActivityCardContentItem,
-  ActivityCardDivider,
   ActivityCardHeader,
   ActivityCardImage,
   ActivityCardName,
@@ -43,8 +40,8 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
   if (!getActivityResponse.rows.length) return null;
 
   return (
-    <section id='activities' className='container py-12'>
-      <div className='flex items-center justify-between'>
+    <section id='activities' className='container max-w-[1160px] py-12'>
+      <div className='mb-8 flex items-center justify-between'>
         <Typography tag='h2' variant='h1' className='text-[21px] lg:text-4xl'>
           <I18nText path='landing.activities.title' />
         </Typography>
@@ -55,34 +52,21 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
           <ChevronRightIcon className='text-muted-foreground' />
         </Link>
       </div>
-      <div className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
+      <div className='grid grid-cols-2 gap-x-5 gap-y-5 lgx:w-full md:grid-cols-3 md:gap-x-10 md:gap-y-8'>
         {getActivityResponse.rows.map((activity) => {
           const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
 
           return (
             <ActivityCard>
-              <ActivityCardImage src={activityCover.url} alt={activity.name} />
+              <ActivityCardImage
+                src={activityCover.url}
+                alt={activity.name}
+                className='rounded-[12px] md:rounded-[30px]'
+              />
               <ActivityCardHeader>
+                <ActivityCardName className='text-gray-one'>{activity.name}</ActivityCardName>
                 <ActivityCardCategory>{activity.category.RU}</ActivityCardCategory>
-                <ActivityCardName>{activity.name}</ActivityCardName>
               </ActivityCardHeader>
-              <ActivityCardDivider />
-              <ActivityCardContent>
-                <ActivityCardContentItem>
-                  <UserRoundIcon className='size-6 stroke-muted-foreground' />
-                  <I18nText
-                    path='landing.activities.card.minimumAge'
-                    values={{ age: activity.ageLimit[0] }}
-                  />
-                </ActivityCardContentItem>
-                <ActivityCardContentItem>
-                  <Clock4Icon className='size-6 stroke-muted-foreground' />
-                  <I18nText
-                    path='landing.activities.card.duration'
-                    values={{ duration: activity.duration }}
-                  />
-                </ActivityCardContentItem>
-              </ActivityCardContent>
             </ActivityCard>
           );
         })}
