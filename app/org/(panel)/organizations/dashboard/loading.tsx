@@ -1,7 +1,7 @@
 import { InfoCardSkeleton, Skeleton, TableSkeleton } from '@/components/ui';
 
 const OrganizationsPageLoading = () => (
-  <div className='bg-secondary px-4'>
+  <div className='bg-secondary p-4 lg:p-8'>
     <div className='w-[170px] rounded-lg py-6' />
     <div className='flex flex-wrap gap-2 2smx:flex-col'>
       <div className='flex w-6/12 flex-wrap gap-2 2smx:w-full 2smx:flex-row'>

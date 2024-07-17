@@ -43,7 +43,7 @@ export const EditOrganizationProfileDialog = ({
             </Typography>
           </DialogTitle>
         </DialogHeader>
-        <ScrollArea className='max-h-[90vh] p-6'>
+        <ScrollArea className='max-h-[90vh] lg:p-6'>
           <EditOrganizationProfileForm organization={organization} onEdited={functions.onEdited} />
         </ScrollArea>
       </DialogContent>

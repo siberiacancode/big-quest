@@ -35,7 +35,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
 
   return (
     <InfoCard className='h-fit w-1/2 smx:w-full'>
-      <InfoCardHeader className='pb-0'>
+      <InfoCardHeader className='px-6 pb-0'>
         <InfoCardTitle>
           <Typography variant='h5' tag='h5'>
             <I18nText path='organization.profile.title' />

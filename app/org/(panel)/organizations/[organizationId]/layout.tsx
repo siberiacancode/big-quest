@@ -16,7 +16,7 @@ const OrganizationPageLayout = async ({ params, children }: OrganizationPageLayo
   });
 
   return (
-    <div className='bg-secondary'>
+    <div className='bg-secondary p-4 lg:p-8'>
       <OrgBreadcrumbs
         className='mb-5'
         ids={{

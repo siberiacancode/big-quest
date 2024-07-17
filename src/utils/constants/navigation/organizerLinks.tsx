@@ -1,5 +1,6 @@
 import {
   ActivityIcon,
+  AwardIcon,
   Building2Icon,
   MailsIcon,
   MessageCircleMoreIcon,
@@ -39,12 +40,12 @@ export const ORGANIZER_LINKS: NavigationLinkInfo[] = [
   {
     text: 'navigation.link.org.awards',
     href: ROUTES.ORG.ROOT,
-    icon: <MessageCircleMoreIcon />
+    icon: <AwardIcon />
   },
   {
     text: 'navigation.link.org.messenger',
     href: ROUTES.ORG.ROOT,
-    icon: <Building2Icon />
+    icon: <MessageCircleMoreIcon />
   },
   {
     text: 'navigation.link.org.mailing',

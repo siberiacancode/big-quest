@@ -22,7 +22,15 @@ export const DesktopProfileMenu = ({
       className='flex items-center justify-start gap-5 rounded-md border-none px-2 py-1 hover:cursor-pointer hover:bg-accent'
       onClick={onEditPartnerClick}
     >
-      {partner.avatar && <Image src={partner.avatar} alt='partner_avatar' />}
+      {partner.avatar && (
+        <Image
+          src={partner.avatar}
+          width={32}
+          height={32}
+          className='rounded-full'
+          alt='partner_avatar'
+        />
+      )}
       {!partner.avatar && <div className='h-8 w-8 rounded-full bg-primary' />}
 
       <div className='flex flex-col items-start'>

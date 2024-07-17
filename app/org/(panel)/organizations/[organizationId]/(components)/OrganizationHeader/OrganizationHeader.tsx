@@ -31,11 +31,11 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
             src={organization.avatar || avatar}
             alt='org-background'
           />
-          <div className='flex flex-col justify-center'>
-            <Typography variant='h5' tag='h5'>
+          <div className='flex flex-col justify-center text-sm'>
+            <Typography variant='h7' tag='h6'>
               {organization.name}
             </Typography>
-            <Typography variant='sub3' tag='p' className='text-muted-foreground'>
+            <Typography variant='sub5' tag='p' className='text-muted-foreground'>
               <I18nText
                 path={`organization.stage.${organization.stage.toLowerCase()}` as LocaleMessageId}
               />

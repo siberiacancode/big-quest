@@ -32,7 +32,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
 
   return (
     <InfoCard>
-      <InfoCardHeader className='p-5'>
+      <InfoCardHeader className='p-5 pb-0'>
         <InfoCardTitle>
           <Typography variant='h5' tag='p'>
             <I18nText path='organization.profile.tariff.title' />{' '}
@@ -43,11 +43,11 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
             )}
           </Typography>
         </InfoCardTitle>
-        <InfoCardAction className='bg-transparent '>
+        <InfoCardAction className='bg-transparent p-0'>
           <EditOrganizationTariffDialog
             tariff={getTariffByLegalEntityIdResponse}
             trigger={
-              <Button variant='ghost' className='p-2 text-muted-foreground'>
+              <Button variant='ghost' className='p-0 text-muted-foreground'>
                 <I18nText path='button.updateTariff' />
               </Button>
             }
@@ -55,9 +55,9 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
         </InfoCardAction>
       </InfoCardHeader>
       <InfoCardContent className='mt-3 flex w-full justify-center'>
-        <InfoCardItem className='flex flex-col items-center border-none'>
+        <InfoCardItem className='flex flex-col items-center border-none pl-0 mdx:pr-0'>
           <InfoCardItemTitle>
-            <Typography variant='h3' tag='h3'>
+            <Typography variant='h3' tag='h3' className='text-2xl'>
               {getTariffByLegalEntityIdResponse.freeActivity +
                 getTariffByLegalEntityIdResponse.paidActivity}
             </Typography>
@@ -68,9 +68,9 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
             </Typography>
           </InfoCardItemDescription>
         </InfoCardItem>
-        <InfoCardItem className='flex flex-col items-center border-none'>
+        <InfoCardItem className='flex flex-col items-center border-none pl-0 mdx:pr-0'>
           <InfoCardItemTitle>
-            <Typography variant='h3' tag='h3'>
+            <Typography variant='h3' tag='h3' className='text-2xl'>
               {getTariffByLegalEntityIdResponse.paidActivity}
             </Typography>
           </InfoCardItemTitle>
@@ -80,9 +80,9 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
             </Typography>
           </InfoCardItemDescription>
         </InfoCardItem>
-        <InfoCardItem className='flex flex-col items-center justify-between border-none'>
+        <InfoCardItem className='flex flex-col items-center justify-between border-none pl-0 mdx:pr-0'>
           <InfoCardItemTitle>
-            <Typography variant='h3' tag='h3'>
+            <Typography variant='h3' tag='h3' className='text-2xl'>
               {!!getTariffByLegalEntityIdResponse.dateEnd &&
                 fns.format(getTariffByLegalEntityIdResponse.dateEnd, 'dd.MM.yy')}
               {!getTariffByLegalEntityIdResponse.dateEnd && (
