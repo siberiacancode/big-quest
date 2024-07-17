@@ -3,6 +3,7 @@ import { PlusIcon, Trash2Icon } from 'lucide-react';
 import type { OrganizationResponse } from '@/api-types';
 import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
+import type { ComboBoxOption } from '@/components/ui';
 import {
   BikInput,
   Button,
@@ -214,9 +215,11 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <AddressCombobox
-                    value={field.value}
+                    value={field.value as ComboBoxOption<string>}
                     className='w-full'
-                    onSelect={(newValue) => form.setValue('locality', newValue ?? '')}
+                    onSelect={(newValue) => {
+                      if (newValue) form.setValue('locality', newValue);
+                    }}
                     convertAddresses={convertLocalitiesToComboboxItems}
                   />
                 </FormControl>
@@ -323,11 +326,12 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <AddressCombobox
-                    value={field.value}
+                    value={field.value as ComboBoxOption<string>}
                     className='w-full'
-                    onSelect={(newValue) =>
-                      form.setValue('information.legalAddress', newValue ?? '')
-                    }
+                    onSelect={(newValue) => {
+                      if (newValue) form.setValue('information.legalAddress', newValue);
+                    }}
+                    convertAddresses={convertLocalitiesToComboboxItems}
                   />
                 </FormControl>
                 <FormMessage>
@@ -354,9 +358,10 @@ export const EditOrganizationProfileForm = ({
                   <AddressCombobox
                     value={field.value}
                     className='w-full'
-                    onSelect={(newValue) =>
-                      form.setValue('information.postAddress', newValue ?? '')
-                    }
+                    onSelect={(newValue) => {
+                      form.setValue('information.postAddress', newValue);
+                    }}
+                    convertAddresses={convertLocalitiesToComboboxItems}
                   />
                 </FormControl>
                 <FormMessage>

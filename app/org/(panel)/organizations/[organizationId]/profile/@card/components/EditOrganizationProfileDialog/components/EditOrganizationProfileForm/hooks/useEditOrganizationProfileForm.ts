@@ -4,6 +4,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
 import type { OrganizationResponse } from '@/api-types';
+import type { ComboBoxOption } from '@/components/ui';
 import { usePutOrganizationByIdMutation } from '@/utils/api';
 
 import type { EditOrganizationProfileSchema } from '../constants/editOrganizationProfileSchema';
@@ -27,7 +28,12 @@ export const useEditOrganizationProfileForm = ({
     resolver: zodResolver(editOrganizationProfileSchema),
     defaultValues: {
       stage: organization.stage ?? 'REQUEST',
-      locality: organization.locality ?? '',
+      locality:
+        {
+          id: organization.locality,
+          label: organization.locality,
+          value: organization.locality
+        } ?? ({} as ComboBoxOption<string>),
       name: organization.name ?? '',
       description: organization.description ?? undefined,
       inn: organization.information?.inn ?? undefined,
@@ -39,7 +45,12 @@ export const useEditOrganizationProfileForm = ({
         site: organization.site ?? undefined,
         social: organization.social ? convertSocialToFormValues(organization.social) : [{}],
         fullNameOfTheLegalEntity: organization.information?.fullNameOfTheLegalEntity ?? undefined,
-        legalAddress: organization.information?.legalAddress ?? undefined,
+        legalAddress:
+          {
+            id: organization.information?.legalAddress,
+            label: organization.information?.legalAddress,
+            value: organization.information?.legalAddress
+          } ?? ({} as ComboBoxOption<string>),
         kpp: organization.information?.kpp ?? undefined,
         ogrn: organization.information?.ogrn ?? undefined
       },
@@ -62,10 +73,13 @@ export const useEditOrganizationProfileForm = ({
     const putOrganizationByIdParams = {
       ...values,
       id: organization.id,
+      locality: values.locality.value,
       information: {
         ...values.information,
+        postAddress: values.information.postAddress.value,
         phone: `7${values.information.phone}`,
-        social: convertFormValuesToSocial(values.information.social)
+        social: convertFormValuesToSocial(values.information.social),
+        legalAddress: values.information.legalAddress.value
       }
     };
 

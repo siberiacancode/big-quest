@@ -133,7 +133,16 @@ export const AddressCard = ({ address }: AddressCardProps) => {
               <I18nText path='field.details.label' />
             </Typography>
             <Typography variant='body2' tag='p' className='flex-1'>
-              {address.unrestrictedValue}
+              {address.details}
+            </Typography>
+          </div>
+
+          <div className='flex justify-between'>
+            <Typography variant='sub2' tag='h3' className='flex-1'>
+              <I18nText path='field.phone.label' />
+            </Typography>
+            <Typography variant='body2' tag='p' className='flex-1'>
+              {address.phoneNumber}
             </Typography>
           </div>
 

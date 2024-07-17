@@ -177,6 +177,8 @@
   "field.phone.label": "Телефон",
   "field.street.house": "Улица",
   "field.house.label": "Дом",
+  "field.city.label": "Город",
+  "field.address.label": "Адрес",
   "field.street.label": "Улица",
   "field.street.placeholder": "ул.",
   "field.details.label": "Детали",
