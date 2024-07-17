@@ -262,6 +262,7 @@ interface DataTableFacetedFilterItemType {
   value: string;
   label: string;
 }
+
 export interface DataTableFacetedFilterProps {
   values: string[];
   onSelect: (value: string[]) => void;
