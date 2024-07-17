@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
+import type { GetActivityByIdParams } from '../requests';
 import { getActivityById } from '../requests';
-import type { GetActivityByIdParams } from '../requests/activity/id';
 
 export const useGetActivityByIdQuery = (
   params: GetActivityByIdParams,
