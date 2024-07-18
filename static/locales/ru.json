@@ -6,6 +6,8 @@
   "site.error": "Что-то пошло не так",
   "site.loading": "Пожалуйста подождите...",
 
+  "page.notFound.title": "404 Страница не найдена",
+
   "partners.addresses.title": "Адреса",
   "partners.activities.title": "Активности",
   "partners.employees.title": "Сотрудники",
@@ -81,6 +83,7 @@
   "button.haveNotUserId": "У меня нет User ID",
   "button.logout": "Выйти",
   "button.addQR": "Добавить новый QR",
+  "button.backToRoot": "Вернуться на главную",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",
