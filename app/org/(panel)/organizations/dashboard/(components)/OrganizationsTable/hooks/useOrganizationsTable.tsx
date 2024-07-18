@@ -2,6 +2,7 @@ import React from 'react';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 import { useDebounceCallback } from 'usehooks-ts';
 
+import { OrganizationsAddressesCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import { RegisterOrganizationDialog } from '@/components/dialogs';
 import { Button, DataTableFacetedFilter, Input } from '@/components/ui';
@@ -16,8 +17,8 @@ export const useOrganizationsTable = () => {
   const [isPending, startTransition] = React.useTransition();
 
   const nameFilter = searchParams.get('name');
-  const [selectedLocations, seSelectedLocations] = React.useState<string[]>(() =>
-    searchParams.getAll('locality')
+  const [selectedLocation, seSelectedLocation] = React.useState<string>(
+    () => searchParams.get('locality') ?? ''
   );
   const [selectedStages, setSelectedStages] = React.useState<string[]>(() =>
     searchParams.getAll('stage')
@@ -37,15 +38,15 @@ export const useOrganizationsTable = () => {
     FILTER_INPUT_DELAY
   );
 
-  const onLocationsSelect = (values: string[]) => {
+  const onLocationsSelect = (value: string) => {
     startTransition(() => {
       setSearchParams([
-        { key: 'locality', value: values },
+        { key: 'locality', value },
         { key: 'current', value: '1' }
       ]);
     });
 
-    seSelectedLocations(values);
+    seSelectedLocation(value);
   };
 
   const onStagesSelect = (values: string[]) => {
@@ -83,18 +84,7 @@ export const useOrganizationsTable = () => {
         ]}
         title={i18n.formatMessage({ id: 'table.column.organization.stage' })}
       />,
-      <DataTableFacetedFilter
-        values={selectedLocations}
-        onSelect={onLocationsSelect}
-        items={[
-          { value: 'г. Томск', label: 'г. Томск' },
-          { value: 'г. Новосибирск', label: 'г. Новосибирск' },
-          { value: 'г. Северск', label: 'г. Северск' },
-          { value: 'Кемерово', label: 'Кемерово' },
-          { value: 'Санкт-Петербург', label: 'Санкт-Петербург' }
-        ]}
-        title={i18n.formatMessage({ id: 'table.column.organization.locality' })}
-      />,
+      <OrganizationsAddressesCombobox onSelect={(value) => onLocationsSelect(value ?? '')} />,
       <div className='flex flex-1 justify-items-end'>
         <RegisterOrganizationDialog
           trigger={
@@ -109,7 +99,7 @@ export const useOrganizationsTable = () => {
     [
       onNameFilterChange,
       nameFilter,
-      selectedLocations,
+      selectedLocation,
       selectedStages,
       onLocationsSelect,
       onStagesSelect
