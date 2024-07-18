@@ -97,10 +97,7 @@ export const BannerSection = () => (
         <div className='flex flex-col items-center lg:flex-row'>
           <div className='relative mt-6 flex flex-col justify-center lg:mt-8 lg:gap-6'>
             <Link
-              href={{
-                pathname: ROUTES.APP.AUTH,
-                query: { step: 'login' }
-              }}
+              href={ROUTES.TELEGRAM}
               className={cn(
                 buttonVariants({ size: 'lg', variant: 'primary' }),
                 'flex h-[52px] w-full max-w-[132px] gap-2 bg-sky-500 px-6 text-xs font-normal hover:bg-sky-500'

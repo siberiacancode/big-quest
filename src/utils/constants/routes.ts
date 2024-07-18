@@ -42,5 +42,6 @@ export const ROUTES = {
     RATING: '/app/rating',
     SUPPORT: '/app/support',
     TAIGA: '/app/taiga'
-  }
+  },
+  TELEGRAM: 'https://t.me/bqkeshi_bot'
 };
