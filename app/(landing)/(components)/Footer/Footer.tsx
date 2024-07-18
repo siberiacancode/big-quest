@@ -13,10 +13,10 @@ interface FooterProps {
 
 export const Footer = ({ cityId }: FooterProps) => (
   <footer className='bg-taiga text-white'>
-    <div className='container flex flex-wrap justify-between gap-6 py-10 2sm:flex-nowrap 2sm:py-20'>
-      <div className='flex w-full flex-col'>
+    <div className='container flex flex-col gap-10 px-4 py-10 2sm:flex-row 2sm:gap-28 2sm:pb-10 2sm:pt-20 lg:px-9'>
+      <div className='flex flex-col'>
         <Logo href={ROUTES.LANDING.CITY(cityId)} fill='white' />
-        <div className='mt-8 flex gap-3 lg:mt-14'>
+        <div className='mt-8 flex gap-3 lg:mt-10'>
           {Object.entries(SOCIAL_LINKS[cityId.toUpperCase()]).map(
             ([socialLinkKey, socialLinkValue]) => {
               const Icon = SOCIAL_ICONS[socialLinkKey];
@@ -30,12 +30,12 @@ export const Footer = ({ cityId }: FooterProps) => (
           )}
         </div>
       </div>
-      <div className='flex w-full flex-col'>
-        <Typography tag='p' className='text-xl font-medium text-white'>
+      <div className='flex flex-col'>
+        <Typography tag='p' className='text-sm font-medium text-white'>
           <I18nText path='landing.footer.navigation.title' />
         </Typography>
         <nav className='mt-4'>
-          <ul className='flex flex-col gap-3'>
+          <ul className='flex flex-col gap-3 text-xs'>
             <li>
               <Link
                 className='hover:underline'
@@ -79,23 +79,20 @@ export const Footer = ({ cityId }: FooterProps) => (
           </ul>
         </nav>
       </div>
-      <div className='w-full 2lg:max-w-[337px]'>
-        <Typography tag='p' className='text-xl font-medium text-white'>
+      <div className='2lg:max-w-[337px]'>
+        <Typography tag='p' className='text-sm font-medium text-white'>
           <I18nText path='landing.footer.addresses' />
         </Typography>
         <nav className='mt-4'>
-          <ul className='flex flex-col gap-3 lg:text-start'>
-            {CITIES[cityId.toUpperCase()].headquarters}
+          <ul className='flex flex-col gap-3 text-xs lg:text-start'>
+            {Object.values(CITIES).map(
+              (city) => city.headquarters && <div>{city.headquarters}</div>
+            )}
           </ul>
         </nav>
       </div>
-      <div className='w-full 2sm:text-end'>
-        <Link href={ROUTES.ORG.AUTH} className='text-white hover:underline'>
-          <I18nText path='button.organizationsEntrance' />
-        </Link>
-      </div>
     </div>
-    <div className='container w-full border-t border-solid border-white py-[25px] text-center '>
+    <div className='container w-full max-w-[800px] border-t border-solid border-white py-[25px] text-center'>
       <Typography variant='body4' className='text-white'>
         <FooterCopyrightText />
       </Typography>

@@ -50,13 +50,13 @@ export const FAQSection = ({ cityId }: FAQSectionProps) => {
                 <Typography
                   tag='p'
                   variant='h4'
-                  className='text-left font-normal text-muted-foreground hover:font-medium hover:text-taiga mdx:text-lg'
+                  className='text-left text-[20px] font-normal text-muted-foreground hover:font-medium hover:text-taiga'
                 >
                   {item.question}
                 </Typography>
               </AccordionTrigger>
               <AccordionContent className='py-2'>
-                <Typography tag='p' className='text-base font-normal lg:text-xl'>
+                <Typography tag='p' className='text-base font-normal lg:text-lg'>
                   {item.answer}
                 </Typography>
               </AccordionContent>

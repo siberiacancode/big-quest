@@ -17,57 +17,42 @@ interface HeaderProps {
 }
 
 export const Header = ({ cityId }: HeaderProps) => (
-  <header className='container flex justify-between py-[52px] 2xlx:gap-8 2xlx:py-10 2xsx:py-6 xxsx:pb-2 2xl:gap-[80px]'>
+  <header className='container z-20 flex max-w-[1160px] justify-between py-5'>
     <Logo href={ROUTES.LANDING.CITY(cityId)} className='fill-taiga' />
 
-    <nav className='hidden flex-grow items-center lg:flex'>
+    <nav className='hidden items-center lg:flex'>
       <ul className='flex items-center gap-12'>
         <li>
           <Link href={{ pathname: ROUTES.LANDING.ROOT, hash: 'banner' }}>
-            <Typography
-              variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga'
-            >
+            <Typography variant='body2' className='text-muted-foreground hover:text-taiga'>
               <I18nText path='landing.navigation.banner' />
             </Typography>
           </Link>
         </li>
         <li>
           <Link href={{ pathname: ROUTES.LANDING.ROOT, hash: 'news' }}>
-            <Typography
-              variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga'
-            >
+            <Typography variant='body2' className='text-muted-foreground hover:text-taiga'>
               <I18nText path='landing.navigation.news' />
             </Typography>
           </Link>
         </li>
         <li>
           <Link href={{ pathname: ROUTES.LANDING.ROOT, hash: 'activities' }}>
-            <Typography
-              variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga'
-            >
+            <Typography variant='body2' className='text-muted-foreground hover:text-taiga'>
               <I18nText path='landing.navigation.activities' />
             </Typography>
           </Link>
         </li>
         <li>
           <Link href={{ pathname: ROUTES.LANDING.ROOT, hash: 'feedback' }}>
-            <Typography
-              variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga'
-            >
+            <Typography variant='body2' className='text-muted-foreground hover:text-taiga'>
               <I18nText path='landing.navigation.feedback' />
             </Typography>
           </Link>
         </li>
         <li>
           <Link href={{ pathname: ROUTES.LANDING.ROOT, hash: 'questions' }}>
-            <Typography
-              variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga'
-            >
+            <Typography variant='body2' className='text-muted-foreground hover:text-taiga'>
               <I18nText path='landing.navigation.questions' />
             </Typography>
           </Link>
@@ -80,7 +65,7 @@ export const Header = ({ cityId }: HeaderProps) => (
           <div className='flex items-center gap-2'>
             <Typography
               variant='body2'
-              className='text-muted-foreground hover:font-semibold hover:text-taiga mdx:text-gray-two'
+              className='text-muted-foreground hover:text-taiga mdx:text-gray-two'
             >
               {CITIES[cityId.toUpperCase()].name}
             </Typography>
@@ -100,16 +85,6 @@ export const Header = ({ cityId }: HeaderProps) => (
           ))}
         </DropdownMenuContent>
       </DropdownMenu>
-      <div className='hidden lg:block'>
-        <Link href={ROUTES.ORG.AUTH}>
-          <Typography
-            variant='body2'
-            className='text-muted-foreground hover:font-semibold hover:text-taiga'
-          >
-            <I18nText path='button.organizationsEntrance' />
-          </Typography>
-        </Link>
-      </div>
     </div>
   </header>
 );

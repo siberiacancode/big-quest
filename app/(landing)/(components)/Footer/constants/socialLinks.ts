@@ -6,39 +6,22 @@ export const SOCIAL_LINKS: Record<
   keyof typeof CITIES,
   { [key in keyof typeof SOCIAL_ICONS]: string }
 > = {
-  NOVOSIBIRSK: {
-    WHATSAPP: 'https://web.WHATSAPP.com/',
-    VK: 'https://VK.com/',
-    TELEGRAM: 'https://web.TELEGRAM.org/'
-  },
-  TOMSK: {
-    WHATSAPP: 'https://web.WHATSAPP.com/',
-    VK: 'https://VK.com/',
-    TELEGRAM: 'https://web.TELEGRAM.org/'
-  },
-  KRASNOYARSK: {
-    WHATSAPP: 'https://web.WHATSAPP.com/',
-    VK: 'https://VK.com/',
-    TELEGRAM: 'https://web.TELEGRAM.org/'
-  },
-  OMSK: {
-    WHATSAPP: 'https://web.WHATSAPP.com/',
-    VK: 'https://VK.com/',
-    TELEGRAM: 'https://web.TELEGRAM.org/'
-  },
   KEMEROVO: {
-    WHATSAPP: 'https://web.WHATSAPP.com/',
-    VK: 'https://VK.com/',
-    TELEGRAM: 'https://web.TELEGRAM.org/'
+    WHATSAPP:
+      'https://api.whatsapp.com/send/?phone=79240779242&text&type=phone_number&app_absent=0',
+    VK: 'https://vk.com/bigquest_kuzbass',
+    TELEGRAM: 'https://t.me/bqkeshi_bot'
   },
   NOVOKUZNETSK: {
-    WHATSAPP: 'https://web.WHATSAPP.com/',
-    VK: 'https://VK.com/',
-    TELEGRAM: 'https://web.TELEGRAM.org/'
+    WHATSAPP:
+      'https://api.whatsapp.com/send/?phone=79240779242&text&type=phone_number&app_absent=0',
+    VK: 'https://vk.com/bigquest_kuzbass',
+    TELEGRAM: 'https://t.me/bqkeshi_bot'
   },
   MEZHDURECHENSK: {
-    WHATSAPP: 'https://web.WHATSAPP.com/',
-    VK: 'https://VK.com/',
-    TELEGRAM: 'https://web.TELEGRAM.org/'
+    WHATSAPP:
+      'https://api.whatsapp.com/send/?phone=79240779242&text&type=phone_number&app_absent=0',
+    VK: 'https://vk.com/bigquest_kuzbass',
+    TELEGRAM: 'https://t.me/bqkeshi_bot'
   }
 };

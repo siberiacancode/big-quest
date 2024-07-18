@@ -13,7 +13,7 @@ import { comments } from './constants/comments';
 
 export const FeedbackSection = () => (
   <section id='feedback' className='w-full bg-muted py-12'>
-    <Carousel className='container'>
+    <Carousel className='container max-w-[1160px]'>
       <div className='flex items-center justify-start lg:justify-center'>
         <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-4xl'>
           <I18nText path='landing.feedback.title' />
@@ -31,7 +31,7 @@ export const FeedbackSection = () => (
       </div>
       <CarouselContent className='mt-8'>
         {comments.map((comment, index) => (
-          <CarouselItem key={index} className='w-full md:basis-1/2 xl:basis-1/3'>
+          <CarouselItem key={index} className='w-full sm:basis-1/2 2lg:basis-1/3 xl:pl-10'>
             <CommentCard {...comment} />
           </CarouselItem>
         ))}

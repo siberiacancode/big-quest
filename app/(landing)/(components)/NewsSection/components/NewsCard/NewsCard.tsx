@@ -27,7 +27,7 @@ export const NewsCard = ({ image, description, title }: NewsCardProps) => (
       <Typography
         tag='p'
         variant='h4'
-        className='hidden max-w-[90%] whitespace-pre-wrap text-sm font-normal text-gray-two 2xs:block lg:text-2xl'
+        className='hidden max-w-[90%] whitespace-pre-wrap text-sm font-normal text-gray-two 3sm:block lg:text-2xl'
       >
         {description}
       </Typography>

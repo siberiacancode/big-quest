@@ -6,31 +6,16 @@ export const comments = [
   {
     avatar: avatar1,
     text: 'Благодаря данному проекту я стал больше гулять, побывал во многих интересных местах, узнал много нового о своем родном городе Кемерово.',
-    author: 'Юра Крачковский',
-    authorAge: 12
+    author: 'Юра Крачковский'
   },
   {
     avatar: avatar2,
-    text: 'Это был очень интересный и волнительный мастер-класс! Мы записывали рекламный ролик! Большое спасибо за увлекательное занятие!',
-    author: 'Александра Тырыкина',
-    authorAge: 10
+    text: 'Лето с таёжной цивилизаций пролетело быстро, интересно и продуктивно. По итогам квеста Александра заняла 2 место и выиграла умную колонку Алису, чему была очень рада и счастлива!',
+    author: 'Александра Тырыкина'
   },
   {
     avatar: avatar3,
-    text: 'Lorem ipsum dolor sit amet, ei pri duis propriae. Pro aperiri admodum te, pri ea purto brute postulant, quot postulant interpretaris per et. Sea ea novum doctus, zril antiopam reprimique id qui',
-    author: 'Слепцов Алексей',
-    authorAge: 25
-  },
-  {
-    avatar: avatar1,
-    text: 'Lorem ipsum dolor sit amet, ei pri duis propriae. Pro aperiri admodum te, pri ea purto brute postulant, quot postulant interpretaris per et. Sea ea novum doctus, zril antiopam reprimique id qui',
-    author: 'Анисимова Алина',
-    authorAge: 25
-  },
-  {
-    avatar: avatar1,
-    text: 'Lorem ipsum dolor sit amet, ei pri duis propriae. Pro aperiri admodum te, pri ea purto brute postulant, quot postulant interpretaris per et. Sea ea novum doctus, zril antiopam reprimique id qui',
-    author: 'Анисимова Алина',
-    authorAge: 25
+    text: 'Благодаря квесту каникулы у моего ребенка прошли интересно и насыщенно. Павел открыл для себя новые увлечения: рисование 3д ручкой, мыловарение, изучение английского языка.',
+    author: 'Павел Костин'
   }
 ];

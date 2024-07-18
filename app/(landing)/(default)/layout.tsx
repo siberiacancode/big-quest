@@ -7,9 +7,9 @@ interface LandingLayoutProps {
 
 const LandingLayout = ({ children }: LandingLayoutProps) => (
   <>
-    <Header cityId='novosibirsk' />
+    <Header cityId='kemerovo' />
     {children}
-    <Footer cityId='novosibirsk' />
+    <Footer cityId='kemerovo' />
   </>
 );
 
