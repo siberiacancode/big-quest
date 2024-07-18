@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ReloadIcon } from '@radix-ui/react-icons';
-import { Check, ChevronsUpDown } from 'lucide-react';
+import { Check, ChevronsUpDown, XIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -50,7 +50,6 @@ export const Combobox = ({
   selectItemMsg = 'Выберите из списка...',
   className,
   unselect = false,
-  unselectMsg = 'Оставить пустым',
   onSearchChange,
   loading = false
 }: ComboboxProps) => {
@@ -99,21 +98,6 @@ export const Combobox = ({
             className={cn('max-h-[220px] overflow-auto', !items.length && !unselect && 'hidden')}
           >
             <CommandGroup className='dark:bg-background'>
-              {unselect && (
-                <CommandItem
-                  key='unselect'
-                  value=''
-                  onSelect={() => {
-                    onSelect('');
-                    setOpen(false);
-                  }}
-                >
-                  <Check
-                    className={cn('mr-2 h-4 w-4', value === '' ? 'opacity-100' : 'opacity-0')}
-                  />
-                  {unselectMsg}
-                </CommandItem>
-              )}
               {items.map((item) => (
                 <CommandItem
                   key={item.value}
@@ -123,12 +107,17 @@ export const Combobox = ({
                     setOpen(false);
                   }}
                 >
-                  <Check
-                    className={cn(
-                      'mr-2 h-4 w-4',
-                      value === item.value ? 'opacity-100' : 'opacity-0'
-                    )}
-                  />
+                  {unselect && value === item.value && (
+                    <XIcon
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onSelect('');
+                        setOpen(false);
+                      }}
+                      className='mr-2 h-4 w-4 hover:cursor-pointer'
+                    />
+                  )}
+                  {!unselect && value === item.value && <Check className='mr-2 h-4 w-4' />}
                   {item.label}
                 </CommandItem>
               ))}

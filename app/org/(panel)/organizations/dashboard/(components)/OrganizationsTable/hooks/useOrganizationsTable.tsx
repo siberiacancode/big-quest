@@ -84,7 +84,12 @@ export const useOrganizationsTable = () => {
         ]}
         title={i18n.formatMessage({ id: 'table.column.organization.stage' })}
       />,
-      <OrganizationsAddressesCombobox onSelect={(value) => onLocationsSelect(value ?? '')} />,
+      <OrganizationsAddressesCombobox
+        unselect
+        value={selectedLocation}
+        onSelect={(value) => onLocationsSelect(value ?? '')}
+        className='w-[220px]'
+      />,
       <div className='flex flex-1 justify-items-end'>
         <RegisterOrganizationDialog
           trigger={
