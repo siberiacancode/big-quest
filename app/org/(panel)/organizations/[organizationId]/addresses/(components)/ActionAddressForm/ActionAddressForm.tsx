@@ -13,7 +13,6 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  Input,
   PhoneNumberInput,
   Select,
   SelectContent,
@@ -24,7 +23,6 @@ import {
 } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { CITIES } from '@/utils/constants';
-import { useI18n } from '@/utils/contexts';
 
 import type { AddressData } from '../../(constants)/types';
 
@@ -43,7 +41,6 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
   actionType,
   address
 }: ActionAddressProps<ActionType>) => {
-  const i18n = useI18n();
   const { state, form, functions } = useActionAddressForm({ onAction, actionType, address });
 
   return (
@@ -134,30 +131,6 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
               />
             </div>
             <div className='flex-1 space-y-3'>
-              <FormField
-                control={form.control}
-                name='details'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      <I18nText path='field.details.label' />
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        placeholder={i18n.formatMessage({
-                          id: 'field.details.placeholder'
-                        })}
-                      />
-                    </FormControl>
-                    <FormMessage>
-                      {form.formState?.errors?.details && (
-                        <I18nText path={form.formState.errors.details.message as LocaleMessageId} />
-                      )}
-                    </FormMessage>
-                  </FormItem>
-                )}
-              />
               <Typography variant='sub1' tag='p'>
                 <I18nText path='addressCard.description.workingTime' />
               </Typography>

@@ -47,7 +47,6 @@ export const useActionAddressForm = ({
       locality:
         { id: address?.value, label: address?.value, value: address } ??
         ({} as ComboBoxOption<AddressResponseDto>),
-      details: address?.details ?? '',
       phoneNumber: address?.phoneNumber.replace('7', '') ?? '',
       workingHours: address?.workingHours
         ? convertWorkingHours(address.workingHours)
