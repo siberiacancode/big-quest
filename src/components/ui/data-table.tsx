@@ -128,7 +128,16 @@ interface DataTableProps<TData> extends React.ComponentProps<'div'> {
 
 export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any>>(
   <TData,>(
-    { children, columns, rows, table, loading, pagination, ...props }: DataTableProps<TData>,
+    {
+      children,
+      columns,
+      rows,
+      table,
+      loading,
+      pagination,
+      className,
+      ...props
+    }: DataTableProps<TData>,
     ref
   ) => {
     const value = React.useMemo(
@@ -144,7 +153,11 @@ export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any>>(
 
     return (
       <div
-        className={cn('mt-10 w-full rounded-md bg-background p-4', loading && 'opacity-60')}
+        className={cn(
+          'mt-10 w-full rounded-md bg-background p-4',
+          loading && 'opacity-60',
+          className
+        )}
         ref={ref}
         {...props}
       >
@@ -215,16 +228,17 @@ interface DataTableColumnHeaderProps extends React.ComponentProps<'div'> {
   columnName: string;
   headerLabel: string;
   sortable: boolean;
+  centered?: boolean;
   children: React.ReactNode;
 }
 
 export const DataTableColumnHeader = React.forwardRef<HTMLDivElement, DataTableColumnHeaderProps>(
-  ({ columnName, children, sortable = false }, ref) => {
+  ({ columnName, children, sortable = false, centered = false }, ref) => {
     const { searchParams, setSearchParam } = useSearchParams();
     const sorting = searchParams.get('sort');
 
     return (
-      <div ref={ref} className='text-left'>
+      <div ref={ref} className={cn('text-left', centered && 'flex justify-center')}>
         {sortable && (
           <Button
             variant='ghost'
@@ -489,13 +503,15 @@ export interface ColumnConfig<TData> {
   sortable?: boolean;
   headerLabel: LocaleMessageId;
   translateValue?: boolean;
+  centered?: boolean;
 }
 
 export const generateDataTableColumn = <TData,>({
   accessorKey,
   headerLabel,
   sortable = false,
-  translateValue = false
+  translateValue = false,
+  centered = false
 }: ColumnConfig<TData>): ColumnDef<TData> => ({
   accessorKey,
   header: () => (
@@ -503,13 +519,14 @@ export const generateDataTableColumn = <TData,>({
       columnName={String(accessorKey)}
       headerLabel={headerLabel}
       sortable={sortable}
+      centered={centered}
     >
       <I18nText path={headerLabel} />
     </DataTableColumnHeader>
   ),
   cell: ({ row }) => (
-    <div className='px-4 text-left font-medium'>
-      {translateValue && <I18nText path={row.getValue(String(accessorKey)) as LocaleMessageId} />}
+    <div className={cn('px-4 text-left font-medium', centered && 'flex justify-center')}>
+      {translateValue && <I18nText path={row.getValue(String(accessorKey))} />}
       {!translateValue && row.getValue(String(accessorKey))}
     </div>
   ),

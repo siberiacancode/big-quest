@@ -20,6 +20,7 @@ import { getActivitiesDashboard } from '@/utils/api';
 
 export const ActivitiesDashboard = async () => {
   const dashboard = await getActivitiesDashboard();
+
   return (
     <div className='flex flex-wrap gap-2'>
       <InfoCard>

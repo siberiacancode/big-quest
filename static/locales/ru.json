@@ -9,6 +9,7 @@
   "partners.addresses.title": "Адреса",
   "partners.activities.title": "Активности",
   "partners.employees.title": "Сотрудники",
+  "partners.schedule.title": "Расписание",
 
   "redirect.title": "Перейдите на мобильную версию",
   "redirect.description": "Для дальнейшего пользования приложением, откройте страницу в телефоне",
@@ -64,6 +65,7 @@
   "button.close": "Закрыть",
   "button.addActivity": "Добавить активность",
   "button.addEmployee": "Добавить сотрудника",
+  "button.addSchedule": "Добавить расписание",
   "button.makeCover": "Сделать обложкой",
   "button.updateTariff": "Сменить тариф",
   "button.learnDetails": "Узнать подробности",
@@ -202,6 +204,21 @@
   "field.name.label": "Имя",
   "field.surname.label": "Фамилия",
   "field.role.label": "Роль",
+  "field.datePicker.label": "Выберите дату",
+
+  "field.chooseLocation.label": "Выбор адреса",
+  "field.chooseActivity.label": "Выбор активности",
+  "field.chooseLead.label": "Выбор ведущего",
+  "field.preEntry.label": "Предварительная запись",
+  "field.activity.label": "Активность",
+  "field.startAndEndDate.label": "Дата начала и окончания",
+  "field.date.label": "Дата",
+  "field.numberOfSeats.label": "Кол-во мест",
+
+  "field.preEntry.true": "По записи",
+  "field.preEntry.false": "Без записи",
+  "field.isRegularActivity.true": "Регулярное",
+  "field.isRegularActivity.false": "Разовое",
   "field.freeActivity.label": "Бесплатные активности",
   "field.paidActivity.label": "Платные активности",
   "field.periodMonth.label": "Период",
@@ -296,6 +313,14 @@
   "table.column.organization.tariff": "Тариф",
   "table.column.organization.countDays": "Кол-во дней",
 
+  "table.column.schedule.activity": "Активность",
+  "table.column.schedule.address": "Адрес",
+  "table.column.schedule.leading": "Сотрудник",
+  "table.column.schedule.date": "Дата",
+  "table.column.schedule.time": "Время",
+  "table.column.schedule.numberOfSeats": "Кол-во записей",
+  "table.column.schedule.isDone": "Проведено",
+
   "table.column.activities.organization": "Организация",
   "table.column.activities.activity": "Активность",
   "table.column.activities.location": "Населенный пункт",
@@ -342,12 +367,13 @@
   "validation.format": "Неверный формат",
   "validation.photo.max": "Максимальный размер фото 5MB",
   "validation.photo.format": "Только .jpg, .jpeg, .png и .webp форматы поддерживаются",
+  "validation.dateEnd.required": "Выберите дату окончания",
 
   "dialog.registerOrganization.title": "Заполните заявку",
   "dialog.registerOrganization.success": "Спасибо за заявку, мы свяжемся с вами в ближайшее время",
 
   "dialog.addAddress.title": "Добавление адреса",
-  "dialog.addAddress.form.untill": "до",
+  "dialog.addAddress.form.until": "до",
 
   "dropzone.image.error": "Разрешена загрузка 1 файла-изображения",
   "dropzone.docs.error": "Разрешена загрузка 1 файла-документа",
@@ -370,6 +396,8 @@
   "dialog.editOrganizationTariff.freeActivities": "Бесплатные активности",
 
   "dialog.scanQRCode.title": "QR-код партнера",
+
+  "dialog.addSchedule.title": "Задание расписания",
 
   "tooltip.inn": "ИНН юр. лица - 10 цифр, ИНН физ. лица - 12 цифр",
   "tooltip.kpp": "КПП - 9 цифр",

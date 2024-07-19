@@ -5,19 +5,26 @@
  * ## API BQ
  * OpenAPI spec version: 1.0
  */
+import type { I } from './i';
 import type { WorkingHourDto } from './workingHourDto';
 
 export interface CreateAddressDto {
-  /** Детали адреса в свободной форме */
-  details: string;
-  /** Номер дома */
-  house: string;
+  city?: string;
+  cityWithType?: string;
+  country?: string;
+  flat?: number;
+  geoLat?: I;
+  geoLon?: I;
+  house?: string;
   /** Идентификатор партнера */
   legalEntityId: string;
-  /** Населенный пункт */
-  locality: string;
-  /** Улица */
-  street: string;
+  postalCode?: string;
+  region?: string;
+  settlement?: string;
+  settlementWithType?: string;
+  street?: string;
+  unrestrictedValue?: string;
+  value?: string;
   /** Рабочие часы */
   workingHours: WorkingHourDto[];
 }

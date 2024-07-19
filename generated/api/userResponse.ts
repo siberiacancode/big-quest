@@ -10,6 +10,8 @@ import type { UserResponseRolesItem } from './userResponseRolesItem';
 import type { UserResponseSex } from './userResponseSex';
 
 export interface UserResponse {
+  /** Дата рождения */
+  age?: number;
   /** Аватар */
   avatar: string;
   /** Дата создания */

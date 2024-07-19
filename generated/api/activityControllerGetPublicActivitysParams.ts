@@ -30,4 +30,8 @@ export type ActivityControllerGetPublicActivitysParams = {
    * Статус
    */
   status?: ActivityControllerGetPublicActivitysStatus;
+  /**
+   * Идентификатор организации
+   */
+  organizationId?: string;
 };

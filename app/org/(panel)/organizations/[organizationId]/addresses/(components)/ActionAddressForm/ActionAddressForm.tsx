@@ -178,7 +178,7 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                         )}
                       />
                     </div>
-                    <I18nText path='dialog.addAddress.form.untill' />
+                    <I18nText path='dialog.addAddress.form.until' />
                     <div>
                       <FormField
                         control={form.control}

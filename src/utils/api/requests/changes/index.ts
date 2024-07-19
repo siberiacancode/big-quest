@@ -1,11 +1,12 @@
-import type { ChangesResponse, ChangesResponseWithPagination, CreateChangesDto } from '@/api-types';
+import type {
+  ChangesControllerGetChangesParams,
+  ChangesResponse,
+  ChangesResponseWithPagination,
+  CreateChangesDto
+} from '@/api-types';
 import { api } from '@/utils/api/instance';
 
-export interface GetChangesParams {
-  current: number;
-  limit: number;
-  criteria: string;
-}
+export type GetChangesParams = ChangesControllerGetChangesParams;
 
 export type GetChangesRequestConfig = RequestConfig<GetChangesParams>;
 

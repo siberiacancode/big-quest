@@ -57,11 +57,11 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
       </div>
       <div className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
         {getActivityResponse.rows.map((activity) => {
-          const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
+          const activityCover = activity.media.find((item) => item.flag === 'AVATAR');
 
           return (
             <ActivityCard>
-              <ActivityCardImage src={activityCover.url} alt={activity.name} />
+              {activityCover && <ActivityCardImage src={activityCover.url} alt={activity.name} />}
               <ActivityCardHeader>
                 <ActivityCardCategory>{activity.category.RU}</ActivityCardCategory>
                 <ActivityCardName>{activity.name}</ActivityCardName>

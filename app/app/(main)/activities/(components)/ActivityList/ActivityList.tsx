@@ -33,11 +33,11 @@ export const ActivityList = () => {
     <>
       <div className='mt-6 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
         {activities.map((activity) => {
-          const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
+          const activityCover = activity.media.find((item) => item.flag === 'AVATAR');
 
           return (
             <ActivityCard key={activity.id}>
-              <ActivityCardImage src={activityCover.url} alt={activity.name} />
+              {activityCover && <ActivityCardImage src={activityCover.url} alt={activity.name} />}
               <ActivityCardHeader>
                 <ActivityCardCategory>{activity.category.RU}</ActivityCardCategory>
                 <ActivityCardName>{activity.name}</ActivityCardName>

@@ -2,7 +2,7 @@ import type { ActivityListResponse } from '@/api-types';
 
 import { CATEGORIES } from './categories';
 
-export const ACTIVITY_LIST: ActivityListResponse[] = [
+export const ACTIVITIES: ActivityListResponse[] = [
   {
     id: '1',
     media: [
@@ -79,7 +79,7 @@ export const ACTIVITY_LIST: ActivityListResponse[] = [
         url: 'http://localhost:31299/api/1.0/static/activity/video-1.mp4'
       }
     ],
-    name: 'Рисуем живопись',
+    name: 'Играем в футбол',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
     ageLimit: [7, 13],
@@ -127,7 +127,7 @@ export const ACTIVITY_LIST: ActivityListResponse[] = [
         url: 'http://localhost:31299/api/1.0/static/activity/video-1.mp4'
       }
     ],
-    name: 'Рисуем живопись',
+    name: 'Пишем стихи',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
     ageLimit: [7, 13],
@@ -163,7 +163,7 @@ export const ACTIVITY_LIST: ActivityListResponse[] = [
         url: 'http://localhost:31299/api/1.0/static/activity/video-1.mp4'
       }
     ],
-    name: 'Рисуем живопись',
+    name: 'Читаем книги',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
 
@@ -206,7 +206,7 @@ export const ACTIVITY_LIST: ActivityListResponse[] = [
         url: 'http://localhost:31299/api/1.0/static/activity/video-1.mp4'
       }
     ],
-    name: 'Рисуем живопись',
+    name: 'Играем в пейнтбол',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ',
 

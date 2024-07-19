@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { ActivityIcon, MapPinIcon, UserIcon, UsersRoundIcon } from 'lucide-react';
+import { ActivityIcon, CalendarIcon, MapPinIcon, UserIcon, UsersRoundIcon } from 'lucide-react';
 
 import { ROUTES } from '@/utils/constants';
 
@@ -66,7 +66,7 @@ export const PARTNER_PROFILE_TABS: ProfileTab[] = [
     route: ROUTES.ORG.ORGANIZATIONS.ACTIVITIES
   },
   {
-    icon: ActivityIcon,
+    icon: CalendarIcon,
     title: 'organization.profile.header.schedule',
     value: ORGANIZATION_PROFILE_TAB_VALUES.SCHEDULE,
     route: ROUTES.ORG.ORGANIZATIONS.SCHEDULE

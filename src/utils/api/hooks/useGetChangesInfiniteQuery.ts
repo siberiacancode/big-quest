@@ -18,7 +18,7 @@ export const useGetChangesInfiniteQuery = (
     number
   >({
     queryKey: ['getChanges', params.current],
-    initialPageParam: params.current,
+    initialPageParam: params.current ?? 1,
     queryFn: ({ pageParam }) =>
       getChanges({
         params: { ...params, current: pageParam },
