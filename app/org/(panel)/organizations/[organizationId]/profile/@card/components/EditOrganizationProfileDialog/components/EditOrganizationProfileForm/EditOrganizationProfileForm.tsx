@@ -356,10 +356,10 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <AddressCombobox
-                    value={field.value}
+                    value={field.value as ComboBoxOption<string>}
                     className='w-full'
                     onSelect={(newValue) => {
-                      form.setValue('information.postAddress', newValue);
+                      if (newValue) form.setValue('information.postAddress', newValue);
                     }}
                     convertAddresses={convertLocalitiesToComboboxItems}
                   />

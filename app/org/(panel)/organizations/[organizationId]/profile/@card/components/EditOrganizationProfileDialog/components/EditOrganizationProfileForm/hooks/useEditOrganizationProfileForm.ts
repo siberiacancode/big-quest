@@ -38,7 +38,12 @@ export const useEditOrganizationProfileForm = ({
       description: organization.description ?? undefined,
       inn: organization.information?.inn ?? undefined,
       information: {
-        postAddress: organization.information?.postAddress ?? undefined,
+        postAddress:
+          {
+            id: organization.information?.postAddress,
+            label: organization.information?.postAddress,
+            value: organization.information?.postAddress
+          } ?? ({} as ComboBoxOption<string>),
         contactName: organization.contactName ?? '',
         phone: organization.phone ? String(organization.phone).slice(1) : '',
         email: organization.email ?? undefined,

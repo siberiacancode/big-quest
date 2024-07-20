@@ -24,7 +24,10 @@ export const editOrganizationProfileSchema = z.object({
   description: z.string().max(1000, { message: 'validation.max' }).optional(),
   inn: innSchema.optional(),
   information: z.object({
-    postAddress: z.any(),
+    postAddress: z.object(
+      { id: z.string(), label: z.string(), value: z.string() },
+      { message: 'validation.required' }
+    ),
     contactName: z
       .string()
       .min(1, { message: 'validation.required' })
