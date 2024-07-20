@@ -85,7 +85,7 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      <I18nText path='field.address.label' />
+                      <I18nText path='field.locality.label' />
                     </FormLabel>
                     <AddressCombobox
                       value={field.value as ComboBoxOption<AddressResponseDto>}
