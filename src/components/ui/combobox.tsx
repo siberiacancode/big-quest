@@ -23,7 +23,7 @@ export interface ComboBoxItemType {
   label: string;
 }
 
-export type ComboboxProps = {
+export interface ComboboxProps {
   value?: string;
   onSelect: (value: string | undefined) => void;
   items: ComboBoxItemType[];
@@ -35,7 +35,8 @@ export type ComboboxProps = {
   unselectMsg?: string;
   onSearchChange?: (e: string) => void;
   loading?: boolean;
-};
+  intersectionRef?: (node?: Element | null) => void;
+}
 
 const popOverStyles = {
   width: 'var(--radix-popover-trigger-width)'
@@ -51,7 +52,8 @@ export const Combobox = ({
   className,
   unselect = false,
   onSearchChange,
-  loading = false
+  loading = false,
+  intersectionRef
 }: ComboboxProps) => {
   const [open, setOpen] = React.useState(false);
 
@@ -121,6 +123,7 @@ export const Combobox = ({
                   {item.label}
                 </CommandItem>
               ))}
+              {intersectionRef && <div ref={intersectionRef} />}
             </CommandGroup>
           </ScrollArea>
         </Command>

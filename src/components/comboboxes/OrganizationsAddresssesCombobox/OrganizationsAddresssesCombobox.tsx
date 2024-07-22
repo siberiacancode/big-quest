@@ -21,24 +21,24 @@ export const OrganizationsAddressesCombobox = ({
   const { ref } = useIntersectionObserver({
     threshold: 0.5,
     onChange: (isIntersecting) => {
-      if (isIntersecting) getOrganizationAddressesInfiniteQuery.fetchNextPage();
+      if (isIntersecting && getOrganizationAddressesInfiniteQuery.hasNextPage) {
+        getOrganizationAddressesInfiniteQuery.fetchNextPage();
+      }
     }
   });
 
   return (
-    <>
-      <Combobox
-        {...props}
-        items={
-          getOrganizationAddressesInfiniteQuery.data
-            ? convertAddresses(
-                getOrganizationAddressesInfiniteQuery.data.pages.flatMap((page) => page.rows)
-              )
-            : []
-        }
-        loading={getOrganizationAddressesInfiniteQuery.isLoading}
-      />
-      <div ref={ref} />
-    </>
+    <Combobox
+      {...props}
+      items={
+        getOrganizationAddressesInfiniteQuery.data
+          ? convertAddresses(
+              getOrganizationAddressesInfiniteQuery.data.pages.flatMap((page) => page.rows)
+            )
+          : []
+      }
+      loading={getOrganizationAddressesInfiniteQuery.isLoading}
+      intersectionRef={ref}
+    />
   );
 };

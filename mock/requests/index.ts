@@ -15,6 +15,7 @@ export * from './legal-address/id/get';
 export * from './legal-address/id/put';
 export * from './legal-address/post';
 export * from './legal-addresses/legalId/get';
+export * from './organization/addresses/get';
 export * from './organization/dashboard/get';
 export * from './organization/get';
 export * from './organization/id/employees/get';
