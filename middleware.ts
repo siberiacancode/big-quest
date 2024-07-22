@@ -2,7 +2,7 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 import type { UserResponse } from '@/api-types';
-import { CITIES, COOKIES, ORG_PANEL_AVAILABLE_ROLES, ROUTES } from '@/utils/constants';
+import { CITIES, COOKIES, ORG_ROUTE_AVAILABLE_ROLES, ROUTES } from '@/utils/constants';
 import { getDevice } from '@/utils/helpers/server';
 
 const UNAUTH_ROUTES = [ROUTES.APP.AUTH, ROUTES.ORG.AUTH, ROUTES.APP.ACTIVITIES];
@@ -30,8 +30,8 @@ export const middleware = (request: NextRequest) => {
   const device = getDevice();
   const isMobile = device.type === 'mobile';
 
-  const isOrgPanelAvailable = !!userSession?.roles?.filter((role) =>
-    ORG_PANEL_AVAILABLE_ROLES.includes(role)
+  const isOrgRouteAvailable = !!userSession?.roles?.filter((role) =>
+    ORG_ROUTE_AVAILABLE_ROLES.includes(role)
   ).length;
   const isAuthenticated = !!sessionIdCookie && !!userSessionCookie;
 
@@ -52,7 +52,7 @@ export const middleware = (request: NextRequest) => {
     pathname === ROUTES.LANDING.ROOT ||
     Object.values(CITIES).some((city) => request.url.includes(city.id));
 
-  console.log('@isOrgPanelAvailable', isOrgPanelAvailable);
+  console.log('@isOrgRouteAvailable', isOrgRouteAvailable);
   console.log('@!isAuthenticated', !isAuthenticated);
   console.log('@isLanding', isLanding);
   console.log('@isUnAuthRoute', isUnAuthRoute);
@@ -63,20 +63,22 @@ export const middleware = (request: NextRequest) => {
   }
 
   const isOrg = request.url.includes(ROUTES.ORG.ORGANIZATIONS.ROOT);
-  if (!isAuthenticated && !isUnAuthRoute && isOrg) {
-    console.log('@.2 !isAuthenticated && isOrg, org page requires auth');
-    return NextResponse.redirect(new URL(ROUTES.ORG.AUTH, request.url));
+  if (isOrg) {
+    if (!isAuthenticated && !isUnAuthRoute) {
+      console.log('@.2 !isAuthenticated && isOrg, org page requires auth');
+      return NextResponse.redirect(new URL(ROUTES.ORG.AUTH, request.url));
+    }
+
+    if (!isOrgRouteAvailable) {
+      console.log('@.2 org page requires certain roles');
+      return NextResponse.redirect(new URL(ROUTES.ORG.AUTH, request.url));
+    }
   }
 
   const isApp = request.url.includes(ROUTES.APP.ROOT);
   if (!isAuthenticated && !isUnAuthRoute && isApp) {
     console.log('@.3 !isAuthenticated, page requires auth');
     return NextResponse.redirect(new URL(ROUTES.APP.AUTH, request.url));
-  }
-
-  if (isOrg && !isUnAuthRoute && isAuthenticated && !isOrgPanelAvailable) {
-    console.log('@.2 isAuthenticated && isOrg, org page requires certain roles');
-    return NextResponse.redirect(new URL(ROUTES.ORG.AUTH, request.url));
   }
 
   return NextResponse.next();

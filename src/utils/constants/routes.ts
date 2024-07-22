@@ -1,8 +1,8 @@
 export const ROUTES = {
   REDIRECT: '/redirect',
   ORG: {
-    AUTH: '/org/auth',
     ROOT: '/org/',
+    AUTH: '/org/auth',
     ORGANIZATIONS: {
       ROOT: '/org/organizations',
       DASHBOARD: '/org/organizations/dashboard',
@@ -20,6 +20,7 @@ export const ROUTES = {
     }
   },
   PARTNER: {
+    ROOT: '/partner',
     PROFILE: '/partner/profile',
     ADDRESSES: '/partner/addresses',
     EMPLOYEES: '/partner/employees',
