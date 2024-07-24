@@ -6,18 +6,16 @@ import type { ComboBoxOption, ComboboxProps } from '@/components/ui';
 import { Combobox } from '@/components/ui';
 import { useGetAddressQuery } from '@/utils/api';
 
-import { defaultConvertAddresses } from './helpers/defaultConvertAddresses';
-
 const LOCATION_SEARCH_DELAY = 600;
 
 interface AddressComboboxProps<Option>
   extends Omit<ComboboxProps<Option>, 'items' | 'onSearchChange' | 'loading'> {
-  convertAddresses?: (addresses: AddressResponseDto[]) => ComboBoxOption<Option>[];
+  convertAddresses: (addresses: AddressResponseDto[]) => ComboBoxOption<Option>[];
   prefix?: string;
 }
 
 export const AddressCombobox = <Option,>({
-  convertAddresses = defaultConvertAddresses,
+  convertAddresses,
   prefix,
   ...props
 }: AddressComboboxProps<Option>) => {

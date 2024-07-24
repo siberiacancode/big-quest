@@ -44,9 +44,9 @@ export const useActionAddressForm = ({
     resolver: zodResolver(actionAddressSchema),
     defaultValues: {
       city: address?.city ?? CITIES.NOVOSIBIRSK.name,
-      locality:
-        { id: address?.value, label: address?.value, value: address } ??
-        ({} as ComboBoxOption<AddressResponseDto>),
+      locality: address
+        ? { id: address.value, label: address.value, value: address }
+        : ({} as ComboBoxOption<AddressResponseDto>),
       phoneNumber: address?.phoneNumber.replace('7', '') ?? '',
       workingHours: address?.workingHours
         ? convertWorkingHours(address.workingHours)

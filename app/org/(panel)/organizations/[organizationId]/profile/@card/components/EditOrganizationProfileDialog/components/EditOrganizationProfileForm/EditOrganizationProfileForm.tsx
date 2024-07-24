@@ -3,7 +3,6 @@ import { PlusIcon, Trash2Icon } from 'lucide-react';
 import type { OrganizationResponse } from '@/api-types';
 import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
-import type { ComboBoxOption } from '@/components/ui';
 import {
   BikInput,
   Button,
@@ -215,7 +214,7 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <AddressCombobox
-                    value={field.value as ComboBoxOption<string>}
+                    value={field.value}
                     className='w-full'
                     onSelect={(newValue) => {
                       if (newValue) form.setValue('locality', newValue);
@@ -326,7 +325,7 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <AddressCombobox
-                    value={field.value as ComboBoxOption<string>}
+                    value={field.value}
                     className='w-full'
                     onSelect={(newValue) => {
                       if (newValue) form.setValue('information.legalAddress', newValue);
@@ -356,7 +355,7 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <AddressCombobox
-                    value={field.value as ComboBoxOption<string>}
+                    value={field.value}
                     className='w-full'
                     onSelect={(newValue) => {
                       if (newValue) form.setValue('information.postAddress', newValue);
