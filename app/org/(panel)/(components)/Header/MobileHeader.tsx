@@ -41,7 +41,7 @@ export const MobileHeader = () => {
             </div>
           </div>
 
-          <SidebarNavigation isOpen userRole={state.userRole} />
+          <SidebarNavigation isOpen userRoles={state.userRoles} />
         </div>
       </div>
       <Button

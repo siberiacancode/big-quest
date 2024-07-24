@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 
 import { usePostAuthLoginEmailMutation } from '@/utils/api';
 import { useGetUserMeMutation } from '@/utils/api/hooks';
-import { ROUTES } from '@/utils/constants';
+import { ROLES_BY_ROUTE, ROUTES } from '@/utils/constants';
 import { useSession, useUser } from '@/utils/contexts';
 
 import type { LoginSchema } from '../constants/loginSchema';
@@ -38,14 +38,10 @@ export const useLoginForm = () => {
 
     await handleLogin(getUserMeMutationResponse);
 
-    if (
-      getUserMeMutationResponse.roles.includes('SUPERADMIN') ||
-      getUserMeMutationResponse.roles.includes('ADMIN')
-    ) {
+    if (getUserMeMutationResponse.roles.filter((role) => ROLES_BY_ROUTE.ORG.includes(role))) {
       router.replace(ROUTES.ORG.ORGANIZATIONS.DASHBOARD);
     }
-
-    if (getUserMeMutationResponse.roles.includes('MANAGER')) {
+    if (getUserMeMutationResponse.roles.filter((role) => ROLES_BY_ROUTE.PARTNER.includes(role))) {
       router.replace(ROUTES.PARTNER.PROFILE);
     }
   });
