@@ -3,6 +3,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useParams } from 'next/navigation';
 import { toast } from 'sonner';
 
+import type { AddressResponseDto } from '@/api-types';
+import type { ComboBoxOption } from '@/components/ui';
+import { CITIES } from '@/utils/constants';
 import { useI18n } from '@/utils/contexts';
 
 import type { AddressData } from '../../../(constants)/types';
@@ -40,10 +43,11 @@ export const useActionAddressForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(actionAddressSchema),
     defaultValues: {
-      city: address?.city ?? '',
-      street: address?.street ?? '',
-      house: address?.house ?? '',
-      unrestrictedValue: address?.unrestrictedValue ?? '',
+      city: address?.city ?? CITIES.NOVOSIBIRSK.name,
+      locality:
+        { id: address?.value, label: address?.value, value: address } ??
+        ({} as ComboBoxOption<AddressResponseDto>),
+      phoneNumber: address?.phoneNumber.replace('7', '') ?? '',
       workingHours: address?.workingHours
         ? convertWorkingHours(address.workingHours)
         : DEFAULT_WORKING_HOURS
@@ -71,18 +75,19 @@ export const useActionAddressForm = ({
       };
     });
 
-    const { phoneNumber, workingHours, ...otherValues } = values;
-
-    const requestParams = {
-      locality: { ...otherValues },
-      phoneNumber,
-      legalEntityId: params.organizationId,
+    const { city, locality, phoneNumber, ...requestParams } = {
+      ...values,
       workingHours: formattedWorkingHours
     };
 
     if (actionType === 'add') {
       const postOrganizationActionAddressParams = {
-        params: { ...requestParams },
+        params: {
+          ...requestParams,
+          legalEntityId: params.organizationId,
+          locality: locality.value,
+          phoneNumber: `7${phoneNumber}`
+        },
         action: actionType
       } as const;
 
@@ -95,7 +100,13 @@ export const useActionAddressForm = ({
 
     if (actionType === 'edit') {
       const putOrganizationActionAddressParams = {
-        params: { ...requestParams, id: address!.id },
+        params: {
+          ...requestParams,
+          legalEntityId: params.organizationId,
+          id: address!.id,
+          locality: locality.value,
+          phoneNumber: `7${phoneNumber}`
+        },
         action: actionType
       } as const;
 

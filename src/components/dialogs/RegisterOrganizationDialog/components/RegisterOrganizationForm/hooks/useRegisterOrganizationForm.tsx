@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 
+import type { ComboBoxOption } from '@/components/ui';
 import { usePostOrganizationRegisterMutation } from '@/utils/api';
 import { useI18n } from '@/utils/contexts';
 
@@ -23,7 +24,7 @@ export const useRegisterOrganizationForm = ({
     resolver: zodResolver(registerOrganizationSchema),
     defaultValues: {
       organization: '',
-      location: '',
+      location: {} as ComboBoxOption<string>,
       type: 'PARTNER',
       contactName: '',
       phone: ''
@@ -34,7 +35,7 @@ export const useRegisterOrganizationForm = ({
 
   const onSubmit = registerOrganizationForm.handleSubmit(async (values) => {
     await postOrganizationRegister.mutateAsync({
-      params: { ...values, phone: `7${values.phone}` }
+      params: { ...values, phone: `7${values.phone}`, location: values.location.value }
     });
 
     toast(i18n.formatMessage({ id: 'dialog.registerOrganization.success' }), {

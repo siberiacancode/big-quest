@@ -1,7 +1,9 @@
 'use client';
 
+import type { AddressResponseDto } from '@/api-types';
 import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
+import type { ComboBoxOption } from '@/components/ui';
 import {
   Button,
   ClockInput,
@@ -11,11 +13,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  Input,
+  PhoneNumberInput,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
   Typography
 } from '@/components/ui';
 import { cn } from '@/lib/utils';
-import { useI18n } from '@/utils/contexts';
+import { CITIES } from '@/utils/constants';
 
 import type { AddressData } from '../../(constants)/types';
 
@@ -34,7 +41,6 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
   actionType,
   address
 }: ActionAddressProps<ActionType>) => {
-  const i18n = useI18n();
   const { state, form, functions } = useActionAddressForm({ onAction, actionType, address });
 
   return (
@@ -49,13 +55,46 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      <I18nText path='field.location.label' />
+                      <I18nText path='field.city.label' />
+                    </FormLabel>
+                    <FormControl>
+                      <Select {...field} onValueChange={(value) => field.onChange(value)}>
+                        <SelectTrigger className='h-8 w-48'>
+                          <SelectValue placeholder='Город' />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {Object.keys(CITIES).map((city) => (
+                            <SelectItem key={CITIES[city].id} value={CITIES[city].name}>
+                              {CITIES[city].name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    <FormMessage>
+                      {form.formState?.errors?.city && (
+                        <I18nText path={form.formState.errors.city.message as LocaleMessageId} />
+                      )}
+                    </FormMessage>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name='locality'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      <I18nText path='field.address.label' />
                     </FormLabel>
                     <AddressCombobox
-                      value={field.value}
+                      value={field.value as ComboBoxOption<AddressResponseDto>}
                       className='w-full'
-                      onSelect={(newValue) => form.setValue('city', newValue ?? '')}
+                      onSelect={(newValue) => {
+                        if (newValue) form.setValue('locality', newValue);
+                      }}
                       convertAddresses={convertLocalitiesToComboboxItems}
+                      prefix={form.getValues('city')}
                     />
                     <FormMessage>
                       {form.formState?.errors?.city && (
@@ -67,57 +106,18 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
               />
               <FormField
                 control={form.control}
-                name='street'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      <I18nText path='field.street.label' />
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        placeholder={i18n.formatMessage({
-                          id: 'field.street.placeholder'
-                        })}
-                      />
-                    </FormControl>
-                    <FormMessage>
-                      {form.formState?.errors?.street && (
-                        <I18nText path={form.formState.errors.street.message as LocaleMessageId} />
-                      )}
-                    </FormMessage>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name='house'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      <I18nText path='field.house.label' />
-                    </FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage>
-                      {form.formState?.errors?.house && (
-                        <I18nText path={form.formState.errors.house.message as LocaleMessageId} />
-                      )}
-                    </FormMessage>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
                 name='phoneNumber'
-                render={({ field }) => (
+                render={({ field: { onChange, ref, ...field } }) => (
                   <FormItem>
                     <FormLabel>
                       <I18nText path='field.phone.label' />
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <PhoneNumberInput
+                        disabled={state.isLoading}
+                        onValueChange={({ value }) => onChange(value)}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage>
                       {form.formState?.errors?.phoneNumber && (
@@ -131,32 +131,6 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
               />
             </div>
             <div className='flex-1 space-y-3'>
-              <FormField
-                control={form.control}
-                name='unrestrictedValue'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      <I18nText path='field.details.label' />
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        placeholder={i18n.formatMessage({
-                          id: 'field.details.placeholder'
-                        })}
-                      />
-                    </FormControl>
-                    <FormMessage>
-                      {form.formState?.errors?.unrestrictedValue && (
-                        <I18nText
-                          path={form.formState.errors.unrestrictedValue.message as LocaleMessageId}
-                        />
-                      )}
-                    </FormMessage>
-                  </FormItem>
-                )}
-              />
               <Typography variant='sub1' tag='p'>
                 <I18nText path='addressCard.description.workingTime' />
               </Typography>
@@ -181,7 +155,7 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                         render={({ field }) => (
                           <>
                             <ClockInput
-                              className='mx-2 h-6 w-11 border-0 border-b p-1'
+                              className='mx-2 h-6 w-12 border-0 border-b p-1'
                               disabled={dayOff}
                               {...field}
                             />
@@ -207,7 +181,7 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                         render={({ field }) => (
                           <>
                             <ClockInput
-                              className='mx-2 h-6 w-11 border-0 border-b p-1'
+                              className='mx-2 h-6 w-12 border-0 border-b p-1'
                               disabled={dayOff}
                               {...field}
                             />
