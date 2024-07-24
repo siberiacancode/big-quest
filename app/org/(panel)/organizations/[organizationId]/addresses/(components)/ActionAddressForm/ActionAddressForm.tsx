@@ -1,7 +1,9 @@
 'use client';
 
+import type { AddressResponseDto } from '@/api-types';
 import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
+import type { ComboBoxOption } from '@/components/ui';
 import {
   Button,
   ClockInput,
@@ -86,7 +88,7 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                       <I18nText path='field.address.label' />
                     </FormLabel>
                     <AddressCombobox
-                      value={field.value}
+                      value={field.value as ComboBoxOption<AddressResponseDto>}
                       className='w-full'
                       onSelect={(newValue) => {
                         if (newValue) form.setValue('locality', newValue);
