@@ -9,7 +9,7 @@ import {
   UsersRoundIcon
 } from 'lucide-react';
 
-import { ROUTES } from '../routes';
+import { ROUTES } from './routes';
 
 export const ORG_PANEL_NAVIGATION_LINKS: NavigationLinkInfo[] = [
   {

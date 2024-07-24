@@ -1,9 +1,9 @@
 import type { UserResponseRolesItem } from '@/api-types';
 
-import { ORG_PANEL_NAVIGATION_LINKS, ORG_ROUTE_AVAILABLE_ROLES } from '../constants';
+import { ORG_PANEL_NAVIGATION_LINKS, ROLES_BY_ROUTE } from '../constants';
 
 export const getNavigationLinksByUserRoles = (userRoles: UserResponseRolesItem[]) => {
-  if (userRoles.filter((role) => ORG_ROUTE_AVAILABLE_ROLES.includes(role)).length) {
+  if (userRoles.filter((role) => ROLES_BY_ROUTE.ORG.includes(role)).length) {
     return ORG_PANEL_NAVIGATION_LINKS;
   }
   throw new Error('Invalid user role');
