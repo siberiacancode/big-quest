@@ -14,7 +14,7 @@ interface OrganizationHeaderProps {
 
 export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) => (
   <div className='flex flex-wrap gap-2'>
-    <div className='relative mt-2.5 flex h-64 w-full flex-col items-center'>
+    <div className='relative flex h-64 w-full flex-col items-center'>
       <Image
         priority={false}
         className='h-[168px] w-full rounded-lg'

@@ -16,9 +16,8 @@ const OrganizationPageLayout = async ({ params, children }: OrganizationPageLayo
   });
 
   return (
-    <div className='bg-secondary p-4 lg:p-8'>
+    <>
       <OrgBreadcrumbs
-        className='mb-5'
         ids={{
           organizationId: { value: organization.name, clickable: false },
           organizations: { href: ROUTES.ORG.ORGANIZATIONS.DASHBOARD }
@@ -28,7 +27,7 @@ const OrganizationPageLayout = async ({ params, children }: OrganizationPageLayo
         <OrganizationHeader organization={organization} />
         {children}
       </div>
-    </div>
+    </>
   );
 };
 

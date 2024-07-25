@@ -24,14 +24,14 @@ const ActivitiesDashboardPage = async ({ searchParams }: ActivitiesDashboardPage
   });
 
   return (
-    <div className='bg-secondary p-4 lg:p-8'>
+    <>
       <OrgBreadcrumbs ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }} />
       <ActivitiesDashboard />
       <ActivitiesTable
         activities={activitiesTableResponse.rows}
         pagination={activitiesTableResponse.pagination}
       />
-    </div>
+    </>
   );
 };
 

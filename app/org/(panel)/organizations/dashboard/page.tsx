@@ -27,17 +27,14 @@ const OrganizationsDashboardPage = async ({ searchParams }: OrganizationsPagePro
   if ('message' in getOrganizationResponse) return notFound();
 
   return (
-    <div className='bg-secondary p-4 lg:p-8'>
-      <OrgBreadcrumbs
-        className='mb-4'
-        ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }}
-      />
+    <>
+      <OrgBreadcrumbs ids={{ dashboard: { hidden: true }, organizations: { clickable: false } }} />
       <OrganizationsDashboard />
       <OrganizationsTable
         organizations={getOrganizationResponse.rows}
         pagination={getOrganizationResponse.pagination}
       />
-    </div>
+    </>
   );
 };
 

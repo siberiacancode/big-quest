@@ -1,8 +1,8 @@
 import { InfoCardSkeleton, Skeleton, TableSkeleton } from '@/components/ui';
 
 const ActivitiesDashboardPageLoading = () => (
-  <div className='bg-secondary p-4 lg:p-8'>
-    <div className='w-[170px] rounded-lg py-6' />
+  <>
+    <div className='mb-4 h-6 w-[170px] rounded-lg lg:mb-7' />
     <div className='flex flex-wrap gap-2 2smx:flex-col'>
       <div className='flex w-6/12 flex-wrap gap-2 2smx:w-full 2smx:flex-row'>
         <InfoCardSkeleton />
@@ -34,7 +34,7 @@ const ActivitiesDashboardPageLoading = () => (
         </div>
       </div>
     </div>
-  </div>
+  </>
 );
 
 export default ActivitiesDashboardPageLoading;
