@@ -5,7 +5,6 @@ import { toast } from 'sonner';
 
 import type { AddressResponseDto } from '@/api-types';
 import type { ComboBoxOption } from '@/components/ui';
-import { CITIES } from '@/utils/constants';
 import { useI18n } from '@/utils/contexts';
 
 import type { AddressData } from '../../../(constants)/types';
@@ -43,7 +42,6 @@ export const useActionAddressForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(actionAddressSchema),
     defaultValues: {
-      city: address?.city ?? CITIES.NOVOSIBIRSK.name,
       locality:
         { id: address?.value, label: address?.value, value: address } ??
         ({} as ComboBoxOption<AddressResponseDto>),
@@ -75,7 +73,7 @@ export const useActionAddressForm = ({
       };
     });
 
-    const { city, locality, phone, ...requestParams } = {
+    const { locality, phone, ...requestParams } = {
       ...values,
       workingHours: formattedWorkingHours
     };
