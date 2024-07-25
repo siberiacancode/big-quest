@@ -18,15 +18,16 @@ import { cn } from '@/lib/utils';
 import { Input } from './input';
 import { ScrollArea } from './scroll-area';
 
-export interface ComboBoxItemType {
-  value: string;
+export interface ComboBoxOption<Option> {
+  id: string;
+  value: Option;
   label: string;
 }
 
-export interface ComboboxProps {
-  value?: string;
-  onSelect: (value: string | undefined) => void;
-  items: ComboBoxItemType[];
+export interface ComboboxProps<Option> {
+  value?: ComboBoxOption<Option>;
+  onSelect: (value?: ComboBoxOption<Option>) => void;
+  items: ComboBoxOption<Option>[];
   searchPlaceholder?: string;
   noResultsMsg?: string;
   selectItemMsg?: string;
@@ -42,7 +43,7 @@ const popOverStyles = {
   width: 'var(--radix-popover-trigger-width)'
 };
 
-export const Combobox = ({
+export const Combobox = <Option,>({
   value,
   onSelect,
   items,
@@ -54,7 +55,7 @@ export const Combobox = ({
   onSearchChange,
   loading = false,
   intersectionRef
-}: ComboboxProps) => {
+}: ComboboxProps<Option>) => {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -70,9 +71,8 @@ export const Combobox = ({
           )}
         >
           <span className={cn('font-normal', !value && 'text-placeholder')}>
-            {!!onSearchChange && (value || selectItemMsg)}
-            {!onSearchChange &&
-              (value ? items.find((item) => item.value === value)?.label : selectItemMsg)}
+            {!!onSearchChange && (value?.label || selectItemMsg)}
+            {!onSearchChange && value?.label}
           </span>
           <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
         </Button>
@@ -96,31 +96,30 @@ export const Combobox = ({
             {loading && <ReloadIcon className='mx-auto h-4 w-4 animate-spin' />}
             {!loading && noResultsMsg}
           </CommandEmpty>
-          <ScrollArea
-            className={cn('max-h-[220px] overflow-auto', !items.length && !unselect && 'hidden')}
-          >
+          <ScrollArea className={cn('max-h-[220px] overflow-auto', !items.length && 'hidden')}>
             <CommandGroup className='dark:bg-background'>
               {items.map((item) => (
                 <CommandItem
-                  key={item.value}
-                  value={item.label}
-                  onSelect={(currentValue) => {
-                    onSelect(currentValue === item.label.toLowerCase() ? item.value : '');
+                  key={item.id}
+                  value={item.id}
+                  onSelect={(currentId) => {
+                    onSelect(currentId === item.id.toLowerCase() ? item : undefined);
                     setOpen(false);
                   }}
+                  className='flex items-center justify-between'
                 >
-                  {unselect && value === item.value && (
+                  {item.label}
+                  {unselect && value?.value === item.value && (
                     <XIcon
                       onClick={(event) => {
                         event.stopPropagation();
-                        onSelect('');
+                        onSelect(undefined);
                         setOpen(false);
                       }}
-                      className='mr-2 h-4 w-4 hover:cursor-pointer'
+                      className='ml-2 h-4 w-4 hover:cursor-pointer'
                     />
                   )}
-                  {!unselect && value === item.value && <Check className='mr-2 h-4 w-4' />}
-                  {item.label}
+                  {!unselect && value?.value === item.value && <Check className='ml-2 h-4 w-4' />}
                 </CommandItem>
               ))}
               {intersectionRef && <div ref={intersectionRef} />}

@@ -6,7 +6,7 @@ export const useMobileHeader = () => {
   const [isOpen, onBurgerClick] = useHeader();
 
   return {
-    state: { isOpen, userRole: user.roles[0] },
+    state: { isOpen, userRoles: user.roles },
     functions: { onBurgerClick }
   };
 };

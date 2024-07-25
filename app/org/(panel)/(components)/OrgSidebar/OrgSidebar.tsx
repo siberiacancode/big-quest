@@ -9,6 +9,6 @@ type OrgSidebarProps = Omit<SidebarProps, 'children'>;
 
 export const OrgSidebar = (props: OrgSidebarProps) => (
   <Sidebar {...props}>
-    {(isOpen) => <SidebarNavigation isOpen={isOpen} userRole='SUPERADMIN' />}
+    {(isOpen) => <SidebarNavigation isOpen={isOpen} userRoles={['SUPERADMIN']} />}
   </Sidebar>
 );

@@ -2,12 +2,14 @@ import React from 'react';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 import { useDebounceCallback } from 'usehooks-ts';
 
-import { OrganizationsAddressesCombobox } from '@/components/comboboxes';
+import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import { RegisterOrganizationDialog } from '@/components/dialogs';
 import { Button, DataTableFacetedFilter, Input } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 import { useSearchParams } from '@/utils/hooks';
+
+import { convertAddressesToComboboxItems } from '../helpers/convertLocalitiesToComboboxItems';
 
 const FILTER_INPUT_DELAY = 500;
 
@@ -84,10 +86,10 @@ export const useOrganizationsTable = () => {
         ]}
         title={i18n.formatMessage({ id: 'table.column.organization.stage' })}
       />,
-      <OrganizationsAddressesCombobox
-        unselect
-        value={selectedLocation}
-        onSelect={(value) => onLocationsSelect(value ?? '')}
+      <AddressCombobox
+        value={{ id: selectedLocation, value: selectedLocation, label: selectedLocation }}
+        onSelect={(item) => onLocationsSelect(item?.value ?? '')}
+        convertAddresses={convertAddressesToComboboxItems}
         className='w-[220px]'
       />,
       <div className='flex flex-1 justify-items-end'>

@@ -1,5 +1,7 @@
 import * as z from 'zod';
 
+import { phoneNumberSchema } from '@/components/ui';
+
 const timeSchema = z.object({
   from: z.string(),
   to: z.string()
@@ -12,10 +14,11 @@ const workingHourSchema = z.object({
 
 export const actionAddressSchema = z.object({
   city: z.string().min(1, { message: 'validation.required' }),
-  street: z.string().min(1, { message: 'validation.required' }),
-  house: z.string().min(1, { message: 'validation.required' }),
-  phoneNumber: z.string().min(1, { message: 'validation.required' }),
-  unrestrictedValue: z.string(),
+  locality: z.object(
+    { id: z.string(), label: z.string(), value: z.any({}) },
+    { message: 'validation.required' }
+  ),
+  phoneNumber: phoneNumberSchema.min(1, { message: 'validation.required' }),
   workingHours: z.object({
     '0': workingHourSchema,
     '1': workingHourSchema,
