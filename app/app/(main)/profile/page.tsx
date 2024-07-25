@@ -57,13 +57,13 @@ const AppProfilePage = () => (
             <Card className='basis-1/2'>
               <CardContent className='flex items-center justify-center gap-3 px-3 py-[18px]'>
                 <BumpIcon />
-                <Typography variant='h7'>-</Typography>
+                <Typography variant='h6'>-</Typography>
               </CardContent>
             </Card>
             <Card className='basis-1/2'>
               <CardContent className='flex items-center justify-center gap-3 px-3 py-[18px]'>
                 <NutIcon />
-                <Typography variant='h7'>-</Typography>
+                <Typography variant='h6'>-</Typography>
               </CardContent>
             </Card>
           </div>

@@ -18,7 +18,7 @@ export const AdditionalQRsSection = ({ children }: AdditionalQRsSectionProps) =>
 
   return (
     <section>
-      <Typography variant='body3' className='mb-4 font-medium text-taiga'>
+      <Typography variant='sub4' className='mb-4 text-taiga'>
         <I18nText path='app.profile.settings.additionalQRs' />
       </Typography>
       {children.map((child) => (
@@ -31,7 +31,7 @@ export const AdditionalQRsSection = ({ children }: AdditionalQRsSectionProps) =>
         className='mt-4 w-full gap-3'
       >
         <PlusIcon className='stroke-muted-foreground' />
-        <Typography variant='body3'>
+        <Typography variant='body3' className='text-muted-foreground'>
           <I18nText path='button.addQR' />
         </Typography>
       </Button>

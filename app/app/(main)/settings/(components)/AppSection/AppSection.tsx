@@ -12,7 +12,7 @@ export const AppSection = () => {
 
   return (
     <section>
-      <Typography variant='body3' className='font-medium text-taiga'>
+      <Typography variant='sub4' className='text-taiga'>
         <I18nText path='app.profile.settings.app' />
       </Typography>
       <Button

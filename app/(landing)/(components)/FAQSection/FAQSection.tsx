@@ -27,7 +27,7 @@ export const FAQSection = ({ cityId }: FAQSectionProps) => {
   return (
     <section className='bg-muted py-12'>
       <div className='container w-full'>
-        <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-4xl'>
+        <Typography tag='h2' variant='h5' className='text-center font-medium lg:text-4xl'>
           <I18nText path='landing.faq.title' />
         </Typography>
 
@@ -56,7 +56,7 @@ export const FAQSection = ({ cityId }: FAQSectionProps) => {
                 </Typography>
               </AccordionTrigger>
               <AccordionContent className='py-2'>
-                <Typography tag='p' className='text-base font-normal lg:text-xl'>
+                <Typography tag='p' variant='body2' className='lg:text-xl'>
                   {item.answer}
                 </Typography>
               </AccordionContent>

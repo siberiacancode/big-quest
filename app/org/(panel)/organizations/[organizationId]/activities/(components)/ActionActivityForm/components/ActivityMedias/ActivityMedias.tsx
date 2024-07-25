@@ -58,7 +58,7 @@ export const ActivityMedias = ({
         {!selectedMedia && (
           <div className='flex max-h-[418px] w-full flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed border-dropzoneBorder py-[33%] text-muted-foreground'>
             <WallpaperIcon className='h-10 w-10 text-muted-foreground' />
-            <Typography variant='body1'>
+            <Typography variant='body1' className='text-muted-foreground'>
               <I18nText path='activity.image.placeholder' />
             </Typography>
           </div>
