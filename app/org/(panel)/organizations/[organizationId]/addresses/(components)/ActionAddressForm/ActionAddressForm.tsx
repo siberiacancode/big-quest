@@ -14,15 +14,9 @@ import {
   FormLabel,
   FormMessage,
   PhoneNumberInput,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
   Typography
 } from '@/components/ui';
 import { cn } from '@/lib/utils';
-import { CITIES } from '@/utils/constants';
 
 import type { AddressData } from '../../(constants)/types';
 
@@ -51,36 +45,6 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
             <div className='flex-1 space-y-3'>
               <FormField
                 control={form.control}
-                name='city'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      <I18nText path='field.city.label' />
-                    </FormLabel>
-                    <FormControl>
-                      <Select {...field} onValueChange={(value) => field.onChange(value)}>
-                        <SelectTrigger className='h-8 w-48'>
-                          <SelectValue placeholder='Город' />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {Object.keys(CITIES).map((city) => (
-                            <SelectItem key={CITIES[city].id} value={CITIES[city].name}>
-                              {CITIES[city].name}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                    <FormMessage>
-                      {form.formState?.errors?.city && (
-                        <I18nText path={form.formState.errors.city.message as LocaleMessageId} />
-                      )}
-                    </FormMessage>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
                 name='locality'
                 render={({ field }) => (
                   <FormItem>
@@ -94,11 +58,12 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                         if (newValue) form.setValue('locality', newValue);
                       }}
                       convertAddresses={convertLocalitiesToComboboxItems}
-                      prefix={form.getValues('city')}
                     />
                     <FormMessage>
-                      {form.formState?.errors?.city && (
-                        <I18nText path={form.formState.errors.city.message as LocaleMessageId} />
+                      {form.formState?.errors?.locality && (
+                        <I18nText
+                          path={form.formState.errors.locality.message as LocaleMessageId}
+                        />
                       )}
                     </FormMessage>
                   </FormItem>
