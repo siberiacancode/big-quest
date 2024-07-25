@@ -106,7 +106,7 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
               />
               <FormField
                 control={form.control}
-                name='phoneNumber'
+                name='phone'
                 render={({ field: { onChange, ref, ...field } }) => (
                   <FormItem>
                     <FormLabel>
@@ -120,10 +120,8 @@ export const ActionAddressForm = <ActionType extends AddressActionType>({
                       />
                     </FormControl>
                     <FormMessage>
-                      {form.formState?.errors?.phoneNumber && (
-                        <I18nText
-                          path={form.formState.errors.phoneNumber.message as LocaleMessageId}
-                        />
+                      {form.formState?.errors?.phone && (
+                        <I18nText path={form.formState.errors.phone.message as LocaleMessageId} />
                       )}
                     </FormMessage>
                   </FormItem>

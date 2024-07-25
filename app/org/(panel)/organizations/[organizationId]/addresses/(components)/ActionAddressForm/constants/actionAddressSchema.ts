@@ -18,7 +18,7 @@ export const actionAddressSchema = z.object({
     { id: z.string(), label: z.string(), value: z.any({}) },
     { message: 'validation.required' }
   ),
-  phoneNumber: phoneNumberSchema.min(1, { message: 'validation.required' }),
+  phone: phoneNumberSchema.min(1, { message: 'validation.required' }),
   workingHours: z.object({
     '0': workingHourSchema,
     '1': workingHourSchema,
