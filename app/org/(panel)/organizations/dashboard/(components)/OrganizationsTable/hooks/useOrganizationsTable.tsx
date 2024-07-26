@@ -2,14 +2,11 @@ import React from 'react';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 import { useDebounceCallback } from 'usehooks-ts';
 
-import { AddressCombobox } from '@/components/comboboxes';
 import { I18nText } from '@/components/common';
 import { RegisterOrganizationDialog } from '@/components/dialogs';
 import { Button, DataTableFacetedFilter, Input } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
 import { useSearchParams } from '@/utils/hooks';
-
-import { convertAddressesToComboboxItems } from '../helpers/convertLocalitiesToComboboxItems';
 
 const FILTER_INPUT_DELAY = 500;
 
@@ -19,9 +16,8 @@ export const useOrganizationsTable = () => {
   const [isPending, startTransition] = React.useTransition();
 
   const nameFilter = searchParams.get('name');
-  const [selectedLocation, seSelectedLocation] = React.useState<string>(
-    () => searchParams.get('locality') ?? ''
-  );
+  const localityFilter = searchParams.get('locality');
+
   const [selectedStages, setSelectedStages] = React.useState<string[]>(() =>
     searchParams.getAll('stage')
   );
@@ -40,16 +36,16 @@ export const useOrganizationsTable = () => {
     FILTER_INPUT_DELAY
   );
 
-  const onLocationsSelect = (value: string) => {
-    startTransition(() => {
-      setSearchParams([
-        { key: 'locality', value },
-        { key: 'current', value: '1' }
-      ]);
-    });
-
-    seSelectedLocation(value);
-  };
+  const onLocalityFilterChange = useDebounceCallback(
+    (value: string) =>
+      startTransition(() =>
+        setSearchParams([
+          { key: 'locality', value },
+          { key: 'current', value: '1' }
+        ])
+      ),
+    FILTER_INPUT_DELAY
+  );
 
   const onStagesSelect = (values: string[]) => {
     startTransition(() =>
@@ -70,6 +66,12 @@ export const useOrganizationsTable = () => {
         onChange={(event) => onNameFilterChange(event.target.value)}
         className='max-w-[180px]'
       />,
+      <Input
+        placeholder={i18n.formatMessage({ id: 'field.locality.placeholder' })}
+        defaultValue={localityFilter ?? ''}
+        onChange={(event) => onLocalityFilterChange(event.target.value)}
+        className='max-w-[180px]'
+      />,
       <DataTableFacetedFilter
         values={selectedStages}
         onSelect={onStagesSelect}
@@ -86,12 +88,6 @@ export const useOrganizationsTable = () => {
         ]}
         title={i18n.formatMessage({ id: 'table.column.organization.stage' })}
       />,
-      <AddressCombobox
-        value={{ id: selectedLocation, value: selectedLocation, label: selectedLocation }}
-        onSelect={(item) => onLocationsSelect(item?.value ?? '')}
-        convertAddresses={convertAddressesToComboboxItems}
-        className='w-[220px]'
-      />,
       <div className='flex flex-1 justify-items-end'>
         <RegisterOrganizationDialog
           trigger={
@@ -103,14 +99,7 @@ export const useOrganizationsTable = () => {
         />
       </div>
     ],
-    [
-      onNameFilterChange,
-      nameFilter,
-      selectedLocation,
-      selectedStages,
-      onLocationsSelect,
-      onStagesSelect
-    ]
+    [onNameFilterChange, onLocalityFilterChange, nameFilter, selectedStages, onStagesSelect]
   );
 
   return {
