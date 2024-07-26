@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import authImage from '@/assets/images/auth.webp';
@@ -6,6 +7,11 @@ import { Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
 
 import { LoginForm } from './(components)/LoginForm/LoginForm';
+
+export const metadata: Metadata = {
+  title: 'ЛК Организатора | Авторизация',
+  description: 'ЛК Организатора | Авторизация'
+};
 
 const OrgAuthPage = () => (
   <div className='flex min-h-screen flex-col items-center justify-between p-2'>

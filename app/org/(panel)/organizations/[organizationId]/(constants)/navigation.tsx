@@ -3,6 +3,14 @@ import { ActivityIcon, MapPinIcon, UserIcon, UsersRoundIcon } from 'lucide-react
 
 import { ROUTES } from '@/utils/constants';
 
+export const ORGANIZATION_PROFILE_TAB_TEXTS = {
+  PROFILE: 'Профиль',
+  ACTIVITIES: 'Активности',
+  ADDRESSES: 'Адреса',
+  EMPLOYEES: 'Сотрудники',
+  SCHEDULE: 'Расписание'
+};
+
 export const ORGANIZATION_PROFILE_TAB_VALUES = {
   PROFILE: 'profile',
   ADDRESSES: 'addresses',
