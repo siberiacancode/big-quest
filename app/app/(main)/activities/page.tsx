@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
@@ -11,6 +12,11 @@ import { Providers } from './providers';
 interface ActivitiesPageProps {
   searchParams: SearchParams;
 }
+
+export const metadata: Metadata = {
+  title: 'Большой Квест | Каталог активностей',
+  description: 'Большой Квест | Каталог активностей'
+};
 
 const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
   const [getCategoryResponse, getActivityResponse] = await Promise.all([

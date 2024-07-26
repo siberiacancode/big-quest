@@ -12,9 +12,8 @@ interface LandingCityLayoutProps {
 }
 
 const LandingCityLayout = ({ children, params }: LandingCityLayoutProps) => {
-  if (!Object.keys(CITIES).includes(params.city.toUpperCase())) {
+  if (!Object.keys(CITIES).includes(params.city.toUpperCase()))
     return <NotFoundComponent link={ROUTES.LANDING.ROOT} />;
-  }
 
   return (
     <>
