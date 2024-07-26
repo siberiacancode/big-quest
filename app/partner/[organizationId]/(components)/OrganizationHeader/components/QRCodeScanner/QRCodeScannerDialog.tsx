@@ -62,7 +62,7 @@ export const QRCodeScannerDialog = ({ onEdit, avatar, ...props }: QRCodeScannerP
             </div>
             <div className='flex gap-2'>
               <ScanLineIcon className='h-6 w-6 text-muted-foreground' />
-              <Typography variant='body1'>
+              <Typography variant='body1' className='text-muted-foreground'>
                 <I18nText path='partner.scanner.pointCamera' />
               </Typography>
             </div>

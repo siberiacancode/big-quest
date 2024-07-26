@@ -31,7 +31,7 @@ export const ActivitiesMapSection = async ({ cityId }: ActivitiesMapSectionProps
 
   return (
     <section className='container px-0 py-12'>
-      <Typography tag='h2' variant='h1' className='text-center text-[21px] lg:text-4xl'>
+      <Typography tag='h2' variant='h5' className='text-center font-medium lg:text-4xl'>
         <I18nText path='landing.activitiesMap.title' />
       </Typography>
 

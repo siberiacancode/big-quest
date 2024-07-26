@@ -21,7 +21,7 @@ export const ProfileSettingsLink = ({ id, name, surname, userId }: ProfileSettin
       <Typography variant='sub3'>
         {name} {surname}
       </Typography>
-      <Typography variant='body3'>
+      <Typography variant='body3' className='text-muted-foreground'>
         <I18nText path='app.profile.userId' />: {userId}
       </Typography>
     </div>
