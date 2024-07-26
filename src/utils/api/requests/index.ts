@@ -13,7 +13,6 @@ export * from './legal-address/id';
 export * from './legal-addresses/legalId';
 export * from './organization';
 export * from './organization/add-employee';
-export * from './organization/addresses';
 export * from './organization/dashboard';
 export * from './organization/delete-employee';
 export * from './organization/edit-employee';
