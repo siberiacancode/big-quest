@@ -7,7 +7,10 @@ export const convertWorkingHours = (workingHours: WorkingHour[]) =>
       const { from, to } = workingHour;
       acc[index] = {
         ...workingHour,
-        time: { from: `${from.hour}:${from.minutes}`, to: `${to.hour}:${to.minutes}` }
+        time: {
+          from: from ? `${from.hour}:${from.minutes}` : '00:00',
+          to: to ? `${to.hour}:${to.minutes}` : '00:00'
+        }
       };
       return acc;
     },

@@ -41,7 +41,7 @@ const AppProfileSettingsPage = async () => {
         </>
       )}
       <div>
-        <Typography variant='body3' className='font-medium text-taiga'>
+        <Typography variant='sub4' className='text-taiga'>
           <I18nText path='app.profile.settings.location' />
         </Typography>
         <div className='mt-3 flex items-center gap-4 px-[6px] py-3'>

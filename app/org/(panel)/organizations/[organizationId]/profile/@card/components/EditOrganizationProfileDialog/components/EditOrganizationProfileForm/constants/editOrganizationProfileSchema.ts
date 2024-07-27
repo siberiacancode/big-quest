@@ -13,7 +13,10 @@ export const ORGANIZATION_STAGES = ['REQUEST', 'NEGOTIATION', 'CONCLUSION'] as c
 
 export const editOrganizationProfileSchema = z.object({
   stage: z.enum(ORGANIZATION_STAGES),
-  locality: z.string().min(1, { message: 'validation.required' }),
+  locality: z.object(
+    { id: z.string(), label: z.string(), value: z.string() },
+    { message: 'validation.required' }
+  ),
   name: z
     .string()
     .min(1, { message: 'validation.required' })
@@ -21,7 +24,10 @@ export const editOrganizationProfileSchema = z.object({
   description: z.string().max(1000, { message: 'validation.max' }).optional(),
   inn: innSchema.optional(),
   information: z.object({
-    postAddress: z.string().max(1000, { message: 'validation.max' }).optional(),
+    postAddress: z.object(
+      { id: z.string(), label: z.string(), value: z.string() },
+      { message: 'validation.required' }
+    ),
     contactName: z
       .string()
       .min(1, { message: 'validation.required' })
@@ -36,7 +42,10 @@ export const editOrganizationProfileSchema = z.object({
       })
     ),
     fullNameOfTheLegalEntity: z.string().max(1000, { message: 'validation.max' }).optional(),
-    legalAddress: z.string().max(1000, { message: 'validation.max' }).optional(),
+    legalAddress: z.object(
+      { id: z.string(), label: z.string(), value: z.string() },
+      { message: 'validation.required' }
+    ),
     kpp: kppSchema.optional(),
     ogrn: ogrnSchema.optional()
   }),

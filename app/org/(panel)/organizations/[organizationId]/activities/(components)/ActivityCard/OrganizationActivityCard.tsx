@@ -90,7 +90,7 @@ export const OrganizationActivityCard = ({ activity }: ActivityCardProps) => {
                 {activity.participants && (
                   <ActivityCardContentItem>
                     <UsersRoundIcon className='size-4 stroke-muted-foreground lg:size-6' />
-                    <Typography tag='p' variant='body3' className='xsx:text-xs'>
+                    <Typography tag='p' variant='body3' className='xsx:text-xs text-muted-foreground'>
                       {activity.participants}
                     </Typography>
                   </ActivityCardContentItem>
@@ -98,7 +98,7 @@ export const OrganizationActivityCard = ({ activity }: ActivityCardProps) => {
                 {activity.likes && (
                   <ActivityCardContentItem>
                     <HeartIcon className='size-4 stroke-muted-foreground lg:size-6' />
-                    <Typography tag='p' variant='body3' className='xsx:text-xs'>
+                    <Typography tag='p' variant='body3' className='xsx:text-xs text-muted-foreground'>
                       {activity.likes}
                     </Typography>
                   </ActivityCardContentItem>
@@ -113,7 +113,7 @@ export const OrganizationActivityCard = ({ activity }: ActivityCardProps) => {
             {activity.ageLimit[0] && (
               <ActivityCardContentItem>
                 <UserRoundIcon className='size-4 stroke-muted-foreground lg:size-6' />
-                <Typography tag='p' variant='body3' className='xsx:text-xs'>
+                <Typography tag='p' variant='body3' className='text-muted-foreground xsx:text-xs'>
                   <I18nText
                     path='landing.activities.card.minimumAge'
                     values={{ age: activity.ageLimit[0] }}
@@ -124,7 +124,7 @@ export const OrganizationActivityCard = ({ activity }: ActivityCardProps) => {
             {activity.duration && (
               <ActivityCardContentItem>
                 <Clock4Icon className='size-4 stroke-muted-foreground lg:size-6' />
-                <Typography tag='p' variant='body3' className='xsx:text-xs'>
+                <Typography tag='p' variant='body3' className='text-muted-foreground xsx:text-xs'>
                   <I18nText
                     path='landing.activities.card.duration'
                     values={{ duration: activity.duration }}

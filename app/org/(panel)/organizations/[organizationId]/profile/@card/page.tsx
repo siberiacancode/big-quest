@@ -127,7 +127,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
         <Accordion type='single' collapsible>
           <AccordionItem value='organization.information' className='border-none'>
             <AccordionTrigger>
-              <Typography variant='h7' tag='h6'>
+              <Typography variant='h6' tag='h6'>
                 <I18nText path='organization.profile.information.title' />
               </Typography>
             </AccordionTrigger>
@@ -202,7 +202,7 @@ const OrganizationProfileCardPage = async ({ params }: OrganizationProfileCardSl
         <Accordion type='single' collapsible>
           <AccordionItem value='organization.requisites' className='border-none'>
             <AccordionTrigger>
-              <Typography variant='h7' tag='h6'>
+              <Typography variant='h6' tag='h6'>
                 <I18nText path='organization.profile.requisites.title' />
               </Typography>
             </AccordionTrigger>

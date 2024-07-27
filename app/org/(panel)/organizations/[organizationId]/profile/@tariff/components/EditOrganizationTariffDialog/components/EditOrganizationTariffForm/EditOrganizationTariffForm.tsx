@@ -160,7 +160,7 @@ export const EditOrganizationTariffForm = ({
                                 values={{ monthsAmount: periodMonthOption.monthsAmount }}
                               />
                             </Typography>
-                            <Typography variant='body3' className=''>
+                            <Typography variant='body3' className='text-muted-foreground'>
                               <I18nText
                                 path='organization.profile.tariff.discount'
                                 values={{ discount: periodMonthOption.discount }}
@@ -190,7 +190,11 @@ export const EditOrganizationTariffForm = ({
                 </FormLabel>
                 <div className='flex items-center gap-2 mdx:mx-auto mdx:max-w-[200px]'>
                   <NumberFormatInput {...field} />
-                  <Typography variant='body1' tag='p' className='line-through'>
+                  <Typography
+                    variant='body1'
+                    tag='p'
+                    className='text-muted-foreground line-through'
+                  >
                     <I18nText path='common.rubles' values={{ amount: tariff.totalPrice }} />
                   </Typography>
                 </div>

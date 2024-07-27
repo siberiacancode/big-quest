@@ -19,15 +19,15 @@ export const NewsCard = ({ image, description, title }: NewsCardProps) => (
     <div className='absolute left-[5%] top-[30%] flex w-[56%] max-w-[707px] flex-col gap-4 lg:gap-8'>
       <Typography
         tag='h3'
-        variant='h3'
-        className='w-full whitespace-pre-wrap rounded-[30px] text-base font-bold text-taiga-light xs:text-2xl xxl:text-[56px] xxl:leading-[70px]'
+        variant='sub2'
+        className='w-full whitespace-pre-wrap rounded-[30px] text-taiga-light xs:text-2xl xxl:text-[56px] xxl:leading-[70px]'
       >
         {title}
       </Typography>
       <Typography
         tag='p'
-        variant='h4'
-        className='hidden max-w-[90%] whitespace-pre-wrap text-sm font-normal text-gray-two 2xs:block lg:text-2xl'
+        variant='body3'
+        className='hidden max-w-[90%] whitespace-pre-wrap text-gray-two 2xs:block lg:text-2xl'
       >
         {description}
       </Typography>

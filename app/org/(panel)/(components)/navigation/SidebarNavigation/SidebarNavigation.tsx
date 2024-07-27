@@ -3,19 +3,19 @@
 import { usePathname, useSelectedLayoutSegments } from 'next/navigation';
 
 import type { UserResponseRolesItem } from '@/api-types';
-import { getNavigationLinksByUserRole } from '@/utils/helpers';
+import { getNavigationLinksByUserRoles } from '@/utils/helpers';
 
 import { ClosedNavigation } from '../ClosedNavigation/ClosedNavigation';
 import { OpenedNavigation } from '../OpenedNavigation/OpenedNavigation';
 
 interface SidebarNavigationProps {
   isOpen: boolean;
-  userRole: UserResponseRolesItem;
+  userRoles: UserResponseRolesItem[];
 }
 
-export const SidebarNavigation = ({ isOpen, userRole }: SidebarNavigationProps) => {
+export const SidebarNavigation = ({ isOpen, userRoles }: SidebarNavigationProps) => {
   const pathname = usePathname();
-  const links = getNavigationLinksByUserRole(userRole);
+  const links = getNavigationLinksByUserRoles(userRoles);
   const [root] = useSelectedLayoutSegments();
 
   return isOpen ? (
