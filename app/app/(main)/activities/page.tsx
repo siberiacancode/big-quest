@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
@@ -7,6 +8,11 @@ import { getActivity, getCategory } from '@/utils/api';
 import { ActivitiesCategories, ActivityList, ActivitySearchInput } from './(components)';
 import { DEFAULT_ACTIVITIES_LIMIT, DEFAULT_ACTIVITIES_PAGE } from './(constants)';
 import { Providers } from './providers';
+
+export const metadata: Metadata = {
+  title: 'Большой Квест | Активности',
+  description: 'Большой квест | Активности'
+};
 
 interface ActivitiesPageProps {
   searchParams: SearchParams;

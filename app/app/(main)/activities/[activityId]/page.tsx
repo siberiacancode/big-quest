@@ -1,4 +1,5 @@
 import { ChevronLeftIcon } from 'lucide-react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import { I18nText } from '@/components/common';
@@ -16,6 +17,20 @@ import { groupAddresses } from './(helpers)/groupAddresses';
 
 interface ActivityPageProps {
   params: { activityId: string };
+}
+
+export async function generateMetadata({ params }: ActivityPageProps): Promise<Metadata> {
+  const getActivityByIdResponse = await getActivityById({
+    params: { id: params.activityId },
+    config: {
+      cache: 'no-store'
+    }
+  });
+
+  return {
+    title: `Большой Квест | ${getActivityByIdResponse.name}`,
+    description: `Большой Квест | ${getActivityByIdResponse.name}`
+  };
 }
 
 const ActivityPage = async ({ params }: ActivityPageProps) => {

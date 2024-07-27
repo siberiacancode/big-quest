@@ -34,7 +34,7 @@ export const ActivityList = () => {
 
   return (
     <>
-      <div className='mt-6 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
+      <div className='grid grid-cols-2 gap-x-5 gap-y-5 lgx:w-full md:grid-cols-4 md:gap-y-8'>
         {activities.map((activity) => {
           const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
 
