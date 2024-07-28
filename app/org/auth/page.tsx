@@ -15,7 +15,7 @@ const OrgAuthPage = () => (
           <Logo href={ROUTES.LANDING.ROOT} className='fill-taiga' />
         </div>
         <div>
-          <Typography variant='h2' tag='h2' className='my-[30px] text-center text-4xl xlx:text-2xl'>
+          <Typography variant='h1' tag='h1' className='my-[30px] text-center'>
             <I18nText path='org.auth.title' />
           </Typography>
           <LoginForm />

@@ -20,7 +20,7 @@ export const NewsCard = ({ image, description, title }: NewsCardProps) => (
       <Typography
         tag='h3'
         variant='h3'
-        className='w-full whitespace-pre-wrap rounded-[30px] text-base font-bold text-taiga-light xs:text-2xl xxl:text-[56px] xxl:leading-[70px]'
+        className='w-full whitespace-pre-wrap rounded-[30px] font-bold text-taiga-light xxl:text-[56px] xxl:leading-[70px]'
       >
         {title}
       </Typography>

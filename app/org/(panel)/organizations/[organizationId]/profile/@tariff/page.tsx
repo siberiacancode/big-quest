@@ -57,7 +57,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
       <InfoCardContent className='mt-3 flex w-full justify-center'>
         <InfoCardItem className='flex flex-col items-center border-none pl-0 mdx:pr-0'>
           <InfoCardItemTitle>
-            <Typography variant='h3' tag='h3' className='text-2xl'>
+            <Typography variant='h4' tag='h4'>
               {getTariffByLegalEntityIdResponse.freeActivity +
                 getTariffByLegalEntityIdResponse.paidActivity}
             </Typography>
@@ -70,7 +70,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
         </InfoCardItem>
         <InfoCardItem className='flex flex-col items-center border-none pl-0 mdx:pr-0'>
           <InfoCardItemTitle>
-            <Typography variant='h3' tag='h3' className='text-2xl'>
+            <Typography variant='h4' tag='h4'>
               {getTariffByLegalEntityIdResponse.paidActivity}
             </Typography>
           </InfoCardItemTitle>
@@ -82,7 +82,7 @@ const OrganizationProfileTariffPage = async ({ params }: OrganizationProfileTari
         </InfoCardItem>
         <InfoCardItem className='flex flex-col items-center justify-between border-none pl-0 mdx:pr-0'>
           <InfoCardItemTitle>
-            <Typography variant='h3' tag='h3' className='text-2xl'>
+            <Typography variant='h4' tag='h4'>
               {!!getTariffByLegalEntityIdResponse.dateEnd &&
                 fns.format(getTariffByLegalEntityIdResponse.dateEnd, 'dd.MM.yy')}
               {!getTariffByLegalEntityIdResponse.dateEnd && (

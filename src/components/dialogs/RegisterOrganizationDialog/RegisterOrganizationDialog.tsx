@@ -27,11 +27,11 @@ export const RegisterOrganizationDialog = ({ trigger }: RegisterOrganizationModa
         </DialogClose>
         <div className='flex items-center justify-center overflow-y-auto'>
           <Image className='absolute' src={treeBackground} alt='tree background' />
-          <div className='flex flex-col items-center md:mb-32'>
-            <Typography variant='h2' tag='h2'>
+          <div className='flex flex-col items-center'>
+            <Typography variant='h3' tag='h3'>
               <I18nText path='dialog.registerOrganization.title' />
             </Typography>
-            <div className='round z-10 mt-36 border bg-background p-5'>
+            <div className='round z-10 bg-background p-5 md:my-20 md:border'>
               <RegisterOrganizationForm onRegistered={functions.onRegistered} />
             </div>
           </div>
