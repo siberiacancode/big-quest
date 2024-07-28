@@ -16,18 +16,18 @@ export const NewsCard = ({ image, description, title }: NewsCardProps) => (
       paddingTop: '47.2%'
     }}
   >
-    <div className='absolute left-[5%] top-[30%] flex w-[56%] max-w-[707px] flex-col gap-4 lg:gap-8'>
+    <div className='absolute left-[5%] top-[30%] flex w-[56%] max-w-[707px] flex-col gap-4 lg:gap-4'>
       <Typography
         tag='h3'
         variant='h3'
-        className='w-full whitespace-pre-wrap rounded-[30px] text-base font-bold text-taiga-light xs:text-2xl xxl:text-[56px] xxl:leading-[70px]'
+        className='w-full whitespace-pre-wrap rounded-[30px] text-base font-bold text-taiga-light 2sm:text-2xl lg:text-4xl xxl:text-[56px] xxl:leading-[70px]'
       >
         {title}
       </Typography>
       <Typography
         tag='p'
-        variant='h4'
-        className='hidden max-w-[90%] whitespace-pre-wrap text-sm font-normal text-gray-two 3sm:block lg:text-2xl'
+        variant='body3'
+        className='hidden max-w-[90%] whitespace-pre-wrap text-gray-two 3sm:block 2lg:text-xl'
       >
         {description}
       </Typography>

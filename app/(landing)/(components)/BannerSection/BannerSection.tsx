@@ -24,9 +24,9 @@ import { ROUTES } from '@/utils/constants';
 export const BannerSection = () => (
   <section
     id='banner'
-    className='container flex h-fit max-w-[1160px] justify-center overflow-hidden md:pt-0 lg:justify-start 4xl:h-fit'
+    className='container flex h-fit max-w-[1160px] justify-center md:pt-0 lg:justify-start 4xl:h-fit'
   >
-    <div className='mt-5 flex flex-col items-center px-2 sm:-mt-0 lg:flex-row-reverse lg:items-start lg:justify-start lg:gap-16 lg:px-9 lg:py-24'>
+    <div className='mt-5 flex flex-col items-center md:px-10 sm:-mt-0 lg:flex-row-reverse lg:items-start lg:justify-start lg:gap-16 lg:py-24 xl:px-0'>
       <div className='relative w-fit items-center px-10 lg:px-0'>
         <Image
           src={lamp}
@@ -81,7 +81,7 @@ export const BannerSection = () => (
             <Typography
               tag='h1'
               variant='h1'
-              className='text-2xl text-gray-one lg:text-[32px] lg:leading-[40px]'
+              className='text-2xl text-gray-one lg:text-5xl lg:leading-[60px]'
             >
               <I18nText path='landing.info.title' />
             </Typography>
