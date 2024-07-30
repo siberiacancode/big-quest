@@ -1,10 +1,11 @@
 import React from 'react';
-import { getDictionary } from 'app/dictionaries';
 import type { Metadata } from 'next';
 
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { getActivity, getCategory } from '@/utils/api';
+
+import { getDictionary } from '../../../dictionaries';
 
 import { ActivitiesCategories, ActivityList, ActivitySearchInput } from './(components)';
 import { DEFAULT_ACTIVITIES_LIMIT, DEFAULT_ACTIVITIES_PAGE } from './(constants)';

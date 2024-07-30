@@ -14,10 +14,10 @@ interface OrganizationPageLayoutProps {
   children: React.ReactNode;
 }
 
-export async function generateMetadata(
+export const generateMetadata = async (
   { params }: OrganizationPageLayoutProps,
   parent: ResolvingMetadata
-): Promise<Metadata> {
+): Promise<Metadata> => {
   const dictionary = await getDictionary('ru');
   const organization = await getOrganizationById({
     params: { id: params.organizationId }
@@ -30,7 +30,7 @@ export async function generateMetadata(
   return {
     title: `${dictionary['metadata.page.org']} | ${organization.name} | ${dictionary[`metadata.page.org.${lastPart}`]}`
   };
-}
+};
 
 const OrganizationPageLayout = async ({ params, children }: OrganizationPageLayoutProps) => {
   const organization = await getOrganizationById({
