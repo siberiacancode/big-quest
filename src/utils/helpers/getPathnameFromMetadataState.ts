@@ -1,6 +1,6 @@
-import type { ResolvedMetadata } from 'next';
+import type { ResolvingMetadata } from 'next';
 
-export const getPathnameFromMetadataState = (state: ResolvedMetadata) => {
+export const getPathnameFromMetadataState = (state: ResolvingMetadata) => {
   const res = Object.getOwnPropertySymbols(state || {})
     .map((p) => state[p])
     // eslint-disable-next-line no-prototype-builtins

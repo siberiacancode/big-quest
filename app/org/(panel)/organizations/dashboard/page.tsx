@@ -1,3 +1,4 @@
+import { getDictionary } from 'app/dictionaries';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -8,9 +9,13 @@ import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs
 import { OrganizationsDashboard } from './(components)/OrganizationsDashboard/OrganizationsDashboard';
 import { OrganizationsTable } from './(components)/OrganizationsTable/OrganizationsTable';
 
-export const metadata: Metadata = {
-  title: 'ЛК Организатора | Организации',
-  description: 'ЛК Организатора | Организации'
+export const generateMetadata = async (): Promise<Metadata> => {
+  const dictionary = await getDictionary('ru');
+
+  return {
+    title: `${dictionary['metadata.page.org']} | ${dictionary['metadata.page.org.dashboard']}`,
+    description: `${dictionary['metadata.page.org']} | ${dictionary['metadata.page.org.dashboard']}`
+  };
 };
 
 export interface OrganizationsPageProps {

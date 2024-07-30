@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { getMessagesByLocale } from '@/utils/helpers';
 import { getDefaultTheme, getUserSession } from '@/utils/helpers/server';
 
+import { getDictionary } from './dictionaries';
 import { Providers } from './providers';
 
 import '@/assets/styles/globals.css';
@@ -16,9 +17,13 @@ const fontSans = FontSans({
   variable: '--font-sans'
 });
 
-export const metadata: Metadata = {
-  title: 'Большой Квест',
-  description: 'Большой Квест'
+export const generateMetadata = async (): Promise<Metadata> => {
+  const dictionary = await getDictionary('ru');
+
+  return {
+    title: dictionary['metadata.page.default'],
+    description: dictionary['metadata.page.default']
+  };
 };
 
 const TOASTER_DURATION = 5000;

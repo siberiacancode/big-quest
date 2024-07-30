@@ -1,3 +1,4 @@
+import { getDictionary } from 'app/dictionaries';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 
@@ -8,9 +9,13 @@ import { ROUTES } from '@/utils/constants';
 
 import { LoginForm } from './(components)/LoginForm/LoginForm';
 
-export const metadata: Metadata = {
-  title: 'ЛК Организатора | Авторизация',
-  description: 'ЛК Организатора | Авторизация'
+export const generateMetadata = async (): Promise<Metadata> => {
+  const dictionary = await getDictionary('ru');
+
+  return {
+    title: `${dictionary['metadata.page.org']} | ${dictionary['metadata.page.org.auth']}`,
+    description: `${dictionary['metadata.page.org']} | ${dictionary['metadata.page.org.auth']}`
+  };
 };
 
 const OrgAuthPage = () => (

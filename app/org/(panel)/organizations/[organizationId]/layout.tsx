@@ -1,4 +1,5 @@
-import type { Metadata, ResolvedMetadata } from 'next';
+import { getDictionary } from 'app/dictionaries';
+import type { Metadata, ResolvingMetadata } from 'next';
 
 import { getOrganizationById } from '@/utils/api/requests';
 import { ROUTES } from '@/utils/constants';
@@ -7,7 +8,6 @@ import { getPathnameFromMetadataState } from '@/utils/helpers';
 import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
 
 import { OrganizationHeader } from './(components)/OrganizationHeader/OrganizationHeader';
-import { ORGANIZATION_PROFILE_TAB_TEXTS } from './(constants)/navigation';
 
 interface OrganizationPageLayoutProps {
   params: { organizationId: string };
@@ -16,8 +16,9 @@ interface OrganizationPageLayoutProps {
 
 export async function generateMetadata(
   { params }: OrganizationPageLayoutProps,
-  parent: ResolvedMetadata
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const dictionary = await getDictionary('ru');
   const organization = await getOrganizationById({
     params: { id: params.organizationId }
   });
@@ -27,7 +28,7 @@ export async function generateMetadata(
   const lastPart = pathnameParts[pathnameParts.length - 1];
 
   return {
-    title: `ЛК Организатора | ${organization.name} | ${ORGANIZATION_PROFILE_TAB_TEXTS[lastPart.toUpperCase()]}`
+    title: `${dictionary['metadata.page.org']} | ${organization.name} | ${dictionary[`metadata.page.org.${lastPart}`]}`
   };
 }
 

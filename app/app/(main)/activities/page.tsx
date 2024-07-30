@@ -1,4 +1,5 @@
 import React from 'react';
+import { getDictionary } from 'app/dictionaries';
 import type { Metadata } from 'next';
 
 import { I18nText } from '@/components/common';
@@ -13,9 +14,13 @@ interface ActivitiesPageProps {
   searchParams: SearchParams;
 }
 
-export const metadata: Metadata = {
-  title: 'Большой Квест | Каталог активностей',
-  description: 'Большой Квест | Каталог активностей'
+export const generateMetadata = async (): Promise<Metadata> => {
+  const dictionary = await getDictionary('ru');
+
+  return {
+    title: `${dictionary['metadata.page.default']} | ${dictionary['metadata.page.app.activiites']}`,
+    description: `${dictionary['metadata.page.default']} | ${dictionary['metadata.page.app.activiites']}`
+  };
 };
 
 const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
