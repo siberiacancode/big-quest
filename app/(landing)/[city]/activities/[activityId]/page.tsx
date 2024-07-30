@@ -28,8 +28,8 @@ export const generateMetadata = async ({ params }: ActivityPageProps): Promise<M
   });
 
   return {
-    title: `${dictionary['metadata.page.landing']} | ${getActivityByIdResponse.name}`,
-    description: `${dictionary['metadata.page.landing']} | ${getActivityByIdResponse.name}`
+    title: `${dictionary['metadata.page.default']} | ${getActivityByIdResponse.name}`,
+    description: `${dictionary['metadata.page.default']} | ${getActivityByIdResponse.name}`
   };
 };
 
