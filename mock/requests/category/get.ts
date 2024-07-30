@@ -6,7 +6,16 @@ export const getCategories: RestRequestConfig = {
   method: 'get',
   routes: [
     {
-      data: () => DATABASE.CATEGORIES
+      data: (request) => {
+        return {
+          pagination: {
+            limit: request.query.limit ?? 10,
+            current: request.query.current ?? 1,
+            count: DATABASE.CATEGORIES.length
+          },
+          rows: DATABASE.CATEGORIES
+        };
+      }
     }
   ]
 };

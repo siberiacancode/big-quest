@@ -6,6 +6,9 @@
   "site.error": "Что-то пошло не так",
   "site.loading": "Пожалуйста подождите...",
 
+  "metadata.page.landing": "Большой Квест",
+  "metadata.page.landing.activiites": "Большой Квест | Активности",
+
   "page.partners.addresses.title": "Адреса",
   "page.partners.activities.title": "Активности",
   "page.partners.employees.title": "Сотрудники",

@@ -28,7 +28,11 @@ export const ROUTES = {
   },
   LANDING: {
     ROOT: '/',
-    CITY: (cityId: string) => `/${cityId}`
+    CITY: (cityId: string) => `/${cityId}`,
+    ACTIVITIES: {
+      ROOT: (cityId: string) => `/${cityId}/activities`,
+      ITEM: (cityId: string, activityId: string) => `/${cityId}/activities/${activityId}`
+    }
   },
   APP: {
     ROOT: '/app',

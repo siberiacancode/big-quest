@@ -1,7 +1,11 @@
-import type { CategoryListResponse } from '@/api-types';
+import type { CategoryControllerGetCategoriesParams, CategoryListResponse } from '@/api-types';
 import { api } from '@/utils/api/instance';
 
-export type GetCategoryRequestConfig = RequestConfig | void;
+export type GetCategoriesParams = CategoryControllerGetCategoriesParams;
+export type GetCategoriesRequestConfig = RequestConfig<GetCategoriesParams>;
 
-export const getCategory = async (requestConfig?: GetCategoryRequestConfig) =>
-  api.get<CategoryListResponse>('category', requestConfig?.config);
+export const getCategories = async ({ params, config }: GetCategoriesRequestConfig) =>
+  api.get<CategoryListResponse>('category', {
+    ...config,
+    params: { ...config?.params, ...params }
+  });

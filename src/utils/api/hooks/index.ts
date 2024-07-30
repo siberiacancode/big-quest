@@ -4,7 +4,7 @@ export * from './useDeleteOrganizationDeleteEmployeeMutation';
 export * from './useGetActivityByIdQuery';
 export * from './useGetAddressQuery';
 export * from './useGetAuthNewCodeMutation';
-export * from './useGetCategoryQuery';
+export * from './useGetCategoriesQuery';
 export * from './useGetChangesInfiniteQuery';
 export * from './useGetUserMeMutation';
 export * from './usePostAuthLoginEmailMutation';

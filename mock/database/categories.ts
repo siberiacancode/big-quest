@@ -1,46 +1,50 @@
-import type { Translations } from '@/api-types';
+import type { CategoryListResponse } from '@/api-types';
 
-export const CATEGORIES: Translations[] = [
+export const CATEGORIES: CategoryListResponse['rows'] = [
   {
     id: '1',
-
-    RU: 'Кулинария',
-    EN: 'Cooking'
+    data: { RU: 'Кулинария', EN: 'Cooking' }
   },
   {
     id: '2',
-
-    RU: 'Культура',
-    EN: 'Culture'
+    data: {
+      RU: 'Культура',
+      EN: 'Culture'
+    }
   },
   {
     id: '3',
-
-    RU: 'Медиа',
-    EN: 'Media'
+    data: {
+      RU: 'Медиа',
+      EN: 'Media'
+    }
   },
   {
     id: '4',
-
-    RU: 'Образование',
-    EN: 'Education'
+    data: {
+      RU: 'Образование',
+      EN: 'Education'
+    }
   },
   {
     id: '5',
-
-    RU: 'Развлечение',
-    EN: 'Entertainment'
+    data: {
+      RU: 'Развлечение',
+      EN: 'Entertainment'
+    }
   },
   {
     id: '6',
-
-    RU: 'Спорт',
-    EN: 'Sport'
+    data: {
+      RU: 'Спорт',
+      EN: 'Sport'
+    }
   },
   {
     id: '7',
-
-    RU: 'Челлендж',
-    EN: 'Challenge'
+    data: {
+      RU: 'Челлендж',
+      EN: 'Challenge'
+    }
   }
 ] as const;

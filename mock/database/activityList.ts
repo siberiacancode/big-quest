@@ -40,13 +40,13 @@ export const ACTIVITY_LIST: ActivityListResponse[] = [
     replay: false,
     view: 'ONLINE',
     status: 'PUBLISHED',
-    category: CATEGORIES[0],
+    category: { id: CATEGORIES[0].id, RU: CATEGORIES[0].data.RU, EN: CATEGORIES[0].data.EN },
     likes: 210,
     nutsCount: 0,
     organizationId: '1',
     organizationName: 'Организация 1',
     locality: {
-      city: 'город',
+      city: 'Новосибирск',
       lat: 1,
       lon: 1
     }
@@ -88,13 +88,13 @@ export const ACTIVITY_LIST: ActivityListResponse[] = [
     replay: false,
     view: 'ONLINE',
     status: 'CLOSED',
-    category: CATEGORIES[0],
+    category: { id: CATEGORIES[0].id, RU: CATEGORIES[0].data.RU, EN: CATEGORIES[0].data.EN },
     likes: 210,
     nutsCount: 0,
     organizationId: '1',
     organizationName: 'Организация 1',
     locality: {
-      city: 'город',
+      city: 'Томск',
       lat: 1,
       lon: 1
     }
@@ -136,13 +136,13 @@ export const ACTIVITY_LIST: ActivityListResponse[] = [
     replay: false,
     view: 'ONLINE',
     status: 'DRAFT',
-    category: CATEGORIES[0],
+    category: { id: CATEGORIES[0].id, RU: CATEGORIES[0].data.RU, EN: CATEGORIES[0].data.EN },
     likes: 210,
     nutsCount: 0,
     organizationId: '1',
     organizationName: 'Организация 1',
     locality: {
-      city: 'город',
+      city: 'Кемерово',
       lat: 1,
       lon: 1
     }
@@ -173,7 +173,7 @@ export const ACTIVITY_LIST: ActivityListResponse[] = [
     replay: false,
     view: 'ONLINE',
     status: 'EDITING',
-    category: CATEGORIES[0],
+    category: { id: CATEGORIES[0].id, RU: CATEGORIES[0].data.RU, EN: CATEGORIES[0].data.EN },
     likes: 210,
     nutsCount: 0,
     organizationId: '1',
@@ -216,7 +216,7 @@ export const ACTIVITY_LIST: ActivityListResponse[] = [
     replay: false,
     view: 'ONLINE',
     status: 'MODERATION',
-    category: CATEGORIES[0],
+    category: { id: CATEGORIES[0].id, RU: CATEGORIES[0].data.RU, EN: CATEGORIES[0].data.EN },
     likes: 210,
     nutsCount: 0,
     organizationId: '1',

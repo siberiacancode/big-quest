@@ -55,8 +55,8 @@ const config = {
         DEFAULT: '1rem',
         xxs: '2rem',
         sm: '2rem',
-        lg: '1rem',
-        '2xl': '0.5rem'
+        lg: '2rem',
+        '2xl': '2rem'
       },
       screens: {
         xxs: '800px',

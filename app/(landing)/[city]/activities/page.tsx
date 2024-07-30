@@ -1,9 +1,11 @@
 import React from 'react';
+import { getDictionary } from 'app/dictionaries';
 import type { Metadata } from 'next';
 
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { getActivity, getCategories } from '@/utils/api';
+import { CITIES } from '@/utils/constants';
 
 import { ActivitiesCategories, ActivityList, ActivitySearchInput } from './(components)';
 import {
@@ -14,33 +16,41 @@ import {
 } from './(constants)';
 import { Providers } from './providers';
 
-export const metadata: Metadata = {
-  title: 'Большой Квест | Активности',
-  description: 'Большой квест | Активности'
+export const generateMetadata = async (): Promise<Metadata> => {
+  const dictionary = await getDictionary('ru');
+
+  return {
+    title: dictionary['metadata.page.landing.activiites'],
+    description: dictionary['metadata.page.landing.activiites']
+  };
 };
 
 interface ActivitiesPageProps {
-  searchParams: SearchParams;
+  params: SearchParams;
 }
 
-const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
+const ActivitiesPage = async ({ params }: ActivitiesPageProps) => {
   const [getCategoriesResponse, getActivityResponse] = await Promise.all([
     getCategories({
-      params: { limit: DEFAULT_CATEGORIES_LIMIT, current: DEFAULT_CATEGORIES_PAGE },
+      params: {
+        limit: DEFAULT_CATEGORIES_LIMIT,
+        current: DEFAULT_CATEGORIES_PAGE
+      },
       config: { cache: 'no-store' }
     }),
     getActivity({
       params: {
         limit: DEFAULT_ACTIVITIES_LIMIT,
         current: DEFAULT_ACTIVITIES_PAGE,
-        ...searchParams
+        ...params,
+        city: params?.city && CITIES[(params?.city as string).toUpperCase()]?.name
       },
       config: { cache: 'no-store' }
     })
   ]);
 
   return (
-    <section className='container bg-background xs:p-6 2sm:rounded-[8px]'>
+    <section className='container mt-4 bg-background px-2 2sm:rounded-[8px]'>
       <Providers
         activitiesPage={{
           defaultActivitiesPage: {
@@ -51,19 +61,21 @@ const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
         }}
       >
         <div className='flex flex-col gap-5'>
-          <div className='flex items-center gap-2'>
-            <Typography tag='h3' variant='h7' className='xsx:text-[25px]'>
-              <I18nText path='page.landing.activities.title' />
-            </Typography>
-            {!!getActivityResponse.rows.length && (
-              <Typography tag='h3' variant='body3'>
-                {getActivityResponse.pagination.count}
+          <div className='flex flex-wrap items-center justify-between gap-5'>
+            <div className='flex items-center gap-2'>
+              <Typography tag='h3' variant='h7' className='xsx:text-[25px]'>
+                <I18nText path='page.landing.activities.title' />
               </Typography>
-            )}
+              {!!getActivityResponse.rows.length && (
+                <Typography tag='h3' variant='body3'>
+                  {getActivityResponse.pagination.count}
+                </Typography>
+              )}
+            </div>
+            <ActivitySearchInput />
           </div>
           <div className='flex flex-wrap items-center justify-between gap-4'>
             <ActivitiesCategories />
-            <ActivitySearchInput />
           </div>
           <ActivityList />
         </div>

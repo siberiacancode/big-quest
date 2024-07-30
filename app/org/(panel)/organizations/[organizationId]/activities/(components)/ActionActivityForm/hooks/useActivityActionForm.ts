@@ -8,7 +8,7 @@ import type { ActivityListResponse } from '@/api-types';
 import {
   useDeleteFileByIdMutation,
   // useGetActivityByIdQuery,
-  useGetCategoryQuery,
+  useGetCategoriesQuery,
   usePostFileMutation
 } from '@/utils/api/hooks';
 import { useI18n } from '@/utils/contexts';
@@ -18,6 +18,9 @@ import type { ActivityActionSchema } from '../constants/activityActionSchema';
 import { activityActionSchema } from '../constants/activityActionSchema';
 
 import { useActionActivityMutation } from './useActionActivityMutation';
+
+const DEFAULT_CATEGORIES_LIMIT = 10;
+const DEFAULT_CATEGORIES_PAGE = 1;
 
 interface UseActivityActionFormParams {
   onAction: () => void;
@@ -39,7 +42,10 @@ export const useActivityActionForm = ({
   );
   const [deleteFileIds, setDeleteFileIds] = React.useState<string[]>([]);
 
-  const getCategoryQuery = useGetCategoryQuery();
+  const getCategoriesQuery = useGetCategoriesQuery({
+    limit: DEFAULT_CATEGORIES_LIMIT,
+    current: DEFAULT_CATEGORIES_PAGE
+  });
   // const getActivityByIdQuery = useGetActivityByIdQuery(
   //   {
   //     id: activity?.id
@@ -70,11 +76,11 @@ export const useActivityActionForm = ({
   });
 
   React.useEffect(() => {
-    if (getCategoryQuery.isSuccess) {
-      const category = getCategoryQuery.data.rows[0];
+    if (getCategoriesQuery.isSuccess) {
+      const category = getCategoriesQuery.data.rows[0];
       activityForm.setValue('categoryId', category.id);
     }
-  }, [getCategoryQuery.isSuccess]);
+  }, [getCategoriesQuery.isSuccess]);
 
   const actionActivityMutation = useActionActivityMutation();
   const deleteFileByIdMutation = useDeleteFileByIdMutation();
@@ -211,8 +217,8 @@ export const useActivityActionForm = ({
 
   return {
     state: {
-      categories: getCategoryQuery.data,
-      isPending: getCategoryQuery.isPending,
+      categories: getCategoriesQuery.data,
+      isPending: getCategoriesQuery.isPending,
       isLoading: actionActivityMutation.isPending,
       isCategoryOpen,
       isStatusOpen,

@@ -1,6 +1,6 @@
 import type { CITIES } from '@/utils/constants';
 
-import { Footer } from '../(components)/Footer/Footer';
+import { Footer } from '../../(components)/Footer/Footer';
 import { Header } from '../(components)/Header/Header';
 
 interface LandingCityLayoutProps {

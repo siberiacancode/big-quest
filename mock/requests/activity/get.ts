@@ -7,9 +7,15 @@ export const getActivities: RestRequestConfig = {
   routes: [
     {
       data: (request) => {
-        const { name, category } = request.query;
+        const { name, category, city } = request.query;
 
         let rows = DATABASE.ACTIVITY_LIST;
+
+        if (typeof city === 'string') {
+          rows = rows.filter((activity) =>
+            activity.locality.city.toLowerCase().includes(city.toLowerCase())
+          );
+        }
 
         if (typeof name === 'string') {
           rows = rows.filter((activity) =>
