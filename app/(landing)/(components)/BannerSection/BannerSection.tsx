@@ -27,46 +27,46 @@ export const BannerSection = () => (
     className='container flex h-fit max-w-[1160px] justify-center md:pt-0 lg:justify-start 4xl:h-fit'
   >
     <div className='mt-5 flex flex-col items-center sm:-mt-0 md:px-10 lg:flex-row-reverse lg:items-start lg:justify-start lg:gap-16 lg:py-24 xl:px-0'>
-      <div className='relative w-fit items-center px-10 lg:px-0'>
+      <div className='relative mb-4 w-fit items-center px-10 lg:px-0'>
         <Image
           src={lamp}
           alt='lamp'
-          className='absolute bottom-0 left-0 z-10 max-h-[30%] max-w-[20%] transform transition delay-200 duration-1000 ease-in-out hover:-translate-y-2 hover:translate-x-1'
+          className='absolute bottom-0 left-0 z-10 max-h-[30%] max-w-[20%] transition duration-1000 hover:-translate-y-2 hover:translate-x-1 hover:ease-linear'
         />
         <Image
           src={stars}
           alt='stars'
-          className='absolute left-5 top-[25%] z-10 size-[16%] transform transition delay-200 duration-1000 ease-in-out hover:-translate-x-2 hover:translate-y-1 lg:left-0'
+          className='absolute left-5 top-[25%] z-10 size-[16%] transition duration-1000 hover:-translate-x-1 hover:translate-y-1 hover:ease-linear lg:left-0'
         />
         <Image
           src={redArrow}
           alt='redArrow'
-          className='absolute -top-6 left-10 z-10 max-h-[30%] max-w-[20%] transform transition delay-200 duration-1000 ease-in-out hover:-translate-x-2 hover:translate-y-1 lg:-top-10'
+          className='absolute -top-6 left-10 z-10 max-h-[30%] max-w-[20%] transition duration-1000 hover:-translate-x-1 hover:translate-y-1 hover:ease-linear lg:-top-10'
         />
         <Image
           src={whiteLines}
           alt='whiteLines'
-          className='absolute left-[43%] top-[8%] z-10 max-h-[8%] max-w-[12%] transform transition delay-200 duration-1000 ease-in-out hover:-translate-x-2 hover:translate-y-1 lg:left-[40%] lg:max-h-[10%] lg:max-w-[15%]'
+          className='absolute left-[43%] top-[8%] z-10 max-h-[8%] max-w-[12%] transition duration-1000 hover:-translate-x-2 hover:translate-y-1 hover:ease-linear lg:left-[40%] lg:max-h-[10%] lg:max-w-[15%]'
         />
         <Image
           src={yellowBoldArrow}
           alt='yellowBoldArrow'
-          className='absolute -top-5 right-14 z-10 max-h-[26%] max-w-[13%] transform transition delay-200 duration-1000 ease-in-out hover:-translate-y-2 hover:translate-x-1 lg:right-10 lg:max-w-[17%]'
+          className='absolute -top-5 right-14 z-10 max-h-[26%] max-w-[13%] transition duration-1000 hover:-translate-y-1 hover:translate-x-1 hover:ease-linear lg:right-10 lg:max-w-[17%]'
         />
         <Image
           src={airplane}
           alt='airplane'
-          className='absolute -right-4 top-[40%] z-10 max-h-[35%] max-w-[35%] transform transition delay-200 duration-1000 ease-in-out hover:-translate-y-2 hover:translate-x-1 lg:-right-20'
+          className='absolute -right-4 top-[40%] z-10 max-h-[35%] max-w-[35%] transition duration-1000 hover:-translate-y-2 hover:translate-x-2 hover:ease-linear lg:-right-20'
         />
         <Image
           src={yellowArrow}
           alt='yellowArrow'
-          className='absolute -bottom-3 right-6 z-10 max-h-[30%] max-w-[20%] transform transition delay-200 duration-1000 ease-in-out hover:-translate-x-2 hover:translate-y-1 lg:bottom-0 lg:right-0'
+          className='absolute -bottom-3 right-6 z-10 max-h-[30%] max-w-[20%] transition duration-1000 hover:-translate-x-2 hover:translate-y-1 hover:ease-linear lg:bottom-0 lg:right-0'
         />
         <Image
           src={bigImage}
           alt='big image'
-          className='relative z-0 size-[100%] max-h-[500px] max-w-[517px] transform transition delay-200 duration-1000 ease-in-out hover:-translate-x-2 hover:translate-y-1'
+          className='relative z-0 size-[100%] max-h-[500px] max-w-[517px] transition duration-1000 hover:-translate-x-2 hover:translate-y-1 hover:ease-linear'
         />
       </div>
 
@@ -76,7 +76,7 @@ export const BannerSection = () => (
             <Image
               src={circularLogo}
               alt='circular logo'
-              className='absolute -left-5 -top-2 size-10 animate-spin-slow opacity-30 lg:-left-7 lg:-top-4 lg:size-14'
+              className='absolute -top-2 left-0 size-10 animate-spin-slow opacity-30 xs:-left-5 lg:-left-11 lg:-top-7 lg:size-24'
             />
             <Typography
               tag='h1'
