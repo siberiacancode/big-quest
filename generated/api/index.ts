@@ -40,6 +40,8 @@ export * from './changesResponseAuthor';
 export * from './changesResponseNew';
 export * from './changesResponseOld';
 export * from './changesResponseWithPagination';
+export * from './confirmParticipationDto';
+export * from './confirmParticipationResponse';
 export * from './conflictCreateOrganizationException';
 export * from './createActivityDto';
 export * from './createAddressDto';

@@ -21,6 +21,7 @@ export * from './organization/{id}/put';
 export * from './organization/dashboard/get';
 export * from './organization/get';
 export * from './organization/register/post';
+export * from './schedule/confirm/post';
 export * from './schedules/{organizationId}/get';
 export * from './tariff/{id}/put';
 export * from './tariff/{legalEntityId}/get';

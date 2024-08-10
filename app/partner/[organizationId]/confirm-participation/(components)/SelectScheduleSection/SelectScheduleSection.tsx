@@ -22,7 +22,7 @@ export const SelectScheduleSection = ({ userId }: SelectScheduleSectionProps) =>
   }
 
   return (
-    <section className='flex h-full flex-col'>
+    <section className='flex flex-col'>
       {!state.activities.length && (
         <Typography variant='h7' className='text-gray-two'>
           <I18nText path='partner.confirmParticipation.noActivities' />
@@ -35,9 +35,9 @@ export const SelectScheduleSection = ({ userId }: SelectScheduleSectionProps) =>
           </Typography>
 
           <RadioGroup
-            value={state.selectedActivityId}
-            onValueChange={functions.setSelectedActivityId}
-            className='mt-6 flex grow flex-col gap-2 '
+            value={state.selectedScheduleId}
+            onValueChange={functions.setSelectedScheduleId}
+            className='mt-6 flex max-h-[300px] grow flex-col gap-2 overflow-y-auto'
           >
             {state.activities.map((schedule) => (
               <div key={schedule.id}>
@@ -54,13 +54,13 @@ export const SelectScheduleSection = ({ userId }: SelectScheduleSectionProps) =>
                 </Label>
               </div>
             ))}
+            <div ref={state.intersectionRef} />
           </RadioGroup>
-          <div ref={state.intersectionRef} />
           <Button
             variant='primary'
             onClick={functions.onConfirmParticipationClick}
-            disabled={!state.selectedActivityId}
-            loading={state.isLoadingMore}
+            disabled={!state.selectedScheduleId}
+            loading={state.isLoading || state.isLoadingMore}
             className='mt-6 w-full'
           >
             <I18nText path='button.mark' />

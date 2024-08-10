@@ -1,19 +1,25 @@
 import React from 'react';
 import { useIntersectionObserver } from '@siberiacancode/reactuse';
 import { useParams } from 'next/navigation';
+import { toast } from 'sonner';
 
-import { useGetSchedulesByOrganizationIdInfiniteQuery } from '@/utils/api';
+import {
+  useGetSchedulesByOrganizationIdInfiniteQuery,
+  usePostScheduleConfirmMutation
+} from '@/utils/api';
+import { useI18n } from '@/utils/contexts';
 
 interface UseSelectScheduleSectionParams {
   userId: string;
 }
 
-const DEFAULT_SCHEDULES_PAGE = 1;
 const DEFAULT_SCHEDULES_LIMIT = 10;
+const DEFAULT_SCHEDULES_PAGE = 1;
 
 export const useSelectScheduleSection = ({ userId }: UseSelectScheduleSectionParams) => {
+  const i18n = useI18n();
   const params = useParams<{ organizationId: string }>();
-  const [selectedActivityId, setSelectedActivityId] = React.useState<string | undefined>();
+  const [selectedScheduleId, setSelectedScheduleId] = React.useState<string | undefined>();
   const dateString = new Date().toISOString();
 
   const getSchedulesByOrganizationIdInfiniteQuery = useGetSchedulesByOrganizationIdInfiniteQuery({
@@ -24,27 +30,38 @@ export const useSelectScheduleSection = ({ userId }: UseSelectScheduleSectionPar
     dateEnd: dateString
   });
 
+  const activities =
+    getSchedulesByOrganizationIdInfiniteQuery?.data?.pages.flatMap((page) => page.rows) ?? [];
+
+  const postScheduleConfirmMutation = usePostScheduleConfirmMutation();
+
   const { ref } = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.5,
-    onChange: (isIntersecting) => {
+    onChange: ({ isIntersecting }) => {
       if (isIntersecting) getSchedulesByOrganizationIdInfiniteQuery.fetchNextPage();
-    }
+    },
+    enabled: !!activities.length && getSchedulesByOrganizationIdInfiniteQuery.hasNextPage
   });
 
-  const onConfirmParticipationClick = () => {
-    // TODO request with userId and selectedActivityId
-    return userId;
+  const onConfirmParticipationClick = async () => {
+    if (!selectedScheduleId) return;
+    await postScheduleConfirmMutation.mutateAsync({
+      params: { scheduleId: selectedScheduleId, userId, confirm: true }
+    });
+    toast.success(i18n.formatMessage({ id: 'toast.participationConfirmed' }));
+    // TODO maybe redirect
   };
 
   return {
     state: {
-      activities:
-        getSchedulesByOrganizationIdInfiniteQuery?.data?.pages.flatMap((page) => page.rows) ?? [],
-      selectedActivityId,
-      isLoading: getSchedulesByOrganizationIdInfiniteQuery.isFetching,
+      activities,
+      selectedScheduleId,
+      isLoading:
+        getSchedulesByOrganizationIdInfiniteQuery.isFetching ||
+        postScheduleConfirmMutation.isPending,
       isLoadingMore: getSchedulesByOrganizationIdInfiniteQuery.isFetchingNextPage,
       intersectionRef: ref
     },
-    functions: { setSelectedActivityId, onConfirmParticipationClick }
+    functions: { setSelectedScheduleId, onConfirmParticipationClick }
   };
 };

@@ -434,5 +434,6 @@
   "toast.editAddress": "Адрес отредактирован",
   "toast.addEmployee": "Сотрудник добавлен",
   "toast.editEmployee": "Сотрудник отредактирован",
-  "toast.userIdCopied": "Код участника {value} скопирован"
+  "toast.userIdCopied": "Код участника {value} скопирован",
+  "toast.participationConfirmed": "Участие подтверждено"
 }

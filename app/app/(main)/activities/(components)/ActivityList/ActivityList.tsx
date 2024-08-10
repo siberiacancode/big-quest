@@ -23,7 +23,7 @@ export const ActivityList = () => {
 
   const { ref } = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.5,
-    onChange: (isIntersecting) => {
+    onChange: ({ isIntersecting }) => {
       if (isIntersecting) loadActivitiesMore();
     }
   });
