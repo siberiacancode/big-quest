@@ -24,7 +24,7 @@ const OrgLayout = ({ children }: OrgLayoutProps) => {
         </div>
         <div className='flex w-full flex-col'>
           <DesktopHeader />
-          <section className='flex-1 bg-secondary p-8'>{children}</section>
+          <section className='flex-1 bg-secondary px-4 py-6 lg:px-8'>{children}</section>
         </div>
       </div>
     </>

@@ -38,11 +38,11 @@ const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
       >
         <div className='mt-10 flex flex-col gap-5'>
           <div className='flex gap-2'>
-            <Typography tag='h3' variant='h3' className='xsx:text-[25px]'>
+            <Typography variant='h3' tag='h3'>
               <I18nText path='landing.activities.title' />
             </Typography>
             {!!getActivityResponse.rows.length && (
-              <Typography tag='h3' variant='h3' className='text-muted-foreground'>
+              <Typography variant='h3' tag='h3' className='text-muted-foreground'>
                 {getActivityResponse.pagination.count}
               </Typography>
             )}

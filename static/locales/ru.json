@@ -226,6 +226,7 @@
   "field.organization.stage.placeholder": "Выберите статус",
   "field.organization.name.label": "Название",
   "field.organization.contactName.label": "Контактное имя",
+  "field.organization.description.label": "Описание",
   "field.organization.phone.label": "Телефон",
   "field.organization.email.label": "Почта",
   "field.organization.site.label": "Сайт",

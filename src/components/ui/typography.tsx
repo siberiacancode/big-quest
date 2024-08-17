@@ -6,9 +6,9 @@ import { cn } from '@/lib/utils';
 const typographyVariants = cva('text-foreground', {
   variants: {
     variant: {
-      h1: 'leading-10 font-medium text-[36px]',
-      h2: 'leading-10 font-bold text-4xl',
-      h3: 'leading-[31px] font-medium text-3xl',
+      h1: 'leading-10 font-medium text-[21px] lg:text-4xl',
+      h2: 'leading-10 font-bold text-4xl', // TODO: remove h2 variant when everything mr is merged
+      h3: 'leading-[31px] font-medium text-lg lg:text-3xl',
       h4: 'leading-6 font-bold text-2xl',
       h5: 'leading-6 font-bold text-xl',
       h6: 'leading-5 font-bold text-lg',

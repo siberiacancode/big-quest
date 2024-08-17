@@ -39,7 +39,7 @@ export const OrgBreadcrumbs = ({ ids = {}, ...props }: OrgBreadcrumbsProps) => {
   }[];
 
   return (
-    <Breadcrumb {...props}>
+    <Breadcrumb className='mb-4 lg:mb-7' {...props}>
       <BreadcrumbList>
         {filteredPathnames.map(({ pathname, href }, index) => {
           const hrefWithoutIds = pathnames

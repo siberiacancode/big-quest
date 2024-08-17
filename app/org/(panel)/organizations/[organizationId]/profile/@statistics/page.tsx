@@ -16,9 +16,9 @@ import {
 const OrganizationProfileStatisticsPage = () => (
   <div className='flex gap-4'>
     <InfoCard>
-      <InfoCardHeader className='p-5'>
+      <InfoCardHeader className='p-5 pb-0'>
         <InfoCardTitle>
-          <Typography variant='sub1' tag='p'>
+          <Typography variant='sub3' tag='p'>
             <I18nText path='organization.profile.members' />
           </Typography>
         </InfoCardTitle>
@@ -39,9 +39,9 @@ const OrganizationProfileStatisticsPage = () => (
       </InfoCardContent>
     </InfoCard>
     <InfoCard>
-      <InfoCardHeader className='p-5'>
+      <InfoCardHeader className='p-5 pb-0'>
         <InfoCardTitle>
-          <Typography variant='sub1' tag='p'>
+          <Typography variant='sub3' tag='p'>
             <I18nText path='organization.profile.entries' />
           </Typography>
         </InfoCardTitle>
