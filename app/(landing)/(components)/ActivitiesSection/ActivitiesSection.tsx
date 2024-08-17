@@ -49,13 +49,13 @@ export const ActivitiesSection = async ({ cityId }: ActivitiesSectionProps) => {
           <I18nText path='landing.activities.title' />
         </Typography>
         <Link href={ROUTES.APP.ACTIVITIES} className={buttonVariants({ variant: 'link' })}>
-          <Typography tag='p' variant='body1' className='py-0 xxsx:text-base'>
+          <Typography tag='p' variant='body1' className='py-0 text-muted-foreground xxsx:text-base'>
             <I18nText path='button.watchAll' />
           </Typography>
           <ChevronRightIcon className='text-muted-foreground' />
         </Link>
       </div>
-      <div className='mt-16 flex flex-col items-center justify-center gap-8 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
+      <div className='mt-4 flex flex-col items-center justify-center gap-8 sm:mt-16 md:grid md:grid-cols-2 md:justify-between lg:grid-cols-3'>
         {getActivityResponse.rows.map((activity) => {
           const activityCover = activity.media.find((item) => item.flag === 'AVATAR')!;
 

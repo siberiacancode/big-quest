@@ -10,9 +10,9 @@ import {
   UsersRoundIcon
 } from 'lucide-react';
 
-import { ROUTES } from '../routes';
+import { ROUTES } from './routes';
 
-export const ORGANIZER_LINKS: NavigationLinkInfo[] = [
+export const ORG_PANEL_NAVIGATION_LINKS: NavigationLinkInfo[] = [
   {
     text: 'navigation.link.org.lids',
     href: ROUTES.ORG.LIDS.ROOT,

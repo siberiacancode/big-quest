@@ -16,11 +16,15 @@ export const SponsorsSection = () => (
             <I18nText path='landing.sponsors.title' />
           </Typography>
           <div className='flex max-w-[656px]'>
-            <Typography variant='body1' tag='p' className='text-center text-base md:text-[21px]'>
+            <Typography
+              variant='body2'
+              tag='p'
+              className='text-center text-muted-foreground md:text-2xl'
+            >
               <I18nText path='landing.sponsors.description' />{' '}
               <RegisterOrganizationDialog
                 trigger={
-                  <span className='text-center text-base font-medium lowercase underline md:text-[21px]'>
+                  <span className='text-center text-base font-medium lowercase underline md:text-2xl'>
                     <I18nText path='landing.leaveRequest.subtitle' />
                   </span>
                 }

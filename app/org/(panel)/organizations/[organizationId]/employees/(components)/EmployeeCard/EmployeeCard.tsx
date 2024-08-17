@@ -135,10 +135,10 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
               <Image src={employee.image} fill alt='user' className='rounded-full' />
             </div>
             <div className='mt-2 flex flex-col items-center space-y-1'>
-              <Typography variant='h7' tag='p' className='flex-1'>
+              <Typography variant='h6' tag='p' className='flex-1'>
                 {employee.name} {employee.surname}
               </Typography>
-              <Typography variant='body3' tag='p' className='flex-1'>
+              <Typography variant='body3' tag='p' className='flex-1 text-muted-foreground'>
                 {employee.role}
               </Typography>
             </div>
@@ -154,10 +154,10 @@ export const EmployeeCard = ({ employee }: EmployeeCardProps) => {
               </Typography>
             </div>
             <div className='flex-1 space-y-2'>
-              <Typography variant='sub3' tag='p' className='flex-1 font-normal'>
+              <Typography variant='body2' tag='p' className='flex-1'>
                 {employee.email}
               </Typography>
-              <Typography variant='sub3' tag='p' className='flex-1 font-normal'>
+              <Typography variant='body2' tag='p' className='flex-1'>
                 {employee.phone}
               </Typography>
             </div>

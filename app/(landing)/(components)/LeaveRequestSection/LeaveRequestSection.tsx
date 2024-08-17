@@ -17,7 +17,6 @@ export const LeaveRequestSection = () => (
             <I18nText path='landing.leaveRequest.subtitle' />!
           </Typography>
         </div>
-
         <Typography variant='body1' tag='p' className='text-md lg:text-xl'>
           <I18nText path='landing.leaveRequest.description' />
         </Typography>

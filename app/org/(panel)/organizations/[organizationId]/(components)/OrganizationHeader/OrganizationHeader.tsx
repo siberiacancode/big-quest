@@ -32,7 +32,7 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
             alt='org-background'
           />
           <div className='flex flex-col justify-center text-sm'>
-            <Typography variant='h7' tag='h6'>
+            <Typography variant='h6' tag='h6'>
               {organization.name}
             </Typography>
             <Typography variant='sub4' tag='p' className='text-muted-foreground'>

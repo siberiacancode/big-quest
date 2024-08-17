@@ -100,7 +100,9 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
               <Typography variant='sub1'>
                 <I18nText path='field.title.label' />
               </Typography>
-              <Typography variant='body1'>{activity.name}</Typography>
+              <Typography variant='body1' className='text-muted-foreground'>
+                {activity.name}
+              </Typography>
             </div>
 
             {activity.description && (
@@ -108,14 +110,16 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
                 <Typography variant='sub1'>
                   <I18nText path='field.description.label' />
                 </Typography>
-                <Typography variant='body1'>{activity.description}</Typography>
+                <Typography variant='body1' className='text-muted-foreground'>
+                  {activity.description}
+                </Typography>
               </div>
             )}
             <div className='flex flex-col gap-2'>
               <Typography variant='sub1'>
                 <I18nText path='field.ageLimit.label' />
               </Typography>
-              <Typography variant='body1'>
+              <Typography variant='body1' className='text-muted-foreground'>
                 <I18nText path='field.ageLimit.years' values={{ lowerAgeLimit, upperAgeLimit }} />
               </Typography>
             </div>
@@ -124,7 +128,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
               <Typography variant='sub1'>
                 <I18nText path='field.duration.label' />
               </Typography>
-              <Typography variant='body1'>
+              <Typography variant='body1' className='text-muted-foreground'>
                 {activity.duration} <I18nText path='field.duration.minutes' />
                 <I18nText
                   path='field.duration.hours'
@@ -138,7 +142,9 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
               <Typography variant='sub1'>
                 <I18nText path='field.category.label' />
               </Typography>
-              <Typography variant='body1'>{activity.category.RU}</Typography>
+              <Typography variant='body1' className='text-muted-foreground'>
+                {activity.category.RU}
+              </Typography>
             </div>
             <div className='flex flex-col gap-2'>
               <Typography variant='sub1'>
@@ -156,7 +162,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
               <Typography variant='sub1'>
                 <I18nText path='field.price.label' />
               </Typography>
-              <Typography variant='body1'>
+              <Typography variant='body1' className='text-muted-foreground'>
                 {activity.price} <I18nText path='field.price.currency' />
               </Typography>
             </div>
@@ -165,7 +171,7 @@ export const ActivityInfo = ({ activity, onEdit }: ActivityInfoProps) => {
                 <I18nText path='field.replay.label' />
               </Typography>
 
-              <Typography variant='body1'>
+              <Typography variant='body1' className='text-muted-foreground'>
                 <I18nText path={`field.replay.option.${activity.replay}`} />
               </Typography>
             </div>

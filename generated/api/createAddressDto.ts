@@ -14,7 +14,7 @@ export interface CreateAddressDto {
   /** Объект адреса */
   locality: LocalityDto;
   /** Телефонный номер */
-  phoneNumber: string;
+  phone: string;
   /** Рабочие часы */
   workingHours: WorkingHourDto[];
 }

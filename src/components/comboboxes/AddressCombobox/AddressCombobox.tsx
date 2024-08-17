@@ -2,27 +2,28 @@ import React from 'react';
 import { useDebounceCallback } from 'usehooks-ts';
 
 import type { AddressResponseDto } from '@/api-types';
-import type { ComboBoxItemType, ComboboxProps } from '@/components/ui';
+import type { ComboBoxOption, ComboboxProps } from '@/components/ui';
 import { Combobox } from '@/components/ui';
 import { useGetAddressQuery } from '@/utils/api';
 
-import { defaultConvertAddresses } from './helpers/defaultConvertAddresses';
-
-interface AddressComboboxProps extends Omit<ComboboxProps, 'items' | 'onSearchChange' | 'loading'> {
-  convertAddresses?: (addresses: AddressResponseDto[]) => ComboBoxItemType[];
-}
-
 const LOCATION_SEARCH_DELAY = 600;
 
-export const AddressCombobox = ({
-  convertAddresses = defaultConvertAddresses,
+interface AddressComboboxProps<Option>
+  extends Omit<ComboboxProps<Option>, 'items' | 'onSearchChange' | 'loading'> {
+  convertAddresses: (addresses: AddressResponseDto[]) => ComboBoxOption<Option>[];
+  prefix?: string;
+}
+
+export const AddressCombobox = <Option,>({
+  convertAddresses,
+  prefix,
   ...props
-}: AddressComboboxProps) => {
+}: AddressComboboxProps<Option>) => {
   const [locationSearch, setLocationSearch] = React.useState('');
   const debouncedSetLocationSearch = useDebounceCallback(setLocationSearch, LOCATION_SEARCH_DELAY);
 
   const getAddressQuery = useGetAddressQuery(
-    { address: locationSearch },
+    { address: prefix ? `${prefix} ${locationSearch}` : locationSearch },
     {
       options: { enabled: locationSearch.length > 3 }
     }

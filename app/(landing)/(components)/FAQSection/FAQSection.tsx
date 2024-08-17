@@ -56,7 +56,7 @@ export const FAQSection = ({ cityId }: FAQSectionProps) => {
                 </Typography>
               </AccordionTrigger>
               <AccordionContent className='py-2'>
-                <Typography tag='p' className='text-base font-normal lg:text-xl'>
+                <Typography tag='p' variant='body2' className='lg:text-xl'>
                   {item.answer}
                 </Typography>
               </AccordionContent>

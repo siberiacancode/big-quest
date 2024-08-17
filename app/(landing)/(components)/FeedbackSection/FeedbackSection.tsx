@@ -12,7 +12,7 @@ import { CommentCard } from './components/CommentCard/CommentCard';
 import { comments } from './constants/comments';
 
 export const FeedbackSection = () => (
-  <section id='feedback' className='w-full bg-muted py-12'>
+  <section id='feedback' className='w-full bg-muted py-12 smx:pb-0'>
     <Carousel className='container'>
       <div className='flex items-center justify-start lg:justify-center'>
         <Typography variant='h1' tag='h2' className='text-center'>

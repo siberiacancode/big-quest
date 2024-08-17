@@ -24,7 +24,7 @@ const RedirectPage = ({ searchParams }: RedirectPageProps) => {
           <Typography variant='h1' tag='h1'>
             <I18nText path='redirect.title' />
           </Typography>
-          <Typography variant='h6' className='mt-6 font-normal'>
+          <Typography variant='h5' className='mt-6 font-normal'>
             <I18nText path='redirect.description' />
           </Typography>
         </div>
