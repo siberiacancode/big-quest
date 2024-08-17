@@ -23,6 +23,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  Textarea,
   Typography
 } from '@/components/ui';
 import { useI18n } from '@/utils/contexts';
@@ -49,10 +50,6 @@ export const EditOrganizationProfileForm = ({
     <Form {...form}>
       <form onSubmit={functions.onSubmit} className='relative'>
         <fieldset disabled={state.isLoading} className='relative space-y-3 px-1'>
-          <Typography variant='h5' tag='h5'>
-            <I18nText path='organization.profile.title' />
-          </Typography>
-
           <FormField
             control={form.control}
             name='stage'
@@ -63,7 +60,7 @@ export const EditOrganizationProfileForm = ({
                 </FormLabel>
                 <FormControl>
                   <Select {...field} value={field.value} onValueChange={field.onChange}>
-                    <SelectTrigger className='h-8 w-48'>
+                    <SelectTrigger className='h-8 w-40'>
                       <SelectValue
                         placeholder={i18n.formatMessage({
                           id: 'field.organization.stage.placeholder'
@@ -126,6 +123,31 @@ export const EditOrganizationProfileForm = ({
                         form.formState.errors.information.contactName.message as LocaleMessageId
                       }
                     />
+                  )}
+                </FormMessage>
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='description'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  <I18nText path='field.organization.description.label' />
+                </FormLabel>
+                <FormControl>
+                  <Textarea
+                    className='text-wrap'
+                    {...field}
+                    placeholder={i18n.formatMessage({
+                      id: 'field.organization.description.label'
+                    })}
+                  />
+                </FormControl>
+                <FormMessage>
+                  {form.formState?.errors?.description && (
+                    <I18nText path={form.formState.errors.description.message as LocaleMessageId} />
                   )}
                 </FormMessage>
               </FormItem>

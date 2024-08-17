@@ -9,6 +9,6 @@ interface MobileLayoutProps {
 export const MobileLayout = ({ children }: MobileLayoutProps) => (
   <div className='flex min-h-screen flex-col'>
     <MobileHeader />
-    <section className='flex-1 bg-secondary'>{children}</section>
+    <section className='flex-1 bg-secondary p-4'>{children}</section>
   </div>
 );

@@ -33,9 +33,17 @@ export const MobileProfileDropdownMenu = ({
     <DropdownMenu open={state.isOpen} onOpenChange={functions.setIsOpen}>
       <DropdownMenuTrigger asChild>
         <div>
-          {state.user.avatar && <Image src={state.user.avatar} alt='partner_avatar' />}
+          {state.user.avatar && (
+            <Image
+              src={state.user.avatar}
+              width={32}
+              height={32}
+              className='rounded-full'
+              alt='partner_avatar'
+            />
+          )}
           {!state.user.avatar && (
-            <div className=' h-8 w-8 rounded-full bg-primary hover:cursor-pointer' />
+            <div className='h-8 w-8 rounded-full bg-primary hover:cursor-pointer' />
           )}
         </div>
       </DropdownMenuTrigger>
