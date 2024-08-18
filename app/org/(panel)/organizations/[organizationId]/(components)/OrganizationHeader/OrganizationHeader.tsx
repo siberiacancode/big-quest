@@ -14,7 +14,7 @@ interface OrganizationHeaderProps {
 
 export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) => (
   <div className='flex flex-wrap gap-2'>
-    <div className='relative mt-2.5 flex h-64 w-full flex-col items-center'>
+    <div className='relative flex h-64 w-full flex-col items-center'>
       <Image
         priority={false}
         className='h-[168px] w-full rounded-lg'
@@ -31,11 +31,11 @@ export const OrganizationHeader = ({ organization }: OrganizationHeaderProps) =>
             src={organization.avatar || avatar}
             alt='org-background'
           />
-          <div className='flex flex-col justify-center'>
-            <Typography variant='h5' tag='h5'>
+          <div className='flex flex-col justify-center text-sm'>
+            <Typography variant='h6' tag='h6'>
               {organization.name}
             </Typography>
-            <Typography variant='sub3' tag='p' className='text-muted-foreground'>
+            <Typography variant='sub4' tag='p' className='text-muted-foreground'>
               <I18nText
                 path={`organization.stage.${organization.stage.toLowerCase()}` as LocaleMessageId}
               />

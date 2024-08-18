@@ -12,7 +12,7 @@ export const SponsorsSection = () => (
       <div className='z-3 absolute left-3 top-4 h-full w-[95%] rounded-3xl border-2 border-dashed border-taiga-light md:left-3 md:top-6 xl:-left-1' />
       <div className='relative z-10 mx-2 w-full rounded-2xl bg-white px-6 py-12 md:rounded-3xl lg:py-[72px]'>
         <div className='flex flex-col items-center gap-8'>
-          <Typography variant='h5' tag='h5' className='font-medium lg:text-4xl'>
+          <Typography variant='h1' tag='h1'>
             <I18nText path='landing.sponsors.title' />
           </Typography>
           <div className='flex max-w-[656px]'>

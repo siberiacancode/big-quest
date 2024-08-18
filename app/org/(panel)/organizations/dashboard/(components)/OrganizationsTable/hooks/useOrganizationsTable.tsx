@@ -16,9 +16,8 @@ export const useOrganizationsTable = () => {
   const [isPending, startTransition] = React.useTransition();
 
   const nameFilter = searchParams.get('name');
-  const [selectedLocations, seSelectedLocations] = React.useState<string[]>(() =>
-    searchParams.getAll('locality')
-  );
+  const localityFilter = searchParams.get('locality');
+
   const [selectedStages, setSelectedStages] = React.useState<string[]>(() =>
     searchParams.getAll('stage')
   );
@@ -37,16 +36,16 @@ export const useOrganizationsTable = () => {
     FILTER_INPUT_DELAY
   );
 
-  const onLocationsSelect = (values: string[]) => {
-    startTransition(() => {
-      setSearchParams([
-        { key: 'locality', value: values },
-        { key: 'current', value: '1' }
-      ]);
-    });
-
-    seSelectedLocations(values);
-  };
+  const onLocalityFilterChange = useDebounceCallback(
+    (value: string) =>
+      startTransition(() =>
+        setSearchParams([
+          { key: 'locality', value },
+          { key: 'current', value: '1' }
+        ])
+      ),
+    FILTER_INPUT_DELAY
+  );
 
   const onStagesSelect = (values: string[]) => {
     startTransition(() =>
@@ -67,6 +66,12 @@ export const useOrganizationsTable = () => {
         onChange={(event) => onNameFilterChange(event.target.value)}
         className='max-w-[180px]'
       />,
+      <Input
+        placeholder={i18n.formatMessage({ id: 'field.locality.placeholder' })}
+        defaultValue={localityFilter ?? ''}
+        onChange={(event) => onLocalityFilterChange(event.target.value)}
+        className='max-w-[180px]'
+      />,
       <DataTableFacetedFilter
         values={selectedStages}
         onSelect={onStagesSelect}
@@ -83,18 +88,6 @@ export const useOrganizationsTable = () => {
         ]}
         title={i18n.formatMessage({ id: 'table.column.organization.stage' })}
       />,
-      <DataTableFacetedFilter
-        values={selectedLocations}
-        onSelect={onLocationsSelect}
-        items={[
-          { value: 'г. Томск', label: 'г. Томск' },
-          { value: 'г. Новосибирск', label: 'г. Новосибирск' },
-          { value: 'г. Северск', label: 'г. Северск' },
-          { value: 'Кемерово', label: 'Кемерово' },
-          { value: 'Санкт-Петербург', label: 'Санкт-Петербург' }
-        ]}
-        title={i18n.formatMessage({ id: 'table.column.organization.locality' })}
-      />,
       <div className='flex flex-1 justify-items-end'>
         <RegisterOrganizationDialog
           trigger={
@@ -106,14 +99,7 @@ export const useOrganizationsTable = () => {
         />
       </div>
     ],
-    [
-      onNameFilterChange,
-      nameFilter,
-      selectedLocations,
-      selectedStages,
-      onLocationsSelect,
-      onStagesSelect
-    ]
+    [onNameFilterChange, onLocalityFilterChange, nameFilter, selectedStages, onStagesSelect]
   );
 
   return {

@@ -13,7 +13,7 @@ const OrganizationPageLayout = async ({ params, children }: OrganizationPageLayo
   });
 
   return (
-    <div className='bg-secondary'>
+    <div className='min-h-screen bg-secondary'>
       <div className='flex flex-col gap-4 px-[181px] py-10 2lgx:px-[64px] 2mdx:px-[32px]'>
         <OrganizationHeader organization={organization} />
         {children}

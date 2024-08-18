@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ReloadIcon } from '@radix-ui/react-icons';
-import { Check, ChevronsUpDown } from 'lucide-react';
+import { Check, ChevronsUpDown, XIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -24,7 +24,7 @@ export interface ComboBoxOption<Option> {
   label: string;
 }
 
-export type ComboboxProps<Option> = {
+export interface ComboboxProps<Option> {
   value?: ComboBoxOption<Option>;
   onSelect: (value?: ComboBoxOption<Option>) => void;
   items: ComboBoxOption<Option>[];
@@ -36,7 +36,8 @@ export type ComboboxProps<Option> = {
   unselectMsg?: string;
   onSearchChange?: (e: string) => void;
   loading?: boolean;
-};
+  intersectionRef?: (node?: Element | null) => void;
+}
 
 const popOverStyles = {
   width: 'var(--radix-popover-trigger-width)'
@@ -51,9 +52,9 @@ export const Combobox = <Option,>({
   selectItemMsg = 'Выберите из списка...',
   className,
   unselect = false,
-  unselectMsg = 'Оставить пустым',
   onSearchChange,
-  loading = false
+  loading = false,
+  intersectionRef
 }: ComboboxProps<Option>) => {
   const [open, setOpen] = React.useState(false);
 
@@ -95,28 +96,8 @@ export const Combobox = <Option,>({
             {loading && <ReloadIcon className='mx-auto h-4 w-4 animate-spin' />}
             {!loading && noResultsMsg}
           </CommandEmpty>
-          <ScrollArea
-            className={cn('max-h-[220px] overflow-auto', !items.length && !unselect && 'hidden')}
-          >
+          <ScrollArea className={cn('max-h-[220px] overflow-auto', !items.length && 'hidden')}>
             <CommandGroup className='dark:bg-background'>
-              {unselect && (
-                <CommandItem
-                  key='unselect'
-                  value=''
-                  onSelect={() => {
-                    onSelect(undefined);
-                    setOpen(false);
-                  }}
-                >
-                  <Check
-                    className={cn(
-                      'mr-2 h-4 w-4',
-                      value === undefined ? 'opacity-100' : 'opacity-0'
-                    )}
-                  />
-                  {unselectMsg}
-                </CommandItem>
-              )}
               {items.map((item) => (
                 <CommandItem
                   key={item.id}
@@ -125,16 +106,23 @@ export const Combobox = <Option,>({
                     onSelect(currentId === item.id.toLowerCase() ? item : undefined);
                     setOpen(false);
                   }}
+                  className='flex items-center justify-between'
                 >
-                  <Check
-                    className={cn(
-                      'mr-2 h-4 w-4',
-                      value === item.value ? 'opacity-100' : 'opacity-0'
-                    )}
-                  />
                   {item.label}
+                  {unselect && value?.value === item.value && (
+                    <XIcon
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onSelect(undefined);
+                        setOpen(false);
+                      }}
+                      className='ml-2 h-4 w-4 hover:cursor-pointer'
+                    />
+                  )}
+                  {!unselect && value?.value === item.value && <Check className='ml-2 h-4 w-4' />}
                 </CommandItem>
               ))}
+              {intersectionRef && <div ref={intersectionRef} />}
             </CommandGroup>
           </ScrollArea>
         </Command>
