@@ -1,4 +1,3 @@
-import { getDictionary } from 'app/dictionaries';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 
@@ -6,15 +5,16 @@ import authImage from '@/assets/images/auth.webp';
 import { I18nText, Logo } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
+import { getI18n } from '@/utils/contexts/i18n/getI18n';
 
 import { LoginForm } from './(components)/LoginForm/LoginForm';
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const dictionary = await getDictionary('ru');
+  const i18n = await getI18n('ru');
 
   return {
-    title: `${dictionary['metadata.page.org']} | ${dictionary['metadata.page.org.auth']}`,
-    description: `${dictionary['metadata.page.org']} | ${dictionary['metadata.page.org.auth']}`
+    title: `${i18n.formatMessage({ id: 'metadata.page.org' })} | ${i18n.formatMessage({ id: 'metadata.page.org.auth' })}`,
+    description: `${i18n.formatMessage({ id: 'metadata.page.org' })} | ${i18n.formatMessage({ id: 'metadata.page.org.auth' })}`
   };
 };
 

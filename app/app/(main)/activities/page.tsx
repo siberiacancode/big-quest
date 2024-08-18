@@ -4,8 +4,7 @@ import type { Metadata } from 'next';
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { getActivity, getCategory } from '@/utils/api';
-
-import { getDictionary } from '../../../dictionaries';
+import { getI18n } from '@/utils/contexts/i18n/getI18n';
 
 import { ActivitiesCategories, ActivityList, ActivitySearchInput } from './(components)';
 import { DEFAULT_ACTIVITIES_LIMIT, DEFAULT_ACTIVITIES_PAGE } from './(constants)';
@@ -16,11 +15,11 @@ interface ActivitiesPageProps {
 }
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const dictionary = await getDictionary('ru');
+  const i18n = await getI18n('ru');
 
   return {
-    title: `${dictionary['metadata.page.default']} | ${dictionary['metadata.page.app.activiites']}`,
-    description: `${dictionary['metadata.page.default']} | ${dictionary['metadata.page.app.activiites']}`
+    title: `${i18n.formatMessage({ id: 'metadata.page.default' })} | ${i18n.formatMessage({ id: 'metadata.page.app.activiites' })}`,
+    description: `${i18n.formatMessage({ id: 'metadata.page.default' })} | ${i18n.formatMessage({ id: 'metadata.page.app.activiites' })}`
   };
 };
 

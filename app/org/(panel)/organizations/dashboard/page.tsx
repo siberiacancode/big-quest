@@ -1,8 +1,8 @@
-import { getDictionary } from 'app/dictionaries';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { getOrganization } from '@/utils/api';
+import { getI18n } from '@/utils/contexts/i18n/getI18n';
 
 import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
 
@@ -10,11 +10,11 @@ import { OrganizationsDashboard } from './(components)/OrganizationsDashboard/Or
 import { OrganizationsTable } from './(components)/OrganizationsTable/OrganizationsTable';
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const dictionary = await getDictionary('ru');
+  const i18n = await getI18n('ru');
 
   return {
-    title: `${dictionary['metadata.page.org']} | ${dictionary['metadata.page.org.dashboard']}`,
-    description: `${dictionary['metadata.page.org']} | ${dictionary['metadata.page.org.dashboard']}`
+    title: `${i18n.formatMessage({ id: 'metadata.page.org' })} | ${i18n.formatMessage({ id: 'metadata.page.org.dashboard' })}`,
+    description: `${i18n.formatMessage({ id: 'metadata.page.org' })} | ${i18n.formatMessage({ id: 'metadata.page.org.dashboard' })}`
   };
 };
 

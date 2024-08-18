@@ -3,7 +3,7 @@ import { ROLES_BY_ROUTE, ROUTES } from '@/utils/constants';
 import { getUserSession } from '@/utils/helpers/server';
 
 import AppLayout from './app/(main)/layout';
-import Layout from './org/(panel)/layout';
+import OrgLayout from './org/(panel)/layout';
 
 const NotFound = () => {
   const userSession = getUserSession();
@@ -26,9 +26,9 @@ const NotFound = () => {
         </AppLayout>
       )}
       {userSession && userSession.roles.some((role) => ROLES_BY_ROUTE.ORG.includes(role)) && (
-        <Layout>
+        <OrgLayout>
           <NotFoundComponent link={ROUTES.ORG.ORGANIZATIONS.DASHBOARD} />
-        </Layout>
+        </OrgLayout>
       )}
     </>
   );

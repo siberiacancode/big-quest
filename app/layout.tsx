@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import { Rubik as FontSans } from 'next/font/google';
 
 import { Toaster } from '@/components/ui/sonner';
+import { getI18n } from '@/utils/contexts/i18n/getI18n';
 import { getMessagesByLocale } from '@/utils/helpers';
 import { getDefaultTheme, getUserSession } from '@/utils/helpers/server';
 
-import { getDictionary } from './dictionaries';
 import { Providers } from './providers';
 
 import '@/assets/styles/globals.css';
@@ -18,11 +18,11 @@ const fontSans = FontSans({
 });
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const dictionary = await getDictionary('ru');
+  const i18n = await getI18n('ru');
 
   return {
-    title: dictionary['metadata.page.default'],
-    description: dictionary['metadata.page.default']
+    title: i18n.formatMessage({ id: 'metadata.page.default' }),
+    description: i18n.formatMessage({ id: 'metadata.page.default' })
   };
 };
 

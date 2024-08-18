@@ -1,9 +1,8 @@
-import { getDictionary } from 'app/dictionaries';
-import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata } from 'next';
 
 import { getOrganizationById } from '@/utils/api/requests';
 import { ROUTES } from '@/utils/constants';
-import { getPathnameFromMetadataState } from '@/utils/helpers';
+import { getI18n } from '@/utils/contexts/i18n/getI18n';
 
 import { OrgBreadcrumbs } from '../../(components)/OrgBreadcrumbs/OrgBreadcrumbs';
 
@@ -14,21 +13,17 @@ interface OrganizationPageLayoutProps {
   children: React.ReactNode;
 }
 
-export const generateMetadata = async (
-  { params }: OrganizationPageLayoutProps,
-  parent: ResolvingMetadata
-): Promise<Metadata> => {
-  const dictionary = await getDictionary('ru');
+export const generateMetadata = async ({
+  params
+}: OrganizationPageLayoutProps): Promise<Metadata> => {
+  const i18n = await getI18n('ru');
+
   const organization = await getOrganizationById({
     params: { id: params.organizationId }
   });
 
-  const pathname = getPathnameFromMetadataState(parent);
-  const pathnameParts = pathname.split('/');
-  const lastPart = pathnameParts[pathnameParts.length - 1];
-
   return {
-    title: `${dictionary['metadata.page.org']} | ${organization.name} | ${dictionary[`metadata.page.org.${lastPart}`]}`
+    title: `${i18n.formatMessage({ id: 'metadata.page.org' })} | ${organization.name}`
   };
 };
 
