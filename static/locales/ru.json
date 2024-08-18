@@ -6,6 +6,19 @@
   "site.error": "Что-то пошло не так",
   "site.loading": "Пожалуйста подождите...",
 
+  "metadata.page.default": "Большой Квест",
+  "metadata.page.org": "ЛК Организатора",
+  "metadata.page.org.auth": "Авторизация",
+  "metadata.page.org.dashboard": "Организации",
+  "metadata.page.org.profile": "Профиль",
+  "metadata.page.org.activities": "Активности",
+  "metadata.page.org.addresses": "Адреса",
+  "metadata.page.org.employees": "Сотрудники",
+  "metadata.page.org.schedule": "Расписание",
+  "metadata.page.app.activiites": "Каталог активностей",
+
+  "page.notFound.title": "404 Страница не найдена",
+
   "partners.addresses.title": "Адреса",
   "partners.activities.title": "Активности",
   "partners.employees.title": "Сотрудники",
@@ -81,6 +94,7 @@
   "button.haveNotUserId": "У меня нет User ID",
   "button.logout": "Выйти",
   "button.addQR": "Добавить новый QR",
+  "button.backToRoot": "Вернуться на главную",
 
   "organization.stage.request": "Заявка",
   "organization.stage.negotiation": "Сотрудничество",

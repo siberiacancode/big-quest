@@ -1,11 +1,22 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import authImage from '@/assets/images/auth.webp';
 import { I18nText, Logo } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { ROUTES } from '@/utils/constants';
+import { getI18n } from '@/utils/contexts/i18n/getI18n';
 
 import { LoginForm } from './(components)/LoginForm/LoginForm';
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const i18n = await getI18n('ru');
+
+  return {
+    title: `${i18n.formatMessage({ id: 'metadata.page.org' })} | ${i18n.formatMessage({ id: 'metadata.page.org.auth' })}`,
+    description: `${i18n.formatMessage({ id: 'metadata.page.org' })} | ${i18n.formatMessage({ id: 'metadata.page.org.auth' })}`
+  };
+};
 
 const OrgAuthPage = () => (
   <div className='flex min-h-screen flex-col items-center justify-between p-2'>

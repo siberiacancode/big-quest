@@ -1,8 +1,10 @@
 import React from 'react';
+import type { Metadata } from 'next';
 
 import { I18nText } from '@/components/common';
 import { Typography } from '@/components/ui';
 import { getActivity, getCategory } from '@/utils/api';
+import { getI18n } from '@/utils/contexts/i18n/getI18n';
 
 import { ActivitiesCategories, ActivityList, ActivitySearchInput } from './(components)';
 import { DEFAULT_ACTIVITIES_LIMIT, DEFAULT_ACTIVITIES_PAGE } from './(constants)';
@@ -11,6 +13,15 @@ import { Providers } from './providers';
 interface ActivitiesPageProps {
   searchParams: SearchParams;
 }
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const i18n = await getI18n('ru');
+
+  return {
+    title: `${i18n.formatMessage({ id: 'metadata.page.default' })} | ${i18n.formatMessage({ id: 'metadata.page.app.activiites' })}`,
+    description: `${i18n.formatMessage({ id: 'metadata.page.default' })} | ${i18n.formatMessage({ id: 'metadata.page.app.activiites' })}`
+  };
+};
 
 const ActivitiesPage = async ({ searchParams }: ActivitiesPageProps) => {
   const [getCategoryResponse, getActivityResponse] = await Promise.all([
